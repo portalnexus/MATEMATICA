@@ -1,0 +1,97 @@
+/* --- Fonte Global --- */
+.dashboard-grid, .dashboard-grid h3, .area-title { font-family: 'Press Start 2P', monospace; }
+#user-name, #id-input, #lista-missoes li, .trofeu-box, [data-tooltip]::after, #progress-bar-text { font-family: 'Fira Sans', sans-serif; }
+
+/* --- Estrutura e Layout Compacto --- */
+.dashboard-grid {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+      "id id id id lvl avatar"
+      "progresso progresso progresso progresso progresso progresso"
+      "trofeus trofeus trofeus trofeus trofeus trofeus"
+      "missoes missoes sidebar sidebar sidebar sidebar"; /* Missões mais compactas */
+}
+
+.dashboard-box { border-radius: var(--container-border-radius); padding: 15px; border: 1px solid var(--secondary-text-color); background-color: rgba(0,0,0,0.2); min-height: 50px; display: flex; flex-direction: column; justify-content: center; }
+
+/* --- Mapeamento das Áreas --- */
+#id-area { grid-area: id; }
+#lvl-area { grid-area: lvl; align-items: center; justify-content: center; }
+#avatar-area { grid-area: avatar; padding: 0; overflow: hidden; }
+#progresso-area { grid-area: progresso; }
+#trofeus-area { grid-area: trofeus; }
+#missoes-area { grid-area: missoes; }
+#sidebar-area { grid-area: sidebar; }
+
+/* --- NOVA Área de ID/Login --- */
+#id-area { justify-content: center; position: relative; }
+#id-form, #user-display { display: flex; align-items: center; width: 100%; }
+#id-input { flex-grow: 1; margin-right: 10px; font-family: 'Press Start 2P'; text-align: center; font-size: 1.2rem; }
+#user-name { flex-grow: 1; font-size: 1.2rem; color: var(--link-color); }
+#login-btn, #logout-btn { background: transparent; border: 2px solid var(--link-color); color: var(--link-color); font-family: 'Press Start 2P'; font-size: 1.2rem; cursor: pointer; padding: 5px 12px; transition: all 0.2s; }
+#login-btn:hover, #logout-btn:hover { background: var(--link-hover-color); color: var(--primary-bg-color); }
+#error-message { position: absolute; bottom: -20px; left: 15px; font-family: 'Fira Sans', sans-serif; color: #E54D42; font-size: 0.8rem; }
+.hidden { display: none !important; }
+
+/* --- Outros Ajustes --- */
+#lvl { font-size: 2.5rem; line-height: 1; text-align: center; }
+#avatar-img { width: 100%; height: 100%; object-fit: cover; border: none; border-radius: 0; }
+.progress-bar-container { width: 100%; height: 25px; background-color: rgba(0, 0, 0, 0.5); border: 1px solid var(--secondary-text-color); border-radius: 5px; position: relative; overflow: hidden; }
+#progress-bar-fill { width: 0%; height: 100%; background-color: var(--link-color); border-radius: 5px; transition: width 1s ease-in-out; }
+#progress-bar-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold; font-size: 0.8rem; color: var(--primary-bg-color); text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4); }
+
+/* --- Layout de Troféus e Missões --- */
+#trofeus-area { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; flex-direction: row; }
+#missoes-area { justify-content: flex-start; } /* Alinha itens ao topo */
+#missoes-area h3 { margin-top: 0; }
+#lista-missoes { list-style-type: none; padding: 0; margin: 0; max-height: 190px; /* Limita a altura */ overflow-y: auto; /* Adiciona rolagem */ }
+#lista-missoes li { padding: 5px 0; border-bottom: 1px dashed var(--secondary-text-color); }
+#lista-missoes li:last-child { border-bottom: none; }
+
+/* --- Layout de Notas e Menções --- */
+#sidebar-area { display: flex; flex-direction: column; gap: 15px; }
+#notas-container { position: relative; } /* Para posicionar a média */
+#media-notas { position: absolute; top: 10px; right: 15px; font-family: 'Press Start 2P'; font-size: 0.8rem; color: var(--link-color); }
+#notas-grafico { height: 100px; width: 100%; display: flex; justify-content: space-around; align-items: flex-end; padding: 0 10px 10px 10px; }
+.nota-coluna { display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; flex-grow: 1; }
+.bar { width: 25px; background-color: var(--link-color); border-radius: 3px 3px 0 0; transition: height 0.8s ease-in-out; }
+.bar:hover { background-color: var(--link-hover-color); }
+.nota-rotulo { font-size: 0.6rem; color: var(--secondary-text-color); margin-top: 5px; }
+
+/* --- Tooltips e Animações --- */
+.trofeu-box, .mencao-item, #lista-missoes li { position: relative; cursor: default; }
+
+.mencao-item { font-size: 0.9rem; margin-top: 8px; }
+.fade-in { animation: fadeIn 0.8s ease-in-out forwards; opacity: 0; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Estilo para o tooltip flutuante */
+#shared-tooltip {
+    position: fixed;
+    /* Adicionando um z-index bem alto para garantir que ele apareça acima de tudo */
+    z-index: 9999; 
+    
+    /* Adicionando um background-color explícito se a variável CSS não for definida */
+    background-color: var(--content-box-bg-color, #333); 
+    color: var(--main-text-color, #eee);
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid var(--link-color, #00ff00);
+    font-size: 0.9em;
+    font-family: 'Fira Sans', sans-serif;
+    white-space: nowrap;
+    pointer-events: none; /* Impede que o tooltip bloqueie eventos do mouse nos elementos abaixo */
+    
+    /* Esconde o tooltip por padrão com opacity e visibility */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Classe que usamos para MOSTRAR o tooltip */
+#shared-tooltip.is-visible {
+    opacity: 1;
+    visibility: visible;
+}

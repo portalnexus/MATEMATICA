@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>NEXUS - Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="index.html">PÁGINA INICIAL</a></li>
+      <li><a href="recursos.html">RECURSOS</a></li>
+      <li><a href="missoes.html">MISSÕES</a></li>
+      <li><a href="dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+    <div class="container">
+        <article>
+            <div class="dashboard-grid">
+                <!-- Linha 1: ID Input/Nome, Nível e Avatar -->
+                <div id="id-area" class="dashboard-box">
+                    <div id="id-form">
+                        <input type="text" id="id-input" placeholder="ID" maxlength="5">
+                        <button id="login-btn">&gt;</button>
+                    </div>
+                    <div id="user-display" class="hidden">
+                        <span id="user-name"></span>
+                        <button id="logout-btn">&lt;</button>
+                    </div>
+                    <div id="error-message"></div>
+                </div>
+                <div id="lvl-area" class="dashboard-box">
+                    <div id="lvl">LVL</div>
+                </div>
+                <div id="avatar-area" class="dashboard-box">
+                    <img id="avatar-img" src="default_avatar.png" onerror="this.src='default_avatar.png'; this.onerror=null;" alt="Avatar do Usuário">
+                </div>
+
+                <!-- Linha 2: Barra de Progresso -->
+                <div id="progresso-area" class="dashboard-box">
+                    <span class="area-title">PROGRESSO</span>
+                    <div class="progress-bar-container">
+                        <div id="progress-bar-fill"></div>
+                        <span id="progress-bar-text">0 / 0 EXP</span>
+                    </div>
+                </div>
+
+                <!-- Linha 3: Troféus -->
+                <div id="trofeus-area" class="dashboard-box"></div>
+                
+                <!-- Linha 4: Missões e Sidebar (Notas e Menções) -->
+                <div id="missoes-area" class="dashboard-box">
+                    <h3>MISSÕES</h3>
+                    <ul id="lista-missoes"></ul>
+                </div>
+
+                <div id="sidebar-area">
+                    <div id="notas-container" class="dashboard-box">
+                      <div id="media-notas">MÉDIA: 0.0</div>
+                      NOTAS
+                      <div id="notas-grafico"></div>
+                    </div>
+                     <div id="mencoes" class="dashboard-box">MENÇÕES</div>
+                </div>
+
+            </div>
+        </article>
+    </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="matrix-rain.js" defer></script>
+<script src="data.js"></script>
+<script src="dashboard.js"></script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="theme-switcher.js" defer></script>
+<div id="shared-tooltip"></div>
+</body>
+</html>
+   <!-- BOTÃO VOLTAR DE FINAL DE PÁGINA
+     <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+    </div>
+  -->

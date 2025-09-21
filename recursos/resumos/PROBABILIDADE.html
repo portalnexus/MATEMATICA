@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>NEXUS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../missoes.html">MISSÕES</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+<div class="container">
+
+<article>
+    <h1>Probabilidade</h1>
+
+    <p>A probabilidade é um ramo da matemática que estuda a ocorrência de eventos aleatórios. Ela nos permite quantificar a chance de um determinado evento acontecer, variando de 0 (impossível) a 1 (certo).</p>
+
+    <h2>Conceitos Fundamentais</h2>
+
+    <p>Para entender probabilidade, é importante conhecer alguns termos:</p>
+    <ul>
+        <li><strong>Experimento Aleatório:</strong> Uma ação cujo resultado não pode ser previsto com certeza, mas que possui um conjunto definido de resultados possíveis. Exemplo: lançar um dado.</li>
+        <li><strong>Espaço Amostral (Ω):</strong> O conjunto de todos os resultados possíveis de um experimento aleatório. Exemplo: ao lançar um dado, Ω = {1, 2, 3, 4, 5, 6}.</li>
+        <li><strong>Evento (E):</strong> Um subconjunto do espaço amostral, representando um resultado ou um conjunto de resultados de interesse. Exemplo: obter um número par ao lançar um dado, E = {2, 4, 6}.</li>
+        <li><strong>Evento Simples:</strong> Um evento que consiste em um único resultado. Exemplo: obter o número 3 ao lançar um dado.</li>
+        <li><strong>Evento Composto:</strong> Um evento que consiste em mais de um resultado. Exemplo: obter um número ímpar ao lançar um dado.</li>
+        <li><strong>Eventos Mutuamente Exclusivos:</strong> Dois ou mais eventos que não podem ocorrer ao mesmo tempo. Exemplo: em um único lançamento de dado, obter um 2 e obter um 3 são mutuamente exclusivos.</li>
+        <li><strong>Eventos Independentes:</strong> A ocorrência de um evento não afeta a probabilidade de ocorrência de outro evento. Exemplo: lançar uma moeda duas vezes; o resultado do primeiro lançamento não afeta o segundo.</li>
+        <li><strong>Eventos Dependentes:</strong> A ocorrência de um evento afeta a probabilidade de ocorrência de outro evento. Exemplo: retirar duas cartas de um baralho sem reposição.</li>
+    </ul>
+
+    <h2>Cálculo da Probabilidade</h2>
+
+    <p>A probabilidade de um evento E ocorrer, denotada por P(E), é calculada pela razão entre o número de resultados favoráveis ao evento e o número total de resultados possíveis no espaço amostral, assumindo que todos os resultados são igualmente prováveis.</p>
+
+    @@
+    P(E) = \frac{\text{Número de resultados favoráveis a E}}{\text{Número total de resultados possíveis}}
+    @@
+
+    <p>A probabilidade é sempre um valor entre 0 e 1:</p>
+    <ul>
+        <li>P(E) = 0: O evento é impossível.</li>
+        <li>P(E) = 1: O evento é certo.</li>
+        <li>0 < P(E) < 1: O evento é possível, mas não certo.</li>
+    </ul>
+
+    <h3>Exemplo 1: Lançamento de um dado</h3>
+    <p>Qual a probabilidade de obter um número maior que 4 ao lançar um dado justo?</p>
+    <ol>
+        <li><strong>Identificar o espaço amostral (Ω):</strong> Ω = {1, 2, 3, 4, 5, 6}. O número total de resultados possíveis é 6.</li>
+        <li><strong>Identificar o evento (E):</strong> Obter um número maior que 4. E = {5, 6}. O número de resultados favoráveis é 2.</li>
+        <li><strong>Calcular a probabilidade:</strong>
+            @@
+            P(E) = \frac{2}{6} = \frac{1}{3}
+            @@
+        </li>
+    </ol>
+    <p>Portanto, a probabilidade de obter um número maior que 4 é de 1/3.</p>
+
+    <h3>Exemplo 2: Retirada de uma bola de uma urna</h3>
+    <p>Uma urna contém 5 bolas azuis e 3 bolas vermelhas. Qual a probabilidade de retirar uma bola azul?</p>
+    <ol>
+        <li><strong>Identificar o espaço amostral (Ω):</strong> O número total de bolas é 5 + 3 = 8.</li>
+        <li><strong>Identificar o evento (E):</strong> Retirar uma bola azul. O número de bolas azuis é 5.</li>
+        <li><strong>Calcular a probabilidade:</strong>
+            @@
+            P(E) = \frac{5}{8}
+            @@
+        </li>
+    </ol>
+    <p>A probabilidade de retirar uma bola azul é de 5/8.</p>
+
+    <h2>Probabilidade de Eventos Não Mutuamente Exclusivos</h2>
+
+    <p>Quando dois eventos A e B não são mutuamente exclusivos (podem ocorrer ao mesmo tempo), a probabilidade de A ou B ocorrer é dada por:</p>
+
+    @@
+    P(A \cup B) = P(A) + P(B) - P(A \cap B)
+    @@
+
+    <p>Onde $P(A \cap B)$ é a probabilidade de A e B ocorrerem simultaneamente.</p>
+
+    <h3>Exemplo 3: Lançamento de um dado (eventos não mutuamente exclusivos)</h3>
+    <p>Qual a probabilidade de obter um número par OU um número maior que 3 ao lançar um dado?</p>
+    <ol>
+        <li><strong>Espaço Amostral (Ω):</strong> {1, 2, 3, 4, 5, 6} (total de 6 resultados).</li>
+        <li><strong>Evento A:</strong> Obter um número par. A = {2, 4, 6}. $P(A) = \frac{3}{6} = \frac{1}{2}$.</li>
+        <li><strong>Evento B:</strong> Obter um número maior que 3. B = {4, 5, 6}. $P(B) = \frac{3}{6} = \frac{1}{2}$.</li>
+        <li><strong>Evento A ∩ B:</strong> Obter um número par E maior que 3. A ∩ B = {4, 6}. $P(A \cap B) = \frac{2}{6} = \frac{1}{3}$.</li>
+        <li><strong>Calcular P(A ∪ B):</strong>
+            @@
+            P(A \cup B) = P(A) + P(B) - P(A \cap B) = \frac{1}{2} + \frac{1}{2} - \frac{1}{3} = 1 - \frac{1}{3} = \frac{2}{3}
+            @@
+        </li>
+    </ol>
+    <p>A probabilidade de obter um número par OU maior que 3 é de 2/3.</p>
+
+    <h2>Probabilidade de Eventos Independentes</h2>
+
+    <p>Para eventos independentes A e B, a probabilidade de ambos ocorrerem é o produto de suas probabilidades individuais:</p>
+
+    @@
+    P(A \cap B) = P(A) \times P(B)
+    @@
+
+    <h3>Exemplo 4: Lançamento de duas moedas</h3>
+    <p>Qual a probabilidade de obter cara no primeiro lançamento E coroa no segundo lançamento de uma moeda justa?</p>
+    <ol>
+        <li><strong>Evento A:</strong> Obter cara no primeiro lançamento. $P(A) = \frac{1}{2}$.</li>
+        <li><strong>Evento B:</strong> Obter coroa no segundo lançamento. $P(B) = \frac{1}{2}$.</li>
+        <li><strong>Calcular P(A ∩ B):</strong> Como os lançamentos são independentes:
+            @@
+            P(A \cap B) = P(A) \times P(B) = \frac{1}{2} \times \frac{1}{2} = \frac{1}{4}
+            @@
+        </li>
+    </ol>
+    <p>A probabilidade de obter cara e depois coroa é de 1/4.</p>
+
+    <h2>Pontos de Atenção</h2>
+    <ul>
+        <li><strong>Sempre identifique corretamente o espaço amostral (Ω) e o evento de interesse (E).</strong> Um erro aqui invalida todo o cálculo.</li>
+        <li><strong>Verifique se os eventos são mutuamente exclusivos ou independentes</strong> antes de aplicar as fórmulas apropriadas.</li>
+        <li><strong>Simplifique as frações</strong> sempre que possível.</li>
+        <li><strong>A probabilidade é um número entre 0 e 1.</strong> Se o resultado for maior que 1 ou menor que 0, há um erro no cálculo.</li>
+        <li><strong>Em problemas com "ou",</strong> lembre-se de subtrair a interseção se os eventos não forem mutuamente exclusivos.</li>
+        <li><strong>Em problemas com "e",</strong> multiplique as probabilidades se os eventos forem independentes.</li>
+    </ul>
+
+    <h2>Conexões e Aplicações</h2>
+    <p>A probabilidade é fundamental em diversas áreas, como:</p>
+    <ul>
+        <li><strong>Estatística:</strong> Base para a inferência estatística e análise de dados.</li>
+        <li><strong>Ciências:</strong> Modelagem de fenômenos naturais, genética, física quântica.</li>
+        <li><strong>Finanças:</strong> Análise de riscos, precificação de ativos.</li>
+        <li><strong>Jogos de Azar:</strong> Cálculo de chances em cassinos e loterias.</li>
+        <li><strong>Tomada de Decisão:</strong> Avaliação de riscos e benefícios em situações de incerteza.</li>
+    </ul>
+</article>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="../../index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+    </div>
+
+    
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<canvas id="matrixCanvas"></canvas>
+<script src="matrix-rain.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Equações em modo de exibição (display mode)
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Equações no modo "inline" (texto)
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false // Mantém a página funcionando mesmo se houver um erro em uma fórmula
+    });
+});
+</script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="theme-switcher.js" defer></script>
+</body>
+</html>
+   <!-- BOTÃO VOLTAR DE FINAL DE PÁGINA
+     <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+    </div>
+  -->

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>NEXUS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../missoes.html">MISSÕES</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+<div class="container">
+
+<h1>PROBABILIDADE: Desvendando as Chances!</h1>
+
+<article>
+    <p><strong>Tópico:</strong> PROBABILIDADE</p>
+    <p><strong>Foco da Recuperação:</strong> Reconhecer e aplicar o cálculo de probabilidade, determinando o espaço amostral e o evento a ocorrer usando diferentes representações (fracionária, decimal e percentual) em experimentos aleatórios.</p>
+</article>
+
+<article>
+    <h2>Revisão Conceitual e Exemplo Guiado</h2>
+    <p>Olá! Vamos juntos entender melhor a Probabilidade. Pense na probabilidade como uma forma de medir o quão provável é que algo aconteça. Usamos ela no nosso dia a dia, como quando olhamos a previsão do tempo e dizem que há 80% de chance de chover.</p>
+
+    <p>Para calcular a probabilidade de um evento acontecer, precisamos de duas coisas:</p>
+    <ol>
+        <li><strong>O número de resultados favoráveis:</strong> Quantas vezes o evento que nos interessa pode acontecer?</li>
+        <li><strong>O número total de resultados possíveis (Espaço Amostral):</strong> Quantas coisas diferentes podem acontecer no total?</li>
+    </ol>
+
+    <p>A fórmula básica da probabilidade é:</p>
+    @@ P(\text{evento}) = \frac{\text{Número de resultados favoráveis}}{\text{Número total de resultados possíveis}} @@
+
+    <p>Vamos ver um exemplo:</p>
+
+    <p><strong>Exemplo:</strong> Imagine que você tem uma caixa com 5 bolas coloridas: 2 azuis e 3 vermelhas. Qual a probabilidade de tirar uma bola azul ao pegar uma bola aleatoriamente?</p>
+
+    <p><strong>Passo 1: Identificar o evento de interesse.</strong></p>
+    <p>Nosso evento é tirar uma bola azul. Quantas bolas azuis temos? Temos <strong>2</strong> bolas azuis.</p>
+
+    <p><strong>Passo 2: Identificar o espaço amostral (todos os resultados possíveis).</strong></p>
+    <p>Quantas bolas temos no total na caixa? Temos 2 azuis + 3 vermelhas = <strong>5</strong> bolas no total.</p>
+
+    <p><strong>Passo 3: Aplicar a fórmula da probabilidade.</strong></p>
+    <p>A probabilidade de tirar uma bola azul é:</p>
+    @@ P(\text{bola azul}) = \frac{\text{Número de bolas azuis}}{\text{Número total de bolas}} @@
+    @@ P(\text{bola azul}) = \frac{2}{5} @@
+
+    <p><strong>Passo 4: Representar a probabilidade em diferentes formas.</strong></p>
+    <p>A probabilidade pode ser representada como fração, decimal ou porcentagem:</p>
+    <ul>
+        <li><strong>Fração:</strong> Já vimos que é @\frac{2}{5}@.</li>
+        <li><strong>Decimal:</strong> Para transformar a fração em decimal, dividimos o numerador pelo denominador: @2 \div 5 = 0.4@.</li>
+        <li><strong>Porcentagem:</strong> Para transformar o decimal em porcentagem, multiplicamos por 100: @0.4 \times 100 = 40\%@.</li>
+    </ul>
+    <p>Portanto, a probabilidade de tirar uma bola azul é de @\frac{2}{5}@, ou @0.4@, ou ainda <strong>40%</strong>.</p>
+</article>
+
+<article>
+    <h2>Prática Inicial</h2>
+    <p>Agora é a sua vez de praticar! Tente resolver estes problemas, lembrando-se de identificar os resultados favoráveis e o espaço amostral.</p>
+    <ol>
+        <li>
+            <p>Em um saco, há 4 balas de morango e 6 balas de limão. Qual a probabilidade de tirar uma bala de morango?</p>
+        </li>
+        <li>
+            <p>Ao jogar um dado de 6 faces (numerado de 1 a 6), qual a probabilidade de sair o número 3?</p>
+        </li>
+        <li>
+            <p>Uma urna contém 10 bolas idênticas, sendo 7 brancas e 3 pretas. Qual a probabilidade de retirar uma bola preta?</p>
+        </li>
+        <li>
+            <p>Qual a probabilidade de tirar um ás ao pegar uma carta de um baralho comum de 52 cartas (sem coringas)?</p>
+        </li>
+        <li>
+            <p>Em uma caixa, há 15 lápis de cor: 5 azuis, 5 verdes e 5 vermelhos. Qual a probabilidade de pegar um lápis azul?</p>
+        </li>
+        <li>
+            <p>Qual a probabilidade de chover amanhã se a previsão diz que há 3 dias de sol e 2 dias de chuva na próxima semana?</p>
+        </li>
+        <li>
+            <p>Ao girar uma roleta dividida em 4 partes iguais (vermelho, azul, verde, amarelo), qual a probabilidade de parar no vermelho?</p>
+        </li>
+        <li>
+            <p>Em uma turma de 30 alunos, 12 são meninos. Qual a probabilidade de escolher aleatoriamente um aluno que seja menina?</p>
+        </li>
+        <li>
+            <p>Qual a probabilidade de tirar um número par ao jogar um dado de 6 faces?</p>
+        </li>
+        <li>
+            <p>Uma sacola contém 20 bombons: 8 de chocolate ao leite e 12 de chocolate branco. Qual a probabilidade de pegar um bombom de chocolate branco?</p>
+        </li>
+    </ol>
+</article>
+
+<article>
+    <h2>Consolidando o Conhecimento</h2>
+    <p>Vamos aumentar um pouco o desafio! Estes problemas exigem um pouco mais de atenção e raciocínio.</p>
+    <ol>
+        <li>
+            <p>Em um evento, há 500 ingressos vendidos. Desses, 50 são premiados. Se você comprou um ingresso, qual a probabilidade de ganhar um prêmio? Expresse em fração, decimal e porcentagem.</p>
+        </li>
+        <li>
+            <p>Uma caixa contém 10 peças de roupa: 3 camisetas, 4 calças e 3 pares de meias. Se você pegar uma peça aleatoriamente, qual a probabilidade de ser uma calça? E qual a probabilidade de ser uma camiseta?</p>
+        </li>
+        <li>
+            <p>Ao lançar dois dados comuns de 6 faces simultaneamente, qual a probabilidade de a soma dos números obtidos ser 7? (Dica: Liste todos os pares possíveis).</p>
+        </li>
+        <li>
+            <p>Em uma escola, há 600 alunos. 40% são meninos. Qual a probabilidade de escolher aleatoriamente uma menina? Expresse em porcentagem e fração.</p>
+        </li>
+        <li>
+            <p>Uma loja de brinquedos tem 20 carrinhos: 8 vermelhos, 6 azuis e 6 amarelos. Qual a probabilidade de um cliente escolher um carrinho que não seja vermelho?</p>
+        </li>
+        <li>
+            <p>Qual a probabilidade de um ano bissexto ter 53 domingos? (Um ano bissexto tem 366 dias).</p>
+        </li>
+        <li>
+            <p>Em uma rifa, foram impressos 1000 números. Você comprou 5 números. Qual a probabilidade de o seu número ser sorteado?</p>
+        </li>
+        <li>
+            <p>Uma bolsa contém 12 moedas: 5 de R$ 0,50, 4 de R$ 1,00 e 3 de R$ 0,25. Se você retirar uma moeda ao acaso, qual a probabilidade de ser uma moeda de R$ 1,00?</p>
+        </li>
+        <li>
+            <p>Em um teste de múltipla escolha com 4 alternativas para cada questão, qual a probabilidade de acertar uma questão apenas chutando?</p>
+        </li>
+        <li>
+            <p>Uma caixa contém 30 parafusos, dos quais 3 são defeituosos. Qual a probabilidade de pegar um parafuso que não seja defeituoso?</p>
+        </li>
+    </ol>
+</article>
+
+<!--
+<article>
+    <h2>Gabarito e Soluções</h2>
+    <ol>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{4}{10} = \frac{2}{5}@</p>
+            <p><strong>Resolução:</strong> Resultados favoráveis (morango) = 4. Total de resultados (total de balas) = 4 + 6 = 10. Probabilidade = @\frac{4}{10}@, que simplifica para @\frac{2}{5}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{1}{6}@</p>
+            <p><strong>Resolução:</strong> Resultados favoráveis (sair o número 3) = 1. Total de resultados (faces do dado) = 6. Probabilidade = @\frac{1}{6}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{3}{10}@</p>
+            <p><strong>Resolução:</strong> Resultados favoráveis (bolas pretas) = 3. Total de resultados (total de bolas) = 10. Probabilidade = @\frac{3}{10}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{4}{52} = \frac{1}{13}@</p>
+            <p><strong>Resolução:</strong> Resultados favoráveis (áses) = 4. Total de resultados (cartas no baralho) = 52. Probabilidade = @\frac{4}{52}@, que simplifica para @\frac{1}{13}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{5}{15} = \frac{1}{3}@</p>
+            <p><strong>Resolução:</strong> Resultados favoráveis (lápis azuis) = 5. Total de resultados (total de lápis) = 15. Probabilidade = @\frac{5}{15}@, que simplifica para @\frac{1}{3}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{2}{5}@</p>
+            <p><strong>Resolução:</strong> Total de dias considerados = 3 (sol) + 2 (chuva) = 5. Dias de chuva = 2. Probabilidade = @\frac{2}{5}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{1}{4}@</p>
+            <p><strong>Resolução:</strong> Resultados favoráveis (parar no vermelho) = 1. Total de resultados (partes da roleta) = 4. Probabilidade = @\frac{1}{4}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{18}{30} = \frac{3}{5}@</p>
+            <p><strong>Resolução:</strong> Total de alunos = 30. Meninos = 12. Meninas = 30 - 12 = 18. Probabilidade de escolher menina = @\frac{18}{30}@, que simplifica para @\frac{3}{5}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{3}{6} = \frac{1}{2}@</p>
+            <p><strong>Resolução:</strong> Números pares no dado = {2, 4, 6}. Resultados favoráveis = 3. Total de resultados = 6. Probabilidade = @\frac{3}{6}@, que simplifica para @\frac{1}{2}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{12}{20} = \frac{3}{5}@</p>
+            <p><strong>Resolução:</strong> Resultados favoráveis (bombons de chocolate branco) = 12. Total de resultados (total de bombons) = 20. Probabilidade = @\frac{12}{20}@, que simplifica para @\frac{3}{5}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{50}{500} = \frac{1}{10} = 0.1 = 10\%@</p>
+            <p><strong>Resolução:</strong> Resultados favoráveis (ingressos premiados) = 50. Total de resultados (total de ingressos) = 500. Probabilidade = @\frac{50}{500}@. Simplificando a fração: @\frac{1}{10}@. Em decimal: @0.1@. Em porcentagem: @0.1 \times 100 = 10\%@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> Calça: @\frac{4}{10} = \frac{2}{5}@. Camiseta: @\frac{3}{10}@.</p>
+            <p><strong>Resolução:</strong> Total de peças = 3 + 4 + 3 = 10. Para calça: Resultados favoráveis = 4. Probabilidade = @\frac{4}{10} = \frac{2}{5}@. Para camiseta: Resultados favoráveis = 3. Probabilidade = @\frac{3}{10}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{6}{36} = \frac{1}{6}@</p>
+            <p><strong>Resolução:</strong> O espaço amostral ao lançar dois dados tem 36 resultados possíveis (6x6). Os pares que somam 7 são: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1). São 6 resultados favoráveis. Probabilidade = @\frac{6}{36}@, que simplifica para @\frac{1}{6}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> Meninas: 60%. Fração: @\frac{3}{5}@.</p>
+            <p><strong>Resolução:</strong> Total de alunos = 600. Meninos = 40% de 600 = @0.40 \times 600 = 240@. Meninas = 600 - 240 = 360. Probabilidade de escolher menina = @\frac{360}{600}@. Simplificando a fração: @\frac{36}{60} = \frac{6}{10} = \frac{3}{5}@. Em porcentagem: @\frac{3}{5} = 0.6 = 60\%@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{14}{20} = \frac{7}{10}@</p>
+            <p><strong>Resolução:</strong> Total de carrinhos = 20. Carrinhos vermelhos = 8. Carrinhos que NÃO são vermelhos = 20 - 8 = 12. Resultados favoráveis = 12. Probabilidade = @\frac{12}{20}@, que simplifica para @\frac{3}{5}@. (Houve um erro na minha resposta inicial, corrigindo para @\frac{12}{20} = \frac{3}{5}@). </p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{1}{7}@</p>
+            <p><strong>Resolução:</strong> Um ano bissexto tem 366 dias. @366 \div 7 = 52@ com resto 2. Isso significa que um ano bissexto tem 52 semanas completas e 2 dias extras. Para ter 53 domingos, um desses dias extras teria que ser um domingo. Existem 7 possibilidades para esses 2 dias extras (dom-seg, seg-ter, ter-qua, qua-qui, qui-sex, sex-sab, sab-dom). Apenas 2 dessas combinações incluem um domingo. Portanto, a probabilidade de ter 53 domingos é @\frac{2}{7}@. (Houve um erro na minha resposta inicial, corrigindo para @\frac{2}{7}@). </p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{5}{1000} = \frac{1}{200}@</p>
+            <p><strong>Resolução:</strong> Resultados favoráveis (seus números) = 5. Total de resultados (total de números) = 1000. Probabilidade = @\frac{5}{1000}@, que simplifica para @\frac{1}{200}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{4}{12} = \frac{1}{3}@</p>
+            <p><strong>Resolução:</strong> Resultados favoráveis (moedas de R$ 1,00) = 4. Total de resultados (total de moedas) = 12. Probabilidade = @\frac{4}{12}@, que simplifica para @\frac{1}{3}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{1}{4}@</p>
+            <p><strong>Resolução:</strong> Para cada questão, há 4 alternativas. Apenas 1 é a correta. Resultados favoráveis (acertar) = 1. Total de resultados (alternativas) = 4. Probabilidade = @\frac{1}{4}@.</p>
+        </li>
+        <li>
+            <p><strong>Resposta:</strong> @\frac{27}{30} = \frac{9}{10}@</p>
+            <p><strong>Resolução:</strong> Total de parafusos = 30. Parafusos defeituosos = 3. Parafusos NÃO defeituosos = 30 - 3 = 27. Resultados favoráveis = 27. Probabilidade = @\frac{27}{30}@, que simplifica para @\frac{9}{10}@.</p>
+        </li>
+    </ol>
+</article>
+-->
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="../../index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+    </div>
+
+    
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<canvas id="matrixCanvas"></canvas>
+<script src="matrix-rain.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Equações em modo de exibição (display mode)
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Equações no modo "inline" (texto)
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false // Mantém a página funcionando mesmo se houver um erro em uma fórmula
+    });
+});
+</script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="theme-switcher.js" defer></script>
+</body>
+</html>
+   <!-- BOTÃO VOLTAR DE FINAL DE PÁGINA
+     <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+    </div>
+  -->

@@ -71,10 +71,10 @@
 #shared-tooltip {
     position: fixed;
     /* Adicionando um z-index bem alto para garantir que ele apareça acima de tudo */
-    z-index: 9999; 
-    
+    z-index: 9999;
+
     /* Adicionando um background-color explícito se a variável CSS não for definida */
-    background-color: var(--content-box-bg-color, #333); 
+    background-color: var(--content-box-bg-color, #333);
     color: var(--main-text-color, #eee);
     padding: 8px 12px;
     border-radius: 5px;
@@ -83,7 +83,7 @@
     font-family: 'Fira Sans', sans-serif;
     white-space: nowrap;
     pointer-events: none; /* Impede que o tooltip bloqueie eventos do mouse nos elementos abaixo */
-    
+
     /* Esconde o tooltip por padrão com opacity e visibility */
     opacity: 0;
     visibility: hidden;
@@ -94,4 +94,35 @@
 #shared-tooltip.is-visible {
     opacity: 1;
     visibility: visible;
+}
+
+/*
+================================================================================
+  MEDIA QUERIES PARA DESIGN RESPONSIVO
+================================================================================
+*/
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "id"
+            "avatar"
+            "lvl"
+            "progresso"
+            "trofeus"
+            "missoes"
+            "sidebar";
+    }
+
+    #id-area, #lvl-area {
+        min-height: 60px;
+    }
+
+    #avatar-area {
+        min-height: 150px; /* Altura mínima para o avatar */
+    }
+
+    #lista-missoes {
+        max-height: 250px; /* Aumenta a altura máxima em telas menores */
+    }
 }

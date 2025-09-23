@@ -132,6 +132,6 @@
     }
 
     #id-input {
-        min-width: 120px; /* Garante que o input não fique muito pequeno */
+        min-width: 100px; /* Garante que o input não fique muito pequeno */
     }
 }

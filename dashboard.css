@@ -119,7 +119,7 @@
     }
 
     #avatar-area {
-        min-height: 150px; /* Altura mínima para o avatar */
+        min-height: 120px; /* Altura mínima para o avatar */
     }
 
     #lista-missoes {
@@ -132,6 +132,6 @@
     }
 
     #id-input {
-        min-width: 100px; /* Garante que o input não fique muito pequeno */
+        min-width: 80px; /* Garante que o input não fique muito pequeno */
     }
 }

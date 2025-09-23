@@ -10,7 +10,6 @@ const loginBtn = document.getElementById('login-btn');
 const logoutBtn = document.getElementById('logout-btn');
 const userNameSpan = document.getElementById('user-name');
 const errorMessage = document.getElementById('error-message');
-// sharedTooltip não é mais declarado aqui, será feito no DOMContentLoaded
 
 // --- Funções Auxiliares ---
 

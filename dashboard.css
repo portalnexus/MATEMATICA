@@ -71,10 +71,10 @@
 #shared-tooltip {
     position: fixed;
     /* Adicionando um z-index bem alto para garantir que ele apareça acima de tudo */
-    z-index: 9999;
-
+    z-index: 9999; 
+    
     /* Adicionando um background-color explícito se a variável CSS não for definida */
-    background-color: var(--content-box-bg-color, #333);
+    background-color: var(--content-box-bg-color, #333); 
     color: var(--main-text-color, #eee);
     padding: 8px 12px;
     border-radius: 5px;
@@ -83,7 +83,7 @@
     font-family: 'Fira Sans', sans-serif;
     white-space: nowrap;
     pointer-events: none; /* Impede que o tooltip bloqueie eventos do mouse nos elementos abaixo */
-
+    
     /* Esconde o tooltip por padrão com opacity e visibility */
     opacity: 0;
     visibility: hidden;
@@ -96,7 +96,7 @@
     visibility: visible;
 }
 
-/*
+/* 
 ================================================================================
   MEDIA QUERIES PARA DESIGN RESPONSIVO
 ================================================================================
@@ -124,5 +124,14 @@
 
     #lista-missoes {
         max-height: 250px; /* Aumenta a altura máxima em telas menores */
+    }
+
+    #id-form {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    #id-input {
+        min-width: 120px; /* Garante que o input não fique muito pequeno */
     }
 }

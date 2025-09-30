@@ -15,9 +15,13 @@ const loginBtn = document.getElementById('login-btn');
 const logoutBtn = document.getElementById('logout-btn');
 const userNameSpan = document.getElementById('user-name');
 const errorMessage = document.getElementById('error-message');
+const etapaBtns = document.querySelectorAll('.etapa-btn');
 
 // --- Variáveis de Dados ---
 let dadosUsuarios = null;
+let usuarioAtual = null;
+let idAtual = null;
+let etapaAtual = '1';
 
 // --- Funções Auxiliares ---
 
@@ -84,65 +88,91 @@ async function carregarDadosDeUsuario() {
 }
 
 /**
- * Preenche o painel do dashboard com os dados do usuário.
+ * Preenche o painel do dashboard com os dados do usuário para uma etapa específica.
  * @param {object} usuario O objeto de dados do usuário.
  * @param {string} id O ID do usuário.
+ * @param {string} etapa A etapa a ser exibida (ex: "1", "2", "3").
  */
-function preencherPainel(usuario, id) {
-    userNameSpan.innerText = usuario.nome;
-    idForm.classList.add('hidden');
-    userDisplay.classList.remove('hidden');
+function preencherPainel(usuario, id, etapa) {
+    // --- Preenchimento Estático (não muda com a etapa) ---
+    if (etapa === '1') { // Preenche apenas na primeira carga
+        userNameSpan.innerText = usuario.nome;
+        idForm.classList.add('hidden');
+        userDisplay.classList.remove('hidden');
 
-    document.getElementById('lvl').innerText = `${usuario.lvl}`;
-    document.getElementById('avatar-img').src = `${id}.jpg`;
+        document.getElementById('lvl').innerText = `${usuario.lvl}`;
+        document.getElementById('avatar-img').src = `${id}.jpg`;
 
-    if (typeof usuario.lvl === 'number' && usuario.lvl < 100) {
-        const expNivelAtual = getExpParaNivel(usuario.lvl);
-        const expProximoNivel = getExpParaNivel(usuario.lvl + 1);
-        const progressoNoNivel = usuario.exp - expNivelAtual;
-        const totalParaProximo = expProximoNivel - expNivelAtual;
-        const porcentagem = Math.min(100, (progressoNoNivel / totalParaProximo) * 100);
+        if (typeof usuario.lvl === 'number' && usuario.lvl < 100) {
+            const expNivelAtual = getExpParaNivel(usuario.lvl);
+            const expProximoNivel = getExpParaNivel(usuario.lvl + 1);
+            const progressoNoNivel = usuario.exp - expNivelAtual;
+            const totalParaProximo = expProximoNivel - expNivelAtual;
+            const porcentagem = Math.min(100, (progressoNoNivel / totalParaProximo) * 100);
 
-        setTimeout(() => {
-            document.getElementById('progress-bar-fill').style.width = `${porcentagem}%`;
-            document.getElementById('progress-bar-text').innerText = `${progressoNoNivel.toLocaleString()} / ${totalParaProximo.toLocaleString()} EXP`;
-        }, 100);
-    } else {
-        document.getElementById('progress-bar-fill').style.width = '100%';
-        document.getElementById('progress-bar-text').innerText = 'NÍVEL MÁXIMO';
+            setTimeout(() => {
+                document.getElementById('progress-bar-fill').style.width = `${porcentagem}%`;
+                document.getElementById('progress-bar-text').innerText = `${progressoNoNivel.toLocaleString()} / ${totalParaProximo.toLocaleString()} EXP`;
+            }, 100);
+        } else {
+            document.getElementById('progress-bar-fill').style.width = '100%';
+            document.getElementById('progress-bar-text').innerText = 'NÍVEL MÁXIMO';
+        }
+
+        const areaTrofeus = document.getElementById('trofeus-area');
+        areaTrofeus.innerHTML = '';
+        usuario.trofeus.forEach((trofeu, index) => {
+            const div = document.createElement('div');
+            div.className = 'trofeu-box fade-in';
+            div.innerText = trofeu.nome;
+            div.setAttribute('data-tooltip', trofeu.descricao);
+            div.style.animationDelay = `${index * 0.1}s`;
+            attachTooltipEvents(div);
+            areaTrofeus.appendChild(div);
+        });
+
+        const areaMencoes = document.getElementById('mencoes');
+        areaMencoes.innerHTML = 'MENÇÕES';
+        usuario.mencoes.forEach(mencao => {
+            const span = document.createElement('span');
+            span.className = 'mencao-item';
+            span.innerText = mencao.nome;
+            span.setAttribute('data-tooltip', mencao.descricao);
+            attachTooltipEvents(span);
+            areaMencoes.appendChild(span);
+        });
     }
 
-    const areaTrofeus = document.getElementById('trofeus-area');
-    areaTrofeus.innerHTML = '';
-    usuario.trofeus.forEach((trofeu, index) => {
-        const div = document.createElement('div');
-        div.className = 'trofeu-box fade-in';
-        div.innerText = trofeu.nome;
-        div.setAttribute('data-tooltip', trofeu.descricao);
-        div.style.animationDelay = `${index * 0.1}s`;
-        attachTooltipEvents(div);
-        areaTrofeus.appendChild(div);
-    });
+    // --- Preenchimento Dinâmico (muda com a etapa) ---
+    const dadosEtapa = usuario.etapas[etapa];
+    if (!dadosEtapa) {
+        console.error(`[Dashboard Debug] Dados para a etapa ${etapa} não encontrados para o usuário ${id}.`);
+        return;
+    }
 
     const listaMissoes = document.getElementById('lista-missoes');
     listaMissoes.innerHTML = '';
-    usuario.missoes.forEach((missao, index) => {
-        const li = document.createElement('li');
-        li.innerText = missao.nome;
-        li.setAttribute('data-tooltip', missao.descricao);
-        li.className = 'fade-in';
-        li.style.animationDelay = `${index * 0.1}s`;
-        attachTooltipEvents(li);
-        listaMissoes.appendChild(li);
-    });
+    if (dadosEtapa.missoes && dadosEtapa.missoes.length > 0) {
+        dadosEtapa.missoes.forEach((missao, index) => {
+            const li = document.createElement('li');
+            li.innerText = missao.nome;
+            li.setAttribute('data-tooltip', missao.descricao);
+            li.className = 'fade-in';
+            li.style.animationDelay = `${index * 0.1}s`;
+            attachTooltipEvents(li);
+            listaMissoes.appendChild(li);
+        });
+    } else {
+        listaMissoes.innerHTML = '<li>Nenhuma missão nesta etapa.</li>';
+    }
 
-    const media = usuario.notas.reduce((acc, nota) => acc + nota, 0) / usuario.notas.length;
-    document.getElementById('media-notas').innerText = media.toFixed(1);
+    const media = dadosEtapa.notas.reduce((acc, nota) => acc + nota, 0) / dadosEtapa.notas.length;
+    document.getElementById('media-notas').innerText = isNaN(media) ? 'N/A' : media.toFixed(1);
 
     const graficoNotas = document.getElementById('notas-grafico');
     const rotulosNotas = ["MDA", "MDEP", "NIF", "NAAG", "PORT"];
     graficoNotas.innerHTML = '';
-    usuario.notas.forEach((nota, index) => {
+    dadosEtapa.notas.forEach((nota, index) => {
         const coluna = document.createElement('div');
         coluna.className = 'nota-coluna';
         const barra = document.createElement('div');
@@ -154,23 +184,12 @@ function preencherPainel(usuario, id) {
         setTimeout(() => { barra.style.height = `${nota * 10}%`; }, 100 * (index + 1));
 
         attachTooltipEvents(barra);
-
         coluna.appendChild(barra);
         coluna.appendChild(rotulo);
         graficoNotas.appendChild(coluna);
     });
 
-    const areaMencoes = document.getElementById('mencoes');
-    areaMencoes.innerHTML = 'MENÇÕES';
-    usuario.mencoes.forEach(mencao => {
-        const span = document.createElement('span');
-        span.className = 'mencao-item';
-        span.innerText = mencao.nome;
-        span.setAttribute('data-tooltip', mencao.descricao);
-        attachTooltipEvents(span);
-        areaMencoes.appendChild(span);
-    });
-    console.log(`[Dashboard Debug] Painel preenchido para o usuário: ${id}`);
+    console.log(`[Dashboard Debug] Painel preenchido para o usuário: ${id}, Etapa: ${etapa}`);
 }
 
 /**
@@ -180,6 +199,13 @@ function limparPainel() {
     idInput.value = '';
     userDisplay.classList.add('hidden');
     idForm.classList.remove('hidden');
+
+    usuarioAtual = null;
+    idAtual = null;
+    etapaAtual = '1';
+
+    etapaBtns.forEach(btn => btn.classList.remove('active'));
+    document.querySelector('.etapa-btn[data-etapa="1"]').classList.add('active');
 
     document.getElementById('lvl').innerText = 'LVL';
     document.getElementById('avatar-img').src = 'default_avatar.png';
@@ -227,7 +253,10 @@ async function buscarUsuario() {
     if (inputId === idProfessor || formatoEstudante.test(inputId)) {
         const usuario = dadosUsuarios[inputId];
         if (usuario) {
-            preencherPainel(usuario, inputId);
+            usuarioAtual = usuario;
+            idAtual = inputId;
+            etapaAtual = '1'; // Reseta para a etapa 1 ao logar
+            preencherPainel(usuario, inputId, etapaAtual);
         } else {
             exibirErro("ID não encontrado.");
         }
@@ -235,6 +264,25 @@ async function buscarUsuario() {
         exibirErro("Formato de ID inválido.");
     }
 }
+
+/**
+ * Muda a etapa exibida no painel.
+ * @param {string} novaEtapa A nova etapa a ser exibida.
+ */
+function mudarEtapa(novaEtapa) {
+    if (novaEtapa === etapaAtual || !usuarioAtual) return;
+
+    etapaAtual = novaEtapa;
+
+    // Atualiza o botão ativo
+    etapaBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-etapa') === novaEtapa);
+    });
+
+    // Re-renderiza o painel com os dados da nova etapa
+    preencherPainel(usuarioAtual, idAtual, etapaAtual);
+}
+
 
 // --- Event Listeners ---
 loginBtn.addEventListener('click', buscarUsuario);
@@ -244,6 +292,11 @@ idInput.addEventListener('keyup', (event) => {
     }
 });
 logoutBtn.addEventListener('click', limparPainel);
+etapaBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        mudarEtapa(btn.getAttribute('data-etapa'));
+    });
+});
 
 // --- Inicialização ---
 document.addEventListener('DOMContentLoaded', () => {

@@ -96,6 +96,48 @@
     visibility: visible;
 }
 
+/*
+================================================================================
+  MEDIA QUERIES PARA DESIGN RESPONSIVO
+================================================================================
+*/
+/* --- Seletor de Etapas --- */
+#etapa-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px; /* Adiciona espaço entre o seletor e o grid */
+    padding: 10px;
+    border: 1px solid var(--secondary-text-color);
+    background-color: rgba(0,0,0,0.2);
+}
+
+.etapa-btn {
+    padding: 8px 16px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    background-color: transparent;
+    border: 2px solid var(--secondary-text-color);
+    border-radius: var(--container-border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.etapa-btn:hover {
+    color: var(--link-hover-color);
+    border-color: var(--link-hover-color);
+}
+
+.etapa-btn.active {
+    color: var(--primary-bg-color);
+    background-color: var(--link-color);
+    border-color: var(--link-color);
+    box-shadow: 0 0 10px var(--link-color);
+}
+
+
 /* 
 ================================================================================
   MEDIA QUERIES PARA DESIGN RESPONSIVO
@@ -133,5 +175,14 @@
 
     #id-input {
         min-width: 80px; /* Garante que o input não fique muito pequeno */
+    }
+
+    #etapa-selector {
+        flex-direction: column; /* Empilha os botões verticalmente */
+    }
+
+    .etapa-btn {
+        width: 100%; /* Faz os botões ocuparem a largura total */
+        text-align: center;
     }
 }

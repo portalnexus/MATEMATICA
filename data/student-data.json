@@ -4,179 +4,135 @@
         "lvl": "99",
         "exp": 1729,
         "trofeus": [
-            {
-                "nome": "Enxadrista",
-                "descricao": "Jogador de xadrez assíduo."
-            }
-        ],
-        "missoes": [
-            {
-                "nome": "Desenvolver",
-                "descricao": "Prosseguir com o desenvolvimento do portal Nexus"
-            }
-        ],
-        "notas": [
-            10,
-            10,
-            10,
-            10,
-            10
+            { "nome": "Enxadrista", "descricao": "Jogador de xadrez assíduo." }
         ],
         "mencoes": [
-            {
-                "nome": "Fundador",
-                "descricao": "Criador e fundador do portal de conhecimento Nexus."
+            { "nome": "Fundador", "descricao": "Criador e fundador do portal de conhecimento Nexus." },
+            { "nome": "Matemático", "descricao": "Graduado pelo Instituto Federal de Educação, Ciência e Tecnologia de São Paulo (IFSP) em Licenciatura em Matemática." },
+            { "nome": "Especialista", "descricao": "Possui pós-graduação lato sensu em Especialização em Docência de Matemática." }
+        ],
+        "etapas": {
+            "1": {
+                "missoes": [
+                    { "nome": "Desenvolver", "descricao": "Prosseguir com o desenvolvimento do portal Nexus" }
+                ],
+                "notas": [10, 10, 10, 10, 10]
             },
-            {
-                "nome": "Matemático",
-                "descricao": "Graduado pelo Instituto Federal de Educação, Ciência e Tecnologia de São Paulo (IFSP) em Licenciatura em Matemática."
+            "2": {
+                "missoes": [
+                    { "nome": "Acompanhar Turmas", "descricao": "Verificar o progresso das turmas na Etapa 2." }
+                ],
+                "notas": [10, 10, 10, 10, 10]
             },
-            {
-                "nome": "Especialista",
-                "descricao": "Possui pós-graduação lato sensu em Especialização em Docência de Matemática."
+            "3": {
+                "missoes": [
+                    { "nome": "Planejar Formatura", "descricao": "Iniciar o planejamento para a conclusão do ano letivo." }
+                ],
+                "notas": [10, 10, 10, 10, 10]
             }
-        ]
+        }
     },
     "BR123": {
         "nome": "Beatriz Ribeiro",
         "lvl": 8,
         "exp": 2001,
         "trofeus": [
-            {
-                "nome": "Dedicação",
-                "descricao": "Completou todas as missões por 3 semanas seguidas."
-            },
-            {
-                "nome": "Gênio da Matemática",
-                "descricao": "Acertou 95% das questões de lógica."
-            },
-            {
-                "nome": "Participação",
-                "descricao": "Ativa nos debates e discussões em aula."
-            }
-        ],
-        "missoes": [
-            {
-                "nome": "Projeto Biologia",
-                "descricao": "Completar e entregar o projeto sobre células."
-            },
-            {
-                "nome": "Estudar História",
-                "descricao": "Revisar o capítulo sobre a Grécia Antiga."
-            }
-        ],
-        "notas": [
-            8,
-            9,
-            7,
-            8.5,
-            9.5
+            { "nome": "Dedicação", "descricao": "Completou todas as missões por 3 semanas seguidas." },
+            { "nome": "Gênio da Matemática", "descricao": "Acertou 95% das questões de lógica." },
+            { "nome": "Participação", "descricao": "Ativa nos debates e discussões em aula." }
         ],
         "mencoes": [
-            {
-                "nome": "Aluna Destaque",
-                "descricao": "Reconhecimento pelo excelente desempenho em Lógica."
+            { "nome": "Aluna Destaque", "descricao": "Reconhecimento pelo excelente desempenho em Lógica." }
+        ],
+        "etapas": {
+            "1": {
+                "missoes": [
+                    { "nome": "Projeto Biologia", "descricao": "Completar e entregar o projeto sobre células." },
+                    { "nome": "Estudar História", "descricao": "Revisar o capítulo sobre a Grécia Antiga." }
+                ],
+                "notas": [8, 9, 7, 8.5, 9.5]
+            },
+            "2": {
+                "missoes": [
+                    { "nome": "Seminário de Geografia", "descricao": "Apresentar o seminário sobre globalização." }
+                ],
+                "notas": [8.5, 9.2, 7.5, 8.0, 9.0]
+            },
+            "3": {
+                "missoes": [
+                    { "nome": "Feira de Ciências", "descricao": "Preparar o projeto para a feira de ciências." }
+                ],
+                "notas": [9, 9.5, 8, 8.8, 9.8]
             }
-        ]
+        }
     },
     "LM456": {
         "nome": "Lucas Martins",
         "lvl": 7,
         "exp": 1769,
         "trofeus": [
-            {
-                "nome": "Criatividade",
-                "descricao": "Autor da redação com a melhor avaliação criativa."
-            },
-            {
-                "nome": "Leitor Voraz",
-                "descricao": "Leu todos os livros recomendados do bimestre."
-            }
-        ],
-        "missoes": [
-            {
-                "nome": "Entregar Redação",
-                "descricao": "Finalizar a redação de Português sobre modernismo."
-            },
-            {
-                "nome": "Ler Geografia",
-                "descricao": "Ler o capítulo 5 sobre relevo brasileiro."
-            }
-        ],
-        "notas": [
-            7,
-            6.5,
-            8,
-            9,
-            7.5
+            { "nome": "Criatividade", "descricao": "Autor da redação com a melhor avaliação criativa." },
+            { "nome": "Leitor Voraz", "descricao": "Leu todos os livros recomendados do bimestre." }
         ],
         "mencoes": [
-            {
-                "nome": "Melhor Conto",
-                "descricao": "Vencedor do concurso de contos do mês."
+            { "nome": "Melhor Conto", "descricao": "Vencedor do concurso de contos do mês." }
+        ],
+        "etapas": {
+            "1": {
+                "missoes": [
+                    { "nome": "Entregar Redação", "descricao": "Finalizar a redação de Português sobre modernismo." },
+                    { "nome": "Ler Geografia", "descricao": "Ler o capítulo 5 sobre relevo brasileiro." }
+                ],
+                "notas": [7, 6.5, 8, 9, 7.5]
+            },
+            "2": {
+                "missoes": [
+                    { "nome": "Prova de Química", "descricao": "Estudar para a prova sobre reações químicas." }
+                ],
+                "notas": [7.5, 7.0, 8.5, 8.8, 8.0]
+            },
+            "3": {
+                "missoes": [
+                    { "nome": "Projeto de Arte", "descricao": "Criar a escultura para a exposição de arte." }
+                ],
+                "notas": [8, 7.5, 9, 9.2, 8.5]
             }
-        ]
+        }
     },
     "JV789": {
         "nome": "Juliana Vasconcelos",
         "lvl": 9,
         "exp": 2312,
         "trofeus": [
-            {
-                "nome": "Liderança",
-                "descricao": "Coordenou com sucesso 3 projetos em grupo."
-            },
-            {
-                "nome": "Expert em Química",
-                "descricao": "Nota máxima no experimento de laboratório."
-            }
-        ],
-        "missoes": [
-            {
-                "nome": "Organizar Grupo",
-                "descricao": "Montar o grupo de estudos para a prova de Física."
-            },
-            {
-                "nome": "Finalizar Experimento",
-                "descricao": "Concluir o relatório do experimento de Química."
-            },
-            {
-                "nome": "Apresentar Trabalho",
-                "descricao": "Preparar a apresentação sobre vulcões."
-            },
-            {
-                "nome": "Resolver Lista",
-                "descricao": "Fazer a lista de exercícios de Álgebra."
-            },
-            {
-                "nome": "Pesquisar Tema",
-                "descricao": "Iniciar a pesquisa para o seminário de Sociologia."
-            },
-            {
-                "nome": "Rascunhar Tese",
-                "descricao": "Escrever o primeiro rascunho da tese de Filosofia."
-            },
-            {
-                "nome": "Praticar Idioma",
-                "descricao": "Fazer 30 minutos de prática de Espanhol."
-            }
-        ],
-        "notas": [
-            2,
-            3.5,
-            4.8,
-            7,
-            8.2
+            { "nome": "Liderança", "descricao": "Coordenou com sucesso 3 projetos em grupo." },
+            { "nome": "Expert em Química", "descricao": "Nota máxima no experimento de laboratório." }
         ],
         "mencoes": [
-            {
-                "nome": "Representante",
-                "descricao": "Eleita representante de turma por seus colegas."
+            { "nome": "Representante", "descricao": "Eleita representante de turma por seus colegas." },
+            { "nome": "Menção Honrosa", "descricao": "Participação de destaque na feira de ciências." }
+        ],
+        "etapas": {
+            "1": {
+                "missoes": [
+                    { "nome": "Organizar Grupo", "descricao": "Montar o grupo de estudos para a prova de Física." },
+                    { "nome": "Finalizar Experimento", "descricao": "Concluir o relatório do experimento de Química." }
+                ],
+                "notas": [2, 3.5, 4.8, 7, 8.2]
             },
-            {
-                "nome": "Menção Honrosa",
-                "descricao": "Participação de destaque na feira de ciências."
+            "2": {
+                "missoes": [
+                    { "nome": "Apresentar Trabalho", "descricao": "Preparar a apresentação sobre vulcões." },
+                    { "nome": "Resolver Lista", "descricao": "Fazer a lista de exercícios de Álgebra." }
+                ],
+                "notas": [5.5, 6.0, 7.2, 7.5, 8.0]
+            },
+            "3": {
+                "missoes": [
+                    { "nome": "Pesquisar Tema", "descricao": "Iniciar a pesquisa para o seminário de Sociologia." },
+                    { "nome": "Praticar Idioma", "descricao": "Fazer 30 minutos de prática de Espanhol." }
+                ],
+                "notas": [7, 8.0, 8.5, 8.8, 9.0]
             }
-        ]
+        }
     }
 }

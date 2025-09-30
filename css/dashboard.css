@@ -28,7 +28,7 @@
 /* --- NOVA Área de ID/Login --- */
 #id-area { justify-content: center; position: relative; }
 #id-form, #user-display { display: flex; align-items: center; width: 100%; }
-#id-input { flex-grow: 1; margin-right: 10px; font-family: 'Press Start 2P'; text-align: center; font-size: 1.2rem; }
+#id-input { flex-grow: 1; margin-right: 10px; font-family: 'Press Start 2P'; text-align: center; font-size: 1.2rem; min-width: 0; }
 #user-name { flex-grow: 1; font-size: 1.2rem; color: var(--link-color); }
 #login-btn, #logout-btn { background: transparent; border: 2px solid var(--link-color); color: var(--link-color); font-family: 'Press Start 2P'; font-size: 1.2rem; cursor: pointer; padding: 5px 12px; transition: all 0.2s; }
 #login-btn:hover, #logout-btn:hover { background: var(--link-hover-color); color: var(--primary-bg-color); }
@@ -143,6 +143,21 @@
   MEDIA QUERIES PARA DESIGN RESPONSIVO
 ================================================================================
 */
+
+/* --- TABLETS (769px - 992px) --- */
+@media (min-width: 769px) and (max-width: 992px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+        grid-template-areas:
+            "id id lvl avatar"
+            "progresso progresso progresso progresso"
+            "trofeus trofeus trofeus trofeus"
+            "missoes missoes sidebar sidebar";
+    }
+}
+
+
+/* --- CELULARES (max-width: 768px) --- */
 @media (max-width: 768px) {
     .dashboard-grid {
         grid-template-columns: 1fr;

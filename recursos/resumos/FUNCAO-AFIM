@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="index.html">PÁGINA INICIAL</a></li>
+      <li><a href="recursos.html">RECURSOS</a></li>
+      <!--<li><a href="missoes.html">MISSÕES</a></li>-->
+      <li><a href="dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>Função Afim (ou Função de 1º Grau)</h1>
+
+    <p>A <strong>Função Afim</strong>, também conhecida como <strong>Função Polinomial de 1º Grau</strong>, é um dos conceitos mais fundamentais da Álgebra. Ela descreve uma relação linear entre duas variáveis, cujo gráfico é sempre uma linha reta.</p>
+
+    <h2>Definições</h2>
+    <ul>
+        <li><strong>Função Afim:</strong> É toda função @f: \mathbb{R} \to \mathbb{R}@ que pode ser escrita na forma geral: @@ f(x) = ax + b @@, onde @a@ e @b@ são números reais fixos, chamados de coeficientes.</li>
+        <li><strong>Coeficiente Angular (@a@):</strong> É o número que multiplica @x@. Ele determina a inclinação (ou declividade) da reta.</li>
+        <li><strong>Coeficiente Linear (@b@):</strong> É o número que não multiplica @x@. Ele indica o ponto onde a reta cruza o eixo @y@ (o eixo das ordenadas).</li>
+    </ul>
+
+    <h2>Conceitos Fundamentais</h2>
+
+    <h3>Relação com a Reta</h3>
+    <p>O gráfico de uma função afim é sempre uma <strong>reta</strong>. O coeficiente angular (@a@) nos diz se a reta está "subindo" ou "descendo":</p>
+    <ul>
+        <li>Se @a > 0@, a função é <strong>crescente</strong> (a reta sobe da esquerda para a direita).</li>
+        <li>Se @a < 0@, a função é <strong>decrescente</strong> (a reta desce da esquerda para a direita).</li>
+        <li>Se @a = 0@, a função se torna @f(x) = b@, que é uma <strong>função constante</strong> (o gráfico é uma reta horizontal).</li>
+    </ul>
+
+    <h3>Raiz da Função (ou Zero da Função)</h3>
+    <p>A raiz da função afim é o valor de @x@ para o qual @f(x) = 0@. Geometricamente, é o ponto onde a reta cruza o eixo @x@ (o eixo das abscissas).</p>
+    <p>Para encontrar a raiz, basta igualar a função a zero:</p>
+    @@ ax + b = 0 @@
+
+    <h2>Fórmulas e Teoremas</h2>
+
+    <h3>Fórmula Geral</h3>
+    <p>A expressão que define a função afim é:</p>
+    @@ f(x) = ax + b @@
+
+    <h3>Cálculo do Coeficiente Angular (@a@)</h3>
+    <p>Se conhecermos dois pontos distintos que pertencem ao gráfico da função, @P_1 = (x_1, y_1)@ e @P_2 = (x_2, y_2)@, podemos calcular @a@ usando a variação das ordenadas dividida pela variação das abscissas:</p>
+    @@ a = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} @@
+
+    <h2>Exemplos Práticos</h2>
+
+    <h3>Exemplo 1: Identificação dos Coeficientes</h3>
+    <p>Considere a função @f(x) = -3x + 5@.</p>
+    <ol>
+        <li><strong>Coeficiente Angular (@a@):</strong> @a = -3@. Como @a < 0@, a função é decrescente.</li>
+        <li><strong>Coeficiente Linear (@b@):</strong> @b = 5@. A reta cruza o eixo @y@ no ponto @(0, 5)@.</li>
+    </ol>
+
+    <h3>Exemplo 2: Encontrando a Raiz</h3>
+    <p>Encontre a raiz da função @g(x) = 2x - 10@.</p>
+    <ol>
+        <li>Iguale @g(x)@ a zero: @2x - 10 = 0@.</li>
+        <li>Resolva para @x@: @2x = 10@.</li>
+        <li>@x = \frac{10}{2} \implies x = 5@.</li>
+    </ol>
+    <p>A raiz da função é @x=5@. O gráfico passa pelo ponto @(5, 0)@.</p>
+
+    <h3>Exemplo 3: Construindo a Função a partir de Pontos</h3>
+    <p>Uma função afim passa pelos pontos @(1, 7)@ e @(3, 13)@. Determine sua lei de formação.</p>
+    <ol>
+        <li><strong>Calcular @a@ (Coeficiente Angular):</strong> Usando @P_1=(1, 7)@ e @P_2=(3, 13)@:
+            @@ a = \frac{13 - 7}{3 - 1} = \frac{6}{2} = 3 @@
+        </li>
+        <li><strong>Calcular @b@ (Coeficiente Linear):</strong> Substitua @a=3@ e um dos pontos (usaremos @(1, 7)@) na fórmula @f(x) = ax + b@:
+            @@ 7 = 3(1) + b @@
+            @@ 7 = 3 + b @@
+            @@ b = 7 - 3 \implies b = 4 @@
+        </li>
+        <li><strong>Lei de Formação:</strong> A função é @f(x) = 3x + 4@.</li>
+    </ol>
+
+    <h2>Conexões e Aplicações</h2>
+    <p>A função afim é essencial para modelar situações onde a taxa de variação é constante:</p>
+    <ul>
+        <li><strong>Custo Fixo e Variável:</strong> Em finanças, o custo total pode ser modelado como @C(x) = \text{custo fixo} + (\text{custo unitário} \times x)@. O custo fixo é o coeficiente linear (@b@), e o custo unitário é o angular (@a@).</li>
+        <li><strong>Distância Percorrida com Velocidade Constante:</strong> Se um objeto se move a uma velocidade constante @v@, a distância @d@ percorrida em função do tempo @t@ é @d(t) = vt + d_0@, onde @d_0@ é a posição inicial (o coeficiente linear).</li>
+        <li><strong>Conversão de Escalas:</strong> A conversão entre escalas de temperatura (como Celsius e Fahrenheit) é uma transformação linear, ou seja, uma função afim.</li>
+    </ul>
+
+    <h2>Pontos de Atenção</h2>
+    <ul>
+        <li><strong>Não Confunda com Função Linear:</strong> Uma <strong>Função Linear</strong> é um caso particular da função afim onde @b=0@ (ou seja, @f(x) = ax@). O gráfico de uma função linear <strong>sempre</strong> passa pela origem @(0, 0)@.</li>
+        <li><strong>Sinais de @a@:</strong> Lembre-se sempre que @a@ positivo significa crescimento e @a@ negativo significa decrescimento.</li>
+        <li><strong>Interpretação de @b@:</strong> O valor de @b@ é o valor da função quando @x@ é zero. Se você está modelando um custo, @b@ é o custo inicial (mesmo que você não produza nada).</li>
+    </ul>
+</article>
+
+
+    
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<canvas id="matrixCanvas"></canvas>
+<script src="js/matrix-rain.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Equações em modo de exibição (display mode)
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Equações no modo "inline" (texto)
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false // Mantém a página funcionando mesmo se houver um erro em uma fórmula
+    });
+});
+</script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="js/theme-switcher.js" defer></script>
+</body>
+</html>
+   <!-- BOTÃO VOLTAR DE FINAL DE PÁGINA
+     <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+    </div>
+  -->

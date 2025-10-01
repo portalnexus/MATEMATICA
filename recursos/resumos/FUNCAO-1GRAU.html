@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXUS</title>
+  <title>NEXUS - Função do 1º Grau</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -10,6 +10,73 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
   <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -18,7 +85,6 @@
     <ul>
       <li><a href="../../index.html">PÁGINA INICIAL</a></li>
       <li><a href="../../recursos.html">RECURSOS</a></li>
-      <!--<li><a href="../../missoes.html">MISSÕES</a></li>-->
       <li><a href="../../dashboard.html">DASHBOARD</a></li>
     </ul>
   </nav>
@@ -28,104 +94,318 @@
 <article>
     <h1>Função do 1º Grau (Função Afim)</h1>
 
-    <p>A função do 1º grau, também conhecida como função afim, é um dos conceitos fundamentais da matemática e descreve uma relação linear entre duas variáveis. Ela é amplamente utilizada para modelar situações do cotidiano onde há uma variação constante.</p>
+    <h2>1. Definição</h2>
 
-    <h2>Definições</h2>
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Função Afim)</h3>
+      <p>Sejam @a, b \in \mathbb{R}@ com @a \neq 0@. Chama-se <strong>função afim</strong> ou <strong>função do 1º grau</strong> a função @f: \mathbb{R} \to \mathbb{R}@ definida por:</p>
+      @@
+      f(x) = ax + b
+      @@
+      <p>onde @a@ é chamado de <strong>coeficiente angular</strong> e @b@ é chamado de <strong>coeficiente linear</strong>.</p>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> A condição @a \neq 0@ é essencial. Se @a = 0@, teríamos @f(x) = b@, que é uma função constante, não sendo uma função do 1º grau.
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Função Linear)</h3>
+      <p>Quando @b = 0@, a função do 1º grau @f(x) = ax@ é chamada de <strong>função linear</strong>. Neste caso, temos @f(0) = 0@, ou seja, o gráfico passa pela origem do sistema cartesiano.</p>
+    </div>
+
+    <h2>2. Domínio, Contradomínio e Imagem</h2>
+
+    <p>Para toda função afim @f(x) = ax + b@, temos:</p>
     <ul>
-        <li><strong>Função do 1º Grau:</strong> Uma função definida pela lei de formação @f(x) = ax + b@, onde @a@ e @b@ são números reais e @a \neq 0@.</li>
-        <li><strong>Variável Independente (@x@):</strong> O valor que pode ser escolhido livremente.</li>
-        <li><strong>Variável Dependente (@f(x)@ ou @y@):</strong> O valor que depende do valor de @x@.</li>
-        <li><strong>Coeficiente Angular (@a@):</strong> Determina a inclinação da reta. Se @a > 0@, a função é crescente. Se @a < 0@, a função é decrescente.</li>
-        <li><strong>Coeficiente Linear (@b@):</strong> Indica o ponto onde a reta cruza o eixo @y@ (o valor de @f(x)@ quando @x=0@).</li>
+      <li><strong>Domínio:</strong> @D(f) = \mathbb{R}@ (todos os números reais)</li>
+      <li><strong>Contradomínio:</strong> @CD(f) = \mathbb{R}@</li>
+      <li><strong>Imagem:</strong> @Im(f) = \mathbb{R}@ (todos os números reais)</li>
     </ul>
 
-    <h2>Conceitos Fundamentais</h2>
-    <p>A característica principal de uma função do 1º grau é que a variação na variável dependente (@y@) é sempre proporcional à variação na variável independente (@x@). Isso significa que, para cada unidade que @x@ aumenta, @y@ aumenta ou diminui sempre o mesmo valor (determinado pelo coeficiente angular @a@). Graficamente, uma função do 1º grau é sempre representada por uma <strong>reta</strong>.</p>
+    <p class="nota">
+      A função afim é sobrejetora, pois para todo @y \in \mathbb{R}@, existe @x = \frac{y-b}{a} \in \mathbb{R}@ tal que @f(x) = y@.
+    </p>
 
-    <h2>Fórmulas e Teoremas</h2>
+    <h2>3. Zero ou Raiz da Função</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Zero da Função)</h3>
+      <p>O <strong>zero</strong> ou <strong>raiz</strong> da função @f(x) = ax + b@ é o valor @x_0 \in \mathbb{R}@ tal que @f(x_0) = 0@.</p>
+    </div>
+
+    <p>Para determinar a raiz da função @f(x) = ax + b@, fazemos:</p>
+    @@
+    \begin{align}
+    ax + b &= 0 \\
+    ax &= -b \\
+    x &= -\frac{b}{a}
+    \end{align}
+    @@
+
+    <p>Geometricamente, a raiz representa a <strong>abscissa do ponto de interseção</strong> do gráfico da função com o eixo @x@, ou seja, o ponto @\left(-\frac{b}{a}, 0\right)@.</p>
+
+    <h2>4. Coeficiente Angular e Taxa de Variação</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Taxa de Variação Constante)</h3>
+      <p>Seja @f(x) = ax + b@ uma função afim. Para quaisquer @x_1, x_2 \in \mathbb{R}@ com @x_1 \neq x_2@, a razão:</p>
+      @@
+      \frac{f(x_2) - f(x_1)}{x_2 - x_1} = a
+      @@
+      <p>é constante e igual ao coeficiente angular @a@.</p>
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    @@
+    \begin{align}
+    \frac{f(x_2) - f(x_1)}{x_2 - x_1} &= \frac{(ax_2 + b) - (ax_1 + b)}{x_2 - x_1} \\
+    &= \frac{ax_2 - ax_1}{x_2 - x_1} \\
+    &= \frac{a(x_2 - x_1)}{x_2 - x_1} \\
+    &= a
+    \end{align}
+    @@
+
+    <p class="nota">
+      <strong>Interpretação:</strong> O coeficiente angular @a@ representa a taxa de variação da função. Isso significa que, quando @x@ varia de uma unidade, @f(x)@ varia @a@ unidades. Esta é a característica fundamental das funções afins: a variação é sempre proporcional.
+    </p>
+
+    <h2>5. Crescimento e Decrescimento</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.1</h3>
+      <p>Seja @f(x) = ax + b@ uma função afim. Então:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i)</strong> Se @a > 0@, a função @f@ é estritamente <strong>crescente</strong> em @\mathbb{R}@.</li>
+        <li><strong>(ii)</strong> Se @a < 0@, a função @f@ é estritamente <strong>decrescente</strong> em @\mathbb{R}@.</li>
+      </ul>
+    </div>
+
+    <p><strong>Demonstração de (i):</strong></p>
+    <p>Sejam @x_1, x_2 \in \mathbb{R}@ com @x_1 < x_2@. Devemos mostrar que @f(x_1) < f(x_2)@.</p>
+    @@
+    \begin{align}
+    x_1 < x_2 &\implies x_2 - x_1 > 0 \\
+    &\implies a(x_2 - x_1) > 0 \quad \text{(pois } a > 0\text{)} \\
+    &\implies ax_2 - ax_1 > 0 \\
+    &\implies ax_2 + b > ax_1 + b \\
+    &\implies f(x_2) > f(x_1)
+    \end{align}
+    @@
+    <p>Portanto, @f@ é crescente. A demonstração de (ii) é análoga.</p>
+
+    <h2>6. Representação Gráfica</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 6.1</h3>
+      <p>O gráfico de toda função afim @f(x) = ax + b@ é uma <strong>reta não vertical</strong> no plano cartesiano.</p>
+    </div>
+
+    <p><strong>Elementos importantes do gráfico:</strong></p>
     <ul>
-        <li><strong>Lei de Formação Geral:</strong>
-            @@
-            f(x) = ax + b
-            @@
-        </li>
-        <li><strong>Raiz da Função (ou Zero da Função):</strong> O valor de @x@ para o qual @f(x) = 0@. Para encontrar a raiz, igualamos a função a zero:
-            @@
-            ax + b = 0 \\
-            ax = -b \\
-            x = -\frac{b}{a}
-            @@
-        </li>
-        <li><strong>Inclinação da Reta:</strong> O coeficiente angular @a@ representa a inclinação. Se tivermos dois pontos @(x_1, y_1)@ e @(x_2, y_2)@ na reta, a inclinação é dada por:
-            @@
-            a = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1}
-            @@
-        </li>
+      <li><strong>Interseção com eixo @y@:</strong> O ponto @(0, b)@ sempre pertence ao gráfico, pois @f(0) = b@.</li>
+      <li><strong>Interseção com eixo @x@:</strong> O ponto @\left(-\frac{b}{a}, 0\right)@ é a raiz da função.</li>
+      <li><strong>Inclinação:</strong> O coeficiente angular @a@ determina a inclinação da reta. Quanto maior @|a|@, maior a inclinação em relação ao eixo horizontal.</li>
     </ul>
 
-    <h2>Exemplos Práticos</h2>
+    <div class="nota">
+      <strong>Nota sobre construção do gráfico:</strong> Como dois pontos distintos determinam uma única reta, basta encontrar dois pontos que satisfaçam a equação @y = ax + b@ para traçar o gráfico. Uma escolha prática é usar @x = 0@ (obtendo @y = b@) e a raiz @x = -\frac{b}{a}@ (obtendo @y = 0@).
+    </div>
 
-    <h3>Exemplo 1: Identificando os Coeficientes</h3>
-    <p>Considere a função @f(x) = 3x - 6@.</p>
+    <h2>7. Determinação da Lei de Formação</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 7.1</h3>
+      <p>Dados dois pontos distintos @A(x_1, y_1)@ e @B(x_2, y_2)@ com @x_1 \neq x_2@, existe uma única função afim @f(x) = ax + b@ cujo gráfico passa por @A@ e @B@.</p>
+    </div>
+
+    <p><strong>Método de determinação:</strong></p>
     <ol>
-        <li><strong>Identificar @a@ e @b@:</strong> Neste caso, @a = 3@ e @b = -6@.</li>
-        <li><strong>Analisar a variação:</strong> Como @a = 3 > 0@, a função é crescente. Para cada unidade que @x@ aumenta, @f(x)@ aumenta 3 unidades.</li>
-        <li><strong>Encontrar o coeficiente linear:</strong> O ponto onde a reta cruza o eixo @y@ é quando @x=0@. @f(0) = 3(0) - 6 = -6@. O ponto é @(0, -6)@.</li>
-        <li><strong>Encontrar a raiz da função:</strong> Igualamos @f(x)@ a zero: @3x - 6 = 0 \implies 3x = 6 \implies x = 2@. A raiz é @x=2@. O ponto onde a reta cruza o eixo @x@ é @(2, 0)@.</li>
+      <li><strong>Cálculo do coeficiente angular:</strong>
+        @@
+        a = \frac{y_2 - y_1}{x_2 - x_1}
+        @@
+      </li>
+      <li><strong>Cálculo do coeficiente linear:</strong> Substituir um dos pontos (por exemplo, @(x_1, y_1)@) em @y = ax + b@:
+        @@
+        y_1 = ax_1 + b \implies b = y_1 - ax_1
+        @@
+      </li>
     </ol>
 
-    <h3>Exemplo 2: Modelando uma Situação Real</h3>
-    <p>Uma corrida de táxi cobra uma taxa fixa de R$ 5,00 (bandeirada) mais R$ 2,50 por quilômetro rodado. Escreva a função que representa o custo da corrida e calcule o valor de uma corrida de 10 km.</p>
-    <ol>
-        <li><strong>Definir as variáveis:</strong>
-            <ul>
-                <li>@x@: distância em quilômetros.</li>
-                <li>@f(x)@: custo total da corrida em reais.</li>
-            </ul>
-        </li>
-        <li><strong>Identificar os coeficientes:</strong>
-            <ul>
-                <li>O coeficiente linear (@b@) é a taxa fixa: @b = 5@.</li>
-                <li>O coeficiente angular (@a@) é o valor por quilômetro: @a = 2.50@.</li>
-            </ul>
-        </li>
-        <li><strong>Escrever a função:</strong>
-            @@
-            f(x) = 2.50x + 5
-            @@
-        </li>
-        <li><strong>Calcular o custo de 10 km:</strong> Substituímos @x=10@ na função:
-            @@
-            f(10) = 2.50(10) + 5 \\
-            f(10) = 25 + 5 \\
-            f(10) = 30
-            @@
-            Portanto, uma corrida de 10 km custará R$ 30,00.</li>
-    </ol>
+    <h2>8. Sinal da Função</h2>
 
-    <h2>Conexões e Aplicações</h2>
+    <p>Estudar o <strong>sinal da função</strong> @f(x) = ax + b@ significa determinar para quais valores de @x@ a função é positiva, negativa ou nula.</p>
+
+    <p>Sendo @x_0 = -\frac{b}{a}@ a raiz da função:</p>
     <ul>
-        <li><strong>Geometria Analítica:</strong> A função do 1º grau é a base para o estudo de retas no plano cartesiano.</li>
-        <li><strong>Física:</strong> Movimento uniforme, onde a posição varia linearmente com o tempo.</li>
-        <li><strong>Economia:</strong> Modelagem de custos, receitas e lucros lineares.</li>
-        <li><strong>Engenharia:</strong> Cálculos de proporções e taxas de variação constantes.</li>
+      <li>@f(x_0) = 0@</li>
+      <li>Se @a > 0@: @f(x) > 0@ para @x > x_0@ e @f(x) < 0@ para @x < x_0@</li>
+      <li>Se @a < 0@: @f(x) > 0@ para @x < x_0@ e @f(x) < 0@ para @x > x_0@</li>
     </ul>
 
-    <h2>Pontos de Atenção</h2>
-    <ul>
-        <li><strong>@a \neq 0@:</strong> Se @a=0@, a função se torna @f(x) = b@, que é uma função constante e não uma função do 1º grau.</li>
-        <li><strong>Interpretação do @b@:</strong> O coeficiente @b@ é o valor de @f(x)@ quando @x=0@. Ele representa o ponto de partida ou o valor inicial.</li>
-        <li><strong>Sinal de @a@:</strong> Preste atenção ao sinal do coeficiente angular (@a@). Um @a@ positivo indica crescimento, e um @a@ negativo indica decrescimento.</li>
-        <li><strong>Gráfico:</strong> Lembre-se que o gráfico de uma função do 1º grau é sempre uma reta. Para traçar o gráfico, basta encontrar dois pontos (por exemplo, a raiz e o ponto onde cruza o eixo @y@) e traçar a linha que os une.</li>
-    </ul>
+    <h2>9. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 9.1</h3>
+      <p>Dada a função @f(x) = 3x - 6@, determine:</p>
+      <p><strong>a)</strong> O coeficiente angular e o coeficiente linear.</p>
+      <p><strong>b)</strong> A raiz da função.</p>
+      <p><strong>c)</strong> Se a função é crescente ou decrescente.</p>
+      <p><strong>d)</strong> O valor de @f(5)@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>a)</strong> Comparando @f(x) = 3x - 6@ com @f(x) = ax + b@, temos:</p>
+      @@
+      a = 3 \quad \text{e} \quad b = -6
+      @@
+
+      <p><strong>b)</strong> Para encontrar a raiz, fazemos @f(x) = 0@:</p>
+      @@
+      \begin{align}
+      3x - 6 &= 0 \\
+      3x &= 6 \\
+      x &= 2
+      \end{align}
+      @@
+      <p>Portanto, a raiz é @x_0 = 2@.</p>
+
+      <p><strong>c)</strong> Como @a = 3 > 0@, a função é <strong>estritamente crescente</strong>.</p>
+
+      <p><strong>d)</strong> Calculamos:</p>
+      @@
+      f(5) = 3 \cdot 5 - 6 = 15 - 6 = 9
+      @@
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 9.2</h3>
+      <p>Determine a função afim @f(x) = ax + b@ cujo gráfico passa pelos pontos @A(1, 5)@ e @B(3, 11)@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Calcular o coeficiente angular.</p>
+      @@
+      a = \frac{y_B - y_A}{x_B - x_A} = \frac{11 - 5}{3 - 1} = \frac{6}{2} = 3
+      @@
+
+      <p><strong>Passo 2:</strong> Calcular o coeficiente linear usando o ponto @A(1, 5)@.</p>
+      @@
+      \begin{align}
+      5 &= 3 \cdot 1 + b \\
+      5 &= 3 + b \\
+      b &= 2
+      \end{align}
+      @@
+
+      <p><strong>Passo 3:</strong> Escrever a lei de formação.</p>
+      @@
+      f(x) = 3x + 2
+      @@
+
+      <p><strong>Verificação:</strong> Substituindo o ponto @B(3, 11)@:</p>
+      @@
+      f(3) = 3 \cdot 3 + 2 = 9 + 2 = 11 \quad \checkmark
+      @@
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 9.3 (Aplicação)</h3>
+      <p>Uma empresa de táxi cobra uma taxa fixa de R$ 5,00 mais R$ 2,50 por quilômetro rodado.</p>
+      <p><strong>a)</strong> Determine a função que expressa o custo @C@ em função da distância @x@ (em km).</p>
+      <p><strong>b)</strong> Calcule o custo de uma corrida de 12 km.</p>
+      <p><strong>c)</strong> Se o custo foi de R$ 42,50, qual foi a distância percorrida?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>a)</strong> A taxa fixa é o coeficiente linear (@b = 5@) e o valor por quilômetro é o coeficiente angular (@a = 2{,}50@). Logo:</p>
+      @@
+      C(x) = 2{,}50x + 5
+      @@
+
+      <p><strong>b)</strong> Para @x = 12@ km:</p>
+      @@
+      C(12) = 2{,}50 \cdot 12 + 5 = 30 + 5 = 35
+      @@
+      <p>Portanto, o custo é R$ 35,00.</p>
+
+      <p><strong>c)</strong> Se @C(x) = 42{,}50@:</p>
+      @@
+      \begin{align}
+      2{,}50x + 5 &= 42{,}50 \\
+      2{,}50x &= 37{,}50 \\
+      x &= \frac{37{,}50}{2{,}50} = 15
+      \end{align}
+      @@
+      <p>A distância percorrida foi 15 km.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 9.4</h3>
+      <p>Estude o sinal da função @f(x) = -2x + 8@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Determinar a raiz.</p>
+      @@
+      \begin{align}
+      -2x + 8 &= 0 \\
+      -2x &= -8 \\
+      x &= 4
+      \end{align}
+      @@
+
+      <p><strong>Passo 2:</strong> Analisar o sinal.</p>
+      <p>Como @a = -2 < 0@, a função é decrescente. Portanto:</p>
+      <ul>
+        <li>@f(x) > 0@ para @x < 4@</li>
+        <li>@f(x) = 0@ para @x = 4@</li>
+        <li>@f(x) < 0@ para @x > 4@</li>
+      </ul>
+
+      <p><strong>Verificação:</strong> Testando @x = 0@ (que é menor que 4):</p>
+      @@
+      f(0) = -2 \cdot 0 + 8 = 8 > 0 \quad \checkmark
+      @@
+    </div>
+
+    <h2>10. Propriedades Importantes</h2>
+
+    <div class="destaque-box observacao">
+      <h3>Propriedade 10.1 (Translação Vertical)</h3>
+      <p>As funções @f(x) = ax + b_1@ e @g(x) = ax + b_2@ têm a mesma inclinação (pois possuem o mesmo coeficiente angular @a@). Seus gráficos são retas paralelas.</p>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Propriedade 10.2 (Injetividade)</h3>
+      <p>Toda função afim é <strong>injetiva</strong>. Isto é, se @f(x_1) = f(x_2)@, então @x_1 = x_2@.</p>
+      <p><strong>Demonstração:</strong> Se @ax_1 + b = ax_2 + b@, então @ax_1 = ax_2@, e como @a \neq 0@, temos @x_1 = x_2@.</p>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Propriedade 10.3 (Bijetividade)</h3>
+      <p>Como a função afim é injetiva e sobrejetiva, ela é <strong>bijetiva</strong>. Portanto, admite função inversa.</p>
+      <p>A função inversa de @f(x) = ax + b@ é:</p>
+      @@
+      f^{-1}(x) = \frac{x - b}{a}
+      @@
+    </div>
+
+    <h2>11. Exercícios Propostos</h2>
+
+    <p><strong>1.</strong> Determine @k@ para que a função @f(x) = (2k - 3)x + 5@ seja crescente.</p>
+
+    <p><strong>2.</strong> Encontre a função afim @f@ tal que @f(1) = 7@ e @f(-2) = -2@.</p>
+
+    <p><strong>3.</strong> Mostre que se @f(x) = ax + b@ e @g(x) = cx + d@ são funções afins, então a composta @(f \circ g)(x) = f(g(x))@ também é uma função afim (desde que @a \neq 0@ e @c \neq 0@).</p>
+
+    <p><strong>4.</strong> Uma função afim @f@ satisfaz @f(0) = 3@ e @f(2) = 7@. Determine @f(10)@.</p>
+
+    <p><strong>5.</strong> Determine os valores de @x@ para os quais @f(x) = 3x - 9 > 0@.</p>
+
 </article>
 
-
-  
     <div style="text-align: center; margin-top: 30px;">
-        <a href="../../index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
     </div>
-    
+
 </div> <!-- /.container -->
 </div> <!-- /#page-wrapper -->
 
@@ -135,15 +415,12 @@
 document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
         delimiters: [
-            // Equações em modo de exibição (display mode)
             {left: "@@", right: "@@", display: true},
             {left: "\\[", right: "\\]", display: true},
-
-            // Equações no modo "inline" (texto)
             {left: "@", right: "@", display: false},
             {left: "\\(", right: "\\)", display: false}
         ],
-        throwOnError: false // Mantém a página funcionando mesmo se houver um erro em uma fórmula
+        throwOnError: false
     });
 });
 </script>
@@ -151,7 +428,8 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
 <div id="theme-selector-panel" class="hidden">
     <h3>Escolha um Tema:</h3>
-    <button data-theme="theme-default" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
     <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
     <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
     <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
@@ -166,10 +444,6 @@ document.addEventListener("DOMContentLoaded", function() {
     <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
 </div>
 <script src="theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
 </body>
 </html>
-   <!-- BOTÃO VOLTAR DE FINAL DE PÁGINA
-     <div style="text-align: center; margin-top: 30px;">
-        <a href="index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
-    </div>
-  -->

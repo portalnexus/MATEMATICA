@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXUS</title>
+  <title>NEXUS - Probabilidade</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -10,6 +10,73 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
   <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -18,153 +85,452 @@
     <ul>
       <li><a href="../../index.html">PÁGINA INICIAL</a></li>
       <li><a href="../../recursos.html">RECURSOS</a></li>
-      <!--<li><a href="../../missoes.html">MISSÕES</a></li>-->
       <li><a href="../../dashboard.html">DASHBOARD</a></li>
     </ul>
   </nav>
+
 <div class="container">
 
 <article>
     <h1>Probabilidade</h1>
 
-    <p>A probabilidade é um ramo da matemática que estuda a ocorrência de eventos aleatórios. Ela nos permite quantificar a chance de um determinado evento acontecer, variando de 0 (impossível) a 1 (certo).</p>
+    <h2>1. Conceitos Fundamentais</h2>
 
-    <h2>Conceitos Fundamentais</h2>
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Experimento Aleatório)</h3>
+      <p>Um <strong>experimento aleatório</strong> é um processo que, quando realizado sob as mesmas condições, pode apresentar resultados diferentes, não sendo possível prever com certeza qual resultado será obtido. Além disso, o conjunto de todos os resultados possíveis é conhecido.</p>
+    </div>
 
-    <p>Para entender probabilidade, é importante conhecer alguns termos:</p>
+    <p><strong>Exemplos de experimentos aleatórios:</strong></p>
     <ul>
-        <li><strong>Experimento Aleatório:</strong> Uma ação cujo resultado não pode ser previsto com certeza, mas que possui um conjunto definido de resultados possíveis. Exemplo: lançar um dado.</li>
-        <li><strong>Espaço Amostral (Ω):</strong> O conjunto de todos os resultados possíveis de um experimento aleatório. Exemplo: ao lançar um dado, Ω = {1, 2, 3, 4, 5, 6}.</li>
-        <li><strong>Evento (E):</strong> Um subconjunto do espaço amostral, representando um resultado ou um conjunto de resultados de interesse. Exemplo: obter um número par ao lançar um dado, E = {2, 4, 6}.</li>
-        <li><strong>Evento Simples:</strong> Um evento que consiste em um único resultado. Exemplo: obter o número 3 ao lançar um dado.</li>
-        <li><strong>Evento Composto:</strong> Um evento que consiste em mais de um resultado. Exemplo: obter um número ímpar ao lançar um dado.</li>
-        <li><strong>Eventos Mutuamente Exclusivos:</strong> Dois ou mais eventos que não podem ocorrer ao mesmo tempo. Exemplo: em um único lançamento de dado, obter um 2 e obter um 3 são mutuamente exclusivos.</li>
-        <li><strong>Eventos Independentes:</strong> A ocorrência de um evento não afeta a probabilidade de ocorrência de outro evento. Exemplo: lançar uma moeda duas vezes; o resultado do primeiro lançamento não afeta o segundo.</li>
-        <li><strong>Eventos Dependentes:</strong> A ocorrência de um evento afeta a probabilidade de ocorrência de outro evento. Exemplo: retirar duas cartas de um baralho sem reposição.</li>
+      <li>Lançar um dado e observar o número da face superior.</li>
+      <li>Retirar uma carta de um baralho e observar seu naipe.</li>
+      <li>Lançar uma moeda e observar a face voltada para cima.</li>
     </ul>
 
-    <h2>Cálculo da Probabilidade</h2>
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Espaço Amostral)</h3>
+      <p>O <strong>espaço amostral</strong> de um experimento aleatório, denotado por @\Omega@, é o conjunto de todos os resultados possíveis do experimento.</p>
+    </div>
 
-    <p>A probabilidade de um evento E ocorrer, denotada por P(E), é calculada pela razão entre o número de resultados favoráveis ao evento e o número total de resultados possíveis no espaço amostral, assumindo que todos os resultados são igualmente prováveis.</p>
-
-    @@
-    P(E) = \frac{\text{Número de resultados favoráveis a E}}{\text{Número total de resultados possíveis}}
-    @@
-
-    <p>A probabilidade é sempre um valor entre 0 e 1:</p>
+    <p><strong>Exemplos:</strong></p>
     <ul>
-        <li>P(E) = 0: O evento é impossível.</li>
-        <li>P(E) = 1: O evento é certo.</li>
-        <li>0 < P(E) < 1: O evento é possível, mas não certo.</li>
+      <li>Lançamento de um dado: @\Omega = \{1, 2, 3, 4, 5, 6\}@</li>
+      <li>Lançamento de uma moeda: @\Omega = \{\text{cara}, \text{coroa}\}@</li>
+      <li>Retirada de uma carta de baralho: @\Omega@ contém 52 elementos (as 52 cartas)</li>
     </ul>
 
-    <h3>Exemplo 1: Lançamento de um dado</h3>
-    <p>Qual a probabilidade de obter um número maior que 4 ao lançar um dado justo?</p>
-    <ol>
-        <li><strong>Identificar o espaço amostral (Ω):</strong> Ω = {1, 2, 3, 4, 5, 6}. O número total de resultados possíveis é 6.</li>
-        <li><strong>Identificar o evento (E):</strong> Obter um número maior que 4. E = {5, 6}. O número de resultados favoráveis é 2.</li>
-        <li><strong>Calcular a probabilidade:</strong>
-            @@
-            P(E) = \frac{2}{6} = \frac{1}{3}
-            @@
-        </li>
-    </ol>
-    <p>Portanto, a probabilidade de obter um número maior que 4 é de 1/3.</p>
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Evento)</h3>
+      <p>Um <strong>evento</strong> @E@ é qualquer subconjunto do espaço amostral @\Omega@. Dizemos que o evento @E@ ocorre quando o resultado do experimento pertence a @E@.</p>
+    </div>
 
-    <h3>Exemplo 2: Retirada de uma bola de uma urna</h3>
-    <p>Uma urna contém 5 bolas azuis e 3 bolas vermelhas. Qual a probabilidade de retirar uma bola azul?</p>
-    <ol>
-        <li><strong>Identificar o espaço amostral (Ω):</strong> O número total de bolas é 5 + 3 = 8.</li>
-        <li><strong>Identificar o evento (E):</strong> Retirar uma bola azul. O número de bolas azuis é 5.</li>
-        <li><strong>Calcular a probabilidade:</strong>
-            @@
-            P(E) = \frac{5}{8}
-            @@
-        </li>
-    </ol>
-    <p>A probabilidade de retirar uma bola azul é de 5/8.</p>
+    <div class="nota">
+      <strong>Classificação de eventos:</strong> Um evento é chamado <strong>simples</strong> quando consiste de um único elemento de @\Omega@. Um evento é chamado <strong>composto</strong> quando possui mais de um elemento.
+    </div>
 
-    <h2>Probabilidade de Eventos Não Mutuamente Exclusivos</h2>
+    <div class="destaque-box definicao">
+      <h3>Definição 1.4 (Eventos Mutuamente Exclusivos)</h3>
+      <p>Dois eventos @A@ e @B@ são <strong>mutuamente exclusivos</strong> (ou disjuntos) se não podem ocorrer simultaneamente, isto é, se @A \cap B = \emptyset@.</p>
+    </div>
 
-    <p>Quando dois eventos A e B não são mutuamente exclusivos (podem ocorrer ao mesmo tempo), a probabilidade de A ou B ocorrer é dada por:</p>
+    <div class="destaque-box definicao">
+      <h3>Definição 1.5 (Eventos Independentes)</h3>
+      <p>Dois eventos @A@ e @B@ são <strong>independentes</strong> se a ocorrência de um não altera a probabilidade de ocorrência do outro. Formalmente, @A@ e @B@ são independentes se @P(A \cap B) = P(A) \cdot P(B)@.</p>
+    </div>
 
+    <h2>2. Definição de Probabilidade</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Probabilidade Clássica)</h3>
+      <p>Seja @\Omega@ um espaço amostral finito com @n@ elementos equiprováveis (igualmente prováveis), e seja @E \subseteq \Omega@ um evento com @k@ elementos. A <strong>probabilidade</strong> do evento @E@ é definida por:</p>
+      @@
+      P(E) = \frac{n(E)}{n(\Omega)} = \frac{\text{número de casos favoráveis}}{\text{número de casos possíveis}}
+      @@
+      <p>onde @n(E)@ denota o número de elementos de @E@ (cardinalidade de @E@).</p>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> Esta definição é válida apenas quando todos os resultados do espaço amostral são equiprováveis. Para espaços amostrais infinitos ou com resultados não equiprováveis, são necessárias definições mais gerais (axiomas de Kolmogorov).
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Propriedades Fundamentais da Probabilidade)</h3>
+      <p>Para qualquer evento @E \subseteq \Omega@, valem as seguintes propriedades:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i)</strong> @0 \leq P(E) \leq 1@</li>
+        <li><strong>(ii)</strong> @P(\emptyset) = 0@ (o evento impossível tem probabilidade zero)</li>
+        <li><strong>(iii)</strong> @P(\Omega) = 1@ (o evento certo tem probabilidade um)</li>
+        <li><strong>(iv)</strong> Se @E^c@ é o evento complementar de @E@, então @P(E^c) = 1 - P(E)@</li>
+      </ul>
+    </div>
+
+    <p><strong>Demonstração de (iv):</strong></p>
+    <p>Como @E \cup E^c = \Omega@ e @E \cap E^c = \emptyset@, temos:</p>
     @@
-    P(A \cup B) = P(A) + P(B) - P(A \cap B)
-    @@
-
-    <p>Onde @P(A \cap B)@ é a probabilidade de A e B ocorrerem simultaneamente.</p>
-
-    <h3>Exemplo 3: Lançamento de um dado (eventos não mutuamente exclusivos)</h3>
-    <p>Qual a probabilidade de obter um número par OU um número maior que 3 ao lançar um dado?</p>
-    <ol>
-        <li><strong>Espaço Amostral (Ω):</strong> {1, 2, 3, 4, 5, 6} (total de 6 resultados).</li>
-        <li><strong>Evento A:</strong> Obter um número par. A = {2, 4, 6}. @P(A) = \frac{3}{6} = \frac{1}{2}@.</li>
-        <li><strong>Evento B:</strong> Obter um número maior que 3. B = {4, 5, 6}. @P(B) = \frac{3}{6} = \frac{1}{2}@.</li>
-        <li><strong>Evento A ∩ B:</strong> Obter um número par E maior que 3. A ∩ B = {4, 6}. @P(A \cap B) = \frac{2}{6} = \frac{1}{3}@.</li>
-        <li><strong>Calcular P(A ∪ B):</strong>
-            @@
-            P(A \cup B) = P(A) + P(B) - P(A \cap B)
-            @@
-            @@ 
-            = \frac{1}{2} + \frac{1}{2} - \frac{1}{3} 
-            @@
-            @@
-            = 1 - \frac{1}{3} 
-            @@
-            @@
-            = \frac{2}{3}
-            @@
-        </li>
-    </ol>
-    <p>A probabilidade de obter um número par OU maior que 3 é de 2/3.</p>
-
-    <h2>Probabilidade de Eventos Independentes</h2>
-
-    <p>Para eventos independentes A e B, a probabilidade de ambos ocorrerem é o produto de suas probabilidades individuais:</p>
-
-    @@
-    P(A \cap B) = P(A) \times P(B)
+    \begin{align}
+    P(E \cup E^c) &= P(\Omega) = 1 \\
+    P(E) + P(E^c) &= 1 \\
+    P(E^c) &= 1 - P(E)
+    \end{align}
     @@
 
-    <h3>Exemplo 4: Lançamento de duas moedas</h3>
-    <p>Qual a probabilidade de obter cara no primeiro lançamento E coroa no segundo lançamento de uma moeda justa?</p>
-    <ol>
-        <li><strong>Evento A:</strong> Obter cara no primeiro lançamento. @P(A) = \frac{1}{2}@.</li>
-        <li><strong>Evento B:</strong> Obter coroa no segundo lançamento. @P(B) = \frac{1}{2}@.</li>
-        <li><strong>Calcular P(A ∩ B):</strong> Como os lançamentos são independentes:
-            @@
-            P(A \cap B) = P(A) \times P(B) = \frac{1}{2} \times \frac{1}{2} = \frac{1}{4}
-            @@
-        </li>
-    </ol>
-    <p>A probabilidade de obter cara e depois coroa é de 1/4.</p>
+    <h2>3. Operações com Eventos</h2>
 
-    <h2>Pontos de Atenção</h2>
-    <ul>
-        <li><strong>Sempre identifique corretamente o espaço amostral (Ω) e o evento de interesse (E).</strong> Um erro aqui invalida todo o cálculo.</li>
-        <li><strong>Verifique se os eventos são mutuamente exclusivos ou independentes</strong> antes de aplicar as fórmulas apropriadas.</li>
-        <li><strong>Simplifique as frações</strong> sempre que possível.</li>
-        <li><strong>A probabilidade é um número entre 0 e 1.</strong> Se o resultado for maior que 1 ou menor que 0, há um erro no cálculo.</li>
-        <li><strong>Em problemas com "ou",</strong> lembre-se de subtrair a interseção se os eventos não forem mutuamente exclusivos.</li>
-        <li><strong>Em problemas com "e",</strong> multiplique as probabilidades se os eventos forem independentes.</li>
-    </ul>
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Probabilidade da União)</h3>
+      <p>Sejam @A@ e @B@ dois eventos de um espaço amostral @\Omega@. A probabilidade de ocorrer @A@ ou @B@ (ou ambos) é dada por:</p>
+      @@
+      P(A \cup B) = P(A) + P(B) - P(A \cap B)
+      @@
+    </div>
 
-    <h2>Conexões e Aplicações</h2>
-    <p>A probabilidade é fundamental em diversas áreas, como:</p>
-    <ul>
-        <li><strong>Estatística:</strong> Base para a inferência estatística e análise de dados.</li>
-        <li><strong>Ciências:</strong> Modelagem de fenômenos naturais, genética, física quântica.</li>
-        <li><strong>Finanças:</strong> Análise de riscos, precificação de ativos.</li>
-        <li><strong>Jogos de Azar:</strong> Cálculo de chances em cassinos e loterias.</li>
-        <li><strong>Tomada de Decisão:</strong> Avaliação de riscos e benefícios em situações de incerteza.</li>
-    </ul>
+    <p><strong>Justificativa:</strong> Quando somamos @P(A) + P(B)@, os elementos que pertencem a @A \cap B@ são contados duas vezes. Logo, devemos subtrair @P(A \cap B)@ uma vez para obter a contagem correta.</p>
+
+    <div class="destaque-box observacao">
+      <h3>Corolário 3.1</h3>
+      <p>Se @A@ e @B@ são eventos mutuamente exclusivos, então:</p>
+      @@
+      P(A \cup B) = P(A) + P(B)
+      @@
+      <p>pois @P(A \cap B) = P(\emptyset) = 0@.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.2 (Probabilidade da Interseção)</h3>
+      <p>Sejam @A@ e @B@ dois eventos independentes. A probabilidade de ocorrer @A@ e @B@ simultaneamente é:</p>
+      @@
+      P(A \cap B) = P(A) \cdot P(B)
+      @@
+    </div>
+
+    <p class="nota">
+      <strong>Importante:</strong> Esta fórmula só é válida para eventos independentes. Se os eventos forem dependentes, devemos usar a probabilidade condicional.
+    </p>
+
+    <h2>4. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4.1</h3>
+      <p>Lançando-se um dado equilibrado de seis faces, calcule:</p>
+      <p><strong>a)</strong> A probabilidade de obter um número par.</p>
+      <p><strong>b)</strong> A probabilidade de obter um número maior que 4.</p>
+      <p><strong>c)</strong> A probabilidade de obter um número ímpar ou maior que 4.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Determinar o espaço amostral.</p>
+      @@
+      \Omega = \{1, 2, 3, 4, 5, 6\} \quad \text{com} \quad n(\Omega) = 6
+      @@
+
+      <p><strong>a)</strong> Seja @A@ o evento "obter número par".</p>
+      @@
+      A = \{2, 4, 6\} \quad \text{com} \quad n(A) = 3
+      @@
+      @@
+      P(A) = \frac{n(A)}{n(\Omega)} = \frac{3}{6} = \frac{1}{2}
+      @@
+
+      <p><strong>b)</strong> Seja @B@ o evento "obter número maior que 4".</p>
+      @@
+      B = \{5, 6\} \quad \text{com} \quad n(B) = 2
+      @@
+      @@
+      P(B) = \frac{n(B)}{n(\Omega)} = \frac{2}{6} = \frac{1}{3}
+      @@
+
+      <p><strong>c)</strong> Seja @C@ o evento "obter número ímpar".</p>
+      @@
+      C = \{1, 3, 5\} \quad \text{com} \quad n(C) = 3
+      @@
+      <p>Queremos @P(C \cup B)@. Primeiro, determinamos @C \cap B@:</p>
+      @@
+      C \cap B = \{5\} \quad \text{com} \quad n(C \cap B) = 1
+      @@
+      <p>Logo, @P(C \cap B) = \frac{1}{6}@.</p>
+      <p>Aplicando o Teorema 3.1:</p>
+      @@
+      \begin{align}
+      P(C \cup B) &= P(C) + P(B) - P(C \cap B) \\
+      &= \frac{3}{6} + \frac{2}{6} - \frac{1}{6} \\
+      &= \frac{4}{6} = \frac{2}{3}
+      \end{align}
+      @@
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4.2</h3>
+      <p>Uma urna contém 5 bolas vermelhas, 3 bolas azuis e 2 bolas verdes. Retira-se uma bola ao acaso. Calcule a probabilidade de:</p>
+      <p><strong>a)</strong> A bola ser vermelha.</p>
+      <p><strong>b)</strong> A bola não ser azul.</p>
+      <p><strong>c)</strong> A bola ser vermelha ou verde.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Determinar o número total de bolas.</p>
+      @@
+      n(\Omega) = 5 + 3 + 2 = 10
+      @@
+
+      <p><strong>a)</strong> Número de bolas vermelhas: @n(V) = 5@.</p>
+      @@
+      P(V) = \frac{5}{10} = \frac{1}{2}
+      @@
+
+      <p><strong>b)</strong> Seja @A@ o evento "bola azul". Então @n(A) = 3@.</p>
+      <p>Queremos @P(A^c)@ (evento complementar):</p>
+      @@
+      P(A^c) = 1 - P(A) = 1 - \frac{3}{10} = \frac{7}{10}
+      @@
+
+      <p><strong>c)</strong> Os eventos "vermelha" e "verde" são mutuamente exclusivos (uma bola não pode ser vermelha e verde ao mesmo tempo).</p>
+      <p>Seja @G@ o evento "bola verde": @n(G) = 2@.</p>
+      @@
+      P(V \cup G) = P(V) + P(G) = \frac{5}{10} + \frac{2}{10} = \frac{7}{10}
+      @@
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4.3</h3>
+      <p>Lança-se uma moeda equilibrada duas vezes. Qual a probabilidade de obter:</p>
+      <p><strong>a)</strong> Duas caras.</p>
+      <p><strong>b)</strong> Pelo menos uma cara.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Determinar o espaço amostral.</p>
+      <p>Representando cara por @K@ e coroa por @C@:</p>
+      @@
+      \Omega = \{KK, KC, CK, CC\} \quad \text{com} \quad n(\Omega) = 4
+      @@
+
+      <p><strong>a)</strong> Evento @A@ = "duas caras" = @\{KK\}@.</p>
+      @@
+      P(A) = \frac{1}{4}
+      @@
+
+      <p><strong>Método alternativo usando independência:</strong></p>
+      <p>O resultado do segundo lançamento é independente do primeiro.</p>
+      @@
+      P(A) = P(\text{cara no 1º}) \times P(\text{cara no 2º}) = \frac{1}{2} \times \frac{1}{2} = \frac{1}{4}
+      @@
+
+      <p><strong>b)</strong> Evento @B@ = "pelo menos uma cara" = @\{KK, KC, CK\}@.</p>
+      @@
+      P(B) = \frac{3}{4}
+      @@
+
+      <p><strong>Método alternativo usando evento complementar:</strong></p>
+      <p>O complementar de "pelo menos uma cara" é "nenhuma cara" (ou seja, "duas coroas").</p>
+      @@
+      P(B^c) = P(\text{duas coroas}) = \frac{1}{4}
+      @@
+      @@
+      P(B) = 1 - P(B^c) = 1 - \frac{1}{4} = \frac{3}{4}
+      @@
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4.4</h3>
+      <p>Em um grupo de 30 alunos, 18 gostam de Matemática, 15 gostam de História, e 8 gostam de ambas as matérias. Escolhendo um aluno ao acaso, qual a probabilidade de que ele goste de:</p>
+      <p><strong>a)</strong> Matemática ou História.</p>
+      <p><strong>b)</strong> Apenas Matemática.</p>
+      <p><strong>c)</strong> Nenhuma das duas matérias.</p>
+
+      <h4>Solução:</h4>
+      <p>Seja @M@ o evento "gosta de Matemática" e @H@ o evento "gosta de História".</p>
+      <p>Dados: @n(\Omega) = 30@, @n(M) = 18@, @n(H) = 15@, @n(M \cap H) = 8@.</p>
+
+      <p><strong>a)</strong> Queremos @P(M \cup H)@.</p>
+      <p><strong>Passo 1:</strong> Calcular as probabilidades individuais.</p>
+      @@
+      P(M) = \frac{18}{30} = \frac{3}{5}, \quad P(H) = \frac{15}{30} = \frac{1}{2}, \quad P(M \cap H) = \frac{8}{30} = \frac{4}{15}
+      @@
+
+      <p><strong>Passo 2:</strong> Aplicar o Teorema 3.1.</p>
+      @@
+      \begin{align}
+      P(M \cup H) &= P(M) + P(H) - P(M \cap H) \\
+      &= \frac{18}{30} + \frac{15}{30} - \frac{8}{30} \\
+      &= \frac{25}{30} = \frac{5}{6}
+      \end{align}
+      @@
+
+      <p><strong>b)</strong> "Apenas Matemática" significa @M \cap H^c@.</p>
+      @@
+      n(M \cap H^c) = n(M) - n(M \cap H) = 18 - 8 = 10
+      @@
+      @@
+      P(M \cap H^c) = \frac{10}{30} = \frac{1}{3}
+      @@
+
+      <p><strong>c)</strong> "Nenhuma das duas" é o complementar de @M \cup H@.</p>
+      @@
+      P((M \cup H)^c) = 1 - P(M \cup H) = 1 - \frac{5}{6} = \frac{1}{6}
+      @@
+      <p>Ou seja, 5 alunos não gostam de nenhuma das duas matérias.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4.5 (Aplicação - Genética)</h3>
+      <p>Em genética, ao cruzar duas plantas heterozigotas (@Aa@), os descendentes seguem a proporção: 25% @AA@, 50% @Aa@, 25% @aa@. Escolhendo dois descendentes ao acaso (com reposição), qual a probabilidade de:</p>
+      <p><strong>a)</strong> Ambos serem homozigotos dominantes (@AA@).</p>
+      <p><strong>b)</strong> Pelo menos um ser heterozigoto (@Aa@).</p>
+
+      <h4>Solução:</h4>
+      <p><strong>a)</strong> As escolhas são independentes (com reposição).</p>
+      @@
+      P(AA) = \frac{1}{4}
+      @@
+      @@
+      P(\text{ambos } AA) = P(AA) \times P(AA) = \frac{1}{4} \times \frac{1}{4} = \frac{1}{16}
+      @@
+
+      <p><strong>b)</strong> "Pelo menos um @Aa@" = complementar de "nenhum @Aa@".</p>
+      <p>Probabilidade de não ser @Aa@:</p>
+      @@
+      P(\text{não } Aa) = P(AA) + P(aa) = \frac{1}{4} + \frac{1}{4} = \frac{1}{2}
+      @@
+      @@
+      P(\text{nenhum } Aa) = \frac{1}{2} \times \frac{1}{2} = \frac{1}{4}
+      @@
+      @@
+      P(\text{pelo menos um } Aa) = 1 - \frac{1}{4} = \frac{3}{4}
+      @@
+    </div>
+
+    <h2>5. Propriedades e Teoremas Adicionais</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.1 (Probabilidade do Evento Complementar)</h3>
+      <p>Para qualquer evento @E@, temos:</p>
+      @@
+      P(E) + P(E^c) = 1
+      @@
+      <p>Esta propriedade é extremamente útil quando é mais fácil calcular a probabilidade do evento complementar.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.2 (Desigualdade)</h3>
+      <p>Se @A \subseteq B@, então @P(A) \leq P(B)@.</p>
+    </div>
+
+    <p><strong>Demonstração:</strong> Como @A \subseteq B@, podemos escrever @B = A \cup (B \setminus A)@, onde @A@ e @B \setminus A@ são disjuntos. Logo:</p>
+    @@
+    P(B) = P(A) + P(B \setminus A) \geq P(A)
+    @@
+    <p>pois @P(B \setminus A) \geq 0@.</p>
+
+    <div class="destaque-box observacao">
+      <h3>Propriedade 5.1 (Eventos Dependentes)</h3>
+      <p>Para eventos dependentes, a probabilidade da interseção envolve o conceito de <strong>probabilidade condicional</strong> (estudado em níveis mais avançados):</p>
+      @@
+      P(A \cap B) = P(A) \cdot P(B|A)
+      @@
+      <p>onde @P(B|A)@ é a probabilidade de @B@ ocorrer dado que @A@ já ocorreu.</p>
+    </div>
+
+    <h2>6. Método de Contagem e Probabilidade</h2>
+
+    <p>Em muitos problemas, determinar @n(\Omega)@ e @n(E)@ requer técnicas de análise combinatória. As principais ferramentas são:</p>
+
+    <div class="destaque-box observacao">
+      <h3>Princípio Fundamental da Contagem</h3>
+      <p>Se um processo pode ser dividido em @k@ etapas, e a @i@-ésima etapa pode ser realizada de @n_i@ maneiras diferentes, então o número total de maneiras de realizar o processo é:</p>
+      @@
+      n_1 \times n_2 \times \cdots \times n_k
+      @@
+    </div>
+
+    <p><strong>Exemplo:</strong> Ao lançar 3 moedas, o número de resultados possíveis é:</p>
+    @@
+    n(\Omega) = 2 \times 2 \times 2 = 2^3 = 8
+    @@
+
+    <h2>7. Estratégias de Resolução de Problemas</h2>
+
+    <p><strong>Passo 1: Identificar o experimento aleatório</strong></p>
+    <p>Determine claramente qual é o processo que está sendo realizado.</p>
+
+    <p><strong>Passo 2: Determinar o espaço amostral @\Omega@</strong></p>
+    <p>Liste todos os resultados possíveis e calcule @n(\Omega)@.</p>
+
+    <p><strong>Passo 3: Identificar o evento de interesse @E@</strong></p>
+    <p>Determine quais resultados satisfazem a condição pedida e calcule @n(E)@.</p>
+
+    <p><strong>Passo 4: Verificar equiprobabilidade</strong></p>
+    <p>Certifique-se de que todos os resultados são igualmente prováveis.</p>
+
+    <p><strong>Passo 5: Calcular a probabilidade</strong></p>
+    <p>Use @P(E) = \frac{n(E)}{n(\Omega)}@ ou as propriedades apropriadas.</p>
+
+    <p><strong>Passo 6: Verificar o resultado</strong></p>
+    <p>Confira se @0 \leq P(E) \leq 1@ e se o resultado faz sentido no contexto.</p>
+
+    <div class="nota">
+      <strong>Dica importante:</strong> Quando o problema envolve "pelo menos um", geralmente é mais fácil usar o evento complementar. Por exemplo, @P(\text{pelo menos um sucesso}) = 1 - P(\text{nenhum sucesso})@.
+    </div>
+
+    <h2>8. Conceitos Importantes a Destacar</h2>
+
+    <div class="destaque-box observacao">
+      <h3>Diferença entre "OU" e "E"</h3>
+      <ul class="lista-propriedades">
+        <li><strong>"OU" (união @\cup@):</strong> Pelo menos um dos eventos ocorre. Use @P(A \cup B) = P(A) + P(B) - P(A \cap B)@.</li>
+        <li><strong>"E" (interseção @\cap@):</strong> Ambos os eventos ocorrem simultaneamente. Para eventos independentes, use @P(A \cap B) = P(A) \cdot P(B)@.</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Quando Usar o Complementar</h3>
+      <p>Use o evento complementar quando:</p>
+      <ul class="lista-propriedades">
+        <li>O problema pede "pelo menos um"</li>
+        <li>O problema pede "algum"</li>
+        <li>É mais fácil contar o que NÃO acontece</li>
+      </ul>
+      <p>A relação fundamental é: @P(E) = 1 - P(E^c)@.</p>
+    </div>
+
+    <h2>9. Exercícios Propostos</h2>
+
+    <p><strong>1.</strong> Lança-se um dado equilibrado. Calcule a probabilidade de obter um número primo.</p>
+
+    <p><strong>2.</strong> Uma urna contém 4 bolas brancas, 5 bolas pretas e 6 bolas cinzas. Retira-se uma bola ao acaso. Qual a probabilidade de:</p>
+    <p style="padding-left: 2rem;"><strong>a)</strong> A bola ser branca ou preta?</p>
+    <p style="padding-left: 2rem;"><strong>b)</strong> A bola não ser cinza?</p>
+
+    <p><strong>3.</strong> Lançam-se dois dados equilibrados. Calcule a probabilidade de:</p>
+    <p style="padding-left: 2rem;"><strong>a)</strong> A soma dos números ser igual a 7.</p>
+    <p style="padding-left: 2rem;"><strong>b)</strong> A soma ser maior que 9.</p>
+    <p style="padding-left: 2rem;"><strong>c)</strong> Obter números iguais.</p>
+
+    <p><strong>4.</strong> Em uma turma de 40 alunos, 25 estudam Inglês, 20 estudam Espanhol e 10 estudam ambas as línguas. Escolhendo um aluno ao acaso, qual a probabilidade de que ele:</p>
+    <p style="padding-left: 2rem;"><strong>a)</strong> Estude pelo menos uma das duas línguas?</p>
+    <p style="padding-left: 2rem;"><strong>b)</strong> Não estude nenhuma das duas?</p>
+
+    <p><strong>5.</strong> Uma moeda é lançada 3 vezes. Qual a probabilidade de obter pelo menos duas caras?</p>
+
+    <p><strong>6.</strong> Dois eventos @A@ e @B@ são tais que @P(A) = 0{,}4@, @P(B) = 0{,}5@ e @P(A \cap B) = 0{,}2@. Calcule:</p>
+    <p style="padding-left: 2rem;"><strong>a)</strong> @P(A \cup B)@</p>
+    <p style="padding-left: 2rem;"><strong>b)</strong> @P(A^c)@</p>
+    <p style="padding-left: 2rem;"><strong>c)</strong> @P(A^c \cap B^c)@</p>
+
+    <p><strong>7.</strong> Em um sorteio, a probabilidade de João ganhar é @\frac{1}{5}@ e a de Maria ganhar é @\frac{1}{4}@. Se os eventos são independentes, qual a probabilidade de:</p>
+    <p style="padding-left: 2rem;"><strong>a)</strong> Ambos ganharem?</p>
+    <p style="padding-left: 2rem;"><strong>b)</strong> Nenhum dos dois ganhar?</p>
+    <p style="padding-left: 2rem;"><strong>c)</strong> Pelo menos um ganhar?</p>
+
+    <p><strong>8.</strong> Demonstre que se @A@ e @B@ são eventos de um espaço amostral finito e equiprovável, então @P(A \cup B) \leq P(A) + P(B)@.</p>
+
+    <p><strong>9.</strong> (Desafio) Em uma gaveta há 6 meias vermelhas, 4 meias azuis e 2 meias verdes, todas misturadas. Retirando-se duas meias ao acaso e sem reposição, qual a probabilidade de formar um par de meias da mesma cor?</p>
+
+    <p><strong>10.</strong> Uma prova contém 5 questões de múltipla escolha, cada uma com 4 alternativas. Um aluno responde ao acaso todas as questões. Qual a probabilidade de acertar exatamente 3 questões?</p>
+
 </article>
 
     <div style="text-align: center; margin-top: 30px;">
-        <a href="../../index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
     </div>
 
-    
 </div> <!-- /.container -->
 </div> <!-- /#page-wrapper -->
 
@@ -174,15 +540,12 @@
 document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
         delimiters: [
-            // Equações em modo de exibição (display mode)
             {left: "@@", right: "@@", display: true},
             {left: "\\[", right: "\\]", display: true},
-
-            // Equações no modo "inline" (texto)
             {left: "@", right: "@", display: false},
             {left: "\\(", right: "\\)", display: false}
         ],
-        throwOnError: false // Mantém a página funcionando mesmo se houver um erro em uma fórmula
+        throwOnError: false
     });
 });
 </script>
@@ -190,7 +553,8 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
 <div id="theme-selector-panel" class="hidden">
     <h3>Escolha um Tema:</h3>
-    <button data-theme="theme-default" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
     <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
     <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
     <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
@@ -205,10 +569,6 @@ document.addEventListener("DOMContentLoaded", function() {
     <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
 </div>
 <script src="theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
 </body>
 </html>
-   <!-- BOTÃO VOLTAR DE FINAL DE PÁGINA
-     <div style="text-align: center; margin-top: 30px;">
-        <a href="index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
-    </div>
-  -->

@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXUS</title>
+  <title>NEXUS - Geometria: Perímetro e Área</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -10,6 +10,73 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
   <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -18,7 +85,6 @@
     <ul>
       <li><a href="../../index.html">PÁGINA INICIAL</a></li>
       <li><a href="../../recursos.html">RECURSOS</a></li>
-      <!--<li><a href="../../missoes.html">MISSÕES</a></li>-->
       <li><a href="../../dashboard.html">DASHBOARD</a></li>
     </ul>
   </nav>
@@ -26,80 +92,529 @@
 <div class="container">
 
 <article>
-    <h1>Figuras Planas, Perímetro e Área</h1>
+    <h1>Geometria Plana: Perímetro e Área</h1>
 
-    <p>Neste guia, exploraremos o fascinante mundo das figuras planas, focando em dois conceitos essenciais: o <strong>perímetro</strong> e a <strong>área</strong>. Compreender esses elementos é fundamental para resolver diversos problemas em matemática e em situações do cotidiano.</p>
+    <h2>1. Conceitos Fundamentais</h2>
 
-    <h2>O que são Figuras Planas?</h2>
-    <p>Figuras planas, também conhecidas como figuras bidimensionais, são aquelas que possuem apenas duas dimensões: <strong>comprimento</strong> e <strong>largura</strong>. Elas podem ser desenhadas em uma folha de papel e não possuem profundidade. Exemplos comuns incluem quadrados, retângulos, triângulos, círculos, losangos, entre outros.</p>
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Figura Plana)</h3>
+      <p>Uma <strong>figura plana</strong> ou <strong>figura bidimensional</strong> é um conjunto de pontos que pertencem a um mesmo plano. Tais figuras possuem apenas duas dimensões: comprimento e largura, não possuindo profundidade ou altura no sentido tridimensional.</p>
+    </div>
 
-    <h2>Perímetro: A Medida do Contorno</h2>
-    <p>O <strong>perímetro</strong> de uma figura plana é a medida do seu contorno, ou seja, o comprimento total de todos os seus lados somados. Pense em cercar um jardim: a quantidade de cerca necessária seria o perímetro do jardim.</p>
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Polígono)</h3>
+      <p>Um <strong>polígono</strong> é uma figura plana fechada formada por uma linha poligonal simples, isto é, uma sequência finita de segmentos de reta consecutivos @\overline{A_1A_2}, \overline{A_2A_3}, \ldots, \overline{A_{n-1}A_n}, \overline{A_nA_1}@ tais que:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i)</strong> Segmentos consecutivos não são colineares;</li>
+        <li><strong>(ii)</strong> Segmentos não consecutivos não se intersectam.</li>
+      </ul>
+      <p>Os pontos @A_1, A_2, \ldots, A_n@ são os <strong>vértices</strong> do polígono, e os segmentos são seus <strong>lados</strong>.</p>
+    </div>
 
-    <h3>Fórmulas Comuns para Perímetro:</h3>
+    <p class="nota">
+      <strong>Nomenclatura:</strong> Um polígono com @n@ lados é chamado de @n@-gono. Casos particulares: triângulo (@n=3@), quadrilátero (@n=4@), pentágono (@n=5@), hexágono (@n=6@), entre outros.
+    </p>
+
+    <h2>2. Perímetro</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Perímetro de um Polígono)</h3>
+      <p>Seja @P@ um polígono com @n@ lados de comprimentos @l_1, l_2, \ldots, l_n@. O <strong>perímetro</strong> de @P@, denotado por @\text{Per}(P)@, é a soma dos comprimentos de todos os seus lados:</p>
+      @@
+      \text{Per}(P) = l_1 + l_2 + \cdots + l_n = \sum_{i=1}^{n} l_i
+      @@
+      <p>O perímetro é medido em unidades de comprimento (metros, centímetros, etc.).</p>
+    </div>
+
+    <p class="nota">
+      <strong>Interpretação geométrica:</strong> O perímetro representa o comprimento total do contorno da figura. Em termos práticos, é a distância que se percorreria ao caminhar ao longo de toda a borda da figura.
+    </p>
+
+    <h3>2.1. Fórmulas para Perímetros de Polígonos Notáveis</h3>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Perímetro de Polígonos Regulares)</h3>
+      <p>Se @P@ é um polígono regular de @n@ lados, cada um com comprimento @l@, então:</p>
+      @@
+      \text{Per}(P) = n \cdot l
+      @@
+    </div>
+
+    <p><strong>Casos particulares importantes:</strong></p>
     <ul>
-        <li><strong>Quadrado:</strong> Um quadrado tem quatro lados iguais. Se o lado mede @l@, o perímetro é @P = 4 \times l@.</li>
-        <li><strong>Retângulo:</strong> Um retângulo tem dois pares de lados iguais. Se os lados medem @b@ (base) e @h@ (altura), o perímetro é @P = 2 \times (b + h)@.</li>
-        <li><strong>Triângulo:</strong> A soma das medidas dos três lados. Se os lados medem @a@, @b@ e @c@, o perímetro é @P = a + b + c@.</li>
-        <li><strong>Círculo (Circunferência):</strong> O perímetro de um círculo é chamado de <strong>circunferência</strong>. Se o raio mede @r@, a circunferência é @C = 2 \times \pi \times r@, onde @\pi@ (pi) é uma constante aproximadamente igual a 3,14159.</li>
+      <li><strong>Quadrado:</strong> Se @l@ é a medida do lado, então @P = 4l@.</li>
+      <li><strong>Triângulo Equilátero:</strong> Se @l@ é a medida do lado, então @P = 3l@.</li>
+      <li><strong>Retângulo:</strong> Se @b@ é a base e @h@ é a altura, então @P = 2b + 2h = 2(b + h)@.</li>
+      <li><strong>Triângulo Qualquer:</strong> Se os lados medem @a@, @b@ e @c@, então @P = a + b + c@.</li>
+      <li><strong>Paralelogramo:</strong> Se dois lados consecutivos medem @a@ e @b@, então @P = 2a + 2b = 2(a + b)@.</li>
     </ul>
 
-    <h3>Exemplo Prático de Perímetro:</h3>
-    <p>Vamos calcular o perímetro de um campo de futebol retangular com 100 metros de comprimento e 70 metros de largura.</p>
-    <ol>
-        <li>Identificar as medidas: @b = 100m@ e @h = 70m@.</li>
-        <li>Aplicar a fórmula do perímetro do retângulo: @P = 2 \times (b + h)@.</li>
-        <li>Substituir os valores: @P = 2 \times (100m + 70m)@.</li>
-        <li>Calcular: @P = 2 \times 170m = 340m@.</li>
-    </ol>
-    <p>Portanto, o perímetro do campo de futebol é de 340 metros.</p>
+    <h3>2.2. Circunferência</h3>
 
-    <h2>Área: A Medida da Superfície</h2>
-    <p>A <strong>área</strong> de uma figura plana é a medida da superfície que ela ocupa. Pense em pintar uma parede: a quantidade de tinta necessária dependeria da área da parede.</p>
+    <div class="destaque-box definicao">
+      <h3>Definição 2.2 (Circunferência)</h3>
+      <p>Uma <strong>circunferência</strong> de centro @O@ e raio @r > 0@ é o conjunto de todos os pontos do plano que estão a uma distância @r@ de @O@:</p>
+      @@
+      \mathcal{C} = \{P \in \mathbb{R}^2 : d(P, O) = r\}
+      @@
+    </div>
 
-    <h3>Fórmulas Comuns para Área:</h3>
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Comprimento da Circunferência)</h3>
+      <p>O comprimento @C@ de uma circunferência de raio @r@ é dado por:</p>
+      @@
+      C = 2\pi r
+      @@
+      <p>onde @\pi@ (pi) é a constante matemática aproximadamente igual a @3{,}14159\ldots@</p>
+    </div>
+
+    <p class="nota">
+      <strong>Nota histórica:</strong> A constante @\pi@ é definida como a razão entre o comprimento de qualquer circunferência e seu diâmetro. É um número irracional e transcendente, com infinitas casas decimais não periódicas.
+    </p>
+
+    <p>Como o diâmetro @d = 2r@, podemos escrever alternativamente:</p>
+    @@
+    C = \pi d
+    @@
+
+    <h2>3. Área</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Área de uma Figura Plana)</h3>
+      <p>A <strong>área</strong> de uma figura plana é uma medida não negativa que quantifica a extensão da superfície ocupada pela figura no plano. A área é medida em unidades quadradas (metros quadrados, centímetros quadrados, etc.).</p>
+    </div>
+
+    <p class="nota">
+      <strong>Observação axiomática:</strong> A definição rigorosa de área requer axiomas de medida. Para o ensino fundamental, trabalhamos com as fórmulas deduzidas a partir desses axiomas, particularmente:
+      <br>(i) A área de um quadrado de lado @l@ é @A = l^2@;
+      <br>(ii) Figuras congruentes têm áreas iguais;
+      <br>(iii) A área é aditiva: se uma figura é decomposta em partes sem sobreposição, sua área é a soma das áreas das partes.
+    </p>
+
+    <h3>3.1. Áreas de Quadriláteros</h3>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Área do Retângulo)</h3>
+      <p>A área @A@ de um retângulo de base @b@ e altura @h@ é dada por:</p>
+      @@
+      A = b \cdot h
+      @@
+    </div>
+
+    <p><strong>Justificativa:</strong> Esta fórmula decorre da definição axiomática de área. Um retângulo @b \times h@ pode ser decomposto em @b \times h@ quadrados unitários quando @b@ e @h@ são inteiros, e o resultado se estende por continuidade para valores reais.</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.2 (Área do Quadrado)</h3>
+      <p>A área @A@ de um quadrado de lado @l@ é:</p>
+      @@
+      A = l^2
+      @@
+    </div>
+
+    <p class="nota">
+      Esta é a razão pela qual a operação de multiplicar um número por ele mesmo é chamada de "elevar ao quadrado".
+    </p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.3 (Área do Paralelogramo)</h3>
+      <p>A área @A@ de um paralelogramo de base @b@ e altura @h@ (distância perpendicular entre as bases paralelas) é:</p>
+      @@
+      A = b \cdot h
+      @@
+    </div>
+
+    <p><strong>Justificativa:</strong> Um paralelogramo pode ser transformado em um retângulo de mesma base e altura através de corte e recomposição, preservando a área.</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.4 (Área do Losango)</h3>
+      <p>A área @A@ de um losango com diagonais @d_1@ e @d_2@ é:</p>
+      @@
+      A = \frac{d_1 \cdot d_2}{2}
+      @@
+    </div>
+
+    <p><strong>Justificativa:</strong> As diagonais de um losango são perpendiculares entre si e dividem o losango em quatro triângulos retângulos congruentes. A área total é metade do produto das diagonais.</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.5 (Área do Trapézio)</h3>
+      <p>A área @A@ de um trapézio com bases @B@ (base maior) e @b@ (base menor) e altura @h@ é:</p>
+      @@
+      A = \frac{(B + b) \cdot h}{2}
+      @@
+    </div>
+
+    <p><strong>Justificativa:</strong> A área do trapézio é a média aritmética das bases multiplicada pela altura. Isso pode ser demonstrado dividindo o trapézio em dois triângulos ou duplicando-o para formar um paralelogramo.</p>
+
+    <h3>3.2. Áreas de Triângulos</h3>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.6 (Área do Triângulo - Fórmula Básica)</h3>
+      <p>A área @A@ de um triângulo de base @b@ e altura @h@ (perpendicular à base) é:</p>
+      @@
+      A = \frac{b \cdot h}{2}
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong> Todo triângulo é metade de um paralelogramo de mesma base e altura. Logo, sua área é metade da área desse paralelogramo.</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.7 (Fórmula de Heron)</h3>
+      <p>Seja um triângulo com lados @a@, @b@ e @c@. Definindo o semiperímetro @s = \frac{a+b+c}{2}@, a área @A@ é dada por:</p>
+      @@
+      A = \sqrt{s(s-a)(s-b)(s-c)}
+      @@
+    </div>
+
+    <p class="nota">
+      <strong>Observação:</strong> A Fórmula de Heron é notável pois permite calcular a área conhecendo apenas os comprimentos dos lados, sem necessidade de medir alturas. Sua demonstração completa requer conhecimentos de álgebra avançada e será vista em anos posteriores.
+    </p>
+
+    <h3>3.3. Área do Círculo</h3>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.2 (Círculo)</h3>
+      <p>Um <strong>círculo</strong> de centro @O@ e raio @r@ é o conjunto de todos os pontos do plano cuja distância ao centro @O@ é menor ou igual a @r@:</p>
+      @@
+      \mathcal{D} = \{P \in \mathbb{R}^2 : d(P, O) \leq r\}
+      @@
+      <p>Em outras palavras, o círculo é a região interior à circunferência, incluindo a própria circunferência.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.8 (Área do Círculo)</h3>
+      <p>A área @A@ de um círculo de raio @r@ é:</p>
+      @@
+      A = \pi r^2
+      @@
+    </div>
+
+    <p><strong>Ideia da demonstração:</strong> Podemos aproximar o círculo por polígonos regulares inscritos com número crescente de lados. À medida que o número de lados aumenta, a área desses polígonos se aproxima de @\pi r^2@. A demonstração rigorosa usa limites e será vista em anos posteriores.</p>
+
+    <h2>4. Relações entre Perímetro e Área</h2>
+
+    <div class="destaque-box observacao">
+      <h3>Propriedade 4.1 (Independência de Perímetro e Área)</h3>
+      <p>O perímetro e a área de uma figura são grandezas <strong>independentes</strong>. Figuras com mesmo perímetro podem ter áreas diferentes, e figuras com mesma área podem ter perímetros diferentes.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4.1 (Ilustração da Independência)</h3>
+      <p>Considere dois retângulos:</p>
+      <p><strong>Retângulo A:</strong> base @10m@ e altura @5m@</p>
+      <p><strong>Retângulo B:</strong> base @8m@ e altura @7m@</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Retângulo A:</strong></p>
+      @@
+      \begin{align}
+      P_A &= 2(10 + 5) = 30m \\
+      A_A &= 10 \times 5 = 50m^2
+      \end{align}
+      @@
+
+      <p><strong>Retângulo B:</strong></p>
+      @@
+      \begin{align}
+      P_B &= 2(8 + 7) = 30m \\
+      A_B &= 8 \times 7 = 56m^2
+      \end{align}
+      @@
+
+      <p>Observe que @P_A = P_B = 30m@, mas @A_A \neq A_B@ (@50m^2 \neq 56m^2@). Portanto, mesmos perímetros não implicam mesmas áreas.</p>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Propriedade 4.2 (Problema Isoperimétrico)</h3>
+      <p>Entre todas as figuras planas com o mesmo perímetro, o <strong>círculo</strong> é aquela que possui a <strong>maior área</strong>. Este resultado é conhecido como <strong>desigualdade isoperimétrica</strong>.</p>
+      <p>Matematicamente, se @P@ é o perímetro e @A@ é a área de uma figura plana, então:</p>
+      @@
+      A \leq \frac{P^2}{4\pi}
+      @@
+      <p>com igualdade se, e somente se, a figura for um círculo.</p>
+    </div>
+
+    <h2>5. Unidades de Medida</h2>
+
+    <p><strong>Unidades de Comprimento (para perímetro):</strong></p>
     <ul>
-        <li><strong>Quadrado:</strong> Se o lado mede @l@, a área é @A = l^2@.</li>
-        <li><strong>Retângulo:</strong> Se a base mede @b@ e a altura mede @h@, a área é @A = b \times h@.</li>
-        <li><strong>Triângulo:</strong> Se a base mede @b@ e a altura mede @h@, a área é @A = \frac{b \times h}{2}@.</li>
-        <li><strong>Círculo:</strong> Se o raio mede @r@, a área é @A = \pi \times r^2@.</li>
-        <li><strong>Losango:</strong> Se as diagonais medem @d_1@ e @d_2@, a área é @A = \frac{d_1 \times d_2}{2}@.</li>
+      <li>km (quilômetro), m (metro), cm (centímetro), mm (milímetro)</li>
+      <li>Relações: @1km = 1000m@, @1m = 100cm@, @1cm = 10mm@</li>
     </ul>
 
-    <h3>Exemplo Prático de Área:</h3>
-    <p>Vamos calcular a área de um tapete quadrado com 3 metros de lado.</p>
-    <ol>
-        <li>Identificar a medida do lado: @l = 3m@.</li>
-        <li>Aplicar a fórmula da área do quadrado: @A = l^2@.</li>
-        <li>Substituir o valor: @A = (3m)^2@.</li>
-        <li>Calcular: @A = 9m^2@ (metros quadrados).</li>
-    </ol>
-    <p>Portanto, a área do tapete é de 9 metros quadrados.</p>
-
-    <h2>Conexões e Aplicações</h2>
-    <p>Os conceitos de perímetro e área são amplamente utilizados em diversas áreas:</p>
+    <p><strong>Unidades de Área:</strong></p>
     <ul>
-        <li><strong>Construção Civil:</strong> Para calcular a quantidade de material necessário (tinta, pisos, cercas).</li>
-        <li><strong>Design de Interiores:</strong> Para planejar a disposição de móveis e a cobertura de superfícies.</li>
-        <li><strong>Geografia:</strong> Para medir a extensão de territórios.</li>
-        <li><strong>Engenharia:</strong> Em projetos que envolvem superfícies e limites.</li>
-        <li><strong>Matemática:</strong> São a base para o estudo de geometria espacial e cálculo integral.</li>
+      <li>@km^2@ (quilômetro quadrado), @m^2@ (metro quadrado), @cm^2@ (centímetro quadrado)</li>
+      <li>Relações: @1km^2 = 1\,000\,000m^2 = 10^6m^2@</li>
+      <li>@1m^2 = 10\,000cm^2 = 10^4cm^2@</li>
+      <li>@1cm^2 = 100mm^2 = 10^2mm^2@</li>
     </ul>
 
-    <h2>Pontos de Atenção</h2>
-    <ul>
-        <li><strong>Unidades de Medida:</strong> Sempre preste atenção às unidades de medida. O perímetro é medido em unidades lineares (metros, centímetros), enquanto a área é medida em unidades quadradas (metros quadrados, centímetros quadrados).</li>
-        <li><strong>Diferença entre Perímetro e Área:</strong> Lembre-se que perímetro é o contorno e área é a superfície. Uma figura pode ter o mesmo perímetro que outra, mas áreas diferentes, e vice-versa.</li>
-        <li><strong>Fórmulas Específicas:</strong> Cada figura plana possui suas próprias fórmulas para perímetro e área. É importante memorizá-las ou saber como derivá-las.</li>
-    </ul>
+    <p class="nota">
+      <strong>Atenção:</strong> Note que @1m = 100cm@, mas @1m^2 = 10\,000cm^2@ (e não @100cm^2@). Ao converter unidades de área, o fator de conversão deve ser elevado ao quadrado.
+    </p>
+
+    <h2>6. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6.1 (Perímetro e Área de um Quadrado)</h3>
+      <p>Um quadrado tem lado medindo @7cm@. Calcule seu perímetro e sua área.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar os dados.</p>
+      <p>Lado do quadrado: @l = 7cm@</p>
+
+      <p><strong>Passo 2:</strong> Calcular o perímetro.</p>
+      @@
+      P = 4l = 4 \times 7 = 28cm
+      @@
+
+      <p><strong>Passo 3:</strong> Calcular a área.</p>
+      @@
+      A = l^2 = 7^2 = 49cm^2
+      @@
+
+      <p><strong>Resposta:</strong> O perímetro é @28cm@ e a área é @49cm^2@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6.2 (Campo de Futebol)</h3>
+      <p>Um campo de futebol retangular tem @100m@ de comprimento e @70m@ de largura. Determine:</p>
+      <p><strong>a)</strong> O perímetro do campo.</p>
+      <p><strong>b)</strong> A área do campo em @m^2@.</p>
+      <p><strong>c)</strong> Quantos metros de cerca são necessários para cercar completamente o campo?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar os dados.</p>
+      <p>Base: @b = 100m@, Altura: @h = 70m@</p>
+
+      <p><strong>a)</strong> Perímetro:</p>
+      @@
+      P = 2(b + h) = 2(100 + 70) = 2 \times 170 = 340m
+      @@
+
+      <p><strong>b)</strong> Área:</p>
+      @@
+      A = b \times h = 100 \times 70 = 7000m^2
+      @@
+
+      <p><strong>c)</strong> Comprimento de cerca necessário:</p>
+      <p>Para cercar completamente o campo, precisamos de uma cerca com comprimento igual ao perímetro, ou seja, @340m@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6.3 (Triângulo)</h3>
+      <p>Um triângulo tem base medindo @12cm@ e altura correspondente medindo @8cm@. Calcule sua área.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar os dados.</p>
+      <p>Base: @b = 12cm@, Altura: @h = 8cm@</p>
+
+      <p><strong>Passo 2:</strong> Aplicar a fórmula da área do triângulo.</p>
+      @@
+      A = \frac{b \times h}{2} = \frac{12 \times 8}{2} = \frac{96}{2} = 48cm^2
+      @@
+
+      <p><strong>Resposta:</strong> A área do triângulo é @48cm^2@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6.4 (Círculo e Circunferência)</h3>
+      <p>Uma circunferência tem raio @r = 5m@. Calcule:</p>
+      <p><strong>a)</strong> O comprimento da circunferência.</p>
+      <p><strong>b)</strong> A área do círculo.</p>
+      <p>Use @\pi \approx 3{,}14@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>a)</strong> Comprimento da circunferência:</p>
+      @@
+      C = 2\pi r = 2 \times 3{,}14 \times 5 = 31{,}4m
+      @@
+
+      <p><strong>b)</strong> Área do círculo:</p>
+      @@
+      A = \pi r^2 = 3{,}14 \times 5^2 = 3{,}14 \times 25 = 78{,}5m^2
+      @@
+
+      <p><strong>Resposta:</strong> O comprimento da circunferência é aproximadamente @31{,}4m@ e a área do círculo é aproximadamente @78{,}5m^2@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6.5 (Trapézio)</h3>
+      <p>Um trapézio tem base maior @B = 15cm@, base menor @b = 9cm@ e altura @h = 6cm@. Determine sua área.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar os dados.</p>
+      <p>Base maior: @B = 15cm@, Base menor: @b = 9cm@, Altura: @h = 6cm@</p>
+
+      <p><strong>Passo 2:</strong> Aplicar a fórmula da área do trapézio.</p>
+      @@
+      A = \frac{(B + b) \cdot h}{2} = \frac{(15 + 9) \cdot 6}{2} = \frac{24 \cdot 6}{2} = \frac{144}{2} = 72cm^2
+      @@
+
+      <p><strong>Resposta:</strong> A área do trapézio é @72cm^2@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6.6 (Losango)</h3>
+      <p>Um losango tem diagonais medindo @d_1 = 10cm@ e @d_2 = 6cm@. Calcule sua área.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar os dados.</p>
+      <p>Diagonal maior: @d_1 = 10cm@, Diagonal menor: @d_2 = 6cm@</p>
+
+      <p><strong>Passo 2:</strong> Aplicar a fórmula da área do losango.</p>
+      @@
+      A = \frac{d_1 \cdot d_2}{2} = \frac{10 \cdot 6}{2} = \frac{60}{2} = 30cm^2
+      @@
+
+      <p><strong>Resposta:</strong> A área do losango é @30cm^2@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6.7 (Problema de Aplicação)</h3>
+      <p>Uma sala retangular tem @8m@ de comprimento e @6m@ de largura. Deseja-se:</p>
+      <p><strong>a)</strong> Colocar rodapé em todo o perímetro. Quantos metros de rodapé são necessários?</p>
+      <p><strong>b)</strong> Cobrir o piso com cerâmica. Qual a área a ser coberta?</p>
+      <p><strong>c)</strong> Se cada caixa de cerâmica cobre @2m^2@, quantas caixas são necessárias?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>a)</strong> Comprimento de rodapé necessário (perímetro):</p>
+      @@
+      P = 2(8 + 6) = 2 \times 14 = 28m
+      @@
+      <p>São necessários @28m@ de rodapé.</p>
+
+      <p><strong>b)</strong> Área a ser coberta:</p>
+      @@
+      A = 8 \times 6 = 48m^2
+      @@
+
+      <p><strong>c)</strong> Número de caixas:</p>
+      @@
+      N = \frac{48}{2} = 24 \text{ caixas}
+      @@
+      <p>São necessárias @24@ caixas de cerâmica.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6.8 (Fórmula de Heron)</h3>
+      <p>Um triângulo tem lados medindo @a = 13cm@, @b = 14cm@ e @c = 15cm@. Use a Fórmula de Heron para calcular sua área.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Calcular o semiperímetro.</p>
+      @@
+      s = \frac{a + b + c}{2} = \frac{13 + 14 + 15}{2} = \frac{42}{2} = 21cm
+      @@
+
+      <p><strong>Passo 2:</strong> Calcular @(s-a)@, @(s-b)@ e @(s-c)@.</p>
+      @@
+      \begin{align}
+      s - a &= 21 - 13 = 8 \\
+      s - b &= 21 - 14 = 7 \\
+      s - c &= 21 - 15 = 6
+      \end{align}
+      @@
+
+      <p><strong>Passo 3:</strong> Aplicar a Fórmula de Heron.</p>
+      @@
+      \begin{align}
+      A &= \sqrt{s(s-a)(s-b)(s-c)} \\
+      &= \sqrt{21 \cdot 8 \cdot 7 \cdot 6} \\
+      &= \sqrt{7056} \\
+      &= 84cm^2
+      \end{align}
+      @@
+
+      <p><strong>Resposta:</strong> A área do triângulo é @84cm^2@.</p>
+    </div>
+
+    <h2>7. Tabela Resumo de Fórmulas</h2>
+
+    <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+      <thead>
+        <tr style="background-color: rgba(0,0,0,0.3);">
+          <th style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">Figura</th>
+          <th style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">Perímetro</th>
+          <th style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">Área</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">Quadrado (lado @l@)</td>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">@P = 4l@</td>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">@A = l^2@</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">Retângulo (base @b@, altura @h@)</td>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">@P = 2(b + h)@</td>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">@A = b \cdot h@</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">Triângulo (base @b@, altura @h@)</td>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">@P = a + b + c@</td>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">@A = \frac{b \cdot h}{2}@</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">Paralelogramo (base @b@, altura @h@)</td>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">@P = 2(a + b)@</td>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">@A = b \cdot h@</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">Trapézio (bases @B, b@, altura @h@)</td>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">@P = B + b + l_1 + l_2@</td>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">@A = \frac{(B+b) \cdot h}{2}@</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">Losango (diagonais @d_1, d_2@)</td>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">@P = 4l@</td>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">@A = \frac{d_1 \cdot d_2}{2}@</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">Círculo (raio @r@)</td>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">@C = 2\pi r@</td>
+          <td style="border: 1px solid var(--secondary-text-color); padding: 0.8rem;">@A = \pi r^2@</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>8. Exercícios Propostos</h2>
+
+    <p><strong>1.</strong> Um terreno retangular tem @25m@ de comprimento e @18m@ de largura. Calcule:</p>
+    <p style="margin-left: 2rem;"><strong>a)</strong> O perímetro do terreno.</p>
+    <p style="margin-left: 2rem;"><strong>b)</strong> A área do terreno.</p>
+    <p style="margin-left: 2rem;"><strong>c)</strong> O custo para cercar o terreno se o metro linear de cerca custa R$ 45,00.</p>
+
+    <p><strong>2.</strong> Um triângulo equilátero tem lado medindo @9cm@. Determine:</p>
+    <p style="margin-left: 2rem;"><strong>a)</strong> Seu perímetro.</p>
+    <p style="margin-left: 2rem;"><strong>b)</strong> Sua altura (use @h = \frac{l\sqrt{3}}{2}@).</p>
+    <p style="margin-left: 2rem;"><strong>c)</strong> Sua área.</p>
+
+    <p><strong>3.</strong> Uma praça circular tem raio de @20m@. Calcule (use @\pi \approx 3{,}14@):</p>
+    <p style="margin-left: 2rem;"><strong>a)</strong> O comprimento do contorno da praça.</p>
+    <p style="margin-left: 2rem;"><strong>b)</strong> A área da praça.</p>
+
+    <p><strong>4.</strong> Um losango tem perímetro @60cm@ e diagonais na razão @3:4@. Se a diagonal menor mede @18cm@, determine:</p>
+    <p style="margin-left: 2rem;"><strong>a)</strong> A medida da diagonal maior.</p>
+    <p style="margin-left: 2rem;"><strong>b)</strong> A área do losango.</p>
+
+    <p><strong>5.</strong> Um trapézio tem bases medindo @12m@ e @8m@. Se sua área é @50m^2@, determine sua altura.</p>
+
+    <p><strong>6.</strong> Demonstre que a área de um triângulo equilátero de lado @l@ é @A = \frac{l^2\sqrt{3}}{4}@.</p>
+
+    <p><strong>7.</strong> Dois quadrados têm perímetros que diferem em @16cm@. Se a área do quadrado maior é @81cm^2@, qual é a área do quadrado menor?</p>
+
+    <p><strong>8.</strong> Um retângulo tem área @72cm^2@ e altura @6cm@. Calcule seu perímetro.</p>
+
+    <p><strong>9.</strong> Use a Fórmula de Heron para calcular a área de um triângulo com lados @7cm@, @8cm@ e @9cm@.</p>
+
+    <p><strong>10.</strong> Um círculo e um quadrado têm o mesmo perímetro de @40cm@. Qual figura tem maior área? Justifique matematicamente. (Use @\pi \approx 3{,}14@)</p>
+
 </article>
 
-
-  
     <div style="text-align: center; margin-top: 30px;">
-        <a href="../../index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
     </div>
-    
+
 </div> <!-- /.container -->
 </div> <!-- /#page-wrapper -->
 
@@ -109,15 +624,12 @@
 document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
         delimiters: [
-            // Equações em modo de exibição (display mode)
             {left: "@@", right: "@@", display: true},
             {left: "\\[", right: "\\]", display: true},
-
-            // Equações no modo "inline" (texto)
             {left: "@", right: "@", display: false},
             {left: "\\(", right: "\\)", display: false}
         ],
-        throwOnError: false // Mantém a página funcionando mesmo se houver um erro em uma fórmula
+        throwOnError: false
     });
 });
 </script>
@@ -125,7 +637,8 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
 <div id="theme-selector-panel" class="hidden">
     <h3>Escolha um Tema:</h3>
-    <button data-theme="theme-default" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
     <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
     <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
     <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
@@ -140,10 +653,6 @@ document.addEventListener("DOMContentLoaded", function() {
     <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
 </div>
 <script src="theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
 </body>
 </html>
-   <!-- BOTÃO VOLTAR DE FINAL DE PÁGINA
-     <div style="text-align: center; margin-top: 30px;">
-        <a href="index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
-    </div>
-  -->

@@ -204,8 +204,8 @@ body.theme-light-classic-neon-red {
     --katex-text-color: #000000;             /* Black for KaTeX text */
     --katex-text-shadow-color: rgba(255, 0, 0, 0.3); /* Subtle Neon Red shadow for KaTeX */
 }
-/* TEMA PADRÃO: Green Circuit (Legado) */
-:root {
+/* TEMA 13: Green Circuit */
+body.theme-green-circuit {
     --primary-bg-color: #0D0D0D;
     --content-box-bg-color: rgba(0, 0, 0, 0.75);
     --main-text-color: #E0E0E0;
@@ -214,7 +214,7 @@ body.theme-light-classic-neon-red {
     --container-border-color: #008000;
     --link-color: #39FF14;
     --link-hover-color: #FFFF00;
-    
+
     --matrix-rain-actual-color: #00FF00;
     --katex-text-color: #39FF14;
     --katex-text-shadow-color: rgba(0, 30, 0, 0.7);
@@ -224,6 +224,28 @@ body.theme-light-classic-neon-red {
     --theme-selector-text-color: #E0E0E0;
     --theme-selector-hover-bg-color: #00FF00;
     --theme-selector-hover-text-color: #000000;
+}
+
+/* TEMA PADRÃO (fallback - aplicado quando nenhum tema está selecionado) */
+:root {
+    --primary-bg-color: #1a1a1a;
+    --content-box-bg-color: rgba(26, 26, 26, 0.95);
+    --main-text-color: #e8e8e8;
+    --secondary-text-color: #a0a0a0;
+    --heading-text-color: #c9925e;
+    --container-border-color: #3a3a3a;
+    --link-color: #8ab4f8;
+    --link-hover-color: #aac7ff;
+
+    --matrix-rain-actual-color: #4a9eff;
+    --katex-text-color: #e8e8e8;
+    --katex-text-shadow-color: rgba(0, 0, 0, 0.3);
+
+    /* UI do Seletor de Tema */
+    --theme-selector-bg-color: #2a2a2a;
+    --theme-selector-text-color: #e8e8e8;
+    --theme-selector-hover-bg-color: #8ab4f8;
+    --theme-selector-hover-text-color: #1a1a1a;
 }
 /* 
 ================================================================================
@@ -592,3 +614,145 @@ footer p {
         right: 1rem;
     }
 }
+/* 
+{
+
+}
+
+*/
+
+/*
+================================================================================
+  7. MODO DE IMPRESSÃO
+================================================================================
+*/
+
+/* Botão de toggle do modo de impressão */
+
+#print-mode-toggle {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--content-box-bg-color, rgba(0, 0, 0, 0.75));
+    border: 2px solid var(--link-color, #39FF14);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 9998;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#print-mode-toggle:hover {
+    background-color: var(--link-color, #39FF14);
+    transform: scale(1.1);
+}
+
+
+/* Estilos quando o modo de impressão está ativo */
+body.print-mode {
+    background: white !important;
+    color: black !important;
+}
+
+/* Remover elementos não essenciais no modo de impressão */
+body.print-mode #matrixCanvas,
+body.print-mode nav,
+body.print-mode #theme-config-icon,
+body.print-mode #theme-selector-panel,
+body.print-mode #print-mode-toggle,
+body.print-mode .themed-button {
+    display: none !important;
+}
+
+/* Resetar cores no modo de impressão */
+body.print-mode #page-wrapper {
+    background: white !important;
+}
+
+body.print-mode .container {
+    background: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    padding: 1rem !important;
+}
+
+body.print-mode h1,
+body.print-mode h2,
+body.print-mode h3,
+body.print-mode h4,
+body.print-mode p,
+body.print-mode li,
+body.print-mode div,
+body.print-mode span {
+    color: black !important;
+}
+
+body.print-mode .destaque-box {
+    background-color: #f5f5f5 !important;
+    border-left-color: #333 !important;
+    page-break-inside: avoid;
+}
+
+body.print-mode .exemplo-resolvido {
+    background-color: #f9f9f9 !important;
+    border-left-color: #666 !important;
+    page-break-inside: avoid;
+}
+
+body.print-mode .nota {
+    background-color: #fff8e1 !important;
+    border-left-color: #ff9800 !important;
+}
+
+/* Garantir que fórmulas matemáticas sejam visíveis */
+body.print-mode .katex {
+    color: black !important;
+}
+
+body.print-mode .katex-display {
+    margin: 1rem 0;
+}
+
+/* Estilo de impressão real */
+@media print {
+    #matrixCanvas,
+    nav,
+    #theme-config-icon,
+    #theme-selector-panel,
+    #print-mode-toggle,
+    .themed-button {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    .container {
+        background: white !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .destaque-box {
+        border-left: 3px solid #333 !important;
+        background-color: #f5f5f5 !important;
+        page-break-inside: avoid;
+    }
+
+    .exemplo-resolvido {
+        background-color: #f9f9f9 !important;
+        border-left: 3px solid #666 !important;
+        page-break-inside: avoid;
+    }
+}
+    
+    

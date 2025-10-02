@@ -27,6 +27,15 @@
       font-family: 'Fira Sans', sans-serif;
     }
 
+    /* Tag de tópico matemático */
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
     /* Tag de fonte do problema */
     .problema-meta .fonte {
       background-color: rgba(0, 0, 0, 0.3);
@@ -93,7 +102,7 @@
      SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
 
      OBJETIVO: Familiarização com conceitos básicos
-     QUANTIDADE: 12-15 problemas
+     QUANTIDADE: 10-12 problemas
      CARACTERÍSTICAS:
      - Aplicação direta de fórmulas ou conceitos
      - Enunciados curtos e objetivos
@@ -109,8 +118,8 @@
     <!-- ====== EXEMPLO DE PROBLEMA 1 ====== -->
     <li>
       <div class="problema-meta">
-        <!-- FONTE: Original, OBMEP XXXX, ENEM, FUVEST, Canguru, etc. -->
-        <span class="fonte">Original</span>
+        <!-- TÓPICO DE MATEMÁTICA: Descreve o conceito matemático principal -->
+        <span class="topico">[Tópico matemático - ex: "Regra de três simples"]</span>
 
         <!-- DIFICULDADE: facil, media, dificil, desafio -->
         <span class="dificuldade facil">Fácil</span>
@@ -133,14 +142,14 @@
     <!-- ====== PROBLEMA 2 ====== -->
     <li>
       <div class="problema-meta">
-        <span class="fonte">[Fonte]</span>
+        <span class="topico">[Tópico matemático]</span>
         <span class="dificuldade facil">Fácil</span>
         <span>⏱️ X min</span>
       </div>
       <p>[Enunciado do problema 2]</p>
     </li>
 
-    <!-- ADICIONE MAIS 10-13 PROBLEMAS AQUI -->
+    <!-- ADICIONE MAIS 8-10 PROBLEMAS AQUI -->
 
   </ol>
 </article>
@@ -149,7 +158,7 @@
      SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
 
      OBJETIVO: Consolidar aprendizado e desenvolver interpretação
-     QUANTIDADE: 14-16 problemas
+     QUANTIDADE: 12-14 problemas
      CARACTERÍSTICAS:
      - Contextos mais elaborados
      - Requerem interpretação do enunciado
@@ -166,7 +175,7 @@
     <!-- ====== EXEMPLO DE PROBLEMA COM DICA ====== -->
     <li>
       <div class="problema-meta">
-        <span class="fonte">[Fonte]</span>
+        <span class="topico">[Tópico matemático]</span>
         <span class="dificuldade media">Média</span>
         <span>⏱️ X min</span>
       </div>
@@ -178,7 +187,7 @@
       </div>
     </li>
 
-    <!-- ADICIONE MAIS 13-15 PROBLEMAS AQUI -->
+    <!-- ADICIONE MAIS 11-13 PROBLEMAS AQUI -->
 
   </ol>
 </article>
@@ -204,7 +213,7 @@
     <!-- ====== EXEMPLO DE PROBLEMA COM SUBITENS ====== -->
     <li>
       <div class="problema-meta">
-        <span class="fonte">[Fonte]</span>
+        <span class="topico">[Tópico matemático]</span>
         <span class="dificuldade dificil">Difícil</span>
         <span>⏱️ X min</span>
       </div>
@@ -221,52 +230,51 @@
 </article>
 
 <!-- ============================================================================
-     SEÇÃO 4: DESAFIOS OLÍMPICOS E VESTIBULARES
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
 
-     OBJETIVO: Estimular raciocínio de alto nível e preparar para competições
-     QUANTIDADE: 5-8 problemas
+     OBJETIVO: Problemas adicionais para prática livre
+     QUANTIDADE: Variável (sugestão: 6-10 problemas)
      CARACTERÍSTICAS:
-     - Problemas autênticos de olimpíadas (OBMEP, Canguru)
-     - Questões de vestibulares adaptadas (FUVEST, UNICAMP, ITA, ENEM)
-     - Alta criatividade e pensamento não-convencional
-     - Podem requerer conhecimentos integrados
+     - Problemas extras para prática
+     - Variedade de dificuldades
+     - Podem incluir desafios criativos
+     - Foco em aplicações práticas e contextualizadas
 
-     IMPORTANTE: Sempre citar a fonte original!
+     NOTA: Não é necessário declarar fontes nesta seção
      ============================================================================ -->
 <article>
-  <h2>Desafios Olímpicos e Vestibulares</h2>
+  <h2>Problemas Propostos</h2>
   <p class="section-intro">
-    Problemas selecionados de olimpíadas de matemática e vestibulares para desafiar seu raciocínio!
+    Problemas adicionais para você praticar e consolidar seu aprendizado!
   </p>
 
   <ol>
-    <!-- ====== EXEMPLO DE PROBLEMA OLÍMPICO ====== -->
+    <!-- ====== EXEMPLO DE PROBLEMA 1 ====== -->
     <li>
       <div class="problema-meta">
-        <!-- Sempre citar fonte original e ano -->
-        <span class="fonte">OBMEP 20XX - Nível 3</span>
-        <span class="dificuldade desafio">Desafio</span>
+        <span class="topico">[Tópico matemático]</span>
+        <span class="dificuldade media">Média</span>
         <span>⏱️ X min</span>
       </div>
-      <p>[Enunciado do problema olímpico]</p>
+      <p>[Enunciado do problema proposto]</p>
 
-      <!-- Dicas são muito úteis em problemas desafiadores -->
+      <!-- Dicas são opcionais -->
       <div class="dica">
         <strong>Dica:</strong> [Orientação sobre estratégia de resolução]
       </div>
     </li>
 
-    <!-- ====== EXEMPLO DE PROBLEMA DE VESTIBULAR ====== -->
+    <!-- ====== EXEMPLO DE PROBLEMA 2 ====== -->
     <li>
       <div class="problema-meta">
-        <span class="fonte">FUVEST 20XX - Adaptado</span>
-        <span class="dificuldade desafio">Desafio</span>
+        <span class="topico">[Tópico matemático]</span>
+        <span class="dificuldade dificil">Difícil</span>
         <span>⏱️ X min</span>
       </div>
-      <p>[Enunciado do problema de vestibular]</p>
+      <p>[Enunciado do problema proposto]</p>
     </li>
 
-    <!-- ADICIONE MAIS 3-6 PROBLEMAS AQUI -->
+    <!-- ADICIONE MAIS 4-8 PROBLEMAS AQUI -->
 
   </ol>
 </article>
@@ -356,10 +364,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
      1. TÍTULO E SEÇÕES:
         - Substitua [NOME DO TÓPICO] pelo tema (ex: "EQUAÇÕES DO 2º GRAU")
-        - Mantenha as 4 seções: Introdutórios, Fixação, Aprofundamento, Desafios
+        - Mantenha as 4 seções: Introdutórios, Fixação, Aprofundamento, Problemas Propostos
 
      2. METADADOS DOS PROBLEMAS:
-        - Fonte: Original, OBMEP 20XX, ENEM, FUVEST, Canguru, etc.
+        - Tópico: Conceito matemático principal (ex: "Regra de três", "Teorema de Pitágoras")
         - Dificuldade: facil, media, dificil, desafio
         - Tempo: estimativa em minutos
 
@@ -378,17 +386,16 @@ document.addEventListener("DOMContentLoaded", function() {
         - Display: @@x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}@@
 
      6. QUANTIDADE RECOMENDADA:
-        - Introdutórios: 12-15 problemas
-        - Fixação: 14-16 problemas
+        - Introdutórios: 10-12 problemas
+        - Fixação: 12-14 problemas
         - Aprofundamento: 6-8 problemas
-        - Desafios: 5-8 problemas
-        - Total: 37-47 problemas
+        - TOTAL DAS 3 SEÇÕES: 32 problemas (distribuídos conforme acima)
+        - Problemas Propostos: 6-10 problemas (quantidade variável, para prática extra)
 
-     7. FONTES CONFIÁVEIS:
-        - OBMEP (Olimpíada Brasileira de Matemática)
-        - Canguru de Matemática
-        - ENEM
-        - Vestibulares: FUVEST, UNICAMP, UNESP, ITA, IME
-        - Livros didáticos: FME (Fundamentos de Matemática Elementar)
+     7. ORGANIZAÇÃO POR TÓPICO:
+        - Sempre declare o tópico matemático principal de cada problema
+        - Exemplos de tópicos: "Probabilidade simples", "Eventos independentes",
+          "Teorema de Pitágoras", "Equações do 1º grau", etc.
+        - Isso ajuda os estudantes a identificarem os conceitos envolvidos
 
      ============================================================================ -->

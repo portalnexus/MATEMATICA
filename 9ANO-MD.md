@@ -99,5 +99,3 @@ INFORMAÇÕES SOBRE O MATERIAL DIDÁTICO DO 9° ANO DO ENSINO FUNDAMENTAL MOVIME
 2. Correspondência entre volume e capacidade e suas respectivas unidades.
 3. Construção de projeções ortogonais de figuras geométricas sobre um plano.
 4. Reconhecimento das vistas ortogonais de figuras espaciais.
-
- 

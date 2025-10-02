@@ -90,10 +90,9 @@ function loadCurriculumForClass(classId) {
       }
       return response.json();
     })
-    .then(data => {
-      renderCurriculum(data);
-    })
-    .catch(error => {
+          .then(data => {
+            renderCurriculum(data.curriculum);
+          })    .catch(error => {
       console.error('Erro ao carregar currículo:', error);
       // Fallback para currículo padrão
       fetch('data/curriculum.json')

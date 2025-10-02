@@ -61,8 +61,37 @@
                     </div>
                 </div>
 
+                <!-- Linha 2.5: Painel de Estatísticas Gerais -->
+                <div id="estatisticas-area" class="dashboard-box">
+                    <span class="area-title">ESTATÍSTICAS</span>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value" id="stat-total-xp">0</span>
+                            <span class="stat-label">XP TOTAL</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="stat-missoes">0/0</span>
+                            <span class="stat-label">MISSÕES</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="stat-media-geral">0.0</span>
+                            <span class="stat-label">MÉDIA GERAL</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="stat-trofeus">0</span>
+                            <span class="stat-label">TROFÉUS</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Linha 3: Troféus -->
-                <div id="trofeus-area" class="dashboard-box"></div>
+                <div id="trofeus-area" class="dashboard-box">
+                    <div id="trofeus-conquistados"></div>
+                    <div id="trofeus-proximos">
+                        <h4>PRÓXIMAS CONQUISTAS</h4>
+                        <div id="trofeus-bloqueados-grid"></div>
+                    </div>
+                </div>
                 
                 <!-- Linha 4: Missões e Sidebar (Notas e Menções) -->
                 <div id="missoes-area" class="dashboard-box">
@@ -70,11 +99,47 @@
                     <ul id="lista-missoes"></ul>
                 </div>
 
+                <!-- Dashboard do Professor (oculto por padrão) -->
+                <div id="professor-dashboard" class="dashboard-box hidden">
+                    <h3>PAINEL DO PROFESSOR</h3>
+                    <div id="professor-stats-grid"></div>
+                    <div id="professor-ranking">
+                        <h4>RANKING DE DESEMPENHO</h4>
+                        <table id="ranking-table">
+                            <thead>
+                                <tr>
+                                    <th>Pos.</th>
+                                    <th>Aluno</th>
+                                    <th>Média Geral</th>
+                                    <th>Missões</th>
+                                    <th>Nível</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ranking-tbody"></tbody>
+                        </table>
+                    </div>
+                    <div id="professor-alertas">
+                        <h4>ALERTAS</h4>
+                        <ul id="alertas-list"></ul>
+                    </div>
+                </div>
+
                 <div id="sidebar-area">
                     <div id="notas-container" class="dashboard-box">
                       <div id="media-notas">MÉDIA: 0.0</div>
                       NOTAS
                       <div id="notas-grafico"></div>
+                      <div id="legenda-disciplinas">
+                        <span data-tooltip="Matemática Discreta e Aplicada">MDA</span>
+                        <span data-tooltip="Matemática Discreta e Pensamento Lógico">MDEP</span>
+                        <span data-tooltip="Números e Funções">NIF</span>
+                        <span data-tooltip="Números, Álgebra e Geometria">NAAG</span>
+                        <span data-tooltip="Português">PORT</span>
+                      </div>
+                    </div>
+                    <div id="evolucao-container" class="dashboard-box">
+                      <span class="area-title">EVOLUÇÃO</span>
+                      <canvas id="evolucao-grafico"></canvas>
                     </div>
                      <div id="mencoes" class="dashboard-box">MENÇÕES</div>
                 </div>

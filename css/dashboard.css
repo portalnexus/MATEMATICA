@@ -9,7 +9,7 @@
     grid-template-columns: repeat(6, 1fr);
     grid-template-areas:
       "id id id id lvl avatar"
-      "progresso progresso progresso progresso progresso progresso"
+      "progresso progresso progresso estatisticas estatisticas estatisticas"
       "trofeus trofeus trofeus trofeus trofeus trofeus"
       "missoes missoes sidebar sidebar sidebar sidebar"; /* Missões mais compactas */
 }
@@ -21,6 +21,7 @@
 #lvl-area { grid-area: lvl; align-items: center; justify-content: center; }
 #avatar-area { grid-area: avatar; padding: 0; overflow: hidden; }
 #progresso-area { grid-area: progresso; }
+#estatisticas-area { grid-area: estatisticas; }
 #trofeus-area { grid-area: trofeus; }
 #missoes-area { grid-area: missoes; }
 #sidebar-area { grid-area: sidebar; }
@@ -95,6 +96,128 @@
     opacity: 1;
     visibility: visible;
 }
+
+/* --- Painel de Estatísticas --- */
+#estatisticas-area { padding: 10px; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 10px; }
+.stat-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.stat-value { font-size: 1.5rem; color: var(--link-color); font-family: 'Press Start 2P', monospace; }
+.stat-label { font-size: 0.6rem; color: var(--secondary-text-color); margin-top: 5px; font-family: 'Fira Sans', sans-serif; }
+
+/* --- Legenda de Disciplinas --- */
+#legenda-disciplinas { display: flex; justify-content: space-around; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--secondary-text-color); }
+#legenda-disciplinas span { font-size: 0.7rem; color: var(--secondary-text-color); cursor: help; font-family: 'Fira Sans', sans-serif; }
+#legenda-disciplinas span:hover { color: var(--link-color); }
+
+/* --- Gráfico de Evolução --- */
+#evolucao-container { min-height: 150px; }
+#evolucao-grafico { width: 100%; height: 100px; }
+
+/* --- Melhorias em Troféus --- */
+#trofeus-conquistados { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-bottom: 20px; }
+#trofeus-proximos h4 { font-size: 0.9rem; margin: 10px 0; color: var(--link-color); text-align: center; border-top: 1px dashed var(--secondary-text-color); padding-top: 15px; }
+#trofeus-bloqueados-grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+
+.trofeu-box { position: relative; padding: 8px 12px; border-radius: 5px; border: 2px solid var(--secondary-text-color); transition: all 0.3s; }
+.trofeu-box:hover { border-color: var(--link-color); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+.trofeu-box.raridade-comum { border-color: #aaa; }
+.trofeu-box.raridade-raro { border-color: #4a9eff; }
+.trofeu-box.raridade-epico { border-color: #a335ee; }
+.trofeu-box.raridade-lendario { border-color: #ff8000; }
+.trofeu-categoria { font-size: 0.6rem; color: var(--secondary-text-color); display: block; margin-top: 3px; }
+
+.trofeu-bloqueado { opacity: 0.5; filter: grayscale(100%); border: 2px dashed var(--secondary-text-color); padding: 6px 10px; font-size: 0.75rem; max-width: 150px; text-align: center; }
+.trofeu-bloqueado:hover { opacity: 0.8; filter: grayscale(50%); }
+.trofeu-progresso { font-size: 0.65rem; color: var(--link-color); margin-top: 3px; }
+
+/* --- Melhorias em Missões --- */
+.missao-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; }
+.missao-info { flex-grow: 1; }
+.missao-nome { font-weight: bold; }
+.missao-tipo { font-size: 0.7rem; color: var(--secondary-text-color); margin-left: 8px; }
+.missao-xp { font-size: 0.8rem; color: var(--link-color); margin-left: auto; padding-left: 10px; }
+.missao-status { width: 20px; height: 20px; margin-left: 10px; }
+.missao-status.completada { color: #0f0; }
+.missao-status.pendente { color: var(--secondary-text-color); }
+.missao-tipo-obrigatoria { color: #ff6b6b; }
+.missao-tipo-opcional { color: #4ecdc4; }
+.missao-tipo-bonus { color: #ffd93d; }
+.missao-tipo-especial { color: #a335ee; }
+
+/* --- Seletor de Etapas Melhorado --- */
+.etapa-info { display: flex; flex-direction: column; align-items: center; gap: 3px; margin-top: 5px; }
+.etapa-media { font-size: 0.7rem; color: var(--secondary-text-color); transition: color 0.3s; }
+.etapa-missoes-count { font-size: 0.6rem; color: var(--secondary-text-color); transition: color 0.3s; }
+.etapa-status-icon { font-size: 0.8rem; margin-top: 2px; }
+.etapa-btn:hover .etapa-media, .etapa-btn:hover .etapa-missoes-count { color: var(--link-hover-color); }
+
+/* --- Animações e Micro-interações --- */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px var(--link-color); }
+    50% { box-shadow: 0 0 20px var(--link-color); }
+}
+
+.stat-value { animation: pulse 2s infinite; }
+.dashboard-box { animation: slideIn 0.5s ease-out; }
+.etapa-btn.active { animation: glow 2s infinite; }
+
+/* Transições suaves em todos os elementos interativos */
+.dashboard-box, .stat-item, .trofeu-box, .missao-item, .etapa-btn, #login-btn, #logout-btn {
+    transition: all 0.3s ease;
+}
+
+/* Efeito de "shake" em erros */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+#error-message:not(:empty) { animation: shake 0.5s; }
+
+/* Efeito de hover em stat-items */
+.stat-item:hover { transform: translateY(-3px); }
+.stat-item:hover .stat-value { color: var(--link-hover-color); }
+
+/* Pulso em missões não completadas */
+.missao-status.pendente { animation: pulse 1.5s infinite; }
+
+/* Brilho em troféus raros ao hover */
+.trofeu-box.raridade-epico:hover, .trofeu-box.raridade-lendario:hover {
+    box-shadow: 0 0 15px currentColor;
+}
+
+/* Transição suave no gráfico de evolução */
+#evolucao-grafico { transition: opacity 0.5s; }
+#evolucao-grafico:hover { opacity: 0.9; }
+
+/* Efeito de "reveal" nas barras de notas */
+.bar { animation: growUp 0.8s ease-out; }
+@keyframes growUp {
+    from { height: 0; }
+    to { height: var(--final-height); }
+}
+
+/* --- Dashboard do Professor --- */
+#professor-dashboard { grid-column: 1 / -1; padding: 20px; }
+#professor-dashboard h4 { font-size: 0.9rem; margin: 15px 0 10px 0; color: var(--link-color); }
+#professor-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+#ranking-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-family: 'Fira Sans', sans-serif; }
+#ranking-table th { background-color: rgba(0,0,0,0.3); padding: 8px; text-align: left; font-size: 0.8rem; border-bottom: 2px solid var(--link-color); }
+#ranking-table td { padding: 8px; border-bottom: 1px solid var(--secondary-text-color); font-size: 0.85rem; }
+#ranking-table tr:hover { background-color: rgba(0,0,0,0.2); }
+#alertas-list { list-style: none; padding: 0; }
+#alertas-list li { padding: 8px; margin: 5px 0; background-color: rgba(255,107,107,0.2); border-left: 3px solid #ff6b6b; font-family: 'Fira Sans', sans-serif; font-size: 0.85rem; }
 
 /*
 ================================================================================

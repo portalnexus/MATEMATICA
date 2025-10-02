@@ -98,7 +98,4 @@
 3. Construção de projeções ortogonais de figuras geométricas sobre um plano.
 4. Reconhecimento das vistas ortogonais de figuras espaciais.
 
- Quero consolidar as listas de problemas em apenas três seções: Problemas Introdutórios, Problemas de Fixação, Problemas de Aprofundamento. Mas pode permanecer com a ideia dos problemas propostos na quarta e última seção, mas dispense a     
-  declaração de fontes. Então atualize o template da lista, e respeite a quantidade original proposta de problemas ao todo, devem ser 32 problemas distribuidos entre as três seções (Introdutórios, Fixação e
-  Aprofundamento), achei excelente a ideia de declarar o tópico de matemática que estará associado ao problema.\
-  No final de sua tarefa atualize sua memória, e registre que o proxímo passo será o aprimoramento das outras listas de problemas (Função do 1° grau e Geometria - Perímetro e Área). As listas de problemas estão dentro "recursos\listas".
+ 

@@ -276,8 +276,9 @@ function desenharGraficoEvolucao(usuario) {
 
 /**
  * Renderiza o dashboard específico do professor
+ * @param {string} turmaFiltro - Turma para filtrar (ou 'all' para todas)
  */
-function renderizarDashboardProfessor() {
+function renderizarDashboardProfessor(turmaFiltro = 'all') {
     // Ocultar áreas padrão e mostrar área do professor
     document.getElementById('missoes-area').classList.add('hidden');
     document.getElementById('sidebar-area').classList.add('hidden');
@@ -285,13 +286,27 @@ function renderizarDashboardProfessor() {
     document.getElementById('estatisticas-area').classList.add('hidden');
     document.getElementById('professor-dashboard').classList.remove('hidden');
 
+    // Adicionar event listener ao seletor de turma (apenas uma vez)
+    const turmaSelect = document.getElementById('professor-turma-select');
+    if (turmaSelect && !turmaSelect.hasAttribute('data-listener-added')) {
+        turmaSelect.addEventListener('change', (e) => {
+            renderizarDashboardProfessor(e.target.value);
+        });
+        turmaSelect.setAttribute('data-listener-added', 'true');
+    }
+
     // Calcular estatísticas agregadas
-    const alunos = Object.entries(dadosUsuarios)
+    let alunos = Object.entries(dadosUsuarios)
         .filter(([id]) => id !== 'PR0F1')
         .map(([id, dados]) => {
             const stats = calcularEstatisticas(dados);
-            return { id, nome: dados.nome, ...stats, nivel: dados.lvl, exp: dados.exp };
+            return { id, nome: dados.nome, turma: dados.turma, ...stats, nivel: dados.lvl, exp: dados.exp };
         });
+
+    // Filtrar por turma se necessário
+    if (turmaFiltro !== 'all') {
+        alunos = alunos.filter(aluno => aluno.turma === turmaFiltro);
+    }
 
     // Estatísticas gerais da turma
     const totalAlunos = alunos.length;
@@ -300,22 +315,27 @@ function renderizarDashboardProfessor() {
     const totalMissoes = alunos.reduce((acc, a) => acc + a.totalMissoes, 0);
 
     const statsGrid = document.getElementById('professor-stats-grid');
+    const turmaLabel = turmaFiltro === 'all' ? 'TODAS AS TURMAS' : turmaFiltro;
     statsGrid.innerHTML = `
+        <div class="stat-item">
+            <span class="stat-value">${turmaLabel}</span>
+            <span class="stat-label">TURMA</span>
+        </div>
         <div class="stat-item">
             <span class="stat-value">${totalAlunos}</span>
             <span class="stat-label">ALUNOS</span>
         </div>
         <div class="stat-item">
             <span class="stat-value">${mediaGeralTurma.toFixed(1)}</span>
-            <span class="stat-label">MÉDIA DA TURMA</span>
+            <span class="stat-label">MÉDIA</span>
         </div>
         <div class="stat-item">
             <span class="stat-value">${totalMissoesCompletadas}/${totalMissoes}</span>
-            <span class="stat-label">MISSÕES TOTAL</span>
+            <span class="stat-label">MISSÕES</span>
         </div>
         <div class="stat-item">
             <span class="stat-value">${Math.round((totalMissoesCompletadas/totalMissoes)*100)}%</span>
-            <span class="stat-label">TAXA CONCLUSÃO</span>
+            <span class="stat-label">CONCLUSÃO</span>
         </div>
     `;
 
@@ -328,7 +348,7 @@ function renderizarDashboardProfessor() {
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${index + 1}º</td>
-            <td>${aluno.nome}</td>
+            <td>${aluno.nome}${turmaFiltro === 'all' ? ` (${aluno.turma})` : ''}</td>
             <td>${aluno.mediaGeral.toFixed(1)}</td>
             <td>${aluno.missoesCompletadas}/${aluno.totalMissoes}</td>
             <td>Nv. ${aluno.nivel}</td>
@@ -400,7 +420,7 @@ function preencherPainel(usuario, id, etapa) {
 
         // Estatísticas gerais
         const stats = calcularEstatisticas(usuario);
-        document.getElementById('stat-total-xp').innerText = usuario.exp.toLocaleString();
+        document.getElementById('stat-turma').innerText = usuario.turma || '-';
         document.getElementById('stat-missoes').innerText = `${stats.missoesCompletadas}/${stats.totalMissoes}`;
         document.getElementById('stat-media-geral').innerText = stats.mediaGeral.toFixed(1);
         document.getElementById('stat-trofeus').innerText = stats.totalTrofeus;
@@ -430,9 +450,6 @@ function preencherPainel(usuario, id, etapa) {
             attachTooltipEvents(span);
             areaMencoes.appendChild(span);
         });
-
-        // Desenhar gráfico de evolução
-        setTimeout(() => desenharGraficoEvolucao(usuario), 200);
 
         // Adicionar tooltips na legenda de disciplinas
         document.querySelectorAll('#legenda-disciplinas span').forEach(span => {
@@ -558,7 +575,7 @@ function limparPainel() {
     document.getElementById('progress-bar-text').innerText = '0 / 0 EXP';
 
     // Limpar estatísticas
-    document.getElementById('stat-total-xp').innerText = '0';
+    document.getElementById('stat-turma').innerText = '-';
     document.getElementById('stat-missoes').innerText = '0/0';
     document.getElementById('stat-media-geral').innerText = '0.0';
     document.getElementById('stat-trofeus').innerText = '0';

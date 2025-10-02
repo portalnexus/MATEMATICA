@@ -118,7 +118,7 @@ function renderCurriculum(curriculumData) {
     chapterDiv.className = 'curriculum-chapter';
 
     const chapterTitle = document.createElement('h3');
-    chapterTitle.textContent = `Capítulo ${index + 1}: ${chapter.title}`;
+    chapterTitle.textContent = chapter.title;
     chapterDiv.appendChild(chapterTitle);
 
     if (chapter.topics && chapter.topics.length > 0) {

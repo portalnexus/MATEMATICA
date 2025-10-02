@@ -34,6 +34,7 @@
     },
     "BR123": {
         "nome": "Beatriz Ribeiro",
+        "turma": "9A",
         "lvl": 8,
         "exp": 2001,
         "trofeus": [
@@ -68,6 +69,7 @@
     },
     "LM456": {
         "nome": "Lucas Martins",
+        "turma": "1A",
         "lvl": 7,
         "exp": 1769,
         "trofeus": [
@@ -101,6 +103,7 @@
     },
     "JV789": {
         "nome": "Juliana Vasconcelos",
+        "turma": "2EM",
         "lvl": 9,
         "exp": 2312,
         "trofeus": [

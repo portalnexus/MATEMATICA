@@ -66,8 +66,8 @@
                     <span class="area-title">ESTATÍSTICAS</span>
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <span class="stat-value" id="stat-total-xp">0</span>
-                            <span class="stat-label">XP TOTAL</span>
+                            <span class="stat-value" id="stat-turma">-</span>
+                            <span class="stat-label">TURMA</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-value" id="stat-missoes">0/0</span>
@@ -102,6 +102,18 @@
                 <!-- Dashboard do Professor (oculto por padrão) -->
                 <div id="professor-dashboard" class="dashboard-box hidden">
                     <h3>PAINEL DO PROFESSOR</h3>
+                    <div id="professor-filter">
+                        <label for="professor-turma-select">Filtrar por turma:</label>
+                        <select id="professor-turma-select">
+                            <option value="all">TODAS</option>
+                            <option value="9A">9º Ano A</option>
+                            <option value="9B">9º Ano B</option>
+                            <option value="1A">1º Ano EM A</option>
+                            <option value="1B">1º Ano EM B</option>
+                            <option value="2EM">2º Ano EM</option>
+                            <option value="3EM">3º Ano EM</option>
+                        </select>
+                    </div>
                     <div id="professor-stats-grid"></div>
                     <div id="professor-ranking">
                         <h4>RANKING DE DESEMPENHO</h4>
@@ -136,10 +148,6 @@
                         <span data-tooltip="Números, Álgebra e Geometria">NAAG</span>
                         <span data-tooltip="Português">PORT</span>
                       </div>
-                    </div>
-                    <div id="evolucao-container" class="dashboard-box">
-                      <span class="area-title">EVOLUÇÃO</span>
-                      <canvas id="evolucao-grafico"></canvas>
                     </div>
                      <div id="mencoes" class="dashboard-box">MENÇÕES</div>
                 </div>

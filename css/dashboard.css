@@ -286,9 +286,10 @@
         grid-template-columns: 1fr;
         grid-template-areas:
             "id"
-            "avatar"
             "lvl"
+            "avatar"
             "progresso"
+            "estatisticas"
             "trofeus"
             "missoes"
             "sidebar";
@@ -299,28 +300,157 @@
     }
 
     #avatar-area {
-        min-height: 120px; /* Altura mínima para o avatar */
+        min-height: 150px;
+        max-height: 200px;
+    }
+
+    #avatar-img {
+        object-fit: contain;
     }
 
     #lista-missoes {
-        max-height: 250px; /* Aumenta a altura máxima em telas menores */
+        max-height: 300px;
     }
 
-    #id-form {
-        flex-wrap: wrap;
-        gap: 10px;
+    #id-form, #user-display {
+        flex-direction: row;
+        justify-content: center;
     }
 
     #id-input {
-        min-width: 80px; /* Garante que o input não fique muito pequeno */
+        min-width: 120px;
+        font-size: 1rem;
+    }
+
+    #user-name {
+        font-size: 0.9rem;
+        text-align: center;
     }
 
     #etapa-selector {
-        flex-direction: column; /* Empilha os botões verticalmente */
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     .etapa-btn {
         width: 100%; /* Faz os botões ocuparem a largura total */
         text-align: center;
     }
+
+    /* Ajustar grid de estatísticas para mobile */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+    }
+
+    /* Ajustar tabela de ranking do professor */
+    #ranking-table {
+        font-size: 0.75rem;
+    }
+
+    #ranking-table th,
+    #ranking-table td {
+        padding: 6px 4px;
+    }
+
+    /* Ajustar filtro do professor */
+    #professor-filter {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #professor-turma-select {
+        width: 100%;
+    }
+}
+
+/* --- Estilos do Dashboard do Professor --- */
+#professor-dashboard {
+    grid-column: 1 / -1;
+}
+
+#professor-filter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+#professor-filter label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.8rem;
+    color: var(--link-color);
+}
+
+#professor-turma-select {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1rem;
+    padding: 8px 12px;
+    background-color: var(--content-box-bg-color);
+    color: var(--main-text-color);
+    border: 2px solid var(--link-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#professor-turma-select:hover {
+    border-color: var(--link-hover-color);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+#professor-turma-select:focus {
+    outline: none;
+    border-color: var(--link-hover-color);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+#professor-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#ranking-table th,
+#ranking-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--secondary-text-color);
+}
+
+#ranking-table th {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    color: var(--link-color);
+}
+
+#ranking-table td {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 0.9rem;
+}
+
+#alertas-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+#alertas-list li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(244, 67, 54, 0.2);
+    border-left: 4px solid #f44336;
+    border-radius: 3px;
+    font-family: 'Fira Sans', sans-serif;
 }

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lista de Probabilidade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    /* Estilos para metadados dos problemas */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+<div class="container">
+
+<h1>PROBABILIDADE</h1>
+
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">Problemas básicos para familiarização com os conceitos fundamentais de probabilidade.</p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Original</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Em um torneio de videogame, os jogadores recebem fichas de poder: 5 azuis (velocidade), 3 vermelhas (escudo) e 2 verdes (vida extra). Se você retirar uma ficha aleatoriamente, qual a probabilidade de obter uma ficha azul de velocidade?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Original</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Ao lançar um dado comum de 6 faces, qual a probabilidade de obter o número 4?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Meteorologia</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>A previsão do tempo indica 70% de probabilidade de chuva para amanhã. Expresse essa probabilidade como uma fração irredutível e como número decimal.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Original</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Uma moeda honesta é lançada duas vezes consecutivas. Qual a probabilidade de obter cara nas duas vezes?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Controle de Qualidade</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Em uma caixa há 10 lâmpadas LED, sendo 2 defeituosas. Retirando uma lâmpada ao acaso, qual a probabilidade de ela estar em perfeito funcionamento?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Original</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um baralho comum de 52 cartas é embaralhado. Qual a probabilidade de retirar um Ás ao acaso?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Conceito Teórico</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 1 min</span>
+      </div>
+      <p>Explique: qual a probabilidade de um evento impossível ocorrer? E de um evento certo?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Contexto Escolar</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Em uma turma de 30 alunos, 18 são meninas. Escolhendo um aluno aleatoriamente para representar a turma no conselho escolar, qual a probabilidade de escolher um menino?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Original</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um número é escolhido aleatoriamente entre 1 e 10 (inclusive). Qual a probabilidade de que o número seja par?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Loteria</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Em um sorteio de rifa há 100 números disponíveis. Se você comprou 5 números, qual a sua probabilidade de ganhar o prêmio principal?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Jogos</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Uma roleta de festa está dividida em 8 setores iguais, numerados de 1 a 8. Girando a roleta, qual a probabilidade de a seta parar em um número ímpar?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Genética - Adaptado</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>No cruzamento de duas plantas de ervilha (Aa × Aa), cada descendente tem 25% de chance de ser AA, 50% de ser Aa, e 25% de ser aa. Qual a probabilidade de um descendente escolhido aleatoriamente apresentar o fenótipo dominante (AA ou Aa)?</p>
+    </li>
+  </ol>
+</article>
+
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">Problemas que requerem interpretação do enunciado e aplicação de conceitos combinados.</p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Original</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma urna contém 6 bolas vermelhas e 4 bolas azuis. Duas bolas são retiradas, uma após a outra, <strong>sem reposição</strong>. Qual a probabilidade de ambas serem vermelhas?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Lembre-se que sem reposição, o total de bolas diminui a cada retirada!
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Original</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Uma urna contém 5 bolas brancas, 3 bolas pretas e 2 bolas verdes. Qual a probabilidade de retirar uma bola branca OU verde?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ENEM - Adaptado</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Ao lançar dois dados comuns simultaneamente, qual a probabilidade de a soma dos pontos ser exatamente 7?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Diagrama de Venn</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Em um grupo de 50 estudantes, 30 praticam futebol e 25 praticam basquete. Sabe-se que 10 estudantes praticam ambos os esportes. Escolhendo um estudante ao acaso, qual a probabilidade de ele praticar <strong>apenas</strong> futebol?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Dado Viciado</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um dado especial tem as seguintes probabilidades para cada face: P(1)=0,1; P(2)=0,2; P(3)=0,1; P(4)=0,3; P(5)=0,1; P(6)=0,2. Qual a probabilidade de obter um número par ao lançar este dado?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Análise Combinatória</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma moeda é lançada 3 vezes consecutivas. Qual a probabilidade de obter exatamente duas caras?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Baralho</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um cartão é retirado aleatoriamente de um baralho de 52 cartas. Qual a probabilidade de que o cartão seja uma figura (Valete, Dama ou Rei) de copas?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Probabilidade Condicional</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Em um evento, 60% dos participantes são homens e 40% são mulheres. Dentre os homens, 30% usam óculos, e dentre as mulheres, 20% usam óculos. Escolhendo um participante aleatoriamente, qual a probabilidade de ele ser um homem que usa óculos?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Combinatória</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Uma urna contém 7 bolas numeradas de 1 a 7. Duas bolas são retiradas sem reposição. Qual a probabilidade de que a soma dos números seja par?</p>
+      <div class="dica">
+        <strong>Dica:</strong> A soma é par quando ambos os números têm a mesma paridade!
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Idiomas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Em uma escola, 70% dos alunos falam inglês e 50% falam espanhol. Se 30% dos alunos falam ambos os idiomas, qual a probabilidade de um aluno escolhido aleatoriamente falar <strong>apenas</strong> inglês?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Complementar</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Uma loja tem 3 caixas de atendimento. A probabilidade de a caixa 1 estar livre é 0,8; da caixa 2 é 0,7; e da caixa 3 é 0,9. Considerando os eventos independentes, qual a probabilidade de que <strong>pelo menos uma</strong> caixa esteja livre?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST - Adaptado</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Uma caixa contém 5 bolas brancas e 5 bolas pretas. Três bolas são retiradas sem reposição. Qual a probabilidade de que todas as 3 bolas sejam da mesma cor?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Dado Especial</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Um dado de 10 faces (numerado de 0 a 9) é lançado. Qual a probabilidade de o resultado ser um número primo <strong>ou</strong> um múltiplo de 3?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Esportes</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Em um campeonato de tênis, a probabilidade de um jogador A vencer o jogador B é 0,65. Se eles jogarem 3 partidas independentes, qual a probabilidade de A vencer exatamente 2 partidas?</p>
+    </li>
+  </ol>
+</article>
+
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">Problemas complexos que exigem raciocínio em múltiplas etapas e combinação de conceitos.</p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Probabilidade Total</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Em uma cidade, a probabilidade de chover em um dia é 0,4; de fazer sol é 0,5; e de estar nublado é 0,1. Quando chove, a probabilidade de ocorrer um acidente de trânsito é 0,02. Quando faz sol, essa probabilidade é 0,005. Quando está nublado, é 0,01. Qual a probabilidade de ocorrer um acidente de trânsito em um dia qualquer?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Probabilidade Condicional</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Uma urna contém 3 bolas vermelhas e 2 bolas azuis. Duas bolas são retiradas sem reposição. <strong>Sabendo que a primeira bola retirada foi vermelha</strong>, qual a probabilidade de a segunda bola também ser vermelha?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Teorema de Bayes - ENEM</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 15 min</span>
+      </div>
+      <p>Um teste para detectar uma doença rara tem 99% de sensibilidade (detecta a doença quando presente) e 95% de especificidade (indica ausência quando não há doença). A prevalência da doença na população é de 0,1%. Se uma pessoa faz o teste e o resultado é positivo, qual a probabilidade de ela realmente ter a doença?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Este problema envolve o Teorema de Bayes e pode ter um resultado surpreendente!
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Combinatória</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Em um jogo de pôquer, você recebe 5 cartas de um baralho de 52 cartas. Qual a probabilidade de receber exatamente 2 Ases?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Eventos Dependentes</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Dois eventos A e B são tais que P(A) = 0,6; P(B) = 0,5 e P(A ∩ B) = 0,3. Calcule:</p>
+      <p>a) P(A ∪ B)</p>
+      <p>b) P(A | B) - probabilidade de A ocorrer, dado que B ocorreu</p>
+      <p>c) P(B | A) - probabilidade de B ocorrer, dado que A ocorreu</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Física - Partículas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Três detectores de partículas operam independentemente. As probabilidades de detecção são: Detector A = 0,9; Detector B = 0,85; Detector C = 0,95. Uma partícula atravessa o sistema. Qual a probabilidade de que:</p>
+      <p>a) Todos os três detectores registrem a partícula?</p>
+      <p>b) Pelo menos um detector registre a partícula?</p>
+      <p>c) Exatamente dois detectores registrem a partícula?</p>
+    </li>
+  </ol>
+</article>
+
+<article>
+  <h2>Desafios Olímpicos e Vestibulares</h2>
+  <p class="section-intro">Problemas selecionados de olimpíadas de matemática e vestibulares para desafiar seu raciocínio!</p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">OBMEP 2017 - Nível 3</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Ana e Bruno jogam um jogo com um dado honesto de 6 faces. Ana ganha se sair um número maior que 4. Bruno ganha se sair um número par. Caso contrário, há empate. Quem tem maior probabilidade de ganhar? Justifique.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">OBMEP 2019 - Adaptado</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 15 min</span>
+      </div>
+      <p>Em uma gincana, há 10 caixas fechadas. Dentro de 3 delas há prêmios, e as outras 7 estão vazias. Carlos pode escolher e abrir 3 caixas. Qual a probabilidade de ele encontrar exatamente 2 prêmios?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Canguru 2020</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Um código secreto consiste de 4 dígitos distintos escolhidos entre 0, 1, 2, 3, 4, 5. Um espião tenta adivinhar o código escolhendo 4 dígitos distintos aleatoriamente. Qual a probabilidade de ele acertar o código na primeira tentativa?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST 2018 - Adaptado</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Em uma urna há n bolas numeradas de 1 a n. Duas bolas são sorteadas sem reposição. Sabendo que a probabilidade de a soma dos números ser 5 é igual a @\frac{1}{12}@, determine o valor de n.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">UNICAMP 2019 - Adaptado</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 15 min</span>
+      </div>
+      <p>Uma moeda honesta é lançada repetidamente até que apareça cara pela primeira vez ou até que tenham sido realizados 4 lançamentos, o que ocorrer primeiro. Qual a probabilidade de o processo terminar em exatamente 3 lançamentos?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">OBMEP 2016 - Nível 3</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 14 min</span>
+      </div>
+      <p>Pedro tem 5 cartões numerados de 1 a 5. Ele embaralha os cartões e os coloca em fila. Qual a probabilidade de que pelo menos um dos cartões esteja na sua posição original (cartão 1 na posição 1, cartão 2 na posição 2, etc.)?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Use o princípio da inclusão-exclusão!
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ENEM 2020 - Adaptado</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Em uma pesquisa sobre vacinação, verificou-se que 80% da população foi vacinada contra a doença A, 70% contra a doença B, e 60% contra ambas. Escolhendo uma pessoa aleatoriamente, qual a probabilidade de ela ter sido vacinada contra pelo menos uma das duas doenças?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ITA 2017 - Adaptado</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 18 min</span>
+      </div>
+      <p>Três atiradores A, B e C disparam simultaneamente contra um alvo. As probabilidades de acerto são: P(A) = 0,8; P(B) = 0,7; P(C) = 0,6. O alvo é atingido se pelo menos dois atiradores acertarem. Qual a probabilidade de o alvo ser atingido?</p>
+    </li>
+  </ol>
+</article>
+
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

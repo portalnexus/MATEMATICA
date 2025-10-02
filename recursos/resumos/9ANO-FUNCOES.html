@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Funções</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>Funções: Conceitos Fundamentais</h1>
+
+    <p>As funções são uma das ferramentas mais importantes da matemática para descrever relações entre grandezas do mundo real. Neste resumo, exploraremos o conceito de função, suas propriedades fundamentais e aplicações práticas em contextos do cotidiano, como consumo de água, energia elétrica e telefonia.</p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: CONCEITOS FUNDAMENTAIS
+         =============================================================== -->
+    <h2>1. Conceitos Fundamentais</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Relação)</h3>
+      <p>Dados dois conjuntos não vazios @A@ e @B@, chamamos de <strong>relação</strong> de @A@ em @B@ qualquer subconjunto do produto cartesiano @A \times B@.</p>
+      <p>Em outras palavras, uma relação associa elementos de @A@ a elementos de @B@.</p>
+    </div>
+
+    <p><strong>Exemplo:</strong> Considere @A = \{1, 2, 3\}@ e @B = \{2, 4, 6, 8\}@. A relação "o dobro de" associa cada elemento de @A@ ao seu correspondente em @B@:</p>
+    <ul>
+      <li>@1 \rightarrow 2@ (o dobro de 1 é 2)</li>
+      <li>@2 \rightarrow 4@ (o dobro de 2 é 4)</li>
+      <li>@3 \rightarrow 6@ (o dobro de 3 é 6)</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Função)</h3>
+      <p>Sejam @A@ e @B@ conjuntos não vazios. Uma <strong>função</strong> @f@ de @A@ em @B@ é uma relação que associa a cada elemento @x \in A@ um único elemento @y \in B@.</p>
+      <p>Notação: @f: A \rightarrow B@ ou @y = f(x)@</p>
+      <p>Lê-se: "@f@ é uma função de @A@ em @B@" ou "@y@ é a imagem de @x@ pela função @f@".</p>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> A característica fundamental de uma função é que <strong>cada elemento do conjunto @A@ deve estar associado a exatamente um elemento do conjunto @B@</strong>. Um mesmo elemento de @A@ não pode estar associado a dois ou mais elementos diferentes de @B@.
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Domínio, Contradomínio e Imagem)</h3>
+      <p>Dada uma função @f: A \rightarrow B@, definimos:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Domínio:</strong> O conjunto @A@ é chamado de <strong>domínio</strong> da função @f@, denotado por @D(f) = A@. É o conjunto de todos os valores de entrada possíveis.</li>
+        <li><strong>(ii) Contradomínio:</strong> O conjunto @B@ é chamado de <strong>contradomínio</strong> da função @f@, denotado por @CD(f) = B@. É o conjunto onde estão os valores de saída possíveis.</li>
+        <li><strong>(iii) Imagem:</strong> O subconjunto de @B@ formado por todos os valores @f(x)@, com @x \in A@, é chamado de <strong>imagem</strong> de @f@, denotado por @\text{Im}(f)@. É o conjunto dos valores efetivamente assumidos pela função.</li>
+      </ul>
+      <p>Note que @\text{Im}(f) \subseteq CD(f)@.</p>
+    </div>
+
+    <p><strong>Exemplo:</strong> Seja @f: \{1, 2, 3\} \rightarrow \mathbb{N}@ definida por @f(x) = x^2@. Então:</p>
+    <ul>
+      <li>@D(f) = \{1, 2, 3\}@ (domínio)</li>
+      <li>@CD(f) = \mathbb{N}@ (contradomínio: todos os naturais)</li>
+      <li>@\text{Im}(f) = \{1, 4, 9\}@ (imagem: apenas os valores efetivamente assumidos)</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.4 (Lei de Formação)</h3>
+      <p>A <strong>lei de formação</strong> (ou regra de correspondência) de uma função é a expressão matemática que descreve como calcular @f(x)@ a partir de @x@.</p>
+      <p>Para funções numéricas, a lei de formação geralmente é uma fórmula algébrica, como @f(x) = 2x + 1@ ou @g(x) = x^2 - 3x + 2@.</p>
+    </div>
+
+    <div class="nota">
+      <strong>Notação Importante:</strong> Quando escrevemos @f(x) = 2x + 1@, dizemos que "@f@ de @x@ é igual a @2x + 1@". O símbolo @f(x)@ representa o valor da função @f@ no ponto @x@.
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: PROPRIEDADES E REPRESENTAÇÕES
+         =============================================================== -->
+    <h2>2. Representações e Propriedades de Funções</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Teste da Reta Vertical)</h3>
+      <p>Um gráfico no plano cartesiano representa uma função se, e somente se, qualquer reta vertical intercepta o gráfico em no máximo um ponto.</p>
+    </div>
+
+    <p><strong>Justificativa:</strong> Se uma reta vertical (da forma @x = a@) interceptar o gráfico em dois ou mais pontos, isso significa que o valor @x = a@ está associado a dois ou mais valores diferentes de @y@, violando a definição de função.</p>
+
+    <div class="destaque-box observacao">
+      <h3>Propriedade 2.1 (Gráfico de uma Função)</h3>
+      <p>O <strong>gráfico</strong> de uma função @f: A \rightarrow B@ é o conjunto de todos os pares ordenados @(x, f(x))@ com @x \in D(f)@, representados no plano cartesiano.</p>
+      <p>Formalmente: @\text{Gráfico}(f) = \{(x, y) \in \mathbb{R}^2 \mid x \in D(f) \text{ e } y = f(x)\}@</p>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Propriedade 2.2 (Formas de Representação)</h3>
+      <p>Uma função pode ser representada de diversas formas:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Diagrama de flechas:</strong> Representação visual com setas conectando elementos do domínio aos elementos da imagem.</li>
+        <li><strong>(ii) Tabela:</strong> Lista de pares @(x, f(x))@ organizados em linhas e colunas.</li>
+        <li><strong>(iii) Gráfico:</strong> Representação no plano cartesiano dos pontos @(x, f(x))@.</li>
+        <li><strong>(iv) Fórmula algébrica:</strong> Expressão matemática que define @f(x)@ em termos de @x@.</li>
+        <li><strong>(v) Descrição em palavras:</strong> Texto que explica a relação entre as variáveis.</li>
+      </ul>
+    </div>
+
+    <div class="nota">
+      <strong>Aplicação Prática:</strong> Em contas de consumo (água, luz, telefone), a função é frequentemente representada por tabelas de tarifas, onde cada faixa de consumo (domínio) corresponde a um valor a pagar (imagem).
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>3. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Consumo de Água</h3>
+      <p><strong>Enunciado:</strong> Uma companhia de abastecimento cobra uma taxa fixa de R$ 25,00 mais R$ 0,05 por litro de água consumido. Determine:</p>
+      <p>(a) A lei de formação da função que relaciona o consumo (em litros) ao valor a pagar.</p>
+      <p>(b) O valor a pagar por um consumo de 800 litros.</p>
+      <p>(c) Quantos litros foram consumidos se o valor da conta foi R$ 85,00?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar as variáveis e a relação entre elas.</p>
+      <p>Seja @x@ o consumo em litros e @f(x)@ o valor a pagar em reais. O valor total é composto por uma parcela fixa (R$ 25,00) mais uma parcela variável (@0,05 \cdot x@).</p>
+
+      <p><strong>Passo 2:</strong> Escrever a lei de formação.</p>
+      @@
+      f(x) = 25 + 0{,}05x
+      @@
+
+      <p><strong>Passo 3:</strong> Calcular o valor para @x = 800@ litros.</p>
+      @@
+      \begin{align}
+      f(800) &= 25 + 0{,}05 \cdot 800 \\
+      &= 25 + 40 \\
+      &= 65
+      \end{align}
+      @@
+
+      <p><strong>Passo 4:</strong> Determinar o consumo quando @f(x) = 85@.</p>
+      @@
+      \begin{align}
+      85 &= 25 + 0{,}05x \\
+      60 &= 0{,}05x \\
+      x &= \frac{60}{0{,}05} \\
+      x &= 1200
+      \end{align}
+      @@
+
+      <p><strong>Respostas:</strong></p>
+      <p>(a) @f(x) = 25 + 0{,}05x@, onde @x \geq 0@</p>
+      <p>(b) R$ 65,00</p>
+      <p>(c) 1200 litros</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Identificando Domínio, Contradomínio e Imagem</h3>
+      <p><strong>Enunciado:</strong> Considere a função @f: \{0, 1, 2, 3, 4\} \rightarrow \mathbb{R}@ definida por @f(x) = x^2 - 2x@. Determine:</p>
+      <p>(a) O domínio de @f@</p>
+      <p>(b) O contradomínio de @f@</p>
+      <p>(c) A imagem de @f@</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar o domínio (dado explicitamente na definição).</p>
+      @@
+      D(f) = \{0, 1, 2, 3, 4\}
+      @@
+
+      <p><strong>Passo 2:</strong> Identificar o contradomínio (dado explicitamente na definição).</p>
+      @@
+      CD(f) = \mathbb{R}
+      @@
+
+      <p><strong>Passo 3:</strong> Calcular @f(x)@ para cada @x@ no domínio para encontrar a imagem.</p>
+      @@
+      \begin{align}
+      f(0) &= 0^2 - 2 \cdot 0 = 0 \\
+      f(1) &= 1^2 - 2 \cdot 1 = 1 - 2 = -1 \\
+      f(2) &= 2^2 - 2 \cdot 2 = 4 - 4 = 0 \\
+      f(3) &= 3^2 - 2 \cdot 3 = 9 - 6 = 3 \\
+      f(4) &= 4^2 - 2 \cdot 4 = 16 - 8 = 8
+      \end{align}
+      @@
+
+      <p><strong>Passo 4:</strong> Reunir os valores obtidos (sem repetição) para formar a imagem.</p>
+      @@
+      \text{Im}(f) = \{-1, 0, 3, 8\}
+      @@
+
+      <p><strong>Respostas:</strong></p>
+      <p>(a) @D(f) = \{0, 1, 2, 3, 4\}@</p>
+      <p>(b) @CD(f) = \mathbb{R}@</p>
+      <p>(c) @\text{Im}(f) = \{-1, 0, 3, 8\}@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - Energia Elétrica por Faixas de Consumo</h3>
+      <p><strong>Enunciado:</strong> Uma distribuidora de energia elétrica cobra:</p>
+      <ul>
+        <li>R$ 0,40 por kWh para os primeiros 100 kWh consumidos</li>
+        <li>R$ 0,50 por kWh para o consumo acima de 100 kWh</li>
+      </ul>
+      <p>Determine o valor a pagar por um consumo de:</p>
+      <p>(a) 80 kWh</p>
+      <p>(b) 150 kWh</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Definir a função por partes conforme as faixas de consumo.</p>
+      @@
+      f(x) = \begin{cases}
+      0{,}40x, & \text{se } 0 \leq x \leq 100 \\
+      40 + 0{,}50(x - 100), & \text{se } x > 100
+      \end{cases}
+      @@
+
+      <p><strong>Passo 2:</strong> Calcular @f(80)@ (está na primeira faixa: @x \leq 100@).</p>
+      @@
+      \begin{align}
+      f(80) &= 0{,}40 \cdot 80 \\
+      &= 32
+      \end{align}
+      @@
+
+      <p><strong>Passo 3:</strong> Calcular @f(150)@ (está na segunda faixa: @x > 100@).</p>
+      @@
+      \begin{align}
+      f(150) &= 40 + 0{,}50(150 - 100) \\
+      &= 40 + 0{,}50 \cdot 50 \\
+      &= 40 + 25 \\
+      &= 65
+      \end{align}
+      @@
+
+      <p><strong>Respostas:</strong></p>
+      <p>(a) R$ 32,00</p>
+      <p>(b) R$ 65,00</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Determinando se uma Relação é Função</h3>
+      <p><strong>Enunciado:</strong> Verifique se cada uma das seguintes relações define uma função de @A = \{1, 2, 3\}@ em @B = \{2, 4, 6, 8\}@:</p>
+      <p>(a) @R_1 = \{(1, 2), (2, 4), (3, 6)\}@</p>
+      <p>(b) @R_2 = \{(1, 2), (2, 4), (2, 6), (3, 8)\}@</p>
+      <p>(c) @R_3 = \{(1, 4), (3, 8)\}@</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Recordar a definição: uma função deve associar <strong>cada</strong> elemento do domínio a <strong>exatamente um</strong> elemento do contradomínio.</p>
+
+      <p><strong>Passo 2:</strong> Analisar @R_1@.</p>
+      <ul>
+        <li>@1 \rightarrow 2@ (único valor)</li>
+        <li>@2 \rightarrow 4@ (único valor)</li>
+        <li>@3 \rightarrow 6@ (único valor)</li>
+      </ul>
+      <p>Cada elemento de @A@ está associado a exatamente um elemento de @B@. Logo, <strong>@R_1@ é uma função</strong>.</p>
+
+      <p><strong>Passo 3:</strong> Analisar @R_2@.</p>
+      <ul>
+        <li>@1 \rightarrow 2@ (único valor)</li>
+        <li>@2 \rightarrow 4@ <strong>e</strong> @2 \rightarrow 6@ (dois valores diferentes!)</li>
+        <li>@3 \rightarrow 8@ (único valor)</li>
+      </ul>
+      <p>O elemento @2 \in A@ está associado a dois elementos diferentes de @B@ (@4@ e @6@). Logo, <strong>@R_2@ não é uma função</strong>.</p>
+
+      <p><strong>Passo 4:</strong> Analisar @R_3@.</p>
+      <ul>
+        <li>@1 \rightarrow 4@ (único valor)</li>
+        <li>@2@ não está associado a nenhum elemento</li>
+        <li>@3 \rightarrow 8@ (único valor)</li>
+      </ul>
+      <p>O elemento @2 \in A@ não está associado a nenhum elemento de @B@. Logo, <strong>@R_3@ não é uma função</strong>.</p>
+
+      <p><strong>Respostas:</strong></p>
+      <p>(a) @R_1@ é função</p>
+      <p>(b) @R_2@ não é função (elemento 2 associado a dois valores)</p>
+      <p>(c) @R_3@ não é função (elemento 2 sem imagem)</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Plano de Telefonia</h3>
+      <p><strong>Enunciado:</strong> Uma operadora de telefonia oferece um plano de R$ 50,00 mensais que inclui 200 minutos. Cada minuto adicional custa R$ 0,80. Determine:</p>
+      <p>(a) A lei de formação da função que relaciona o total de minutos usados ao valor da conta.</p>
+      <p>(b) O valor da conta de um cliente que usou 280 minutos.</p>
+      <p>(c) Quantos minutos usou um cliente cuja conta foi R$ 98,00?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar as variáveis e definir a função por partes.</p>
+      <p>Seja @x@ o total de minutos usados e @f(x)@ o valor da conta em reais.</p>
+      @@
+      f(x) = \begin{cases}
+      50, & \text{se } 0 \leq x \leq 200 \\
+      50 + 0{,}80(x - 200), & \text{se } x > 200
+      \end{cases}
+      @@
+
+      <p><strong>Passo 2:</strong> Calcular @f(280)@ (está na segunda faixa: @x > 200@).</p>
+      @@
+      \begin{align}
+      f(280) &= 50 + 0{,}80(280 - 200) \\
+      &= 50 + 0{,}80 \cdot 80 \\
+      &= 50 + 64 \\
+      &= 114
+      \end{align}
+      @@
+
+      <p><strong>Passo 3:</strong> Determinar @x@ quando @f(x) = 98@.</p>
+      <p>Como @98 > 50@, o cliente ultrapassou os 200 minutos incluídos. Usamos a segunda parte da função:</p>
+      @@
+      \begin{align}
+      98 &= 50 + 0{,}80(x - 200) \\
+      48 &= 0{,}80(x - 200) \\
+      \frac{48}{0{,}80} &= x - 200 \\
+      60 &= x - 200 \\
+      x &= 260
+      \end{align}
+      @@
+
+      <p><strong>Respostas:</strong></p>
+      <p>(a) @f(x) = \begin{cases} 50, & \text{se } 0 \leq x \leq 200 \\ 50 + 0{,}80(x - 200), & \text{se } x > 200 \end{cases}@</p>
+      <p>(b) R$ 114,00</p>
+      <p>(c) 260 minutos</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Interpretação de Gráfico</h3>
+      <p><strong>Enunciado:</strong> O gráfico abaixo representa a temperatura @T@ (em °C) de uma cidade em função do tempo @t@ (em horas) durante um dia.</p>
+      <p style="text-align: center; margin: 1.5rem 0;">
+        [Descrição: gráfico mostrando temperatura crescendo de 15°C às 6h até 28°C às 14h, e depois decrescendo até 18°C às 22h]
+      </p>
+      <p>Com base no gráfico, responda:</p>
+      <p>(a) Qual era a temperatura às 6h?</p>
+      <p>(b) A que horas a temperatura atingiu seu valor máximo?</p>
+      <p>(c) Qual foi a temperatura máxima?</p>
+      <p>(d) Em que intervalo de tempo a temperatura estava diminuindo?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar as informações no gráfico.</p>
+      <p>Localizamos os pontos importantes: @(6, 15)@, @(14, 28)@, @(22, 18)@.</p>
+
+      <p><strong>Passo 2:</strong> Responder cada item analisando o gráfico.</p>
+      <p>(a) No ponto @t = 6@, temos @T = 15@°C.</p>
+      <p>(b) O ponto mais alto do gráfico ocorre em @t = 14@ horas.</p>
+      <p>(c) A temperatura máxima é @T = 28@°C.</p>
+      <p>(d) A temperatura decresce no intervalo @14 < t \leq 22@ (das 14h às 22h).</p>
+
+      <p><strong>Respostas:</strong></p>
+      <p>(a) 15°C</p>
+      <p>(b) 14 horas (2h da tarde)</p>
+      <p>(c) 28°C</p>
+      <p>(d) Das 14h às 22h</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: EXERCÍCIOS PROPOSTOS
+         =============================================================== -->
+    <h2>4. Exercícios</h2>
+
+    <ol>
+      <li>Dada a função @f: \mathbb{R} \rightarrow \mathbb{R}@ definida por @f(x) = 3x - 5@, calcule: (a) @f(2)@, (b) @f(-1)@, (c) @f(0)@.</li>
+
+      <li>Determine o domínio, contradomínio e imagem da função @g: \{-2, -1, 0, 1, 2\} \rightarrow \mathbb{Z}@ definida por @g(x) = x^2 + 1@.</li>
+
+      <li>Verifique se a relação @R = \{(0, 1), (1, 3), (2, 5), (3, 5)\}@ de @A = \{0, 1, 2, 3\}@ em @B = \{1, 3, 5, 7\}@ define uma função. Justifique.</li>
+
+      <li>Uma empresa de táxi cobra uma bandeirada de R$ 5,00 mais R$ 2,50 por quilômetro rodado. Escreva a lei de formação da função que relaciona a distância percorrida (em km) ao valor da corrida (em reais).</li>
+
+      <li>Usando a função do exercício anterior, calcule o valor de uma corrida de 12 km.</li>
+
+      <li>Um cliente pagou R$ 42,50 por uma corrida de táxi. Quantos quilômetros ele percorreu? (Use a função do exercício 4).</li>
+
+      <li>Seja @h: \mathbb{R} \rightarrow \mathbb{R}@ definida por @h(x) = x^2 - 4x + 3@. Calcule: (a) @h(0)@, (b) @h(2)@, (c) @h(-1)@.</li>
+
+      <li>Uma loja cobra R$ 15,00 por cada camiseta até 10 unidades. A partir da 11ª camiseta, o preço unitário cai para R$ 12,00. Escreva a lei de formação da função que relaciona o número de camisetas compradas ao valor total a pagar.</li>
+
+      <li>Determine se cada diagrama de flechas abaixo representa uma função de @\{1, 2, 3\}@ em @\{a, b, c, d\}@:
+        <br>(a) @1 \to a@, @2 \to b@, @3 \to c@
+        <br>(b) @1 \to a@, @1 \to b@, @2 \to c@, @3 \to d@
+        <br>(c) @1 \to a@, @2 \to a@, @3 \to a@</li>
+
+      <li>Uma piscina está sendo enchida com água. Após @t@ horas do início do enchimento, o volume de água (em litros) é dado por @V(t) = 500t@. Quanto tempo levará para a piscina atingir 4000 litros?</li>
+
+      <li>Seja @f(x) = 2x + 3@. Determine o valor de @a@ tal que @f(a) = 11@.</li>
+
+      <li>Um estacionamento cobra R$ 8,00 pela primeira hora e R$ 3,00 por cada hora adicional. Escreva a função que relaciona o número de horas ao valor a pagar.</li>
+
+      <li>Dada a função @g(x) = x^2 - 1@, determine todos os valores de @x@ no conjunto @\{-2, -1, 0, 1, 2\}@ tais que @g(x) = 0@.</li>
+
+      <li>Uma conta de água apresentou valor de R$ 45,00 para um consumo de 400 litros. Sabendo que a companhia cobra uma taxa fixa de R$ 20,00 mais um valor por litro, determine quanto a companhia cobra por litro.</li>
+
+      <li>Considere a função @f: \{0, 1, 2, 3, 4, 5\} \rightarrow \mathbb{N}@ definida por @f(x) = 2x@. Liste todos os elementos da imagem de @f@.</li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+    1. (a) f(2) = 1, (b) f(-1) = -8, (c) f(0) = -5
+
+    2. D(g) = {-2, -1, 0, 1, 2}, CD(g) = ℤ, Im(g) = {1, 2, 5}
+
+    3. Sim, é função. Cada elemento de A está associado a exatamente um elemento de B.
+
+    4. f(x) = 5 + 2,50x, onde x ≥ 0
+
+    5. R$ 35,00
+
+    6. 15 km
+
+    7. (a) h(0) = 3, (b) h(2) = -1, (c) h(-1) = 8
+
+    8. f(x) = { 15x, se 0 ≤ x ≤ 10
+              { 150 + 12(x - 10), se x > 10
+
+    9. (a) Sim, é função
+       (b) Não é função (1 associado a dois elementos)
+       (c) Sim, é função
+
+    10. 8 horas
+
+    11. a = 4
+
+    12. f(x) = { 8, se 0 < x ≤ 1
+               { 8 + 3(x - 1), se x > 1
+
+    13. x = -1 e x = 1
+
+    14. R$ 0,0625 por litro (ou 6,25 centavos por litro)
+
+    15. Im(f) = {0, 2, 4, 6, 8, 10}
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

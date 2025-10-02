@@ -50,17 +50,25 @@ function updateClassDisplay() {
 
 // Filtra recursos por turma selecionada
 function filterContentByClass(classId) {
-  // Filtra botões de recursos com atributo data-class
-  const resourceButtons = document.querySelectorAll('[data-class]');
+  // Filtra botões de recursos (todos os links na página de recursos)
+  const resourceButtons = document.querySelectorAll('.quick-link-button');
 
   resourceButtons.forEach(button => {
-    const buttonClasses = button.getAttribute('data-class').split(',').map(c => c.trim());
+    const href = button.getAttribute('href');
 
-    // Mostra o botão se:
-    // 1. Não tem data-class (recurso universal)
-    // 2. data-class contém "all" (disponível para todas as turmas)
-    // 3. data-class contém a turma selecionada
-    const shouldShow = buttonClasses.includes('all') || buttonClasses.includes(classId);
+    if (!href) {
+      button.style.display = '';
+      return;
+    }
+
+    // Extrair nome do arquivo do href
+    const fileName = href.split('/').pop(); // Ex: "9ANO-FUNCOES.html"
+
+    // Determinar para quais turmas este recurso está disponível
+    const availableForClasses = getClassesFromFileName(fileName);
+
+    // Verificar se o recurso deve ser mostrado para a turma selecionada
+    const shouldShow = availableForClasses.includes('all') || availableForClasses.includes(classId);
 
     if (shouldShow) {
       button.style.display = '';
@@ -70,6 +78,30 @@ function filterContentByClass(classId) {
       button.classList.add('hidden');
     }
   });
+}
+
+// Determina quais turmas podem acessar um recurso baseado no nome do arquivo
+function getClassesFromFileName(fileName) {
+  // Remover extensão .html
+  const nameWithoutExt = fileName.replace('.html', '');
+
+  // Mapeamento de prefixos para turmas
+  const prefixMap = {
+    '9ANO': ['9A', '9B'],
+    '1EM': ['1A', '1B'],
+    '2EM': ['2EM'],
+    '3EM': ['3EM']
+  };
+
+  // Verificar se o arquivo tem um prefixo de turma
+  for (const [prefix, classes] of Object.entries(prefixMap)) {
+    if (nameWithoutExt.startsWith(prefix + '-')) {
+      return classes;
+    }
+  }
+
+  // Se não tem prefixo de turma, está disponível para todas
+  return ['all'];
 }
 
 // Carrega o currículo específico da turma

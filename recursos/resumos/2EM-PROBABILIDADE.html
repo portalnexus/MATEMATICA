@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - PROBABILIDADE</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>PROBABILIDADE</h1>
+
+    <h2>1. Conceitos Fundamentais</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Experimento Aleatório)</h3>
+      <p>Um experimento é dito <strong>aleatório</strong> se, ao ser repetido inúmeras vezes em condições idênticas, apresenta resultados imprevisíveis dentre um conjunto de resultados possíveis.</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>Lançar um dado e observar o número da face superior.</li>
+      <li>Retirar uma carta de um baralho e observar seu naipe.</li>
+      <li>Girar uma roleta e observar onde o ponteiro para.</li>
+    </ul>
+
+    <div class="nota">
+      <strong>Observação:</strong> Em contrapartida, um <strong>experimento determinístico</strong> é aquele cujo resultado pode ser previsto com certeza. Por exemplo, aquecer água a 100°C ao nível do mar (o resultado será a ebulição).
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Espaço Amostral)</h3>
+      <p>O <strong>espaço amostral</strong>, denotado por @\Omega@, é o conjunto de todos os resultados possíveis de um experimento aleatório.</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>No lançamento de um dado: @\Omega = \{1, 2, 3, 4, 5, 6\}@</li>
+      <li>No lançamento de uma moeda: @\Omega = \{\text{cara}, \text{coroa}\}@</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Evento)</h3>
+      <p>Um <strong>evento</strong>, denotado por uma letra maiúscula (A, B, C, ...), é qualquer subconjunto de um espaço amostral @\Omega@.</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>No lançamento de um dado, o evento "obter um número par" é @A = \{2, 4, 6\}@.</li>
+      <li>No lançamento de duas moedas, o evento "obter resultados iguais" é @B = \{(\text{cara}, \text{cara}), (\text{coroa}, \text{coroa})\}@.</li>
+    </ul>
+
+    <h2>2. Probabilidade Clássica (Laplaciana)</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Probabilidade de um Evento)</h3>
+      <p>Seja @\Omega@ um espaço amostral finito e equiprovável (todos os resultados têm a mesma chance de ocorrer). A probabilidade de um evento @A \subseteq \Omega@, denotada por @P(A)@, é a razão entre o número de casos favoráveis (elementos de A) e o número de casos possíveis (elementos de @\Omega@).</p>
+      @@
+      P(A) = \frac{\text{número de casos favoráveis}}{\text{número de casos possíveis}} = \frac{n(A)}{n(\Omega)}
+      @@
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> A probabilidade de qualquer evento é sempre um número entre 0 e 1, inclusive. @0 \leq P(A) \leq 1@. A probabilidade pode ser expressa em forma de fração, número decimal ou porcentagem.
+    </div>
+
+    <h2>3. Eventos e Suas Relações</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Eventos Mutuamente Excludentes)</h3>
+      <p>Dois eventos, A e B, são <strong>mutuamente excludentes</strong> se a ocorrência de um impede a ocorrência do outro, ou seja, se eles não possuem elementos em comum. Matematicamente, @A \cap B = \emptyset@.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.2 (Eventos Independentes)</h3>
+      <p>Dois eventos, A e B, são <strong>independentes</strong> se a ocorrência de um não afeta a probabilidade de ocorrência do outro. A probabilidade de ambos ocorrerem é o produto de suas probabilidades individuais.</p>
+       @@P(A \cap B) = P(A) \cdot P(B)@@
+    </div>
+
+    <h2>4. Probabilidade Condicional</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Probabilidade Condicional)</h3>
+      <p>A probabilidade de ocorrer um evento A, dado que um evento B já ocorreu, é chamada de <strong>probabilidade condicional</strong> e é denotada por @P(A|B)@.</p>
+      @@
+      P(A|B) = \frac{P(A \cap B)}{P(B)}, \text{ com } P(B) > 0
+      @@
+    </div>
+
+    <h2>5. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Lançamento de Dados</h3>
+      <p><strong>Enunciado:</strong> Qual a probabilidade de, no lançamento de dois dados perfeitos, a soma dos resultados ser igual a 7?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Determinar o espaço amostral @\Omega@. Cada dado tem 6 faces, então o número total de combinações é @6 \times 6 = 36@. @n(\Omega) = 36@.</p>
+      <p><strong>Passo 2:</strong> Determinar o evento A (soma igual a 7). Os pares que satisfazem essa condição são: @A = \{(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)\}@. Portanto, @n(A) = 6@.</p>
+      <p><strong>Passo 3:</strong> Calcular a probabilidade.</p>
+      @@
+      P(A) = \frac{n(A)}{n(\Omega)} = \frac{6}{36} = \frac{1}{6}
+      @@
+      <p><strong>Resposta:</strong> A probabilidade é de @\frac{1}{6}@, ou aproximadamente 16,7%.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Probabilidade Condicional</h3>
+      <p><strong>Enunciado:</strong> Em uma turma com 30 alunos, 18 jogam futebol e 12 jogam vôlei. 5 alunos praticam ambos os esportes. Escolhendo um aluno ao acaso, qual a probabilidade de ele jogar vôlei, sabendo que ele joga futebol?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Definir os eventos.
+      F: O aluno joga futebol. @P(F) = 18/30@.
+      V: O aluno joga vôlei. @P(V) = 12/30@.
+      @F \cap V@: O aluno joga ambos. @P(F \cap V) = 5/30@.</p>
+      <p><strong>Passo 2:</strong> Aplicar a fórmula da probabilidade condicional @P(V|F)@.</p>
+      @@
+      P(V|F) = \frac{P(V \cap F)}{P(F)} = \frac{5/30}{18/30} = \frac{5}{18}
+      @@
+      <p><strong>Resposta:</strong> A probabilidade de um aluno jogar vôlei, sabendo que ele joga futebol, é de @\frac{5}{18}@.</p>
+    </div>
+    
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - O Problema do Aniversário</h3>
+      <p><strong>Enunciado:</strong> Em um grupo de 23 pessoas, qual a probabilidade de que pelo menos duas delas façam aniversário no mesmo dia?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> É mais fácil calcular a probabilidade do evento complementar (ninguém faz aniversário no mesmo dia) e subtrair de 1. Vamos chamar de A o evento "pelo menos duas pessoas fazem aniversário no mesmo dia" e A' o evento "todas as pessoas fazem aniversário em dias diferentes".</p>
+      <p><strong>Passo 2:</strong> Calcular P(A'). A primeira pessoa pode nascer em qualquer um dos 365 dias. A segunda, para ser diferente, em 364. A terceira em 363, e assim por diante.</p>
+      @@
+      P(A') = \frac{365}{365} \times \frac{364}{365} \times \frac{363}{365} \times \dots \times \frac{365-22}{365} = \frac{P_{365,23}}{365^{23}}
+      @@
+      <p><strong>Passo 3:</strong> O cálculo resulta em @P(A') \approx 0.4927@.</p>
+      <p><strong>Passo 4:</strong> Calcular P(A).</p>
+      @@
+      P(A) = 1 - P(A') \approx 1 - 0.4927 = 0.5073
+      @@
+      <p><strong>Resposta:</strong> A probabilidade é de aproximadamente 50,73%, ou seja, é mais provável que haja uma coincidência de aniversários do que não.</p>
+    </div>
+
+    <h2>6. Exercícios</h2>
+
+    <ol>
+      <li>(Básico) Qual a probabilidade de tirar um "ás" ao retirar uma carta de um baralho com 52 cartas?</li>
+      <li>(Básico) No lançamento de um dado, qual a probabilidade de se obter um número maior que 4?</li>
+      <li>(Intermediário) Uma urna contém 5 bolas vermelhas, 3 brancas e 2 azuis. Retirando-se uma bola ao acaso, qual a probabilidade de ela não ser azul?</li>
+      <li>(Intermediário) Lançando-se duas moedas, qual a probabilidade de se obter pelo menos uma "cara"?</li>
+      <li>(Avançado) Em uma caixa há 10 peças, das quais 4 são defeituosas. Retirando-se 2 peças ao acaso, sem reposição, qual a probabilidade de ambas serem perfeitas?</li>
+    </ol>
+
+    <!--
+    RESPOSTAS:
+    1. 4/52 = 1/13
+    2. 2/6 = 1/3
+    3. 8/10 = 4/5
+    4. 3/4
+    5. (6/10) * (5/9) = 30/90 = 1/3
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\[", right: "\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

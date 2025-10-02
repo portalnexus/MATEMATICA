@@ -974,11 +974,97 @@ body.print-mode .katex-display {
     margin: 1em 0 !important;
 }
 
+/* Ajustar APENAS a cor do traço das frações KaTeX para preto */
+body.print-mode .katex .frac-line {
+    border-bottom-color: #000 !important;
+    background-color: transparent !important;
+}
+
 /* Remover todos os backgrounds e efeitos visuais */
 body.print-mode * {
     background-image: none !important;
     text-shadow: none !important;
     box-shadow: none !important;
+}
+
+/* ===================================================================
+   CLASSES UTILITÁRIAS DE CORES PARA PRINT-MODE
+   Aplicar em elementos específicos para dar ênfase/destaque
+   Exemplos de uso:
+   <p class="print-blue">Texto em azul</p>
+   <div class="destaque-box print-red">Box vermelho</div>
+   <strong class="print-green">Negrito verde</strong>
+   =================================================================== */
+
+/* Cor AZUL - para informações importantes */
+body.print-mode .print-blue,
+body.print-mode .print-blue *,
+body.print-mode .print-blue .katex {
+    color: #0d47a1 !important;
+}
+
+body.print-mode .print-blue.destaque-box {
+    border-left-color: #0d47a1 !important;
+}
+
+body.print-mode .print-blue .katex .frac-line {
+    border-bottom-color: #0d47a1 !important;
+}
+
+/* Cor VERDE - para confirmações, conceitos positivos */
+body.print-mode .print-green,
+body.print-mode .print-green *,
+body.print-mode .print-green .katex {
+    color: #1b5e20 !important;
+}
+
+body.print-mode .print-green.destaque-box {
+    border-left-color: #1b5e20 !important;
+}
+
+body.print-mode .print-green .katex .frac-line {
+    border-bottom-color: #1b5e20 !important;
+}
+
+/* Cor VERMELHA - para alertas, erros, conceitos críticos */
+body.print-mode .print-red,
+body.print-mode .print-red *,
+body.print-mode .print-red .katex {
+    color: #b71c1c !important;
+}
+
+body.print-mode .print-red.destaque-box {
+    border-left-color: #b71c1c !important;
+}
+
+body.print-mode .print-red .katex .frac-line {
+    border-bottom-color: #b71c1c !important;
+}
+
+/* Cor PRETA - para ênfase padrão (já é o padrão, mas pode ser usado explicitamente) */
+body.print-mode .print-black,
+body.print-mode .print-black *,
+body.print-mode .print-black .katex {
+    color: #000 !important;
+}
+
+body.print-mode .print-black.destaque-box {
+    border-left-color: #000 !important;
+}
+
+/* Cor LARANJA - para avisos, observações importantes */
+body.print-mode .print-orange,
+body.print-mode .print-orange *,
+body.print-mode .print-orange .katex {
+    color: #e65100 !important;
+}
+
+body.print-mode .print-orange.destaque-box {
+    border-left-color: #e65100 !important;
+}
+
+body.print-mode .print-orange .katex .frac-line {
+    border-bottom-color: #e65100 !important;
 }
 
 /* Botão de retorno ao modo normal */

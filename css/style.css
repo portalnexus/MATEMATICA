@@ -754,5 +754,217 @@ body.print-mode .katex-display {
         page-break-inside: avoid;
     }
 }
-    
-    
+
+/*
+================================================================================
+  MODO DE IMPRESSÃO (Print Mode)
+  Ativado via botão toggle - torna a página limpa, preto e branco
+================================================================================
+*/
+
+body.print-mode {
+    /* Background totalmente branco */
+    background: white !important;
+    color: #000 !important;
+}
+
+/* Ocultar elementos não essenciais para impressão */
+body.print-mode nav,
+body.print-mode #theme-config-icon,
+body.print-mode #theme-selector-panel,
+body.print-mode #matrixCanvas,
+body.print-mode .themed-button,
+body.print-mode #print-mode-toggle {
+    display: none !important;
+}
+
+/* Mostrar botão de retorno ao modo normal */
+body.print-mode #return-normal-mode {
+    display: block !important;
+}
+
+/* Estilos gerais - preto e branco limpo */
+body.print-mode #page-wrapper {
+    background: white !important;
+    color: #000 !important;
+}
+
+body.print-mode .container {
+    background: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 900px !important;
+    padding: 2rem 1rem !important;
+}
+
+body.print-mode article {
+    background: white !important;
+    color: #000 !important;
+}
+
+/* Títulos e textos - preto */
+body.print-mode h1,
+body.print-mode h2,
+body.print-mode h3,
+body.print-mode h4,
+body.print-mode h5,
+body.print-mode h6 {
+    color: #000 !important;
+    font-family: 'Georgia', serif !important;
+}
+
+body.print-mode p,
+body.print-mode li,
+body.print-mode span,
+body.print-mode div {
+    color: #000 !important;
+    font-family: 'Georgia', serif !important;
+}
+
+body.print-mode strong {
+    color: #000 !important;
+    font-weight: bold !important;
+}
+
+/* Boxes de destaque - borda preta simples */
+body.print-mode .destaque-box {
+    border-left: 3px solid #000 !important;
+    background-color: white !important;
+    padding: 1rem !important;
+    margin: 1.5rem 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+body.print-mode .destaque-box.definicao {
+    border-left-color: #000 !important;
+}
+
+body.print-mode .destaque-box.teorema {
+    border-left-color: #000 !important;
+}
+
+body.print-mode .destaque-box.observacao {
+    border-left-color: #000 !important;
+}
+
+body.print-mode .destaque-box h3 {
+    color: #000 !important;
+    margin-top: 0 !important;
+}
+
+/* Exemplos resolvidos - borda cinza clara */
+body.print-mode .exemplo-resolvido {
+    background-color: white !important;
+    border-left: 3px solid #666 !important;
+    padding: 1.5rem !important;
+    margin: 2rem 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+body.print-mode .exemplo-resolvido h3,
+body.print-mode .exemplo-resolvido h4 {
+    color: #000 !important;
+}
+
+/* Notas - sem borda colorida */
+body.print-mode .nota {
+    font-style: italic !important;
+    color: #333 !important;
+    border-left: 2px solid #999 !important;
+    padding-left: 1rem !important;
+    margin: 1rem 0 !important;
+}
+
+/* Listas */
+body.print-mode ul,
+body.print-mode ol {
+    color: #000 !important;
+}
+
+body.print-mode li {
+    color: #000 !important;
+    margin: 0.5rem 0 !important;
+}
+
+/* KaTeX - manter renderização matemática */
+body.print-mode .katex {
+    color: #000 !important;
+}
+
+body.print-mode .katex-display {
+    margin: 1em 0 !important;
+}
+
+/* Remover todos os backgrounds e efeitos visuais */
+body.print-mode * {
+    background-image: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* Botão de retorno ao modo normal */
+#return-normal-mode {
+    display: none;
+    background: #000;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    border: 2px solid #000;
+    transition: all 0.3s;
+    margin: 40px auto;
+    text-align: center;
+    max-width: 300px;
+}
+
+#return-normal-mode:hover {
+    background: white;
+    color: #000;
+}
+
+/* Container para o botão no final da página */
+body.print-mode #return-normal-mode {
+    display: block;
+}
+
+/* Botão de impressão (quando NÃO está no print mode) */
+#print-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--link-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 9999;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#print-mode-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Ocultar botões quando @media print for ativado (impressão real ou salvar PDF) */
+@media print {
+    #print-mode-toggle,
+    #return-normal-mode {
+        display: none !important;
+    }
+
+    /* Garantir que não apareça nenhum traço dos botões */
+    body.print-mode #return-normal-mode {
+        display: none !important;
+    }
+}

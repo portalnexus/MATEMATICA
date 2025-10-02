@@ -22,7 +22,10 @@
     returnButton.id = 'return-normal-mode';
     returnButton.innerHTML = '← Voltar ao modo normal';
     returnButton.title = 'Sair do modo de impressão';
-    document.body.appendChild(returnButton);
+
+    // Inserir botão no final do conteúdo (dentro do container/article)
+    const container = document.querySelector('.container') || document.querySelector('article') || document.body;
+    container.appendChild(returnButton);
 
     // Toggle print mode ao clicar
     printButton.addEventListener('click', function() {

@@ -380,7 +380,7 @@ function preencherPainel(usuario, id, etapa) {
         userDisplay.classList.remove('hidden');
 
         document.getElementById('lvl').innerText = `${usuario.lvl}`;
-        document.getElementById('avatar-img').src = `${id}.jpg`;
+        document.getElementById('avatar-img').src = `data/avatar/${id}.jpg`;
 
         if (typeof usuario.lvl === 'number' && usuario.lvl < 100) {
             const expNivelAtual = getExpParaNivel(usuario.lvl);
@@ -547,7 +547,7 @@ function limparPainel() {
     document.querySelector('.etapa-btn[data-etapa="1"]').classList.add('active');
 
     document.getElementById('lvl').innerText = 'LVL';
-    document.getElementById('avatar-img').src = 'default_avatar.png';
+    document.getElementById('avatar-img').src = 'data/avatar/default_avatar.png';
     document.getElementById('trofeus-conquistados').innerHTML = '';
     document.getElementById('trofeus-bloqueados-grid').innerHTML = '';
     document.getElementById('lista-missoes').innerHTML = '';

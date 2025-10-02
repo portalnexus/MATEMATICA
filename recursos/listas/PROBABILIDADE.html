@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXUS</title>
+  <title>NEXUS - Lista de Probabilidade</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -10,6 +10,51 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
   <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    /* Estilos para metadados dos problemas */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+  </style>
 </head>
 
 <body>
@@ -18,7 +63,6 @@
     <ul>
       <li><a href="../../index.html">PÁGINA INICIAL</a></li>
       <li><a href="../../recursos.html">RECURSOS</a></li>
-      <!--<li><a href="../../missoes.html">MISSÕES</a></li>-->
       <li><a href="../../dashboard.html">DASHBOARD</a></li>
     </ul>
   </nav>
@@ -28,444 +72,414 @@
 
 <article>
   <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">Problemas básicos para familiarização com os conceitos fundamentais de probabilidade.</p>
+
   <ol>
     <li>
-      <p>Em um saco, há 5 bolas azuis, 3 bolas vermelhas e 2 bolas verdes. Qual a probabilidade de retirar uma bola azul?</p>
+      <div class="problema-meta">
+        <span class="fonte">Original</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Em um torneio de videogame, os jogadores recebem fichas de poder: 5 azuis (velocidade), 3 vermelhas (escudo) e 2 verdes (vida extra). Se você retirar uma ficha aleatoriamente, qual a probabilidade de obter uma ficha azul de velocidade?</p>
     </li>
+
     <li>
+      <div class="problema-meta">
+        <span class="fonte">Original</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
       <p>Ao lançar um dado comum de 6 faces, qual a probabilidade de obter o número 4?</p>
     </li>
+
     <li>
-      <p>Qual a probabilidade de chover amanhã, se a previsão indica 70% de chance?</p>
+      <div class="problema-meta">
+        <span class="fonte">Meteorologia</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>A previsão do tempo indica 70% de probabilidade de chuva para amanhã. Expresse essa probabilidade como uma fração irredutível e como número decimal.</p>
     </li>
+
     <li>
-      <p>Uma moeda honesta é lançada duas vezes. Qual a probabilidade de obter cara nas duas vezes?</p>
+      <div class="problema-meta">
+        <span class="fonte">Original</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Uma moeda honesta é lançada duas vezes consecutivas. Qual a probabilidade de obter cara nas duas vezes?</p>
     </li>
+
     <li>
-      <p>Em uma caixa, há 10 lâmpadas, sendo 2 defeituosas. Qual a probabilidade de escolher uma lâmpada que não esteja defeituosa?</p>
+      <div class="problema-meta">
+        <span class="fonte">Controle de Qualidade</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Em uma caixa há 10 lâmpadas LED, sendo 2 defeituosas. Retirando uma lâmpada ao acaso, qual a probabilidade de ela estar em perfeito funcionamento?</p>
     </li>
+
     <li>
-      <p>Um baralho comum de 52 cartas é embaralhado. Qual a probabilidade de retirar um Ás?</p>
+      <div class="problema-meta">
+        <span class="fonte">Original</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um baralho comum de 52 cartas é embaralhado. Qual a probabilidade de retirar um Ás ao acaso?</p>
     </li>
+
     <li>
-      <p>Qual a probabilidade de um evento impossível ocorrer?</p>
+      <div class="problema-meta">
+        <span class="fonte">Conceito Teórico</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 1 min</span>
+      </div>
+      <p>Explique: qual a probabilidade de um evento impossível ocorrer? E de um evento certo?</p>
     </li>
+
     <li>
-      <p>Qual a probabilidade de um evento certo ocorrer?</p>
+      <div class="problema-meta">
+        <span class="fonte">Contexto Escolar</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Em uma turma de 30 alunos, 18 são meninas. Escolhendo um aluno aleatoriamente para representar a turma no conselho escolar, qual a probabilidade de escolher um menino?</p>
     </li>
+
     <li>
-      <p>Em uma turma de 30 alunos, 18 são meninas. Qual a probabilidade de escolher aleatoriamente um menino?</p>
+      <div class="problema-meta">
+        <span class="fonte">Original</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um número é escolhido aleatoriamente entre 1 e 10 (inclusive). Qual a probabilidade de que o número seja par?</p>
     </li>
+
     <li>
-      <p>Um número é escolhido aleatoriamente entre 1 e 10. Qual a probabilidade de que o número seja par?</p>
+      <div class="problema-meta">
+        <span class="fonte">Loteria</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Em um sorteio de rifa há 100 números disponíveis. Se você comprou 5 números, qual a sua probabilidade de ganhar o prêmio principal?</p>
     </li>
+
     <li>
-      <p>Em um sorteio, há 100 números. Se você comprou 5 números, qual a sua probabilidade de ganhar?</p>
+      <div class="problema-meta">
+        <span class="fonte">Jogos</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Uma roleta de festa está dividida em 8 setores iguais, numerados de 1 a 8. Girando a roleta, qual a probabilidade de a seta parar em um número ímpar?</p>
     </li>
+
     <li>
-      <p>Uma roleta é dividida em 8 setores iguais, numerados de 1 a 8. Qual a probabilidade de a seta parar em um número ímpar?</p>
+      <div class="problema-meta">
+        <span class="fonte">Genética - Adaptado</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>No cruzamento de duas plantas de ervilha (Aa × Aa), cada descendente tem 25% de chance de ser AA, 50% de ser Aa, e 25% de ser aa. Qual a probabilidade de um descendente escolhido aleatoriamente apresentar o fenótipo dominante (AA ou Aa)?</p>
     </li>
   </ol>
 </article>
 
 <article>
   <h2>Problemas de Fixação</h2>
+  <p class="section-intro">Problemas que requerem interpretação do enunciado e aplicação de conceitos combinados.</p>
+
   <ol>
     <li>
-      <p>Em um saco, há 6 bolas vermelhas e 4 bolas azuis. Retiram-se duas bolas sem reposição. Qual a probabilidade de ambas serem vermelhas?</p>
+      <div class="problema-meta">
+        <span class="fonte">Original</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma urna contém 6 bolas vermelhas e 4 bolas azuis. Duas bolas são retiradas, uma após a outra, <strong>sem reposição</strong>. Qual a probabilidade de ambas serem vermelhas?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Lembre-se que sem reposição, o total de bolas diminui a cada retirada!
+      </div>
     </li>
+
     <li>
-      <p>Uma urna contém 5 bolas brancas, 3 bolas pretas e 2 bolas verdes. Retira-se uma bola. Qual a probabilidade de que ela seja branca ou verde?</p>
+      <div class="problema-meta">
+        <span class="fonte">Original</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Uma urna contém 5 bolas brancas, 3 bolas pretas e 2 bolas verdes. Qual a probabilidade de retirar uma bola branca OU verde?</p>
     </li>
+
     <li>
-      <p>Qual a probabilidade de, ao lançar dois dados comuns, a soma dos pontos seja 7?</p>
+      <div class="problema-meta">
+        <span class="fonte">ENEM - Adaptado</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Ao lançar dois dados comuns simultaneamente, qual a probabilidade de a soma dos pontos ser exatamente 7?</p>
     </li>
+
     <li>
-      <p>Em um grupo de 50 pessoas, 30 gostam de futebol e 25 gostam de basquete. Se 10 pessoas gostam de ambos, qual a probabilidade de uma pessoa escolhida aleatoriamente gostar apenas de futebol?</p>
+      <div class="problema-meta">
+        <span class="fonte">Diagrama de Venn</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Em um grupo de 50 estudantes, 30 praticam futebol e 25 praticam basquete. Sabe-se que 10 estudantes praticam ambos os esportes. Escolhendo um estudante ao acaso, qual a probabilidade de ele praticar <strong>apenas</strong> futebol?</p>
     </li>
+
     <li>
-      <p>Um dado viciado tem as seguintes probabilidades para cada face: P(1)=0.1, P(2)=0.2, P(3)=0.1, P(4)=0.3, P(5)=0.1, P(6)=0.2. Qual a probabilidade de obter um número par?</p>
+      <div class="problema-meta">
+        <span class="fonte">Dado Viciado</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um dado especial tem as seguintes probabilidades para cada face: P(1)=0,1; P(2)=0,2; P(3)=0,1; P(4)=0,3; P(5)=0,1; P(6)=0,2. Qual a probabilidade de obter um número par ao lançar este dado?</p>
     </li>
+
     <li>
-      <p>Uma moeda é lançada 3 vezes. Qual a probabilidade de obter exatamente duas caras?</p>
+      <div class="problema-meta">
+        <span class="fonte">Análise Combinatória</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma moeda é lançada 3 vezes consecutivas. Qual a probabilidade de obter exatamente duas caras?</p>
     </li>
+
     <li>
-      <p>Em uma fábrica, a probabilidade de um produto sair defeituoso é de 0.05. Qual a probabilidade de que, em uma amostra de 10 produtos, nenhum saia defeituoso?</p>
-    </li>
-    <li>
+      <div class="problema-meta">
+        <span class="fonte">Baralho</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
       <p>Um cartão é retirado aleatoriamente de um baralho de 52 cartas. Qual a probabilidade de que o cartão seja uma figura (Valete, Dama ou Rei) de copas?</p>
     </li>
+
     <li>
-      <p>Em um evento, 60% dos participantes são homens e 40% são mulheres. Se 30% dos homens e 20% das mulheres usam óculos, qual a probabilidade de um participante escolhido aleatoriamente ser um homem que usa óculos?</p>
+      <div class="problema-meta">
+        <span class="fonte">Probabilidade Condicional</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Em um evento, 60% dos participantes são homens e 40% são mulheres. Dentre os homens, 30% usam óculos, e dentre as mulheres, 20% usam óculos. Escolhendo um participante aleatoriamente, qual a probabilidade de ele ser um homem que usa óculos?</p>
     </li>
+
     <li>
-      <p>Uma urna contém 7 bolas numeradas de 1 a 7. Duas bolas são retiradas sem reposição. Qual a probabilidade de que a soma dos números nas bolas retiradas seja par?</p>
+      <div class="problema-meta">
+        <span class="fonte">Combinatória</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Uma urna contém 7 bolas numeradas de 1 a 7. Duas bolas são retiradas sem reposição. Qual a probabilidade de que a soma dos números seja par?</p>
+      <div class="dica">
+        <strong>Dica:</strong> A soma é par quando ambos os números têm a mesma paridade!
+      </div>
     </li>
+
     <li>
-      <p>Em uma escola, 70% dos alunos falam inglês e 50% falam espanhol. Se 30% dos alunos falam ambos os idiomas, qual a probabilidade de um aluno escolhido aleatoriamente falar apenas inglês?</p>
+      <div class="problema-meta">
+        <span class="fonte">Idiomas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Em uma escola, 70% dos alunos falam inglês e 50% falam espanhol. Se 30% dos alunos falam ambos os idiomas, qual a probabilidade de um aluno escolhido aleatoriamente falar <strong>apenas</strong> inglês?</p>
     </li>
+
     <li>
-      <p>Uma loja tem 3 caixas. A probabilidade de a caixa 1 estar livre é de 0.8, a caixa 2 é de 0.7 e a caixa 3 é de 0.9. Qual a probabilidade de que pelo menos uma caixa esteja livre?</p>
+      <div class="problema-meta">
+        <span class="fonte">Complementar</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Uma loja tem 3 caixas de atendimento. A probabilidade de a caixa 1 estar livre é 0,8; da caixa 2 é 0,7; e da caixa 3 é 0,9. Considerando os eventos independentes, qual a probabilidade de que <strong>pelo menos uma</strong> caixa esteja livre?</p>
     </li>
+
     <li>
-      <p>Em uma caixa, há 5 bolas brancas e 5 bolas pretas. Retiram-se 3 bolas sem reposição. Qual a probabilidade de que todas as 3 bolas sejam da mesma cor?</p>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST - Adaptado</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Uma caixa contém 5 bolas brancas e 5 bolas pretas. Três bolas são retiradas sem reposição. Qual a probabilidade de que todas as 3 bolas sejam da mesma cor?</p>
     </li>
+
     <li>
-      <p>Um dado de 10 faces (numerado de 0 a 9) é lançado. Qual a probabilidade de o resultado ser um número primo ou um número múltiplo de 3?</p>
+      <div class="problema-meta">
+        <span class="fonte">Dado Especial</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Um dado de 10 faces (numerado de 0 a 9) é lançado. Qual a probabilidade de o resultado ser um número primo <strong>ou</strong> um múltiplo de 3?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Esportes</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Em um campeonato de tênis, a probabilidade de um jogador A vencer o jogador B é 0,65. Se eles jogarem 3 partidas independentes, qual a probabilidade de A vencer exatamente 2 partidas?</p>
     </li>
   </ol>
 </article>
 
 <article>
   <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">Problemas complexos que exigem raciocínio em múltiplas etapas e combinação de conceitos.</p>
+
   <ol>
     <li>
-      <p>Em uma cidade, a probabilidade de chover em um dia é de 0.4. A probabilidade de fazer sol é de 0.5 e a probabilidade de estar nublado é de 0.1. Se chove, a probabilidade de ocorrer um acidente de trânsito é de 0.02. Se faz sol, essa probabilidade é de 0.005. Se está nublado, a probabilidade de acidente é de 0.01. Qual a probabilidade de ocorrer um acidente de trânsito em um dia qualquer?</p>
+      <div class="problema-meta">
+        <span class="fonte">Probabilidade Total</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Em uma cidade, a probabilidade de chover em um dia é 0,4; de fazer sol é 0,5; e de estar nublado é 0,1. Quando chove, a probabilidade de ocorrer um acidente de trânsito é 0,02. Quando faz sol, essa probabilidade é 0,005. Quando está nublado, é 0,01. Qual a probabilidade de ocorrer um acidente de trânsito em um dia qualquer?</p>
     </li>
+
     <li>
-      <p>Uma urna contém 3 bolas vermelhas e 2 bolas azuis. Retiram-se duas bolas sem reposição. Se a primeira bola retirada foi vermelha, qual a probabilidade de a segunda bola também ser vermelha?</p>
+      <div class="problema-meta">
+        <span class="fonte">Probabilidade Condicional</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Uma urna contém 3 bolas vermelhas e 2 bolas azuis. Duas bolas são retiradas sem reposição. <strong>Sabendo que a primeira bola retirada foi vermelha</strong>, qual a probabilidade de a segunda bola também ser vermelha?</p>
     </li>
+
     <li>
-      <p>Um teste de diagnóstico para uma doença rara tem 99% de precisão em detectar a doença quando ela está presente (sensibilidade) e 95% de precisão em indicar que a pessoa não tem a doença quando ela realmente não a tem (especificidade). Se a prevalência da doença na população é de 0.1%, qual a probabilidade de uma pessoa ter a doença, dado que o teste deu positivo?</p>
+      <div class="problema-meta">
+        <span class="fonte">Teorema de Bayes - ENEM</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 15 min</span>
+      </div>
+      <p>Um teste para detectar uma doença rara tem 99% de sensibilidade (detecta a doença quando presente) e 95% de especificidade (indica ausência quando não há doença). A prevalência da doença na população é de 0,1%. Se uma pessoa faz o teste e o resultado é positivo, qual a probabilidade de ela realmente ter a doença?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Este problema envolve o Teorema de Bayes e pode ter um resultado surpreendente!
+      </div>
     </li>
+
     <li>
-      <p>Em um jogo de cartas, você recebe 5 cartas de um baralho de 52 cartas. Qual a probabilidade de receber exatamente 2 Ases?</p>
+      <div class="problema-meta">
+        <span class="fonte">Combinatória</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Em um jogo de pôquer, você recebe 5 cartas de um baralho de 52 cartas. Qual a probabilidade de receber exatamente 2 Ases?</p>
     </li>
+
     <li>
-      <p>Considere dois eventos A e B tais que P(A) = 0.6, P(B) = 0.5 e P(A ∩ B) = 0.3. Calcule:</p>
+      <div class="problema-meta">
+        <span class="fonte">Eventos Dependentes</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Dois eventos A e B são tais que P(A) = 0,6; P(B) = 0,5 e P(A ∩ B) = 0,3. Calcule:</p>
       <p>a) P(A ∪ B)</p>
-      <p>b) P(A | B)</p>
-      <p>c) P(B | A)</p>
+      <p>b) P(A | B) - probabilidade de A ocorrer, dado que B ocorreu</p>
+      <p>c) P(B | A) - probabilidade de B ocorrer, dado que A ocorreu</p>
     </li>
+
     <li>
-      <p>Uma empresa produz parafusos. A probabilidade de um parafuso ser defeituoso é de 0.01. Os parafusos são embalados em caixas de 100 unidades. Qual a probabilidade de uma caixa conter exatamente 2 parafusos defeituosos?</p>
+      <div class="problema-meta">
+        <span class="fonte">Física - Partículas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Três detectores de partículas operam independentemente. As probabilidades de detecção são: Detector A = 0,9; Detector B = 0,85; Detector C = 0,95. Uma partícula atravessa o sistema. Qual a probabilidade de que:</p>
+      <p>a) Todos os três detectores registrem a partícula?</p>
+      <p>b) Pelo menos um detector registre a partícula?</p>
+      <p>c) Exatamente dois detectores registrem a partícula?</p>
     </li>
   </ol>
 </article>
 
-<!--
 <article>
-  <h2>Gabarito e Soluções</h2>
-  <h3>Problemas Introdutórios</h3>
-  <ol>
-    <li>
-      <p><strong>Solução:</strong> O número total de bolas é @5 + 3 + 2 = 10@. O número de bolas azuis é 5. A probabilidade é a razão entre o número de casos favoráveis e o número total de casos.
-      @@ P(\text{azul}) = \frac{\text{Número de bolas azuis}}{\text{Número total de bolas}} @@
-      @@ P(\text{azul}) = \frac{5}{10} = \frac{1}{2} @@
-      <strong>Resposta:</strong> @\frac{1}{2}@ ou 50%.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong> Um dado comum tem 6 faces, numeradas de 1 a 6. O número total de resultados possíveis é 6. O resultado favorável é obter o número 4, que é apenas 1 caso.
-      @@ P(obter 4) = \frac{\text{Número de faces com 4}}{\text{Número total de faces}} @@
-      @@ P(obter 4) = \frac{1}{6} @@
-      <strong>Resposta:</strong> @\frac{1}{6}@.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong> A previsão de 70% de chance de chover significa que a probabilidade é de 0.70.
-      @@ P(\text{chover}) = 70\% = 0.70 @@
-      <strong>Resposta:</strong> 0.70 ou 70%.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong> Os resultados possíveis para duas moedas são: (Cara, Cara), (Cara, Coroa), (Coroa, Cara), (Coroa, Coroa). Total de 4 resultados possíveis. O resultado favorável é (Cara, Cara), que é 1 caso.
-      @@ P(\text{Cara, Cara}) = \frac{\text{Número de vezes que ocorre (Cara, Cara)}}{\text{Número total de resultados}} @@
-      @@ P(\text{Cara, Cara}) = \frac{1}{4} @@
-      <strong>Resposta:</strong> @\frac{1}{4}@.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong> O número total de lâmpadas é 10. O número de lâmpadas defeituosas é 2. Portanto, o número de lâmpadas não defeituosas é @10 - 2 = 8@.
-      @@ P(\text{não defeituosa}) = \frac{\text{Número de lâmpadas não defeituosas}}{\text{Número total de lâmpadas}} @@
-      @@ P(\text{não defeituosa}) = \frac{8}{10} = \frac{4}{5} @@
-      <strong>Resposta:</strong> @\frac{4}{5}@.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong> Um baralho comum tem 52 cartas. Há 4 Ases no baralho (um de cada naipe).
-      @@ P(\text{retirar um Ás}) = \frac{\text{Número de Ases}}{\text{Número total de cartas}} @@
-      @@ P(\text{retirar um Ás}) = \frac{4}{52} = \frac{1}{13} @@
-      <strong>Resposta:</strong> @\frac{1}{13}@.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong> Um evento impossível é aquele que não pode ocorrer. Sua probabilidade é sempre 0.
-      <strong>Resposta:</strong> 0.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong> Um evento certo é aquele que sempre ocorre. Sua probabilidade é sempre 1.
-      <strong>Resposta:</strong> 1.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong> O número total de alunos é 30. O número de meninas é 18. O número de meninos é @30 - 18 = 12@.
-      @@ P(\text{escolher um menino}) = \frac{\text{Número de meninos}}{\text{Número total de alunos}} @@
-      @@ P(\text{escolher um menino}) = \frac{12}{30} = \frac{2}{5} @@
-      <strong>Resposta:</strong> @\frac{2}{5}@.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong> Os números entre 1 e 10 são {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}. O total de números é 10. Os números pares são {2, 4, 6, 8, 10}, totalizando 5 números.
-      @@ P(\text{número par}) = \frac{\text{Número de números pares}}{\text{Número total de números}} @@
-      @@ P(\text{número par}) = \frac{5}{10} = \frac{1}{2} @@
-      <strong>Resposta:</strong> @\frac{1}{2}@.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong> O número total de números no sorteio é 100. Você comprou 5 números.
-      @@ P(\text{ganhar}) = \frac{\text{Número de números comprados}}{\text{Número total de números}} @@
-      @@ P(\text{ganhar}) = \frac{5}{100} = \frac{1}{20} @@
-      <strong>Resposta:</strong> @\frac{1}{20}@.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong> A roleta tem 8 setores iguais. Os números ímpares são {1, 3, 5, 7}, totalizando 4 números.
-      @@ P(\text{número ímpar}) = \frac{\text{Número de setores com números ímpares}}{\text{Número total de setores}} @@
-      @@ P(\text{número ímpar}) = \frac{4}{8} = \frac{1}{2} @@
-      <strong>Resposta:</strong> @\frac{1}{2}@.</p>
-    </li>
-  </ol>
+  <h2>Desafios Olímpicos e Vestibulares</h2>
+  <p class="section-intro">Problemas selecionados de olimpíadas de matemática e vestibulares para desafiar seu raciocínio!</p>
 
-  <h3>Problemas de Fixação</h3>
   <ol>
     <li>
-      <p><strong>Solução:</strong>
-      O número total de bolas é @6 + 4 = 10@.
-      A probabilidade de a primeira bola ser vermelha é @P(V_1) = \frac{6}{10}@.
-      Após retirar uma bola vermelha, restam 5 bolas vermelhas e 4 bolas azuis, totalizando 9 bolas.
-      A probabilidade de a segunda bola ser vermelha, dado que a primeira foi vermelha, é @P(V_2|V_1) = \frac{5}{9}@.
-      A probabilidade de ambas serem vermelhas é o produto dessas probabilidades:
-      @@ P(V_1 \cap V_2) = P(V_1) \times P(V_2|V_1) @@
-      @@ P(V_1 \cap V_2) = \frac{6}{10} \times \frac{5}{9} = \frac{30}{90} = \frac{1}{3} @@
-      <strong>Resposta:</strong> @\frac{1}{3}@.</p>
+      <div class="problema-meta">
+        <span class="fonte">OBMEP 2017 - Nível 3</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Ana e Bruno jogam um jogo com um dado honesto de 6 faces. Ana ganha se sair um número maior que 4. Bruno ganha se sair um número par. Caso contrário, há empate. Quem tem maior probabilidade de ganhar? Justifique.</p>
     </li>
-    <li>
-      <p><strong>Solução:</strong>
-      O número total de bolas é @5 + 3 + 2 = 10@.
-      Queremos a probabilidade de a bola ser branca OU verde. Como esses eventos são mutuamente exclusivos (uma bola não pode ser branca e verde ao mesmo tempo), somamos suas probabilidades.
-      @@ P(\text{branca ou verde}) = P(\text{branca}) + P(\text{verde}) @@
-      @@ P(\text{branca}) = \frac{5}{10} @@
-      @@ P(\text{verde}) = \frac{2}{10} @@
-      @@ P(\text{branca ou verde}) = \frac{5}{10} + \frac{2}{10} = \frac{7}{10} @@
-      <strong>Resposta:</strong> @\frac{7}{10}@.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong>
-      Ao lançar dois dados, o número total de resultados possíveis é @6 \times 6 = 36@.
-      Os pares que somam 7 são: (1, 6), (2, 5), (3, 4), (4, 3), (5, 2), (6, 1). São 6 pares favoráveis.
-      @@ P(\text{soma 7}) = \frac{\text{Número de pares que somam 7}}{\text{Número total de resultados}} @@
-      @@ P(\text{soma 7}) = \frac{6}{36} = \frac{1}{6} @@
-      <strong>Resposta:</strong> @\frac{1}{6}@.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong>
-      Total de pessoas = 50.
-      Gostam de futebol (F) = 30.
-      Gostam de basquete (B) = 25.
-      Gostam de ambos (F ∩ B) = 10.
-      Pessoas que gostam apenas de futebol = Pessoas que gostam de futebol - Pessoas que gostam de ambos.
-      @@ Pessoas (apenas F) = 30 - 10 = 20 @@
-      A probabilidade de escolher aleatoriamente uma pessoa que gosta apenas de futebol é:
-      @@ P(\text{apenas F}) = \frac{\text{Número de pessoas que gostam apenas de futebol}}{\text{Número total de pessoas}} @@
-      @@ P(\text{apenas F}) = \frac{20}{50} = \frac{2}{5} @@
-      <strong>Resposta:</strong> @\frac{2}{5}@.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong>
-      Os números pares são 2, 4, 6.
-      @@ P(\text{par}) = P(2) + P(4) + P(6) @@
-      @@ P(\text{par}) = 0.2 + 0.3 + 0.2 = 0.7 @@
-      <strong>Resposta:</strong> 0.7.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong>
-      Os resultados possíveis ao lançar uma moeda 3 vezes são @2^3 = 8@.
-      Os resultados com exatamente duas caras são: (C, C, K), (C, K, C), (K, C, C). São 3 resultados favoráveis.
-      @@ P(\text{exatamente 2 caras}) = \frac{\text{Número de resultados com 2 caras}}{\text{Número total de resultados}} @@
-      @@ P(\text{exatamente 2 caras}) = \frac{3}{8} @@
-      <strong>Resposta:</strong> @\frac{3}{8}@.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong>
-      A probabilidade de um produto NÃO ser defeituoso é @1 - 0.05 = 0.95@.
-      Para que nenhum dos 10 produtos seja defeituoso, cada um deles deve ser não defeituoso. Como os eventos são independentes, multiplicamos as probabilidades.
-      @@ P(\text{nenhum defeituoso em 10}) = (0.95)^{10} @@
-      @@ (0.95)^{10} \approx 0.5987 @@
-      <strong>Resposta:</strong> Aproximadamente 0.5987.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong>
-      Um baralho tem 52 cartas.
-      As figuras são Valete (V), Dama (D) e Rei (R).
-      As figuras de copas são: V de Copas, D de Copas, R de Copas. São 3 cartas.
-      @@ P(\text{figura de copas}) = \frac{\text{Número de figuras de copas}}{\text{Número total de cartas}} @@
-      @@ P(\text{figura de copas}) = \frac{3}{52} @@
-      <strong>Resposta:</strong> @\frac{3}{52}@.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong>
-      Seja H o evento de ser homem e M o evento de ser mulher.
-      P(H) = 0.6, P(M) = 0.4.
-      Seja O o evento de usar óculos.
-      P(O|H) = 0.3, P(O|M) = 0.2.
-      Queremos P(H ∩ O), a probabilidade de ser homem E usar óculos.
-      @@ P(H ∩ O) = P(O|H) * P(H) @@
-      @@ P(H ∩ O) = 0.3 * 0.6 = 0.18 @@
-      <strong>Resposta:</strong> 0.18.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong>
-      Total de bolas = 7.
-      O número total de pares de bolas que podem ser retiradas sem reposição é @\binom{7}{2} = \frac{7 \times 6}{2} = 21@.
-      Para que a soma seja par, as duas bolas devem ser ambas pares ou ambas ímpares.
-      Bolas pares: {2, 4, 6} (3 bolas). Número de pares de bolas pares: @\binom{3}{2} = 3@.
-      Bolas ímpares: {1, 3, 5, 7} (4 bolas). Número de pares de bolas ímpares: @\binom{4}{2} = \frac{4 \times 3}{2} = 6@.
-      Número total de pares favoráveis = @3 + 6 = 9@.
-      @@ P(\text{soma par}) = \frac{\text{Número de pares favoráveis}}{\text{Número total de pares}} @@
-      @@ P(\text{soma par}) = \frac{9}{21} = \frac{3}{7} @@
-      <strong>Resposta:</strong> @\frac{3}{7}@.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong>
-      Seja I o evento de falar inglês e E o evento de falar espanhol.
-      P(I) = 0.7, P(E) = 0.5, P(I ∩ E) = 0.3.
-      Queremos a probabilidade de falar apenas inglês, que é P(I) - P(I ∩ E).
-      @@ P(\text{apenas I}) = P(I) - P(I \cap E) @@
-      @@ P(\text{apenas I}) = 0.7 - 0.3 = 0.4 @@
-      <strong>Resposta:</strong> 0.4.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong>
-      Seja @L_i@ o evento de a caixa @i@ estar livre.
-      @P(L_1) = 0.8@, @P(L_2) = 0.7@, @P(L_3) = 0.9@.
-      A probabilidade de a caixa @i@ estar ocupada é @P(O_i) = 1 - P(L_i)@.
-      @P(O_1) = 1 - 0.8 = 0.2@
-      @P(O_2) = 1 - 0.7 = 0.3@
-      @P(O_3) = 1 - 0.9 = 0.1@
-      A probabilidade de que pelo menos uma caixa esteja livre é 1 menos a probabilidade de que todas as caixas estejam ocupadas. Assumindo independência:
-      @@ P(\text{todas ocupadas}) = P(O_1) \times P(O_2) \times P(O_3) @@
-      @@ P(\text{todas ocupadas}) = 0.2 \times 0.3 \times 0.1 = 0.006 @@
-      @@ P(\text{pelo menos uma livre}) = 1 - P(\text{todas ocupadas}) @@
-      @@ P(\text{pelo menos uma livre}) = 1 - 0.006 = 0.994 @@
-      <strong>Resposta:</strong> 0.994.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong>
-      Total de bolas = 10 (5 brancas, 5 pretas).
-      Retiram-se 3 bolas sem reposição.
-      O número total de maneiras de retirar 3 bolas de 10 é @\binom{10}{3} = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} = 120@.
-      Para que todas as 3 bolas sejam da mesma cor, elas podem ser:
-      a) Todas brancas: @\binom{5}{3} = \frac{5 \times 4 \times 3}{3 \times 2 \times 1} = 10@ maneiras.
-      b) Todas pretas: @\binom{5}{3} = \frac{5 \times 4 \times 3}{3 \times 2 \times 1} = 10@ maneiras.
-      O número total de casos favoráveis é @10 + 10 = 20@.
-      @@ P(\text{3 da mesma cor}) = \frac{\text{Número de casos favoráveis}}{\text{Número total de casos}} @@
-      @@ P(\text{3 da mesma cor}) = \frac{20}{120} = \frac{1}{6} @@
-      <strong>Resposta:</strong> @\frac{1}{6}@.</p>
-    </li>
-    <li>
-      <p><strong>Solução:</strong>
-      O dado tem 10 faces numeradas de 0 a 9. O total de resultados possíveis é 10.
-      Números primos entre 0 e 9: {2, 3, 5, 7} (4 números).
-      Números múltiplos de 3 entre 0 e 9: {0, 3, 6, 9} (4 números).
-      O número 3 é comum a ambos os conjuntos.
-      Usando o princípio da inclusão-exclusão:
-      @@ P(\text{primo ou múltiplo de 3}) = P(\text{primo}) + P(\text{múltiplo de 3}) - P(\text{primo E múltiplo de 3}) @@
-      @@ P(\text{primo}) = \frac{4}{10} @@
-      @@ P(\text{múltiplo de 3}) = \frac{4}{10} @@
-      @@ P(\text{primo E múltiplo de 3}) = P(3) = \frac{1}{10} @@
-      @@ P(\text{primo ou múltiplo de 3}) = \frac{4}{10} + \frac{4}{10} - \frac{1}{10} = \frac{7}{10} @@
-      <strong>Resposta:</strong> @\frac{7}{10}@.</p>
-    </li>
-  </ol>
 
-  <h3>Problemas de Aprofundamento</h3>
-  <ol>
     <li>
-      <p><strong>Solução:</strong>
-      Seja C o evento de chover, S o evento de fazer sol, N o evento de estar nublado.
-      P(C) = 0.4, P(S) = 0.5, P(N) = 0.1.
-      Seja A o evento de ocorrer um acidente de trânsito.
-      P(A|C) = 0.02, P(A|S) = 0.005, P(A|N) = 0.01.
-      Queremos P(A), a probabilidade total de acidente, usando a lei da probabilidade total:
-      @@ P(A) = P(A|C)P(C) + P(A|S)P(S) + P(A|N)P(N) @@
-      @@ P(A) = (0.02 \times 0.4) + (0.005 \times 0.5) + (0.01 \times 0.1) @@
-      @@ P(A) = 0.008 + 0.0025 + 0.001 @@
-      @@ P(A) = 0.0115 @@
-      <strong>Resposta:</strong> 0.0115.</p>
+      <div class="problema-meta">
+        <span class="fonte">OBMEP 2019 - Adaptado</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 15 min</span>
+      </div>
+      <p>Em uma gincana, há 10 caixas fechadas. Dentro de 3 delas há prêmios, e as outras 7 estão vazias. Carlos pode escolher e abrir 3 caixas. Qual a probabilidade de ele encontrar exatamente 2 prêmios?</p>
     </li>
+
     <li>
-      <p><strong>Solução:</strong>
-      Urna com 3 bolas vermelhas (V) e 2 azuis (A). Total = 5 bolas.
-      Queremos a probabilidade de a segunda bola ser vermelha, DADO que a primeira foi vermelha. Isso é uma probabilidade condicional.
-      Se a primeira bola retirada foi vermelha, restam na urna: 2 bolas vermelhas e 2 bolas azuis. Total = 4 bolas.
-      @@ P(\text{2ª V | 1ª V}) = \frac{\text{Número de bolas vermelhas restantes}}{\text{Número total de bolas restantes}} @@
-      @@ P(\text{2ª V | 1ª V}) = \frac{2}{4} = \frac{1}{2} @@
-      <strong>Resposta:</strong> @\frac{1}{2}@.</p>
+      <div class="problema-meta">
+        <span class="fonte">Canguru 2020</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Um código secreto consiste de 4 dígitos distintos escolhidos entre 0, 1, 2, 3, 4, 5. Um espião tenta adivinhar o código escolhendo 4 dígitos distintos aleatoriamente. Qual a probabilidade de ele acertar o código na primeira tentativa?</p>
     </li>
+
     <li>
-      <p><strong>Solução:</strong>
-      Seja D o evento de ter a doença, e T+ o evento de o teste dar positivo.
-      Prevalência da doença: P(D) = 0.001 (0.1%).
-      Probabilidade de não ter a doença: P(D') = 1 - 0.001 = 0.999.
-      Sensibilidade (teste positivo dado que tem a doença): P(T+|D) = 0.99.
-      Especificidade (teste negativo dado que não tem a doença): P(T-|D') = 0.95.
-      Isso implica que a probabilidade de um teste positivo dado que NÃO tem a doença (falso positivo) é: P(T+|D') = 1 - P(T-|D') = 1 - 0.95 = 0.05.
-      Queremos calcular P(D|T+), a probabilidade de ter a doença dado um teste positivo, usando o Teorema de Bayes:
-      @@ P(D|T+) = \frac{P(T+|D)P(D)}{P(T+)} @@
-      Primeiro, calculamos P(T+), a probabilidade total de um teste positivo, usando a lei da probabilidade total:
-      @@ P(T+) = P(T+|D)P(D) + P(T+|D')P(D') @@
-      @@ P(T+) = (0.99 \times 0.001) + (0.05 \times 0.999) @@
-      @@ P(T+) = 0.00099 + 0.04995 = 0.05094 @@
-      Agora, aplicamos o Teorema de Bayes:
-      @@ P(D|T+) = \frac{0.00099}{0.05094} \approx 0.0194 @@
-      <strong>Resposta:</strong> Aproximadamente 0.0194 ou 1.94%.</p>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST 2018 - Adaptado</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Em uma urna há n bolas numeradas de 1 a n. Duas bolas são sorteadas sem reposição. Sabendo que a probabilidade de a soma dos números ser 5 é igual a @\frac{1}{12}@, determine o valor de n.</p>
     </li>
+
     <li>
-      <p><strong>Solução:</strong>
-      Um baralho tem 52 cartas. Queremos a probabilidade de receber exatamente 2 Ases em uma mão de 5 cartas.
-      O número total de maneiras de escolher 5 cartas de 52 é @\binom{52}{5}@.
-      @@ \binom{52}{5} = \frac{52 \times 51 \times 50 \times 49 \times 48}{5 \times 4 \times 3 \times 2 \times 1} = 2.598.960 @@
-      Para ter exatamente 2 Ases, precisamos escolher 2 Ases de 4 disponíveis e 3 cartas não Ases de 48 restantes.
-      Número de maneiras de escolher 2 Ases: @\binom{4}{2} = \frac{4 \times 3}{2 \times 1} = 6@.
-      Número de maneiras de escolher 3 cartas não Ases: @\binom{48}{3} = \frac{48 \times 47 \times 46}{3 \times 2 \times 1} = 17.296@.
-      O número total de mãos com exatamente 2 Ases é @\binom{4}{2} \times \binom{48}{3} = 6 \times 17.296 = 103.776@.
-      A probabilidade é:
-      @@ P(\text{exatamente 2 Ases}) = \frac{\text{Número de mãos com 2 Ases}}{\text{Número total de mãos de 5 cartas}} @@
-      @@ P(\text{exatamente 2 Ases}) = \frac{103.776}{2.598.960} \approx 0.0399 @@
-      <strong>Resposta:</strong> Aproximadamente 0.0399.</p>
+      <div class="problema-meta">
+        <span class="fonte">UNICAMP 2019 - Adaptado</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 15 min</span>
+      </div>
+      <p>Uma moeda honesta é lançada repetidamente até que apareça cara pela primeira vez ou até que tenham sido realizados 4 lançamentos, o que ocorrer primeiro. Qual a probabilidade de o processo terminar em exatamente 3 lançamentos?</p>
     </li>
+
     <li>
-      <p><strong>Solução:</strong>
-      Dados: P(A) = 0.6, P(B) = 0.5, P(A ∩ B) = 0.3.
-      a) P(A ∪ B):
-      @@ P(A \cup B) = P(A) + P(B) - P(A \cap B) @@
-      @@ P(A \cup B) = 0.6 + 0.5 - 0.3 = 0.8 @@
-      b) P(A | B): Probabilidade de A dado B.
-      @@ P(A | B) = \frac{P(A \cap B)}{P(B)} @@
-      @@ P(A | B) = \frac{0.3}{0.5} = 0.6 @@
-      c) P(B | A): Probabilidade de B dado A.
-      @@ P(B | A) = \frac{P(A \cap B)}{P(A)} @@
-      @@ P(B | A) = \frac{0.3}{0.6} = 0.5 @@
-      <strong>Respostas:</strong> a) 0.8, b) 0.6, c) 0.5.</p>
+      <div class="problema-meta">
+        <span class="fonte">OBMEP 2016 - Nível 3</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 14 min</span>
+      </div>
+      <p>Pedro tem 5 cartões numerados de 1 a 5. Ele embaralha os cartões e os coloca em fila. Qual a probabilidade de que pelo menos um dos cartões esteja na sua posição original (cartão 1 na posição 1, cartão 2 na posição 2, etc.)?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Use o princípio da inclusão-exclusão!
+      </div>
     </li>
+
     <li>
-      <p><strong>Solução:</strong>
-      Este problema pode ser modelado usando a distribuição binomial.
-      Número de tentativas (parafusos na caixa), @n = 100@.
-      Probabilidade de sucesso (parafuso ser defeituoso), @p = 0.01@.
-      Probabilidade de fracasso (parafuso não ser defeituoso), @q = 1 - p = 0.99@.
-      Queremos a probabilidade de ter exatamente @k=2@ parafusos defeituosos. A fórmula da probabilidade binomial é:
-      @@ P(X=k) = \binom{n}{k} p^k q^{n-k} @@
-      @@ P(X=2) = \binom{100}{2} (0.01)^2 (0.99)^{100-2} @@
-      @@ P(X=2) = \binom{100}{2} (0.01)^2 (0.99)^{98} @@
-      Calculando @\binom{100}{2}@:
-      @@ \binom{100}{2} = \frac{100 \times 99}{2 \times 1} = 4950 @@
-      Agora, calculamos a probabilidade:
-      @@ P(X=2) = 4950 \times (0.0001) \times (0.99)^{98} @@
-      @@ (0.99)^{98} \approx 0.3733 @@
-      @@ P(X=2) \approx 4950 \times 0.0001 \times 0.3733 @@
-      @@ P(X=2) \approx 0.495 \times 0.3733 \approx 0.1848 @@
-      <strong>Resposta:</strong> Aproximadamente 0.1848.</p>
+      <div class="problema-meta">
+        <span class="fonte">ENEM 2020 - Adaptado</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Em uma pesquisa sobre vacinação, verificou-se que 80% da população foi vacinada contra a doença A, 70% contra a doença B, e 60% contra ambas. Escolhendo uma pessoa aleatoriamente, qual a probabilidade de ela ter sido vacinada contra pelo menos uma das duas doenças?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ITA 2017 - Adaptado</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 18 min</span>
+      </div>
+      <p>Três atiradores A, B e C disparam simultaneamente contra um alvo. As probabilidades de acerto são: P(A) = 0,8; P(B) = 0,7; P(C) = 0,6. O alvo é atingido se pelo menos dois atiradores acertarem. Qual a probabilidade de o alvo ser atingido?</p>
     </li>
   </ol>
 </article>
--->
-    <div style="text-align: center; margin-top: 30px;">
-        <a href="../../index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
-    </div>
 
-    
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
 </div> <!-- /.container -->
 </div> <!-- /#page-wrapper -->
 
@@ -475,15 +489,12 @@
 document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
         delimiters: [
-            // Equações em modo de exibição (display mode)
             {left: "@@", right: "@@", display: true},
             {left: "\\[", right: "\\]", display: true},
-
-            // Equações no modo "inline" (texto)
             {left: "@", right: "@", display: false},
             {left: "\\(", right: "\\)", display: false}
         ],
-        throwOnError: false // Mantém a página funcionando mesmo se houver um erro em uma fórmula
+        throwOnError: false
     });
 });
 </script>
@@ -510,8 +521,3 @@ document.addEventListener("DOMContentLoaded", function() {
 <script src="../../js/print-mode.js" defer></script>
 </body>
 </html>
-   <!-- BOTÃO VOLTAR DE FINAL DE PÁGINA
-     <div style="text-align: center; margin-top: 30px;">
-        <a href="index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
-    </div>
-  -->

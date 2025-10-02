@@ -1,0 +1,162 @@
+{
+  "curriculum": [
+    {
+      "title": "Capítulo 1: Realidade aumentada: números por todo lado",
+      "topics": [
+        "Estabelecer a existência de números que não são racionais, começando pelos irracionais algébricos, por meio da radiciação.",
+        "Demonstração da irracionalidade de raiz quadrada de dois.",
+        "Propriedades elementares da radiciação.",
+        "Apresentação da constante irracional transcendente pi como a razão entre o comprimento da circunferência e seu diâmetro.",
+        "Apresentação do número de ouro phi por meio da sequência de Fibonacci.",
+        "Definição de números irracionais.",
+        "Abordagem dos números reais e seus subconjuntos (N, Z, Q, I), incluindo a reta real e a completeza/continuidade.",
+        "Localização e ordenação de números racionais e irracionais na reta numérica.",
+        "Operações com irracionais (adição, subtração, multiplicação, divisão), incluindo estratégias com aproximações racionais e simplificação/redução de termos semelhantes.",
+        "Propriedades da radiciação e potenciação (expoentes negativos e fracionários).",
+        "Notação científica.",
+        "Aplicação de porcentagens, taxas e percentuais sucessivos em contextos de educação financeira.",
+        "Limitações algébricas dos conjuntos numéricos."
+      ]
+    },
+    {
+      "title": "Capítulo 2: Entre retas e parábolas",
+      "topics": [
+        "Funções polinomiais de 1º e 2º graus: reconhecimento e aplicações.",
+        "Gráficos e características das funções, pontos notáveis e aplicações algébricas.",
+        "Conceito de função polinomial do 1º grau.",
+        "Conceito de função polinomial do 2º grau.",
+        "Relação entre consumo de água e energia elétrica com funções.",
+        "Receita, lucro e variação de preços de uma empresa.",
+        "Construção de um fogão solar utilizando a ideia de parábolas.",
+        "Domínio, contradomínio e imagem das funções.",
+        "Coeficiente angular e linear de uma função do 1º grau.",
+        "Zero de uma função.",
+        "Concavidade de uma parábola (função do 2º grau).",
+        "Zeros da função polinomial de 2º grau (relação com o valor do delta).",
+        "Coordenadas do vértice de uma parábola."
+      ]
+    },
+    {
+      "title": "Capítulo 3: Richter, Malthus, Moore, Hanói e Napier... Quais as funções?",
+      "topics": [
+        "Funções exponenciais e logarítmicas.",
+        "Potências e suas propriedades.",
+        "Crescimento populacional e modelo malthusiano.",
+        "Medidas do nível sonoro de um ambiente (decibéis).",
+        "Escala Richter (terremotos).",
+        "Aplicações de logaritmos em Química e Medicina.",
+        "Jogo da Torre de Hanói e função exponencial.",
+        "Gráficos de funções logarítmicas: crescimento e decrescimento com base.",
+        "Diferença de amplitude de ondas sísmicas.",
+        "Aplicações financeiras: juros compostos.",
+        "Relação inversa entre funções exponencial e logarítmica.",
+        "Introdução ao conceito de logaritmo.",
+        "Consequências da definição logarítmica.",
+        "Propriedades operatórias do logaritmo (produto, quociente, potência).",
+        "Mudança de base de logaritmos."
+      ]
+    },
+    {
+      "title": "Capítulo 4: Tem razão!",
+      "topics": [
+        "Sequências numéricas e organizações lógicas.",
+        "Padrões de organização das sequências.",
+        "Progressão aritmética (PA): definição, razão e termo geral.",
+        "Progressão geométrica (PG): definição, razão e termo geral.",
+        "Associação de PAs com funções afins de domínios discretos.",
+        "Associação de PGs com funções exponenciais de domínios discretos.",
+        "Sequência de Fibonacci.",
+        "Dízimas periódicas e suas respectivas sequências.",
+        "Sequências figurais.",
+        "Soma dos termos de uma PA.",
+        "Números triangulares.",
+        "Relação entre PA, função polinomial do 1º grau e juros simples.",
+        "Classificação de PAs (crescente, constante, decrescente).",
+        "Propriedades de PAs (termo central, termos equidistantes).",
+        "Soma dos termos de uma PG.",
+        "Classificação de PGs (crescente, decrescente, oscilante, singular, constante).",
+        "Soma dos termos infinitos de uma PG.",
+        "Paradoxo de Aquiles e a tartaruga (soma infinita de PG)."
+      ]
+    },
+    {
+      "title": "Capítulo 5: Simetrizando e trigonometrizando",
+      "topics": [
+        "Transformações geométricas: translação, reflexão, rotação.",
+        "Transformações homotéticas (ampliação e redução).",
+        "Geometria presente na arte e na arquitetura (Escher, cerâmicas).",
+        "Semelhança de triângulos: critérios (AA~, LAL~, LLL~).",
+        "Relações métricas no triângulo retângulo.",
+        "Razões trigonométricas no triângulo retângulo (seno, cosseno, tangente).",
+        "Ângulos notáveis (30°, 45°, 60°).",
+        "Teorema de Pitágoras.",
+        "Relação entre arcos, ângulos centrais e ângulos inscritos na circunferência.",
+        "Aplicação de conceitos de distância, área e perímetro no plano cartesiano.",
+        "Primeira relação fundamental da trigonometria (sen² α + cos² α = 1).",
+        "Elaboração de fluxograma e algoritmo de programação para cálculo de hipotenusa."
+      ]
+    },
+    {
+      "title": "Capítulo 6: Decidir é preciso!",
+      "topics": [
+        "Pesquisas estatísticas: interpretação de dados, gráficos e tabelas.",
+        "Inadequações na apresentação de dados (escalas, amostras).",
+        "Medidas de tendência central: média aritmética simples e ponderada, mediana e moda.",
+        "Medidas de dispersão: desvio, desvio médio, variância e desvio padrão.",
+        "Coleta e organização de dados.",
+        "Censo e amostra populacional.",
+        "Frequências absoluta e relativa.",
+        "Histograma.",
+        "Análise crítica de informações divulgadas pela mídia.",
+        "Relação entre estatística e tomada de decisões.",
+        "Poder de compra e inflação.",
+        "Erros em gráficos de faixa etária.",
+        "Escolha apropriada de gráficos.",
+        "Aplicações de estatística em diferentes contextos (saúde, economia)."
+      ]
+    },
+    {
+      "title": "Capítulo 7: Será que é sorte?",
+      "topics": [
+        "Compreensão e construção do conceito de probabilidade, estabelecendo a relação entre os conceitos de evento e espaço amostral.",
+        "Representação da probabilidade nas formas fracionária e percentual, para resolver problemas envolvendo fenômenos aleatórios.",
+        "Investigação de dados para comunicá-los em diferentes representações.",
+        "Interpretação de dados em tabelas, gráficos e infográficos.",
+        "Análise e avaliação de informações trazidas em tabelas, gráficos ou outros meios apresentados pela mídia, reconhecendo elementos que podem induzir a erro."
+      ]
+    },
+    {
+      "title": "Capítulo 8: Unidades de medida? Melhor deixar no padrão!",
+      "topics": [
+        "Análise, interpretação e debate de textos científicos e midiáticos que abordam grandezas e unidades de medida, com e sem apoio de tecnologias digitais.",
+        "Trabalho com unidades do Sistema Internacional de Unidades (SI) e do Sistema Inglês de medidas.",
+        "Conversão de unidades de medida.",
+        "Cálculo de volume de cilindros e prismas por meio de reconhecimento de propriedades geométricas e por procedimentos formais.",
+        "Correspondência entre volume e capacidade e suas respectivas unidades.",
+        "Construção de projeções ortogonais de figuras geométricas sobre um plano.",
+        "Reconhecimento das vistas ortogonais de figuras espaciais."
+      ]
+    },
+    {
+      "title": "Capítulo 9: Superfícies e contornos",
+      "topics": [
+        "Ampliação dos conhecimentos sobre perímetros e áreas de figuras planas.",
+        "Cálculo de medidas de área de retângulos, paralelogramos, triângulos, losangos, trapézios, triângulos equiláteros, círculos e suas partes (setor, coroa e segmento circular).",
+        "Aplicação de expressões de cálculo de área, transformações de unidades de medida, semelhança de triângulos, Teorema de Pitágoras, decomposição e composição de figuras, estimativas, leitura e interpretação de gráficos da velocidade escalar.",
+        "Utilização de diferentes métodos para a obtenção da medida da área de uma superfície (reconfigurações, aproximação por cortes etc.).",
+        "Dedução de expressões de cálculo para aplicá-las em situações reais."
+      ]
+    },
+    {
+      "title": "Capítulo 10: Do micro ao macro",
+      "topics": [
+        "Estudo da notação científica e suas diversas aplicações.",
+        "Compreensão dos conceitos de ordem de grandeza do sistema de numeração decimal, algarismos significativos e duvidosos.",
+        "Realização de operações com notação científica (multiplicação, divisão, soma e subtração).",
+        "Discussão sobre acessibilidade e inclusão através da análise de dados sobre pessoas com deficiência.",
+        "Conversão entre bases numéricas diferentes e a história dos sistemas de numeração (egípcio, babilônico, maia, romano etc.).",
+        "Análise de dados sobre produção e exportação de alimentos, desperdício de alimentos, volume de som e ruídos prejudiciais à saúde, utilizando notação científica."
+      ]
+    }
+  ]
+}

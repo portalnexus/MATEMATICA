@@ -1,3 +1,5 @@
+INFORMAÇÕES SOBRE O MATERIAL DIDÁTICO DO 9° ANO DO ENSINO FUNDAMENTAL MOVIMENTO DO APRENDER
+
 **Capítulo 1: Realidade aumentada: números por todo lado**
 1. Estabelecer a existência de números que não são racionais, começando pelos irracionais algébricos, por meio da radiciação.
 2. Demonstração da irracionalidade de raiz quadrada de dois.

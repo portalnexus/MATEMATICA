@@ -1,0 +1,118 @@
+{
+  "curriculum": [
+    {
+      "title": "Capítulo 1: Ladrilhando e cantando e seguindo a canção...",
+      "topics": [
+        "O trabalho desenvolvido neste capítulo é a produção de ladrilhos, que, por sua vez, envolve a pavimentação do plano.",
+        "Composição e decomposição de figuras/peças, como ladrilhamentos, tangrans e poliminós.",
+        "Estudo e verificação de que o revestimento de uma superfície pode ser construído pela justaposição ou arranjo de determinadas figuras (triângulos equiláteros, quadriláteros e hexágonos regulares).",
+        "Facilitação do cálculo de áreas, perímetros e a soma das medidas dos ângulos internos, as figuras poligonais podem ser compostas ou decompostas por outras, como triângulos.",
+        "Abordagem dos estudos de ladrilhamento do plano, ou seja, recobrir todo o plano por meio de figuras utilizando justificativas e estratégias matemáticas para a conclusão das atividades propostas.",
+        "Mosaico ou tesselação ou recobrimento do plano é um padrão de figuras planas que cobre inteiramente o plano sem superposições das figuras nem espaços vazios entre elas.",
+        "Polígonos convexos e não convexos.",
+        "Soma dos ângulos internos e externos de polígonos.",
+        "Ladrilhamento bem-comportado.",
+        "Utilização de recursos computacionais para explorar ladrilhamentos."
+      ]
+    },
+    {
+      "title": "Capítulo 2: \"Todo mundo tem medo do tempo, mas o tempo tem medo das pirâmides\"",
+      "topics": [
+        "Resolução de problemas de geometria.",
+        "Uso da Matemática para resolver problemas práticos do cotidiano e modelar fenômenos em outras áreas do conhecimento.",
+        "Apreciação da importância da Matemática no desenvolvimento científico e tecnológico.",
+        "Uso dos cálculos referentes ao perímetro, áreas de figuras planas e com curvas, volumes e capacidades.",
+        "Interpretação de dados expostos por meio de desenhos, tabelas, problemas e quadros informativos.",
+        "Utilização de diferentes estratégias, como composição e decomposição de imagens para a realização do cálculo de área.",
+        "Construção de poliedros em softwares de geometria dinâmica (GeoGebra).",
+        "Origem da geometria e seus conceitos.",
+        "Polígonos inscritos e circunscritos.",
+        "Volume e capacidade.",
+        "Infinito e círculo.",
+        "Área da coroa circular."
+      ]
+    },
+    {
+      "title": "Capítulo 3: Uma maratona se completa com planejamento",
+      "topics": [
+        "Importância da matemática financeira para o planejamento do orçamento familiar.",
+        "Juro simples e composto.",
+        "Porcentagens.",
+        "Tomada de decisões conscientes e responsáveis em relação a assuntos financeiros.",
+        "Previsão das consequências positivas e negativas de diferentes decisões e ações financeiras.",
+        "Orçamento familiar: gastos e receitas.",
+        "Aplicação de juros em diferentes contextos (consumo, empréstimos, investimentos).",
+        "História da matemática comercial e financeira.",
+        "Construção de planilhas eletrônicas para controle financeiro.",
+        "Comparação de juro simples e juro composto em diferentes cenários.",
+        "Descontos de salário (INSS e IRRF).",
+        "Análise de gastos de uma família fictícia."
+      ]
+    },
+    {
+      "title": "Capítulo 4: Variou o preço, estou presente. Quem sou eu?",
+      "topics": [
+        "Relações entre juro simples, funções lineares e afins, e progressões aritméticas.",
+        "Relações entre juro composto, função exponencial e progressão geométrica.",
+        "Aumentos e descontos sucessivos no preço de produtos, mercadorias, taxas e capitais.",
+        "Construção de tabelas e gráficos em softwares, incluindo a linha de tendência para determinar a expressão e o comportamento dos gráficos.",
+        "Fundamentos da Matemática, seu dinamismo interno e suas relações com outros campos do saber.",
+        "Transitar nos diferentes sistemas de registro de representação (algébrico, geométrico, estatístico, computacional).",
+        "Equivalência entre as taxas e capitais referentes aos juros simples e composto.",
+        "Depreciação de bens.",
+        "O impacto de juros em operações bancárias (cheque especial, cartão de crédito)."
+      ]
+    },
+    {
+      "title": "Capítulo 5: Opinião sem dados não passa de opinião",
+      "topics": [
+        "Educação estatística: literacia, raciocínio e pensamento estatístico.",
+        "Coleta, organização, análise e interpretação de informações (dados).",
+        "Avaliação e comunicação crítica de informações estatísticas.",
+        "Noção de distribuição, variabilidade e centro de dados.",
+        "Amostragem e inferência.",
+        "Medidas de tendência central: média aritmética simples e ponderada, mediana e moda.",
+        "Medidas de dispersão: desvio, desvio médio, variância e desvio padrão.",
+        "Análise crítica de informações divulgadas pela mídia (fake news).",
+        "Interpretação e comparação de diferentes diagramas e gráficos (histograma, box-plot, de ramos e folhas).",
+        "Relação entre estatística e tomada de decisões.",
+        "Renda per capita e sua análise crítica.",
+        "História do IBGE e suas funções.",
+        "Discussão sobre consumo de energia elétrica e investimentos em educação."
+      ]
+    },
+    {
+      "title": "Capítulo 6: Assim como na sociedade, os elementos devem ser permutados, combinados e arranjados",
+      "topics": [
+        "O pensamento combinatório: escolha e contagem de elementos de um conjunto sem necessariamente ter de listá-los.",
+        "Desenvolvimento de capacidades cognitivas: analisar, investigar, refletir, levantar hipóteses, testar, argumentar, generalizar e validar.",
+        "Princípio fundamental de contagem (PFC) como principal estratégia de resolução.",
+        "Permutação simples e com repetição.",
+        "Arranjos simples.",
+        "Combinação simples.",
+        "Diferenças entre arranjos, permutações e combinações.",
+        "Números binomiais e o triângulo de Pascal (ou Tartaglia).",
+        "Propriedades do triângulo de Pascal e sua relação com fractais (Triângulo de Sierpinski).",
+        "Resolução de problemas com restrições (ex: formação de números, organização de letras em anagramas, distribuição de livros).",
+        "Aplicação dos conceitos em situações cotidianas."
+      ]
+    },
+    {
+      "title": "Capítulo 7: Nessa vida, a única certeza é a incerteza... Temos chance?",
+      "topics": [
+        "Conceito de probabilidade, estabelecendo a relação entre evento e espaço amostral.",
+        "Representação da probabilidade nas formas fracionária e percentual.",
+        "Compreensão dos diferentes enfoques de probabilidade: clássico (laplaciano), frequentista e geométrico.",
+        "Conceitos de experimentos aleatórios e determinísticos.",
+        "Definição de espaço amostral e evento.",
+        "Cálculo de probabilidade em diferentes contextos (lançamento de moedas e dados, sorteios, etc.).",
+        "Eventos mutuamente excludentes e eventos independentes.",
+        "Probabilidade condicional.",
+        "Distribuição binomial (de forma informal).",
+        "Análise crítica de probabilidades em jogos de azar (Mega-Sena).",
+        "Problema do aniversário (birthday problem).",
+        "Probabilidade em situações sociais (violência sexual contra crianças e adolescentes)."
+      ]
+    }
+  ]
+}

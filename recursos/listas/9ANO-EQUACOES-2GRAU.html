@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Equações do 2º Grau</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para metadados e organização visual dos problemas */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+<div class="container">
+
+<h1>EQUAÇÕES DO 2º GRAU</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas básicos para familiarização com os conceitos fundamentais.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Identificação de coeficientes</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Identifique os coeficientes @a@, @b@ e @c@ na equação @3x^2 - 7x + 2 = 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Classificação de equações</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Classifique as equações abaixo em completas ou incompletas:</p>
+      <p>a) @x^2 - 16 = 0@</p>
+      <p>b) @2x^2 + 5x - 3 = 0@</p>
+      <p>c) @4x^2 + 8x = 0@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação incompleta - tipo ax² + c = 0</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Resolva a equação @x^2 - 25 = 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação incompleta - tipo ax² + c = 0</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Resolva a equação @2x^2 - 50 = 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação incompleta - tipo ax² + bx = 0</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Resolva a equação @x^2 + 6x = 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação incompleta - tipo ax² + bx = 0</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Resolva a equação @3x^2 - 12x = 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Cálculo do discriminante</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Calcule o discriminante @\Delta@ da equação @x^2 - 5x + 6 = 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Natureza das raízes</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Sem resolver, determine quantas raízes reais possui a equação @x^2 + 4x + 4 = 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Fórmula de Bhaskara - aplicação direta</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Resolva a equação @x^2 - 7x + 10 = 0@ usando a fórmula de Bhaskara.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Fórmula de Bhaskara - aplicação direta</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Resolva a equação @x^2 - 8x + 16 = 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Verificação de raízes</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Verifique se @x = 3@ é raiz da equação @x^2 - 5x + 6 = 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução de equação simples</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Resolva a equação @x^2 - 9 = 0@.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas que requerem interpretação do enunciado e aplicação de conceitos combinados.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução de equação completa</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Resolva a equação @2x^2 - 5x + 2 = 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução de equação com coeficiente negativo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Resolva a equação @-x^2 + 4x + 5 = 0@.</p>
+      <div class="dica">
+        <strong>Dica:</strong> Multiplique ambos os lados por @-1@ para tornar o coeficiente @a@ positivo.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema contextualizado - números consecutivos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Encontre dois números naturais consecutivos cujo produto seja 132.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema contextualizado - área de retângulo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um terreno retangular tem área de 120 m². O comprimento excede a largura em 2 metros. Determine as dimensões do terreno.</p>
+      <div class="dica">
+        <strong>Dica:</strong> Se a largura é @x@, então o comprimento é @x + 2@. Use a fórmula da área.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação com termo ausente</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Resolva a equação @x^2 = 7x@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema de relação numérica</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>A soma do quadrado de um número com o seu triplo é igual a 40. Determine esse número.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema contextualizado - quadrado</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>A área de um quadrado é 144 cm². Qual é a medida do lado desse quadrado?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação redutível à forma padrão</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Resolva a equação @(x - 3)^2 = 16@.</p>
+      <div class="dica">
+        <strong>Dica:</strong> Extraia a raiz quadrada de ambos os lados antes de resolver.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Análise de discriminante</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Calcule o discriminante e determine a natureza das raízes das seguintes equações:</p>
+      <p>a) @x^2 - 3x + 5 = 0@</p>
+      <p>b) @4x^2 - 12x + 9 = 0@</p>
+      <p>c) @x^2 + 6x + 5 = 0@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema de diferença de números</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>A diferença entre o quadrado de um número e o próprio número é 72. Determine esse número.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação com frações</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Resolva a equação @x^2 - \frac{5}{2}x + 1 = 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema contextualizado - triângulo retângulo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Em um triângulo retângulo, a hipotenusa mede 13 cm e um dos catetos excede o outro em 7 cm. Determine as medidas dos catetos.</p>
+      <div class="dica">
+        <strong>Dica:</strong> Use o Teorema de Pitágoras: @a^2 + b^2 = c^2@.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução de equação completa</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Resolva a equação @3x^2 + 5x - 2 = 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema de soma e produto</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Dois números somam 12 e seu produto é 35. Quais são esses números?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Se os números são @x@ e @y@, então @x + y = 12@ e @xy = 35@. De @x + y = 12@, temos @y = 12 - x@. Substitua em @xy = 35@.
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Problemas complexos que exigem raciocínio em múltiplas etapas e combinação de conceitos.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema de otimização - área máxima</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Um fazendeiro tem 60 metros de cerca para delimitar um terreno retangular. Um dos lados do terreno será limitado por um rio, não necessitando de cerca.</p>
+      <p>a) Expresse a área @A@ do terreno em função da largura @x@.</p>
+      <p>b) Qual deve ser a largura para que a área seja de 400 m²?</p>
+      <p>c) É possível obter uma área de 500 m² com essa quantidade de cerca? Justifique.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema de movimento - queda livre</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>A altura @h@ (em metros) de um objeto lançado verticalmente para cima é dada por @h(t) = -5t^2 + 20t + 25@, onde @t@ é o tempo em segundos após o lançamento.</p>
+      <p>a) Em que instante o objeto atinge o solo?</p>
+      <p>b) Qual é a altura máxima atingida pelo objeto?</p>
+      <div class="dica">
+        <strong>Dica:</strong> O objeto atinge o solo quando @h(t) = 0@. Para a altura máxima, use @t = -\frac{b}{2a}@.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação biquadrada</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Resolva a equação @x^4 - 13x^2 + 36 = 0@.</p>
+      <div class="dica">
+        <strong>Dica:</strong> Faça a substituição @y = x^2@, transformando em @y^2 - 13y + 36 = 0@. Resolva para @y@ e depois encontre os valores de @x@.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema de análise paramétrica</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Para que valores de @k@ a equação @x^2 - 6x + k = 0@ possui:</p>
+      <p>a) Duas raízes reais e distintas?</p>
+      <p>b) Uma raiz real dupla?</p>
+      <p>c) Nenhuma raiz real?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema geométrico - diagonal do retângulo</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Um retângulo tem área de 60 cm² e sua diagonal mede 13 cm. Determine as dimensões do retângulo.</p>
+      <div class="dica">
+        <strong>Dica:</strong> Se as dimensões são @x@ e @y@, você tem duas equações: @xy = 60@ e @x^2 + y^2 = 169@. Use a primeira para substituir na segunda.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema de números - propriedade especial</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Encontre um número positivo tal que, ao somarmos seu quadrado com o dobro desse número, obtemos 99.</p>
+      <p>a) Equacione o problema.</p>
+      <p>b) Resolva a equação.</p>
+      <p>c) Por que descartamos uma das raízes?</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para você praticar e consolidar seu aprendizado!
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução de equação</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Resolva a equação @x^2 - 2x - 15 = 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema de idade</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>O quadrado da idade de Paula é igual a 16 vezes sua idade. Quantos anos Paula tem?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema de construção</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Uma piscina retangular tem 32 m² de área. Se aumentarmos 1 metro no comprimento e 1 metro na largura, a área aumenta em 17 m². Quais são as dimensões originais da piscina?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação irracional</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Resolva a equação @\sqrt{x + 3} = x - 3@.</p>
+      <div class="dica">
+        <strong>Dica:</strong> Eleve ambos os lados ao quadrado e depois resolva a equação do 2º grau resultante. Atenção: verifique as soluções obtidas!
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema de perímetro e área</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Um triângulo retângulo tem perímetro de 30 cm e hipotenusa de 13 cm. Determine os catetos.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação com parênteses</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Resolva a equação @(x + 1)(x - 3) = 5@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema de trabalho</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>João consegue realizar uma tarefa em @x@ horas. Maria realiza a mesma tarefa em @x + 2@ horas. Trabalhando juntos, eles completam a tarefa em 3 horas. Quanto tempo cada um leva trabalhando sozinho?</p>
+      <div class="dica">
+        <strong>Dica:</strong> A taxa de trabalho de João é @\frac{1}{x}@ da tarefa por hora, e a de Maria é @\frac{1}{x+2}@. Juntos: @\frac{1}{x} + \frac{1}{x+2} = \frac{1}{3}@.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Desafio - número de Pitágoras</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Encontre três números naturais consecutivos tais que a soma dos quadrados dos dois menores seja igual ao quadrado do maior. (Dica: estes formam um terno pitagórico)</p>
+    </li>
+  </ol>
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

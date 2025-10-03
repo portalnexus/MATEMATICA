@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Equações do 2º Grau</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>Equações do 2º Grau</h1>
+
+    <!-- ===============================================================
+         SEÇÃO 1: CONCEITOS FUNDAMENTAIS
+         =============================================================== -->
+    <h2>1. Conceitos Fundamentais</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Equação do 2º Grau)</h3>
+      <p>Uma <strong>equação do 2º grau</strong> na variável @x@ é toda equação que pode ser escrita na forma reduzida:</p>
+      @@
+      ax^2 + bx + c = 0
+      @@
+      <p>onde @a@, @b@ e @c@ são números reais, com @a \neq 0@.</p>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> A condição @a \neq 0@ é essencial. Se @a = 0@, a equação se reduz a @bx + c = 0@, que é uma equação do 1º grau.
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>@x^2 - 5x + 6 = 0@ é uma equação do 2º grau com @a = 1@, @b = -5@, @c = 6@</li>
+      <li>@2x^2 + 3x - 1 = 0@ é uma equação do 2º grau com @a = 2@, @b = 3@, @c = -1@</li>
+      <li>@-x^2 + 4 = 0@ é uma equação do 2º grau com @a = -1@, @b = 0@, @c = 4@</li>
+      <li>@3x^2 - 7x = 0@ é uma equação do 2º grau com @a = 3@, @b = -7@, @c = 0@</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Coeficientes da Equação)</h3>
+      <p>Na equação @ax^2 + bx + c = 0@, os números reais @a@, @b@ e @c@ são chamados de <strong>coeficientes</strong>:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i)</strong> @a@ é o <strong>coeficiente do termo quadrático</strong> ou <strong>coeficiente de @x^2@</strong></li>
+        <li><strong>(ii)</strong> @b@ é o <strong>coeficiente do termo linear</strong> ou <strong>coeficiente de @x@</strong></li>
+        <li><strong>(iii)</strong> @c@ é o <strong>termo independente</strong> ou <strong>termo constante</strong></li>
+      </ul>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Equações Completas e Incompletas)</h3>
+      <p>Uma equação do 2º grau @ax^2 + bx + c = 0@ é chamada de:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Completa</strong>, se @b \neq 0@ e @c \neq 0@ (todos os coeficientes são não nulos)</li>
+        <li><strong>(ii) Incompleta</strong>, se @b = 0@ ou @c = 0@ (ou ambos)</li>
+      </ul>
+    </div>
+
+    <p><strong>Exemplos de equações incompletas:</strong></p>
+    <ul>
+      <li>@x^2 - 16 = 0@ (incompleta com @b = 0@)</li>
+      <li>@2x^2 + 5x = 0@ (incompleta com @c = 0@)</li>
+      <li>@3x^2 = 0@ (incompleta com @b = 0@ e @c = 0@)</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.4 (Raízes ou Soluções)</h3>
+      <p>As <strong>raízes</strong> (ou <strong>soluções</strong>) de uma equação do 2º grau @ax^2 + bx + c = 0@ são os valores de @x \in \mathbb{R}@ que tornam a sentença verdadeira, isto é, que satisfazem a igualdade.</p>
+      <p>O conjunto de todas as raízes é chamado de <strong>conjunto solução</strong> e denotado por @S@.</p>
+    </div>
+
+    <p><strong>Exemplo:</strong> Para a equação @x^2 - 5x + 6 = 0@, os valores @x = 2@ e @x = 3@ são raízes, pois:</p>
+    <ul>
+      <li>Para @x = 2@: @2^2 - 5(2) + 6 = 4 - 10 + 6 = 0@ ✓</li>
+      <li>Para @x = 3@: @3^2 - 5(3) + 6 = 9 - 15 + 6 = 0@ ✓</li>
+    </ul>
+    <p>Portanto, @S = \{2, 3\}@.</p>
+
+    <!-- ===============================================================
+         SEÇÃO 2: MÉTODOS DE RESOLUÇÃO
+         =============================================================== -->
+    <h2>2. Métodos de Resolução</h2>
+
+    <h3>2.1. Equações Incompletas</h3>
+
+    <p>As equações incompletas podem ser resolvidas por métodos mais simples do que a fórmula geral.</p>
+
+    <div class="destaque-box teorema">
+      <h3>Caso 1: @b = 0@ (equação da forma @ax^2 + c = 0@)</h3>
+      <p><strong>Método:</strong> Isolar @x^2@ e extrair a raiz quadrada.</p>
+      @@
+      ax^2 + c = 0 \Rightarrow x^2 = -\frac{c}{a}
+      @@
+      <ul class="lista-propriedades">
+        <li><strong>(i)</strong> Se @-\frac{c}{a} > 0@, a equação possui duas raízes reais simétricas: @x = \pm\sqrt{-\frac{c}{a}}@</li>
+        <li><strong>(ii)</strong> Se @-\frac{c}{a} = 0@, a equação possui uma raiz real: @x = 0@</li>
+        <li><strong>(iii)</strong> Se @-\frac{c}{a} < 0@, a equação não possui raízes reais</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Caso 2: @c = 0@ (equação da forma @ax^2 + bx = 0@)</h3>
+      <p><strong>Método:</strong> Colocar @x@ em evidência (fatoração).</p>
+      @@
+      ax^2 + bx = 0 \Rightarrow x(ax + b) = 0
+      @@
+      <p>Pela propriedade do produto nulo, temos:</p>
+      @@
+      x = 0 \quad \text{ou} \quad ax + b = 0 \Rightarrow x = -\frac{b}{a}
+      @@
+      <p>Portanto, as duas raízes são sempre reais: @x_1 = 0@ e @x_2 = -\frac{b}{a}@.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Caso 3: @b = 0@ e @c = 0@ (equação da forma @ax^2 = 0@)</h3>
+      <p><strong>Solução:</strong> A única raiz é @x = 0@ (raiz dupla).</p>
+      @@
+      ax^2 = 0 \Rightarrow x^2 = 0 \Rightarrow x = 0
+      @@
+    </div>
+
+    <h3>2.2. Equações Completas - Fórmula de Bhaskara</h3>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Fórmula de Bhaskara)</h3>
+      <p>As raízes da equação do 2º grau @ax^2 + bx + c = 0@, com @a \neq 0@, são dadas pela fórmula:</p>
+      @@
+      x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+      @@
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.2 (Discriminante)</h3>
+      <p>O número @\Delta = b^2 - 4ac@ é chamado de <strong>discriminante</strong> da equação @ax^2 + bx + c = 0@.</p>
+      <p>O discriminante determina a natureza e a quantidade de raízes reais da equação.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.3 (Natureza das Raízes)</h3>
+      <p>Seja @ax^2 + bx + c = 0@ uma equação do 2º grau com @a \neq 0@. Então:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i)</strong> Se @\Delta > 0@, a equação possui <strong>duas raízes reais e distintas</strong>:
+          @@
+          x_1 = \frac{-b + \sqrt{\Delta}}{2a} \quad \text{e} \quad x_2 = \frac{-b - \sqrt{\Delta}}{2a}
+          @@
+        </li>
+        <li><strong>(ii)</strong> Se @\Delta = 0@, a equação possui <strong>uma raiz real dupla</strong>:
+          @@
+          x_1 = x_2 = \frac{-b}{2a}
+          @@
+        </li>
+        <li><strong>(iii)</strong> Se @\Delta < 0@, a equação <strong>não possui raízes reais</strong> (o conjunto solução é vazio: @S = \emptyset@)</li>
+      </ul>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> A fórmula de Bhaskara funciona para qualquer equação do 2º grau, completa ou incompleta. No entanto, para equações incompletas, os métodos da Seção 2.1 são geralmente mais rápidos.
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>3. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Identificação de Coeficientes</h3>
+      <p><strong>Enunciado:</strong> Identifique os coeficientes @a@, @b@ e @c@ das seguintes equações e classifique-as em completas ou incompletas:</p>
+      <p><strong>(a)</strong> @3x^2 - 7x + 2 = 0@</p>
+      <p><strong>(b)</strong> @x^2 - 9 = 0@</p>
+      <p><strong>(c)</strong> @-2x^2 + 5x = 0@</p>
+
+      <h4>Solução:</h4>
+      <p><strong>(a)</strong> @3x^2 - 7x + 2 = 0@</p>
+      <p>Coeficientes: @a = 3@, @b = -7@, @c = 2@</p>
+      <p>Como @b \neq 0@ e @c \neq 0@, a equação é <strong>completa</strong>.</p>
+
+      <p><strong>(b)</strong> @x^2 - 9 = 0@</p>
+      <p>Reescrevendo: @1 \cdot x^2 + 0 \cdot x - 9 = 0@</p>
+      <p>Coeficientes: @a = 1@, @b = 0@, @c = -9@</p>
+      <p>Como @b = 0@, a equação é <strong>incompleta</strong>.</p>
+
+      <p><strong>(c)</strong> @-2x^2 + 5x = 0@</p>
+      <p>Reescrevendo: @-2x^2 + 5x + 0 = 0@</p>
+      <p>Coeficientes: @a = -2@, @b = 5@, @c = 0@</p>
+      <p>Como @c = 0@, a equação é <strong>incompleta</strong>.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Resolução de Equação Incompleta (tipo @ax^2 + c = 0@)</h3>
+      <p><strong>Enunciado:</strong> Resolva a equação @x^2 - 16 = 0@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Isolar @x^2@:</p>
+      @@
+      x^2 - 16 = 0 \Rightarrow x^2 = 16
+      @@
+
+      <p><strong>Passo 2:</strong> Extrair a raiz quadrada de ambos os lados:</p>
+      @@
+      x = \pm\sqrt{16} = \pm 4
+      @@
+
+      <p><strong>Resposta:</strong> @S = \{-4, 4\}@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - Resolução de Equação Incompleta (tipo @ax^2 + bx = 0@)</h3>
+      <p><strong>Enunciado:</strong> Resolva a equação @3x^2 - 12x = 0@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Colocar @x@ em evidência:</p>
+      @@
+      3x^2 - 12x = 0 \Rightarrow x(3x - 12) = 0
+      @@
+
+      <p><strong>Passo 2:</strong> Aplicar a propriedade do produto nulo:</p>
+      @@
+      x = 0 \quad \text{ou} \quad 3x - 12 = 0
+      @@
+
+      <p><strong>Passo 3:</strong> Resolver @3x - 12 = 0@:</p>
+      @@
+      3x = 12 \Rightarrow x = 4
+      @@
+
+      <p><strong>Resposta:</strong> @S = \{0, 4\}@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Equação Completa com Duas Raízes Distintas (@\Delta > 0@)</h3>
+      <p><strong>Enunciado:</strong> Resolva a equação @x^2 - 5x + 6 = 0@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar os coeficientes:</p>
+      <p>@a = 1@, @b = -5@, @c = 6@</p>
+
+      <p><strong>Passo 2:</strong> Calcular o discriminante:</p>
+      @@
+      \Delta = b^2 - 4ac = (-5)^2 - 4(1)(6) = 25 - 24 = 1
+      @@
+      <p>Como @\Delta > 0@, a equação possui duas raízes reais distintas.</p>
+
+      <p><strong>Passo 3:</strong> Aplicar a fórmula de Bhaskara:</p>
+      @@
+      x = \frac{-b \pm \sqrt{\Delta}}{2a} = \frac{-(-5) \pm \sqrt{1}}{2(1)} = \frac{5 \pm 1}{2}
+      @@
+
+      <p><strong>Passo 4:</strong> Calcular as duas raízes:</p>
+      @@
+      x_1 = \frac{5 + 1}{2} = \frac{6}{2} = 3
+      @@
+      @@
+      x_2 = \frac{5 - 1}{2} = \frac{4}{2} = 2
+      @@
+
+      <p><strong>Resposta:</strong> @S = \{2, 3\}@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Equação Completa com Raiz Dupla (@\Delta = 0@)</h3>
+      <p><strong>Enunciado:</strong> Resolva a equação @x^2 - 6x + 9 = 0@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar os coeficientes:</p>
+      <p>@a = 1@, @b = -6@, @c = 9@</p>
+
+      <p><strong>Passo 2:</strong> Calcular o discriminante:</p>
+      @@
+      \Delta = b^2 - 4ac = (-6)^2 - 4(1)(9) = 36 - 36 = 0
+      @@
+      <p>Como @\Delta = 0@, a equação possui uma raiz real dupla.</p>
+
+      <p><strong>Passo 3:</strong> Aplicar a fórmula de Bhaskara:</p>
+      @@
+      x = \frac{-b}{2a} = \frac{-(-6)}{2(1)} = \frac{6}{2} = 3
+      @@
+
+      <p><strong>Resposta:</strong> @S = \{3\}@</p>
+
+      <div class="nota">
+        <strong>Observação:</strong> Note que @x^2 - 6x + 9 = (x - 3)^2@, que é um produto notável. Por isso, a raiz @x = 3@ aparece duas vezes (raiz dupla).
+      </div>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Problema Contextualizado</h3>
+      <p><strong>Enunciado:</strong> A área de um retângulo é 84 m². O comprimento excede a largura em 5 metros. Quais são as dimensões do retângulo?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Definir variáveis. Seja @x@ a largura (em metros).</p>
+      <p>Então o comprimento é @x + 5@ metros.</p>
+
+      <p><strong>Passo 2:</strong> Montar a equação usando a fórmula da área:</p>
+      @@
+      \text{Área} = \text{largura} \times \text{comprimento}
+      @@
+      @@
+      84 = x(x + 5)
+      @@
+
+      <p><strong>Passo 3:</strong> Desenvolver e colocar na forma reduzida:</p>
+      @@
+      84 = x^2 + 5x \Rightarrow x^2 + 5x - 84 = 0
+      @@
+
+      <p><strong>Passo 4:</strong> Identificar coeficientes e calcular @\Delta@:</p>
+      <p>@a = 1@, @b = 5@, @c = -84@</p>
+      @@
+      \Delta = 5^2 - 4(1)(-84) = 25 + 336 = 361
+      @@
+
+      <p><strong>Passo 5:</strong> Aplicar a fórmula de Bhaskara:</p>
+      @@
+      x = \frac{-5 \pm \sqrt{361}}{2(1)} = \frac{-5 \pm 19}{2}
+      @@
+
+      <p><strong>Passo 6:</strong> Calcular as raízes:</p>
+      @@
+      x_1 = \frac{-5 + 19}{2} = \frac{14}{2} = 7
+      @@
+      @@
+      x_2 = \frac{-5 - 19}{2} = \frac{-24}{2} = -12
+      @@
+
+      <p><strong>Passo 7:</strong> Interpretar o resultado no contexto do problema:</p>
+      <p>Como a largura não pode ser negativa, descartamos @x = -12@.</p>
+      <p>Portanto, a largura é @x = 7@ m e o comprimento é @x + 5 = 12@ m.</p>
+
+      <p><strong>Resposta:</strong> As dimensões do retângulo são 7 m de largura e 12 m de comprimento.</p>
+
+      <p><strong>Verificação:</strong> Área = @7 \times 12 = 84@ m² ✓</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: EXERCÍCIOS PROPOSTOS
+         =============================================================== -->
+    <h2>4. Exercícios</h2>
+
+    <ol>
+      <li>Identifique os coeficientes @a@, @b@ e @c@ e classifique as equações em completas ou incompletas:
+        <ul style="list-style-type: lower-alpha; margin-top: 0.5rem;">
+          <li>@2x^2 + 3x - 5 = 0@</li>
+          <li>@x^2 - 25 = 0@</li>
+          <li>@4x^2 + 8x = 0@</li>
+          <li>@-3x^2 = 0@</li>
+        </ul>
+      </li>
+
+      <li>Resolva as equações incompletas:
+        <ul style="list-style-type: lower-alpha; margin-top: 0.5rem;">
+          <li>@x^2 - 36 = 0@</li>
+          <li>@2x^2 - 50 = 0@</li>
+          <li>@5x^2 + 10x = 0@</li>
+          <li>@x^2 + 4x = 0@</li>
+        </ul>
+      </li>
+
+      <li>Calcule o discriminante @\Delta@ e determine o número de raízes reais (sem resolver):
+        <ul style="list-style-type: lower-alpha; margin-top: 0.5rem;">
+          <li>@x^2 + 4x + 4 = 0@</li>
+          <li>@x^2 - 3x + 5 = 0@</li>
+          <li>@2x^2 - 7x + 3 = 0@</li>
+        </ul>
+      </li>
+
+      <li>Resolva as equações completas usando a fórmula de Bhaskara:
+        <ul style="list-style-type: lower-alpha; margin-top: 0.5rem;">
+          <li>@x^2 + 7x + 10 = 0@</li>
+          <li>@x^2 - 8x + 16 = 0@</li>
+          <li>@2x^2 - 5x + 2 = 0@</li>
+        </ul>
+      </li>
+
+      <li>Resolva a equação @x^2 - 2x - 15 = 0@.</li>
+
+      <li>Resolva a equação @3x^2 + 5x - 2 = 0@.</li>
+
+      <li>Determine os valores de @x@ tais que @x^2 = 7x@.</li>
+
+      <li>Encontre dois números consecutivos cujo produto seja 132.</li>
+
+      <li>A soma do quadrado de um número com o seu triplo é igual a 40. Determine esse número.</li>
+
+      <li>Um terreno retangular tem área de 96 m². O comprimento é o dobro da largura. Quais são as dimensões do terreno?</li>
+
+      <li>A diferença entre o quadrado de um número e o próprio número é 72. Determine esse número.</li>
+
+      <li>Resolva a equação @(x - 2)^2 = 9@.</li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+    1. (a) a=2, b=3, c=-5, completa
+       (b) a=1, b=0, c=-25, incompleta
+       (c) a=4, b=8, c=0, incompleta
+       (d) a=-3, b=0, c=0, incompleta
+
+    2. (a) S = {-6, 6}
+       (b) S = {-5, 5}
+       (c) S = {-2, 0}
+       (d) S = {-4, 0}
+
+    3. (a) Δ = 0, uma raiz real
+       (b) Δ = -11 < 0, nenhuma raiz real
+       (c) Δ = 25 > 0, duas raízes reais distintas
+
+    4. (a) S = {-5, -2}
+       (b) S = {4}
+       (c) S = {1/2, 2}
+
+    5. S = {-3, 5}
+
+    6. S = {-2, 1/3}
+
+    7. S = {0, 7}
+
+    8. Os números são 11 e 12 (ou -12 e -11)
+
+    9. O número é 5 (ou -8)
+
+    10. Largura: 4√6 m ≈ 9,8 m, Comprimento: 8√6 m ≈ 19,6 m
+        (ou usando aproximações: largura ≈ 6,93 m, comprimento ≈ 13,86 m)
+
+    11. O número é 9 (ou -8)
+
+    12. S = {-1, 5}
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

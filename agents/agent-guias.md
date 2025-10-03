@@ -1,16 +1,16 @@
-# Agent-Guias: Desenvolvedor de Guias de Estudos Matemáticos
+# Agent-Guias: Desenvolvedor de Guias de Estudos Baseados em Missões
 
 ## Propósito e Escopo
 
-Este agente é especializado em criar **guias de estudos** para o portal educacional Nexus, oferecendo mapas conceituais, roteiros de aprendizagem, estratégias de estudo e conexões interdisciplinares para ajudar estudantes a organizar e aprofundar seu aprendizado matemático.
+Este agente é especializado em criar **guias de estudos baseados em missões** para o portal educacional Nexus. Diferente de resumos teóricos ou listas de problemas, os guias focam em orientar o estudante através de um **roteiro gamificado** de missões práticas que integram com o sistema de XP e progresso do dashboard.
 
-### Características dos Guias de Estudos
+### Características dos Guias
 
-- **Visão panorâmica:** Mapa conceitual do capítulo/unidade
-- **Roteiro estruturado:** Sequência lógica de estudo
-- **Estratégias pedagógicas:** Técnicas de aprendizagem eficazes
-- **Conexões:** Relações entre conceitos e com outras disciplinas
-- **Metacognição:** Orientações sobre como estudar, não apenas o que estudar
+- **Foco em habilidades:** Alinhamento explícito com códigos de habilidades do currículo
+- **Estrutura de missões:** Sequência de missões progressivas com metas claras
+- **Integração com recursos:** Links diretos para resumos, listas e atividades
+- **Metas concretas:** "Resolver X problemas da lista", "Ler seções Y e Z do resumo"
+- **Gamificação:** Missões compatíveis com o sistema de XP do dashboard
 
 ---
 
@@ -18,21 +18,26 @@ Este agente é especializado em criar **guias de estudos** para o portal educaci
 
 Ao solicitar um guia de estudos, forneça:
 
-1. **Capítulo/Unidade:** Tema abrangente (ex: "Função Quadrática", "Trigonometria")
-2. **Turma:** Ano escolar (9ANO, 1EM, 2EM, 3EM) ou "COMPARTILHADO"
-3. **Tópicos incluídos:** Subtópicos que compõem o capítulo
-4. **Duração estimada:** Tempo de estudo sugerido (ex: "2 semanas", "1 mês")
-5. **Objetivos de aprendizagem:** Competências esperadas ao final
+1. **Capítulo/Unidade:** Tema principal (ex: "Funções", "Trigonometria", "Probabilidade")
+2. **Turma:** Código da turma (9A, 9B, 1A, 1B, 2EM, 3EM) ou "COMPARTILHADO"
+3. **Habilidades do currículo:** Códigos das habilidades a serem trabalhadas (ex: EF.09.MAT.2.87)
+4. **Número de missões:** Quantidade de missões (recomendado: 5-7)
+5. **Recursos existentes:** Links para resumos, listas e atividades de recuperação disponíveis
 
 ### Exemplo de Input
 
 ```
 Agente: agent-guias
-Capítulo: Função Quadrática
-Turma: 1EM
-Tópicos: Definição, gráfico (parábola), vértice, raízes, discriminante, inequações, problemas de máximo/mínimo
-Duração: 3 semanas
-Objetivos: Compreender função quadrática, esboçar gráficos, resolver equações e inequações, aplicar em problemas de otimização
+Capítulo: Funções
+Turma: 9ANO
+Habilidades:
+  - (EF.09.MAT.2.87): Reconhecer a variação e a relação de dependência entre grandezas
+  - (EF.09.MAT.2.88): Relacionar o conceito de função do primeiro grau em situações cotidianas
+  - (EF.09.MAT.2.89): Representar funções de forma algébrica e gráfica
+Missões: 6
+Recursos:
+  - Resumo: ../resumos/9ANO-FUNCOES.html
+  - Lista: ../listas/9ANO-FUNCOES.html
 ```
 
 ---
@@ -46,234 +51,101 @@ Objetivos: Compreender função quadrática, esboçar gráficos, resolver equaç
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- TÍTULO: Formato "NEXUS - Guia: [Capítulo]" -->
+  <!-- TÍTULO: Formato "NEXUS - Guia de Estudos: [CAPÍTULO]" -->
   <title>NEXUS - Guia de Estudos: [CAPÍTULO]</title>
 
+  <!-- Fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
   <link rel="stylesheet" href="../../css/style.css">
 
   <style>
     /* ==========================================================================
-       ESTILOS PARA GUIAS DE ESTUDOS
+       ESTILOS PARA GUIAS DE ESTUDOS BASEADOS EM MISSÕES
        ========================================================================== */
 
-    /* Banner principal do guia */
+    /* Cabeçalho do guia */
     .guia-header {
-      background: linear-gradient(135deg, rgba(33, 150, 243, 0.3) 0%, rgba(156, 39, 176, 0.3) 100%);
-      border: 2px solid #2196f3;
-      border-radius: 12px;
+      background-color: rgba(0, 0, 0, 0.2);
       padding: 2rem;
-      margin: 2rem 0;
-      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 5px solid var(--link-color);
     }
 
-    .guia-header h2 {
+    .guia-header h1 {
       margin-top: 0;
       color: var(--heading-text-color);
     }
 
-    /* Caixa de informações essenciais */
-    .info-box {
-      background-color: rgba(33, 150, 243, 0.15);
-      border-left: 4px solid #2196f3;
-      padding: 1rem 1.5rem;
+    /* Grid de objetivos/habilidades */
+    .objetivos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
       margin: 1.5rem 0;
-      border-radius: 4px;
     }
 
-    .info-box h4 {
-      color: #2196f3;
-      margin-top: 0;
+    .objetivo-item {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: 5px;
+      border-left: 3px solid var(--link-color);
     }
 
-    /* Mapa conceitual - lista hierárquica */
-    .mapa-conceitual {
-      background-color: rgba(76, 175, 80, 0.1);
-      border: 2px solid #4caf50;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem 0;
+    .objetivo-item strong {
+      color: var(--link-color);
+      display: block;
+      margin-bottom: 0.5rem;
     }
 
-    .mapa-conceitual h3 {
-      color: #4caf50;
-      margin-top: 0;
-    }
-
-    .mapa-conceitual ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    .mapa-conceitual > ul > li {
-      margin: 1rem 0;
-      padding-left: 1.5rem;
-      border-left: 3px solid #4caf50;
-    }
-
-    .mapa-conceitual ul ul {
-      padding-left: 2rem;
-      margin-top: 0.5rem;
-    }
-
-    .mapa-conceitual ul ul li {
-      margin: 0.5rem 0;
-      padding-left: 1rem;
-      border-left: 2px solid rgba(76, 175, 80, 0.5);
-      list-style-type: circle;
-    }
-
-    /* Etapa do roteiro de estudos */
+    /* Caixas de missões */
     .etapa-estudo {
-      background-color: rgba(255, 152, 0, 0.1);
-      border-left: 4px solid #ff9800;
+      background-color: rgba(0, 0, 0, 0.2);
       padding: 1.5rem;
       margin: 1.5rem 0;
-      border-radius: 4px;
+      border-radius: 6px;
+      border-left: 5px solid var(--link-color);
     }
 
-    .etapa-estudo h4 {
-      color: #ff9800;
+    .etapa-estudo h3 {
+      color: var(--heading-text-color);
       margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
 
     .etapa-numero {
-      display: inline-block;
-      background-color: #ff9800;
-      color: white;
-      width: 2rem;
-      height: 2rem;
+      background-color: var(--link-color);
+      color: var(--primary-bg-color);
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      text-align: center;
-      line-height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-weight: bold;
-      margin-right: 0.5rem;
-    }
-
-    /* Dica de estudo */
-    .dica-estudo {
-      background-color: rgba(156, 39, 176, 0.15);
-      border-left: 4px solid #9c27b0;
-      padding: 0.75rem 1rem;
-      margin: 1rem 0;
-      border-radius: 4px;
-    }
-
-    .dica-estudo strong {
-      color: #9c27b0;
-    }
-
-    /* Estratégia de aprendizagem */
-    .estrategia {
-      background-color: rgba(33, 150, 243, 0.1);
-      border: 2px dashed #2196f3;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-    }
-
-    .estrategia h4 {
-      color: #2196f3;
-      margin-top: 0;
-    }
-
-    /* Conexão interdisciplinar */
-    .conexao {
-      background-color: rgba(244, 67, 54, 0.1);
-      border-left: 4px solid #f44336;
-      padding: 1rem 1.5rem;
-      margin: 1.5rem 0;
-      border-radius: 4px;
-    }
-
-    .conexao h5 {
-      color: #f44336;
-      margin-top: 0;
-    }
-
-    /* Checklist de progresso */
-    .checklist {
-      background-color: rgba(76, 175, 80, 0.1);
-      border: 2px solid #4caf50;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .checklist h4 {
-      color: #4caf50;
-      margin-top: 0;
-    }
-
-    .checklist ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    .checklist li {
-      padding: 0.5rem 0;
-      padding-left: 2rem;
-      position: relative;
-    }
-
-    .checklist li::before {
-      content: "☐";
-      position: absolute;
-      left: 0;
       font-size: 1.2rem;
-      color: #4caf50;
+      flex-shrink: 0;
     }
 
-    /* Recursos adicionais */
-    .recursos {
-      background-color: rgba(255, 193, 7, 0.1);
-      border-left: 4px solid #ffc107;
-      padding: 1rem 1.5rem;
-      margin: 1.5rem 0;
-      border-radius: 4px;
-    }
-
-    .recursos h4 {
-      color: #ffc107;
-      margin-top: 0;
-    }
-
-    /* Cronograma de estudos */
-    .cronograma {
-      background-color: rgba(156, 39, 176, 0.1);
-      border: 2px solid #9c27b0;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .cronograma h4 {
-      color: #9c27b0;
-      margin-top: 0;
-    }
-
-    .cronograma table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-
-    .cronograma th,
-    .cronograma td {
-      border: 1px solid rgba(156, 39, 176, 0.3);
-      padding: 0.75rem;
-      text-align: left;
-    }
-
-    .cronograma th {
-      background-color: rgba(156, 39, 176, 0.2);
-      color: var(--heading-text-color);
+    /* Estilos para links dentro das missões */
+    .etapa-estudo a {
+      color: var(--link-color);
       font-weight: bold;
+    }
+
+    .etapa-estudo a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -282,330 +154,107 @@ Objetivos: Compreender função quadrática, esboçar gráficos, resolver equaç
 <div id="page-wrapper">
   <nav>
     <ul>
-      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
-      <li><a href="../../recursos.html">RECURSOS</a></li>
-      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
     </ul>
   </nav>
 
 <div class="container">
 
 <article>
-  <!-- =========================================================================
-       HEADER DO GUIA
-       ========================================================================= -->
-  <div class="guia-header">
-    <h1>Guia de Estudos: [CAPÍTULO]</h1>
-    <p>Organize seu aprendizado e domine os conceitos essenciais</p>
-  </div>
-
-  <!-- =========================================================================
-       SEÇÃO 1: VISÃO GERAL
-       - Duração estimada
-       - Objetivos de aprendizagem
-       - Pré-requisitos
-       - O que você vai aprender
-       ========================================================================= -->
-  <h2>1. Visão Geral</h2>
-
-  <div class="info-box">
-    <h4>📚 Informações Essenciais</h4>
-    <p><strong>Duração estimada:</strong> [X semanas/dias]</p>
-    <p><strong>Turma:</strong> [ANO]</p>
-    <p><strong>Nível de dificuldade:</strong> [Básico/Intermediário/Avançado]</p>
-  </div>
-
-  <h3>Objetivos de Aprendizagem</h3>
-  <p>Ao final deste capítulo, você será capaz de:</p>
-  <ul>
-    <li>[Objetivo 1 - verbo de ação + habilidade específica]</li>
-    <li>[Objetivo 2]</li>
-    <li>[Objetivo 3]</li>
-    <li>[Objetivo 4]</li>
-    <li>[Objetivo 5]</li>
-  </ul>
-
-  <h3>Pré-requisitos</h3>
-  <p>Para aproveitar ao máximo este guia, você deve ter conhecimento de:</p>
-  <ul>
-    <li>[Pré-requisito 1]</li>
-    <li>[Pré-requisito 2]</li>
-    <li>[Pré-requisito 3]</li>
-  </ul>
-
-  <div class="dica-estudo">
-    <strong>💡 Dica:</strong> Se você ainda tem dificuldades com os pré-requisitos,
-    revise esses tópicos antes de começar. Uma base sólida facilita muito o
-    aprendizado de conceitos novos!
-  </div>
-
-  <!-- =========================================================================
-       SEÇÃO 2: MAPA CONCEITUAL
-       - Hierarquia de conceitos
-       - Conexões lógicas
-       - Estrutura do capítulo
-       ========================================================================= -->
-  <h2>2. Mapa Conceitual</h2>
-
-  <div class="mapa-conceitual">
-    <h3>🗺️ Estrutura de Conceitos</h3>
-    <p>Veja como os conceitos deste capítulo se conectam:</p>
-
-    <ul>
-      <li><strong>[Conceito Principal 1]</strong>
-        <ul>
-          <li>[Subconceito 1.1]</li>
-          <li>[Subconceito 1.2]</li>
-          <li>[Subconceito 1.3]</li>
-        </ul>
-      </li>
-
-      <li><strong>[Conceito Principal 2]</strong>
-        <ul>
-          <li>[Subconceito 2.1]</li>
-          <li>[Subconceito 2.2]</li>
-        </ul>
-      </li>
-
-      <li><strong>[Conceito Principal 3]</strong>
-        <ul>
-          <li>[Subconceito 3.1]</li>
-          <li>[Subconceito 3.2]</li>
-          <li>[Subconceito 3.3]</li>
-        </ul>
-      </li>
-
-      <!-- ADICIONE MAIS CONCEITOS CONFORME NECESSÁRIO -->
-    </ul>
-  </div>
-
-  <!-- =========================================================================
-       SEÇÃO 3: ROTEIRO DE ESTUDOS
-       - Sequência lógica de aprendizagem
-       - Etapas numeradas
-       - O que estudar e como estudar
-       ========================================================================= -->
-  <h2>3. Roteiro de Estudos</h2>
-
-  <p>Siga este roteiro passo a passo para um aprendizado eficaz:</p>
-
-  <!-- ETAPA 1 -->
-  <div class="etapa-estudo">
-    <h4><span class="etapa-numero">1</span>[Nome da Etapa]</h4>
-    <p><strong>Foco:</strong> [Conceito principal desta etapa]</p>
-
-    <p><strong>O que estudar:</strong></p>
-    <ul>
-      <li>[Tópico 1]</li>
-      <li>[Tópico 2]</li>
-      <li>[Tópico 3]</li>
-    </ul>
-
-    <p><strong>Como estudar:</strong></p>
-    <ul>
-      <li>[Estratégia 1 - ex: "Leia o resumo teórico sobre..."]</li>
-      <li>[Estratégia 2 - ex: "Resolva os exemplos resolvidos passo a passo"]</li>
-      <li>[Estratégia 3 - ex: "Pratique com problemas introdutórios"]</li>
-    </ul>
-
-    <div class="dica-estudo">
-      <strong>💡 Dica de Estudo:</strong> [Dica específica para esta etapa]
+    <!-- ===============================================================
+         CABEÇALHO DO GUIA
+         =============================================================== -->
+    <div class="guia-header">
+      <h1>📚 Guia de Estudos: [CAPÍTULO]</h1>
     </div>
-  </div>
 
-  <!-- ETAPA 2 -->
-  <div class="etapa-estudo">
-    <h4><span class="etapa-numero">2</span>[Nome da Etapa]</h4>
-    <p><strong>Foco:</strong> [Conceito principal desta etapa]</p>
+    <!-- ===============================================================
+         SEÇÃO 1: HABILIDADES ESSENCIAIS
+         - Códigos de habilidades do currículo
+         - Descrição de cada habilidade
+         =============================================================== -->
+    <h2>1. Habilidades Essenciais</h2>
+    <p>Este guia foca no desenvolvimento das seguintes habilidades do currículo:</p>
 
-    <p><strong>O que estudar:</strong></p>
-    <ul>
-      <li>[Tópico 1]</li>
-      <li>[Tópico 2]</li>
-    </ul>
+    <div class="objetivos-grid">
+        <div class="objetivo-item">
+          <strong>([CÓDIGO DA HABILIDADE 1])</strong>
+          <p>[Descrição da habilidade 1]</p>
+        </div>
 
-    <p><strong>Como estudar:</strong></p>
-    <ul>
-      <li>[Estratégia 1]</li>
-      <li>[Estratégia 2]</li>
-    </ul>
+        <div class="objetivo-item">
+          <strong>([CÓDIGO DA HABILIDADE 2])</strong>
+          <p>[Descrição da habilidade 2]</p>
+        </div>
 
-    <div class="dica-estudo">
-      <strong>💡 Dica de Estudo:</strong> [Dica específica]
+        <div class="objetivo-item">
+          <strong>([CÓDIGO DA HABILIDADE 3])</strong>
+          <p>[Descrição da habilidade 3]</p>
+        </div>
+
+        <!-- ADICIONE MAIS HABILIDADES CONFORME NECESSÁRIO (3-5 HABILIDADES) -->
     </div>
-  </div>
 
-  <!-- ADICIONE MAIS 3-5 ETAPAS -->
+    <!-- ===============================================================
+         SEÇÃO 2: ROTEIRO DE MISSÕES
+         - 5-7 missões progressivas
+         - Cada missão tem: número, nome, habilidade, descrição e meta
+         - Metas incluem links para recursos e números específicos
+         =============================================================== -->
+    <h2>2. Roteiro de Missões</h2>
+    <p>Avance em seus estudos completando as missões a seguir. Cada missão foca em uma habilidade essencial e define uma meta de problemas a serem resolvidos para ganhar XP.</p>
 
-  <!-- =========================================================================
-       SEÇÃO 4: ESTRATÉGIAS DE APRENDIZAGEM
-       - Técnicas de estudo eficazes
-       - Métodos de resolução de problemas
-       - Como se preparar para avaliações
-       ========================================================================= -->
-  <h2>4. Estratégias de Aprendizagem</h2>
-
-  <div class="estrategia">
-    <h4>📝 Técnica: [Nome da Técnica]</h4>
-    <p><strong>O que é:</strong> [Descrição da técnica]</p>
-    <p><strong>Como usar:</strong> [Passo a passo para aplicar a técnica]</p>
-    <p><strong>Quando usar:</strong> [Situações apropriadas]</p>
-  </div>
-
-  <div class="estrategia">
-    <h4>🔍 Técnica: [Nome da Técnica]</h4>
-    <p><strong>O que é:</strong> [Descrição]</p>
-    <p><strong>Como usar:</strong> [Aplicação]</p>
-    <p><strong>Quando usar:</strong> [Situações]</p>
-  </div>
-
-  <!-- ADICIONE MAIS 2-3 ESTRATÉGIAS -->
-
-  <h3>Método de Resolução de Problemas</h3>
-  <ol>
-    <li><strong>Compreender o problema:</strong> [Orientação]</li>
-    <li><strong>Planejar a solução:</strong> [Orientação]</li>
-    <li><strong>Executar o plano:</strong> [Orientação]</li>
-    <li><strong>Revisar e verificar:</strong> [Orientação]</li>
-  </ol>
-
-  <!-- =========================================================================
-       SEÇÃO 5: CONEXÕES
-       - Relações entre conceitos do capítulo
-       - Aplicações em outras disciplinas
-       - Contextos da vida real
-       ========================================================================= -->
-  <h2>5. Conexões</h2>
-
-  <h3>Conexões Internas</h3>
-  <p>Como os conceitos deste capítulo se relacionam:</p>
-  <ul>
-    <li>[Relação 1 - ex: "O discriminante Δ determina quantas raízes a função possui"]</li>
-    <li>[Relação 2]</li>
-    <li>[Relação 3]</li>
-  </ul>
-
-  <h3>Aplicações Interdisciplinares</h3>
-
-  <div class="conexao">
-    <h5>🔬 Física</h5>
-    <p>[Como este conteúdo aparece em Física - exemplo específico]</p>
-  </div>
-
-  <div class="conexao">
-    <h5>💰 Economia/Administração</h5>
-    <p>[Aplicação em contextos econômicos]</p>
-  </div>
-
-  <div class="conexao">
-    <h5>🏗️ Engenharia/Arquitetura</h5>
-    <p>[Aplicação em contextos de engenharia]</p>
-  </div>
-
-  <!-- ADICIONE OUTRAS CONEXÕES RELEVANTES -->
-
-  <h3>Contextos da Vida Real</h3>
-  <ul>
-    <li>[Aplicação prática 1]</li>
-    <li>[Aplicação prática 2]</li>
-    <li>[Aplicação prática 3]</li>
-  </ul>
-
-  <!-- =========================================================================
-       SEÇÃO 6: CRONOGRAMA SUGERIDO
-       - Distribuição de tempo
-       - Organização semanal
-       ========================================================================= -->
-  <h2>6. Cronograma Sugerido</h2>
-
-  <div class="cronograma">
-    <h4>📅 Plano de Estudo - [Duração Total]</h4>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Período</th>
-          <th>Tópicos</th>
-          <th>Atividades</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Semana 1</td>
-          <td>[Tópicos da semana 1]</td>
-          <td>
-            - [Atividade 1]<br>
-            - [Atividade 2]<br>
-            - [Atividade 3]
-          </td>
-        </tr>
-        <tr>
-          <td>Semana 2</td>
-          <td>[Tópicos da semana 2]</td>
-          <td>
-            - [Atividade 1]<br>
-            - [Atividade 2]<br>
-            - [Atividade 3]
-          </td>
-        </tr>
-        <!-- ADICIONE MAIS SEMANAS CONFORME DURAÇÃO -->
-      </tbody>
-    </table>
-
-    <div class="dica-estudo">
-      <strong>💡 Lembre-se:</strong> Este cronograma é uma sugestão. Ajuste conforme
-      seu ritmo de aprendizagem e disponibilidade de tempo!
+    <!-- MISSÃO 1 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">1</span> Missão: [Nome da Missão]</h3>
+      <p><strong>Habilidade:</strong> ([CÓDIGO]) [Descrição curta da habilidade]</p>
+      <p><strong>Missão:</strong> [Descrição do objetivo da missão - o que o estudante vai aprender]</p>
+      <p><strong>Meta:</strong> [Ação concreta: "Ler a <strong>seção X e Y</strong> do <a href="[caminho-resumo]">Resumo Teórico</a> e resolver <strong>N problemas</strong> da seção "[Seção]" da <a href="[caminho-lista]">Lista de Problemas</a>."]</p>
     </div>
-  </div>
 
-  <!-- =========================================================================
-       SEÇÃO 7: CHECKLIST DE PROGRESSO
-       - Avaliação de domínio
-       - Autoavaliação
-       ========================================================================= -->
-  <h2>7. Checklist de Progresso</h2>
+    <!-- MISSÃO 2 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">2</span> Missão: [Nome da Missão]</h3>
+      <p><strong>Habilidade:</strong> [Código e descrição]</p>
+      <p><strong>Missão:</strong> [Descrição]</p>
+      <p><strong>Meta:</strong> [Meta específica com links]</p>
+    </div>
 
-  <div class="checklist">
-    <h4>✓ Verifique seu domínio dos conceitos:</h4>
-    <ul>
-      <li>Compreendo a definição de [conceito principal]</li>
-      <li>Consigo [habilidade 1]</li>
-      <li>Sei resolver problemas sobre [tópico]</li>
-      <li>Entendo a relação entre [conceito A] e [conceito B]</li>
-      <li>Aplico os conceitos em problemas contextualizados</li>
-      <li>Identifico erros comuns e sei como evitá-los</li>
-      <li>Consigo explicar os conceitos com minhas próprias palavras</li>
-      <!-- ADICIONE MAIS 5-10 ITENS -->
-    </ul>
-  </div>
+    <!-- MISSÃO 3 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">3</span> Missão: [Nome da Missão]</h3>
+      <p><strong>Habilidade:</strong> [Código e descrição]</p>
+      <p><strong>Missão:</strong> [Descrição]</p>
+      <p><strong>Meta:</strong> [Meta específica com links]</p>
+    </div>
 
-  <!-- =========================================================================
-       SEÇÃO 8: RECURSOS ADICIONAIS
-       - Links internos do Nexus
-       - Recursos externos (opcional)
-       - Dicas finais
-       ========================================================================= -->
-  <h2>8. Recursos Adicionais</h2>
+    <!-- MISSÃO 4 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">4</span> Missão: [Nome da Missão]</h3>
+      <p><strong>Habilidade:</strong> [Código e descrição]</p>
+      <p><strong>Missão:</strong> [Descrição]</p>
+      <p><strong>Meta:</strong> [Meta específica com links]</p>
+    </div>
 
-  <div class="recursos">
-    <h4>📚 Recursos do Nexus</h4>
-    <ul>
-      <li><strong>Resumo teórico:</strong> [Link para resumo] - Conceitos formais e demonstrações</li>
-      <li><strong>Lista de problemas:</strong> [Link para lista] - Pratique com 32+ problemas variados</li>
-      <li><strong>Atividade de recuperação:</strong> [Link se disponível] - Reforce conceitos fundamentais</li>
-    </ul>
-  </div>
+    <!-- MISSÃO 5 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">5</span> Missão: [Nome da Missão]</h3>
+      <p><strong>Habilidade:</strong> [Código e descrição]</p>
+      <p><strong>Missão:</strong> [Descrição]</p>
+      <p><strong>Meta:</strong> [Meta específica com links]</p>
+    </div>
 
-  <div class="recursos">
-    <h4>🎯 Dicas Finais</h4>
-    <ul>
-      <li><strong>Pratique regularmente:</strong> [Orientação sobre frequência]</li>
-      <li><strong>Não decore, compreenda:</strong> [Orientação sobre compreensão profunda]</li>
-      <li><strong>Tire suas dúvidas:</strong> [Orientação sobre buscar ajuda]</li>
-      <li><strong>Ensine outra pessoa:</strong> [Orientação sobre aprendizagem ativa]</li>
-      <li><strong>Revise periodicamente:</strong> [Orientação sobre revisão espaçada]</li>
-    </ul>
-  </div>
+    <!-- MISSÃO 6 (FINAL) -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">6</span> Missão Final: [Nome da Missão]</h3>
+      <p><strong>Habilidade:</strong> Aplicar múltiplos conceitos de [tópico] em problemas complexos.</p>
+      <p><strong>Missão:</strong> Integrar todo o conhecimento adquirido para resolver problemas que exigem mais raciocínio e combinam várias etapas.</p>
+      <p><strong>Meta:</strong> Resolver <strong>N problemas</strong> da seção "Aprofundamento" da <a href="[caminho-lista]">Lista de Problemas</a>.</p>
+    </div>
+
+    <!-- ADICIONE MAIS MISSÕES SE NECESSÁRIO (5-7 MISSÕES RECOMENDADO) -->
 
 </article>
 
@@ -617,9 +266,9 @@ Objetivos: Compreender função quadrática, esboçar gráficos, resolver equaç
 </div> <!-- /.container -->
 </div> <!-- /#page-wrapper -->
 
-<!-- ============================================================================
+<!-- ============================================================
      SCRIPTS NECESSÁRIOS - NÃO ALTERAR
-     ============================================================================ -->
+     ============================================================ -->
 <canvas id="matrixCanvas"></canvas>
 <script src="../../js/matrix-rain.js" defer></script>
 
@@ -628,8 +277,11 @@ Objetivos: Compreender função quadrática, esboçar gráficos, resolver equaç
 document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {
         delimiters: [
+            // Modo de exibição (centralizado): @@...@@
             {left: "@@", right: "@@", display: true},
             {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
             {left: "@", right: "@", display: false},
             {left: "\\(", right: "\\)", display: false}
         ],
@@ -667,313 +319,155 @@ document.addEventListener("DOMContentLoaded", function() {
 
 ## Regras de Qualidade
 
-### 1. Estrutura do Guia de Estudos
+### 1. Estrutura Obrigatória
 
-**Seções obrigatórias:**
+**Seções do guia:**
 
 | Seção | Conteúdo | Propósito |
 |-------|----------|-----------|
-| **1. Visão Geral** | Objetivos, pré-requisitos, duração | Contextualizar o aprendizado |
-| **2. Mapa Conceitual** | Hierarquia de conceitos | Visualizar estrutura lógica |
-| **3. Roteiro de Estudos** | 5-7 etapas sequenciais | Guiar progressão de estudo |
-| **4. Estratégias** | 3-5 técnicas de aprendizagem | Ensinar como estudar |
-| **5. Conexões** | Relações internas + interdisciplinares | Contextualizar conhecimento |
-| **6. Cronograma** | Distribuição temporal | Organizar tempo de estudo |
-| **7. Checklist** | 10-15 itens de verificação | Autoavaliação de domínio |
-| **8. Recursos** | Links e dicas finais | Aprofundamento |
+| **1. Habilidades Essenciais** | 3-5 habilidades do currículo com códigos | Contextualizar aprendizagem |
+| **2. Roteiro de Missões** | 5-7 missões progressivas | Guiar estudante através de metas práticas |
 
-### 2. Visão Geral (Seção 1)
+### 2. Seção 1 - Habilidades Essenciais
 
 ✅ **DEVE INCLUIR:**
-- Duração estimada do estudo
-- Objetivos de aprendizagem (5-7 objetivos com verbos de ação)
-- Pré-requisitos necessários (3-5 itens)
-- Nível de dificuldade
+- 3-5 habilidades do currículo oficial
+- Código de cada habilidade (ex: EF.09.MAT.2.87)
+- Descrição clara de cada habilidade
+- Layout em grid responsivo (`.objetivos-grid`)
 
-**Objetivos de aprendizagem - Verbos de ação apropriados:**
-- **Conhecimento:** Identificar, listar, definir, reconhecer
-- **Compreensão:** Explicar, descrever, interpretar, resumir
-- **Aplicação:** Aplicar, resolver, calcular, demonstrar
-- **Análise:** Analisar, comparar, distinguir, investigar
-- **Síntese:** Construir, desenvolver, criar, formular
-- **Avaliação:** Avaliar, justificar, verificar, criticar
-
-**Exemplo de objetivo bem formulado:**
-✅ "Aplicar a fórmula de Bhaskara para resolver equações do 2º grau em contextos diversos"
-❌ "Saber sobre Bhaskara" (vago, sem verbo de ação)
-
-### 3. Mapa Conceitual (Seção 2)
-
-O mapa conceitual deve:
-
-- **Organizar hierarquicamente** os conceitos (principal → secundário → terciário)
-- **Mostrar conexões lógicas** entre tópicos
-- **Usar formatação visual** para facilitar compreensão
-- **Incluir 3-5 conceitos principais** com subconceitos
-
-**Exemplo de estrutura:**
+**Formato de cada habilidade:**
 
 ```html
-<div class="mapa-conceitual">
-  <h3>🗺️ Estrutura de Conceitos</h3>
-  <ul>
-    <li><strong>Função Quadrática</strong>
-      <ul>
-        <li>Definição: @f(x) = ax^2 + bx + c@</li>
-        <li>Coeficientes @a@, @b@, @c@ e seus significados</li>
-      </ul>
-    </li>
-
-    <li><strong>Gráfico (Parábola)</strong>
-      <ul>
-        <li>Concavidade (determinada por @a@)</li>
-        <li>Vértice</li>
-        <li>Eixo de simetria</li>
-        <li>Interseção com eixos</li>
-      </ul>
-    </li>
-
-    <li><strong>Raízes</strong>
-      <ul>
-        <li>Discriminante @\Delta@</li>
-        <li>Fórmula de Bhaskara</li>
-        <li>Relações de Viète</li>
-      </ul>
-    </li>
-  </ul>
-</div>
-```
-
-### 4. Roteiro de Estudos (Seção 3)
-
-**Estrutura de cada etapa:**
-
-```html
-<div class="etapa-estudo">
-  <h4><span class="etapa-numero">X</span>[Nome da Etapa]</h4>
-  <p><strong>Foco:</strong> [Conceito principal]</p>
-
-  <p><strong>O que estudar:</strong></p>
-  <ul>
-    <li>[Tópico específico 1]</li>
-    <li>[Tópico específico 2]</li>
-  </ul>
-
-  <p><strong>Como estudar:</strong></p>
-  <ul>
-    <li>[Ação concreta 1 - ex: "Leia o resumo sobre..."]</li>
-    <li>[Ação concreta 2 - ex: "Resolva problemas 1-5 da lista"]</li>
-    <li>[Ação concreta 3 - ex: "Faça resumo próprio dos conceitos"]</li>
-  </ul>
-
-  <div class="dica-estudo">
-    <strong>💡 Dica de Estudo:</strong> [Orientação específica]
-  </div>
-</div>
-```
-
-**Número de etapas:** 5-7 etapas progressivas
-
-**Características das etapas:**
-- Sequência lógica (do básico ao avançado)
-- Ações concretas ("Leia...", "Resolva...", "Pratique...")
-- Integração de teoria e prática
-- Tempo estimado por etapa (opcional)
-
-### 5. Estratégias de Aprendizagem (Seção 4)
-
-**Inclua 3-5 estratégias** de diferentes tipos:
-
-1. **Estratégias de compreensão conceitual**
-   - Mapas mentais
-   - Resumos próprios
-   - Explicar para outra pessoa
-
-2. **Estratégias de resolução de problemas**
-   - Método de Polya (4 passos)
-   - Trabalho reverso (partir da resposta)
-   - Casos particulares primeiro
-
-3. **Estratégias de memorização**
-   - Flashcards
-   - Mnemônicos
-   - Repetição espaçada
-
-4. **Estratégias metacognitivas**
-   - Autoexplicação
-   - Monitoramento de compreensão
-   - Identificação de padrões de erro
-
-**Formato de cada estratégia:**
-
-```html
-<div class="estrategia">
-  <h4>📝 Técnica: [Nome]</h4>
-  <p><strong>O que é:</strong> [Descrição breve]</p>
-  <p><strong>Como usar:</strong> [Passo a passo prático]</p>
-  <p><strong>Quando usar:</strong> [Situações apropriadas]</p>
-</div>
-```
-
-**Exemplo prático:**
-
-```html
-<div class="estrategia">
-  <h4>📝 Técnica: Autoexplicação</h4>
-  <p><strong>O que é:</strong> Explicar em voz alta (ou por escrito) cada passo
-     da resolução de um problema, justificando suas escolhas.</p>
-  <p><strong>Como usar:</strong> Ao resolver um problema, pare após cada passo e
-     se pergunte: "Por que fiz isso?", "Que conceito estou aplicando?",
-     "Faz sentido?". Responda essas perguntas em voz alta.</p>
-  <p><strong>Quando usar:</strong> Ideal para problemas complexos ou quando você
-     erra um problema e quer entender por quê.</p>
-</div>
-```
-
-### 6. Conexões (Seção 5)
-
-**Três tipos de conexões:**
-
-1. **Conexões Internas** (dentro do capítulo)
-   - Como conceitos se relacionam
-   - Pré-requisitos para conceitos avançados
-   - Implicações lógicas
-
-2. **Conexões Interdisciplinares**
-   - Física, Química, Biologia
-   - Economia, Administração
-   - Engenharia, Arquitetura
-   - Geografia, Ciências Sociais
-
-3. **Aplicações Práticas**
-   - Vida cotidiana
-   - Problemas reais
-   - Profissões que usam o conceito
-
-**Formato de conexão interdisciplinar:**
-
-```html
-<div class="conexao">
-  <h5>🔬 [Disciplina]</h5>
-  <p>[Descrição específica de como o conteúdo matemático aparece nesta área,
-     com exemplo concreto]</p>
+<div class="objetivo-item">
+  <strong>([CÓDIGO DA HABILIDADE])</strong>
+  <p>[Descrição da habilidade]</p>
 </div>
 ```
 
 **Exemplo:**
 
 ```html
-<div class="conexao">
-  <h5>🔬 Física - Movimento Uniformemente Variado</h5>
-  <p>A função horária da posição no MUV é uma função quadrática:
-     @s(t) = s_0 + v_0 t + \frac{at^2}{2}@. O vértice da parábola representa
-     o ponto de inversão do movimento (altura máxima de um projétil, por exemplo).
-  </p>
+<div class="objetivo-item">
+  <strong>(EF.09.MAT.2.87)</strong>
+  <p>Reconhecer a variação e a relação de dependência entre grandezas.</p>
 </div>
 ```
 
-### 7. Cronograma Sugerido (Seção 6)
+### 3. Seção 2 - Roteiro de Missões
 
-Use **tabela HTML** para organizar:
+**Estrutura de cada missão:**
 
 ```html
-<div class="cronograma">
-  <h4>📅 Plano de Estudo - [Duração]</h4>
-  <table>
-    <thead>
-      <tr>
-        <th>Período</th>
-        <th>Tópicos</th>
-        <th>Atividades</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Semana 1</td>
-        <td>Definição, coeficientes, gráfico básico</td>
-        <td>
-          - Ler resumo teórico (Seções 1-2)<br>
-          - Resolver exemplos resolvidos 1-4<br>
-          - Praticar problemas introdutórios 1-10
-        </td>
-      </tr>
-      <!-- Mais linhas -->
-    </tbody>
-  </table>
+<div class="etapa-estudo">
+  <h3><span class="etapa-numero">X</span> Missão: [Nome]</h3>
+  <p><strong>Habilidade:</strong> ([Código]) [Descrição]</p>
+  <p><strong>Missão:</strong> [Objetivo de aprendizagem]</p>
+  <p><strong>Meta:</strong> [Ação concreta com links]</p>
 </div>
 ```
 
-**Duração típica por capítulo:**
-- Conceitos básicos: 1-2 semanas
-- Conceitos intermediários: 2-3 semanas
-- Conceitos avançados: 3-4 semanas
+**Componentes de cada missão:**
 
-### 8. Checklist de Progresso (Seção 7)
+1. **Número:** Sequencial de 1 a 6-7
+2. **Nome:** Criativo e descritivo (ex: "A Máquina de Funções", "Decifrando a Linguagem")
+3. **Habilidade:** Código do currículo + descrição curta
+4. **Missão:** O que o estudante vai aprender (1-2 frases)
+5. **Meta:** Ação específica com:
+   - Links para recursos (resumo, lista, recuperação)
+   - Números específicos (seções, problemas)
+   - Formatação em HTML inline (`<strong>`, `<a>`)
 
-**10-15 itens verificáveis** que cobrem:
+**Exemplo de meta bem formulada:**
 
-- Compreensão conceitual (3-4 itens)
-- Habilidades procedimentais (3-4 itens)
-- Aplicação em problemas (2-3 itens)
-- Conexões e relações (2-3 itens)
-- Metacognição (1-2 itens)
+✅ "Ler a **seção 1 e 2** do [Resumo Teórico](../resumos/9ANO-FUNCOES.html) e resolver **4 problemas** da seção "Introdutórios" da [Lista de Problemas](../listas/9ANO-FUNCOES.html)."
 
-**Formato:**
+❌ "Estudar sobre funções e praticar exercícios." (vago, sem especificidade)
+
+### 4. Progressão das Missões
+
+As missões devem seguir uma **progressão lógica**:
+
+**Missões 1-2:** Conceitos básicos e fundamentais
+- Definições
+- Terminologia
+- Exemplos simples
+
+**Missões 3-4:** Aplicação e modelagem
+- Uso de fórmulas
+- Problemas contextualizados
+- Conexões com o cotidiano
+
+**Missões 5-6:** Representações e integração
+- Gráficos, tabelas
+- Problemas complexos
+- Aplicação integrada de múltiplos conceitos
+
+**Missão Final:** Sempre focada em problemas de aprofundamento/desafio
+
+### 5. Nomes de Missões
+
+Use nomes **criativos e memoráveis** que reflitam o conteúdo:
+
+✅ Bons exemplos:
+- "A Máquina de Funções"
+- "Decifrando a Linguagem"
+- "A Lei da Função"
+- "Modelando o Mundo Real"
+- "O Retrato da Função"
+- "O Desafio do Especialista"
+
+❌ Exemplos genéricos:
+- "Missão 1"
+- "Estudar funções"
+- "Parte 1"
+
+### 6. Links para Recursos
+
+**Formato de links:**
 
 ```html
-<div class="checklist">
-  <h4>✓ Verifique seu domínio dos conceitos:</h4>
-  <ul>
-    <li>Compreendo a definição formal de função quadrática</li>
-    <li>Sei identificar os coeficientes @a@, @b@, @c@ e seus significados</li>
-    <li>Consigo calcular o vértice da parábola</li>
-    <li>Sei usar a fórmula de Bhaskara para encontrar raízes</li>
-    <li>Entendo o significado do discriminante @\Delta@</li>
-    <li>Esboço gráficos de funções quadráticas corretamente</li>
-    <li>Resolvo problemas de máximos e mínimos</li>
-    <li>Aplico conceitos em problemas contextualizados</li>
-    <li>Identifico a relação entre discriminante e número de raízes</li>
-    <li>Consigo explicar os conceitos com minhas próprias palavras</li>
-  </ul>
-</div>
+<a href="../resumos/[TURMA]-[TOPICO].html">Resumo Teórico</a>
+<a href="../listas/[TURMA]-[TOPICO].html">Lista de Problemas</a>
+<a href="../recuperacao/[TURMA]-[TOPICO].html">Atividade de Recuperação</a>
 ```
 
-### 9. Recursos Adicionais (Seção 8)
+**Caminhos relativos:**
+- De `recursos/guias/` para `recursos/resumos/`: `../resumos/`
+- De `recursos/guias/` para `recursos/listas/`: `../listas/`
+- De `recursos/guias/` para `recursos/recuperacao/`: `../recuperacao/`
 
-**Inclua:**
+### 7. Quantidade de Problemas nas Metas
 
-1. **Links internos do Nexus**
-   - Resumo teórico do tópico
-   - Lista de problemas
-   - Atividade de recuperação (se disponível)
+**Orientações por seção da lista:**
 
-2. **Dicas finais** (5-7 dicas práticas)
-   - Prática regular
-   - Compreensão > decoreba
-   - Tirar dúvidas
-   - Ensinar outros
-   - Revisão espaçada
+- **Introdutórios:** 3-5 problemas por missão
+- **Fixação:** 3-5 problemas por missão
+- **Aprofundamento:** 3-5 problemas (missão final)
+- **Total por missão:** Não exceder 5 problemas por meta (evitar sobrecarga)
 
-**Formato:**
+### 8. Integração com Sistema de Gamificação
 
-```html
-<div class="recursos">
-  <h4>📚 Recursos do Nexus</h4>
-  <ul>
-    <li><strong>Resumo teórico:</strong> <a href="[caminho]">[Nome]</a> - [Descrição]</li>
-    <li><strong>Lista de problemas:</strong> <a href="[caminho]">[Nome]</a> - [Descrição]</li>
-  </ul>
-</div>
+As missões devem ser **compatíveis com o sistema de missões do dashboard**:
 
-<div class="recursos">
-  <h4>🎯 Dicas Finais</h4>
-  <ul>
-    <li><strong>Pratique regularmente:</strong> [Orientação específica]</li>
-    <li><strong>Não decore, compreenda:</strong> [Orientação]</li>
-    <!-- Mais dicas -->
-  </ul>
-</div>
-```
+- Cada missão representa uma tarefa concreta
+- Metas são verificáveis (número específico de problemas)
+- Progressão linear (1 → 2 → 3 → ...)
+- Missão final é sempre um desafio integrador
+
+### 9. Formatação e Estilo
+
+✅ **FAÇA:**
+- Use negrito (`<strong>`) para destacar números e seções
+- Use links coloridos (`<a>`) para recursos
+- Mantenha metas em 1-2 linhas quando possível
+- Seja específico ("Resolver problemas 1, 4, 8" ou "Resolver 4 problemas")
+
+❌ **NÃO FAÇA:**
+- Ser vago ("Pratique bastante")
+- Omitir links para recursos
+- Criar metas muito longas (>3 linhas)
+- Usar jargões complexos
 
 ---
 
@@ -985,56 +479,49 @@ Use **tabela HTML** para organizar:
 Agente: agent-guias
 Capítulo: Trigonometria no Triângulo Retângulo
 Turma: 9ANO
-Tópicos: Definições de seno, cosseno e tangente; relações métricas; ângulos notáveis (30°, 45°, 60°); aplicações práticas
-Duração: 3 semanas
-Objetivos: Compreender razões trigonométricas, calcular seno/cosseno/tangente, resolver problemas de altura e distância, aplicar em contextos reais
+Habilidades:
+  - (EF.09.MAT.3.102): Compreender as relações trigonométricas no triângulo retângulo
+  - (EF.09.MAT.3.103): Calcular seno, cosseno e tangente de ângulos agudos
+  - (EF.09.MAT.3.104): Aplicar trigonometria em problemas de medição indireta
+Missões: 6
+Recursos:
+  - Resumo: ../resumos/9ANO-TRIGONOMETRIA.html
+  - Lista: ../listas/9ANO-TRIGONOMETRIA.html
 ```
 
 ### Output Esperado
 
 `9ANO-GUIA-TRIGONOMETRIA.html` contendo:
 
-**1. Visão Geral:**
-- Duração: 3 semanas
-- Objetivos: 6 objetivos com verbos de ação
-- Pré-requisitos: Teorema de Pitágoras, semelhança de triângulos, razões e proporções
+**Seção 1: Habilidades Essenciais**
+- 3 habilidades em grid responsivo
+- Códigos e descrições claras
 
-**2. Mapa Conceitual:**
-- Triângulo Retângulo (catetos, hipotenusa, ângulos)
-- Razões Trigonométricas (seno, cosseno, tangente)
-- Ângulos Notáveis (30°, 45°, 60°)
-- Aplicações (altura, distância, inclinação)
+**Seção 2: Roteiro de Missões (6 missões)**
 
-**3. Roteiro - 6 Etapas:**
-1. Revisão de triângulos retângulos
-2. Definições de seno, cosseno, tangente
-3. Cálculo de razões trigonométricas
-4. Ângulos notáveis e valores especiais
-5. Problemas de aplicação
-6. Consolidação e revisão
+1. **Missão: Os Triângulos Especiais**
+   - Habilidade: Reconhecer triângulos retângulos e seus elementos
+   - Meta: Ler seções 1-2 do resumo + resolver 4 problemas introdutórios
 
-**4. Estratégias:**
-- Mnemônico SOH-CAH-TOA
-- Desenho de triângulos para visualização
-- Prática com calculadora
-- Resolução reversa (dado seno, achar ângulo)
+2. **Missão: As Três Razões Fundamentais**
+   - Habilidade: Compreender definições de seno, cosseno e tangente
+   - Meta: Ler seção 3 do resumo + estudar exemplos 1-3 + resolver 5 problemas
 
-**5. Conexões:**
-- Física: Decomposição de vetores
-- Geografia: Cálculo de declividades
-- Engenharia: Rampas de acessibilidade
-- Navegação: Determinação de distâncias
+3. **Missão: A Calculadora Trigonométrica**
+   - Habilidade: Calcular razões trigonométricas com calculadora
+   - Meta: Praticar com problemas 7, 9, 11, 14
 
-**6. Cronograma:**
-- Semana 1: Definições e conceitos básicos
-- Semana 2: Ângulos notáveis e aplicações
-- Semana 3: Problemas complexos e revisão
+4. **Missão: Ângulos Notáveis**
+   - Habilidade: Conhecer valores de 30°, 45°, 60°
+   - Meta: Memorizar tabela + resolver 5 problemas específicos
 
-**7. Checklist:**
-12 itens cobrindo compreensão, cálculo e aplicação
+5. **Missão: Medindo o Inacessível**
+   - Habilidade: Aplicar trigonometria em medições indiretas
+   - Meta: Estudar exemplos 5-7 do resumo + resolver problemas contextualizados
 
-**8. Recursos:**
-Links para resumo, lista de problemas, dicas de estudo
+6. **Missão Final: Desafio Trigonométrico**
+   - Habilidade: Integrar múltiplos conceitos
+   - Meta: Resolver 4 problemas da seção "Aprofundamento"
 
 ---
 
@@ -1043,142 +530,119 @@ Links para resumo, lista de problemas, dicas de estudo
 ### Estrutura HTML
 - [ ] Meta charset UTF-8 e viewport
 - [ ] Título: "NEXUS - Guia de Estudos: [Capítulo]"
-- [ ] Links CSS/JS corretos
+- [ ] Links CSS/JS corretos (`../../css/`, `../../js/`)
 - [ ] KaTeX incluído
-- [ ] Navegação completa
+- [ ] Navegação com botões `.nav-button`
 - [ ] Seletor de temas (14 temas)
 - [ ] Estilos CSS inline incluídos
-- [ ] Botão "VOLTAR"
+- [ ] Botão "VOLTAR" ao final
+- [ ] Canvas matrix-rain e scripts
 
-### Seções Obrigatórias
-- [ ] 1. Visão Geral completa
-- [ ] 2. Mapa Conceitual estruturado
-- [ ] 3. Roteiro de Estudos (5-7 etapas)
-- [ ] 4. Estratégias de Aprendizagem (3-5)
-- [ ] 5. Conexões (internas + interdisciplinares)
-- [ ] 6. Cronograma Sugerido
-- [ ] 7. Checklist de Progresso (10-15 itens)
-- [ ] 8. Recursos Adicionais
+### Seção 1: Habilidades Essenciais
+- [ ] 3-5 habilidades listadas
+- [ ] Cada habilidade tem código entre parênteses
+- [ ] Descrições claras e concisas
+- [ ] Grid responsivo (`.objetivos-grid`)
+- [ ] Formatação correta (`.objetivo-item`)
 
-### Visão Geral
-- [ ] Duração estimada declarada
-- [ ] 5-7 objetivos com verbos de ação
-- [ ] 3-5 pré-requisitos listados
-- [ ] Nível de dificuldade indicado
+### Seção 2: Roteiro de Missões
+- [ ] 5-7 missões numeradas
+- [ ] Cada missão tem estrutura completa:
+  - [ ] Número na classe `.etapa-numero`
+  - [ ] Nome criativo
+  - [ ] Habilidade com código
+  - [ ] Descrição da missão
+  - [ ] Meta específica com links
+- [ ] Progressão lógica (básico → intermediário → avançado)
+- [ ] Missão final é integradora
+- [ ] Todos os links funcionam (caminhos relativos corretos)
 
-### Mapa Conceitual
-- [ ] 3-5 conceitos principais
-- [ ] Subconceitos organizados hierarquicamente
-- [ ] Estrutura visual clara (`.mapa-conceitual`)
-- [ ] Uso de LaTeX quando apropriado
+### Metas das Missões
+- [ ] Todas as metas têm números específicos
+- [ ] Links formatados com `<a>` e cor var(--link-color)
+- [ ] Uso de `<strong>` para destacar números
+- [ ] Metas são acionáveis e verificáveis
+- [ ] Não excedem 5 problemas por meta
 
-### Roteiro de Estudos
-- [ ] 5-7 etapas numeradas
-- [ ] Cada etapa tem "Foco", "O que estudar", "Como estudar"
-- [ ] Ações concretas e específicas
-- [ ] Dica de estudo em cada etapa
-- [ ] Sequência lógica de progressão
-
-### Estratégias
-- [ ] 3-5 estratégias diferentes
-- [ ] Cada uma tem "O que é", "Como usar", "Quando usar"
-- [ ] Variedade de tipos (compreensão, resolução, memorização, metacognição)
-- [ ] Método de resolução de problemas incluído
-
-### Conexões
-- [ ] Conexões internas explicadas
-- [ ] 3-5 conexões interdisciplinares
-- [ ] Aplicações práticas listadas
-- [ ] Exemplos concretos fornecidos
-
-### Cronograma
-- [ ] Tabela HTML bem formatada
-- [ ] Colunas: Período, Tópicos, Atividades
-- [ ] Distribuição coerente com duração total
-- [ ] Atividades específicas e concretas
-
-### Checklist
-- [ ] 10-15 itens verificáveis
-- [ ] Cobre diferentes aspectos (conceitual, procedimental, aplicação)
-- [ ] Linguagem clara ("Consigo...", "Sei...", "Compreendo...")
-- [ ] Formatação correta (`.checklist`)
-
-### Recursos
-- [ ] Links internos do Nexus
-- [ ] 5-7 dicas finais práticas
-- [ ] Orientação sobre próximos passos
-
-### Classes CSS
-- [ ] `.guia-header` usada
-- [ ] `.info-box` usada
-- [ ] `.mapa-conceitual` usada
-- [ ] `.etapa-estudo` com `.etapa-numero` usada
-- [ ] `.dica-estudo` usada
-- [ ] `.estrategia` usada
-- [ ] `.conexao` usada
-- [ ] `.cronograma` usada
-- [ ] `.checklist` usada
-- [ ] `.recursos` usada
+### Nomes de Missões
+- [ ] Nomes criativos e memoráveis
+- [ ] Refletem o conteúdo da missão
+- [ ] Missão final tem "Missão Final" ou "Desafio"
 
 ### Qualidade do Conteúdo
 - [ ] Linguagem clara e acessível
-- [ ] Orientações práticas e acionáveis
-- [ ] Progressão lógica de tópicos
-- [ ] Integração de teoria e prática
-- [ ] Foco em metacognição ("como estudar")
-- [ ] LaTeX renderiza corretamente
+- [ ] Alinhamento com habilidades do currículo
+- [ ] Integração com recursos existentes
+- [ ] Foco em gamificação e metas práticas
+- [ ] LaTeX renderiza corretamente (quando usado)
+
+### Classes CSS
+- [ ] `.guia-header` usada
+- [ ] `.objetivos-grid` usada
+- [ ] `.objetivo-item` usada para cada habilidade
+- [ ] `.etapa-estudo` usada para cada missão
+- [ ] `.etapa-numero` usada para numeração
 
 ---
 
 ## Observações Finais
 
-### Filosofia dos Guias de Estudos
+### Filosofia dos Guias de Missões
 
 Um guia eficaz deve:
 
-1. **Organizar o caos:** Transformar conteúdo extenso em roteiro claro
-2. **Ensinar a estudar:** Não apenas "o que", mas "como" aprender
-3. **Conectar conhecimentos:** Mostrar relações e aplicações
-4. **Promover autonomia:** Capacitar o estudante a gerenciar seu próprio aprendizado
-5. **Ser realista:** Cronogramas e expectativas adequadas ao nível
+1. **Ser acionável:** Metas específicas que o estudante pode verificar imediatamente
+2. **Integrar recursos:** Links diretos para resumos, listas e atividades
+3. **Gamificar o aprendizado:** Missões progressivas com senso de conquista
+4. **Alinhar com currículo:** Habilidades oficiais explicitamente declaradas
+5. **Ser realista:** Quantidade adequada de problemas por missão
 
-### Diferença entre Guia e Resumo
+### Diferença entre Guia e Resumo/Lista
 
-| Aspecto | Resumo | Guia de Estudos |
-|---------|--------|-----------------|
-| **Foco** | Conteúdo matemático | Processo de aprendizagem |
-| **Estrutura** | Definições → Teoremas → Exemplos | Visão Geral → Roteiro → Estratégias |
-| **Objetivo** | Apresentar conceitos | Orientar como aprender |
-| **Tom** | Formal acadêmico | Orientador metacognitivo |
-| **Exemplos** | Resolvidos detalhadamente | Referenciados em roteiro |
-| **Avaliação** | Exercícios | Checklist de domínio |
+| Aspecto | Resumo | Lista | Guia de Missões |
+|---------|--------|-------|-----------------|
+| **Foco** | Conceitos teóricos | Prática com problemas | Roteiro de aprendizagem |
+| **Estrutura** | Definições → Teoremas → Exemplos | Introdutórios → Fixação → Aprofundamento | Habilidades → Missões |
+| **Objetivo** | Apresentar conteúdo | Praticar habilidades | Orientar progresso |
+| **Interação** | Leitura | Resolução | Navegação entre recursos |
+| **Gamificação** | Não | Parcial | Completa |
 
 ### Boas Práticas
 
 ✅ **FAÇA:**
-- Use linguagem de orientação ("Comece por...", "Em seguida...")
-- Seja específico nas ações ("Resolva problemas 1-10" vs "Pratique")
-- Conecte tópicos explicitamente ("Agora que você domina X, pode aprender Y")
-- Forneça estimativas de tempo realistas
-- Incentive metacognição ("Pergunte-se: Entendi por quê?")
+- Crie nomes de missões memoráveis
+- Seja específico nas metas ("Resolver problemas 1, 3, 5")
+- Use números exatos (não "alguns" ou "vários")
+- Teste todos os links antes de finalizar
+- Garanta progressão lógica entre missões
 
 ❌ **NÃO FAÇA:**
-- Ser vago ("Estude função quadrática")
-- Assumir que estudante sabe como estudar
-- Sobrecarregar com informação
-- Omitir conexões com aplicações práticas
-- Esquecer que cada estudante tem ritmo próprio
+- Ser vago nas metas
+- Criar missões muito longas (>5 problemas)
+- Omitir habilidades do currículo
+- Usar nomes genéricos ("Missão 1", "Parte 2")
+- Esquecer de linkar recursos existentes
 
-### Personalização
+### Integração com Dashboard
 
-Lembre aos estudantes que:
-- O cronograma é sugestão, não regra rígida
-- Podem pular etapas se já dominam conceitos
-- Podem dedicar mais tempo a tópicos difíceis
-- Devem ajustar estratégias ao seu estilo de aprendizagem
+Os guias devem ser compatíveis com o sistema de missões do dashboard:
+
+- Formato de missão do dashboard (em `student-data.json`):
+  ```json
+  {
+    "titulo": "Nome da Missão",
+    "descricao": "Descrição breve",
+    "xp": 50,
+    "tipo": "obrigatoria",
+    "status": "pendente"
+  }
+  ```
+
+- As missões do guia podem ser posteriormente adicionadas ao `student-data.json` para tracking no dashboard
 
 ---
 
-**Versão:** 1.0
-**Última atualização:** 2025-10-02
+**Versão:** 2.0
+**Última atualização:** 2025-10-03
 **Projeto:** Nexus - Portal Educacional de Matemática
+**Base:** Estrutura do guia 9ANO-GUIA-FUNCOES.html

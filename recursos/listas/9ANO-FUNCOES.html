@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - FUNÇÕES</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+    .dificuldade { padding: 2px 6px; border-radius: 3px; margin-right: 8px; }
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+    .dica strong { color: #2196f3; }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+<div class="container">
+
+<h1>FUNÇÕES</h1>
+
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">Problemas básicos para familiarização com os conceitos fundamentais de funções.</p>
+  <ol>
+    <li>
+      <div class="problema-meta"><span class="topico">Lei de formação</span><span class="dificuldade facil">Fácil</span><span>⏱️ 3 min</span></div>
+      <p>Uma empresa de táxi cobra uma taxa fixa de R$ 5,00 mais R$ 2,50 por quilômetro rodado. Escreva a função que representa o preço total @P@ a ser pago em função dos quilômetros @k@ rodados.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Domínio e Imagem</span><span class="dificuldade facil">Fácil</span><span>⏱️ 5 min</span></div>
+      <p>Dada a função @f(x) = 2x + 1@ e o domínio @D = \{-1, 0, 1, 2\}@, determine o conjunto imagem da função.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Gráfico de uma função</span><span class="dificuldade facil">Fácil</span><span>⏱️ 4 min</span></div>
+      <p>Verifique se o ponto @A(3, 7)@ pertence ao gráfico da função @f(x) = x + 4@.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Lei de formação</span><span class="dificuldade facil">Fácil</span><span>⏱️ 3 min</span></div>
+      <p>O salário mensal de um vendedor é de R$ 1.000,00 fixos mais 10% de comissão sobre o total de vendas. Escreva a lei de formação da função que calcula o salário @S@ em função das vendas @v@.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Valor numérico</span><span class="dificuldade facil">Fácil</span><span>⏱️ 2 min</span></div>
+      <p>Dada a função @g(x) = x^2 - 3x + 5@, calcule @g(2)@.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Domínio e Imagem</span><span class="dificuldade facil">Fácil</span><span>⏱️ 5 min</span></div>
+      <p>Seja a função @h: A \rightarrow B@, com @A = \{0, 1, 2\}@ e @h(x) = x + 3@. Determine o conjunto imagem de @h@.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Gráfico de uma função</span><span class="dificuldade facil">Fácil</span><span>⏱️ 4 min</span></div>
+      <p>Observando o gráfico de uma função @f@, se @f(2) = 5@, qual ponto certamente pertence ao gráfico?</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Lei de formação</span><span class="dificuldade facil">Fácil</span><span>⏱️ 3 min</span></div>
+      <p>Uma padaria vende pães a R$ 0,50 a unidade. Crie uma função que relacione o número de pães @p@ vendidos com o valor total @V@ arrecadado.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Raiz da função</span><span class="dificuldade facil">Fácil</span><span>⏱️ 4 min</span></div>
+      <p>Encontre o valor de @x@ para o qual a função @f(x) = 4x - 8@ se anula, ou seja, @f(x) = 0@.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Gráfico de uma função</span><span class="dificuldade facil">Fácil</span><span>⏱️ 3 min</span></div>
+      <p>O que é o teste da linha vertical usado para determinar se um gráfico representa uma função?</p>
+    </li>
+     <li>
+      <div class="problema-meta"><span class="topico">Valor numérico</span><span class="dificuldade facil">Fácil</span><span>⏱️ 3 min</span></div>
+      <p>Dada a função @f(x) = 5x - 10@, encontre o valor de @x@ para o qual @f(x) = 20@.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Conceito de Função</span><span class="dificuldade facil">Fácil</span><span>⏱️ 4 min</span></div>
+      <p>Explique com suas palavras a diferença entre domínio, contradomínio e imagem de uma função.</p>
+    </li>
+  </ol>
+</article>
+
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">Problemas que requerem interpretação e aplicação de conceitos em contextos reais.</p>
+  <ol>
+    <li>
+      <div class="problema-meta"><span class="topico">Funções no cotidiano</span><span class="dificuldade media">Média</span><span>⏱️ 8 min</span></div>
+      <p>A conta de energia elétrica mensal é calculada com base em uma taxa fixa de R$ 20,00 mais R$ 0,50 por kWh consumido. a) Escreva a função que representa o valor da conta mensal @V@ em função da energia consumida @c@. b) Se em um mês foram consumidos 150 kWh, qual o valor da conta?</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Gráfico de uma função</span><span class="dificuldade media">Média</span><span>⏱️ 10 min</span></div>
+      <p>Considere a função @y = -x + 4@. a) Construa uma tabela com pelo menos 5 pontos. b) Esboce o gráfico dessa função em um plano cartesiano.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Modelagem</span><span class="dificuldade media">Média</span><span>⏱️ 10 min</span></div>
+      <p>Um retângulo tem 40 cm de perímetro. Expresse a área @A@ desse retângulo como uma função do comprimento @x@ de um de seus lados.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Funções no cotidiano</span><span class="dificuldade media">Média</span><span>⏱️ 8 min</span></div>
+      <p>Uma locadora de carros cobra R$ 80,00 por dia mais R$ 0,40 por km rodado. Se uma pessoa alugar um carro por um dia e rodar 120 km, quanto ela pagará?</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Análise de gráfico</span><span class="dificuldade media">Média</span><span>⏱️ 7 min</span></div>
+      <p>O gráfico de uma função afim @f(x) = ax + b@ passa pelos pontos @(1, 5)@ e @(3, 11)@. Determine os valores de @a@ e @b@.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Domínio e Contradomínio</span><span class="dificuldade media">Média</span><span>⏱️ 8 min</span></div>
+      <p>Uma piscina com capacidade para 20.000 litros está vazia e uma torneira começa a enchê-la a uma vazão de 100 litros por minuto. Descreva o domínio e o contradomínio da função que relaciona o volume de água na piscina com o tempo.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Lei de formação</span><span class="dificuldade media">Média</span><span>⏱️ 9 min</span></div>
+      <p>Determine a lei de formação da função cujo gráfico é uma reta que passa pelos pontos @(-2, -9)@ e @(2, 3)@.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Funções no cotidiano</span><span class="dificuldade media">Média</span><span>⏱️ 7 min</span></div>
+      <p>Uma loja oferece um desconto de 15% em todos os seus produtos. Escreva a função que relaciona o preço original @p@ de um produto com seu preço final @f@ após o desconto.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Análise de gráfico</span><span class="dificuldade media">Média</span><span>⏱️ 10 min</span></div>
+      <p>O gráfico a seguir mostra a temperatura de uma cidade ao longo de um dia. a) Qual foi a temperatura máxima? b) Em que horários a temperatura foi de 20°C? c) Em qual intervalo de tempo a temperatura foi crescente?</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Modelagem</span><span class="dificuldade media">Média</span><span>⏱️ 12 min</span></div>
+      <p>De uma folha de cartolina retangular de 30 cm por 20 cm, retira-se um quadrado de lado @x@ em cada um dos quatro cantos para montar uma caixa sem tampa. Expresse o volume @V@ da caixa como uma função de @x@.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Funções no cotidiano</span><span class="dificuldade media">Média</span><span>⏱️ 8 min</span></div>
+      <p>A temperatura @T@ (em °C) de um forno varia com o tempo @t@ (em minutos) segundo a função @T(t) = 200 - 2,5t@. Após quanto tempo a temperatura atingirá 100°C?</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Análise de gráfico</span><span class="dificuldade media">Média</span><span>⏱️ 9 min</span></div>
+      <p>Os gráficos das funções @f(x) = x + 3@ e @g(x) = -2x + 9@ se interceptam em um ponto P. Encontre as coordenadas de P.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Funções no cotidiano</span><span class="dificuldade media">Média</span><span>⏱️ 10 min</span></div>
+      <p>O valor de um carro de R$45.000,00 deprecia linearmente. Após 5 anos, seu valor é de R$25.000,00. Encontre a função que representa o valor do carro em relação ao tempo em anos.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Modelagem</span><span class="dificuldade media">Média</span><span>⏱️ 9 min</span></div>
+      <p>A pressão @P@ de um gás é inversamente proporcional ao seu volume @V@. Se a pressão é de 2 atm quando o volume é de 10 L, encontre a função que relaciona @P@ e @V@. Qual será a pressão se o volume for 5 L?</p>
+    </li>
+  </ol>
+</article>
+
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">Problemas complexos que exigem raciocínio em múltiplas etapas e combinação de conceitos.</p>
+  <ol>
+    <li>
+      <div class="problema-meta"><span class="topico">Modelagem e Otimização</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 15 min</span></div>
+      <p>Um agricultor quer cercar uma área retangular ao lado de um rio reto, usando 200 metros de cerca. Ele não precisa cercar o lado do rio. a) Expresse a área @A@ do terreno como uma função do comprimento do lado paralelo ao rio. b) Qual a área máxima que ele pode cercar?</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Função Composta</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 12 min</span></div>
+      <p>Dadas as funções @f(x) = 2x - 4@ e @g(x) = x + 5@, determine o valor de @f(g(3))@.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Análise de Gráfico</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 15 min</span></div>
+      <p>O custo de produção @C@ (em reais) de @x@ unidades de um produto é dado por @C(x) = 1000 + 3x@. O valor de venda de cada unidade é R$ 5,00. a) Escreva a função da receita @R(x)@. b) Escreva a função do lucro @L(x)@. c) Quantas unidades precisam ser vendidas para que o lucro seja de R$ 500,00?</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Modelagem e Lucro</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 18 min</span></div>
+      <p>Uma empresa descobriu que seu lucro @L@ (em milhares de reais) ao vender @x@ unidades de um produto é dado por @L(x) = -x^2 + 80x - 700@. a) Quantas unidades devem ser vendidas para maximizar o lucro? b) Qual é o lucro máximo?</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Função Definida por Partes</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 14 min</span></div>
+      <p>Uma companhia de telefone tem o seguinte plano: uma taxa mensal de R$ 30,00 que dá direito a 50 minutos de ligação. Para cada minuto excedente, é cobrado R$ 0,75. Escreva a função que descreve o custo mensal @C@ em função dos minutos @t@ utilizados.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Parâmetros da Função</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 12 min</span></div>
+      <p>A função @f(x) = ax^2 + bx + c@ tem seu gráfico passando pelos pontos @(0, 5)@, @(1, 8)@ e @(-1, 6)@. Determine os valores de @a@, @b@ e @c@.</p>
+    </li>
+  </ol>
+</article>
+
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">Problemas adicionais para você praticar e consolidar seu aprendizado!</p>
+  <ol>
+    <li>
+      <div class="problema-meta"><span class="topico">Funções no cotidiano</span><span class="dificuldade media">Média</span><span>⏱️ 8 min</span></div>
+      <p>Um plano de celular custa R$ 45,00 por mês e inclui 5GB de internet. Para cada GB adicional, são cobrados R$ 12,00. Crie a função que modela o custo mensal @C@ para um consumo de @x@ GB de internet, onde @x \ge 5@.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Análise de Gráfico</span><span class="dificuldade media">Média</span><span>⏱️ 10 min</span></div>
+      <p>Analise o gráfico de uma função @f(x)@ e determine: a) O domínio e a imagem. b) Os intervalos onde a função é crescente, decrescente ou constante. c) As raízes da função.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Modelagem</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 15 min</span></div>
+      <p>Um estacionamento cobra R$ 10,00 pela primeira hora e R$ 6,00 por cada hora adicional. Esboce o gráfico do custo em função do tempo para as primeiras 4 horas e escreva a função que modela a situação.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Domínio e Imagem</span><span class="dificuldade media">Média</span><span>⏱️ 9 min</span></div>
+      <p>Determine o domínio da função @f(x) = \frac{\sqrt{x-2}}{x-5}@.</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Funções no cotidiano</span><span class="dificuldade media">Média</span><span>⏱️ 10 min</span></div>
+      <p>O valor de um carro novo é de R$ 60.000,00 e ele deprecia linearmente R$ 4.000,00 por ano. a) Escreva a função que expressa o valor @V@ do carro em função do tempo @t@ (em anos). b) Qual será o valor do carro após 5 anos?</p>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="topico">Desafio</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 20 min</span></div>
+      <p>Em uma sala com @n@ pessoas, a função que calcula o número de apertos de mão possíveis, se todos se cumprimentarem uma única vez, é @A(n) = \frac{n(n-1)}{2}@. Se ocorreram 66 apertos de mão, quantas pessoas estavam na sala?</p>
+    </li>
+  </ol>
+</article>
+
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> 
+</div> 
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\[", right: "\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

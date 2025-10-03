@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Guia de Estudos: Funções</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para o guia de estudos */
+    .guia-header {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 5px solid var(--link-color);
+    }
+
+    .guia-header h1 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+    }
+
+    .guia-section {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .objetivos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .objetivo-item {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: 5px;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .objetivo-item strong {
+      color: var(--link-color);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .mapa-conceitual {
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .conceito-central {
+      background-color: var(--link-color);
+      color: var(--primary-bg-color);
+      padding: 1.5rem;
+      border-radius: 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      display: inline-block;
+    }
+
+    .conceitos-secundarios {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .conceito-box {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      border: 2px solid var(--secondary-text-color);
+      flex: 1;
+      min-width: 150px;
+      max-width: 200px;
+    }
+
+    .conceito-box h4 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .etapa-estudo {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 6px;
+      border-left: 5px solid var(--link-color);
+    }
+
+    .etapa-estudo h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .etapa-numero {
+      background-color: var(--link-color);
+      color: var(--primary-bg-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .dica-box {
+      background-color: rgba(255, 193, 7, 0.15);
+      border-left: 4px solid #ffc107;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .dica-box::before {
+      content: "💡 ";
+      font-size: 1.2rem;
+    }
+
+    .dica-box strong {
+      color: #ffc107;
+    }
+
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .checklist li {
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed var(--secondary-text-color);
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .checklist li::before {
+      content: "☐";
+      position: absolute;
+      left: 0;
+      font-size: 1.3rem;
+      color: var(--link-color);
+    }
+
+    .checklist li:last-child {
+      border-bottom: none;
+    }
+
+    .cronograma-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .cronograma-table th,
+    .cronograma-table td {
+      padding: 1rem;
+      text-align: left;
+      border: 1px solid var(--secondary-text-color);
+    }
+
+    .cronograma-table th {
+      background-color: rgba(0, 0, 0, 0.3);
+      color: var(--heading-text-color);
+      font-weight: bold;
+    }
+
+    .cronograma-table td {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .recurso-card {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .recurso-card h4 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+    }
+
+    .estrategia-item {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .estrategia-item h4 {
+      color: var(--link-color);
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <!-- ===============================================================
+         CABEÇALHO DO GUIA
+         =============================================================== -->
+    <div class="guia-header">
+      <h1>📚 Guia de Estudos: Funções</h1>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 1: HABILIDADES ESSENCIAIS
+         =============================================================== -->
+    <h2>1. Habilidades Essenciais</h2>
+    <p>Este guia foca no desenvolvimento das seguintes habilidades do currículo:</p>
+
+    <div class="objetivos-grid">
+        <div class="objetivo-item">
+          <strong>(EF.09.MAT.2.87)</strong>
+          <p>Reconhecer a variação e a relação de dependência entre grandezas.</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EF.09.MAT.2.88)</strong>
+          <p>Relacionar o conceito de função do primeiro grau em diferentes situações cotidianas.</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EF.09.MAT.2.89)</strong>
+          <p>Representar funções de forma algébrica e graficamente.</p>
+        </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: ROTEIRO DE MISSÕES
+         =============================================================== -->
+    <h2>2. Roteiro de Missões</h2>
+    <p>Avance em seus estudos completando as missões a seguir. Cada missão foca em uma habilidade essencial e define uma meta de problemas a serem resolvidos para ganhar XP.</p>
+
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">1</span> Missão: A Máquina de Funções</h3>
+      <p><strong>Habilidade:</strong> (EF.09.MAT.2.87) Reconhecer a variação e a relação de dependência entre grandezas.</p>
+      <p><strong>Missão:</strong> Entender o que é uma função, compreendendo-a como uma "máquina" que transforma um número em outro, e saber diferenciar uma relação de uma função.</p>
+      <p><strong>Meta:</strong> Ler a <strong>seção 1 e 2</strong> do <a href="../resumos/9ANO-FUNCOES.html" style="color: var(--link-color);">Resumo Teórico</a> e resolver <strong>4 problemas</strong> da seção "Introdutórios" da <a href="../listas/9ANO-FUNCOES.html" style="color: var(--link-color);">Lista de Problemas</a>.</p>
+    </div>
+
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">2</span> Missão: Decifrando a Linguagem</h3>
+      <p><strong>Habilidade:</strong> Identificar os elementos fundamentais de uma função.</p>
+      <p><strong>Missão:</strong> Aprender a identificar o Domínio (valores de entrada), o Contradomínio (valores de saída possíveis) e a Imagem (valores de saída reais) de uma função.</p>
+      <p><strong>Meta:</strong> Ler a <strong>Definição 1.3</strong> do resumo e resolver os problemas <strong>2, 6 e 12</strong> da lista.</p>
+    </div>
+
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">3</span> Missão: A Lei da Função</h3>
+      <p><strong>Habilidade:</strong> (EF.09.MAT.2.89) Representar funções de forma algébrica.</p>
+      <p><strong>Missão:</strong> Compreender e utilizar a "lei de formação" (a fórmula) de uma função para calcular valores. Por exemplo, dada @f(x) = 2x + 1@, ser capaz de calcular @f(3)@.</p>
+      <p><strong>Meta:</strong> Ler a <strong>Definição 1.4</strong> do resumo e resolver os problemas <strong>5, 9 e 11</strong> da lista.</p>
+    </div>
+
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">4</span> Missão: Modelando o Mundo Real</h3>
+      <p><strong>Habilidade:</strong> (EF.09.MAT.2.88) Relacionar o conceito de função do primeiro grau em diferentes situações cotidianas.</p>
+      <p><strong>Missão:</strong> Traduzir problemas do cotidiano (como contas de táxi ou planos de celular) para a linguagem das funções, criando a lei de formação que os representa.</p>
+      <p><strong>Meta:</strong> Estudar os <strong>Exemplos 1, 3 e 5</strong> do resumo e resolver os problemas <strong>1, 4, 8, 13 e 16</strong> da lista.</p>
+    </div>
+
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">5</span> Missão: O Retrato da Função</h3>
+      <p><strong>Habilidade:</strong> (EF.09.MAT.2.89) Representar funções de forma gráfica.</p>
+      <p><strong>Missão:</strong> Aprender a interpretar o gráfico de uma função, extraindo informações como pontos, crescimento e decrescimento, e também a esboçar gráficos a partir da lei de formação.</p>
+      <p><strong>Meta:</strong> Estudar o <strong>Exemplo 6</strong> do resumo e resolver os problemas <strong>7, 14 e 21</strong> da lista.</p>
+    </div>
+
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">6</span> Missão Final: O Desafio do Especialista</h3>
+      <p><strong>Habilidade:</strong> Aplicar múltiplos conceitos de funções em problemas complexos.</p>
+      <p><strong>Missão:</strong> Integrar todo o conhecimento adquirido para resolver problemas que exigem mais raciocínio e combinam várias etapas.</p>
+      <p><strong>Meta:</strong> Resolver <strong>4 problemas</strong> da seção "Aprofundamento" da <a href="../listas/9ANO-FUNCOES.html" style="color: var(--link-color);">Lista de Problemas</a>.</p>
+    </div>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

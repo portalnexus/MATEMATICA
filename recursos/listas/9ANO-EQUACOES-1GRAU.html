@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Equações do 1º Grau</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press Start 2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    /* Container de metadados (fonte, dificuldade, tempo estimado) */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    /* Tag de tópico matemático */
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    /* Tag de fonte do problema */
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Tag de dificuldade com cores diferentes */
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Cores por nível de dificuldade */
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }    /* Verde */
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }    /* Amarelo */
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }  /* Vermelho */
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); } /* Roxo */
+
+    /* Introdução de cada seção */
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    /* Caixas de dica para os estudantes */
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+<div class="container">
+
+<h1>EQUAÇÕES DO 1º GRAU</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas básicos para familiarização com os conceitos fundamentais de equações do 1º grau.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução direta</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Resolva a equação @2x - 7 = 15@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução com verificação</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Resolva a equação @3x + 12 = 0@ e verifique se sua resposta está correta substituindo o valor encontrado na equação original.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação com frações</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Resolva a equação @\frac{x}{3} + 4 = 10@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução direta</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Encontre o valor de @x@ na equação @5x - 20 = 30@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação com decimais</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Resolva a equação @0,5x + 3,2 = 8,7@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Isolamento de variável</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Determine o valor de @y@ que satisfaz a equação @-4y + 16 = 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação com frações</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Resolva a equação @\frac{2x}{5} - 3 = 7@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução com coeficiente negativo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Encontre o valor de @x@ na equação @-3x + 9 = 24@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação com parénteses</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Resolva a equação @2(x + 5) = 18@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Verificação de solução</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Verifique se @x = 7@ é solução da equação @4x - 5 = 23@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação com frações simples</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Resolva a equação @\frac{x}{2} + \frac{x}{4} = 6@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução com decimais</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Determine o valor de @x@ que satisfaz @1,5x - 4,5 = 7,5@.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas que requerem interpretação do enunciado e aplicação de conceitos em contextos variados.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - economia/compras</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Marina foi a uma loja e comprou 3 cadernos iguais. Ela pagou com uma nota de R$ 50,00 e recebeu R$ 11,00 de troco. Qual era o preço de cada caderno?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Se @x@ é o preço de cada caderno, quanto Marina gastou no total? Como isso se relaciona com o valor pago e o troco recebido?
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - geometria (perímetro)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um terreno retangular tem 45 metros de perímetro. Se o comprimento é o triplo da largura, determine as dimensões do terreno.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - física (velocidade)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um carro em movimento retilíneo uniforme percorre uma distância de 180 km. Se sua velocidade foi de 60 km/h, quanto tempo durou a viagem? (Use a relação @d = v \cdot t@)</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - economia/desconto</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma loja anuncia: "Compre um produto e ganhe 20% de desconto no segundo item igual". Carlos comprou dois produtos idênticos e pagou R$ 144,00 no total. Qual era o preço original de cada produto?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Se @x@ é o preço original, Carlos pagou @x@ pelo primeiro produto e @0,8x@ pelo segundo (com desconto de 20%).
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - eventos/ingressos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Para uma festa escolar, foram vendidos ingressos antecipados a R$ 15,00 e ingressos na porta a R$ 20,00. Se foram vendidos 80 ingressos antecipados e o total arrecadado foi de R$ 2.100,00, quantos ingressos foram vendidos na porta?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - geometria (ângulos)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Dois ângulos são suplementares (a soma é 180º). Se um deles mede o dobro do outro mais 30º, determine a medida de cada ângulo.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - divisão de valores</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Três amigos vão dividir igualmente a conta de um restaurante. Se cada um pagar R$ 42,00, será possível pagar a conta de R$ 117,00 e deixar uma gorjeta. Qual será o valor da gorjeta?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - esportes/pontuação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Em um campeonato de basquete, cada vitória vale 3 pontos e cada empate vale 1 ponto. Um time fez 5 vitórias e alguns empates, totalizando 21 pontos. Quantos empates o time conquistou?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - tecnologia/armazenamento</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um pen drive de 32 GB está com 8 GB ocupados. Se você transferir arquivos de 1,5 GB cada, quantos arquivos completos será possível armazenar sem exceder a capacidade?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Primeiro calcule quanto espaço ainda está disponível, depois divida pela capacidade de cada arquivo.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - idade/problemas clássicos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>A idade de Pedro é o triplo da idade de seu filho Lucas. Daqui a 10 anos, a soma das idades dos dois será 70 anos. Qual é a idade atual de cada um?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - ciências/mistura</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Em um laboratório, uma solução contém 40% de sal. Quantos litros de água pura devem ser adicionados a 5 litros dessa solução para que a concentração de sal caia para 25%?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - economia/lucro</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um comerciante compra um produto por R$ 80,00 e deseja vendê-lo com 30% de lucro sobre o preço de compra. Qual deve ser o preço de venda?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - física/temperatura</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>A temperatura em graus Fahrenheit (@F@) e Celsius (@C@) se relacionam pela fórmula @F = \frac{9C}{5} + 32@. A que temperatura em Celsius correspondem 77°F?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - construção/medidas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Para construir um muro, um pedreiro cobrou R$ 500,00 de mão de obra fixa mais R$ 25,00 por metro quadrado construído. Se o custo total foi de R$ 1.350,00, qual foi a área do muro construído?</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Problemas complexos que exigem raciocínio em múltiplas etapas e combinação de conceitos.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - números consecutivos</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>A soma de três números naturais consecutivos é 156.</p>
+      <p>a) Determine quais são esses três números.</p>
+      <p>b) Verifique que o produto do menor número pelo maior é igual ao quadrado do número do meio menos 1.</p>
+      <p>c) Essa propriedade vale para quaisquer três números consecutivos? Justifique algebricamente.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - geometria/área</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Um terreno retangular tem 240 m² de área. Se aumentarmos 4 metros no comprimento e diminuirmos 2 metros na largura, a área não se altera. Determine as dimensões originais do terreno.</p>
+      <div class="dica">
+        <strong>Dica:</strong> Se a largura é @x@, use a informação da área para expressar o comprimento em função de @x@. Depois use a condição de que a área se mantém constante após as alterações.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - economia/sistemas de cobrança</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Duas empresas de telefonia celular oferecem os seguintes planos:</p>
+      <p><strong>Plano A:</strong> R$ 45,00 mensais com 100 minutos inclusos, e R$ 0,80 por minuto excedente.</p>
+      <p><strong>Plano B:</strong> R$ 30,00 mensais com 50 minutos inclusos, e R$ 1,20 por minuto excedente.</p>
+      <p>a) Para um consumo de 150 minutos mensais, qual plano é mais vantajoso?</p>
+      <p>b) Existe algum consumo mensal para o qual os dois planos custam exatamente o mesmo? Se sim, qual é esse consumo?</p>
+      <p>c) A partir de quantos minutos mensais o Plano A se torna mais vantajoso que o Plano B?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - física/movimento</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Dois carros partem simultaneamente de cidades A e B, distantes 420 km, indo ao encontro um do outro. O carro que parte de A viaja a 80 km/h e o que parte de B viaja a 60 km/h.</p>
+      <p>a) Após quanto tempo os carros se encontram?</p>
+      <p>b) A que distância da cidade A ocorre o encontro?</p>
+      <p>c) Se o carro que parte de B saísse 30 minutos mais tarde, após quanto tempo (em relação à partida do primeiro carro) os dois se encontrariam?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - álgebra/balança</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Em uma balança de dois pratos, foram colocados objetos idênticos de massa desconhecida. No prato da esquerda há 5 objetos mais um peso de 20g, e no prato da direita há 3 objetos mais um peso de 80g. A balança está em equilíbrio.</p>
+      <p>a) Qual é a massa de cada objeto?</p>
+      <p>b) Se retirarmos 2 objetos de cada prato, mantendo os pesos, o que acontecerá com o equilíbrio?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - trabalho/produtividade</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Uma gráfica tem duas máquinas impressoras. A máquina A imprime 200 páginas a mais por hora que a máquina B. Trabalhando simultaneamente durante 3 horas, as duas máquinas imprimiram 3.000 páginas.</p>
+      <p>a) Quantas páginas por hora cada máquina imprime?</p>
+      <p>b) Se apenas a máquina A trabalhasse, quanto tempo levaria para imprimir 3.000 páginas?</p>
+      <p>c) E se apenas a máquina B trabalhasse?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - investimento/juros simples</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Roberto aplicou um capital em um investimento que rende juros simples de 2% ao mês. Após 8 meses, o montante total (capital + juros) era de R$ 2.320,00.</p>
+      <p>a) Qual foi o capital inicialmente aplicado?</p>
+      <p>b) Qual foi o total de juros recebidos?</p>
+      <p>c) Se Roberto desejasse obter um montante de R$ 3.000,00 com o mesmo capital e taxa, por quanto tempo deveria manter o investimento?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Em juros simples, o montante é dado por @M = C(1 + i \cdot t)@, onde @C@ é o capital, @i@ é a taxa (em decimal) e @t@ é o tempo.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - mistura/concentração</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Um químico possui duas soluções: uma com 30% de álcool e outra com 70% de álcool.</p>
+      <p>a) Quantos litros de cada solução devem ser misturados para obter 10 litros de uma solução com 50% de álcool?</p>
+      <p>b) É possível obter uma solução com 80% de álcool misturando apenas essas duas soluções? Por quê?</p>
+      <p>c) Qual é a concentração máxima de álcool que pode ser obtida se misturarmos volumes iguais das duas soluções?</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para você praticar e consolidar seu aprendizado!
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - números</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Pensei em um número. Multipliquei-o por 5, subtraí 12 e obtive 38. Em que número pensei?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - economia/assinatura</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma academia cobra uma taxa de matrícula de R$ 150,00 mais R$ 80,00 por mês. Após quantos meses de frequência o custo total acumulado atingirá R$ 630,00?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - geometria/figuras</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Um triângulo isósceles tem perímetro de 36 cm. Se cada um dos lados congruentes mede o dobro da base, determine as medidas dos três lados.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - esportes/estatística</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Um jogador de basquete tem média de 18 pontos por jogo após 12 partidas. Quantos pontos ele precisa fazer no próximo jogo para elevar sua média para 20 pontos?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Primeiro calcule quantos pontos ele já fez no total nas 12 partidas, depois determine quantos pontos serão necessários após 13 partidas para atingir a nova média.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - lógica/distribuição</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Em uma caixa há bolas vermelhas e azuis, totalizando 45 bolas. Se o número de bolas vermelhas é o triplo do número de bolas azuis, quantas bolas de cada cor há na caixa?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - transporte/combustível</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Um carro consome 1 litro de gasolina a cada 12 km rodados. Se o motorista tem R$ 90,00 e a gasolina custa R$ 5,00 por litro, quantos quilômetros ele poderá percorrer?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - tempo/relógio</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Daqui a 5 horas, faltarão 3 horas para a meia-noite. Que horas são agora?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - padrões numéricos</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Observe o padrão: @1 = 1@, @1 + 2 = 3@, @1 + 2 + 3 = 6@, @1 + 2 + 3 + 4 = 10@. Quantos termos consecutivos (começando do 1) devem ser somados para que o resultado seja 210?</p>
+      <div class="dica">
+        <strong>Dica:</strong> A soma dos @n@ primeiros números naturais é dada por @S = \frac{n(n+1)}{2}@. Use essa fórmula para montar uma equação.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - tecnologia/download</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um arquivo está sendo baixado a uma velocidade constante de 2,5 MB por segundo. Se já foram baixados 180 MB e ainda faltam 270 MB, quanto tempo total (em minutos) levará o download completo?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Desafio - pensamento lateral</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Um pai tem 4 filhos. O primeiro filho tem o dobro da idade do segundo, o terceiro tem o triplo da idade do segundo, e o quarto tem 5 anos a mais que o segundo. Se a soma das idades dos quatro filhos é 41 anos, qual é a idade de cada filho?</p>
+    </li>
+  </ol>
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

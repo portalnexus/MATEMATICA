@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Equações do Segundo Grau</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .orientacao-inicial { background-color: rgba(33, 150, 243, 0.2); border: 2px solid #2196f3; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .problema-meta { font-size: 0.75rem; color: var(--secondary-text-color); margin-bottom: 0.5rem; font-family: 'Fira Sans', sans-serif; }
+    .problema-meta .nivel-apoio { background-color: rgba(76, 175, 80, 0.3); padding: 2px 6px; border-radius: 3px; margin-right: 8px; }
+    .nivel-apoio.alto { background-color: rgba(76, 175, 80, 0.4); }
+    .nivel-apoio.medio { background-color: rgba(255, 193, 7, 0.3); }
+    .nivel-apoio.baixo { background-color: rgba(244, 67, 54, 0.2); }
+    .dica { background-color: rgba(33, 150, 243, 0.15); border-left: 4px solid #2196f3; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 4px; }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo { background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo { margin: 1rem 0; padding-left: 1.5rem; border-left: 2px solid #4caf50; }
+    .lembrete { background-color: rgba(255, 152, 0, 0.15); border-left: 4px solid #ff9800; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 4px; }
+    .lembrete strong { color: #ff9800; }
+    .conceito-basico { background-color: rgba(156, 39, 176, 0.1); border: 2px solid #9c27b0; border-radius: 6px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .section-intro { font-style: italic; color: var(--secondary-text-color); margin-bottom: 1.5rem; padding-left: 1rem; border-left: 3px solid var(--link-color); }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+<div class="container">
+<article>
+  <h1>Recuperação: Equações do Segundo Grau</h1>
+  <div class="orientacao-inicial">
+    <h3>📚 Como usar esta atividade de recuperação</h3>
+    <p>Esta atividade foi criada para ajudar você a reforçar conceitos fundamentais de <strong>Equações do Segundo Grau</strong>. Siga estas orientações:</p>
+    <ul>
+      <li><strong>Não tenha pressa:</strong> Trabalhe com calma, entendendo cada passo.</li>
+      <li><strong>Use as dicas:</strong> Elas estão aqui para orientar seu raciocínio.</li>
+      <li><strong>Revise os conceitos básicos:</strong> Releia as definições e exemplos quando necessário.</li>
+      <li><strong>Faça anotações:</strong> Registre suas dúvidas e estratégias.</li>
+      <li><strong>Progressão gradual:</strong> Os problemas vão ficando menos apoiados à medida que você avança.</li>
+    </ul>
+  </div>
+
+  <h2>Revisão de Conceitos Básicos</h2>
+  <div class="conceito-basico">
+    <h4>Conceito 1: Equação do 1º Grau</h4>
+    <p>Uma equação do 1º grau tem a forma @ax + b = 0@. Para resolver, isolamos o @x@. Exemplo: @3x - 12 = 0@.</p>
+    @@
+    3x = 12 
+    x = \frac{12}{3} 
+    x = 4
+    @@
+  </div>
+  <div class="conceito-basico">
+    <h4>Conceito 2: Produtos Notáveis (Quadrado da Soma/Diferença)</h4>
+    <p>Lembrar de produtos notáveis ajuda a simplificar expressões. Os mais comuns são:</p>
+    <p>Quadrado da soma: @(a+b)^2 = a^2 + 2ab + b^2@</p>
+    <p>Quadrado da diferença: @(a-b)^2 = a^2 - 2ab + b^2@</p>
+  </div>
+    <div class="conceito-basico">
+    <h4>Conceito 3: Operações com Sinais</h4>
+    <p>Regras de sinais são cruciais, especialmente em @b^2 - 4ac@.</p>
+    <ul>
+        <li>Multiplicação/Divisão: Sinais iguais resultam em <strong>positivo</strong> (+). Sinais diferentes resultam em <strong>negativo</strong> (-).</li>
+        <li>Exemplo: @(-4) \times (2) = -8@. Exemplo 2: @(-5) \times (-3) = +15@.</li>
+    </ul>
+  </div>
+  <div class="conceito-basico">
+    <h4>Conceito 4: Potenciação e Radiciação</h4>
+    <p>Calcular potências e raízes é fundamental.</p>
+    <p>Potência: @(-5)^2 = (-5) \times (-5) = 25@. Cuidado: @-5^2 = -(5 \times 5) = -25@.</p>
+    <p>Raiz: @\sqrt{49} = 7@, pois @7^2 = 49@. Não existe raiz quadrada real de número negativo.</p>
+  </div>
+
+  <h2>Parte 1: Primeiros Passos (Alto Apoio)</h2>
+  <p class="section-intro">Problemas básicos com bastante orientação para você começar a praticar.</p>
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo Resolvido: Resolvendo uma equação completa</h4>
+    <p><strong>Problema:</strong> Resolva a equação @x^2 - 5x + 6 = 0@</p>
+    <div class="passo">
+      <p><strong>Passo 1:</strong> Identificar os coeficientes @a@, @b@ e @c@.</p>
+      <p>@a@ é o número que acompanha @x^2@, @b@ acompanha @x@, e @c@ é o termo independente.</p>
+      <p>Na equação @x^2 - 5x + 6 = 0@, temos: @a=1@, @b=-5@, @c=6@.</p>
+    </div>
+    <div class="passo">
+      <p><strong>Passo 2:</strong> Calcular o discriminante @\Delta = b^2 - 4ac@.</p>
+      <p>Substitua os valores de @a@, @b@ e @c@. Cuidado com os sinais!</p>
+      @@
+      \Delta = (-5)^2 - 4 \times (1) \times (6) 
+      \Delta = 25 - 24 
+      \Delta = 1
+      @@
+    </div>
+    <div class="passo">
+      <p><strong>Passo 3:</strong> Aplicar a fórmula de Bhaskara @x = \frac{-b \pm \sqrt{\Delta}}{2a}@.</p>
+      <p>Substitua @-b@ pelo oposto de @b@. Como @b=-5@, @-b=5@.</p>
+      @@
+      x = \frac{5 \pm \sqrt{1}}{2 \times 1} = \frac{5 \pm 1}{2}
+      @@
+      <p>Agora, encontramos as duas raízes (x' e x''):</p>
+      <p>@x' = \frac{5 + 1}{2} = \frac{6}{2} = 3@</p>
+      <p>@x'' = \frac{5 - 1}{2} = \frac{4}{2} = 2@</p>
+      <p><strong>Resposta:</strong> As raízes da equação são @S = \{2, 3\}@.</p>
+    </div>
+  </div>
+  <ol>
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 3 min</div>
+      <p>Identifique os coeficientes @a@, @b@ e @c@ na equação @2x^2 + 7x - 4 = 0@.</p>
+      <div class="dica"><strong>Dica 1:</strong> O coeficiente @a@ está junto do @x^2@.</div>
+      <div class="dica"><strong>Dica 2:</strong> O coeficiente @b@ está junto do @x@.</div>
+      <div class="dica"><strong>Dica 3:</strong> O coeficiente @c@ é o número que está sozinho.</div>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 5 min</div>
+      <p>Calcule o discriminante (@\Delta@) para a equação @x^2 - 7x + 10 = 0@.</p>
+      <div class="dica"><strong>Dica 1:</strong> Primeiro, identifique @a=1@, @b=-7@ e @c=10@.</div>
+      <div class="dica"><strong>Dica 2:</strong> Use a fórmula @\Delta = b^2 - 4ac@.</div>
+      <div class="lembrete"><strong>Lembre-se:</strong> @(-7)^2 = (-7) \times (-7) = 49@.</div>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 5 min</div>
+      <p>Na equação @3x^2 - 2x - 1 = 0@, os coeficientes são @a=3@, @b=-2@, @c=-1@. Calcule o valor de @-4ac@.</p>
+       <div class="dica"><strong>Dica 1:</strong> Substitua os valores de @a@ e @c@ na expressão.</div>
+       <div class="dica"><strong>Dica 2:</strong> A expressão fica: @-4 \times (3) \times (-1)@.</div>
+       <div class="lembrete"><strong>Lembre-se:</strong> Na multiplicação, "menos com menos dá mais".</div>
+    </li>
+     <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 7 min</div>
+      <p>Resolva a equação @x^2 + 2x - 8 = 0@ usando a fórmula de Bhaskara.</p>
+      <div class="dica"><strong>Dica 1:</strong> Identifique @a=1@, @b=2@, @c=-8@.</div>
+      <div class="dica"><strong>Dica 2:</strong> Calcule @\Delta = b^2 - 4ac@. Você deve encontrar @\Delta = 36@.</div>
+      <div class="dica"><strong>Dica 3:</strong> Use @x = \frac{-b \pm \sqrt{\Delta}}{2a}@. Como @b=2@, @-b=-2@. A @\sqrt{36} = 6@.</div>
+    </li>
+  </ol>
+
+  <h2>Parte 2: Desenvolvendo Autonomia (Apoio Médio)</h2>
+  <p class="section-intro">Agora você terá menos orientações. Tente resolver antes de olhar as dicas!</p>
+  <ol start="5">
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 5 min</div>
+      <p>Resolva a equação incompleta @x^2 - 49 = 0@.</p>
+      <div class="dica"><strong>Dica:</strong> Este é um caso onde @b=0@. É mais fácil isolar o @x^2@ do que usar Bhaskara.</div>
+      <div class="lembrete"><strong>Lembre-se:</strong> Se @x^2 = 49@, então @x = \pm \sqrt{49}@.</div>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 5 min</div>
+      <p>Resolva a equação incompleta @3x^2 - 12x = 0@.</p>
+      <div class="dica"><strong>Dica:</strong> Este é um caso onde @c=0@. Colocar o @x@ em evidência é o caminho mais rápido.</div>
+       <div class="lembrete"><strong>Lembre-se:</strong> A equação fica @x(3x - 12) = 0@. Para o produto ser zero, ou @x=0@ ou @3x-12=0@.</div>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 6 min</div>
+      <p>Encontre as raízes da equação @x^2 + x - 12 = 0@.</p>
+      <div class="dica"><strong>Dica:</strong> Use o método de Bhaskara. Identifique os coeficientes e calcule o @\Delta@ primeiro.</div>
+    </li>
+     <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 6 min</div>
+      <p>A equação @x^2 - 10x + 25 = 0@ tem quantas raízes reais?</p>
+      <div class="dica"><strong>Dica:</strong> Você não precisa resolver a equação inteira. Apenas o valor de @\Delta@ já responde a pergunta.</div>
+      <div class="lembrete"><strong>Lembre-se:</strong> Se @\Delta > 0@, duas raízes reais. Se @\Delta = 0@, uma raiz real. Se @\Delta < 0@, nenhuma raiz real.</div>
+    </li>
+     <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 6 min</div>
+      <p>Resolva a equação @-x^2 + 6x - 5 = 0@.</p>
+      <div class="dica"><strong>Dica:</strong> O coeficiente @a@ é negativo (@a=-1@). Você pode multiplicar toda a equação por -1 para torná-lo positivo, o que pode facilitar os cálculos: @x^2 - 6x + 5 = 0@.</div>
+    </li>
+  </ol>
+
+  <h2>Parte 3: Consolidação (Baixo Apoio)</h2>
+  <p class="section-intro">Problemas finais para você aplicar o que aprendeu de forma mais independente.</p>
+  <ol start="10">
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 7 min</div>
+      <p>Resolva a equação @(x+2)^2 = 3x + 10@.</p>
+      <div class="dica"><strong>Dica:</strong> Primeiro, desenvolva o produto notável @(x+2)^2@. Depois, organize a equação na forma @ax^2+bx+c=0@.</div>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 8 min</div>
+      <p>A soma de um número com o seu quadrado é 42. Qual é esse número?</p>
+       <div class="dica"><strong>Dica:</strong> Chame o número de @x@. Como você escreveria "a soma de um número com o seu quadrado"?</div>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 8 min</div>
+      <p>Um terreno retangular tem área de 78 m². O comprimento é 7 metros maior que a largura. Quais são as dimensões do terreno?</p>
+        <div class="dica"><strong>Dica:</strong> Chame a largura de @x@. O comprimento será @x+7@. A área de um retângulo é calculada por @comprimento \times largura@.</div>
+    </li>
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 6 min</div>
+      <p>Resolva a equação @2x^2 - 7x + 3 = 0@.</p>
+    </li>
+     <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 6 min</div>
+      <p>Verifique se a equação @x^2 + 2x + 5 = 0@ possui raízes reais.</p>
+    </li>
+     <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 7 min</div>
+      <p>Resolva a equação incompleta @5x^2 - 20 = 0@.</p>
+    </li>
+     <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 8 min</div>
+      <p>O produto da idade de Pedro há 2 anos pela sua idade daqui a 3 anos é igual a 36. Qual a idade de Pedro hoje?</p>
+    </li>
+  </ol>
+
+  <h2>Autoavaliação</h2>
+  <div class="conceito-basico">
+    <h4>Verifique seu aprendizado:</h4>
+    <p>Após completar esta atividade, você deve ser capaz de:</p>
+    <ul>
+      <li>[ ] Identificar os coeficientes @a@, @b@ e @c@ em uma equação do 2º grau.</li>
+      <li>[ ] Calcular o discriminante @\Delta@ corretamente, prestando atenção nos sinais.</li>
+      <li>[ ] Aplicar a fórmula de Bhaskara para encontrar as raízes.</li>
+      <li>[ ] Resolver equações do 2º grau incompletas (com @b=0@ ou @c=0@).</li>
+      <li>[ ] Interpretar o significado de @\Delta > 0@, @\Delta = 0@ e @\Delta < 0@.</li>
+      <li>[ ] Traduzir um problema em palavras para uma equação do 2º grau.</li>
+    </ul>
+    <p><strong>Se você marcou todos os itens:</strong> Parabéns! Você está pronto para avançar.</p>
+    <p><strong>Se ainda há dúvidas:</strong> Não há problema! Revise os conceitos básicos e refaça os problemas com dificuldade.</p>
+  </div>
+</article>
+
+<!-- GABARITO -->
+<!--
+GABARITO:
+
+PARTE 1: PRIMEIROS PASSOS
+1. a=2, b=7, c=-4
+2. Δ = 9. (Δ = (-7)² - 4*1*10 = 49 - 40 = 9)
+3. -4ac = -4 * 3 * (-1) = 12
+4. S = {-4, 2}. (Δ = 36, x = (-2 ± 6)/2)
+
+PARTE 2: DESENVOLVENDO AUTONOMIA
+5. S = {-7, 7}. (x² = 49)
+6. S = {0, 4}. (x(3x - 12) = 0)
+7. S = {-4, 3}. (Δ = 49, x = (-1 ± 7)/2)
+8. Uma raiz real. (Δ = (-10)² - 4*1*25 = 100 - 100 = 0)
+9. S = {1, 5}. (x² - 6x + 5 = 0 -> Δ = 16, x = (6 ± 4)/2)
+
+PARTE 3: CONSOLIDAÇÃO
+10. S = {-2, 3}. (x² + 4x + 4 = 3x + 10 -> x² + x - 6 = 0)
+11. O número pode ser 6 ou -7. (x² + x = 42 -> x² + x - 42 = 0)
+12. Largura = 6m, Comprimento = 13m. (x(x+7) = 78 -> x² + 7x - 78 = 0)
+13. S = {1/2, 3}. (Δ = 25, x = (7 ± 5)/4)
+14. Não possui raízes reais. (Δ = 2² - 4*1*5 = 4 - 20 = -16)
+15. S = {-2, 2}. (5x² = 20 -> x² = 4)
+16. A idade de Pedro é 6 anos. ((x-2)(x+3) = 36 -> x² + x - 6 = 36 -> x² + x - 42 = 0. A idade não pode ser negativa, então x=6)
+-->
+
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="nav-button">VOLTAR</a>
+</div>
+</div>
+</div>
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "@", right: "@", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

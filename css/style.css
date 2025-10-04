@@ -985,8 +985,39 @@ body.print-mode .katex .frac-line {
     background-color: transparent !important;
 }
 
-/* Remover todos os backgrounds e efeitos visuais */
-body.print-mode * {
+/* Preservar renderização de símbolos KaTeX especiais (como \neq, \leq, etc.) */
+body.print-mode .katex .mrel,
+body.print-mode .katex .mord,
+body.print-mode .katex .mbin,
+body.print-mode .katex .mop,
+body.print-mode .katex .mopen,
+body.print-mode .katex .mclose,
+body.print-mode .katex .mpunct,
+body.print-mode .katex .minner {
+    color: #000 !important;
+}
+
+/* Preservar elementos SVG do KaTeX (usados em símbolos como \neq) */
+body.print-mode .katex svg {
+    display: inline !important;
+    position: absolute !important;
+}
+
+/* Garantir que linhas e paths SVG sejam visíveis em preto */
+body.print-mode .katex svg line,
+body.print-mode .katex svg path {
+    stroke: #000 !important;
+    fill: #000 !important;
+}
+
+/* Preservar overlays e elementos de cancelamento/negação */
+body.print-mode .katex .cancel-lap,
+body.print-mode .katex .enclose {
+    display: block !important;
+}
+
+/* Remover todos os backgrounds e efeitos visuais (EXCETO KaTeX) */
+body.print-mode *:not(.katex):not(.katex *) {
     background-image: none !important;
     text-shadow: none !important;
     box-shadow: none !important;

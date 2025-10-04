@@ -3,3 +3,10 @@ GEMINI.md
 *.md
 9ANO-MD.md
 DASHBOARD-SINCRONIZACAO.txt
+<<<<<<< Updated upstream
+=======
+.claude/settings.local.json
+/.claude
+>>>>>>> Stashed changes
+.claude/settings.local.json
+/.claude

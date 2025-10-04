@@ -246,6 +246,11 @@ body.theme-green-circuit {
     --theme-selector-text-color: #e8e8e8;
     --theme-selector-hover-bg-color: #8ab4f8;
     --theme-selector-hover-text-color: #1a1a1a;
+
+    /* Cores para Caixas de Destaque */
+    --teorema-color: #2196f3;        /* Azul para teoremas */
+    --observacao-color: #ff9800;     /* Laranja para observações */
+    --dica-color: #ffc107;           /* Amarelo para dicas */
 }
 /* 
 ================================================================================

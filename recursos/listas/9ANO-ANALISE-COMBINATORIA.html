@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Análise Combinatória - Lista de Problemas -->
+  <title>NEXUS - Análise Combinatória</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    /* Container de metadados (fonte, dificuldade, tempo estimado) */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    /* Tag de tópico matemático */
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    /* Tag de fonte do problema */
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Tag de dificuldade com cores diferentes */
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Cores por nível de dificuldade */
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }    /* Verde */
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }    /* Amarelo */
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }  /* Vermelho */
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); } /* Roxo */
+
+    /* Introdução de cada seção */
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    /* Caixas de dica para os estudantes */
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+<div class="container">
+
+<!-- ============================================================================
+     TÍTULO PRINCIPAL DA LISTA
+     ============================================================================ -->
+<h1>ANÁLISE COMBINATÓRIA - LISTA DE PROBLEMAS</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+
+     OBJETIVO: Familiarização com conceitos básicos
+     QUANTIDADE: 12 problemas
+     CARACTERÍSTICAS:
+     - Cálculo de fatoriais básicos
+     - PFC com 2-3 escolhas simples
+     - Identificação de tipos de contagem
+     - Aplicação direta de fórmulas
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas básicos para familiarização com os conceitos fundamentais de análise combinatória.
+  </p>
+
+  <ol>
+    <!-- ====== PROBLEMA 1 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Fatorial - cálculo básico</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Calcule os seguintes fatoriais:</p>
+      <p>a) @2!@</p>
+      <p>b) @3!@</p>
+      <p>c) @4!@</p>
+      <p>d) @5!@</p>
+    </li>
+
+    <!-- ====== PROBLEMA 2 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Fatorial - simplificação</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Simplifique as expressões:</p>
+      <p>a) @\frac{5!}{3!}@</p>
+      <p>b) @\frac{6!}{4!}@</p>
+      <p>c) @\frac{7!}{6!}@</p>
+    </li>
+
+    <!-- ====== PROBLEMA 3 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">PFC - duas escolhas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Pedro tem 4 camisetas (azul, branca, preta, vermelha) e 3 bermudas (jeans, preta, verde). De quantas maneiras diferentes ele pode se vestir escolhendo uma camiseta e uma bermuda?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 4 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">PFC - três escolhas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Uma lanchonete oferece 3 tipos de hambúrguer, 2 tipos de bebida e 2 tipos de acompanhamento. Quantos lanches completos diferentes (hambúrguer + bebida + acompanhamento) podem ser montados?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 5 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Permutação simples - aplicação direta</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>De quantas maneiras diferentes podemos organizar 3 livros diferentes em uma estante?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 6 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Permutação simples - aplicação direta</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Calcule quantas maneiras existem de organizar 4 pessoas em uma fila.</p>
+    </li>
+
+    <!-- ====== PROBLEMA 7 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Identificação - tipo de contagem</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Em cada situação abaixo, identifique se a ordem importa ou não:</p>
+      <p>a) Formar um pódio (1º, 2º e 3º lugares) com 5 atletas.</p>
+      <p>b) Escolher 3 pessoas para formar uma comissão de um grupo de 5 pessoas.</p>
+      <p>c) Escolher presidente e vice-presidente de um grupo de 5 pessoas.</p>
+    </li>
+
+    <!-- ====== PROBLEMA 8 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Arranjo simples - cálculo direto</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Calcule:</p>
+      <p>a) @A_{5,2}@</p>
+      <p>b) @A_{4,3}@</p>
+      <p>c) @A_{6,2}@</p>
+    </li>
+
+    <!-- ====== PROBLEMA 9 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Combinação simples - cálculo direto</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Calcule:</p>
+      <p>a) @C_{5,2}@</p>
+      <p>b) @C_{4,2}@</p>
+      <p>c) @C_{6,3}@</p>
+    </li>
+
+    <!-- ====== PROBLEMA 10 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Permutação simples - anagramas curtos</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Quantos anagramas (reordenações das letras) podemos formar com a palavra NEXO?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 11 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">PFC - senhas simples</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Uma senha tem 3 dígitos, e cada dígito pode ser qualquer número de 0 a 9. Quantas senhas diferentes existem?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 12 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Combinação simples - propriedade da simetria</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Calcule @C_{5,2}@ e @C_{5,3}@. O que você observa sobre os resultados? Explique.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Lembre-se da propriedade da simetria: escolher @p@ elementos é o mesmo que deixar de escolher @n-p@ elementos.
+      </div>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+
+     OBJETIVO: Consolidar aprendizado e desenvolver interpretação
+     QUANTIDADE: 13 problemas
+     CARACTERÍSTICAS:
+     - Contextos mais elaborados
+     - Comparação entre arranjo e combinação
+     - Problemas com dicas estratégicas
+     - Aplicações práticas
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas que requerem interpretação do enunciado e aplicação de conceitos combinados.
+  </p>
+
+  <ol>
+    <!-- ====== PROBLEMA 1 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">PFC - placas simplificadas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Uma placa de carro simplificada tem 2 letras seguidas de 3 dígitos. Considerando que há 26 letras disponíveis e os dígitos vão de 0 a 9, quantas placas diferentes podem ser formadas?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Use o Princípio Fundamental da Contagem. Multiplique as possibilidades de cada posição.
+      </div>
+    </li>
+
+    <!-- ====== PROBLEMA 2 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Permutação simples - anagramas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Quantos anagramas podemos formar com a palavra BRASIL? (Considere todas as letras distintas)</p>
+    </li>
+
+    <!-- ====== PROBLEMA 3 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Arranjo simples - pódio</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Em uma competição de natação com 8 atletas, de quantas maneiras diferentes podemos ter o pódio (1º, 2º e 3º lugares)?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A ordem importa! Primeiro lugar é diferente de segundo lugar.
+      </div>
+    </li>
+
+    <!-- ====== PROBLEMA 4 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Combinação simples - comissão</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma turma tem 10 alunos e precisa formar uma comissão de 4 estudantes. De quantas maneiras diferentes essa comissão pode ser formada?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Em uma comissão, a ordem não importa. Escolher Ana, Bruno, Carlos e Daniel é o mesmo que escolher Daniel, Ana, Bruno e Carlos.
+      </div>
+    </li>
+
+    <!-- ====== PROBLEMA 5 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Identificação - arranjo ou combinação?</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Para cada situação, identifique se devemos usar arranjo ou combinação e justifique:</p>
+      <p>a) Escolher 3 livros dentre 7 para levar em uma viagem.</p>
+      <p>b) Escolher presidente, vice-presidente e tesoureiro dentre 7 pessoas.</p>
+      <p>c) Formar um time de vôlei com 6 jogadores dentre 10 candidatos.</p>
+      <p>d) Formar uma senha de 4 letras usando as letras A, B, C, D, E, F (sem repetição).</p>
+    </li>
+
+    <!-- ====== PROBLEMA 6 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Arranjo simples - cargos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>De quantas maneiras podemos escolher um presidente e um vice-presidente de um grupo de 8 pessoas? (A mesma pessoa não pode ocupar os dois cargos)</p>
+    </li>
+
+    <!-- ====== PROBLEMA 7 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Combinação simples - escolha de times</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um técnico de futebol tem 15 jogadores disponíveis e precisa escolher 11 para começar a partida. De quantas maneiras ele pode fazer essa escolha?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 8 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">PFC - cardápio</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um restaurante oferece um menu executivo com 4 opções de entrada, 6 opções de prato principal, 3 opções de sobremesa e 5 opções de bebida. De quantas maneiras diferentes um cliente pode montar sua refeição completa?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 9 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Comparação - arranjo vs. combinação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Considere 6 pessoas: Ana, Bruno, Carlos, Diana, Eduardo e Fernanda.</p>
+      <p>a) De quantas maneiras podemos escolher 3 pessoas para formar um grupo de estudos?</p>
+      <p>b) De quantas maneiras podemos escolher coordenador, vice-coordenador e secretário dentre as 6 pessoas?</p>
+      <p>c) Compare os resultados. Por que são diferentes?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 10 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Permutação simples - organização</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>De quantas maneiras diferentes 5 amigos podem sentar em um banco que tem exatamente 5 lugares?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 11 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Arranjo simples - senhas sem repetição</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma senha de 4 dígitos deve ser formada usando os números 0, 1, 2, 3, 4, 5, 6, 7, 8 e 9, sem repetir nenhum dígito. Quantas senhas diferentes podem ser formadas?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Como não há repetição e a ordem importa, use arranjo!
+      </div>
+    </li>
+
+    <!-- ====== PROBLEMA 12 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Combinação simples - escolhas em turma</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma professora quer escolher 3 alunos dentre 12 para apresentarem um trabalho. De quantas maneiras ela pode fazer essa escolha?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 13 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">PFC - múltiplas escolhas com restrição</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>João tem 5 calças, 6 camisas e 3 pares de sapatos. Ele quer montar um look completo (calça + camisa + sapato). De quantas maneiras diferentes ele pode se vestir?</p>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+
+     OBJETIVO: Desenvolver raciocínio complexo e múltiplas etapas
+     QUANTIDADE: 7 problemas
+     CARACTERÍSTICAS:
+     - Alta complexidade
+     - Múltiplas etapas de resolução
+     - Combinação avançada de conceitos
+     - Problemas com subitens
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Problemas complexos que exigem raciocínio em múltiplas etapas e combinação de conceitos.
+  </p>
+
+  <ol>
+    <!-- ====== PROBLEMA 1 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Combinação simples - múltiplas etapas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Uma escola vai montar um time de vôlei. Há 7 candidatas para jogadoras de quadra e 3 candidatas para líbero. De quantas maneiras podemos formar um time com 5 jogadoras de quadra e 1 líbero?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Divida o problema em duas etapas: escolher jogadoras de quadra e escolher líbero. Depois use o PFC para combinar.
+      </div>
+    </li>
+
+    <!-- ====== PROBLEMA 2 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Permutação simples - anagramas com restrição</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Quantos anagramas da palavra PEDRO começam com a letra P?</p>
+      <p>a) Resolva o problema.</p>
+      <p>b) Quantos anagramas começam com P e terminam com O?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Se a primeira letra está fixa, permute apenas as letras restantes!
+      </div>
+    </li>
+
+    <!-- ====== PROBLEMA 3 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Combinação - grupos com restrições</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Uma empresa tem 6 homens e 4 mulheres. De quantas maneiras podemos formar uma equipe de 5 pessoas que tenha exatamente 3 homens e 2 mulheres?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Escolha 3 homens dentre 6 E escolha 2 mulheres dentre 4. Use o PFC para combinar.
+      </div>
+    </li>
+
+    <!-- ====== PROBLEMA 4 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Arranjo e permutação - múltiplas etapas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Um torneio de tênis tem 10 participantes.</p>
+      <p>a) De quantas maneiras podemos ter o pódio (1º, 2º e 3º lugares)?</p>
+      <p>b) Se os 3 primeiros colocados ganham medalhas de ouro, prata e bronze respectivamente, de quantas maneiras podemos distribuir essas medalhas?</p>
+      <p>c) Se apenas queremos saber quais 3 pessoas ficaram entre as 3 primeiras (sem ordem), de quantas maneiras isso pode acontecer?</p>
+      <p>d) Compare os resultados de (a), (b) e (c). O que você observa?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 5 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Investigação - arranjo vs. combinação</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Uma biblioteca tem 8 livros diferentes.</p>
+      <p>a) De quantas maneiras podemos escolher e ordenar 4 livros em uma prateleira?</p>
+      <p>b) De quantas maneiras podemos escolher 4 livros para emprestar (sem considerar ordem)?</p>
+      <p>c) Qual é a relação matemática entre as respostas de (a) e (b)?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 6 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">PFC e arranjo - senha com restrições</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Uma senha tem 5 caracteres: 3 letras seguidas de 2 dígitos. As letras devem ser diferentes entre si (escolhidas dentre as 26 letras do alfabeto) e os dígitos também devem ser diferentes entre si (escolhidos de 0 a 9).</p>
+      <p>a) Quantas senhas diferentes podem ser formadas?</p>
+      <p>b) Se a primeira letra deve ser obrigatoriamente uma vogal (A, E, I, O, U), quantas senhas diferentes podem ser formadas?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 7 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Combinação - torneios</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Um campeonato de xadrez tem 12 participantes. Cada participante joga exatamente uma vez contra cada um dos outros participantes.</p>
+      <p>a) Quantas partidas serão jogadas no total?</p>
+      <p>b) Explique por que este é um problema de combinação e não de arranjo.</p>
+      <p>c) Se o campeonato tivesse 15 participantes, quantas partidas seriam jogadas?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Cada partida envolve escolher 2 participantes dentre todos. A ordem não importa (João vs. Maria é a mesma partida que Maria vs. João).
+      </div>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+
+     OBJETIVO: Problemas adicionais para prática livre
+     QUANTIDADE: 8 problemas
+     CARACTERÍSTICAS:
+     - Variedade de aplicações
+     - Mistura de tipos (PFC, permutação, arranjo, combinação)
+     - Desafios criativos
+     - Problemas do cotidiano
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para você praticar e consolidar seu aprendizado!
+  </p>
+
+  <ol>
+    <!-- ====== PROBLEMA 1 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Permutação simples - anagramas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Quantos anagramas podemos formar com a palavra CUBO?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 2 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Combinação simples - escolha de sabores</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma sorveteria oferece 10 sabores diferentes. Um cliente quer comprar um pote com 3 bolas de sabores diferentes. De quantas maneiras ele pode fazer sua escolha?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 3 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">PFC - trajetos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Para ir de casa à escola, Ana pode escolher entre 3 caminhos diferentes. Da escola ao clube, ela tem 4 opções de trajeto. De quantas maneiras diferentes Ana pode ir de casa ao clube passando pela escola?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 4 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Arranjo simples - classificação esportiva</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Em um campeonato de skate com 9 competidores, de quantas maneiras podemos ter a classificação dos 4 primeiros colocados (1º, 2º, 3º e 4º lugares)?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 5 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Combinação - escolha múltipla</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma prova tem 12 questões, e um aluno deve escolher 8 para responder. De quantas maneiras ele pode fazer essa escolha?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 6 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Permutação - organização em fila com restrição</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Seis amigos vão tirar uma foto em fila. De quantas maneiras eles podem se organizar se dois amigos específicos (João e Maria) devem ficar sempre juntos (um ao lado do outro)?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Trate João e Maria como um "bloco único". Permute os blocos e depois permute João e Maria dentro do bloco.
+      </div>
+    </li>
+
+    <!-- ====== PROBLEMA 7 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Combinação e PFC - times com capitão</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Um time de basquete tem 12 jogadores. O técnico precisa escolher 5 jogadores para começar a partida e designar um deles como capitão.</p>
+      <p>a) De quantas maneiras ele pode escolher os 5 jogadores?</p>
+      <p>b) Depois de escolhidos os 5 jogadores, de quantas maneiras ele pode escolher o capitão?</p>
+      <p>c) De quantas maneiras ele pode escolher os 5 jogadores e designar o capitão?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 8 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Desafio - contagem criativa</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Quantos números de 3 algarismos distintos podemos formar usando os dígitos 1, 2, 3, 4, 5 e 6?</p>
+      <p>a) Sem restrições?</p>
+      <p>b) Que sejam números pares?</p>
+      <p>c) Que sejam maiores que 400?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Para (b), pense em quais dígitos podem ocupar a última posição. Para (c), pense em quais dígitos podem ocupar a primeira posição.
+      </div>
+    </li>
+
+  </ol>
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

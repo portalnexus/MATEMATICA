@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Lógica Matemática</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press Start 2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    /* Container de metadados (fonte, dificuldade, tempo estimado) */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    /* Tag de tópico matemático */
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    /* Tag de fonte do problema */
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Tag de dificuldade com cores diferentes */
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Cores por nível de dificuldade */
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }    /* Verde */
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }    /* Amarelo */
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }  /* Vermelho */
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); } /* Roxo */
+
+    /* Introdução de cada seção */
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    /* Caixas de dica para os estudantes */
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+<div class="container">
+
+<!-- ============================================================================
+     TÍTULO PRINCIPAL DA LISTA
+     ============================================================================ -->
+<h1>LÓGICA MATEMÁTICA</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas básicos para familiarização com os conceitos fundamentais de lógica matemática.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proposições simples - identificação</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Identifique quais das sentenças abaixo são proposições lógicas:</p>
+      <p>a) O número 15 é divisível por 3.</p>
+      <p>b) Que horas são?</p>
+      <p>c) @2 + 2 = 5@</p>
+      <p>d) Feche a porta!</p>
+      <p>e) Todo número par é divisível por 2.</p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Valor lógico de proposições</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Determine o valor lógico (verdadeiro ou falso) de cada proposição:</p>
+      <p>a) @3 + 5 = 8@</p>
+      <p>b) @7 > 10@</p>
+      <p>c) Brasília é a capital do Brasil.</p>
+      <p>d) @\sqrt{16} = 3@</p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conectivo de negação</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Escreva a negação de cada proposição:</p>
+      <p>a) João é médico.</p>
+      <p>b) O número 10 é ímpar.</p>
+      <p>c) @x > 5@</p>
+      <p>d) Está chovendo.</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conectivo de conjunção (E)</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Dadas as proposições @p@: "Está frio" (verdadeira) e @q@: "Está chovendo" (falsa), determine o valor lógico de @p \land q@.</p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conectivo de disjunção (OU)</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Dadas as proposições @p@: "5 é par" (falsa) e @q@: "6 é par" (verdadeira), determine o valor lógico de @p \lor q@.</p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tabela-verdade - conjunção</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Construa a tabela-verdade para a proposição @p \land q@.</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tabela-verdade - disjunção</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Construa a tabela-verdade para a proposição @p \lor q@.</p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conectivo condicional (SE...ENTÃO)</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Dadas @p@: "Estudo" (verdadeira) e @q@: "Sou aprovado" (verdadeira), determine o valor lógico de @p \to q@.</p>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conectivo bicondicional (SE E SOMENTE SE)</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Dadas @p@: "Um número é par" (falsa para 5) e @q@: "Um número é divisível por 2" (falsa para 5), determine o valor lógico de @p \leftrightarrow q@.</p>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Operações lógicas básicas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Se @p@ é verdadeira e @q@ é falsa, determine o valor lógico de:</p>
+      <p>a) @\neg p@</p>
+      <p>b) @p \land \neg q@</p>
+      <p>c) @\neg p \lor q@</p>
+    </li>
+
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proposições compostas - identificação</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Identifique os conectivos lógicos presentes na proposição: "Se chove, então a rua fica molhada e o trânsito fica lento."</p>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Simbolização de proposições</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Represente simbolicamente a proposição: "Maria é médica ou engenheira", sendo @p@: "Maria é médica" e @q@: "Maria é engenheira".</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas que requerem interpretação do enunciado e aplicação de conceitos combinados.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tabela-verdade - proposição composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Construa a tabela-verdade completa para a proposição @(p \land q) \lor \neg r@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Comece listando todas as combinações possíveis de valores para @p@, @q@ e @r@. Com 3 proposições, você terá @2^3 = 8@ linhas.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Leis de De Morgan - aplicação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Use as Leis de De Morgan para escrever a negação de @(p \land q)@.</p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Leis de De Morgan - aplicação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Use as Leis de De Morgan para escrever a negação de @(p \lor q)@.</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Argumentação lógica - cotidiano</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Analise o argumento: "Se estudo, então passo na prova. Passei na prova. Logo, estudei." Este argumento é válido? Justifique.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Cuidado com a falácia da afirmação do consequente. O condicional @p \to q@ ser verdadeiro não garante que @q \to p@ também seja.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Condicional - contrapositiva</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Escreva a contrapositiva da proposição: "Se um número é divisível por 4, então é par."</p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Condicional - recíproca</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Escreva a recíproca da proposição: "Se chove, então a rua fica molhada." A recíproca é verdadeira?</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equivalências lógicas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Mostre, usando tabela-verdade, que @p \to q@ é logicamente equivalente a @\neg p \lor q@.</p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tautologia - identificação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Verifique se a proposição @p \lor \neg p@ é uma tautologia, contradição ou contingência.</p>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Contradição - identificação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Verifique se a proposição @p \land \neg p@ é uma tautologia, contradição ou contingência.</p>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Negação de proposições compostas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Escreva a negação da proposição: "João é alto e forte."</p>
+    </li>
+
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Quantificadores - universal</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Determine o valor lógico da proposição: "Todo número par é divisível por 2."</p>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Quantificadores - existencial</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Determine o valor lógico da proposição: "Existe um número primo par."</p>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Negação de quantificadores</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Escreva a negação da proposição: "Todo aluno passou na prova."</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A negação de "todo" é "existe pelo menos um que não".
+      </div>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Argumentação lógica - validade</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Verifique se o argumento é válido: "Todos os gatos são mamíferos. Todos os mamíferos têm coração. Logo, todos os gatos têm coração."</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Problemas complexos que exigem raciocínio em múltiplas etapas e combinação de conceitos.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tabela-verdade - análise completa</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Considere a proposição @[(p \to q) \land (q \to r)] \to (p \to r)@.</p>
+      <p>a) Construa a tabela-verdade completa.</p>
+      <p>b) Classifique a proposição (tautologia, contradição ou contingência).</p>
+      <p>c) O que essa proposição representa em termos de lógica argumentativa?</p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equivalências lógicas - simplificação</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Simplifique a proposição @\neg(p \land q) \lor (p \land \neg q)@ usando as leis da lógica (De Morgan, distributiva, etc.).</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Comece aplicando a Lei de De Morgan em @\neg(p \land q)@, depois use a distributividade.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Argumentação lógica - múltiplas premissas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Analise o argumento:</p>
+      <p><strong>Premissa 1:</strong> Se João estuda, então passa na prova.</p>
+      <p><strong>Premissa 2:</strong> Se João passa na prova, então é aprovado no ano.</p>
+      <p><strong>Premissa 3:</strong> João não foi aprovado no ano.</p>
+      <p><strong>Conclusão:</strong> João não estudou.</p>
+      <p>a) Represente o argumento simbolicamente.</p>
+      <p>b) Verifique se o argumento é válido usando tabela-verdade ou regras de inferência.</p>
+      <p>c) Identifique qual regra de inferência foi utilizada.</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Quantificadores - negação complexa</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Considere a proposição: "Todo estudante de matemática gosta de pelo menos uma área (álgebra, geometria ou cálculo)."</p>
+      <p>a) Escreva a proposição usando quantificadores e conectivos lógicos.</p>
+      <p>b) Escreva a negação da proposição.</p>
+      <p>c) Interprete a negação em linguagem natural.</p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Diagramas de Venn - lógica de conjuntos</span>
+        <span class="dificudade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Em uma escola com 100 alunos:</p>
+      <p>• 60 estudam inglês</p>
+      <p>• 50 estudam espanhol</p>
+      <p>• 30 estudam ambas as línguas</p>
+      <p>a) Represente essa situação usando proposições lógicas e conectivos.</p>
+      <p>b) Quantos alunos não estudam nenhuma das duas línguas?</p>
+      <p>c) Quantos estudam inglês ou espanhol (ou ambos)?</p>
+      <p>d) Escreva uma proposição lógica que represente "o aluno estuda inglês mas não espanhol".</p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Condicionais encadeados - análise</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Considere as seguintes afirmações sobre um número @x@:</p>
+      <p>@p@: "@x@ é divisível por 6"</p>
+      <p>@q@: "@x@ é divisível por 3"</p>
+      <p>@r@: "@x@ é divisível por 2"</p>
+      <p>a) Escreva a proposição @p \to (q \land r)@ em linguagem natural.</p>
+      <p>b) Essa proposição é verdadeira? Justifique.</p>
+      <p>c) Escreva a recíproca e determine se é verdadeira.</p>
+      <p>d) A proposição @p \leftrightarrow (q \land r)@ é verdadeira? Explique.</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Paradoxos lógicos - análise</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Considere a proposição: "Esta frase é falsa."</p>
+      <p>a) Tente determinar o valor lógico da proposição. O que acontece?</p>
+      <p>b) Por que essa proposição cria um paradoxo?</p>
+      <p>c) Esse tipo de proposição é permitido na lógica clássica? Por quê?</p>
+      <p>d) Pesquise e descreva outro paradoxo lógico famoso (ex: Paradoxo do Barbeiro).</p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Argumentação lógica - falácias</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Identifique a falácia lógica em cada argumento e explique por que é inválido:</p>
+      <p>a) "Se é uma segunda-feira, então tenho aula. Tenho aula. Logo, é segunda-feira."</p>
+      <p>b) "Se um animal é um cachorro, então é um mamífero. Esse animal não é um cachorro. Logo, não é um mamífero."</p>
+      <p>c) "Todos os políticos mentem. João é político. Logo, João mente."</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> As falácias comuns incluem: afirmação do consequente, negação do antecedente, e generalização precipitada.
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para você praticar e consolidar seu aprendizado!
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conectivos lógicos - interpretação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Um sistema de segurança só permite acesso se o usuário tem cartão E senha correta. Represente essa situação usando proposições lógicas e determine em que situações o acesso é negado.</p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tabela-verdade - disjunção exclusiva</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>A disjunção exclusiva (XOR), representada por @p \oplus q@, é verdadeira quando @p@ e @q@ têm valores lógicos diferentes. Construa a tabela-verdade para @p \oplus q@ e expresse-a usando apenas os conectivos @\land@, @\lor@ e @\neg@.</p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Lógica computacional - portas lógicas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Em circuitos digitais, uma porta NAND realiza a operação @\neg(p \land q)@. Mostre que qualquer proposição lógica pode ser expressa usando apenas portas NAND. (Dica: expresse @\neg p@, @p \land q@ e @p \lor q@ usando NAND.)</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Quantificadores - múltiplos</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Escreva usando quantificadores e explique a diferença entre:</p>
+      <p>a) "Para todo @x@, existe um @y@ tal que @x + y = 0@"</p>
+      <p>b) "Existe um @y@ tal que, para todo @x@, @x + y = 0@"</p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Argumentação lógica - sudoku</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>No jogo Sudoku, uma regra é: "Cada linha deve conter todos os números de 1 a 9, sem repetição." Represente essa regra usando lógica de predicados e quantificadores.</p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Implicação lógica - teoremas matemáticos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Considere o teorema: "Se @n^2@ é par, então @n@ é par."</p>
+      <p>a) Escreva a contrapositiva deste teorema.</p>
+      <p>b) Qual forma (direta ou contrapositiva) é mais fácil de provar? Por quê?</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Lógica fuzzy - introdução</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Na lógica clássica, proposições são sempre verdadeiras ou falsas. Pesquise sobre lógica fuzzy (lógica difusa) e explique como ela difere da lógica clássica. Dê um exemplo de situação onde lógica fuzzy é mais apropriada.</p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Argumentação lógica - enigmas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Três amigos (Ana, Bruno e Carlos) fazem as seguintes afirmações:</p>
+      <p><strong>Ana:</strong> "Bruno está mentindo."</p>
+      <p><strong>Bruno:</strong> "Carlos está mentindo."</p>
+      <p><strong>Carlos:</strong> "Ana e Bruno estão mentindo."</p>
+      <p>Se apenas uma pessoa está dizendo a verdade, quem é? Use lógica proposicional para resolver.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Teste cada caso assumindo que cada pessoa, uma por vez, está dizendo a verdade, e verifique se há contradição.
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

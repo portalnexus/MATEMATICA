@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Lógica Matemática</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+
+    /* Estilos para tabelas-verdade */
+    .tabela-verdade {
+      margin: 1.5rem auto;
+      border-collapse: collapse;
+      background-color: rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+    }
+
+    .tabela-verdade th,
+    .tabela-verdade td {
+      border: 1px solid var(--secondary-text-color);
+      padding: 0.5rem 1rem;
+      text-align: center;
+    }
+
+    .tabela-verdade th {
+      background-color: rgba(0, 0, 0, 0.3);
+      color: var(--heading-text-color);
+      font-weight: bold;
+    }
+
+    .tabela-verdade .destaque-col {
+      background-color: rgba(0, 120, 212, 0.15);
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>Lógica Matemática</h1>
+
+    <!-- ===============================================================
+         SEÇÃO 1: CONCEITOS FUNDAMENTAIS
+         - Definições numeradas (Definição 1.1, 1.2, ...)
+         - Exemplos iniciais
+         - Notações e convenções
+         =============================================================== -->
+    <h2>1. Conceitos Fundamentais</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Proposição)</h3>
+      <p>Uma <strong>proposição</strong> é uma sentença declarativa que pode ser classificada como verdadeira (V) ou falsa (F), mas não ambas simultaneamente. O valor lógico de uma proposição é sua classificação em verdadeira ou falsa.</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>"@2 + 3 = 5@" é uma proposição verdadeira.</li>
+      <li>"Todo número primo é ímpar" é uma proposição falsa (contraexemplo: 2 é primo e par).</li>
+      <li>"@\pi > 3@" é uma proposição verdadeira.</li>
+    </ul>
+
+    <div class="nota">
+      <strong>Observação:</strong> Sentenças interrogativas ("Que horas são?"), exclamativas ("Que dia lindo!") e imperativas ("Feche a porta!") não são proposições. Sentenças abertas como "@x + 2 = 5@" também não são proposições até que @x@ seja especificado.
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Proposições Compostas)</h3>
+      <p>Uma <strong>proposição composta</strong> é formada pela combinação de duas ou mais proposições simples através de conectivos lógicos. As proposições simples que a compõem são chamadas de <strong>proposições atômicas</strong>.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Conectivos Lógicos Fundamentais)</h3>
+      <p>Os cinco conectivos lógicos fundamentais são:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Negação (@\neg@):</strong> "não @p@"</li>
+        <li><strong>(ii) Conjunção (@\wedge@):</strong> "@p@ e @q@"</li>
+        <li><strong>(iii) Disjunção (@\vee@):</strong> "@p@ ou @q@"</li>
+        <li><strong>(iv) Condicional (@\rightarrow@):</strong> "se @p@, então @q@"</li>
+        <li><strong>(v) Bicondicional (@\leftrightarrow@):</strong> "@p@ se e somente se @q@"</li>
+      </ul>
+    </div>
+
+    <p><strong>Notação:</strong> Usaremos letras minúsculas (@p@, @q@, @r@, @s@) para representar proposições. @V@ representa verdadeiro e @F@ representa falso.</p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.4 (Tabela-Verdade)</h3>
+      <p>Uma <strong>tabela-verdade</strong> é uma representação sistemática de todas as possíveis combinações de valores lógicos das proposições atômicas e os correspondentes valores lógicos da proposição composta.</p>
+      <p>Para @n@ proposições atômicas, a tabela terá @2^n@ linhas (excluindo o cabeçalho).</p>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> A ordem padrão para preencher tabelas-verdade segue o padrão binário: para duas proposições (@p@, @q@), começamos com (V, V), depois (V, F), (F, V) e (F, F).
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: TEOREMAS E PROPRIEDADES
+         - Teoremas numerados (Teorema 2.1, 2.2, ...)
+         - Demonstrações ou justificativas
+         - Propriedades fundamentais
+         =============================================================== -->
+    <h2>2. Propriedades dos Conectivos e Equivalências Lógicas</h2>
+
+    <h3>2.1 Tabelas-Verdade dos Conectivos Fundamentais</h3>
+
+    <p><strong>Negação (@\neg p@):</strong></p>
+    <table class="tabela-verdade">
+      <thead>
+        <tr>
+          <th>@p@</th>
+          <th class="destaque-col">@\neg p@</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>V</td>
+          <td class="destaque-col">F</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td class="destaque-col">V</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Conjunção (@p \wedge q@):</strong></p>
+    <table class="tabela-verdade">
+      <thead>
+        <tr>
+          <th>@p@</th>
+          <th>@q@</th>
+          <th class="destaque-col">@p \wedge q@</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>V</td>
+          <td>V</td>
+          <td class="destaque-col">V</td>
+        </tr>
+        <tr>
+          <td>V</td>
+          <td>F</td>
+          <td class="destaque-col">F</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>V</td>
+          <td class="destaque-col">F</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>F</td>
+          <td class="destaque-col">F</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Disjunção (@p \vee q@):</strong></p>
+    <table class="tabela-verdade">
+      <thead>
+        <tr>
+          <th>@p@</th>
+          <th>@q@</th>
+          <th class="destaque-col">@p \vee q@</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>V</td>
+          <td>V</td>
+          <td class="destaque-col">V</td>
+        </tr>
+        <tr>
+          <td>V</td>
+          <td>F</td>
+          <td class="destaque-col">V</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>V</td>
+          <td class="destaque-col">V</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>F</td>
+          <td class="destaque-col">F</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Condicional (@p \rightarrow q@):</strong></p>
+    <table class="tabela-verdade">
+      <thead>
+        <tr>
+          <th>@p@</th>
+          <th>@q@</th>
+          <th class="destaque-col">@p \rightarrow q@</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>V</td>
+          <td>V</td>
+          <td class="destaque-col">V</td>
+        </tr>
+        <tr>
+          <td>V</td>
+          <td>F</td>
+          <td class="destaque-col">F</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>V</td>
+          <td class="destaque-col">V</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>F</td>
+          <td class="destaque-col">V</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="nota">
+      <strong>Importante:</strong> No condicional @p \rightarrow q@, @p@ é chamada de <strong>hipótese</strong> ou <strong>antecedente</strong>, e @q@ é chamada de <strong>tese</strong> ou <strong>consequente</strong>. O condicional só é falso quando a hipótese é verdadeira e a tese é falsa.
+    </div>
+
+    <p><strong>Bicondicional (@p \leftrightarrow q@):</strong></p>
+    <table class="tabela-verdade">
+      <thead>
+        <tr>
+          <th>@p@</th>
+          <th>@q@</th>
+          <th class="destaque-col">@p \leftrightarrow q@</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>V</td>
+          <td>V</td>
+          <td class="destaque-col">V</td>
+        </tr>
+        <tr>
+          <td>V</td>
+          <td>F</td>
+          <td class="destaque-col">F</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>V</td>
+          <td class="destaque-col">F</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>F</td>
+          <td class="destaque-col">V</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Leis de De Morgan)</h3>
+      <p>Para quaisquer proposições @p@ e @q@, valem as seguintes equivalências lógicas:</p>
+      @@
+      \begin{align}
+      \neg(p \wedge q) &\equiv \neg p \vee \neg q \\
+      \neg(p \vee q) &\equiv \neg p \wedge \neg q
+      \end{align}
+      @@
+    </div>
+
+    <p><strong>Demonstração (primeira lei):</strong></p>
+    <p>Construímos a tabela-verdade para ambas as expressões:</p>
+
+    <table class="tabela-verdade">
+      <thead>
+        <tr>
+          <th>@p@</th>
+          <th>@q@</th>
+          <th>@p \wedge q@</th>
+          <th class="destaque-col">@\neg(p \wedge q)@</th>
+          <th>@\neg p@</th>
+          <th>@\neg q@</th>
+          <th class="destaque-col">@\neg p \vee \neg q@</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>V</td>
+          <td>V</td>
+          <td>V</td>
+          <td class="destaque-col">F</td>
+          <td>F</td>
+          <td>F</td>
+          <td class="destaque-col">F</td>
+        </tr>
+        <tr>
+          <td>V</td>
+          <td>F</td>
+          <td>F</td>
+          <td class="destaque-col">V</td>
+          <td>F</td>
+          <td>V</td>
+          <td class="destaque-col">V</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>V</td>
+          <td>F</td>
+          <td class="destaque-col">V</td>
+          <td>V</td>
+          <td>F</td>
+          <td class="destaque-col">V</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>F</td>
+          <td>F</td>
+          <td class="destaque-col">V</td>
+          <td>V</td>
+          <td>V</td>
+          <td class="destaque-col">V</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Como as colunas destacadas são idênticas, temos @\neg(p \wedge q) \equiv \neg p \vee \neg q@. A demonstração da segunda lei é análoga. @\square@</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Equivalências Lógicas Fundamentais)</h3>
+      <p>As seguintes equivalências são válidas para quaisquer proposições @p@ e @q@:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Dupla Negação:</strong> @\neg(\neg p) \equiv p@</li>
+        <li><strong>(ii) Comutatividade:</strong> @p \wedge q \equiv q \wedge p@ e @p \vee q \equiv q \vee p@</li>
+        <li><strong>(iii) Associatividade:</strong> @(p \wedge q) \wedge r \equiv p \wedge (q \wedge r)@ e @(p \vee q) \vee r \equiv p \vee (q \vee r)@</li>
+        <li><strong>(iv) Distributividade:</strong> @p \wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)@ e @p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r)@</li>
+        <li><strong>(v) Condicional:</strong> @p \rightarrow q \equiv \neg p \vee q@</li>
+        <li><strong>(vi) Contrapositiva:</strong> @p \rightarrow q \equiv \neg q \rightarrow \neg p@</li>
+        <li><strong>(vii) Bicondicional:</strong> @p \leftrightarrow q \equiv (p \rightarrow q) \wedge (q \rightarrow p)@</li>
+      </ul>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> Duas proposições compostas são <strong>logicamente equivalentes</strong> (denotado por @\equiv@) quando possuem a mesma tabela-verdade, ou seja, assumem os mesmos valores lógicos para todas as combinações possíveis de valores das proposições atômicas.
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Definição 2.3 (Tautologia, Contradição e Contingência)</h3>
+      <ul>
+        <li><strong>Tautologia:</strong> Proposição composta que é sempre verdadeira, independentemente dos valores lógicos de suas componentes. Exemplo: @p \vee \neg p@</li>
+        <li><strong>Contradição:</strong> Proposição composta que é sempre falsa. Exemplo: @p \wedge \neg p@</li>
+        <li><strong>Contingência:</strong> Proposição composta que pode ser verdadeira ou falsa, dependendo dos valores de suas componentes.</li>
+      </ul>
+    </div>
+
+    <h3>2.2 Quantificadores</h3>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.4 (Quantificadores Universal e Existencial)</h3>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Quantificador Universal (@\forall@):</strong> "Para todo" ou "qualquer que seja". A proposição @\forall x \in A, P(x)@ significa que a propriedade @P(x)@ é verdadeira para todos os elementos @x@ do conjunto @A@.</li>
+        <li><strong>(ii) Quantificador Existencial (@\exists@):</strong> "Existe" ou "existe pelo menos um". A proposição @\exists x \in A, P(x)@ significa que existe ao menos um elemento @x@ em @A@ para o qual @P(x)@ é verdadeira.</li>
+      </ul>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>@\forall x \in \mathbb{R}, x^2 \geq 0@ (proposição verdadeira)</li>
+      <li>@\exists x \in \mathbb{Z}, x^2 = 2@ (proposição falsa)</li>
+      <li>@\forall n \in \mathbb{N}, n < n + 1@ (proposição verdadeira)</li>
+    </ul>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.5 (Negação de Proposições Quantificadas)</h3>
+      <p>A negação de proposições com quantificadores segue as seguintes regras:</p>
+      @@
+      \begin{align}
+      \neg(\forall x \in A, P(x)) &\equiv \exists x \in A, \neg P(x) \\
+      \neg(\exists x \in A, P(x)) &\equiv \forall x \in A, \neg P(x)
+      \end{align}
+      @@
+    </div>
+
+    <p><strong>Justificativa:</strong> A negação de "todos os elementos satisfazem @P@" é "existe pelo menos um elemento que não satisfaz @P@". Similarmente, a negação de "existe um elemento que satisfaz @P@" é "todos os elementos não satisfazem @P@".</p>
+
+    <!-- ===============================================================
+         SEÇÃO 3: EXEMPLOS RESOLVIDOS
+         - Mínimo 4-6 exemplos
+         - Progressão de dificuldade
+         - Solução passo a passo detalhada
+         =============================================================== -->
+    <h2>3. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Construção de Tabela-Verdade</h3>
+      <p><strong>Enunciado:</strong> Construa a tabela-verdade da proposição composta @(p \wedge q) \rightarrow \neg r@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar o número de proposições atômicas. Temos @p@, @q@ e @r@, portanto 3 proposições.</p>
+
+      <p><strong>Passo 2:</strong> Calcular o número de linhas: @2^3 = 8@ linhas (além do cabeçalho).</p>
+
+      <p><strong>Passo 3:</strong> Construir as colunas intermediárias: @p \wedge q@ e @\neg r@.</p>
+
+      <p><strong>Passo 4:</strong> Construir a coluna final usando a definição do condicional:</p>
+
+      <table class="tabela-verdade">
+        <thead>
+          <tr>
+            <th>@p@</th>
+            <th>@q@</th>
+            <th>@r@</th>
+            <th>@p \wedge q@</th>
+            <th>@\neg r@</th>
+            <th class="destaque-col">@(p \wedge q) \rightarrow \neg r@</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td><td>V</td><td>F</td><td class="destaque-col">F</td></tr>
+          <tr><td>V</td><td>V</td><td>F</td><td>V</td><td>V</td><td class="destaque-col">V</td></tr>
+          <tr><td>V</td><td>F</td><td>V</td><td>F</td><td>F</td><td class="destaque-col">V</td></tr>
+          <tr><td>V</td><td>F</td><td>F</td><td>F</td><td>V</td><td class="destaque-col">V</td></tr>
+          <tr><td>F</td><td>V</td><td>V</td><td>F</td><td>F</td><td class="destaque-col">V</td></tr>
+          <tr><td>F</td><td>V</td><td>F</td><td>F</td><td>V</td><td class="destaque-col">V</td></tr>
+          <tr><td>F</td><td>F</td><td>V</td><td>F</td><td>F</td><td class="destaque-col">V</td></tr>
+          <tr><td>F</td><td>F</td><td>F</td><td>F</td><td>V</td><td class="destaque-col">V</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Resposta:</strong> A proposição @(p \wedge q) \rightarrow \neg r@ é falsa apenas na primeira linha (quando @p@, @q@ e @r@ são todas verdadeiras). É uma contingência.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Aplicação das Leis de De Morgan</h3>
+      <p><strong>Enunciado:</strong> Simplifique a expressão @\neg(p \vee \neg q) \wedge r@ aplicando as Leis de De Morgan.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Aplicar a Lei de De Morgan em @\neg(p \vee \neg q)@:</p>
+      @@
+      \neg(p \vee \neg q) = \neg p \wedge \neg(\neg q) = \neg p \wedge q
+      @@
+
+      <p><strong>Passo 2:</strong> Substituir na expressão original:</p>
+      @@
+      \neg(p \vee \neg q) \wedge r = (\neg p \wedge q) \wedge r
+      @@
+
+      <p><strong>Passo 3:</strong> Aplicar a associatividade da conjunção:</p>
+      @@
+      (\neg p \wedge q) \wedge r = \neg p \wedge q \wedge r
+      @@
+
+      <p><strong>Resposta:</strong> A expressão simplificada é @\neg p \wedge q \wedge r@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - Verificação de Equivalência Lógica</h3>
+      <p><strong>Enunciado:</strong> Verifique se @p \rightarrow (q \rightarrow r)@ é logicamente equivalente a @(p \wedge q) \rightarrow r@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Construir a tabela-verdade para ambas as expressões.</p>
+
+      <table class="tabela-verdade">
+        <thead>
+          <tr>
+            <th>@p@</th>
+            <th>@q@</th>
+            <th>@r@</th>
+            <th>@q \rightarrow r@</th>
+            <th class="destaque-col">@p \rightarrow (q \rightarrow r)@</th>
+            <th>@p \wedge q@</th>
+            <th class="destaque-col">@(p \wedge q) \rightarrow r@</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td><td>V</td><td class="destaque-col">V</td><td>V</td><td class="destaque-col">V</td></tr>
+          <tr><td>V</td><td>V</td><td>F</td><td>F</td><td class="destaque-col">F</td><td>V</td><td class="destaque-col">F</td></tr>
+          <tr><td>V</td><td>F</td><td>V</td><td>V</td><td class="destaque-col">V</td><td>F</td><td class="destaque-col">V</td></tr>
+          <tr><td>V</td><td>F</td><td>F</td><td>V</td><td class="destaque-col">V</td><td>F</td><td class="destaque-col">V</td></tr>
+          <tr><td>F</td><td>V</td><td>V</td><td>V</td><td class="destaque-col">V</td><td>F</td><td class="destaque-col">V</td></tr>
+          <tr><td>F</td><td>V</td><td>F</td><td>F</td><td class="destaque-col">V</td><td>F</td><td class="destaque-col">V</td></tr>
+          <tr><td>F</td><td>F</td><td>V</td><td>V</td><td class="destaque-col">V</td><td>F</td><td class="destaque-col">V</td></tr>
+          <tr><td>F</td><td>F</td><td>F</td><td>V</td><td class="destaque-col">V</td><td>F</td><td class="destaque-col">V</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Passo 2:</strong> Comparar as colunas destacadas.</p>
+
+      <p><strong>Resposta:</strong> Como as colunas @p \rightarrow (q \rightarrow r)@ e @(p \wedge q) \rightarrow r@ são idênticas, as proposições são logicamente equivalentes: @p \rightarrow (q \rightarrow r) \equiv (p \wedge q) \rightarrow r@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Negação de Proposições Quantificadas</h3>
+      <p><strong>Enunciado:</strong> Escreva a negação da proposição: "Todo número real positivo possui raiz quadrada real".</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Traduzir a proposição para linguagem simbólica:</p>
+      @@
+      \forall x \in \mathbb{R}, (x > 0) \rightarrow (\exists y \in \mathbb{R}, y^2 = x)
+      @@
+
+      <p><strong>Passo 2:</strong> Aplicar a regra de negação de quantificador universal:</p>
+      @@
+      \neg\left[\forall x \in \mathbb{R}, (x > 0) \rightarrow (\exists y \in \mathbb{R}, y^2 = x)\right]
+      @@
+      @@
+      \equiv \exists x \in \mathbb{R}, \neg\left[(x > 0) \rightarrow (\exists y \in \mathbb{R}, y^2 = x)\right]
+      @@
+
+      <p><strong>Passo 3:</strong> Aplicar a equivalência @\neg(p \rightarrow q) \equiv p \wedge \neg q@:</p>
+      @@
+      \equiv \exists x \in \mathbb{R}, (x > 0) \wedge \neg(\exists y \in \mathbb{R}, y^2 = x)
+      @@
+
+      <p><strong>Passo 4:</strong> Aplicar a regra de negação de quantificador existencial:</p>
+      @@
+      \equiv \exists x \in \mathbb{R}, (x > 0) \wedge (\forall y \in \mathbb{R}, y^2 \neq x)
+      @@
+
+      <p><strong>Resposta:</strong> A negação em linguagem natural é: "Existe um número real positivo tal que, para todo número real @y@, temos @y^2 \neq x@", ou de forma mais simples: "Existe um número real positivo que não possui raiz quadrada real".</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Validade de Argumento</h3>
+      <p><strong>Enunciado:</strong> Determine se o seguinte argumento é válido:</p>
+      <p style="margin-left: 2rem;">
+        Premissa 1: Se estudo, então passo na prova.<br>
+        Premissa 2: Passei na prova.<br>
+        Conclusão: Logo, estudei.
+      </p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Simbolizar o argumento. Sejam:</p>
+      <ul>
+        <li>@p@: "Estudo"</li>
+        <li>@q@: "Passo na prova"</li>
+      </ul>
+      <p>Argumento: @[(p \rightarrow q) \wedge q] \rightarrow p@</p>
+
+      <p><strong>Passo 2:</strong> Construir a tabela-verdade:</p>
+
+      <table class="tabela-verdade">
+        <thead>
+          <tr>
+            <th>@p@</th>
+            <th>@q@</th>
+            <th>@p \rightarrow q@</th>
+            <th>@(p \rightarrow q) \wedge q@</th>
+            <th class="destaque-col">@[(p \rightarrow q) \wedge q] \rightarrow p@</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>V</td><td>V</td><td class="destaque-col">V</td></tr>
+          <tr><td>V</td><td>F</td><td>F</td><td>F</td><td class="destaque-col">V</td></tr>
+          <tr><td>F</td><td>V</td><td>V</td><td>V</td><td class="destaque-col">F</td></tr>
+          <tr><td>F</td><td>F</td><td>V</td><td>F</td><td class="destaque-col">V</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Passo 3:</strong> Analisar o resultado. A proposição não é uma tautologia (3ª linha é falsa).</p>
+
+      <p><strong>Resposta:</strong> O argumento é <strong>inválido</strong>. Esta é a falácia da <strong>afirmação do consequente</strong>. É possível passar na prova sem ter estudado (3ª linha da tabela), logo a conclusão não decorre necessariamente das premissas.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Demonstração por Contrapositiva</h3>
+      <p><strong>Enunciado:</strong> Seja @n \in \mathbb{Z}@. Demonstre usando a contrapositiva: "Se @n^2@ é par, então @n@ é par".</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar a proposição original @p \rightarrow q@:</p>
+      <ul>
+        <li>@p@: "@n^2@ é par"</li>
+        <li>@q@: "@n@ é par"</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Escrever a contrapositiva @\neg q \rightarrow \neg p@:</p>
+      <p>"Se @n@ é ímpar, então @n^2@ é ímpar"</p>
+
+      <p><strong>Passo 3:</strong> Demonstrar a contrapositiva. Se @n@ é ímpar, então @n = 2k + 1@ para algum @k \in \mathbb{Z}@.</p>
+      @@
+      n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1
+      @@
+
+      <p>Como @n^2 = 2m + 1@ onde @m = 2k^2 + 2k \in \mathbb{Z}@, temos que @n^2@ é ímpar.</p>
+
+      <p><strong>Passo 4:</strong> Concluir pela equivalência lógica @p \rightarrow q \equiv \neg q \rightarrow \neg p@.</p>
+
+      <p><strong>Resposta:</strong> Como demonstramos a contrapositiva, e @p \rightarrow q \equiv \neg q \rightarrow \neg p@, a proposição original está demonstrada: se @n^2@ é par, então @n@ é par. @\square@</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: EXERCÍCIOS PROPOSTOS
+         - 10-15 exercícios variados
+         - Progressão de dificuldade
+         - Respostas em comentário HTML
+         =============================================================== -->
+    <h2>4. Exercícios</h2>
+
+    <ol>
+      <li>Classifique cada sentença como proposição (P) ou não-proposição (NP):
+        <ol type="a">
+          <li>@7 + 5 = 13@</li>
+          <li>Que horas são?</li>
+          <li>@\pi@ é um número irracional</li>
+          <li>@x + 3 = 8@</li>
+          <li>Feche a janela!</li>
+        </ol>
+      </li>
+
+      <li>Construa a tabela-verdade de @\neg(p \rightarrow \neg q)@ e classifique-a como tautologia, contradição ou contingência.</li>
+
+      <li>Verifique se @p \rightarrow q@ é logicamente equivalente a @\neg q \rightarrow \neg p@ usando tabela-verdade.</li>
+
+      <li>Simplifique a expressão @\neg(\neg p \vee q) \wedge r@ aplicando as Leis de De Morgan e a dupla negação.</li>
+
+      <li>Determine se a proposição @(p \vee q) \wedge (\neg p \vee \neg q)@ é uma tautologia, contradição ou contingência.</li>
+
+      <li>Escreva a negação da proposição: "Todos os alunos passaram na prova de matemática".</li>
+
+      <li>Escreva a negação da proposição simbólica: @\forall x \in \mathbb{R}, (x > 0) \rightarrow (x^2 > 0)@.</li>
+
+      <li>Determine se o seguinte argumento é válido:
+        <ul style="list-style: none;">
+          <li>Premissa 1: Se chove, então a rua fica molhada.</li>
+          <li>Premissa 2: A rua não está molhada.</li>
+          <li>Conclusão: Logo, não choveu.</li>
+        </ul>
+      </li>
+
+      <li>Mostre que @p \leftrightarrow q@ é logicamente equivalente a @(p \wedge q) \vee (\neg p \wedge \neg q)@.</li>
+
+      <li>Simplifique: @[(p \rightarrow q) \wedge (q \rightarrow r)] \rightarrow (p \rightarrow r)@ e determine se é uma tautologia.</li>
+
+      <li>Escreva a negação da proposição: "Existe um número inteiro que é ao mesmo tempo par e ímpar".</li>
+
+      <li>Seja @p@: "Está chovendo" e @q@: "Vou ao cinema". Traduza para linguagem simbólica: "Se não está chovendo, então vou ao cinema, mas se está chovendo, fico em casa".</li>
+
+      <li>Demonstre usando tabela-verdade que @\neg(p \leftrightarrow q) \equiv (p \wedge \neg q) \vee (\neg p \wedge q)@.</li>
+
+      <li>Verifique se o seguinte argumento é válido:
+        <ul style="list-style: none;">
+          <li>Premissa 1: @p \rightarrow q@</li>
+          <li>Premissa 2: @q \rightarrow r@</li>
+          <li>Premissa 3: @\neg r@</li>
+          <li>Conclusão: @\neg p@</li>
+        </ul>
+      </li>
+
+      <li>Seja @P(x)@: "@x@ é divisível por 4" e @Q(x)@: "@x@ é par", com @x \in \mathbb{Z}@. Determine o valor lógico das seguintes proposições:
+        <ol type="a">
+          <li>@\forall x \in \mathbb{Z}, P(x) \rightarrow Q(x)@</li>
+          <li>@\forall x \in \mathbb{Z}, Q(x) \rightarrow P(x)@</li>
+          <li>@\exists x \in \mathbb{Z}, Q(x) \wedge \neg P(x)@</li>
+        </ol>
+      </li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+    1. (a) P; (b) NP; (c) P; (d) NP (sentença aberta); (e) NP
+
+    2. Tabela-verdade:
+       p | q | ¬q | p→¬q | ¬(p→¬q)
+       V | V | F  |  F   |    V
+       V | F | V  |  V   |    F
+       F | V | F  |  V   |    F
+       F | F | V  |  V   |    F
+       É uma contingência (nem sempre verdadeira, nem sempre falsa).
+
+    3. São logicamente equivalentes (contrapositiva). Ambas têm a tabela:
+       p | q | p→q | ¬q | ¬p | ¬q→¬p
+       V | V |  V  | F  | F  |   V
+       V | F |  F  | V  | F  |   F
+       F | V |  V  | F  | V  |   V
+       F | F |  V  | V  | V  |   V
+
+    4. ¬(¬p ∨ q) ∧ r = (¬¬p ∧ ¬q) ∧ r = (p ∧ ¬q) ∧ r = p ∧ ¬q ∧ r
+
+    5. É uma contingência. A tabela mostra que é verdadeira quando exatamente uma de p ou q é verdadeira (ou exclusivo).
+
+    6. "Existe pelo menos um aluno que não passou na prova de matemática."
+
+    7. ∃x ∈ ℝ, (x > 0) ∧ ¬(x² > 0) ou equivalentemente: ∃x ∈ ℝ, (x > 0) ∧ (x² ≤ 0)
+
+    8. O argumento é válido. É o modus tollens: [(p → q) ∧ ¬q] → ¬p
+       Simbólico: p: "Chove", q: "Rua fica molhada"
+       [(p → q) ∧ ¬q] → ¬p é uma tautologia.
+
+    9. Tabela-verdade mostra que ambas as colunas são idênticas:
+       p | q | p↔q | p∧q | ¬p | ¬q | ¬p∧¬q | (p∧q)∨(¬p∧¬q)
+       V | V |  V  |  V  | F  | F  |   F   |       V
+       V | F |  F  |  F  | F  | V  |   F   |       F
+       F | V |  F  |  F  | V  | F  |   F   |       F
+       F | F |  V  |  F  | V  | V  |   V   |       V
+
+    10. É uma tautologia (lei do silogismo hipotético). A tabela-verdade mostra que é sempre verdadeira.
+
+    11. "Todo número inteiro ou não é par ou não é ímpar" ou "Para todo número inteiro, ele não é simultaneamente par e ímpar".
+        Simbólico: ∀x ∈ ℤ, ¬(P(x) ∧ I(x)) ou equivalentemente ∀x ∈ ℤ, ¬P(x) ∨ ¬I(x)
+
+    12. (¬p → q) ∧ (p → ¬q) onde ¬q representa "Fico em casa" (negação de ir ao cinema)
+
+    13. A tabela-verdade mostra que as colunas são idênticas:
+        Quando p↔q é verdadeira, sua negação é falsa, e (p∧¬q)∨(¬p∧q) também é falsa.
+        Quando p↔q é falsa (p e q têm valores diferentes), a negação é verdadeira, e (p∧¬q)∨(¬p∧q) também é verdadeira.
+
+    14. O argumento é válido. É uma aplicação sucessiva do modus tollens:
+        De (2) e (3): q → r e ¬r implica ¬q (modus tollens)
+        De (1) e ¬q: p → q e ¬q implica ¬p (modus tollens)
+        Portanto, das três premissas decorre ¬p.
+
+    15. (a) Verdadeira (todo número divisível por 4 é par)
+        (b) Falsa (contraexemplo: x = 2 é par mas não divisível por 4)
+        (c) Verdadeira (exemplo: x = 2, 6, 10, 14, ... são pares mas não divisíveis por 4)
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

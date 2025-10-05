@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Lógica Matemática e Argumentação</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+
+    /* Estilos para tabelas-verdade */
+    .tabela-verdade {
+      margin: 1.5rem auto;
+      border-collapse: collapse;
+      max-width: 600px;
+    }
+
+    .tabela-verdade th,
+    .tabela-verdade td {
+      border: 1px solid var(--secondary-text-color);
+      padding: 0.5rem 1rem;
+      text-align: center;
+    }
+
+    .tabela-verdade th {
+      background-color: rgba(0, 0, 0, 0.3);
+      color: var(--heading-text-color);
+      font-weight: bold;
+    }
+
+    .tabela-verdade td {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>Lógica Matemática e Argumentação</h1>
+
+    <p>A lógica matemática é o fundamento do raciocínio rigoroso em matemática. Ela nos permite construir argumentos válidos, demonstrar teoremas e identificar falácias. Neste resumo avançado, estudaremos a lógica proposicional, quantificadores, técnicas de demonstração e a estrutura dos argumentos matemáticos.</p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: LÓGICA PROPOSICIONAL AVANÇADA
+         =============================================================== -->
+    <h2>1. Lógica Proposicional Avançada</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Proposição)</h3>
+      <p>Uma <strong>proposição</strong> é uma sentença declarativa que pode ser classificada como verdadeira (V) ou falsa (F), mas nunca ambas simultaneamente. Denotamos proposições por letras minúsculas @p@, @q@, @r@, etc.</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>@p@: "O número 17 é primo" (Verdadeira)</li>
+      <li>@q@: "Todo número par é divisível por 4" (Falsa)</li>
+      <li>@r@: "@\sqrt{2}@ é um número irracional" (Verdadeira)</li>
+    </ul>
+
+    <div class="nota">
+      <strong>Observação:</strong> Sentenças como "Que horas são?" ou "Estude matemática!" não são proposições, pois não possuem valor lógico (verdadeiro ou falso).
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Conectivos Lógicos)</h3>
+      <p>Os <strong>conectivos lógicos</strong> são operadores que combinam proposições para formar proposições compostas:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Negação (@\neg p@):</strong> "não @p@"</li>
+        <li><strong>(ii) Conjunção (@p \land q@):</strong> "@p@ e @q@"</li>
+        <li><strong>(iii) Disjunção (@p \lor q@):</strong> "@p@ ou @q@"</li>
+        <li><strong>(iv) Condicional (@p \rightarrow q@):</strong> "se @p@ então @q@"</li>
+        <li><strong>(v) Bicondicional (@p \leftrightarrow q@):</strong> "@p@ se e somente se @q@"</li>
+      </ul>
+    </div>
+
+    <p><strong>Tabela-Verdade dos Conectivos:</strong></p>
+    <table class="tabela-verdade">
+      <tr>
+        <th>@p@</th>
+        <th>@q@</th>
+        <th>@\neg p@</th>
+        <th>@p \land q@</th>
+        <th>@p \lor q@</th>
+        <th>@p \rightarrow q@</th>
+        <th>@p \leftrightarrow q@</th>
+      </tr>
+      <tr>
+        <td>V</td>
+        <td>V</td>
+        <td>F</td>
+        <td>V</td>
+        <td>V</td>
+        <td>V</td>
+        <td>V</td>
+      </tr>
+      <tr>
+        <td>V</td>
+        <td>F</td>
+        <td>F</td>
+        <td>F</td>
+        <td>V</td>
+        <td>F</td>
+        <td>F</td>
+      </tr>
+      <tr>
+        <td>F</td>
+        <td>V</td>
+        <td>V</td>
+        <td>F</td>
+        <td>V</td>
+        <td>V</td>
+        <td>F</td>
+      </tr>
+      <tr>
+        <td>F</td>
+        <td>F</td>
+        <td>V</td>
+        <td>F</td>
+        <td>F</td>
+        <td>V</td>
+        <td>V</td>
+      </tr>
+    </table>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Tautologia, Contradição e Contingência)</h3>
+      <p>Uma proposição composta é chamada:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Tautologia:</strong> se é sempre verdadeira, independente dos valores de suas proposições simples.</li>
+        <li><strong>(ii) Contradição:</strong> se é sempre falsa, independente dos valores de suas proposições simples.</li>
+        <li><strong>(iii) Contingência:</strong> se pode ser verdadeira ou falsa, dependendo dos valores de suas proposições simples.</li>
+      </ul>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li><strong>Tautologia:</strong> @p \lor \neg p@ (Lei do Terceiro Excluído)</li>
+      <li><strong>Contradição:</strong> @p \land \neg p@</li>
+      <li><strong>Contingência:</strong> @p \land q@</li>
+    </ul>
+
+    <!-- ===============================================================
+         SEÇÃO 2: LEIS DA LÓGICA E EQUIVALÊNCIAS
+         =============================================================== -->
+    <h2>2. Leis da Lógica e Equivalências Lógicas</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Leis de De Morgan)</h3>
+      <p>Para quaisquer proposições @p@ e @q@, valem as seguintes equivalências:</p>
+      @@
+      \begin{align}
+      \neg(p \land q) &\equiv \neg p \lor \neg q \\
+      \neg(p \lor q) &\equiv \neg p \land \neg q
+      \end{align}
+      @@
+    </div>
+
+    <p><strong>Demonstração (1ª Lei):</strong></p>
+    <p>Construímos a tabela-verdade para @\neg(p \land q)@ e @\neg p \lor \neg q@:</p>
+
+    <table class="tabela-verdade">
+      <tr>
+        <th>@p@</th>
+        <th>@q@</th>
+        <th>@p \land q@</th>
+        <th>@\neg(p \land q)@</th>
+        <th>@\neg p@</th>
+        <th>@\neg q@</th>
+        <th>@\neg p \lor \neg q@</th>
+      </tr>
+      <tr>
+        <td>V</td>
+        <td>V</td>
+        <td>V</td>
+        <td>F</td>
+        <td>F</td>
+        <td>F</td>
+        <td>F</td>
+      </tr>
+      <tr>
+        <td>V</td>
+        <td>F</td>
+        <td>F</td>
+        <td>V</td>
+        <td>F</td>
+        <td>V</td>
+        <td>V</td>
+      </tr>
+      <tr>
+        <td>F</td>
+        <td>V</td>
+        <td>F</td>
+        <td>V</td>
+        <td>V</td>
+        <td>F</td>
+        <td>V</td>
+      </tr>
+      <tr>
+        <td>F</td>
+        <td>F</td>
+        <td>F</td>
+        <td>V</td>
+        <td>V</td>
+        <td>V</td>
+        <td>V</td>
+      </tr>
+    </table>
+
+    <p>Como as colunas de @\neg(p \land q)@ e @\neg p \lor \neg q@ são idênticas, as proposições são logicamente equivalentes. A demonstração da 2ª lei é análoga. @\blacksquare@</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Equivalências do Condicional)</h3>
+      <p>Para quaisquer proposições @p@ e @q@, valem:</p>
+      @@
+      \begin{align}
+      p \rightarrow q &\equiv \neg p \lor q \\
+      p \rightarrow q &\equiv \neg q \rightarrow \neg p \quad \text{(Contrapositiva)}
+      \end{align}
+      @@
+    </div>
+
+    <div class="nota">
+      <strong>Observação Importante:</strong> A contrapositiva @\neg q \rightarrow \neg p@ é logicamente equivalente a @p \rightarrow q@, mas a recíproca @q \rightarrow p@ e a inversa @\neg p \rightarrow \neg q@ NÃO são equivalentes à condicional original.
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Principais Equivalências Lógicas</h3>
+      <ul class="lista-propriedades">
+        <li><strong>Comutativas:</strong> @p \land q \equiv q \land p@ ; @p \lor q \equiv q \lor p@</li>
+        <li><strong>Associativas:</strong> @(p \land q) \land r \equiv p \land (q \land r)@ ; @(p \lor q) \lor r \equiv p \lor (q \lor r)@</li>
+        <li><strong>Distributivas:</strong> @p \land (q \lor r) \equiv (p \land q) \lor (p \land r)@</li>
+        <li><strong>Idempotência:</strong> @p \land p \equiv p@ ; @p \lor p \equiv p@</li>
+        <li><strong>Dupla Negação:</strong> @\neg(\neg p) \equiv p@</li>
+        <li><strong>Absorção:</strong> @p \land (p \lor q) \equiv p@ ; @p \lor (p \land q) \equiv p@</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: QUANTIFICADORES E NEGAÇÃO DE PROPOSIÇÕES COMPLEXAS
+         =============================================================== -->
+    <h2>3. Quantificadores e Negação de Proposições Complexas</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Quantificadores)</h3>
+      <p>Os <strong>quantificadores</strong> são símbolos que expressam quantidade em proposições matemáticas:</p>
+      <ul class="lista-propriedades">
+        <li><strong>Quantificador Universal (@\forall@):</strong> "para todo", "para cada", "qualquer que seja"</li>
+        <li><strong>Quantificador Existencial (@\exists@):</strong> "existe", "existe pelo menos um", "há"</li>
+      </ul>
+    </div>
+
+    <p><strong>Exemplos com quantificadores:</strong></p>
+    <ul>
+      <li>@\forall x \in \mathbb{R}, x^2 \geq 0@ (verdadeira)</li>
+      <li>@\exists x \in \mathbb{Z}, x^2 = 2@ (falsa)</li>
+      <li>@\forall n \in \mathbb{N}, \exists m \in \mathbb{N}, m > n@ (verdadeira)</li>
+    </ul>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Negação de Proposições com Quantificadores)</h3>
+      <p>Para negar proposições com quantificadores, aplicamos as seguintes regras:</p>
+      @@
+      \begin{align}
+      \neg(\forall x, P(x)) &\equiv \exists x, \neg P(x) \\
+      \neg(\exists x, P(x)) &\equiv \forall x, \neg P(x)
+      \end{align}
+      @@
+      <p>Em português: "Não é verdade que para todo @x@ vale @P(x)@" equivale a "Existe algum @x@ para o qual @P(x)@ não vale".</p>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Regras para Negar Proposições Complexas</h3>
+      <p>Para negar proposições com quantificadores múltiplos e conectivos:</p>
+      <ol class="lista-propriedades">
+        <li><strong>(i)</strong> Troque @\forall@ por @\exists@ e vice-versa</li>
+        <li><strong>(ii)</strong> Aplique as Leis de De Morgan aos conectivos (@\land \leftrightarrow \lor@)</li>
+        <li><strong>(iii)</strong> Negue a proposição final</li>
+      </ol>
+    </div>
+
+    <p><strong>Exemplo de negação complexa:</strong></p>
+    <p>Proposição original: @\forall x \in \mathbb{R}, \exists y \in \mathbb{R}, x + y > 0@</p>
+    <p>Negação: @\exists x \in \mathbb{R}, \forall y \in \mathbb{R}, x + y \leq 0@</p>
+
+    <!-- ===============================================================
+         SEÇÃO 4: ARGUMENTOS VÁLIDOS E TÉCNICAS DE DEMONSTRAÇÃO
+         =============================================================== -->
+    <h2>4. Argumentos Válidos e Técnicas de Demonstração</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.1 (Argumento Válido)</h3>
+      <p>Um <strong>argumento</strong> é composto por premissas @P_1, P_2, \ldots, P_n@ e uma conclusão @C@. Dizemos que o argumento é <strong>válido</strong> se, toda vez que as premissas são verdadeiras, a conclusão também é verdadeira.</p>
+      <p>Simbolicamente: @(P_1 \land P_2 \land \cdots \land P_n) \rightarrow C@ é uma tautologia.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Regras de Inferência Básicas)</h3>
+      <ul class="lista-propriedades">
+        <li><strong>Modus Ponens:</strong> @\frac{p \rightarrow q, \quad p}{\therefore q}@</li>
+        <li><strong>Modus Tollens:</strong> @\frac{p \rightarrow q, \quad \neg q}{\therefore \neg p}@</li>
+        <li><strong>Silogismo Hipotético:</strong> @\frac{p \rightarrow q, \quad q \rightarrow r}{\therefore p \rightarrow r}@</li>
+        <li><strong>Silogismo Disjuntivo:</strong> @\frac{p \lor q, \quad \neg p}{\therefore q}@</li>
+        <li><strong>Adição:</strong> @\frac{p}{\therefore p \lor q}@</li>
+        <li><strong>Simplificação:</strong> @\frac{p \land q}{\therefore p}@</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.2 (Técnicas de Demonstração Matemática)</h3>
+      <p>As principais técnicas de demonstração em matemática são:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Demonstração Direta:</strong> Assume-se @p@ verdadeiro e deduz-se @q@ usando lógica e definições.</li>
+        <li><strong>(ii) Demonstração por Contrapositiva:</strong> Demonstra-se @\neg q \rightarrow \neg p@ (equivalente a @p \rightarrow q@).</li>
+        <li><strong>(iii) Demonstração por Contradição (Redução ao Absurdo):</strong> Assume-se @p \land \neg q@ e deduz-se uma contradição.</li>
+        <li><strong>(iv) Demonstração por Casos:</strong> Divide-se em casos exaustivos e demonstra-se cada um separadamente.</li>
+        <li><strong>(v) Demonstração por Contra-exemplo:</strong> Para refutar @\forall x, P(x)@, basta exibir um @x_0@ tal que @\neg P(x_0)@.</li>
+        <li><strong>(vi) Indução Matemática:</strong> Para provar @\forall n \in \mathbb{N}, P(n)@: (a) Base: @P(1)@ verdadeiro; (b) Passo: @P(k) \rightarrow P(k+1)@.</li>
+      </ul>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> A demonstração por contradição é especialmente útil quando a negação da conclusão é mais fácil de trabalhar algebricamente. Exemplos clássicos incluem a demonstração de que @\sqrt{2}@ é irracional.
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>5. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Negação de Proposição Composta</h3>
+      <p><strong>Enunciado:</strong> Determine a negação da proposição: "Se está chovendo, então a rua está molhada e o céu está nublado".</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar a estrutura lógica da proposição.</p>
+      <p>Sejam @p@: "está chovendo", @q@: "a rua está molhada", @r@: "o céu está nublado"</p>
+      <p>A proposição é: @p \rightarrow (q \land r)@</p>
+
+      <p><strong>Passo 2:</strong> Aplicar a equivalência do condicional.</p>
+      @@
+      p \rightarrow (q \land r) \equiv \neg p \lor (q \land r)
+      @@
+
+      <p><strong>Passo 3:</strong> Negar a proposição e simplificar usando De Morgan.</p>
+      @@
+      \begin{align}
+      \neg[p \rightarrow (q \land r)] &\equiv \neg[\neg p \lor (q \land r)] \\
+      &\equiv p \land \neg(q \land r) \\
+      &\equiv p \land (\neg q \lor \neg r)
+      \end{align}
+      @@
+
+      <p><strong>Resposta:</strong> "Está chovendo e (a rua não está molhada ou o céu não está nublado)"</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Negação com Quantificadores</h3>
+      <p><strong>Enunciado:</strong> Negue a proposição: "Todo número real positivo possui raiz quadrada real".</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Escrever em notação simbólica.</p>
+      <p>Seja @P(x)@: "@x@ possui raiz quadrada real"</p>
+      <p>A proposição é: @\forall x \in \mathbb{R}^+, P(x)@</p>
+
+      <p><strong>Passo 2:</strong> Aplicar a regra de negação de quantificador universal.</p>
+      @@
+      \neg(\forall x \in \mathbb{R}^+, P(x)) \equiv \exists x \in \mathbb{R}^+, \neg P(x)
+      @@
+
+      <p><strong>Resposta:</strong> "Existe um número real positivo que não possui raiz quadrada real"</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - Verificação de Validade de Argumento</h3>
+      <p><strong>Enunciado:</strong> Verifique se o seguinte argumento é válido:</p>
+      <p>Premissa 1: Se @n@ é divisível por 6, então @n@ é divisível por 3.</p>
+      <p>Premissa 2: @n@ não é divisível por 3.</p>
+      <p>Conclusão: @n@ não é divisível por 6.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar a estrutura do argumento.</p>
+      <p>Sejam @p@: "@n@ é divisível por 6", @q@: "@n@ é divisível por 3"</p>
+      <p>Premissa 1: @p \rightarrow q@</p>
+      <p>Premissa 2: @\neg q@</p>
+      <p>Conclusão: @\neg p@</p>
+
+      <p><strong>Passo 2:</strong> Reconhecer a regra de inferência.</p>
+      <p>Este é o <strong>Modus Tollens</strong>: @\frac{p \rightarrow q, \quad \neg q}{\therefore \neg p}@</p>
+
+      <p><strong>Passo 3:</strong> Verificar com tabela-verdade (opcional).</p>
+      <table class="tabela-verdade">
+        <tr>
+          <th>@p@</th>
+          <th>@q@</th>
+          <th>@p \rightarrow q@</th>
+          <th>@\neg q@</th>
+          <th>@\neg p@</th>
+          <th>@(p \rightarrow q) \land (\neg q)@</th>
+          <th>@[(p \rightarrow q) \land (\neg q)] \rightarrow (\neg p)@</th>
+        </tr>
+        <tr>
+          <td>V</td>
+          <td>V</td>
+          <td>V</td>
+          <td>F</td>
+          <td>F</td>
+          <td>F</td>
+          <td>V</td>
+        </tr>
+        <tr>
+          <td>V</td>
+          <td>F</td>
+          <td>F</td>
+          <td>V</td>
+          <td>F</td>
+          <td>F</td>
+          <td>V</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>V</td>
+          <td>V</td>
+          <td>F</td>
+          <td>V</td>
+          <td>F</td>
+          <td>V</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>F</td>
+          <td>V</td>
+          <td>V</td>
+          <td>V</td>
+          <td>V</td>
+          <td>V</td>
+        </tr>
+      </table>
+
+      <p><strong>Resposta:</strong> O argumento é VÁLIDO (Modus Tollens). A última coluna é uma tautologia.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Demonstração por Contradição</h3>
+      <p><strong>Enunciado:</strong> Demonstre que @\sqrt{2}@ é irracional.</p>
+
+      <h4>Solução (Demonstração por Contradição):</h4>
+      <p><strong>Passo 1:</strong> Assumir a negação da tese.</p>
+      <p>Suponha, por absurdo, que @\sqrt{2}@ seja racional. Então existem @p, q \in \mathbb{Z}@ com @q \neq 0@ e @\text{mdc}(p,q) = 1@ tais que:</p>
+      @@
+      \sqrt{2} = \frac{p}{q}
+      @@
+
+      <p><strong>Passo 2:</strong> Manipular algebricamente.</p>
+      @@
+      \begin{align}
+      \sqrt{2} &= \frac{p}{q} \\
+      2 &= \frac{p^2}{q^2} \\
+      2q^2 &= p^2
+      \end{align}
+      @@
+
+      <p><strong>Passo 3:</strong> Deduzir consequências.</p>
+      <p>De @2q^2 = p^2@, concluímos que @p^2@ é par. Logo, @p@ é par (pois se @p@ fosse ímpar, @p^2@ seria ímpar).</p>
+      <p>Assim, existe @k \in \mathbb{Z}@ tal que @p = 2k@. Substituindo:</p>
+      @@
+      \begin{align}
+      2q^2 &= (2k)^2 \\
+      2q^2 &= 4k^2 \\
+      q^2 &= 2k^2
+      \end{align}
+      @@
+
+      <p><strong>Passo 4:</strong> Obter a contradição.</p>
+      <p>De @q^2 = 2k^2@, concluímos que @q^2@ é par, logo @q@ é par.</p>
+      <p>Mas se @p@ e @q@ são ambos pares, então @\text{mdc}(p,q) \geq 2@, contradizendo a hipótese de que @\text{mdc}(p,q) = 1@.</p>
+
+      <p><strong>Resposta:</strong> A contradição mostra que a suposição inicial é falsa. Portanto, @\sqrt{2}@ é irracional. @\blacksquare@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Demonstração por Contrapositiva</h3>
+      <p><strong>Enunciado:</strong> Demonstre que se @n^2@ é ímpar, então @n@ é ímpar (para @n \in \mathbb{Z}@).</p>
+
+      <h4>Solução (Demonstração por Contrapositiva):</h4>
+      <p><strong>Passo 1:</strong> Identificar a contrapositiva.</p>
+      <p>A proposição original é @p \rightarrow q@, onde:</p>
+      <ul>
+        <li>@p@: "@n^2@ é ímpar"</li>
+        <li>@q@: "@n@ é ímpar"</li>
+      </ul>
+      <p>A contrapositiva é @\neg q \rightarrow \neg p@: "Se @n@ é par, então @n^2@ é par".</p>
+
+      <p><strong>Passo 2:</strong> Demonstrar a contrapositiva.</p>
+      <p>Suponha que @n@ seja par. Então existe @k \in \mathbb{Z}@ tal que @n = 2k@.</p>
+      @@
+      \begin{align}
+      n^2 &= (2k)^2 \\
+      &= 4k^2 \\
+      &= 2(2k^2)
+      \end{align}
+      @@
+      <p>Como @n^2 = 2(2k^2)@ com @2k^2 \in \mathbb{Z}@, concluímos que @n^2@ é par.</p>
+
+      <p><strong>Resposta:</strong> A contrapositiva foi demonstrada. Logo, a proposição original "se @n^2@ é ímpar, então @n@ é ímpar" é verdadeira. @\blacksquare@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Contra-exemplo para Refutar Proposição Universal</h3>
+      <p><strong>Enunciado:</strong> Verifique se a proposição é verdadeira ou falsa: "Para todo @n \in \mathbb{N}@, o número @n^2 + n + 41@ é primo".</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Testar valores pequenos de @n@.</p>
+      <ul>
+        <li>@n = 1@: @1^2 + 1 + 41 = 43@ (primo)</li>
+        <li>@n = 2@: @2^2 + 2 + 41 = 47@ (primo)</li>
+        <li>@n = 3@: @3^2 + 3 + 41 = 53@ (primo)</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Buscar padrões ou casos especiais.</p>
+      <p>Vamos testar @n = 40@:</p>
+      @@
+      \begin{align}
+      n^2 + n + 41 &= 40^2 + 40 + 41 \\
+      &= 1600 + 40 + 41 \\
+      &= 1681 \\
+      &= 41^2
+      \end{align}
+      @@
+
+      <p><strong>Passo 3:</strong> Conclusão.</p>
+      <p>Como @1681 = 41^2@ é composto (divisível por 41), encontramos um contra-exemplo.</p>
+
+      <p><strong>Resposta:</strong> A proposição é FALSA. O contra-exemplo é @n = 40@.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: EXERCÍCIOS PROPOSTOS
+         =============================================================== -->
+    <h2>6. Exercícios</h2>
+
+    <ol>
+      <li>Determine o valor lógico (V ou F) da proposição: @(\forall x \in \mathbb{R})(x^2 \geq 0) \land (\exists y \in \mathbb{Z})(y^2 = 3)@</li>
+
+      <li>Negue a proposição: "Se @x > 2@, então @x^2 > 4@ e @x > 0@"</li>
+
+      <li>Use uma tabela-verdade para verificar se @(p \rightarrow q) \land (q \rightarrow r) \rightarrow (p \rightarrow r)@ é uma tautologia.</li>
+
+      <li>Negue a proposição: @\forall x \in \mathbb{R}, \exists y \in \mathbb{R}, (x + y = 0 \lor xy = 1)@</li>
+
+      <li>Verifique se o argumento é válido: <br>
+          Premissa 1: Se estudo, então passo no exame. <br>
+          Premissa 2: Passei no exame. <br>
+          Conclusão: Estudei.</li>
+
+      <li>Demonstre por contrapositiva: Se @m + n \geq 19@, então @m \geq 10@ ou @n \geq 10@ (para @m, n \in \mathbb{Z}@).</li>
+
+      <li>Use as Leis de De Morgan para simplificar: @\neg[(p \lor q) \land (r \lor s)]@</li>
+
+      <li>Demonstre por contradição que não existe número racional @x@ tal que @x^2 = 3@.</li>
+
+      <li>Determine quais das seguintes proposições são tautologias, contradições ou contingências:
+          <ul style="list-style-type: lower-alpha; margin-top: 0.5rem;">
+            <li>@(p \land q) \lor (\neg p \lor \neg q)@</li>
+            <li>@(p \rightarrow q) \land (p \land \neg q)@</li>
+            <li>@(p \lor q) \rightarrow (p \land q)@</li>
+          </ul>
+      </li>
+
+      <li>Negue a proposição: "Todo triângulo equilátero é isósceles e possui três ângulos de 60°".</li>
+
+      <li>Demonstre usando indução matemática que @\forall n \in \mathbb{N}@, @1 + 2 + 3 + \cdots + n = \frac{n(n+1)}{2}@</li>
+
+      <li>Verifique a validade do seguinte argumento usando regras de inferência: <br>
+          @p \rightarrow q@ <br>
+          @r \rightarrow s@ <br>
+          @p \lor r@ <br>
+          @\neg q@ <br>
+          @\therefore s@</li>
+
+      <li>Encontre um contra-exemplo para refutar: "Se @a < b@, então @a^2 < b^2@" (para @a, b \in \mathbb{R}@).</li>
+
+      <li>Simplifique a expressão lógica usando equivalências: @[(p \rightarrow q) \land \neg q] \rightarrow \neg p@</li>
+
+      <li>Demonstre que se @n^3@ é par, então @n@ é par (para @n \in \mathbb{Z}@).</li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+    1. F (a segunda parte é falsa, pois não existe inteiro y tal que y² = 3)
+
+    2. "x > 2 e (x² ≤ 4 ou x ≤ 0)"
+
+    3. Sim, é uma tautologia (Silogismo Hipotético)
+
+    4. ∃x ∈ ℝ, ∀y ∈ ℝ, (x + y ≠ 0 ∧ xy ≠ 1)
+
+    5. INVÁLIDO (Falácia da Afirmação do Consequente). Contra-exemplo: pode ter passado sem estudar.
+
+    6. Contrapositiva: "Se m < 10 e n < 10, então m + n < 19". Se m ≤ 9 e n ≤ 9, então m + n ≤ 18 < 19. ∎
+
+    7. (¬p ∧ ¬q) ∨ (¬r ∧ ¬s)
+
+    8. Demonstração análoga à de √2. Assumir x = p/q com mdc(p,q)=1, deduzir 3q²=p², logo p e q são múltiplos de 3, contradição.
+
+    9. (a) Tautologia; (b) Contradição; (c) Contingência
+
+    10. "Existe um triângulo equilátero que não é isósceles ou não possui três ângulos de 60°"
+
+    11. Base: n=1, 1 = 1(1+1)/2 = 1 ✓. Passo: assumir P(k), provar P(k+1): 1+2+...+k+(k+1) = k(k+1)/2 + (k+1) = (k+1)(k+2)/2 ✓
+
+    12. VÁLIDO. De p∨r e ¬q, por Modus Tollens temos ¬p. Logo r (Silogismo Disjuntivo). De r→s e r, por Modus Ponens temos s. ∴ s
+
+    13. Contra-exemplo: a = -3, b = 2. Então -3 < 2, mas (-3)² = 9 > 4 = 2²
+
+    14. Tautologia (sempre verdadeira). Equivalente a ¬[(p→q)∧¬q] ∨ ¬p, que simplifica para V.
+
+    15. Contrapositiva: "Se n é ímpar, então n³ é ímpar". Se n=2k+1, então n³=(2k+1)³=8k³+12k²+6k+1=2(4k³+6k²+3k)+1 (ímpar). ∎
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

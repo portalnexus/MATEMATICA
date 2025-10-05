@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Teoria dos Conjuntos</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>Teoria dos Conjuntos</h1>
+
+    <!-- ===============================================================
+         SEÇÃO 1: CONCEITOS FUNDAMENTAIS
+         - Definições numeradas (Definição 1.1, 1.2, ...)
+         - Exemplos iniciais
+         - Notações e convenções
+         =============================================================== -->
+    <h2>1. Conceitos Fundamentais</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Conjunto)</h3>
+      <p>Um <strong>conjunto</strong> é uma coleção bem definida de objetos distintos, chamados de <strong>elementos</strong> do conjunto. Dizemos que um conjunto está <em>bem definido</em> quando, dado um objeto qualquer, é possível determinar se ele pertence ou não ao conjunto.</p>
+    </div>
+
+    <p><strong>Notação:</strong> Conjuntos são geralmente representados por letras maiúsculas (@A@, @B@, @C@, etc.) e seus elementos por letras minúsculas (@a@, @b@, @c@, @x@, @y@, etc.).</p>
+
+    <p><strong>Formas de Representação:</strong></p>
+    <ul>
+      <li><strong>Enumeração (extensão):</strong> Listagem explícita dos elementos entre chaves. Exemplo: @A = \{1, 2, 3, 4, 5\}@</li>
+      <li><strong>Propriedade característica (compreensão):</strong> Descrição da propriedade que caracteriza os elementos. Exemplo: @B = \{x \in \mathbb{N} \mid x \text{ é par e } x < 10\}@</li>
+      <li><strong>Diagrama de Venn:</strong> Representação gráfica usando curvas fechadas para visualizar relações entre conjuntos.</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Pertinência)</h3>
+      <p>Dizemos que um elemento @x@ <strong>pertence</strong> a um conjunto @A@ quando @x@ é um dos elementos de @A@, e denotamos por @x \in A@. Caso contrário, escrevemos @x \notin A@ (lê-se "@x@ não pertence a @A@").</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>Se @A = \{2, 4, 6, 8\}@, então @4 \in A@ e @5 \notin A@</li>
+      <li>@3 \in \mathbb{N}@ (3 pertence aos números naturais)</li>
+      <li>@-2 \notin \mathbb{N}@ (-2 não pertence aos números naturais)</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Conjunto Vazio)</h3>
+      <p>O <strong>conjunto vazio</strong>, denotado por @\emptyset@ ou @\{\}@, é o conjunto que não possui nenhum elemento.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.4 (Inclusão e Subconjunto)</h3>
+      <p>Dizemos que um conjunto @A@ está <strong>contido</strong> em um conjunto @B@ (ou que @A@ é <strong>subconjunto</strong> de @B@) quando todo elemento de @A@ também é elemento de @B@. Denotamos por @A \subseteq B@.</p>
+      <p>Formalmente: @A \subseteq B \iff (\forall x)(x \in A \Rightarrow x \in B)@</p>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> É importante diferenciar os conceitos de <em>pertinência</em> (@\in@) e <em>inclusão</em> (@\subseteq@). Pertinência é uma relação entre elemento e conjunto, enquanto inclusão é uma relação entre conjuntos.
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>Se @A = \{1, 2\}@ e @B = \{1, 2, 3, 4\}@, então @A \subseteq B@</li>
+      <li>@\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}@</li>
+      <li>@\emptyset \subseteq A@ para qualquer conjunto @A@</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.5 (Igualdade de Conjuntos)</h3>
+      <p>Dois conjuntos @A@ e @B@ são <strong>iguais</strong> quando possuem exatamente os mesmos elementos. Equivalentemente, @A = B@ se, e somente se, @A \subseteq B@ e @B \subseteq A@.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.6 (Conjuntos Numéricos)</h3>
+      <p>Os principais conjuntos numéricos são:</p>
+      <ul class="lista-propriedades">
+        <li><strong>@\mathbb{N}@ (Naturais):</strong> @\mathbb{N} = \{0, 1, 2, 3, 4, \ldots\}@</li>
+        <li><strong>@\mathbb{Z}@ (Inteiros):</strong> @\mathbb{Z} = \{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\}@</li>
+        <li><strong>@\mathbb{Q}@ (Racionais):</strong> @\mathbb{Q} = \left\{\dfrac{p}{q} \mid p \in \mathbb{Z}, q \in \mathbb{Z}^*, q \neq 0\right\}@</li>
+        <li><strong>@\mathbb{I}@ (Irracionais):</strong> Números que não podem ser expressos como fração de inteiros (ex: @\sqrt{2}@, @\pi@, @e@)</li>
+        <li><strong>@\mathbb{R}@ (Reais):</strong> @\mathbb{R} = \mathbb{Q} \cup \mathbb{I}@</li>
+      </ul>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> Temos a seguinte cadeia de inclusões: @\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}@. O símbolo @\subset@ denota inclusão própria, ou seja, @A \subset B@ significa que @A \subseteq B@ e @A \neq B@.
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: OPERAÇÕES ENTRE CONJUNTOS E PROPRIEDADES
+         - Teoremas numerados (Teorema 2.1, 2.2, ...)
+         - Demonstrações ou justificativas
+         - Propriedades fundamentais
+         =============================================================== -->
+    <h2>2. Operações entre Conjuntos e Propriedades</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (União de Conjuntos)</h3>
+      <p>A <strong>união</strong> de dois conjuntos @A@ e @B@, denotada por @A \cup B@, é o conjunto formado por todos os elementos que pertencem a @A@ ou a @B@ (ou a ambos).</p>
+      @@
+      A \cup B = \{x \mid x \in A \text{ ou } x \in B\}
+      @@
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.2 (Interseção de Conjuntos)</h3>
+      <p>A <strong>interseção</strong> de dois conjuntos @A@ e @B@, denotada por @A \cap B@, é o conjunto formado por todos os elementos que pertencem simultaneamente a @A@ e a @B@.</p>
+      @@
+      A \cap B = \{x \mid x \in A \text{ e } x \in B\}
+      @@
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> Quando @A \cap B = \emptyset@, dizemos que @A@ e @B@ são <strong>conjuntos disjuntos</strong>.
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.3 (Diferença de Conjuntos)</h3>
+      <p>A <strong>diferença</strong> entre os conjuntos @A@ e @B@, denotada por @A - B@ (ou @A \setminus B@), é o conjunto formado pelos elementos que pertencem a @A@ mas não pertencem a @B@.</p>
+      @@
+      A - B = \{x \mid x \in A \text{ e } x \notin B\}
+      @@
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.4 (Complementar)</h3>
+      <p>Dado um conjunto universo @U@ e um conjunto @A \subseteq U@, o <strong>complementar</strong> de @A@ em relação a @U@, denotado por @A^c@ ou @\overline{A}@, é o conjunto:</p>
+      @@
+      A^c = U - A = \{x \in U \mid x \notin A\}
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Propriedades das Operações de Conjuntos)</h3>
+      <p>Sejam @A@, @B@ e @C@ conjuntos quaisquer. Valem as seguintes propriedades:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Comutatividade:</strong> @A \cup B = B \cup A@ e @A \cap B = B \cap A@</li>
+        <li><strong>(ii) Associatividade:</strong> @(A \cup B) \cup C = A \cup (B \cup C)@ e @(A \cap B) \cap C = A \cap (B \cap C)@</li>
+        <li><strong>(iii) Distributividade:</strong> @A \cup (B \cap C) = (A \cup B) \cap (A \cup C)@ e @A \cap (B \cup C) = (A \cap B) \cup (A \cap C)@</li>
+        <li><strong>(iv) Elemento Neutro:</strong> @A \cup \emptyset = A@ e @A \cap U = A@ (sendo @U@ o conjunto universo)</li>
+        <li><strong>(v) Idempotência:</strong> @A \cup A = A@ e @A \cap A = A@</li>
+      </ul>
+    </div>
+
+    <p><strong>Demonstração da Distributividade (iii):</strong></p>
+    <p>Vamos demonstrar que @A \cap (B \cup C) = (A \cap B) \cup (A \cap C)@.</p>
+
+    <p>Seja @x \in A \cap (B \cup C)@. Então:</p>
+    @@
+    \begin{align}
+    x \in A \cap (B \cup C) &\iff x \in A \text{ e } x \in (B \cup C) \\
+    &\iff x \in A \text{ e } (x \in B \text{ ou } x \in C) \\
+    &\iff (x \in A \text{ e } x \in B) \text{ ou } (x \in A \text{ e } x \in C) \\
+    &\iff x \in (A \cap B) \text{ ou } x \in (A \cap C) \\
+    &\iff x \in (A \cap B) \cup (A \cap C)
+    \end{align}
+    @@
+    <p>Portanto, @A \cap (B \cup C) = (A \cap B) \cup (A \cap C)@. @\square@</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Leis de De Morgan)</h3>
+      <p>Sejam @A@ e @B@ subconjuntos de um conjunto universo @U@. Então:</p>
+      @@
+      \begin{align}
+      (A \cup B)^c &= A^c \cap B^c \\
+      (A \cap B)^c &= A^c \cup B^c
+      \end{align}
+      @@
+    </div>
+
+    <p><strong>Demonstração da primeira Lei de De Morgan:</strong></p>
+    <p>Seja @x \in (A \cup B)^c@. Então:</p>
+    @@
+    \begin{align}
+    x \in (A \cup B)^c &\iff x \notin (A \cup B) \\
+    &\iff x \notin A \text{ e } x \notin B \\
+    &\iff x \in A^c \text{ e } x \in B^c \\
+    &\iff x \in A^c \cap B^c
+    \end{align}
+    @@
+    <p>Logo, @(A \cup B)^c = A^c \cap B^c@. @\square@</p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.5 (Produto Cartesiano)</h3>
+      <p>O <strong>produto cartesiano</strong> de dois conjuntos @A@ e @B@, denotado por @A \times B@, é o conjunto de todos os pares ordenados @(a, b)@ onde @a \in A@ e @b \in B@.</p>
+      @@
+      A \times B = \{(a, b) \mid a \in A \text{ e } b \in B\}
+      @@
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> O produto cartesiano não é comutativo. Em geral, @A \times B \neq B \times A@. Por exemplo, se @A = \{1, 2\}@ e @B = \{3\}@, então @A \times B = \{(1,3), (2,3)\}@ e @B \times A = \{(3,1), (3,2)\}@.
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.6 (Conjunto das Partes)</h3>
+      <p>O <strong>conjunto das partes</strong> de um conjunto @A@, denotado por @\mathcal{P}(A)@ ou @2^A@, é o conjunto formado por todos os subconjuntos de @A@, incluindo o conjunto vazio e o próprio @A@.</p>
+      @@
+      \mathcal{P}(A) = \{X \mid X \subseteq A\}
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.3 (Cardinalidade do Conjunto das Partes)</h3>
+      <p>Se um conjunto @A@ possui @n@ elementos, então @\mathcal{P}(A)@ possui @2^n@ elementos.</p>
+      @@
+      |\mathcal{P}(A)| = 2^{|A|}
+      @@
+      <p>onde @|X|@ denota o número de elementos (cardinalidade) do conjunto @X@.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: NÚMERO DE ELEMENTOS E PRINCÍPIO DA INCLUSÃO-EXCLUSÃO
+         =============================================================== -->
+    <h2>3. Número de Elementos e Princípio da Inclusão-Exclusão</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Cardinalidade)</h3>
+      <p>A <strong>cardinalidade</strong> (ou número de elementos) de um conjunto finito @A@, denotada por @|A|@, @n(A)@ ou @\#A@, é a quantidade de elementos distintos que @A@ possui.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Número de Elementos da União de Dois Conjuntos)</h3>
+      <p>Para quaisquer conjuntos finitos @A@ e @B@, temos:</p>
+      @@
+      |A \cup B| = |A| + |B| - |A \cap B|
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Podemos particionar @A \cup B@ em três partes disjuntas:</p>
+    <ul>
+      <li>Elementos que estão apenas em @A@: @A - B@</li>
+      <li>Elementos que estão em ambos: @A \cap B@</li>
+      <li>Elementos que estão apenas em @B@: @B - A@</li>
+    </ul>
+    <p>Assim:</p>
+    @@
+    \begin{align}
+    |A \cup B| &= |A - B| + |A \cap B| + |B - A| \\
+    &= (|A| - |A \cap B|) + |A \cap B| + (|B| - |A \cap B|) \\
+    &= |A| + |B| - |A \cap B|
+    \end{align}
+    @@
+    <p>@\square@</p>
+
+    <div class="destaque-box observacao">
+      <h3>Caso Particular</h3>
+      <p>Se @A@ e @B@ são disjuntos (@A \cap B = \emptyset@), então:</p>
+      @@
+      |A \cup B| = |A| + |B|
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.2 (Princípio da Inclusão-Exclusão para Três Conjuntos)</h3>
+      <p>Para quaisquer conjuntos finitos @A@, @B@ e @C@, temos:</p>
+      @@
+      |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Aplicando o Teorema 3.1 para @A \cup B@ e @C@:</p>
+    @@
+    \begin{align}
+    |A \cup B \cup C| &= |(A \cup B) \cup C| \\
+    &= |A \cup B| + |C| - |(A \cup B) \cap C| \\
+    &= (|A| + |B| - |A \cap B|) + |C| - |(A \cap C) \cup (B \cap C)| \\
+    &= |A| + |B| + |C| - |A \cap B| - (|A \cap C| + |B \cap C| - |(A \cap C) \cap (B \cap C)|) \\
+    &= |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|
+    \end{align}
+    @@
+    <p>@\square@</p>
+
+    <div class="nota">
+      <strong>Observação:</strong> O Princípio da Inclusão-Exclusão pode ser generalizado para @n@ conjuntos. A fórmula geral envolve somar as cardinalidades individuais, subtrair as interseções dois a dois, somar as interseções três a três, e assim alternadamente.
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.3 (Número de Elementos do Produto Cartesiano)</h3>
+      <p>Se @A@ e @B@ são conjuntos finitos, então:</p>
+      @@
+      |A \times B| = |A| \cdot |B|
+      @@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: EXEMPLOS RESOLVIDOS
+         - Mínimo 4-6 exemplos
+         - Progressão de dificuldade
+         - Solução passo a passo detalhada
+         =============================================================== -->
+    <h2>4. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Operações Básicas com Conjuntos</h3>
+      <p><strong>Enunciado:</strong> Dados os conjuntos @A = \{1, 2, 3, 4, 5\}@, @B = \{3, 4, 5, 6, 7\}@ e @C = \{2, 4, 6, 8\}@, determine:</p>
+      <p>(a) @A \cup B@</p>
+      <p>(b) @A \cap B@</p>
+      <p>(c) @A - B@</p>
+      <p>(d) @(A \cup B) \cap C@</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Item (a):</strong> A união contém todos os elementos que pertencem a @A@ ou a @B@:</p>
+      @@
+      A \cup B = \{1, 2, 3, 4, 5, 6, 7\}
+      @@
+
+      <p><strong>Item (b):</strong> A interseção contém apenas os elementos comuns a ambos:</p>
+      @@
+      A \cap B = \{3, 4, 5\}
+      @@
+
+      <p><strong>Item (c):</strong> A diferença contém os elementos de @A@ que não estão em @B@:</p>
+      @@
+      A - B = \{1, 2\}
+      @@
+
+      <p><strong>Item (d):</strong> Primeiro calculamos @A \cup B = \{1, 2, 3, 4, 5, 6, 7\}@, depois interseção com @C@:</p>
+      @@
+      (A \cup B) \cap C = \{2, 4, 6\}
+      @@
+
+      <p><strong>Respostas:</strong> (a) @\{1, 2, 3, 4, 5, 6, 7\}@; (b) @\{3, 4, 5\}@; (c) @\{1, 2\}@; (d) @\{2, 4, 6\}@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Conjunto das Partes</h3>
+      <p><strong>Enunciado:</strong> Determine o conjunto das partes de @A = \{a, b, c\}@ e verifique se @|\mathcal{P}(A)| = 2^{|A|}@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Listar todos os subconjuntos de @A@:</p>
+      <ul>
+        <li>Subconjunto com 0 elementos: @\emptyset@</li>
+        <li>Subconjuntos com 1 elemento: @\{a\}@, @\{b\}@, @\{c\}@</li>
+        <li>Subconjuntos com 2 elementos: @\{a, b\}@, @\{a, c\}@, @\{b, c\}@</li>
+        <li>Subconjunto com 3 elementos: @\{a, b, c\}@</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Reunir todos em @\mathcal{P}(A)@:</p>
+      @@
+      \mathcal{P}(A) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
+      @@
+
+      <p><strong>Passo 3:</strong> Verificar a fórmula:</p>
+      @@
+      |\mathcal{P}(A)| = 8 = 2^3 = 2^{|A|} \quad \checkmark
+      @@
+
+      <p><strong>Resposta:</strong> @\mathcal{P}(A) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}@, com 8 elementos.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - Aplicação do Princípio da Inclusão-Exclusão</h3>
+      <p><strong>Enunciado:</strong> Em uma turma de 40 alunos, 25 praticam futebol, 20 praticam basquete e 10 praticam ambos os esportes. Quantos alunos não praticam nenhum dos dois esportes?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Definir os conjuntos:</p>
+      <ul>
+        <li>@F@: conjunto dos alunos que praticam futebol</li>
+        <li>@B@: conjunto dos alunos que praticam basquete</li>
+        <li>@U@: conjunto universo (todos os 40 alunos)</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Identificar as informações:</p>
+      @@
+      |F| = 25, \quad |B| = 20, \quad |F \cap B| = 10, \quad |U| = 40
+      @@
+
+      <p><strong>Passo 3:</strong> Calcular @|F \cup B|@ usando o Princípio da Inclusão-Exclusão:</p>
+      @@
+      |F \cup B| = |F| + |B| - |F \cap B| = 25 + 20 - 10 = 35
+      @@
+
+      <p><strong>Passo 4:</strong> Calcular o número de alunos que não praticam nenhum esporte:</p>
+      @@
+      |(F \cup B)^c| = |U| - |F \cup B| = 40 - 35 = 5
+      @@
+
+      <p><strong>Resposta:</strong> 5 alunos não praticam nenhum dos dois esportes.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Produto Cartesiano</h3>
+      <p><strong>Enunciado:</strong> Dados @A = \{1, 2\}@ e @B = \{x, y, z\}@, determine @A \times B@, @B \times A@ e verifique que @|A \times B| = |A| \cdot |B|@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Determinar @A \times B@ (pares ordenados com primeiro elemento de @A@ e segundo de @B@):</p>
+      @@
+      A \times B = \{(1,x), (1,y), (1,z), (2,x), (2,y), (2,z)\}
+      @@
+
+      <p><strong>Passo 2:</strong> Determinar @B \times A@ (pares ordenados com primeiro elemento de @B@ e segundo de @A@):</p>
+      @@
+      B \times A = \{(x,1), (x,2), (y,1), (y,2), (z,1), (z,2)\}
+      @@
+
+      <p><strong>Passo 3:</strong> Observar que @A \times B \neq B \times A@ (ordem importa em pares ordenados).</p>
+
+      <p><strong>Passo 4:</strong> Verificar a fórmula:</p>
+      @@
+      |A \times B| = 6 = 2 \times 3 = |A| \times |B| \quad \checkmark
+      @@
+
+      <p><strong>Resposta:</strong> @A \times B@ possui 6 elementos listados acima, e @B \times A@ também possui 6 elementos (diferentes).</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Leis de De Morgan</h3>
+      <p><strong>Enunciado:</strong> Dado o conjunto universo @U = \{1, 2, 3, 4, 5, 6, 7, 8\}@, @A = \{2, 4, 6, 8\}@ e @B = \{1, 2, 3, 4\}@, verifique numericamente que @(A \cup B)^c = A^c \cap B^c@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Calcular @A \cup B@:</p>
+      @@
+      A \cup B = \{1, 2, 3, 4, 6, 8\}
+      @@
+
+      <p><strong>Passo 2:</strong> Calcular @(A \cup B)^c@:</p>
+      @@
+      (A \cup B)^c = U - (A \cup B) = \{5, 7\}
+      @@
+
+      <p><strong>Passo 3:</strong> Calcular @A^c@ e @B^c@:</p>
+      @@
+      \begin{align}
+      A^c &= U - A = \{1, 3, 5, 7\} \\
+      B^c &= U - B = \{5, 6, 7, 8\}
+      \end{align}
+      @@
+
+      <p><strong>Passo 4:</strong> Calcular @A^c \cap B^c@:</p>
+      @@
+      A^c \cap B^c = \{5, 7\}
+      @@
+
+      <p><strong>Passo 5:</strong> Verificar a igualdade:</p>
+      @@
+      (A \cup B)^c = \{5, 7\} = A^c \cap B^c \quad \checkmark
+      @@
+
+      <p><strong>Resposta:</strong> A Lei de De Morgan é verificada: @(A \cup B)^c = A^c \cap B^c = \{5, 7\}@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Princípio da Inclusão-Exclusão para Três Conjuntos</h3>
+      <p><strong>Enunciado:</strong> Em uma pesquisa com 100 pessoas sobre preferências de três esportes (Futebol, Vôlei e Natação), obteve-se:</p>
+      <ul>
+        <li>60 gostam de Futebol</li>
+        <li>50 gostam de Vôlei</li>
+        <li>40 gostam de Natação</li>
+        <li>30 gostam de Futebol e Vôlei</li>
+        <li>25 gostam de Futebol e Natação</li>
+        <li>20 gostam de Vôlei e Natação</li>
+        <li>15 gostam dos três esportes</li>
+      </ul>
+      <p>Quantas pessoas não gostam de nenhum desses esportes?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Definir os conjuntos e dados:</p>
+      @@
+      \begin{align}
+      |F| &= 60, \quad |V| = 50, \quad |N| = 40 \\
+      |F \cap V| &= 30, \quad |F \cap N| = 25, \quad |V \cap N| = 20 \\
+      |F \cap V \cap N| &= 15
+      \end{align}
+      @@
+
+      <p><strong>Passo 2:</strong> Aplicar o Princípio da Inclusão-Exclusão:</p>
+      @@
+      \begin{align}
+      |F \cup V \cup N| &= |F| + |V| + |N| - |F \cap V| - |F \cap N| - |V \cap N| + |F \cap V \cap N| \\
+      &= 60 + 50 + 40 - 30 - 25 - 20 + 15 \\
+      &= 150 - 75 + 15 \\
+      &= 90
+      \end{align}
+      @@
+
+      <p><strong>Passo 3:</strong> Calcular pessoas que não gostam de nenhum esporte:</p>
+      @@
+      100 - 90 = 10
+      @@
+
+      <p><strong>Resposta:</strong> 10 pessoas não gostam de nenhum desses três esportes.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: EXERCÍCIOS PROPOSTOS
+         - 10-15 exercícios variados
+         - Progressão de dificuldade
+         - Respostas em comentário HTML
+         =============================================================== -->
+    <h2>5. Exercícios</h2>
+
+    <ol>
+      <li>Dados @A = \{0, 1, 2, 3\}@ e @B = \{2, 3, 4, 5\}@, determine:
+        <ol type="a">
+          <li>@A \cup B@</li>
+          <li>@A \cap B@</li>
+          <li>@A - B@</li>
+          <li>@B - A@</li>
+        </ol>
+      </li>
+
+      <li>Classifique como verdadeiro (V) ou falso (F):
+        <ol type="a">
+          <li>@\{1\} \in \{1, 2, 3\}@</li>
+          <li>@1 \in \{1, 2, 3\}@</li>
+          <li>@\{1\} \subseteq \{1, 2, 3\}@</li>
+          <li>@\emptyset \subseteq \{1, 2\}@</li>
+          <li>@\emptyset \in \{\emptyset, 1, 2\}@</li>
+        </ol>
+      </li>
+
+      <li>Determine o conjunto das partes de @B = \{x, y\}@. Quantos elementos possui @\mathcal{P}(B)@?</li>
+
+      <li>Sejam @A = \{x \in \mathbb{Z} \mid -3 \leq x < 4\}@ e @B = \{x \in \mathbb{N} \mid x < 6\}@. Escreva @A@ e @B@ por extensão e determine @A \cap B@.</li>
+
+      <li>Em uma escola com 200 alunos, 120 estudam Inglês e 80 estudam Espanhol. Se 50 alunos estudam ambas as línguas, quantos alunos não estudam nenhuma dessas duas línguas?</li>
+
+      <li>Dado o conjunto universo @U = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}@, @A = \{2, 4, 6, 8, 10\}@ e @B = \{1, 3, 5, 7, 9\}@, determine @A^c@, @B^c@ e @(A \cap B)^c@.</li>
+
+      <li>Dados @A = \{a, b\}@ e @B = \{1, 2, 3\}@, determine @A \times B@ e @B \times A@. Quantos elementos possui cada produto cartesiano?</li>
+
+      <li>Mostre que @A \subseteq A \cup B@ para quaisquer conjuntos @A@ e @B@.</li>
+
+      <li>Verifique numericamente a Lei de De Morgan @(A \cap B)^c = A^c \cup B^c@ para @U = \{1, 2, 3, 4, 5\}@, @A = \{1, 2, 3\}@ e @B = \{2, 3, 4\}@.</li>
+
+      <li>Um conjunto @A@ possui 5 elementos. Quantos subconjuntos possui @A@? Quantos desses subconjuntos possuem exatamente 3 elementos?</li>
+
+      <li>Sejam @A@, @B@ e @C@ conjuntos tais que @|A| = 20@, @|B| = 15@, @|C| = 25@, @|A \cap B| = 8@, @|A \cap C| = 10@, @|B \cap C| = 5@ e @|A \cap B \cap C| = 3@. Determine @|A \cup B \cup C|@.</li>
+
+      <li>Se @A \subseteq B@ e @B \subseteq C@, prove que @A \subseteq C@ (propriedade transitiva da inclusão).</li>
+
+      <li>Determine todos os subconjuntos de @\mathbb{N}@ que contêm exatamente os números 1 e 2, e nenhum outro número natural menor que 5.</li>
+
+      <li>Em uma pesquisa sobre três marcas de refrigerante (A, B e C), verificou-se que: 100 pessoas consomem A, 80 consomem B, 60 consomem C, 30 consomem A e B, 25 consomem A e C, 20 consomem B e C, e 10 consomem as três marcas. Se foram entrevistadas 200 pessoas, quantas não consomem nenhuma dessas marcas?</li>
+
+      <li>Prove que @A - B = A \cap B^c@ para quaisquer conjuntos @A@ e @B@ contidos em um universo @U@.</li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+    1. (a) {0,1,2,3,4,5}; (b) {2,3}; (c) {0,1}; (d) {4,5}
+
+    2. (a) F (correto seria 1 ∈ {1,2,3}); (b) V; (c) V; (d) V; (e) V
+
+    3. P(B) = {∅, {x}, {y}, {x,y}}; possui 4 elementos (2² = 4)
+
+    4. A = {-3,-2,-1,0,1,2,3}, B = {0,1,2,3,4,5}; A ∩ B = {0,1,2,3}
+
+    5. |I ∪ E| = 120 + 80 - 50 = 150; não estudam nenhuma = 200 - 150 = 50 alunos
+
+    6. A^c = {1,3,5,7,9}, B^c = {2,4,6,8,10}, (A ∩ B)^c = U (pois A ∩ B = ∅)
+
+    7. A × B = {(a,1),(a,2),(a,3),(b,1),(b,2),(b,3)}, 6 elementos
+       B × A = {(1,a),(1,b),(2,a),(2,b),(3,a),(3,b)}, 6 elementos
+
+    8. Demonstração: Se x ∈ A, então x ∈ A ou x ∈ B, logo x ∈ A ∪ B. Portanto A ⊆ A ∪ B.
+
+    9. A ∩ B = {2,3}, (A ∩ B)^c = {1,4,5}
+       A^c = {4,5}, B^c = {1,5}
+       A^c ∪ B^c = {1,4,5} = (A ∩ B)^c ✓
+
+    10. Número de subconjuntos = 2⁵ = 32; subconjuntos com 3 elementos = C(5,3) = 10
+
+    11. |A ∪ B ∪ C| = 20 + 15 + 25 - 8 - 10 - 5 + 3 = 40
+
+    12. Demonstração: Seja x ∈ A. Como A ⊆ B, temos x ∈ B. Como B ⊆ C, temos x ∈ C. Logo A ⊆ C.
+
+    13. {1, 2}, {1, 2, 5}, {1, 2, 6}, {1, 2, 7}, ... (infinitos conjuntos)
+        Se limitado aos menores que 5: apenas {1, 2}
+
+    14. |A ∪ B ∪ C| = 100 + 80 + 60 - 30 - 25 - 20 + 10 = 175
+        Não consomem nenhuma = 200 - 175 = 25 pessoas
+
+    15. Demonstração: x ∈ A - B ⟺ x ∈ A e x ∉ B ⟺ x ∈ A e x ∈ B^c ⟺ x ∈ A ∩ B^c
+        Portanto A - B = A ∩ B^c.
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lógica Matemática</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+
+    /* Estilos para tabelas-verdade */
+    .tabela-verdade {
+      margin: 1.5rem auto;
+      border-collapse: collapse;
+      background-color: rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+    }
+
+    .tabela-verdade th,
+    .tabela-verdade td {
+      border: 1px solid var(--secondary-text-color);
+      padding: 0.8rem 1.2rem;
+      text-align: center;
+    }
+
+    .tabela-verdade th {
+      background-color: rgba(0, 0, 0, 0.3);
+      color: var(--heading-text-color);
+      font-weight: bold;
+    }
+
+    .tabela-verdade tr:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>Lógica Matemática</h1>
+
+    <p>A <strong>lógica matemática</strong> é o ramo da matemática que estuda os princípios e métodos do raciocínio válido. Ela fornece as ferramentas para analisar argumentos, construir demonstrações rigorosas e compreender a estrutura do pensamento matemático. Neste resumo, estudaremos os conceitos fundamentais de proposições, conectivos lógicos, tabelas-verdade e as leis que governam o raciocínio lógico.</p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: CONCEITOS FUNDAMENTAIS
+         =============================================================== -->
+    <h2>1. Conceitos Fundamentais</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Proposição)</h3>
+      <p>Uma <strong>proposição</strong> é uma sentença declarativa que pode ser classificada como <strong>verdadeira</strong> (V) ou <strong>falsa</strong> (F), mas não ambas simultaneamente.</p>
+    </div>
+
+    <p><strong>Exemplos de proposições:</strong></p>
+    <ul>
+      <li>@p@: "5 é um número ímpar" (proposição <strong>verdadeira</strong>)</li>
+      <li>@q@: "2 + 3 = 6" (proposição <strong>falsa</strong>)</li>
+      <li>@r@: "O triângulo equilátero possui três lados congruentes" (proposição <strong>verdadeira</strong>)</li>
+      <li>@s@: "Brasília é a capital do Brasil" (proposição <strong>verdadeira</strong>)</li>
+    </ul>
+
+    <p><strong>Exemplos de sentenças que NÃO são proposições:</strong></p>
+    <ul>
+      <li>"Que horas são?" (pergunta)</li>
+      <li>"Feche a porta!" (ordem)</li>
+      <li>"@x + 3 = 7@" (sentença aberta, depende do valor de @x@)</li>
+      <li>"Este número é grande" (subjetivo, não pode ser classificado objetivamente como V ou F)</li>
+    </ul>
+
+    <div class="nota">
+      <strong>Observação:</strong> Proposições são geralmente representadas por letras minúsculas: @p@, @q@, @r@, @s@, etc. O <strong>valor lógico</strong> de uma proposição é V (verdadeiro) ou F (falso).
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Proposição Simples e Composta)</h3>
+      <p>Uma <strong>proposição simples</strong> (ou atômica) é aquela que não pode ser decomposta em proposições mais simples. Uma <strong>proposição composta</strong> (ou molecular) é formada pela combinação de duas ou mais proposições simples através de conectivos lógicos.</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li><strong>Simples:</strong> @p@: "7 é um número primo"</li>
+      <li><strong>Composta:</strong> @p \land q@: "7 é um número primo <strong>e</strong> 8 é par"</li>
+      <li><strong>Composta:</strong> @r \lor s@: "Está chovendo <strong>ou</strong> está fazendo sol"</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Conectivos Lógicos)</h3>
+      <p>Os <strong>conectivos lógicos</strong> são operadores que permitem formar proposições compostas a partir de proposições simples. Os principais conectivos são:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Negação</strong> (@\neg@ ou @\sim@): "não"</li>
+        <li><strong>(ii) Conjunção</strong> (@\land@ ou @\wedge@): "e"</li>
+        <li><strong>(iii) Disjunção</strong> (@\lor@ ou @\vee@): "ou"</li>
+        <li><strong>(iv) Condicional</strong> (@\rightarrow@ ou @\Rightarrow@): "se... então"</li>
+        <li><strong>(v) Bicondicional</strong> (@\leftrightarrow@ ou @\Leftrightarrow@): "... se e somente se..."</li>
+      </ul>
+    </div>
+
+    <div class="nota">
+      <strong>Notação alternativa:</strong> Alguns autores usam símbolos diferentes: @\sim p@ ou @\overline{p}@ para negação, @p \cdot q@ para conjunção, @p + q@ para disjunção. Neste material, usaremos @\neg@, @\land@, @\lor@, @\rightarrow@ e @\leftrightarrow@.
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: CONECTIVOS LÓGICOS E TABELAS-VERDADE
+         =============================================================== -->
+    <h2>2. Conectivos Lógicos e Tabelas-Verdade</h2>
+
+    <p>A <strong>tabela-verdade</strong> de uma proposição composta lista todos os possíveis valores lógicos (V ou F) das proposições simples que a compõem e o valor lógico resultante da proposição composta.</p>
+
+    <h3>2.1. Negação (@\neg p@)</h3>
+
+    <div class="destaque-box teorema">
+      <h3>Definição 2.1 (Negação)</h3>
+      <p>Dada uma proposição @p@, a <strong>negação</strong> de @p@, denotada por @\neg p@ (lê-se "não @p@"), é a proposição que tem valor lógico <strong>oposto</strong> ao de @p@.</p>
+    </div>
+
+    <p><strong>Tabela-verdade da negação:</strong></p>
+    <table class="tabela-verdade">
+      <thead>
+        <tr>
+          <th>@p@</th>
+          <th>@\neg p@</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>V</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>V</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>Se @p@: "5 é par", então @\neg p@: "5 não é par" ou "5 é ímpar"</li>
+      <li>Se @q@: "Está chovendo", então @\neg q@: "Não está chovendo"</li>
+    </ul>
+
+    <h3>2.2. Conjunção (@p \land q@)</h3>
+
+    <div class="destaque-box teorema">
+      <h3>Definição 2.2 (Conjunção)</h3>
+      <p>Dadas as proposições @p@ e @q@, a <strong>conjunção</strong> de @p@ e @q@, denotada por @p \land q@ (lê-se "@p@ e @q@"), é a proposição composta que é <strong>verdadeira</strong> se e somente se <strong>ambas</strong> @p@ e @q@ forem verdadeiras.</p>
+    </div>
+
+    <p><strong>Tabela-verdade da conjunção:</strong></p>
+    <table class="tabela-verdade">
+      <thead>
+        <tr>
+          <th>@p@</th>
+          <th>@q@</th>
+          <th>@p \land q@</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>V</td>
+          <td>V</td>
+          <td>V</td>
+        </tr>
+        <tr>
+          <td>V</td>
+          <td>F</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>V</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>F</td>
+          <td>F</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Exemplo:</strong> @p@: "7 é ímpar" (V) e @q@: "8 é par" (V). Logo, @p \land q@: "7 é ímpar e 8 é par" é <strong>verdadeira</strong>.</p>
+
+    <h3>2.3. Disjunção (@p \lor q@)</h3>
+
+    <div class="destaque-box teorema">
+      <h3>Definição 2.3 (Disjunção)</h3>
+      <p>Dadas as proposições @p@ e @q@, a <strong>disjunção</strong> de @p@ e @q@, denotada por @p \lor q@ (lê-se "@p@ ou @q@"), é a proposição composta que é <strong>verdadeira</strong> se <strong>pelo menos uma</strong> das proposições @p@ ou @q@ for verdadeira.</p>
+    </div>
+
+    <p><strong>Tabela-verdade da disjunção:</strong></p>
+    <table class="tabela-verdade">
+      <thead>
+        <tr>
+          <th>@p@</th>
+          <th>@q@</th>
+          <th>@p \lor q@</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>V</td>
+          <td>V</td>
+          <td>V</td>
+        </tr>
+        <tr>
+          <td>V</td>
+          <td>F</td>
+          <td>V</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>V</td>
+          <td>V</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>F</td>
+          <td>F</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Exemplo:</strong> @p@: "3 é primo" (V) e @q@: "4 é primo" (F). Logo, @p \lor q@: "3 é primo ou 4 é primo" é <strong>verdadeira</strong>.</p>
+
+    <div class="nota">
+      <strong>Observação:</strong> A disjunção matemática é <strong>inclusiva</strong>: @p \lor q@ é verdadeira quando pelo menos uma das proposições é verdadeira, podendo ambas serem verdadeiras simultaneamente.
+    </div>
+
+    <h3>2.4. Condicional (@p \rightarrow q@)</h3>
+
+    <div class="destaque-box teorema">
+      <h3>Definição 2.4 (Condicional)</h3>
+      <p>Dadas as proposições @p@ e @q@, a <strong>condicional</strong> (ou implicação) de @p@ para @q@, denotada por @p \rightarrow q@ (lê-se "se @p@, então @q@"), é a proposição composta que é <strong>falsa</strong> apenas quando @p@ é verdadeira e @q@ é falsa. Em @p \rightarrow q@, @p@ é chamada de <strong>antecedente</strong> (ou hipótese) e @q@ de <strong>consequente</strong> (ou tese).</p>
+    </div>
+
+    <p><strong>Tabela-verdade da condicional:</strong></p>
+    <table class="tabela-verdade">
+      <thead>
+        <tr>
+          <th>@p@</th>
+          <th>@q@</th>
+          <th>@p \rightarrow q@</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>V</td>
+          <td>V</td>
+          <td>V</td>
+        </tr>
+        <tr>
+          <td>V</td>
+          <td>F</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>V</td>
+          <td>V</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>F</td>
+          <td>V</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Exemplo:</strong> @p@: "2 + 2 = 4" (V) e @q@: "5 > 3" (V). Logo, @p \rightarrow q@: "Se 2 + 2 = 4, então 5 > 3" é <strong>verdadeira</strong>.</p>
+
+    <div class="nota">
+      <strong>Importante:</strong> A condicional @p \rightarrow q@ é sempre verdadeira quando o antecedente @p@ é falso, independentemente do valor de @q@. Isso pode parecer estranho inicialmente, mas é uma convenção fundamental da lógica matemática.
+    </div>
+
+    <h3>2.5. Bicondicional (@p \leftrightarrow q@)</h3>
+
+    <div class="destaque-box teorema">
+      <h3>Definição 2.5 (Bicondicional)</h3>
+      <p>Dadas as proposições @p@ e @q@, a <strong>bicondicional</strong> de @p@ e @q@, denotada por @p \leftrightarrow q@ (lê-se "@p@ se e somente se @q@"), é a proposição composta que é <strong>verdadeira</strong> quando @p@ e @q@ têm o <strong>mesmo valor lógico</strong> (ambas verdadeiras ou ambas falsas).</p>
+    </div>
+
+    <p><strong>Tabela-verdade da bicondicional:</strong></p>
+    <table class="tabela-verdade">
+      <thead>
+        <tr>
+          <th>@p@</th>
+          <th>@q@</th>
+          <th>@p \leftrightarrow q@</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>V</td>
+          <td>V</td>
+          <td>V</td>
+        </tr>
+        <tr>
+          <td>V</td>
+          <td>F</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>V</td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td>F</td>
+          <td>F</td>
+          <td>V</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="destaque-box observacao">
+      <h3>Observação 2.1</h3>
+      <p>A bicondicional @p \leftrightarrow q@ é equivalente à conjunção de duas condicionais: @(p \rightarrow q) \land (q \rightarrow p)@. Ou seja:</p>
+      @@
+      p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)
+      @@
+    </div>
+
+    <h3>2.6. Tautologia, Contradição e Contingência</h3>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.6 (Tautologia, Contradição e Contingência)</h3>
+      <p>Uma proposição composta é chamada de:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Tautologia:</strong> se seu valor lógico é sempre <strong>verdadeiro</strong>, independentemente dos valores lógicos das proposições simples que a compõem.</li>
+        <li><strong>(ii) Contradição:</strong> se seu valor lógico é sempre <strong>falso</strong>, independentemente dos valores lógicos das proposições simples que a compõem.</li>
+        <li><strong>(iii) Contingência:</strong> se ela não é tautologia nem contradição (ou seja, seu valor lógico varia dependendo dos valores das proposições simples).</li>
+      </ul>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li><strong>Tautologia:</strong> @p \lor \neg p@ ("@p@ ou não @p@")</li>
+      <li><strong>Contradição:</strong> @p \land \neg p@ ("@p@ e não @p@")</li>
+      <li><strong>Contingência:</strong> @p \land q@ (depende dos valores de @p@ e @q@)</li>
+    </ul>
+
+    <!-- ===============================================================
+         SEÇÃO 3: PROPRIEDADES E EQUIVALÊNCIAS LÓGICAS
+         =============================================================== -->
+    <h2>3. Propriedades e Equivalências Lógicas</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Propriedades dos Conectivos Lógicos)</h3>
+      <p>Sejam @p@, @q@ e @r@ proposições quaisquer. Valem as seguintes propriedades:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Idempotência:</strong>
+          @@p \land p \equiv p \quad \text{e} \quad p \lor p \equiv p@@
+        </li>
+        <li><strong>(ii) Comutatividade:</strong>
+          @@p \land q \equiv q \land p \quad \text{e} \quad p \lor q \equiv q \lor p@@
+        </li>
+        <li><strong>(iii) Associatividade:</strong>
+          @@(p \land q) \land r \equiv p \land (q \land r)@@
+          @@(p \lor q) \lor r \equiv p \lor (q \lor r)@@
+        </li>
+        <li><strong>(iv) Distributividade:</strong>
+          @@p \land (q \lor r) \equiv (p \land q) \lor (p \land r)@@
+          @@p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)@@
+        </li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.2 (Leis de De Morgan)</h3>
+      <p>Para quaisquer proposições @p@ e @q@, valem as <strong>Leis de De Morgan</strong>:</p>
+      @@
+      \neg (p \land q) \equiv \neg p \lor \neg q
+      @@
+      @@
+      \neg (p \lor q) \equiv \neg p \land \neg q
+      @@
+    </div>
+
+    <p><strong>Interpretação:</strong> A negação de uma conjunção é a disjunção das negações. A negação de uma disjunção é a conjunção das negações.</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.3 (Dupla Negação)</h3>
+      <p>Para qualquer proposição @p@, vale:</p>
+      @@
+      \neg (\neg p) \equiv p
+      @@
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Observação 3.1 (Negação da Condicional)</h3>
+      <p>A negação de @p \rightarrow q@ é dada por:</p>
+      @@
+      \neg (p \rightarrow q) \equiv p \land \neg q
+      @@
+      <p>Ou seja, a condicional "se @p@, então @q@" é falsa apenas quando @p@ é verdadeira e @q@ é falsa.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>4. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Identificação de Proposições</h3>
+      <p><strong>Enunciado:</strong> Identifique quais das sentenças abaixo são proposições e determine seu valor lógico (quando aplicável):</p>
+      <ol type="a">
+        <li>@2^3 = 8@</li>
+        <li>"Estude matemática!"</li>
+        <li>@\pi > 3@</li>
+        <li>"@x - 5 = 0@"</li>
+        <li>"Existem infinitos números primos"</li>
+      </ol>
+
+      <h4>Solução:</h4>
+      <p><strong>a)</strong> @2^3 = 8@ é uma <strong>proposição verdadeira</strong> (pois @2^3 = 8@ é uma afirmação que pode ser verificada como verdadeira).</p>
+
+      <p><strong>b)</strong> "Estude matemática!" <strong>não é proposição</strong> (é uma ordem, não uma declaração que possa ser classificada como V ou F).</p>
+
+      <p><strong>c)</strong> @\pi > 3@ é uma <strong>proposição verdadeira</strong> (pois @\pi \approx 3.14159...@, que é maior que 3).</p>
+
+      <p><strong>d)</strong> "@x - 5 = 0@" <strong>não é proposição</strong> (é uma sentença aberta; seu valor lógico depende do valor atribuído a @x@).</p>
+
+      <p><strong>e)</strong> "Existem infinitos números primos" é uma <strong>proposição verdadeira</strong> (teorema provado por Euclides).</p>
+
+      <p><strong>Resposta:</strong> São proposições: (a) verdadeira, (c) verdadeira, (e) verdadeira. Não são proposições: (b) e (d).</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Negação de Proposições</h3>
+      <p><strong>Enunciado:</strong> Escreva a negação das seguintes proposições:</p>
+      <ol type="a">
+        <li>@p@: "10 é um número par"</li>
+        <li>@q@: "Todos os triângulos têm três lados"</li>
+        <li>@r@: "Existe um número primo par"</li>
+      </ol>
+
+      <h4>Solução:</h4>
+      <p><strong>a)</strong> @\neg p@: "10 não é um número par" ou equivalentemente "10 é um número ímpar"</p>
+
+      <p><strong>b)</strong> @\neg q@: "Nem todos os triângulos têm três lados" ou "Existe pelo menos um triângulo que não tem três lados"</p>
+
+      <p><strong>c)</strong> @\neg r@: "Não existe um número primo par" ou "Todo número primo é ímpar"</p>
+
+      <div class="nota">
+        <strong>Observação:</strong> Note que a negação de "todos" é "existe pelo menos um que não", e a negação de "existe" é "não existe" ou "nenhum".
+      </div>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - Tabela-Verdade de Proposição Composta</h3>
+      <p><strong>Enunciado:</strong> Construa a tabela-verdade da proposição composta @(p \land q) \lor \neg p@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificamos que há duas proposições simples (@p@ e @q@), logo teremos @2^2 = 4@ linhas na tabela.</p>
+
+      <p><strong>Passo 2:</strong> Listamos todas as combinações de valores lógicos para @p@ e @q@:</p>
+
+      <table class="tabela-verdade">
+        <thead>
+          <tr>
+            <th>@p@</th>
+            <th>@q@</th>
+            <th>@p \land q@</th>
+            <th>@\neg p@</th>
+            <th>@(p \land q) \lor \neg p@</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>V</td>
+            <td>V</td>
+            <td>V</td>
+            <td>F</td>
+            <td>V</td>
+          </tr>
+          <tr>
+            <td>V</td>
+            <td>F</td>
+            <td>F</td>
+            <td>F</td>
+            <td>F</td>
+          </tr>
+          <tr>
+            <td>F</td>
+            <td>V</td>
+            <td>F</td>
+            <td>V</td>
+            <td>V</td>
+          </tr>
+          <tr>
+            <td>F</td>
+            <td>F</td>
+            <td>F</td>
+            <td>V</td>
+            <td>V</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Passo 3:</strong> Preenchemos as colunas auxiliares (@p \land q@ e @\neg p@) e depois a coluna final.</p>
+
+      <p><strong>Resposta:</strong> A proposição @(p \land q) \lor \neg p@ é verdadeira em 3 das 4 possibilidades (é uma <strong>contingência</strong>).</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Verificação de Tautologia</h3>
+      <p><strong>Enunciado:</strong> Verifique se a proposição @(p \rightarrow q) \leftrightarrow (\neg p \lor q)@ é uma tautologia.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Construímos a tabela-verdade completa:</p>
+
+      <table class="tabela-verdade">
+        <thead>
+          <tr>
+            <th>@p@</th>
+            <th>@q@</th>
+            <th>@p \rightarrow q@</th>
+            <th>@\neg p@</th>
+            <th>@\neg p \lor q@</th>
+            <th>@(p \rightarrow q) \leftrightarrow (\neg p \lor q)@</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>V</td>
+            <td>V</td>
+            <td>V</td>
+            <td>F</td>
+            <td>V</td>
+            <td>V</td>
+          </tr>
+          <tr>
+            <td>V</td>
+            <td>F</td>
+            <td>F</td>
+            <td>F</td>
+            <td>F</td>
+            <td>V</td>
+          </tr>
+          <tr>
+            <td>F</td>
+            <td>V</td>
+            <td>V</td>
+            <td>V</td>
+            <td>V</td>
+            <td>V</td>
+          </tr>
+          <tr>
+            <td>F</td>
+            <td>F</td>
+            <td>V</td>
+            <td>V</td>
+            <td>V</td>
+            <td>V</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Passo 2:</strong> Observamos que a última coluna possui apenas valores V (verdadeiro).</p>
+
+      <p><strong>Resposta:</strong> A proposição @(p \rightarrow q) \leftrightarrow (\neg p \lor q)@ é uma <strong>tautologia</strong>. Isso significa que a condicional @p \rightarrow q@ é logicamente equivalente à disjunção @\neg p \lor q@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Aplicação das Leis de De Morgan</h3>
+      <p><strong>Enunciado:</strong> Simplifique a proposição @\neg ((p \land q) \lor (r \land s))@ usando as Leis de De Morgan.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Aplicamos a Lei de De Morgan para a negação da disjunção:</p>
+      @@
+      \neg ((p \land q) \lor (r \land s)) \equiv \neg (p \land q) \land \neg (r \land s)
+      @@
+
+      <p><strong>Passo 2:</strong> Aplicamos novamente De Morgan em cada termo:</p>
+      @@
+      \neg (p \land q) \equiv \neg p \lor \neg q
+      @@
+      @@
+      \neg (r \land s) \equiv \neg r \lor \neg s
+      @@
+
+      <p><strong>Passo 3:</strong> Substituímos na expressão do Passo 1:</p>
+      @@
+      (\neg p \lor \neg q) \land (\neg r \lor \neg s)
+      @@
+
+      <p><strong>Resposta:</strong> A forma simplificada é @(\neg p \lor \neg q) \land (\neg r \lor \neg s)@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Análise de Argumento Lógico</h3>
+      <p><strong>Enunciado:</strong> Considere o argumento:</p>
+      <ul>
+        <li><strong>Premissa 1:</strong> Se chove, então a rua fica molhada. (@p \rightarrow q@)</li>
+        <li><strong>Premissa 2:</strong> A rua está molhada. (@q@)</li>
+        <li><strong>Conclusão:</strong> Portanto, choveu. (@p@)</li>
+      </ul>
+      <p>Este argumento é válido?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Analisamos a estrutura lógica do argumento. Temos as premissas @p \rightarrow q@ e @q@, e a conclusão @p@.</p>
+
+      <p><strong>Passo 2:</strong> Construímos a tabela-verdade para verificar se sempre que as premissas são verdadeiras, a conclusão também é:</p>
+
+      <table class="tabela-verdade">
+        <thead>
+          <tr>
+            <th>@p@</th>
+            <th>@q@</th>
+            <th>@p \rightarrow q@</th>
+            <th>Premissas verdadeiras?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>V</td>
+            <td>V</td>
+            <td>V</td>
+            <td>Sim (ambas V)</td>
+          </tr>
+          <tr>
+            <td>V</td>
+            <td>F</td>
+            <td>F</td>
+            <td>Não</td>
+          </tr>
+          <tr>
+            <td>F</td>
+            <td>V</td>
+            <td>V</td>
+            <td>Sim (ambas V)</td>
+          </tr>
+          <tr>
+            <td>F</td>
+            <td>F</td>
+            <td>V</td>
+            <td>Não (@q@ é F)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Passo 3:</strong> Observamos que quando ambas as premissas são verdadeiras (linhas 1 e 3), a conclusão @p@ pode ser V (linha 1) ou F (linha 3).</p>
+
+      <p><strong>Resposta:</strong> O argumento <strong>NÃO é válido</strong>. Este é um erro lógico conhecido como <strong>falácia da afirmação do consequente</strong>. A rua pode estar molhada por outros motivos além da chuva (ex: alguém lavou a rua).</p>
+
+      <div class="nota">
+        <strong>Importante:</strong> Um argumento válido deve ter a propriedade de que sempre que as premissas forem verdadeiras, a conclusão também será verdadeira. Aqui, há um caso (linha 3) onde as premissas são verdadeiras mas a conclusão é falsa.
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: EXERCÍCIOS PROPOSTOS
+         =============================================================== -->
+    <h2>5. Exercícios</h2>
+
+    <ol>
+      <li>Identifique quais das sentenças são proposições e determine seu valor lógico:
+        <ol type="a">
+          <li>@3 + 5 = 8@</li>
+          <li>"Qual é o seu nome?"</li>
+          <li>"A soma dos ângulos internos de um triângulo é @180°@"</li>
+          <li>"@2x + 3 = 7@"</li>
+          <li>"@\sqrt{9} = 3@"</li>
+        </ol>
+      </li>
+
+      <li>Escreva a negação das seguintes proposições:
+        <ol type="a">
+          <li>@p@: "15 é divisível por 3"</li>
+          <li>@q@: "Existe um número natural menor que 1"</li>
+          <li>@r@: "Todos os mamíferos são terrestres"</li>
+        </ol>
+      </li>
+
+      <li>Dadas as proposições @p@: "6 é par" (V) e @q@: "5 é primo" (V), determine o valor lógico de:
+        <ol type="a">
+          <li>@p \land q@</li>
+          <li>@p \lor \neg q@</li>
+          <li>@\neg p \rightarrow q@</li>
+          <li>@p \leftrightarrow q@</li>
+        </ol>
+      </li>
+
+      <li>Construa a tabela-verdade das seguintes proposições compostas:
+        <ol type="a">
+          <li>@\neg (p \lor q)@</li>
+          <li>@(p \land q) \rightarrow r@</li>
+          <li>@(p \rightarrow q) \land (q \rightarrow p)@</li>
+        </ol>
+      </li>
+
+      <li>Verifique se as proposições abaixo são tautologias, contradições ou contingências:
+        <ol type="a">
+          <li>@p \land \neg p@</li>
+          <li>@p \lor \neg p@</li>
+          <li>@(p \rightarrow q) \lor (q \rightarrow p)@</li>
+          <li>@(p \land q) \land \neg (p \lor q)@</li>
+        </ol>
+      </li>
+
+      <li>Simplifique usando as Leis de De Morgan:
+        <ol type="a">
+          <li>@\neg (p \land \neg q)@</li>
+          <li>@\neg (\neg p \lor q)@</li>
+          <li>@\neg ((p \lor q) \land (r \lor s))@</li>
+        </ol>
+      </li>
+
+      <li>Mostre, usando tabelas-verdade, que @p \rightarrow q \equiv \neg p \lor q@.</li>
+
+      <li>Determine a negação da condicional @p \rightarrow q@ e verifique sua resposta com uma tabela-verdade.</li>
+
+      <li>Traduza para a linguagem simbólica:
+        <ol type="a">
+          <li>"Se estudo, então passo na prova"</li>
+          <li>"Não é verdade que chove e faz sol simultaneamente"</li>
+          <li>"João vai ao cinema se e somente se Maria vai"</li>
+        </ol>
+      </li>
+
+      <li>Analise a validade do argumento:
+        <ul>
+          <li><strong>Premissa 1:</strong> Se @x@ é divisível por 4, então @x@ é par.</li>
+          <li><strong>Premissa 2:</strong> @x@ é divisível por 4.</li>
+          <li><strong>Conclusão:</strong> @x@ é par.</li>
+        </ul>
+      </li>
+
+      <li>Mostre que @\neg (p \leftrightarrow q) \equiv (p \land \neg q) \lor (\neg p \land q)@.</li>
+
+      <li>Sejam @p@, @q@ e @r@ proposições. Verifique se @(p \lor q) \land r \equiv (p \land r) \lor (q \land r)@.</li>
+
+      <li>Determine todos os valores lógicos de @p@ e @q@ que tornam a proposição @(p \rightarrow q) \land \neg q@ verdadeira.</li>
+
+      <li>Uma empresa de logística afirma: "Se o pacote sai hoje, então chega amanhã". O pacote não chegou amanhã. O que podemos concluir sobre o pacote ter saído hoje?</li>
+
+      <li>Desafio: Prove, usando equivalências lógicas (sem tabela-verdade), que:
+        @@(p \rightarrow q) \land (p \rightarrow \neg q) \equiv \neg p@@
+      </li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+
+    1.
+       a) Proposição verdadeira
+       b) Não é proposição (pergunta)
+       c) Proposição verdadeira
+       d) Não é proposição (sentença aberta)
+       e) Proposição verdadeira
+
+    2.
+       a) "15 não é divisível por 3" ou "15 não é múltiplo de 3"
+       b) "Não existe um número natural menor que 1" ou "Todo número natural é maior ou igual a 1"
+       c) "Existe pelo menos um mamífero que não é terrestre" ou "Nem todos os mamíferos são terrestres"
+
+    3.
+       a) V (ambas verdadeiras)
+       b) V (p é V)
+       c) V (¬p é F, logo F → V é V)
+       d) V (ambas têm o mesmo valor lógico)
+
+    4. (Construir tabelas-verdade)
+       a) Equivalente a ¬p ∧ ¬q (Lei de De Morgan)
+       b) Tabela com 8 linhas (3 proposições)
+       c) Equivalente a p ↔ q
+
+    5.
+       a) Contradição (sempre F)
+       b) Tautologia (sempre V)
+       c) Tautologia
+       d) Contradição
+
+    6.
+       a) ¬p ∨ q
+       b) p ∧ ¬q
+       c) (¬p ∧ ¬q) ∨ (¬r ∧ ¬s)
+
+    7. Ambas têm a mesma tabela-verdade (verificar).
+
+    8. ¬(p → q) ≡ p ∧ ¬q
+
+    9.
+       a) e → p (onde e: "estudo", p: "passo na prova")
+       b) ¬(c ∧ s) (onde c: "chove", s: "faz sol")
+       c) j ↔ m (onde j: "João vai", m: "Maria vai")
+
+    10. Argumento VÁLIDO (Modus Ponens)
+
+    11. Mostrar com tabela-verdade ou propriedades.
+
+    12. Sim, pela propriedade distributiva da conjunção sobre a disjunção.
+
+    13. p = F e q = F (única combinação)
+
+    14. Pelo contrapositivo ou Modus Tollens, concluímos que o pacote NÃO saiu hoje.
+
+    15.
+        (p → q) ∧ (p → ¬q) ≡ (¬p ∨ q) ∧ (¬p ∨ ¬q)  [equivalência da condicional]
+                             ≡ ¬p ∨ (q ∧ ¬q)          [distributividade]
+                             ≡ ¬p ∨ F                  [q ∧ ¬q é contradição]
+                             ≡ ¬p                      [elemento neutro]
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

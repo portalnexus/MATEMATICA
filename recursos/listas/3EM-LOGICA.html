@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Lógica Matemática e Argumentação</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press Start 2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    /* Container de metadados (fonte, dificuldade, tempo estimado) */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    /* Tag de tópico matemático */
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    /* Tag de fonte do problema */
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Tag de dificuldade com cores diferentes */
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Cores por nível de dificuldade */
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }    /* Verde */
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }    /* Amarelo */
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }  /* Vermelho */
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); } /* Roxo */
+
+    /* Introdução de cada seção */
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    /* Caixas de dica para os estudantes */
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+<div class="container">
+
+<h1>LÓGICA MATEMÁTICA E ARGUMENTAÇÃO</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas básicos para familiarização com os conceitos fundamentais de lógica proposicional e estruturas de argumentação.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proposições e valores lógicos</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Determine quais das seguintes sentenças são proposições lógicas:</p>
+      <p>a) "7 é um número primo."</p>
+      <p>b) "Feche a janela!"</p>
+      <p>c) "Se @x > 5@, então @x > 3@."</p>
+      <p>d) "Esta frase é falsa."</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conectivos lógicos - conjunção</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Dadas as proposições @p@: "8 é par" e @q@: "8 é divisível por 4", determine o valor lógico (verdadeiro ou falso) da proposição composta @p \land q@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conectivos lógicos - disjunção</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Dadas as proposições @r@: "3 é ímpar" e @s@: "3 é múltiplo de 5", determine o valor lógico da proposição composta @r \lor s@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Negação de proposições simples</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Escreva a negação das seguintes proposições:</p>
+      <p>a) @p@: "Todos os números pares são divisíveis por 2."</p>
+      <p>b) @q@: "Existe um triângulo com quatro lados."</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tabela-verdade básica</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Construa a tabela-verdade para a proposição composta @p \land \neg q@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Condicional - implicação</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Determine o valor lógico da proposição: "Se 5 é ímpar, então 10 é par."</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Bicondicional</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Determine o valor lógico da proposição: "Um número é par se, e somente se, termina em 0, 2, 4, 6 ou 8" quando aplicada ao número 15.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Quantificador universal</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Traduza para linguagem simbólica: "Todo número real positivo possui raiz quadrada real."</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Quantificador existencial</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Traduza para linguagem simbólica: "Existe um número natural que é primo e par."</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tautologia e contradição</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Verifique se a proposição @p \lor \neg p@ é uma tautologia, contradição ou contingência.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equivalência lógica básica</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Verifique se as proposições @\neg(p \land q)@ e @\neg p \lor \neg q@ são logicamente equivalentes.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Estrutura de argumentos</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Identifique as premissas e a conclusão do seguinte argumento: "Todos os matemáticos são lógicos. Euclides era matemático. Logo, Euclides era lógico."</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas que requerem interpretação do enunciado, construção de tabelas-verdade e aplicação de conceitos combinados de lógica proposicional.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tabela-verdade com três proposições</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Construa a tabela-verdade completa para a proposição composta @(p \lor q) \land r@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Negação de proposições compostas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Utilize as Leis de De Morgan para escrever a negação simplificada de: "João estuda matemática e física."</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Represente simbolicamente primeiro, depois aplique as leis de De Morgan: @\neg(p \land q) \equiv \neg p \lor \neg q@.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Condicional - recíproca e contrapositiva</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Dada a proposição condicional: "Se um número é divisível por 6, então é divisível por 3."</p>
+      <p>a) Escreva a recíproca.</p>
+      <p>b) Escreva a contrapositiva.</p>
+      <p>c) Determine quais são verdadeiras.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Negação de quantificadores</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Escreva a negação da proposição: "Todo triângulo equilátero possui três lados congruentes."</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Análise de argumentos simples</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Determine se o seguinte argumento é válido ou inválido:</p>
+      <p><strong>Premissa 1:</strong> Se chove, a rua fica molhada.</p>
+      <p><strong>Premissa 2:</strong> A rua está molhada.</p>
+      <p><strong>Conclusão:</strong> Choveu.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Modus Ponens</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Identifique se o argumento abaixo utiliza Modus Ponens e determine sua validade:</p>
+      <p><strong>Premissa 1:</strong> Se um número é divisível por 4, então é par.</p>
+      <p><strong>Premissa 2:</strong> 12 é divisível por 4.</p>
+      <p><strong>Conclusão:</strong> 12 é par.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Modus Tollens</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Verifique se o argumento utiliza Modus Tollens corretamente:</p>
+      <p><strong>Premissa 1:</strong> Se uma função é contínua em @x = a@, então é definida em @x = a@.</p>
+      <p><strong>Premissa 2:</strong> A função não é definida em @x = 2@.</p>
+      <p><strong>Conclusão:</strong> A função não é contínua em @x = 2@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Silogismo hipotético</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Complete o silogismo hipotético:</p>
+      <p><strong>Premissa 1:</strong> Se @n@ é múltiplo de 6, então @n@ é múltiplo de 3.</p>
+      <p><strong>Premissa 2:</strong> Se @n@ é múltiplo de 3, então a soma de seus algarismos é múltiplo de 3.</p>
+      <p><strong>Conclusão:</strong> ?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Contra-exemplo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Mostre que a afirmação "Se @n^2@ é par, então @n@ é par" é verdadeira ou forneça um contra-exemplo.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Tente encontrar um número ímpar cujo quadrado seja par. Se não conseguir, a afirmação pode ser verdadeira.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Condição necessária e suficiente</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Determine se "ser divisível por 6" é condição necessária, suficiente, ou necessária e suficiente para "ser divisível por 2 e por 3".</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equivalências lógicas - Leis de De Morgan</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Simplifique a proposição @\neg(p \rightarrow q)@ usando equivalências lógicas.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proposições categóricas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Classifique as seguintes proposições categóricas como universal afirmativa (A), universal negativa (E), particular afirmativa (I) ou particular negativa (O):</p>
+      <p>a) "Todos os quadrados são retângulos."</p>
+      <p>b) "Nenhum número primo é par, exceto 2."</p>
+      <p>c) "Alguns polígonos têm lados curvos."</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Falácias lógicas - afirmação do consequente</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Explique por que o seguinte argumento é uma falácia:</p>
+      <p><strong>Premissa 1:</strong> Se é um gato, então é um mamífero.</p>
+      <p><strong>Premissa 2:</strong> É um mamífero.</p>
+      <p><strong>Conclusão:</strong> É um gato.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Demonstração direta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Demonstre diretamente: "Se @n@ é um número par, então @n^2@ é par."</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Comece assumindo que @n@ é par, ou seja, @n = 2k@ para algum inteiro @k@. Depois calcule @n^2@.
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Problemas complexos que exigem raciocínio em múltiplas etapas, demonstrações formais e análise avançada de argumentos matemáticos.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Demonstração por contradição</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Demonstre por contradição que @\sqrt{2}@ é irracional.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Assuma que @\sqrt{2}@ é racional, ou seja, @\sqrt{2} = \frac{a}{b}@ com @a@ e @b@ inteiros sem fatores comuns. Eleve ao quadrado ambos os lados e analise a paridade de @a@ e @b@.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Quantificadores aninhados</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Considere a proposição: @\forall x \in \mathbb{R}, \exists y \in \mathbb{R}, y > x@.</p>
+      <p>a) Traduza para linguagem natural.</p>
+      <p>b) Determine se é verdadeira ou falsa.</p>
+      <p>c) Escreva a negação da proposição.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Silogismo categórico complexo</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Analise a validade do seguinte silogismo categórico:</p>
+      <p><strong>Premissa maior:</strong> Todo número racional pode ser expresso como fração.</p>
+      <p><strong>Premissa menor:</strong> @\pi@ não pode ser expresso como fração.</p>
+      <p><strong>Conclusão:</strong> @\pi@ não é um número racional.</p>
+      <p>Identifique a forma do silogismo e justifique sua validade ou invalidade.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Indução matemática - princípio</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Demonstre por indução matemática que para todo @n \in \mathbb{N}@:</p>
+      @@
+      1 + 2 + 3 + \cdots + n = \frac{n(n+1)}{2}
+      @@
+
+      <div class="dica">
+        <strong>Dica:</strong> Siga os três passos: (1) Caso base (@n=1@), (2) Hipótese de indução (assuma para @n=k@), (3) Passo indutivo (demonstre para @n=k+1@).
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Análise de argumentos complexos</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Determine se o seguinte argumento é válido usando tabela-verdade ou equivalências lógicas:</p>
+      <p><strong>Premissa 1:</strong> @p \rightarrow q@</p>
+      <p><strong>Premissa 2:</strong> @r \rightarrow \neg q@</p>
+      <p><strong>Premissa 3:</strong> @r@</p>
+      <p><strong>Conclusão:</strong> @\neg p@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Negação de proposições com quantificadores múltiplos</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Escreva a negação em forma simplificada da proposição:</p>
+      <p>"Para todo @\epsilon > 0@, existe @\delta > 0@ tal que se @|x - a| < \delta@, então @|f(x) - L| < \epsilon@."</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Demonstração por casos</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Demonstre que para todo inteiro @n@, o número @n^3 - n@ é divisível por 3.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Divida em casos: @n \equiv 0 \pmod{3}@, @n \equiv 1 \pmod{3}@ e @n \equiv 2 \pmod{3}@. Ou fatore @n^3 - n = n(n-1)(n+1)@.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equivalência lógica avançada</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Demonstre que @(p \rightarrow q) \land (p \rightarrow r)@ é logicamente equivalente a @p \rightarrow (q \land r)@ usando apenas equivalências lógicas (sem tabela-verdade).</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para você praticar e consolidar seu aprendizado em lógica matemática e estruturas de demonstração!
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Paradoxos lógicos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Analise o Paradoxo do Barbeiro: "Em uma cidade, o barbeiro faz a barba de todos os homens que não fazem a própria barba. Quem faz a barba do barbeiro?" Explique por que isso é um paradoxo lógico.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Lógica fuzzy e graus de verdade</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Explique por que a proposição "João é alto" não pode ser tratada pela lógica clássica (binária), mas requer lógica fuzzy. Que valores de verdade essa proposição poderia ter?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Demonstração por contrapositiva</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Demonstre por contrapositiva: "Se @n^2@ é ímpar, então @n@ é ímpar."</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A contrapositiva de "@p \rightarrow q@" é "@\neg q \rightarrow \neg p@". Demonstre: "Se @n@ é par, então @n^2@ é par."
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Princípio da casa dos pombos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Use o princípio da casa dos pombos para demonstrar: "Em um grupo de 13 pessoas, pelo menos duas nasceram no mesmo mês."</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Raciocínio circular - petição de princípio</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Identifique o raciocínio circular no argumento: "A Bíblia é a palavra de Deus porque está escrito na Bíblia que ela é a palavra de Deus."</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Álgebra booleana aplicada</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Simplifique a expressão booleana: @(A \land B) \lor (A \land \neg B) \lor (\neg A \land B)@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Teorema da dedução</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Se das premissas @p@ e @q@ podemos deduzir @r@, mostre que de @p@ podemos deduzir @q \rightarrow r@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Demonstração de unicidade</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Demonstre que se existe um número real @x@ tal que @x + 3 = 7@, então esse número é único.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Assuma que existem @x_1@ e @x_2@ satisfazendo a equação. Mostre que @x_1 = x_2@.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proposições abertas e conjuntos-verdade</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Determine o conjunto-verdade da proposição aberta @p(x)@: "@x^2 - 5x + 6 = 0@" no universo @\mathbb{R}@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Lógica de predicados - interpretação</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Considere o predicado @P(x, y)@: "@x@ é pai de @y@". Traduza para linguagem simbólica e interprete:</p>
+      <p>a) "Todo mundo tem um pai."</p>
+      <p>b) "Existe alguém que é pai de todos."</p>
+      <p>c) "Ninguém é pai de si mesmo."</p>
+      <p>d) Determine quais proposições acima são verdadeiras no mundo real.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

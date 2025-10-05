@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Estatística | Nexus</title>
+
+    <!-- KaTeX para renderização LaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 25px;
+        }
+
+        .input-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-field label {
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        textarea {
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: system-ui, -apple-system, sans-serif;
+            resize: vertical;
+            min-height: 120px;
+            transition: all 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .btn-calcular {
+            width: 100%;
+            padding: 15px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 30px;
+        }
+
+        .btn-calcular:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .resultado {
+            background: #f1f5f9;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .resultado h2 {
+            color: #2563eb;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .resultado-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .resultado-item strong {
+            color: #1e293b;
+        }
+
+        .dados-input {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Calculadora Estatística</h1>
+        <p class="subtitle">Calcule média, mediana, moda, desvio padrão e outras medidas</p>
+
+        <div class="input-group">
+            <div class="input-field">
+                <label for="dados">Dados (separados por vírgula, espaço ou nova linha):</label>
+                <textarea id="dados" placeholder="Ex: 10, 15, 20, 25, 30
+Ex: 5 10 15 20 25
+Ex: 1,2,3,4,5,6,7,8,9,10">10, 15, 20, 25, 30, 35, 40, 45, 50</textarea>
+            </div>
+        </div>
+
+        <button class="btn-calcular" onclick="calcularEstatisticas()">Calcular Estatísticas</button>
+
+        <div class="resultado" id="resultado" style="display: none;">
+            <h2>📈 Resultados Estatísticos</h2>
+            <div id="resultado-conteudo"></div>
+        </div>
+    </div>
+
+    <script>
+        function calcularEstatisticas() {
+            // Obter dados do textarea
+            const dadosTexto = document.getElementById('dados').value;
+            
+            // Processar os dados (separar por vírgula, espaço ou nova linha)
+            const dados = dadosTexto
+                .replace(/\n/g, ',') // Substituir quebras de linha por vírgulas
+                .replace(/\s+/g, ',') // Substituir espaços por vírgulas
+                .split(',') // Dividir por vírgulas
+                .map(item => parseFloat(item.trim())) // Converter para número
+                .filter(item => !isNaN(item)); // Filtrar valores inválidos
+            
+            if (dados.length === 0) {
+                alert('Por favor, insira dados válidos!');
+                return;
+            }
+            
+            if (dados.length === 1) {
+                alert('É necessário pelo menos 2 valores para calcular estatísticas!');
+                return;
+            }
+            
+            // Calcular estatísticas
+            const n = dados.length;
+            const soma = dados.reduce((acc, val) => acc + val, 0);
+            const media = soma / n;
+            
+            // Ordenar dados para calcular mediana
+            const dadosOrdenados = [...dados].sort((a, b) => a - b);
+            let mediana;
+            if (n % 2 === 0) {
+                mediana = (dadosOrdenados[n/2 - 1] + dadosOrdenados[n/2]) / 2;
+            } else {
+                mediana = dadosOrdenados[Math.floor(n/2)];
+            }
+            
+            // Calcular moda
+            const frequencias = {};
+            dados.forEach(valor => {
+                frequencias[valor] = (frequencias[valor] || 0) + 1;
+            });
+            
+            const maxFreq = Math.max(...Object.values(frequencias));
+            const modas = Object.keys(frequencias)
+                .filter(valor => frequencias[valor] === maxFreq)
+                .map(valor => parseFloat(valor));
+            
+            let modaTexto;
+            if (modas.length === 1) {
+                modaTexto = modas[0].toString();
+            } else if (modas.length === dados.length) {
+                modaTexto = "Não há moda (todos os valores aparecem com mesma frequência)";
+            } else {
+                modaTexto = `Multimodal: ${modas.join(', ')}`;
+            }
+            
+            // Calcular variância e desvio padrão
+            const somaDosQuadrados = dados.reduce((acc, val) => acc + Math.pow(val - media, 2), 0);
+            const variancia = somaDosQuadrados / (n - 1); // Variância amostral
+            const desvioPadrao = Math.sqrt(variancia);
+            
+            // Calcular valor máximo e mínimo
+            const valorMax = Math.max(...dados);
+            const valorMin = Math.min(...dados);
+            const amplitude = valorMax - valorMin;
+            
+            // Calcular quartis
+            const q1 = dadosOrdenados[Math.floor(n * 0.25)];
+            const q3 = dadosOrdenados[Math.floor(n * 0.75)];
+            const iqr = q3 - q1; // Amplitude interquartil
+            
+            // Exibir resultados
+            const resultadoDiv = document.getElementById('resultado');
+            const conteudoDiv = document.getElementById('resultado-conteudo');
+            
+            conteudoDiv.innerHTML = `
+                <div class="resultado-item"><strong>Número de dados (n):</strong> ${n}</div>
+                <div class="resultado-item"><strong>Média:</strong> ${media.toFixed(4)}</div>
+                <div class="resultado-item"><strong>Mediana:</strong> ${mediana.toFixed(4)}</div>
+                <div class="resultado-item"><strong>Moda:</strong> ${modaTexto}</div>
+                <div class="resultado-item"><strong>Desvio Padrão:</strong> ${desvioPadrao.toFixed(4)}</div>
+                <div class="resultado-item"><strong>Variância:</strong> ${variancia.toFixed(4)}</div>
+                <div class="resultado-item"><strong>Valor Mínimo:</strong> ${valorMin.toFixed(2)}</div>
+                <div class="resultado-item"><strong>Valor Máximo:</strong> ${valorMax.toFixed(2)}</div>
+                <div class="resultado-item"><strong>Amplitude:</strong> ${amplitude.toFixed(2)}</div>
+                <div class="resultado-item"><strong>1º Quartil (Q1):</strong> ${q1.toFixed(2)}</div>
+                <div class="resultado-item"><strong>3º Quartil (Q3):</strong> ${q3.toFixed(2)}</div>
+                <div class="resultado-item"><strong>Amplitude Interquartil (IQR):</strong> ${iqr.toFixed(2)}</div>
+                <div class="resultado-item">
+                    <strong>Dados processados:</strong>
+                    <div class="dados-input">${dados.join(', ')}</div>
+                </div>
+            `;
+            
+            resultadoDiv.style.display = 'block';
+        }
+
+        // Calcular automaticamente ao carregar
+        window.onload = calcularEstatisticas;
+
+        // Recalcular ao pressionar Enter
+        document.getElementById('dados').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && e.ctrlKey) calcularEstatisticas();
+        });
+    </script>
+</body>
+</html>

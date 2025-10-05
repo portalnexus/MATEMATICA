@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Trigonométrica | Nexus</title>
+
+    <!-- KaTeX para renderização LaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .input-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .input-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-field label {
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .input-field input, .input-field select {
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .input-field input:focus, .input-field select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .btn-calcular {
+            width: 100%;
+            padding: 15px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 30px;
+        }
+
+        .btn-calcular:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .resultado {
+            background: #f1f5f9;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .resultado h2 {
+            color: #2563eb;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .resultado-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .resultado-item strong {
+            color: #1e293b;
+        }
+
+        canvas {
+            width: 100%;
+            height: 400px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .trig-circle {
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            background: white;
+            position: relative;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            canvas, .trig-circle {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📐 Calculadora Trigonométrica</h1>
+        <p class="subtitle">Calcule seno, cosseno, tangente e visualize no círculo trigonométrico</p>
+
+        <div class="input-group">
+            <div class="input-field">
+                <label for="angulo">Ângulo (° ou rad):</label>
+                <input type="number" id="angulo" value="30" step="0.1">
+            </div>
+            <div class="input-field">
+                <label for="unidade">Unidade:</label>
+                <select id="unidade">
+                    <option value="graus">Graus (°)</option>
+                    <option value="radianos">Radianos</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="btn-calcular" onclick="calcular()">Calcular</button>
+
+        <div class="resultado" id="resultado" style="display: none;">
+            <h2>📊 Resultados Trigonométricos</h2>
+            <div id="resultado-conteudo"></div>
+        </div>
+
+        <div class="trig-circle" id="trig-circle">
+            <canvas id="circle-canvas"></canvas>
+        </div>
+    </div>
+
+    <script>
+        function calcular() {
+            // Obter ângulo e unidade
+            const angulo = parseFloat(document.getElementById('angulo').value);
+            const unidade = document.getElementById('unidade').value;
+
+            // Converter para radianos se necessário
+            let anguloRad = unidade === 'graus' ? angulo * Math.PI / 180 : angulo;
+            let anguloExibido = unidade === 'graus' ? angulo : anguloRad;
+
+            // Calcular razões trigonométricas
+            const seno = Math.sin(anguloRad);
+            const cosseno = Math.cos(anguloRad);
+            const tangente = Math.tan(anguloRad);
+            
+            // Calcular cotangente, secante e cossecante
+            const cotangente = 1 / tangente;
+            const secante = 1 / cosseno;
+            const cossecante = 1 / seno;
+
+            // Exibir resultados
+            const resultadoDiv = document.getElementById('resultado');
+            const conteudoDiv = document.getElementById('resultado-conteudo');
+
+            conteudoDiv.innerHTML = `
+                <div class="resultado-item"><strong>Seno (sin):</strong> ${seno.toFixed(4)}</div>
+                <div class="resultado-item"><strong>Cosseno (cos):</strong> ${cosseno.toFixed(4)}</div>
+                <div class="resultado-item"><strong>Tangente (tan):</strong> ${tangente.toFixed(4)}</div>
+                <div class="resultado-item"><strong>Cotangente (cot):</strong> ${cotangente.toFixed(4)}</div>
+                <div class="resultado-item"><strong>Secante (sec):</strong> ${secante.toFixed(4)}</div>
+                <div class="resultado-item"><strong>Cossecante (csc):</strong> ${cossecante.toFixed(4)}</div>
+                <div class="resultado-item"><strong>Ângulo em radianos:</strong> ${(anguloRad).toFixed(4)} rad</div>
+                <div class="resultado-item"><strong>Ângulo em graus:</strong> ${anguloExibido.toFixed(2)}°</div>
+            `;
+
+            resultadoDiv.style.display = 'block';
+
+            // Desenhar círculo trigonométrico
+            desenharCirculoTrigonometrico(anguloRad);
+        }
+
+        function desenharCirculoTrigonometrico(anguloRad) {
+            const canvas = document.getElementById('circle-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Ajustar tamanho do canvas
+            const container = document.getElementById('trig-circle');
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+            
+            const width = canvas.width;
+            const height = canvas.height;
+            const raio = Math.min(width, height) * 0.4;
+            const centroX = width / 2;
+            const centroY = height / 2;
+
+            // Limpar canvas
+            ctx.clearRect(0, 0, width, height);
+
+            // Desenhar eixos cartesianos
+            ctx.strokeStyle = '#1f2937';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            // Eixo X
+            ctx.moveTo(10, centroY);
+            ctx.lineTo(width - 10, centroY);
+            // Eixo Y
+            ctx.moveTo(centroX, 10);
+            ctx.lineTo(centroX, height - 10);
+            ctx.stroke();
+
+            // Desenhar círculo trigonométrico
+            ctx.strokeStyle = '#9ca3af';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.arc(centroX, centroY, raio, 0, 2 * Math.PI);
+            ctx.stroke();
+
+            // Calcular coordenadas do ponto no círculo
+            const pontoX = centroX + raio * Math.cos(anguloRad);
+            const pontoY = centroY - raio * Math.sin(anguloRad);
+
+            // Desenhar raio
+            ctx.strokeStyle = '#2563eb';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(centroX, centroY);
+            ctx.lineTo(pontoX, pontoY);
+            ctx.stroke();
+
+            // Desenhar ponto no círculo
+            ctx.fillStyle = '#ef4444';
+            ctx.beginPath();
+            ctx.arc(pontoX, pontoY, 6, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Desenhar projeções
+            // Projeção no eixo X (cosseno)
+            ctx.strokeStyle = '#10b981';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([5, 3]);
+            ctx.beginPath();
+            ctx.moveTo(pontoX, pontoY);
+            ctx.lineTo(pontoX, centroY);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Projeção no eixo Y (seno)
+            ctx.beginPath();
+            ctx.moveTo(pontoX, pontoY);
+            ctx.lineTo(centroX, pontoY);
+            ctx.stroke();
+
+            // Desenhar rótulos
+            ctx.fillStyle = '#1e293b';
+            ctx.font = 'bold 14px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('0', centroX - 10, centroY + 20);
+            
+            // Rótulo do ponto
+            ctx.fillText(`(${cosseno.toFixed(2)}, ${seno.toFixed(2)})`, pontoX + 15, pontoY - 10);
+            
+            // Rótulo do ângulo
+            ctx.fillStyle = '#7c3aed';
+            ctx.font = 'italic 14px sans-serif';
+            ctx.fillText(`${(anguloRad * 180 / Math.PI).toFixed(1)}°`, centroX + raio/2, centroY - raio/3);
+        }
+
+        // Calcular automaticamente ao carregar
+        window.onload = calcular;
+
+        // Recalcular ao pressionar Enter
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') calcular();
+            });
+        });
+
+        // Recalcular ao mudar unidade
+        document.getElementById('unidade').addEventListener('change', calcular);
+    </script>
+</body>
+</html>

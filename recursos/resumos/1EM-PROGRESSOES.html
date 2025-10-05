@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Progressões Aritméticas e Geométricas</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>Progressões Aritméticas e Geométricas</h1>
+
+    <p>As progressões são sequências numéricas que seguem uma lei de formação específica. Elas aparecem em diversos contextos do cotidiano, desde o crescimento populacional até cálculos financeiros, sendo ferramentas fundamentais para modelar fenômenos naturais e sociais.</p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: PROGRESSÕES ARITMÉTICAS - CONCEITOS FUNDAMENTAIS
+         =============================================================== -->
+    <h2>1. Progressões Aritméticas (PA)</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Sequência Numérica)</h3>
+      <p>Uma <strong>sequência numérica</strong> é uma função @f: \mathbb{N}^* \to \mathbb{R}@ que associa a cada número natural positivo @n@ um único número real @a_n@, chamado de <strong>termo</strong> da sequência. A sequência é denotada por @(a_1, a_2, a_3, \ldots, a_n, \ldots)@ ou simplesmente @(a_n)_{n \in \mathbb{N}^*}@.</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>@(2, 4, 6, 8, 10, \ldots)@ - sequência dos números pares positivos</li>
+      <li>@(1, 1, 2, 3, 5, 8, \ldots)@ - sequência de Fibonacci</li>
+      <li>@(1, 4, 9, 16, 25, \ldots)@ - sequência dos quadrados perfeitos</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Progressão Aritmética)</h3>
+      <p>Uma sequência numérica @(a_n)@ é chamada de <strong>Progressão Aritmética (PA)</strong> quando, a partir do segundo termo, a diferença entre qualquer termo e seu antecessor é constante. Essa constante é chamada de <strong>razão</strong> da PA e é denotada por @r@.</p>
+      <p>Formalmente: @(a_n)@ é PA se, e somente se, existe @r \in \mathbb{R}@ tal que:</p>
+      @@
+      a_{n+1} = a_n + r, \quad \forall n \in \mathbb{N}^*
+      @@
+    </div>
+
+    <p><strong>Exemplos de PA:</strong></p>
+    <ul>
+      <li>@(3, 7, 11, 15, 19, \ldots)@ com @r = 4@ (PA crescente)</li>
+      <li>@(20, 15, 10, 5, 0, \ldots)@ com @r = -5@ (PA decrescente)</li>
+      <li>@(5, 5, 5, 5, 5, \ldots)@ com @r = 0@ (PA constante)</li>
+    </ul>
+
+    <div class="nota">
+      <strong>Observação:</strong> Se @r > 0@, a PA é crescente; se @r < 0@, a PA é decrescente; se @r = 0@, a PA é constante.
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Classificação das PA)</h3>
+      <p>Uma PA pode ser classificada de acordo com o número de termos:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) PA finita:</strong> possui um número limitado de termos. Exemplo: @(2, 5, 8, 11, 14)@</li>
+        <li><strong>(ii) PA infinita:</strong> possui infinitos termos. Exemplo: @(2, 5, 8, 11, 14, \ldots)@</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: FÓRMULAS E PROPRIEDADES DE PA
+         =============================================================== -->
+    <h2>2. Fórmulas e Propriedades da PA</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Termo Geral da PA)</h3>
+      <p>Em uma PA de primeiro termo @a_1@ e razão @r@, o termo de ordem @n@ é dado por:</p>
+      @@
+      a_n = a_1 + (n-1) \cdot r
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Pela definição de PA, temos:</p>
+    @@
+    \begin{align}
+    a_2 &= a_1 + r \\
+    a_3 &= a_2 + r = (a_1 + r) + r = a_1 + 2r \\
+    a_4 &= a_3 + r = (a_1 + 2r) + r = a_1 + 3r \\
+    &\vdots \\
+    a_n &= a_1 + (n-1)r
+    \end{align}
+    @@
+    <p>Por indução, essa fórmula é válida para todo @n \in \mathbb{N}^*@.</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Propriedade da Média Aritmética)</h3>
+      <p>Em uma PA, qualquer termo (exceto os extremos) é a média aritmética de seus vizinhos. Isto é, para @n \geq 2@:</p>
+      @@
+      a_n = \frac{a_{n-1} + a_{n+1}}{2}
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Como @a_{n+1} = a_n + r@ e @a_n = a_{n-1} + r@, temos:</p>
+    @@
+    \begin{align}
+    a_{n-1} + a_{n+1} &= a_{n-1} + (a_n + r) \\
+    &= (a_n - r) + (a_n + r) \\
+    &= 2a_n
+    \end{align}
+    @@
+    <p>Portanto, @a_n = \frac{a_{n-1} + a_{n+1}}{2}@.</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.3 (Soma dos Termos de uma PA Finita)</h3>
+      <p>A soma @S_n@ dos @n@ primeiros termos de uma PA é dada por:</p>
+      @@
+      S_n = \frac{n(a_1 + a_n)}{2} \quad \text{ou} \quad S_n = \frac{n[2a_1 + (n-1)r]}{2}
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Seja @S_n = a_1 + a_2 + a_3 + \ldots + a_n@. Escrevendo a soma em ordem inversa:</p>
+    @@
+    \begin{align}
+    S_n &= a_1 + a_2 + a_3 + \ldots + a_n \\
+    S_n &= a_n + a_{n-1} + a_{n-2} + \ldots + a_1
+    \end{align}
+    @@
+    <p>Somando as duas expressões termo a termo:</p>
+    @@
+    \begin{align}
+    2S_n &= (a_1 + a_n) + (a_2 + a_{n-1}) + \ldots + (a_n + a_1) \\
+    2S_n &= n(a_1 + a_n) \\
+    S_n &= \frac{n(a_1 + a_n)}{2}
+    \end{align}
+    @@
+    <p>Substituindo @a_n = a_1 + (n-1)r@, obtemos a segunda fórmula.</p>
+
+    <div class="destaque-box observacao">
+      <h3>Propriedades Adicionais da PA</h3>
+      <ul class="lista-propriedades">
+        <li><strong>(i)</strong> Em uma PA finita com número ímpar de termos, o termo central é a média aritmética dos extremos.</li>
+        <li><strong>(ii)</strong> Se @(a_n)@ é uma PA de razão @r@, então @(ka_n)@ é uma PA de razão @kr@, para @k \in \mathbb{R}@.</li>
+        <li><strong>(iii)</strong> A soma de termos equidistantes dos extremos é constante e igual a @a_1 + a_n@.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: PROGRESSÕES GEOMÉTRICAS - CONCEITOS FUNDAMENTAIS
+         =============================================================== -->
+    <h2>3. Progressões Geométricas (PG)</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Progressão Geométrica)</h3>
+      <p>Uma sequência numérica @(a_n)@ é chamada de <strong>Progressão Geométrica (PG)</strong> quando, a partir do segundo termo, o quociente entre qualquer termo e seu antecessor é constante e não nulo. Essa constante é chamada de <strong>razão</strong> da PG e é denotada por @q@.</p>
+      <p>Formalmente: @(a_n)@ é PG se, e somente se, existe @q \in \mathbb{R}^*@ tal que:</p>
+      @@
+      a_{n+1} = a_n \cdot q, \quad \forall n \in \mathbb{N}^*
+      @@
+    </div>
+
+    <p><strong>Exemplos de PG:</strong></p>
+    <ul>
+      <li>@(2, 6, 18, 54, 162, \ldots)@ com @q = 3@ (PG crescente)</li>
+      <li>@(81, 27, 9, 3, 1, \ldots)@ com @q = \frac{1}{3}@ (PG decrescente)</li>
+      <li>@(5, -10, 20, -40, 80, \ldots)@ com @q = -2@ (PG oscilante)</li>
+      <li>@(7, 7, 7, 7, 7, \ldots)@ com @q = 1@ (PG constante)</li>
+    </ul>
+
+    <div class="nota">
+      <strong>Observação:</strong> Se @a_1 > 0@ e @q > 1@, a PG é crescente; se @a_1 > 0@ e @0 < q < 1@, a PG é decrescente; se @q < 0@, a PG é oscilante (alterna sinais); se @q = 1@, a PG é constante.
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.2 (Classificação das PG)</h3>
+      <p>Uma PG pode ser classificada de acordo com o número de termos:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) PG finita:</strong> possui um número limitado de termos. Exemplo: @(3, 6, 12, 24, 48)@</li>
+        <li><strong>(ii) PG infinita:</strong> possui infinitos termos. Exemplo: @(3, 6, 12, 24, 48, \ldots)@</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: FÓRMULAS E PROPRIEDADES DE PG
+         =============================================================== -->
+    <h2>4. Fórmulas e Propriedades da PG</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Termo Geral da PG)</h3>
+      <p>Em uma PG de primeiro termo @a_1@ e razão @q \neq 0@, o termo de ordem @n@ é dado por:</p>
+      @@
+      a_n = a_1 \cdot q^{n-1}
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Pela definição de PG, temos:</p>
+    @@
+    \begin{align}
+    a_2 &= a_1 \cdot q \\
+    a_3 &= a_2 \cdot q = (a_1 \cdot q) \cdot q = a_1 \cdot q^2 \\
+    a_4 &= a_3 \cdot q = (a_1 \cdot q^2) \cdot q = a_1 \cdot q^3 \\
+    &\vdots \\
+    a_n &= a_1 \cdot q^{n-1}
+    \end{align}
+    @@
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.2 (Propriedade da Média Geométrica)</h3>
+      <p>Em uma PG de termos positivos, qualquer termo (exceto os extremos) é a média geométrica de seus vizinhos. Isto é, para @n \geq 2@:</p>
+      @@
+      a_n = \sqrt{a_{n-1} \cdot a_{n+1}}
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Como @a_{n+1} = a_n \cdot q@ e @a_n = a_{n-1} \cdot q@, temos:</p>
+    @@
+    \begin{align}
+    a_{n-1} \cdot a_{n+1} &= a_{n-1} \cdot (a_n \cdot q) \\
+    &= (a_n / q) \cdot (a_n \cdot q) \\
+    &= a_n^2
+    \end{align}
+    @@
+    <p>Portanto, @a_n = \sqrt{a_{n-1} \cdot a_{n+1}}@.</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.3 (Soma dos Termos de uma PG Finita)</h3>
+      <p>A soma @S_n@ dos @n@ primeiros termos de uma PG com @q \neq 1@ é dada por:</p>
+      @@
+      S_n = \frac{a_1(q^n - 1)}{q - 1} \quad \text{ou} \quad S_n = \frac{a_1(1 - q^n)}{1 - q}
+      @@
+      <p>Se @q = 1@, então @S_n = n \cdot a_1@.</p>
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Seja @S_n = a_1 + a_2 + a_3 + \ldots + a_n@. Multiplicando ambos os lados por @q@:</p>
+    @@
+    \begin{align}
+    S_n &= a_1 + a_1 q + a_1 q^2 + \ldots + a_1 q^{n-1} \\
+    qS_n &= a_1 q + a_1 q^2 + a_1 q^3 + \ldots + a_1 q^n
+    \end{align}
+    @@
+    <p>Subtraindo a primeira equação da segunda:</p>
+    @@
+    \begin{align}
+    qS_n - S_n &= a_1 q^n - a_1 \\
+    S_n(q - 1) &= a_1(q^n - 1) \\
+    S_n &= \frac{a_1(q^n - 1)}{q - 1}
+    \end{align}
+    @@
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.4 (Soma dos Termos de uma PG Infinita)</h3>
+      <p>Se @|q| < 1@, a soma @S@ de uma PG infinita converge para:</p>
+      @@
+      S = \frac{a_1}{1 - q}
+      @@
+      <p>Se @|q| \geq 1@, a soma diverge (não existe).</p>
+    </div>
+
+    <p><strong>Justificativa:</strong></p>
+    <p>Quando @|q| < 1@, temos @\lim_{n \to \infty} q^n = 0@. Assim, tomando o limite da fórmula da soma finita:</p>
+    @@
+    S = \lim_{n \to \infty} S_n = \lim_{n \to \infty} \frac{a_1(1 - q^n)}{1 - q} = \frac{a_1(1 - 0)}{1 - q} = \frac{a_1}{1 - q}
+    @@
+
+    <div class="destaque-box observacao">
+      <h3>Propriedades Adicionais da PG</h3>
+      <ul class="lista-propriedades">
+        <li><strong>(i)</strong> Em uma PG finita com número ímpar de termos positivos, o termo central é a média geométrica dos extremos.</li>
+        <li><strong>(ii)</strong> O produto de termos equidistantes dos extremos é constante e igual a @a_1 \cdot a_n@.</li>
+        <li><strong>(iii)</strong> Se @(a_n)@ é uma PG de razão @q@, então @(a_n^k)@ é uma PG de razão @q^k@, para @k \in \mathbb{R}@.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>5. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Determinação de Termos em PA</h3>
+      <p><strong>Enunciado:</strong> Determine o 50º termo da PA @(7, 11, 15, 19, \ldots)@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar o primeiro termo e a razão.</p>
+      <p>Temos @a_1 = 7@ e @r = 11 - 7 = 4@.</p>
+
+      <p><strong>Passo 2:</strong> Aplicar a fórmula do termo geral.</p>
+      @@
+      a_n = a_1 + (n-1) \cdot r
+      @@
+      @@
+      a_{50} = 7 + (50-1) \cdot 4 = 7 + 49 \cdot 4 = 7 + 196 = 203
+      @@
+
+      <p><strong>Resposta:</strong> O 50º termo é @a_{50} = 203@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Soma dos Termos de uma PA</h3>
+      <p><strong>Enunciado:</strong> Calcule a soma dos 30 primeiros termos da PA @(5, 9, 13, 17, \ldots)@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar @a_1@ e @r@.</p>
+      <p>@a_1 = 5@ e @r = 9 - 5 = 4@.</p>
+
+      <p><strong>Passo 2:</strong> Determinar @a_{30}@.</p>
+      @@
+      a_{30} = a_1 + (30-1) \cdot r = 5 + 29 \cdot 4 = 5 + 116 = 121
+      @@
+
+      <p><strong>Passo 3:</strong> Aplicar a fórmula da soma.</p>
+      @@
+      S_{30} = \frac{n(a_1 + a_{30})}{2} = \frac{30(5 + 121)}{2} = \frac{30 \cdot 126}{2} = 15 \cdot 126 = 1890
+      @@
+
+      <p><strong>Resposta:</strong> A soma dos 30 primeiros termos é @S_{30} = 1890@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - PA em Contexto Real</h3>
+      <p><strong>Enunciado:</strong> Um atleta corre todos os dias, começando com 2 km no primeiro dia. A cada dia ele aumenta a distância em 500 metros. Quantos quilômetros ele terá percorrido ao final de 20 dias?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Modelar o problema como PA.</p>
+      <p>A distância diária em km forma a PA: @(2; 2,5; 3; 3,5; \ldots)@</p>
+      <p>Temos @a_1 = 2@ km e @r = 0,5@ km.</p>
+
+      <p><strong>Passo 2:</strong> Calcular a distância no 20º dia.</p>
+      @@
+      a_{20} = 2 + (20-1) \cdot 0,5 = 2 + 9,5 = 11,5 \text{ km}
+      @@
+
+      <p><strong>Passo 3:</strong> Calcular a distância total.</p>
+      @@
+      S_{20} = \frac{20(2 + 11,5)}{2} = \frac{20 \cdot 13,5}{2} = 10 \cdot 13,5 = 135 \text{ km}
+      @@
+
+      <p><strong>Resposta:</strong> Ao final de 20 dias, o atleta terá percorrido 135 km.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Determinação de Termos em PG</h3>
+      <p><strong>Enunciado:</strong> Determine o 8º termo da PG @(3, 6, 12, 24, \ldots)@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar o primeiro termo e a razão.</p>
+      <p>Temos @a_1 = 3@ e @q = \frac{6}{3} = 2@.</p>
+
+      <p><strong>Passo 2:</strong> Aplicar a fórmula do termo geral.</p>
+      @@
+      a_n = a_1 \cdot q^{n-1}
+      @@
+      @@
+      a_8 = 3 \cdot 2^{8-1} = 3 \cdot 2^7 = 3 \cdot 128 = 384
+      @@
+
+      <p><strong>Resposta:</strong> O 8º termo é @a_8 = 384@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Soma dos Termos de uma PG Finita</h3>
+      <p><strong>Enunciado:</strong> Calcule a soma dos 6 primeiros termos da PG @(5, 10, 20, 40, \ldots)@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar @a_1@ e @q@.</p>
+      <p>@a_1 = 5@ e @q = \frac{10}{5} = 2@.</p>
+
+      <p><strong>Passo 2:</strong> Aplicar a fórmula da soma.</p>
+      @@
+      S_n = \frac{a_1(q^n - 1)}{q - 1}
+      @@
+      @@
+      S_6 = \frac{5(2^6 - 1)}{2 - 1} = \frac{5(64 - 1)}{1} = 5 \cdot 63 = 315
+      @@
+
+      <p><strong>Resposta:</strong> A soma dos 6 primeiros termos é @S_6 = 315@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Soma de PG Infinita</h3>
+      <p><strong>Enunciado:</strong> Determine a soma da PG infinita @\left(8, 4, 2, 1, \frac{1}{2}, \ldots\right)@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar @a_1@ e @q@.</p>
+      <p>@a_1 = 8@ e @q = \frac{4}{8} = \frac{1}{2}@.</p>
+
+      <p><strong>Passo 2:</strong> Verificar convergência.</p>
+      <p>Como @|q| = \left|\frac{1}{2}\right| = \frac{1}{2} < 1@, a série converge.</p>
+
+      <p><strong>Passo 3:</strong> Aplicar a fórmula da soma infinita.</p>
+      @@
+      S = \frac{a_1}{1 - q} = \frac{8}{1 - \frac{1}{2}} = \frac{8}{\frac{1}{2}} = 16
+      @@
+
+      <p><strong>Resposta:</strong> A soma da PG infinita é @S = 16@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 7 - Aplicação de PG: Crescimento Populacional</h3>
+      <p><strong>Enunciado:</strong> Uma população de bactérias dobra a cada hora. Se inicialmente há 500 bactérias, quantas haverá após 10 horas?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Modelar o problema como PG.</p>
+      <p>A população a cada hora forma a PG: @(500, 1000, 2000, 4000, \ldots)@</p>
+      <p>Temos @a_1 = 500@ e @q = 2@.</p>
+
+      <p><strong>Passo 2:</strong> Determinar a população após 10 horas.</p>
+      <p>Após 10 horas, estamos no 11º termo (pois @n=1@ corresponde ao instante inicial).</p>
+      @@
+      a_{11} = 500 \cdot 2^{11-1} = 500 \cdot 2^{10} = 500 \cdot 1024 = 512000
+      @@
+
+      <p><strong>Resposta:</strong> Após 10 horas, haverá 512.000 bactérias.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: EXERCÍCIOS PROPOSTOS
+         =============================================================== -->
+    <h2>6. Exercícios</h2>
+
+    <ol>
+      <li>Determine o 25º termo da PA @(10, 14, 18, 22, \ldots)@.</li>
+
+      <li>Calcule a soma dos 40 primeiros termos da PA @(3, 7, 11, 15, \ldots)@.</li>
+
+      <li>Quantos termos tem a PA @(5, 9, 13, \ldots, 85)@?</li>
+
+      <li>A soma dos @n@ primeiros termos de uma PA é dada por @S_n = 3n^2 + 2n@. Determine o 10º termo dessa PA.</li>
+
+      <li>Insira 5 termos entre 3 e 24 de modo a formar uma PA.</li>
+
+      <li>Determine o 12º termo da PG @(2, 6, 18, 54, \ldots)@.</li>
+
+      <li>Calcule a soma dos 8 primeiros termos da PG @(1, 3, 9, 27, \ldots)@.</li>
+
+      <li>Determine a razão de uma PG de três termos sabendo que a soma deles é 42 e o produto é 512.</li>
+
+      <li>Calcule a soma da PG infinita @\left(12, 6, 3, \frac{3}{2}, \ldots\right)@.</li>
+
+      <li>Uma dízima periódica @0,333\ldots@ pode ser vista como uma soma de PG infinita. Expresse @0,333\ldots@ como fração utilizando a fórmula da soma de PG infinita.</li>
+
+      <li>Um funcionário recebe um salário inicial de R$ 2.000,00 e aumentos anuais de R$ 150,00. Quanto ele receberá no 15º ano de trabalho?</li>
+
+      <li>Determine três números em PA sabendo que sua soma é 21 e seu produto é 315.</li>
+
+      <li>Uma bola é solta de uma altura de 16 m. A cada quique, ela atinge 75% da altura anterior. Qual a distância total percorrida pela bola até parar?</li>
+
+      <li>Resolva a equação @2 + 6 + 18 + \ldots + x = 242@, sabendo que os termos formam uma PG.</li>
+
+      <li>Um capital de R$ 1.000,00 é aplicado a juros compostos de 10% ao mês. Qual será o montante após 6 meses? (Use PG para modelar o problema)</li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+    1. a₂₅ = 106
+    2. S₄₀ = 3240
+    3. 21 termos
+    4. a₁₀ = 59
+    5. PA: (3, 6, 9, 12, 15, 18, 21, 24) - termos inseridos: 6, 9, 12, 15, 18
+    6. a₁₂ = 354294
+    7. S₈ = 3280
+    8. q = 2 (a PG é 4, 8, 16)
+    9. S = 24
+    10. 0,333... = 3/10 + 3/100 + 3/1000 + ... = (3/10)/(1 - 1/10) = (3/10)/(9/10) = 3/9 = 1/3
+    11. R$ 4.100,00
+    12. Os números são 5, 7 e 9
+    13. Distância total = 112 m
+    14. x = 162 (a PG é 2, 6, 18, 54, 162)
+    15. M = R$ 1.771,56 (aproximadamente)
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

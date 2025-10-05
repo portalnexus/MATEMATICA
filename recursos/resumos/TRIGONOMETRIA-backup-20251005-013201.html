@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Trigonometria</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+
+    /* Estilos para imagens */
+    .figura {
+      display: block;
+      margin: 1.5rem auto;
+      max-width: 100%;
+      border: 1px solid var(--secondary-text-color);
+      border-radius: 4px;
+      padding: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .legenda {
+      text-align: center;
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>Trigonometria</h1>
+
+    <p>A trigonometria é o ramo da matemática que estuda as relações entre os lados e os ângulos de triângulos. Surgiu da necessidade prática de medir distâncias inacessíveis e tem aplicações em astronomia, navegação, engenharia, física e muitas outras áreas. Neste resumo, estudaremos o Teorema de Pitágoras, as razões trigonométricas fundamentais e as relações métricas no triângulo retângulo.</p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: TRIÂNGULO RETÂNGULO E TEOREMA DE PITÁGORAS
+         =============================================================== -->
+    <h2>1. Triângulo Retângulo e Teorema de Pitágoras</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Triângulo Retângulo)</h3>
+      <p>Um triângulo é denominado <strong>triângulo retângulo</strong> quando possui um ângulo reto (medindo @90°@ ou @\frac{\pi}{2}@ radianos). Os lados que formam o ângulo reto são chamados de <strong>catetos</strong>, e o lado oposto ao ângulo reto é denominado <strong>hipotenusa</strong>.</p>
+    </div>
+
+    <img src="../../recursos/imagens/trigonometria/triangulo-retangulo.png"
+         alt="Triângulo retângulo ABC com ângulo reto em A, hipotenusa BC (rotulada como a), cateto AB (rotulado como c) e cateto AC (rotulado como b)"
+         class="figura"
+         style="max-width: 400px;">
+    <p class="legenda">Figura 1: Triângulo retângulo ABC com catetos b e c, e hipotenusa a</p>
+
+    <p>Na figura acima, temos um triângulo retângulo @ABC@ com:</p>
+    <ul>
+      <li><strong>Ângulo reto em @A@:</strong> @\hat{A} = 90°@</li>
+      <li><strong>Catetos:</strong> @\overline{AB} = c@ e @\overline{AC} = b@</li>
+      <li><strong>Hipotenusa:</strong> @\overline{BC} = a@</li>
+      <li><strong>Ângulos agudos:</strong> @\hat{B}@ e @\hat{C}@, com @\hat{B} + \hat{C} = 90°@</li>
+    </ul>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.1 (Teorema de Pitágoras)</h3>
+      <p>Em todo triângulo retângulo, o quadrado da hipotenusa é igual à soma dos quadrados dos catetos. Se @a@ é a hipotenusa e @b@, @c@ são os catetos, então:</p>
+      @@
+      a^2 = b^2 + c^2
+      @@
+    </div>
+
+    <p><strong>Demonstração (por semelhança de triângulos):</strong></p>
+    <p>Considere o triângulo retângulo @ABC@ com ângulo reto em @A@. Trace a altura @h@ relativa à hipotenusa, dividindo-a em dois segmentos @m@ e @n@, onde @m + n = a@.</p>
+
+    <img src="../../recursos/imagens/trigonometria/pitagoras-demonstracao.png"
+         alt="Triângulo retângulo ABC com altura h traçada do vértice A até a hipotenusa BC, dividindo-a em segmentos m e n"
+         class="figura"
+         style="max-width: 450px;">
+    <p class="legenda">Figura 2: Demonstração do Teorema de Pitágoras por semelhança</p>
+
+    <p>Os triângulos @ABC@, @HBA@ e @HAC@ são semelhantes (possuem os mesmos ângulos). Da semelhança, obtemos as seguintes relações:</p>
+    @@
+    \begin{align}
+    \frac{c}{a} &= \frac{m}{c} \quad \Rightarrow \quad c^2 = a \cdot m \\
+    \frac{b}{a} &= \frac{n}{b} \quad \Rightarrow \quad b^2 = a \cdot n
+    \end{align}
+    @@
+
+    <p>Somando as duas equações:</p>
+    @@
+    \begin{align}
+    c^2 + b^2 &= a \cdot m + a \cdot n \\
+    &= a(m + n) \\
+    &= a \cdot a \\
+    &= a^2
+    \end{align}
+    @@
+
+    <p>Portanto, @a^2 = b^2 + c^2@. @\square@</p>
+
+    <div class="nota">
+      <strong>Observação:</strong> O Teorema de Pitágoras é uma das ferramentas mais importantes da geometria e possui diversas demonstrações diferentes (geométricas, algébricas, por áreas, etc.). A recíproca também é verdadeira: se em um triângulo vale @a^2 = b^2 + c^2@, então o triângulo é retângulo.
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: RAZÕES TRIGONOMÉTRICAS
+         =============================================================== -->
+    <h2>2. Razões Trigonométricas no Triângulo Retângulo</h2>
+
+    <p>As razões trigonométricas são relações entre as medidas dos lados de um triângulo retângulo. Elas dependem apenas da medida do ângulo agudo considerado, não das dimensões do triângulo.</p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Seno, Cosseno e Tangente)</h3>
+      <p>Seja @ABC@ um triângulo retângulo com ângulo reto em @A@ e seja @\theta@ um dos ângulos agudos. Definimos:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Seno de @\theta@:</strong> @@\sin(\theta) = \frac{\text{cateto oposto}}{\text{hipotenusa}}@@</li>
+        <li><strong>(ii) Cosseno de @\theta@:</strong> @@\cos(\theta) = \frac{\text{cateto adjacente}}{\text{hipotenusa}}@@</li>
+        <li><strong>(iii) Tangente de @\theta@:</strong> @@\tan(\theta) = \frac{\text{cateto oposto}}{\text{cateto adjacente}}@@</li>
+      </ul>
+    </div>
+
+    <img src="../../recursos/imagens/trigonometria/razoes-trigonometricas.png"
+         alt="Triângulo retângulo mostrando ângulo theta, cateto oposto, cateto adjacente e hipotenusa com as fórmulas de seno, cosseno e tangente"
+         class="figura"
+         style="max-width: 500px;">
+    <p class="legenda">Figura 3: Razões trigonométricas no triângulo retângulo</p>
+
+    <p>Na figura acima, considerando o ângulo @\theta@:</p>
+    @@
+    \sin(\theta) = \frac{a}{c}, \quad \cos(\theta) = \frac{b}{c}, \quad \tan(\theta) = \frac{a}{b}
+    @@
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Relação Fundamental da Trigonometria)</h3>
+      <p>Para todo ângulo @\theta@, vale a identidade trigonométrica fundamental:</p>
+      @@
+      \sin^2(\theta) + \cos^2(\theta) = 1
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Seja um triângulo retângulo com hipotenusa @c@ e catetos @a@ (oposto a @\theta@) e @b@ (adjacente a @\theta@). Pelo Teorema de Pitágoras:</p>
+    @@
+    a^2 + b^2 = c^2
+    @@
+
+    <p>Dividindo ambos os lados por @c^2@:</p>
+    @@
+    \begin{align}
+    \frac{a^2}{c^2} + \frac{b^2}{c^2} &= \frac{c^2}{c^2} \\
+    \left(\frac{a}{c}\right)^2 + \left(\frac{b}{c}\right)^2 &= 1 \\
+    \sin^2(\theta) + \cos^2(\theta) &= 1
+    \end{align}
+    @@
+
+    <p>@\square@</p>
+
+    <div class="destaque-box observacao">
+      <h3>Corolário 2.1 (Outras Razões Trigonométricas)</h3>
+      <p>Além das razões fundamentais, definimos também:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Cotangente:</strong> @@\cot(\theta) = \frac{1}{\tan(\theta)} = \frac{\cos(\theta)}{\sin(\theta)}@@</li>
+        <li><strong>(ii) Secante:</strong> @@\sec(\theta) = \frac{1}{\cos(\theta)}@@</li>
+        <li><strong>(iii) Cossecante:</strong> @@\csc(\theta) = \frac{1}{\sin(\theta)}@@</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Relação entre Tangente, Seno e Cosseno)</h3>
+      <p>Para todo ângulo @\theta@ (com @\cos(\theta) \neq 0@), vale:</p>
+      @@
+      \tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Usando as definições:</p>
+    @@
+    \begin{align}
+    \frac{\sin(\theta)}{\cos(\theta)} &= \frac{\frac{\text{cateto oposto}}{\text{hipotenusa}}}{\frac{\text{cateto adjacente}}{\text{hipotenusa}}} \\
+    &= \frac{\text{cateto oposto}}{\text{hipotenusa}} \cdot \frac{\text{hipotenusa}}{\text{cateto adjacente}} \\
+    &= \frac{\text{cateto oposto}}{\text{cateto adjacente}} \\
+    &= \tan(\theta)
+    \end{align}
+    @@
+
+    <p>@\square@</p>
+
+    <!-- ===============================================================
+         SEÇÃO 3: ÂNGULOS NOTÁVEIS
+         =============================================================== -->
+    <h2>3. Ângulos Notáveis (30°, 45° e 60°)</h2>
+
+    <p>Alguns ângulos possuem valores trigonométricos que podem ser determinados geometricamente. Os mais importantes são @30°@, @45°@ e @60°@.</p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Triângulo Equilátero e Ângulo de 30° e 60°)</h3>
+      <p>Considere um triângulo equilátero de lado @\ell@. Ao traçar a altura relativa a um dos lados, obtemos dois triângulos retângulos congruentes, cada um com ângulos de @30°@, @60°@ e @90°@.</p>
+    </div>
+
+    <img src="../../recursos/imagens/trigonometria/triangulo-30-60-90.png"
+         alt="Triângulo equilátero de lado L com altura h traçada, formando dois triângulos retângulos com ângulos 30-60-90"
+         class="figura"
+         style="max-width: 400px;">
+    <p class="legenda">Figura 4: Triângulo 30-60-90 obtido de um triângulo equilátero</p>
+
+    <p>Neste triângulo retângulo:</p>
+    <ul>
+      <li>Hipotenusa = @\ell@</li>
+      <li>Cateto menor (oposto a @30°@) = @\frac{\ell}{2}@</li>
+      <li>Cateto maior (oposto a @60°@) = @\frac{\ell\sqrt{3}}{2}@</li>
+    </ul>
+
+    <p>Portanto, as razões trigonométricas para @30°@ e @60°@ são:</p>
+    @@
+    \begin{align}
+    \sin(30°) = \frac{1}{2}, &\quad \cos(30°) = \frac{\sqrt{3}}{2}, \quad \tan(30°) = \frac{\sqrt{3}}{3} \\
+    \sin(60°) = \frac{\sqrt{3}}{2}, &\quad \cos(60°) = \frac{1}{2}, \quad \tan(60°) = \sqrt{3}
+    \end{align}
+    @@
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.2 (Triângulo Isósceles Retângulo e Ângulo de 45°)</h3>
+      <p>Considere um triângulo retângulo isósceles com catetos iguais a @\ell@. Os ângulos agudos medem ambos @45°@, e a hipotenusa mede @\ell\sqrt{2}@ (pelo Teorema de Pitágoras).</p>
+    </div>
+
+    <img src="../../recursos/imagens/trigonometria/triangulo-45-45-90.png"
+         alt="Triângulo retângulo isósceles com catetos iguais a L e hipotenusa L√2, mostrando ângulos de 45°"
+         class="figura"
+         style="max-width: 350px;">
+    <p class="legenda">Figura 5: Triângulo 45-45-90 (triângulo retângulo isósceles)</p>
+
+    <p>As razões trigonométricas para @45°@ são:</p>
+    @@
+    \sin(45°) = \frac{\sqrt{2}}{2}, \quad \cos(45°) = \frac{\sqrt{2}}{2}, \quad \tan(45°) = 1
+    @@
+
+    <div class="destaque-box observacao">
+      <h3>Tabela de Valores Notáveis</h3>
+      <p>Resumo dos valores das razões trigonométricas para os ângulos notáveis:</p>
+
+      <table style="margin: 1rem auto; border-collapse: collapse; text-align: center; min-width: 400px;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--secondary-text-color);">
+            <th style="padding: 0.5rem;">Ângulo</th>
+            <th style="padding: 0.5rem;">@\sin@</th>
+            <th style="padding: 0.5rem;">@\cos@</th>
+            <th style="padding: 0.5rem;">@\tan@</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 0.5rem;">@30°@</td>
+            <td style="padding: 0.5rem;">@\frac{1}{2}@</td>
+            <td style="padding: 0.5rem;">@\frac{\sqrt{3}}{2}@</td>
+            <td style="padding: 0.5rem;">@\frac{\sqrt{3}}{3}@</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">@45°@</td>
+            <td style="padding: 0.5rem;">@\frac{\sqrt{2}}{2}@</td>
+            <td style="padding: 0.5rem;">@\frac{\sqrt{2}}{2}@</td>
+            <td style="padding: 0.5rem;">@1@</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">@60°@</td>
+            <td style="padding: 0.5rem;">@\frac{\sqrt{3}}{2}@</td>
+            <td style="padding: 0.5rem;">@\frac{1}{2}@</td>
+            <td style="padding: 0.5rem;">@\sqrt{3}@</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> Note que @\sin(30°) = \cos(60°)@ e @\sin(60°) = \cos(30°)@. Isso ocorre porque @30°@ e @60°@ são ângulos complementares (somam @90°@). Em geral, para ângulos complementares @\alpha@ e @\beta@ (com @\alpha + \beta = 90°@), vale @\sin(\alpha) = \cos(\beta)@ e @\cos(\alpha) = \sin(\beta)@.
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: RELAÇÕES MÉTRICAS NO TRIÂNGULO RETÂNGULO
+         =============================================================== -->
+    <h2>4. Relações Métricas no Triângulo Retângulo</h2>
+
+    <p>Além do Teorema de Pitágoras, existem outras relações importantes entre os elementos de um triângulo retângulo.</p>
+
+    <img src="../../recursos/imagens/trigonometria/relacoes-metricas.png"
+         alt="Triângulo retângulo ABC com altura h relativa à hipotenusa, dividindo-a em segmentos m e n, mostrando todos os elementos (catetos b e c, hipotenusa a)"
+         class="figura"
+         style="max-width: 450px;">
+    <p class="legenda">Figura 6: Elementos do triângulo retângulo para relações métricas</p>
+
+    <p>Considere um triângulo retângulo @ABC@ com:</p>
+    <ul>
+      <li>Hipotenusa @a = \overline{BC}@</li>
+      <li>Catetos @b = \overline{AC}@ e @c = \overline{AB}@</li>
+      <li>Altura @h@ relativa à hipotenusa</li>
+      <li>Projeções: @m@ (projeção de @c@ sobre a hipotenusa) e @n@ (projeção de @b@ sobre a hipotenusa)</li>
+    </ul>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Relações Métricas Fundamentais)</h3>
+      <p>No triângulo retângulo descrito acima, valem as seguintes relações:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i)</strong> @a = m + n@ (soma das projeções)</li>
+        <li><strong>(ii)</strong> @h^2 = m \cdot n@ (altura é média geométrica das projeções)</li>
+        <li><strong>(iii)</strong> @b^2 = a \cdot n@ (cateto ao quadrado = hipotenusa × sua projeção)</li>
+        <li><strong>(iv)</strong> @c^2 = a \cdot m@ (cateto ao quadrado = hipotenusa × sua projeção)</li>
+        <li><strong>(v)</strong> @a \cdot h = b \cdot c@ (produto da hipotenusa pela altura = produto dos catetos)</li>
+      </ul>
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+
+    <p><strong>(ii)</strong> Os triângulos @AHB@ e @AHC@ são semelhantes ao triângulo @ABC@. Da semelhança entre @AHB@ e @CHA@:</p>
+    @@
+    \frac{h}{n} = \frac{m}{h} \quad \Rightarrow \quad h^2 = m \cdot n
+    @@
+
+    <p><strong>(iii) e (iv)</strong> Da semelhança entre @ABC@ e @CAH@:</p>
+    @@
+    \frac{b}{a} = \frac{n}{b} \quad \Rightarrow \quad b^2 = a \cdot n
+    @@
+
+    <p>Analogamente, @c^2 = a \cdot m@.</p>
+
+    <p><strong>(v)</strong> A área do triângulo retângulo pode ser calculada de duas formas:</p>
+    @@
+    \text{Área} = \frac{b \cdot c}{2} = \frac{a \cdot h}{2}
+    @@
+
+    <p>Portanto, @a \cdot h = b \cdot c@. @\square@</p>
+
+    <div class="destaque-box observacao">
+      <h3>Corolário 4.1 (Expressão da Altura)</h3>
+      <p>Da relação @a \cdot h = b \cdot c@ e do Teorema de Pitágoras, podemos expressar a altura @h@ em função dos catetos e da hipotenusa:</p>
+      @@
+      h = \frac{b \cdot c}{a} = \frac{b \cdot c}{\sqrt{b^2 + c^2}}
+      @@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>5. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Aplicação Direta do Teorema de Pitágoras</h3>
+      <p><strong>Enunciado:</strong> Uma escada de @5@ metros de comprimento está apoiada em uma parede vertical, com sua base distante @3@ metros da parede. Qual é a altura que a escada alcança na parede?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar os elementos do triângulo retângulo.</p>
+      <p>A situação forma um triângulo retângulo onde:</p>
+      <ul>
+        <li>Hipotenusa (escada) = @5@ m</li>
+        <li>Cateto adjacente (distância da parede) = @3@ m</li>
+        <li>Cateto oposto (altura na parede) = @h@ (desconhecido)</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Aplicar o Teorema de Pitágoras.</p>
+      @@
+      5^2 = 3^2 + h^2
+      @@
+
+      <p><strong>Passo 3:</strong> Resolver a equação.</p>
+      @@
+      \begin{align}
+      25 &= 9 + h^2 \\
+      h^2 &= 25 - 9 \\
+      h^2 &= 16 \\
+      h &= 4 \text{ m}
+      \end{align}
+      @@
+
+      <p><strong>Resposta:</strong> A escada alcança @4@ metros de altura na parede.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Cálculo de Razões Trigonométricas</h3>
+      <p><strong>Enunciado:</strong> Em um triângulo retângulo, a hipotenusa mede @13@ cm e um dos catetos mede @5@ cm. Determine o seno, cosseno e tangente do ângulo oposto ao cateto de @5@ cm.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Encontrar o cateto desconhecido usando o Teorema de Pitágoras.</p>
+      @@
+      \begin{align}
+      13^2 &= 5^2 + c^2 \\
+      169 &= 25 + c^2 \\
+      c^2 &= 144 \\
+      c &= 12 \text{ cm}
+      \end{align}
+      @@
+
+      <p><strong>Passo 2:</strong> Identificar o ângulo @\theta@ (oposto ao cateto de @5@ cm).</p>
+      <p>Para este ângulo:</p>
+      <ul>
+        <li>Cateto oposto = @5@ cm</li>
+        <li>Cateto adjacente = @12@ cm</li>
+        <li>Hipotenusa = @13@ cm</li>
+      </ul>
+
+      <p><strong>Passo 3:</strong> Calcular as razões trigonométricas.</p>
+      @@
+      \begin{align}
+      \sin(\theta) &= \frac{\text{cateto oposto}}{\text{hipotenusa}} = \frac{5}{13} \\
+      \cos(\theta) &= \frac{\text{cateto adjacente}}{\text{hipotenusa}} = \frac{12}{13} \\
+      \tan(\theta) &= \frac{\text{cateto oposto}}{\text{cateto adjacente}} = \frac{5}{12}
+      \end{align}
+      @@
+
+      <p><strong>Resposta:</strong> @\sin(\theta) = \frac{5}{13}@, @\cos(\theta) = \frac{12}{13}@ e @\tan(\theta) = \frac{5}{12}@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - Uso de Ângulos Notáveis</h3>
+      <p><strong>Enunciado:</strong> Uma rampa faz um ângulo de @30°@ com o solo horizontal. Se a rampa tem @10@ metros de comprimento, qual é a altura vertical que ela alcança?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar os elementos.</p>
+      <p>Temos um triângulo retângulo onde:</p>
+      <ul>
+        <li>Ângulo = @30°@</li>
+        <li>Hipotenusa (rampa) = @10@ m</li>
+        <li>Cateto oposto (altura) = @h@ (desconhecido)</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Usar a razão trigonométrica apropriada.</p>
+      @@
+      \sin(30°) = \frac{h}{10}
+      @@
+
+      <p><strong>Passo 3:</strong> Substituir o valor de @\sin(30°) = \frac{1}{2}@.</p>
+      @@
+      \begin{align}
+      \frac{1}{2} &= \frac{h}{10} \\
+      h &= 10 \cdot \frac{1}{2} \\
+      h &= 5 \text{ m}
+      \end{align}
+      @@
+
+      <p><strong>Resposta:</strong> A rampa alcança @5@ metros de altura vertical.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Verificação da Relação Fundamental</h3>
+      <p><strong>Enunciado:</strong> Se @\sin(\alpha) = \frac{3}{5}@, determine @\cos(\alpha)@ sabendo que @\alpha@ é um ângulo agudo.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Usar a relação fundamental da trigonometria.</p>
+      @@
+      \sin^2(\alpha) + \cos^2(\alpha) = 1
+      @@
+
+      <p><strong>Passo 2:</strong> Substituir @\sin(\alpha) = \frac{3}{5}@.</p>
+      @@
+      \begin{align}
+      \left(\frac{3}{5}\right)^2 + \cos^2(\alpha) &= 1 \\
+      \frac{9}{25} + \cos^2(\alpha) &= 1 \\
+      \cos^2(\alpha) &= 1 - \frac{9}{25} \\
+      \cos^2(\alpha) &= \frac{25 - 9}{25} \\
+      \cos^2(\alpha) &= \frac{16}{25}
+      \end{align}
+      @@
+
+      <p><strong>Passo 3:</strong> Extrair a raiz quadrada (positiva, pois @\alpha@ é agudo).</p>
+      @@
+      \cos(\alpha) = \frac{4}{5}
+      @@
+
+      <p><strong>Resposta:</strong> @\cos(\alpha) = \frac{4}{5}@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Relações Métricas: Altura Relativa à Hipotenusa</h3>
+      <p><strong>Enunciado:</strong> Em um triângulo retângulo, os catetos medem @6@ cm e @8@ cm. Calcule a altura relativa à hipotenusa.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Calcular a hipotenusa pelo Teorema de Pitágoras.</p>
+      @@
+      \begin{align}
+      a^2 &= 6^2 + 8^2 \\
+      a^2 &= 36 + 64 \\
+      a^2 &= 100 \\
+      a &= 10 \text{ cm}
+      \end{align}
+      @@
+
+      <p><strong>Passo 2:</strong> Usar a relação @a \cdot h = b \cdot c@.</p>
+      @@
+      \begin{align}
+      10 \cdot h &= 6 \cdot 8 \\
+      10h &= 48 \\
+      h &= \frac{48}{10} \\
+      h &= 4{,}8 \text{ cm}
+      \end{align}
+      @@
+
+      <p><strong>Resposta:</strong> A altura relativa à hipotenusa mede @4{,}8@ cm.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Problema com Ângulo de 60°</h3>
+      <p><strong>Enunciado:</strong> Do topo de um prédio, observa-se um ponto no solo com um ângulo de depressão de @60°@. Se o prédio tem @30@ metros de altura, qual é a distância horizontal do ponto observado até a base do prédio?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Entender a geometria do problema.</p>
+      <p>O ângulo de depressão de @60°@ do topo do prédio corresponde a um ângulo de elevação de @60°@ do ponto no solo até o topo (ângulos alternos internos).</p>
+
+      <p><strong>Passo 2:</strong> Identificar os elementos.</p>
+      <ul>
+        <li>Cateto oposto ao ângulo de @60°@ = @30@ m (altura do prédio)</li>
+        <li>Cateto adjacente = @d@ (distância horizontal desconhecida)</li>
+      </ul>
+
+      <p><strong>Passo 3:</strong> Usar a tangente.</p>
+      @@
+      \tan(60°) = \frac{30}{d}
+      @@
+
+      <p><strong>Passo 4:</strong> Substituir @\tan(60°) = \sqrt{3}@ e resolver.</p>
+      @@
+      \begin{align}
+      \sqrt{3} &= \frac{30}{d} \\
+      d &= \frac{30}{\sqrt{3}} \\
+      d &= \frac{30\sqrt{3}}{3} \\
+      d &= 10\sqrt{3} \approx 17{,}32 \text{ m}
+      \end{align}
+      @@
+
+      <p><strong>Resposta:</strong> A distância horizontal é @10\sqrt{3}@ metros (aproximadamente @17{,}32@ m).</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 7 - Aplicação das Projeções</h3>
+      <p><strong>Enunciado:</strong> Em um triângulo retângulo, a hipotenusa mede @20@ cm e a projeção de um dos catetos sobre a hipotenusa mede @12@ cm. Calcule a medida desse cateto.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar a relação métrica apropriada.</p>
+      <p>Usamos a relação @c^2 = a \cdot m@, onde:</p>
+      <ul>
+        <li>@a = 20@ cm (hipotenusa)</li>
+        <li>@m = 12@ cm (projeção do cateto @c@)</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Aplicar a fórmula.</p>
+      @@
+      \begin{align}
+      c^2 &= 20 \cdot 12 \\
+      c^2 &= 240 \\
+      c &= \sqrt{240} \\
+      c &= \sqrt{16 \cdot 15} \\
+      c &= 4\sqrt{15} \approx 15{,}49 \text{ cm}
+      \end{align}
+      @@
+
+      <p><strong>Resposta:</strong> O cateto mede @4\sqrt{15}@ cm (aproximadamente @15{,}49@ cm).</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 8 - Problema Contextualizado com Ângulo de 45°</h3>
+      <p><strong>Enunciado:</strong> Um cabo de aço está preso ao topo de um poste e ao solo, formando um ângulo de @45°@ com o solo. Se o cabo mede @20\sqrt{2}@ metros, qual é a altura do poste?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar os elementos.</p>
+      <p>Temos um triângulo retângulo com:</p>
+      <ul>
+        <li>Ângulo = @45°@</li>
+        <li>Hipotenusa (cabo) = @20\sqrt{2}@ m</li>
+        <li>Cateto oposto (altura do poste) = @h@</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Usar o seno.</p>
+      @@
+      \sin(45°) = \frac{h}{20\sqrt{2}}
+      @@
+
+      <p><strong>Passo 3:</strong> Substituir @\sin(45°) = \frac{\sqrt{2}}{2}@ e resolver.</p>
+      @@
+      \begin{align}
+      \frac{\sqrt{2}}{2} &= \frac{h}{20\sqrt{2}} \\
+      h &= 20\sqrt{2} \cdot \frac{\sqrt{2}}{2} \\
+      h &= \frac{20 \cdot 2}{2} \\
+      h &= 20 \text{ m}
+      \end{align}
+      @@
+
+      <p><strong>Resposta:</strong> A altura do poste é @20@ metros.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: EXERCÍCIOS PROPOSTOS
+         =============================================================== -->
+    <h2>6. Exercícios</h2>
+
+    <ol>
+      <li>Em um triângulo retângulo, os catetos medem @9@ cm e @12@ cm. Calcule a medida da hipotenusa.</li>
+
+      <li>A hipotenusa de um triângulo retângulo mede @25@ m e um dos catetos mede @7@ m. Determine a medida do outro cateto.</li>
+
+      <li>Calcule o valor de @x@ na figura a seguir, sabendo que o triângulo é retângulo, a hipotenusa mede @x@ e os catetos medem @5@ e @12@.</li>
+
+      <li>Em um triângulo retângulo, um dos ângulos agudos mede @30°@ e a hipotenusa mede @18@ cm. Calcule as medidas dos catetos.</li>
+
+      <li>Se @\cos(\theta) = \frac{5}{13}@ e @\theta@ é um ângulo agudo, determine @\sin(\theta)@ e @\tan(\theta)@.</li>
+
+      <li>Um avião decola fazendo um ângulo de @30°@ com a pista horizontal. Após percorrer @2000@ m em linha reta, qual é a altitude do avião?</li>
+
+      <li>Calcule a altura relativa à hipotenusa em um triângulo retângulo cujos catetos medem @15@ cm e @20@ cm.</li>
+
+      <li>A projeção de um cateto sobre a hipotenusa de um triângulo retângulo mede @9@ cm, e a hipotenusa mede @25@ cm. Calcule a medida desse cateto.</li>
+
+      <li>Em um triângulo retângulo isósceles, cada cateto mede @10@ cm. Determine a medida da hipotenusa e as razões trigonométricas dos ângulos agudos.</li>
+
+      <li>Uma pessoa de @1{,}70@ m de altura observa o topo de um edifício sob um ângulo de elevação de @60°@. Se a pessoa está a @30$ m de distância do edifício, qual é a altura total do edifício?</li>
+
+      <li>Demonstre que @\tan(\theta) \cdot \cot(\theta) = 1@ para todo ângulo @\theta@ (com @\sin(\theta) \neq 0@ e @\cos(\theta) \neq 0@).</li>
+
+      <li>Em um triângulo retângulo, a altura relativa à hipotenusa mede @6@ cm e divide a hipotenusa em dois segmentos de medidas @4$ cm e @9@ cm. Verifique se a relação @h^2 = m \cdot n@ é satisfeita.</li>
+
+      <li>Um cabo está preso ao topo de um poste de @12@ m de altura e fixado no solo a @5$ m de distância da base do poste. Calcule o comprimento do cabo e o ângulo que ele forma com o solo.</li>
+
+      <li>Se @\sin(\alpha) = \frac{2}{3}@, calcule o valor de @\frac{1 - \cos^2(\alpha)}{\sin^2(\alpha)}@.</li>
+
+      <li>Em um triângulo retângulo, os catetos medem @a@ e @b@, e a hipotenusa mede @c@. Se a altura relativa à hipotenusa é @h@, mostre que @\frac{1}{h^2} = \frac{1}{a^2} + \frac{1}{b^2}@.</li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+    1. 15 cm
+    2. 24 m
+    3. x = 13
+    4. Cateto menor = 9 cm, cateto maior = 9√3 cm
+    5. sen(θ) = 12/13, tan(θ) = 12/5
+    6. 1000 m
+    7. 12 cm
+    8. 15 cm
+    9. Hipotenusa = 10√2 cm; sen(45°) = cos(45°) = √2/2, tan(45°) = 1
+    10. Aproximadamente 53,62 m
+    11. Demonstração: tan(θ)·cot(θ) = tan(θ)·(1/tan(θ)) = 1
+    12. Sim, pois 6² = 36 e 4·9 = 36
+    13. Comprimento = 13 m; ângulo ≈ 67,38°
+    14. O valor é 1
+    15. Demonstração usando h = ab/c e c² = a² + b²
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

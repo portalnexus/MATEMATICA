@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ALTERE O TÍTULO PARA O TEMA DA LISTA -->
+  <title>NEXUS - REGRA DE TRÊS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    /* Container de metadados (fonte, dificuldade, tempo estimado) */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    /* Tag de tópico matemático */
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    /* Tag de fonte do problema */
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Tag de dificuldade com cores diferentes */
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Cores por nível de dificuldade */
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }    /* Verde */
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }    /* Amarelo */
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }  /* Vermelho */
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); } /* Roxo */
+
+    /* Introdução de cada seção */
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    /* Caixas de dica para os estudantes */
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+<div class="container">
+
+<!-- ============================================================================
+     TÍTULO PRINCIPAL DA LISTA
+     ============================================================================ -->
+<h1>REGRA DE TRÊS</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+
+     OBJETIVO: Familiarização com conceitos básicos
+     QUANTIDADE: 10-12 problemas
+     CARACTERÍSTICAS:
+     - Aplicação direta de fórmulas ou conceitos
+     - Enunciados curtos e objetivos
+     - Baixa complexidade de interpretação
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas básicos para familiarização com os conceitos fundamentais.
+  </p>
+
+  <ol>
+    <!-- ====== PROBLEMA 1 ====== -->
+    <li>
+      <div class="problema-meta">
+        <!-- TÓPICO DE MATEMÁTICA: Descreve o conceito matemático principal -->
+        <span class="topico">Regra de três simples direta</span>
+
+        <!-- DIFICULDADE: facil, media, dificil, desafio -->
+        <span class="dificuldade facil">Fácil</span>
+
+        <!-- TEMPO ESTIMADO: em minutos -->
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <!-- ENUNCIADO DO PROBLEMA -->
+      <p>Se 4 canetas custam R$ 8,00, quanto custarão 7 canetas do mesmo tipo?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 2 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três simples direta</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Uma máquina produz 15 peças em 3 horas. Quantas peças produzirá em 7 horas?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 3 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três simples direta</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Para fazer um bolo, são necessários 3 ovos para 1 kg de farinha. Quantos ovos são necessários para 5 kg de farinha?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 4 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três simples direta</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Se 6 metros de tecido custam R$ 30,00, quanto custarão 15 metros do mesmo tecido?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 5 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três simples direta</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um automóvel percorre 240 km com 20 litros de combustível. Quantos quilômetros percorrerá com 35 litros do mesmo combustível?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 6 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três simples inversa</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Se 8 pedreiros constroem um muro em 12 dias, quanto tempo levarão 6 pedreiros para construir o mesmo muro?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 7 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três simples inversa</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Um tanque é esvaziado por 3 torneiras em 24 horas. Em quanto tempo 6 torneiras idênticas esvaziarão o mesmo tanque?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 8 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três simples inversa</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Se 10 operários fazem um trabalho em 30 dias, quantos operários farão o mesmo trabalho em 25 dias?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 9 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três simples direta</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Numa padaria, 4 padeiros fazem 100 pães em um dia. Quantos pães fariam 7 padeiros, trabalhando no mesmo ritmo?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 10 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três simples direta</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Se 2 kg de arroz custam R$ 12,00, quanto custarão 5,5 kg do mesmo arroz?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 11 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três simples direta</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Uma torneira despeja 45 litros de água em 15 minutos. Quantos litros despejará em 40 minutos?</p>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+
+     OBJETIVO: Consolidar aprendizado e desenvolver interpretação
+     QUANTIDADE: 12-14 problemas
+     CARACTERÍSTICAS:
+     - Contextos mais elaborados
+     - Requerem interpretação do enunciado
+     - Combinação de conceitos
+     - Aplicação em situações reais
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas que requerem interpretação do enunciado e aplicação de conceitos combinados.
+  </p>
+
+  <ol>
+    <!-- ====== PROBLEMA 12 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Se 6 máquinas produzem 480 peças em 8 horas, quantas peças produzirão 10 máquinas em 12 horas?</p>
+
+      <!-- Exemplo de dica útil (use com moderação) -->
+      <div class="dica">
+        <strong>Dica:</strong> Analise como cada variável (máquinas e horas) afeta a produção.
+      </div>
+    </li>
+
+    <!-- ====== PROBLEMA 13 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Em uma fábrica, 12 operários trabalhando 6 horas por dia constroem 108m de muro em 3 dias. Quantos metros de muro 15 operários construirão em 4 dias trabalhando 8 horas por dia?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 14 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Se 8 costureiras fazem 60 blusas em 5 dias, quantas costureiras serão necessárias para fazer 90 blusas em 3 dias?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 15 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Se 5 máquinas trabalhando 10 horas por dia levam 12 dias para produzir 2.000 peças, quantos dias levarão 8 máquinas trabalhando 6 horas por dia para produzir 3.840 peças?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 16 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma equipe de 15 operários leva 60 dias para construir 1500m de estrada, trabalhando 8 horas por dia. Em quantos dias uma equipe de 18 operários construirá 1800m de estrada trabalhando 10 horas por dia?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 17 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Se 4 operários constroem 20m de muro em 6 dias trabalhando 8 horas por dia, quantos operários serão necessários para construir 45m de muro em 9 dias trabalhando 6 horas por dia?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 18 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Para transportar 420 toneladas de carga, 14 caminhões fizeram 15 viagens. Quantas viagens serão necessárias para transportar 600 toneladas de carga com 18 caminhões do mesmo tipo?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 19 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Um grupo de 12 pessoas consome 24 kg de arroz em 15 dias. Quantas pessoas consumirão 40 kg de arroz em 25 dias?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 20 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Se 10 pintores pintam 600m² de parede em 4 dias trabalhando 5 horas por dia, quantos metros quadrados 15 pintores pintarão em 8 dias trabalhando 6 horas por dia?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 21 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Com 16 máquinas trabalhando 10 horas por dia, uma fábrica produz 1200 peças em 5 dias. Quantas peças produzirão 12 máquinas trabalhando 8 horas por dia em 6 dias?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 22 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Se 9 operários constroem 81m de calçada em 3 dias trabalhando 6 horas por dia, quantos dias levarão 8 operários para construir 64m de calçada trabalhando 8 horas por dia?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 23 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Se 5 máquinas constroem 100m de estrada em 10 dias, quantos dias levarão 8 máquinas para construir 320m de estrada?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 24 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Se 12 costureiras fazem 480 camisas em 15 dias trabalhando 8 horas por dia, quantas costureiras seriam necessárias para fazer 540 camisas em 9 dias trabalhando 10 horas por dia?</p>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+
+     OBJETIVO: Desenvolver raciocínio complexo e múltiplas etapas
+     QUANTIDADE: 6-8 problemas
+     CARACTERÍSTICAS:
+     - Alta complexidade
+     - Múltiplas etapas de resolução
+     - Combinação avançada de conceitos
+     - Podem ter subitens (a, b, c)
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Problemas complexos que exigem raciocínio em múltiplas etapas e combinação de conceitos.
+  </p>
+
+  <ol>
+    <!-- ====== PROBLEMA 25 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta com porcentagem</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Em uma empresa, 20 funcionários produzem 1500 peças em 12 dias trabalhando 6 horas por dia. Com um aumento de 20% na produtividade, quantas peças 25 funcionários produzirão em 10 dias trabalhando 8 horas por dia?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 26 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta com porcentagem</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Se 15 máquinas trabalhando 10 horas por dia produzem 1800 peças, e a eficiência das máquinas aumentar em 25%, quantas peças 12 máquinas produzirão trabalhando 8 horas por dia?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 27 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta com redução de tempo</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Se 10 pedreiros constroem 600m de muro em 25 dias trabalhando 8 horas por dia, quantos pedreiros seriam necessários para construir 900m de muro em 30 dias se a eficiência aumentar em 20%?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 28 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta com etapas intermediárias</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Três grandezas, A, B e C, são tais que A é diretamente proporcional a B e inversamente proporcional ao quadrado de C. Quando A = 6, B = 12 e C = 2. Determine o valor de A quando B = 30 e C = 5.</p>
+    </li>
+
+    <!-- ====== PROBLEMA 29 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta com diferentes tipos de proporcionalidade</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Em uma fábrica, o tempo de produção é diretamente proporcional à quantidade de peças e inversamente proporcional ao número de máquinas. Se 4 máquinas produzem 200 peças em 5 horas, quantas máquinas são necessárias para produzir 450 peças em 6 horas?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 30 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta com variação de condições</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Uma obra deve ser concluída em 60 dias. Inicialmente, 15 operários trabalhando 8 horas por dia completariam a obra nesse tempo. Após 20 dias, 5 operários saíram e os restantes passaram a trabalhar 10 horas por dia. A obra será concluída:</p>
+      <p>a) No tempo previsto</p>
+      <p>b) Com atraso de 10 dias</p>
+      <p>c) Com atraso de 8 dias</p>
+      <p>d) Com antecipação de 5 dias</p>
+      <p>e) Com atraso de 5 dias</p>
+    </li>
+
+    <!-- ====== PROBLEMA 31 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta com proporcionalidade complexa</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Se 6 máquinas trabalhando 6 horas por dia durante 6 dias produzem 6 toneladas de produto, quantas toneladas 8 máquinas produzirão trabalhando 8 horas por dia durante 8 dias?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 32 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta com múltiplas variáveis</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Numa fábrica, o número de peças produzidas é diretamente proporcional ao número de máquinas e ao tempo de funcionamento, e inversamente proporcional à complexidade do produto (medida em uma escala). Se 10 máquinas produzem 1200 peças em 5 dias com complexidade 3, quantas peças 15 máquinas produzirão em 8 dias com complexidade 4?</p>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+
+     OBJETIVO: Problemas adicionais para prática livre
+     QUANTIDADE: Variável (sugestão: 6-10 problemas)
+     CARACTERÍSTICAS:
+     - Problemas extras para prática
+     - Variedade de dificuldades
+     - Podem incluir desafios criativos
+     - Foco em aplicações práticas e contextualizadas
+
+     NOTA: Não é necessário declarar fontes nesta seção
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para você praticar e consolidar seu aprendizado!
+  </p>
+
+  <ol>
+    <!-- ====== PROBLEMA 33 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três simples direta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma máquina imprime 450 folhetos em 15 minutos. Quantos minutos levará para imprimir 1.200 folhetos?</p>
+
+      <!-- Dicas são opcionais -->
+      <div class="dica">
+        <strong>Dica:</strong> Estabeleça a relação entre folhetos e tempo.
+      </div>
+    </li>
+
+    <!-- ====== PROBLEMA 34 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três simples inversa</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Se 5 torneiras enchem um tanque em 24 horas, quantas torneiras encherão o mesmo tanque em 8 horas?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 35 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Se 10 máquinas produzem 2000 peças em 20 dias trabalhando 5 horas por dia, quantas peças produzirão 15 máquinas em 15 dias trabalhando 8 horas por dia?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 36 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Se 8 operários constroem 320m de muro em 16 dias, quantos operários construirão 480m de muro em 24 dias?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 37 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Se 3 impressoras imprimem 2100 folhas em 7 dias, quantas impressoras seriam necessárias para imprimir 3600 folhas em 9 dias?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 38 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um navio leva 18 dias para transportar uma carga viajando a 20 km/h. Em quanto tempo faria a mesma viagem a 24 km/h?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 39 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta com porcentagem</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Se 6 máquinas trabalhando 8 horas por dia produzem 720 peças, quantas peças produzirão 8 máquinas trabalhando 10 horas por dia se a eficiência aumentar em 10%?</p>
+    </li>
+
+    <!-- ====== PROBLEMA 40 ====== -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Regra de três composta com variação de condições</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Se 12 operários fazem 2/5 de uma obra em 10 dias trabalhando 6 horas por dia, em quantos dias completarão a obra se forem contratados mais 8 operários?</p>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     GABARITO E SOLUÇÕES (OPCIONAL - EM COMENTÁRIO HTML)
+
+     EXEMPLO DE ESTRUTURA:
+
+     <article>
+       <h2>Gabarito e Soluções</h2>
+
+       <h3>Problemas Introdutórios</h3>
+       <ol>
+         <li>
+           <p><strong>Solução:</strong> [Explicação passo a passo]</p>
+           <p><strong>Resposta:</strong> [Resposta final]</p>
+         </li>
+       </ol>
+     </article>
+     ============================================================================ -->
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

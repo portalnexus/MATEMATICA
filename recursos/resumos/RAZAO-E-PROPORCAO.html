@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - RAZÃO E PROPORÇÃO</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>RAZÃO E PROPORÇÃO</h1>
+
+    <!-- ===============================================================
+         SEÇÃO 1: CONCEITOS FUNDAMENTAIS
+         - Definições numeradas (Definição 1.1, 1.2, ...)
+         - Exemplos iniciais
+         - Notações e convenções
+         =============================================================== -->
+    <h2>1. Conceitos Fundamentais</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Razão)</h3>
+      <p>Chama-se <strong>razão</strong> entre dois números reais @a@ e @b@, com @b \neq 0@, o quociente entre @a@ e @b@. A razão de @a@ para @b@ é representada por @\frac{a}{b}@ ou @a : b@, e lê-se "<em>a está para b</em>".</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>A razão entre 8 e 4 é @\frac{8}{4} = 2@</li>
+      <li>A razão entre 3 e 9 é @\frac{3}{9} = \frac{1}{3}@</li>
+      <li>A razão entre 10 e 5 é @\frac{10}{5} = 2@</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Proporção)</h3>
+      <p>Chama-se <strong>proporção</strong> a igualdade entre duas razões. Sendo @a@, @b@, @c@ e @d@ números reais com @b \neq 0@ e @d \neq 0@, a igualdade @\frac{a}{b} = \frac{c}{d}@ é uma proporção, que também pode ser representada por @a : b = c : d@, e lê-se "<em>a está para b assim como c está para d</em>".</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Termos de uma Proporção)</h3>
+      <p>Na proporção @\frac{a}{b} = \frac{c}{d}@ ou @a : b = c : d@:</p>
+      <ul>
+        <li>@a@ e @d@ são chamados de <strong>extremos</strong></li>
+        <li>@b@ e @c@ são chamados de <strong>meios</strong></li>
+        <li>@a@ e @c@ são chamados de <strong>antecedentes</strong></li>
+        <li>@b@ e @d@ são chamados de <strong>consequentes</strong></li>
+      </ul>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.4 (Grandezas Diretamente Proporcionais)</h3>
+      <p>Duas grandezas são <strong>diretamente proporcionais</strong> quando, aumentando-se uma delas, a outra aumenta na mesma proporção. Em termos matemáticos, as grandezas @x@ e @y@ são diretamente proporcionais quando @\frac{x_1}{y_1} = \frac{x_2}{y_2} = k@, onde @k@ é uma constante.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.5 (Grandezas Inversamente Proporcionais)</h3>
+      <p>Duas grandezas são <strong>inversamente proporcionais</strong> quando, aumentando-se uma delas, a outra diminui na mesma proporção. Em termos matemáticos, as grandezas @x@ e @y@ são inversamente proporcionais quando @x_1 \cdot y_1 = x_2 \cdot y_2 = k@, onde @k@ é uma constante.</p>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> A razão entre duas grandezas de mesma natureza é um número puro, enquanto a razão entre grandezas de natureza diferente resulta em uma nova grandeza (como velocidade, densidade, etc.).
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: TEOREMAS E PROPRIEDADES
+         - Teoremas numerados (Teorema 2.1, 2.2, ...)
+         - Demonstrações ou justificativas
+         - Propriedades fundamentais
+         =============================================================== -->
+    <h2>2. Propriedades Fundamentais</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Propriedade Fundamental das Proporções)</h3>
+      <p>Em toda proporção @\frac{a}{b} = \frac{c}{d}@, o produto dos meios é igual ao produto dos extremos:</p>
+      @@
+      a \cdot d = b \cdot c
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Partindo da proporção @\frac{a}{b} = \frac{c}{d}@, multiplicando ambos os lados por @b@ e @d@ (ambos diferentes de zero):</p>
+    @@
+    \frac{a}{b} = \frac{c}{d} \Rightarrow \frac{a}{b} \cdot b \cdot d = \frac{c}{d} \cdot b \cdot d
+    @@
+    @@
+    \Rightarrow a \cdot d = b \cdot c
+    @@
+    <p>o que demonstra o teorema.</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Propriedades das Proporções)</h3>
+      <p>Se @\frac{a}{b} = \frac{c}{d}@, então valem as seguintes propriedades:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i)</strong> @\frac{a}{c} = \frac{b}{d}@ (permutar meios ou extremos)</li>
+        <li><strong>(ii)</strong> @\frac{b}{a} = \frac{d}{c}@ (inverter as razões)</li>
+        <li><strong>(iii)</strong> @\frac{a+b}{b} = \frac{c+d}{d}@ e @\frac{a-b}{b} = \frac{c-d}{d}@</li>
+        <li><strong>(iv)</strong> @\frac{a+c}{b+d} = \frac{a}{b} = \frac{c}{d}@ (proporção com soma de termos)</li>
+      </ul>
+    </div>
+
+    <p><strong>Demonstração da propriedade (iii):</strong></p>
+    <p>Partindo da proporção @\frac{a}{b} = \frac{c}{d}@, temos @ad = bc@.</p>
+    <p>Para provar @\frac{a+b}{b} = \frac{c+d}{d}@:</p>
+    @@
+    \frac{a+b}{b} = \frac{a}{b} + \frac{b}{b} = \frac{a}{b} + 1
+    @@
+    @@
+    \frac{c+d}{d} = \frac{c}{d} + \frac{d}{d} = \frac{c}{d} + 1
+    @@
+    <p>Como @\frac{a}{b} = \frac{c}{d}@ (dado), então @\frac{a+b}{b} = \frac{c+d}{d}@.</p>
+
+    <div class="destaque-box observacao">
+      <h3>Corolário 2.1</h3>
+      <p>Se @\frac{a}{b} = \frac{c}{d} = \frac{e}{f} = k@ (constante), então:</p>
+      @@
+      \frac{a+c+e}{b+d+f} = k
+      @@
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Propriedade 2.2 (Série de Razões Iguais)</h3>
+      <p>Se @\frac{a_1}{b_1} = \frac{a_2}{b_2} = \frac{a_3}{b_3} = \cdots = k@, então:</p>
+      @@
+      \frac{a_1 + a_2 + a_3 + \cdots}{b_1 + b_2 + b_3 + \cdots} = k
+      @@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: EXEMPLOS RESOLVIDOS
+         - Mínimo 4-6 exemplos
+         - Progressão de dificuldade
+         - Solução passo a passo detalhada
+         =============================================================== -->
+    <h2>3. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Cálculo de Termo Desconhecido</h3>
+      <p><strong>Enunciado:</strong> Na proporção @\frac{5}{x} = \frac{10}{16}@, determine o valor de @x@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Aplicar a propriedade fundamental das proporções.</p>
+      @@  
+      \frac{5}{x} = \frac{10}{16} \Rightarrow 5 \cdot 16 = 10 \cdot x
+      @@
+      
+      <p><strong>Passo 2:</strong> Resolver a equação.</p>
+      @@
+      80 = 10x \Rightarrow x = \frac{80}{10} = 8
+      @@
+      
+      <p><strong>Resposta:</strong> @x = 8@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Aplicação em Grandezas Proporcionais</h3>
+      <p><strong>Enunciado:</strong> Em um mapa, a distância entre duas cidades é de 12 cm. Se a escala do mapa é 1:500.000, qual é a distância real entre as cidades?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Entender a escala 1:500.000, que significa 1 cm no mapa equivale a 500.000 cm na realidade.</p>
+      
+      <p><strong>Passo 2:</strong> Estabelecer a proporção.</p>
+      @@  
+      \frac{1 \text{ cm (mapa)}}{500.000 \text{ cm (realidade)}} = \frac{12 \text{ cm (mapa)}}{x \text{ cm (realidade)}}
+      @@
+      
+      <p><strong>Passo 3:</strong> Resolver pela propriedade fundamental.</p>
+      @@
+      1 \cdot x = 500.000 \cdot 12 \Rightarrow x = 6.000.000 \text{ cm}
+      @@
+      
+      <p><strong>Resposta:</strong> A distância real é de 6.000.000 cm, que equivale a 60 km.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - Divisão Proporcional</h3>
+      <p><strong>Enunciado:</strong> Dividir o número 280 em partes diretamente proporcionais a 2, 3 e 5.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Sejam @x@, @y@ e @z@ as partes proporcionais a 2, 3 e 5, respectivamente.</p>
+      <p>Assim @x + y + z = 280@ e @\frac{x}{2} = \frac{y}{3} = \frac{z}{5}@</p>
+      
+      <p><strong>Passo 2:</strong> Pela propriedade da série de razões iguais:</p>
+      @@  
+      \frac{x}{2} = \frac{y}{3} = \frac{z}{5} = \frac{x + y + z}{2 + 3 + 5} = \frac{280}{10} = 28
+      @@
+      
+      <p><strong>Passo 3:</strong> Calcular cada parte.</p>
+      @@
+      \frac{x}{2} = 28 \Rightarrow x = 56
+      @@
+      @@
+      \frac{y}{3} = 28 \Rightarrow y = 84
+      @@
+      @@
+      \frac{z}{5} = 28 \Rightarrow z = 140
+      @@
+      
+      <p><strong>Resposta:</strong> As partes são 56, 84 e 140.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Grandezas Inversamente Proporcionais</h3>
+      <p><strong>Enunciado:</strong> Se 8 operários constroem um muro em 12 dias, em quantos dias 6 operários construiriam o mesmo muro?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar que o número de operários e o tempo de trabalho são grandezas inversamente proporcionais.</p>
+      <p>Quanto mais operários, menos dias são necessários.</p>
+      
+      <p><strong>Passo 2:</strong> Estabelecer a relação de proporcionalidade.</p>
+      <p>Se @n@ é o número de operários e @d@ é o número de dias, então @n \cdot d = k@ (constante).</p>
+      @@
+      8 \cdot 12 = 6 \cdot x \Rightarrow 96 = 6x \Rightarrow x = 16
+      @@
+      
+      <p><strong>Resposta:</strong> 6 operários levarão 16 dias para construir o muro.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Aplicação em Porcentagem</h3>
+      <p><strong>Enunciado:</strong> Em uma turma de 36 alunos, 15 são meninas. Qual é a razão entre o número de meninos e o número de meninas?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Determinar o número de meninos.</p>
+      @@
+      \text{Meninos} = 36 - 15 = 21
+      @@
+      
+      <p><strong>Passo 2:</strong> Calcular a razão entre meninos e meninas.</p>
+      @@
+      \frac{\text{meninos}}{\text{meninas}} = \frac{21}{15} = \frac{7}{5}
+      @@
+      
+      <p><strong>Resposta:</strong> A razão é @\frac{7}{5}@ ou 7:5.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Série de Razões Iguais</h3>
+      <p><strong>Enunciado:</strong> Sabendo que @\frac{x}{3} = \frac{y}{4} = \frac{z}{5}@ e que @x + y + z = 60@, determine os valores de @x@, @y@ e @z@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Aplicar a propriedade da série de razões iguais.</p>
+      @@
+      \frac{x}{3} = \frac{y}{4} = \frac{z}{5} = \frac{x + y + z}{3 + 4 + 5} = \frac{60}{12} = 5
+      @@
+      
+      <p><strong>Passo 2:</strong> Calcular cada valor.</p>
+      @@
+      \frac{x}{3} = 5 \Rightarrow x = 15
+      @@
+      @@
+      \frac{y}{4} = 5 \Rightarrow y = 20
+      @@
+      @@
+      \frac{z}{5} = 5 \Rightarrow z = 25
+      @@
+      
+      <p><strong>Resposta:</strong> @x = 15@, @y = 20@ e @z = 25@.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: EXERCÍCIOS PROPOSTOS
+         - 10-15 exercícios variados
+         - Progressão de dificuldade
+         - Respostas em comentário HTML
+         =============================================================== -->
+    <h2>4. Exercícios</h2>
+
+    <ol>
+      <li>Calcule a razão entre 24 e 8.</li>
+      <li>Determine a razão entre 15 e 25.</li>
+      <li>Verifique se as razões @\frac{3}{7}@ e @\frac{12}{28}@ formam uma proporção.</li>
+      <li>Na proporção @\frac{8}{12} = \frac{x}{15}@, determine o valor de @x@.</li>
+      <li>Se @\frac{a}{5} = \frac{b}{7}@ e @a + b = 36@, determine os valores de @a@ e @b@.</li>
+      <li>Uma planta baixa está na escala de 1:200. Se a distância entre dois pontos é de 5 cm na planta, qual é a distância real?</li>
+      <li>Divida 45 em partes diretamente proporcionais a 2 e 3.</li>
+      <li>Divida 100 em partes inversamente proporcionais a 2 e 3.</li>
+      <li>Se 5 máquinas produzem 40 peças em 4 horas, quantas peças produzirão 7 máquinas em 6 horas?</li>
+      <li>Se @\frac{x}{2} = \frac{y}{5} = \frac{z}{3}@ e @x - y + z = 24@, determine @x@, @y@ e @z@.</li>
+      <li>Em uma classe, a razão entre meninos e meninas é @\frac{2}{3}@. Se há 12 meninos, quantas meninas há?</li>
+      <li>Um automóvel percorre 240 km com 20 litros de combustível. Quantos litros serão necessários para percorrer 360 km?</li>
+      <li>Se @\frac{a}{4} = \frac{b}{6} = \frac{c}{8}@ e @a + b + c = 54@, determine @a@, @b@ e @c@.</li>
+      <li>Um trabalho pode ser feito por 8 operários em 15 dias. Quantos operários seriam necessários para fazer o mesmo trabalho em 10 dias?</li>
+      <li>Se @\frac{x}{y} = \frac{3}{4}@ e @x + y = 28@, determine @x@ e @y@.</li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+    1. 3
+    2. 3/5
+    3. Sim, pois 3×28 = 7×12 = 84
+    4. x = 10
+    5. a = 15, b = 21
+    6. 1000 cm = 10 m
+    7. 18 e 27
+    8. 60 e 40
+    9. 84 peças
+    10. x = 12, y = 30, z = 18
+    11. 18 meninas
+    12. 30 litros
+    13. a = 12, b = 18, c = 24
+    14. 12 operários
+    15. x = 12, y = 16
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

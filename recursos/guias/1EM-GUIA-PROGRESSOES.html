@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - Guia de Estudos: [CAPÍTULO]" -->
+  <title>NEXUS - Guia de Estudos: Progressões Aritméticas e Geométricas</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA GUIAS DE ESTUDOS BASEADOS EM MISSÕES
+       ========================================================================== */
+
+    /* Cabeçalho do guia */
+    .guia-header {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 5px solid var(--link-color);
+    }
+
+    .guia-header h1 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+    }
+
+    /* Grid de objetivos/habilidades */
+    .objetivos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .objetivo-item {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: 5px;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .objetivo-item strong {
+      color: var(--link-color);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Caixas de missões */
+    .etapa-estudo {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 6px;
+      border-left: 5px solid var(--link-color);
+    }
+
+    .etapa-estudo h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .etapa-numero {
+      background-color: var(--link-color);
+      color: var(--primary-bg-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    /* Estilos para links dentro das missões */
+    .etapa-estudo a {
+      color: var(--link-color);
+      font-weight: bold;
+    }
+
+    .etapa-estudo a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <!-- ===============================================================
+         CABEÇALHO DO GUIA
+         =============================================================== -->
+    <div class="guia-header">
+      <h1>📚 Guia de Estudos: Progressões Aritméticas e Geométricas</h1>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 1: HABILIDADES ESSENCIAIS
+         - Códigos de habilidades do currículo
+         - Descrição de cada habilidade
+         =============================================================== -->
+    <h2>1. Habilidades Essenciais</h2>
+    <p>Este guia foca no desenvolvimento das seguintes habilidades do currículo:</p>
+
+    <div class="objetivos-grid">
+        <div class="objetivo-item">
+          <strong>(EM.1.MAT.PA.01)</strong>
+          <p>Reconhecer e classificar sequências numéricas como Progressão Aritmética (PA) ou Progressão Geométrica (PG).</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EM.1.MAT.PA.02)</strong>
+          <p>Determinar termos de uma progressão e identificar suas razões (razão aritmética ou razão geométrica).</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EM.1.MAT.PA.03)</strong>
+          <p>Aplicar as fórmulas do termo geral de PA (@a_n = a_1 + (n-1) \cdot r@) e PG (@a_n = a_1 \cdot q^{n-1}@).</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EM.1.MAT.PA.04)</strong>
+          <p>Calcular a soma de termos em PA finita (@S_n = \frac{n(a_1 + a_n)}{2}@) e PG finita (@S_n = \frac{a_1(q^n - 1)}{q - 1}@).</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EM.1.MAT.PA.05)</strong>
+          <p>Resolver problemas práticos e contextualizados envolvendo progressões aritméticas e geométricas, incluindo aplicações em juros, crescimento populacional e outras situações do cotidiano.</p>
+        </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: ROTEIRO DE MISSÕES
+         - 5-7 missões progressivas
+         - Cada missão tem: número, nome, habilidade, descrição e meta
+         - Metas incluem links para recursos e números específicos
+         =============================================================== -->
+    <h2>2. Roteiro de Missões</h2>
+    <p>Avance em seus estudos completando as missões a seguir. Cada missão foca em uma habilidade essencial e define uma meta de problemas a serem resolvidos para ganhar XP.</p>
+
+    <!-- MISSÃO 1 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">1</span> Missão: Identificando Padrões Numéricos</h3>
+      <p><strong>Habilidade:</strong> (EM.1.MAT.PA.01) Reconhecer e classificar sequências numéricas como PA ou PG.</p>
+      <p><strong>Missão:</strong> Desenvolver a capacidade de identificar se uma sequência segue um padrão aritmético (adição/subtração constante) ou geométrico (multiplicação/divisão constante). Esta é a base fundamental para trabalhar com progressões.</p>
+      <p><strong>Meta:</strong> Ler a <strong>seção 1 (Definições e Classificação)</strong> do <a href="../resumos/1EM-PROGRESSOES.html">Resumo Teórico</a> e resolver <strong>5 problemas</strong> da seção "Problemas Introdutórios" da <a href="../listas/1EM-PROGRESSOES.html">Lista de Problemas</a>.</p>
+    </div>
+
+    <!-- MISSÃO 2 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">2</span> Missão: A Fórmula Mágica do Termo Geral</h3>
+      <p><strong>Habilidade:</strong> (EM.1.MAT.PA.03) Aplicar as fórmulas do termo geral de PA e PG.</p>
+      <p><strong>Missão:</strong> Dominar as fórmulas fundamentais que permitem calcular qualquer termo de uma progressão sem precisar listar toda a sequência. Compreender a estrutura de @a_n = a_1 + (n-1) \cdot r@ para PA e @a_n = a_1 \cdot q^{n-1}@ para PG.</p>
+      <p><strong>Meta:</strong> Estudar a <strong>seção 2 (Termo Geral)</strong> do <a href="../resumos/1EM-PROGRESSOES.html">Resumo Teórico</a>, analisar os <strong>exemplos resolvidos 1, 2 e 3</strong>, e resolver <strong>5 problemas</strong> da seção "Problemas Introdutórios" da <a href="../listas/1EM-PROGRESSOES.html">Lista de Problemas</a> focados em termo geral.</p>
+    </div>
+
+    <!-- MISSÃO 3 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">3</span> Missão: Somando os Termos</h3>
+      <p><strong>Habilidade:</strong> (EM.1.MAT.PA.04) Calcular a soma de termos em PA finita e PG finita.</p>
+      <p><strong>Missão:</strong> Aprender a calcular a soma de múltiplos termos de uma progressão usando as fórmulas @S_n = \frac{n(a_1 + a_n)}{2}@ (PA) e @S_n = \frac{a_1(q^n - 1)}{q - 1}@ (PG). Esta habilidade é essencial para problemas práticos e aplicações.</p>
+      <p><strong>Meta:</strong> Ler a <strong>seção 3 (Soma de Termos)</strong> do <a href="../resumos/1EM-PROGRESSOES.html">Resumo Teórico</a> e resolver <strong>5 problemas</strong> da seção "Problemas de Fixação" da <a href="../listas/1EM-PROGRESSOES.html">Lista de Problemas</a> que envolvam cálculo de somas.</p>
+    </div>
+
+    <!-- MISSÃO 4 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">4</span> Missão: Aplicações no Mundo Real</h3>
+      <p><strong>Habilidade:</strong> (EM.1.MAT.PA.05) Resolver problemas práticos envolvendo progressões.</p>
+      <p><strong>Missão:</strong> Conectar a teoria das progressões com situações reais do cotidiano: crescimento de investimentos, cálculo de parcelas, análise de crescimento populacional, distribuição de recursos e outras aplicações práticas.</p>
+      <p><strong>Meta:</strong> Estudar os <strong>exemplos contextualizados 4, 5 e 6</strong> do <a href="../resumos/1EM-PROGRESSOES.html">Resumo Teórico</a> e resolver <strong>5 problemas</strong> contextualizados da seção "Problemas de Fixação" da <a href="../listas/1EM-PROGRESSOES.html">Lista de Problemas</a>.</p>
+    </div>
+
+    <!-- MISSÃO 5 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">5</span> Missão: Interpolação e Meios</h3>
+      <p><strong>Habilidade:</strong> (EM.1.MAT.PA.02) Determinar termos intermediários de uma progressão (meios aritméticos ou geométricos).</p>
+      <p><strong>Missão:</strong> Desenvolver a capacidade de encontrar termos que ficam entre dois valores conhecidos em uma progressão. Compreender o conceito de interpolação e sua aplicação para completar sequências.</p>
+      <p><strong>Meta:</strong> Ler a <strong>seção 4 (Interpolação de Meios)</strong> do <a href="../resumos/1EM-PROGRESSOES.html">Resumo Teórico</a>, estudar o <strong>exemplo resolvido 7</strong>, e resolver <strong>4 problemas</strong> da seção "Problemas de Fixação" da <a href="../listas/1EM-PROGRESSOES.html">Lista de Problemas</a> sobre interpolação.</p>
+    </div>
+
+    <!-- MISSÃO 6 (FINAL) -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">6</span> Missão Final: Desafio Integrador de Progressões</h3>
+      <p><strong>Habilidade:</strong> Aplicar múltiplos conceitos de Progressões Aritméticas e Geométricas em problemas complexos que integram diferentes aspectos do conteúdo.</p>
+      <p><strong>Missão:</strong> Integrar todo o conhecimento adquirido para resolver problemas que exigem raciocínio avançado, combinando identificação de padrões, cálculo de termos gerais, somas e aplicações contextualizadas em um único problema.</p>
+      <p><strong>Meta:</strong> Resolver <strong>5 problemas</strong> da seção "Problemas de Aprofundamento" da <a href="../listas/1EM-PROGRESSOES.html">Lista de Problemas</a>, demonstrando domínio completo sobre progressões aritméticas e geométricas.</p>
+    </div>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

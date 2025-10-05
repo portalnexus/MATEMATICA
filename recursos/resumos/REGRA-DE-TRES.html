@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - REGRA DE TRÊS</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>REGRA DE TRÊS</h1>
+
+    <!-- ===============================================================
+         SEÇÃO 1: CONCEITOS FUNDAMENTAIS
+         - Definições numeradas (Definição 1.1, 1.2, ...)
+         - Exemplos iniciais
+         - Notações e convenções
+         =============================================================== -->
+    <h2>1. Conceitos Fundamentais</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Regra de Três)</h3>
+      <p>A <strong>regra de três</strong> é um procedimento matemático que permite encontrar um valor desconhecido quando sabemos a relação entre esse valor e outros valores conhecidos. É uma aplicação direta da proporcionalidade entre grandezas.</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>Se 3 canetas custam R$ 9,00, quanto custarão 7 canetas do mesmo tipo?</li>
+      <li>Se 5 máquinas produzem 100 peças em 8 horas, quantas máquinas são necessárias para produzir 150 peças em 10 horas?</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Regra de Três Simples)</h3>
+      <p>A <strong>regra de três simples</strong> é aplicada quando existem duas grandezas proporcionais. Pode ser:</p>
+      <ul>
+        <li><strong>Regra de três simples direta:</strong> Quando as grandezas são diretamente proporcionais.</li>
+        <li><strong>Regra de três simples inversa:</strong> Quando as grandezas são inversamente proporcionais.</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Regra de Três Composta)</h3>
+      <p>A <strong>regra de três composta</strong> é aplicada quando há mais de duas grandezas envolvidas, sendo que cada uma pode ser diretamente ou inversamente proporcional à grandeza desconhecida.</p>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> Antes de aplicar qualquer tipo de regra de três, é fundamental identificar o tipo de proporcionalidade entre as grandezas envolvidas (direta ou inversa).
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: TEOREMAS E PROPRIEDADES
+         - Teoremas numerados (Teorema 2.1, 2.2, ...)
+         - Demonstrações ou justificativas
+         - Propriedades fundamentais
+         =============================================================== -->
+    <h2>2. Teoremas e Propriedades</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Regra de Três Direta)</h3>
+      <p>Quando duas grandezas @x@ e @y@ são diretamente proporcionais, então:</p>
+      @@
+      \frac{x_1}{y_1} = \frac{x_2}{y_2}
+      @@
+      <p>onde @x_1@ e @y_1@ são valores correspondentes conhecidos, e @x_2@ ou @y_2@ é o valor desconhecido.</p>
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Se @x@ e @y@ são diretamente proporcionais, então @\frac{x}{y} = k@, sendo @k@ uma constante.</p>
+    <p>Assim, para dois pares de valores @x_1, y_1@ e @x_2, y_2@, temos:</p>
+    @@
+    \frac{x_1}{y_1} = k \text{ e } \frac{x_2}{y_2} = k
+    @@
+    <p>Como ambas as razões são iguais a @k@, então:</p>
+    @@
+    \frac{x_1}{y_1} = \frac{x_2}{y_2}
+    @@
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Regra de Três Inversa)</h3>
+      <p>Quando duas grandezas @x@ e @y@ são inversamente proporcionais, então:</p>
+      @@
+      x_1 \cdot y_1 = x_2 \cdot y_2
+      @@
+      <p>ou equivalentemente:</p>
+      @@
+      \frac{x_1}{x_2} = \frac{y_2}{y_1}
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Se @x@ e @y@ são inversamente proporcionais, então @x \cdot y = k@, sendo @k@ uma constante.</p>
+    <p>Assim, para dois pares de valores @x_1, y_1@ e @x_2, y_2@, temos:</p>
+    @@
+    x_1 \cdot y_1 = k \text{ e } x_2 \cdot y_2 = k
+    @@
+    <p>Como ambos os produtos são iguais a @k@, então:</p>
+    @@
+    x_1 \cdot y_1 = x_2 \cdot y_2
+    @@
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.3 (Regra de Três Composta)</h3>
+      <p>Na regra de três composta, com @n@ grandezas @x_1, x_2, \ldots, x_n@ relacionadas à grandeza @y@, a relação é estabelecida de forma que:</p>
+      <ul>
+        <li>Grandezas diretamente proporcionais são mantidas na mesma posição</li>
+        <li>Grandezas inversamente proporcionais têm suas posições invertidas</li>
+      </ul>
+      <p>Assim, @\frac{\text{valor desconhecido}}{\text{valor correspondente}} = @ produto dos fatores das grandezas proporcionais.</p>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Corolário 2.1</h3>
+      <p>Nas aplicações de regra de três composta, a grandeza desconhecida deve ser isolada de um lado da igualdade, e do outro lado devem aparecer as razões das grandezas conhecidas, invertendo-se as que forem inversamente proporcionais.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: EXEMPLOS RESOLVIDOS
+         - Mínimo 4-6 exemplos
+         - Progressão de dificuldade
+         - Solução passo a passo detalhada
+         =============================================================== -->
+    <h2>3. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Regra de Três Simples Direta</h3>
+      <p><strong>Enunciado:</strong> Em uma fábrica, 4 máquinas produzem 800 peças em um determinado tempo. Quantas peças serão produzidas por 6 máquinas trabalhando nas mesmas condições?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar as grandezas envolvidas e seu tipo de proporcionalidade.</p>
+      <p>Máquinas e peças são grandezas diretamente proporcionais (mais máquinas produzem mais peças).</p>
+      
+      <p><strong>Passo 2:</strong> Montar a proporção.</p>
+      @@
+      \frac{4 \text{ máquinas}}{800 \text{ peças}} = \frac{6 \text{ máquinas}}{x \text{ peças}}
+      @@
+      
+      <p><strong>Passo 3:</strong> Aplicar a propriedade fundamental das proporções.</p>
+      @@
+      4 \cdot x = 6 \cdot 800
+      @@
+      @@
+      4x = 4800
+      @@
+      @@
+      x = \frac{4800}{4} = 1200
+      @@
+      
+      <p><strong>Resposta:</strong> 6 máquinas produzirão 1200 peças.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Regra de Três Simples Inversa</h3>
+      <p><strong>Enunciado:</strong> Uma obra pode ser feita por 12 operários em 20 dias. Em quantos dias 15 operários farão a mesma obra?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar as grandezas e seu tipo de proporcionalidade.</p>
+      <p>Número de operários e tempo de trabalho são grandezas inversamente proporcionais (mais operários fazem a obra em menos tempo).</p>
+      
+      <p><strong>Passo 2:</strong> Montar a relação com grandezas inversamente proporcionais.</p>
+      @@
+      12 \cdot 20 = 15 \cdot x
+      @@
+      
+      <p><strong>Passo 3:</strong> Resolver a equação.</p>
+      @@
+      240 = 15x
+      @@
+      @@
+      x = \frac{240}{15} = 16
+      @@
+      
+      <p><strong>Resposta:</strong> 15 operários farão a obra em 16 dias.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - Regra de Três Composta</h3>
+      <p><strong>Enunciado:</strong> Se 8 máquinas trabalhando 6 horas por dia produzem 1200 peças em 10 dias, quantos dias serão necessários para que 6 máquinas trabalhando 8 horas por dia produzam 900 peças?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar todas as grandezas envolvidas.</p>
+      <ul>
+        <li>Máquinas (inversamente proporcional aos dias)</li>
+        <li>Horas por dia (inversamente proporcional aos dias)</li>
+        <li>Peças (diretamente proporcional aos dias)</li>
+        <li>Dias (grandeza desconhecida)</li>
+      </ul>
+      
+      <p><strong>Passo 2:</strong> Montar a equação considerando as proporcionalidades.</p>
+      <p>Fixamos o valor desconhecido de um lado e montamos as razões do outro lado, invertendo as que forem inversamente proporcionais:</p>
+      @@
+      \frac{x}{10} = \frac{8}{6} \cdot \frac{6}{8} \cdot \frac{900}{1200}
+      @@
+      
+      <p><strong>Passo 3:</strong> Resolver a equação.</p>
+      @@
+      \frac{x}{10} = \frac{8}{6} \cdot \frac{6}{8} \cdot \frac{3}{4}
+      @@
+      @@
+      \frac{x}{10} = \frac{8 \cdot 6 \cdot 3}{6 \cdot 8 \cdot 4} = \frac{144}{192} = \frac{3}{4}
+      @@
+      @@
+      x = 10 \cdot \frac{3}{4} = \frac{30}{4} = 7,5
+      @@
+      
+      <p><strong>Resposta:</strong> Serão necessários 7,5 dias.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Regra de Três Composta com Grandezas Mistas</h3>
+      <p><strong>Enunciado:</strong> Em uma fábrica, 10 operários trabalhando 8 horas por dia constroem 400m de estrada em 15 dias. Quantos operários serão necessários para construir 600m de estrada em 12 dias trabalhando 10 horas por dia?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar as grandezas e suas proporcionalidades com a grandeza desconhecida (número de operários).</p>
+      <ul>
+        <li>Metros de estrada: diretamente proporcional aos operários (mais metros → mais operários)</li>
+        <li>Dias: inversamente proporcional aos operários (menos dias → mais operários)</li>
+        <li>Horas por dia: inversamente proporcional aos operários (mais horas/dia → menos operários)</li>
+        <li>Operários: grandeza desconhecida</li>
+      </ul>
+      
+      <p><strong>Passo 2:</strong> Montar a equação considerando as proporcionalidades.</p>
+      @@
+      \frac{x}{10} = \frac{600}{400} \cdot \frac{15}{12} \cdot \frac{8}{10}
+      @@
+      
+      <p><strong>Passo 3:</strong> Resolver a equação.</p>
+      @@
+      \frac{x}{10} = \frac{3}{2} \cdot \frac{5}{4} \cdot \frac{4}{5}
+      @@
+      @@
+      \frac{x}{10} = \frac{3 \cdot 5 \cdot 4}{2 \cdot 4 \cdot 5} = \frac{60}{40} = \frac{3}{2}
+      @@
+      @@
+      x = 10 \cdot \frac{3}{2} = 15
+      @@
+      
+      <p><strong>Resposta:</strong> Serão necessários 15 operários.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Aplicação de Porcentagem com Regra de Três</h3>
+      <p><strong>Enunciado:</strong> Em uma cidade, 30% da população são homens, totalizando 15.000 homens. Qual é a população total da cidade?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Estabelecer a proporção entre a porcentagem e a população.</p>
+      @@
+      \frac{30}{100} = \frac{15.000}{x}
+      @@
+      
+      <p><strong>Passo 2:</strong> Aplicar a propriedade fundamental das proporções.</p>
+      @@
+      30 \cdot x = 100 \cdot 15.000
+      @@
+      @@
+      30x = 1.500.000
+      @@
+      @@
+      x = \frac{1.500.000}{30} = 50.000
+      @@
+      
+      <p><strong>Resposta:</strong> A população total da cidade é de 50.000 habitantes.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Regra de Três com Redução de Tempo</h3>
+      <p><strong>Enunciado:</strong> Uma fábrica produz 1200 peças em 8 dias com 10 máquinas trabalhando 6 horas por dia. Se a produção for aumentada para 1800 peças, em quantos dias será concluída com 15 máquinas trabalhando 8 horas por dia?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar as grandezas envolvidas e suas proporcionalidades com a grandeza desconhecida (dias).</p>
+      <ul>
+        <li>Peças: inversamente proporcional aos dias (mais peças → mais dias)</li>
+        <li>Máquinas: diretamente proporcional aos dias (mais máquinas → menos dias)</li>
+        <li>Horas por dia: diretamente proporcional aos dias (mais horas/dia → menos dias)</li>
+      </ul>
+      <p>Correção: As grandezas máquinas e horas por dia são inversamente proporcionais aos dias (mais máquinas ou mais horas → menos dias).</p>
+      
+      <p><strong>Passo 2:</strong> Montar a equação considerando as proporcionalidades corretas.</p>
+      @@
+      \frac{x}{8} = \frac{1800}{1200} \cdot \frac{10}{15} \cdot \frac{6}{8}
+      @@
+      
+      <p><strong>Passo 3:</strong> Resolver a equação.</p>
+      @@
+      \frac{x}{8} = \frac{3}{2} \cdot \frac{2}{3} \cdot \frac{3}{4}
+      @@
+      @@
+      \frac{x}{8} = \frac{3 \cdot 2 \cdot 3}{2 \cdot 3 \cdot 4} = \frac{18}{24} = \frac{3}{4}
+      @@
+      @@
+      x = 8 \cdot \frac{3}{4} = 6
+      @@
+      
+      <p><strong>Resposta:</strong> A produção de 1800 peças será concluída em 6 dias.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: EXERCÍCIOS PROPOSTOS
+         - 10-15 exercícios variados
+         - Progressão de dificuldade
+         - Respostas em comentário HTML
+         =============================================================== -->
+    <h2>4. Exercícios</h2>
+
+    <ol>
+      <li>Se 5 metros de tecido custam R$ 120, quanto custarão 8 metros do mesmo tecido?</li>
+      <li>Um automóvel percorre 480 km com 40 litros de gasolina. Quantos litros serão necessários para percorrer 600 km?</li>
+      <li>Se 8 pintores pintam um prédio em 10 dias, quantos pintores seriam necessários para fazer o mesmo trabalho em 5 dias?</li>
+      <li>Trabalhando 6 horas por dia, 10 operários constroem um muro em 15 dias. Em quantos dias 15 operários construiriam o mesmo muro trabalhando 8 horas por dia?</li>
+      <li>Se 3 torneiras enchem um tanque em 24 horas, quantas torneiras serão necessárias para encher o mesmo tanque em 9 horas?</li>
+      <li>Se 6 máquinas produzem 360 peças em 5 dias, quantas peças produzirão 10 máquinas em 8 dias?</li>
+      <li>Um livro tem 150 páginas com 24 linhas cada. Se forem utilizadas 30 linhas por página, quantas páginas terá o livro?</li>
+      <li>Se 4 operários constroem um muro em 12 dias trabalhando 6 horas por dia, quantos dias levarão 6 operários trabalhando 8 horas por dia?</li>
+      <li>Em uma fábrica, 12 máquinas produzem 720 peças em 6 dias trabalhando 10 horas por dia. Quantas máquinas seriam necessárias para produzir 960 peças em 8 dias trabalhando 6 horas por dia?</li>
+      <li>Se 40% de uma quantia correspondem a R$ 800, qual é o valor total da quantia?</li>
+      <li>Uma lanchonete produz 300 sanduíches em 6 dias com 5 funcionários. Em quantos dias 6 funcionários produzirão 450 sanduíches?</li>
+      <li>Se 7 metros de fio custam R$ 21, quanto custarão 13 metros?</li>
+      <li>Se 15 operários fazem 2/3 de uma obra em 20 dias, em quantos dias 20 operários farão a obra toda?</li>
+      <li>Uma mistura contém álcool e água na razão de 3:4. Se há 12 litros de álcool, quantos litros de água há na mistura?</li>
+      <li>Em 20 dias, 12 máquinas produzem 840 peças. Em quantos dias 16 máquinas idênticas produzirão 1440 peças?</li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+    1. R$ 192,00
+    2. 50 litros
+    3. 16 pintores
+    4. 8 dias
+    5. 8 torneiras
+    6. 960 peças
+    7. 120 páginas
+    8. 6 dias
+    9. 20 máquinas
+    10. R$ 2000,00
+    11. 7,5 dias
+    12. R$ 39,00
+    13. 30 dias
+    14. 16 litros
+    15. 30 dias
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

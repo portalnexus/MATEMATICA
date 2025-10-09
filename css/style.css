@@ -226,6 +226,28 @@ body.theme-green-circuit {
     --theme-selector-hover-text-color: #000000;
 }
 
+/* TEMA 14: High Contrast (WCAG AAA - Contraste 7:1 mínimo) */
+body.theme-high-contrast {
+    --primary-bg-color: #000000;                /* Preto absoluto */
+    --content-box-bg-color: #000000;            /* Preto absoluto */
+    --main-text-color: #FFFFFF;                 /* Branco absoluto - Contraste 21:1 */
+    --secondary-text-color: #FFFF00;            /* Amarelo vivo - Contraste 19.56:1 */
+    --heading-text-color: #FFFF00;              /* Amarelo vivo - Contraste 19.56:1 */
+    --container-border-color: #FFFFFF;          /* Branco absoluto */
+    --link-color: #FFFF00;                      /* Amarelo vivo - Contraste 19.56:1 */
+    --link-hover-color: #00FFFF;                /* Ciano vivo - Contraste 16.75:1 */
+
+    --matrix-rain-actual-color: #FFFFFF;        /* Branco para chuva matrix */
+    --katex-text-color: #FFFFFF;                /* Branco para fórmulas */
+    --katex-text-shadow-color: transparent;     /* Sem sombra para máximo contraste */
+
+    /* UI do Seletor de Tema */
+    --theme-selector-bg-color: #000000;
+    --theme-selector-text-color: #FFFFFF;
+    --theme-selector-hover-bg-color: #FFFF00;
+    --theme-selector-hover-text-color: #000000;
+}
+
 /* TEMA PADRÃO (fallback - aplicado quando nenhum tema está selecionado) */
 :root {
     --primary-bg-color: #1a1a1a;
@@ -265,6 +287,215 @@ body.theme-green-circuit {
     --container-border-radius: 5px;
     --container-max-width: 960px;
     --container-margin-top-bottom: 40px;
+}
+
+/*
+================================================================================
+  CORES CONSISTENTES PARA CAIXAS DE DESTAQUE E ELEMENTOS EDUCACIONAIS
+================================================================================
+*/
+
+/* Caixa de Definição - Azul claro */
+.destaque-box.definicao {
+    background-color: rgba(219, 234, 254, 0.15) !important;
+    border-left: 4px solid #3b82f6 !important;
+}
+
+body.print-mode .destaque-box.definicao {
+    background-color: #dbeafe !important;
+    border-left-color: #1e40af !important;
+}
+
+/* Caixa de Teorema - Verde claro */
+.destaque-box.teorema {
+    background-color: rgba(209, 250, 229, 0.15) !important;
+    border-left: 4px solid #10b981 !important;
+}
+
+body.print-mode .destaque-box.teorema {
+    background-color: #d1fae5 !important;
+    border-left-color: #065f46 !important;
+}
+
+/* Caixa de Observação - Roxo claro */
+.destaque-box.observacao {
+    background-color: rgba(237, 233, 254, 0.15) !important;
+    border-left: 4px solid #8b5cf6 !important;
+}
+
+body.print-mode .destaque-box.observacao {
+    background-color: #ede9fe !important;
+    border-left-color: #5b21b6 !important;
+}
+
+/* Exemplo Resolvido - Amarelo claro */
+.exemplo-resolvido {
+    background-color: rgba(254, 243, 199, 0.15) !important;
+    border-left: 4px solid #f59e0b !important;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+}
+
+body.print-mode .exemplo-resolvido {
+    background-color: #fef3c7 !important;
+    border-left-color: #b45309 !important;
+}
+
+/* Erro Comum - Vermelho claro */
+.erro-comum {
+    background-color: rgba(254, 226, 226, 0.15) !important;
+    border-left: 4px solid #ef4444 !important;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+}
+
+body.print-mode .erro-comum {
+    background-color: #fee2e2 !important;
+    border-left-color: #991b1b !important;
+}
+
+.erro-comum h3, .erro-comum h4 {
+    color: #dc2626;
+    margin-top: 0;
+}
+
+body.print-mode .erro-comum h3,
+body.print-mode .erro-comum h4 {
+    color: #991b1b !important;
+}
+
+/*
+================================================================================
+  BADGES DE NÍVEL DE DIFICULDADE (9º, 1º EM, 2º EM, 3º EM)
+================================================================================
+*/
+
+.badge-nivel {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-family: var(--font-family-headings);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+/* 9º ano - Azul */
+.badge-nivel.ano-9 {
+    background-color: rgba(59, 130, 246, 0.3);
+    border: 2px solid #3b82f6;
+    color: #dbeafe;
+}
+
+body.print-mode .badge-nivel.ano-9 {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+/* 1º EM - Verde */
+.badge-nivel.ano-1em {
+    background-color: rgba(16, 185, 129, 0.3);
+    border: 2px solid #10b981;
+    color: #d1fae5;
+}
+
+body.print-mode .badge-nivel.ano-1em {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+/* 2º EM - Amarelo */
+.badge-nivel.ano-2em {
+    background-color: rgba(245, 158, 11, 0.3);
+    border: 2px solid #f59e0b;
+    color: #fef3c7;
+}
+
+body.print-mode .badge-nivel.ano-2em {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+/* 3º EM - Vermelho */
+.badge-nivel.ano-3em {
+    background-color: rgba(239, 68, 68, 0.3);
+    border: 2px solid #ef4444;
+    color: #fee2e2;
+}
+
+body.print-mode .badge-nivel.ano-3em {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/*
+================================================================================
+  SISTEMA DE CLASSIFICAÇÃO DE EXERCÍCIOS POR DIFICULDADE (ESTRELAS)
+================================================================================
+*/
+
+.dificuldade-estrelas {
+    display: inline-block;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.dificuldade-estrelas .estrela {
+    color: #fbbf24;
+    text-shadow: 0 0 3px rgba(251, 191, 36, 0.5);
+    margin-right: 2px;
+}
+
+body.print-mode .dificuldade-estrelas .estrela {
+    color: #b45309;
+    text-shadow: none;
+}
+
+/* Label de dificuldade textual */
+.label-dificuldade {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+.label-dificuldade.facil {
+    background-color: rgba(16, 185, 129, 0.3);
+    color: #d1fae5;
+    border: 1px solid #10b981;
+}
+
+body.print-mode .label-dificuldade.facil {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.label-dificuldade.medio {
+    background-color: rgba(245, 158, 11, 0.3);
+    color: #fef3c7;
+    border: 1px solid #f59e0b;
+}
+
+body.print-mode .label-dificuldade.medio {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.label-dificuldade.dificil {
+    background-color: rgba(239, 68, 68, 0.3);
+    color: #fee2e2;
+    border: 1px solid #ef4444;
+}
+
+body.print-mode .label-dificuldade.dificil {
+    background-color: #fee2e2;
+    color: #991b1b;
 }
 body {
     font-family: var(--font-family-body);

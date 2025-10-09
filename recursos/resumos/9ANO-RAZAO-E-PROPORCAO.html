@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Razões e Proporções</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+
+    /* Estilos para erros comuns */
+    .erro-comum {
+      background-color: rgba(255, 0, 0, 0.1);
+      border-left: 4px solid #ff5252;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .erro-comum h3 {
+      color: #ff5252;
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>Razões e Proporções</h1>
+
+    <!-- BADGE DE NÍVEL DE DIFICULDADE -->
+    <span class="badge-nivel ano-9">9º Ano</span>
+
+    <!-- ===============================================================
+         SEÇÃO 0: PRÉ-REQUISITOS
+         =============================================================== -->
+    <h2>📌 Pré-requisitos</h2>
+    <p>Antes de estudar este tópico, certifique-se de dominar:</p>
+    <ul>
+      <li>Operações com frações (adição, subtração, multiplicação e divisão)</li>
+      <li>Simplificação de frações e frações equivalentes</li>
+      <li>Números decimais e conversões entre frações e decimais</li>
+      <li>Regra de três simples (conceito básico)</li>
+    </ul>
+
+    <!-- ===============================================================
+         SEÇÃO 1: CONCEITOS FUNDAMENTAIS
+         =============================================================== -->
+    <h2>1. Conceitos Fundamentais</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Razão entre Dois Números)</h3>
+      <p>Sejam @a@ e @b@ dois números reais, com @b \neq 0@. A <strong>razão</strong> entre @a@ e @b@ (nessa ordem) é o quociente @\frac{a}{b}@, indicado também por @a : b@.</p>
+      <p>Lê-se: "@a@ está para @b@" ou "@a@ para @b@".</p>
+      <p>O número @a@ é chamado de <strong>antecedente</strong> e o número @b@ é chamado de <strong>consequente</strong>.</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>A razão entre 6 e 3 é @\frac{6}{3} = 2@ ou @6:3 = 2@</li>
+      <li>A razão entre 5 e 8 é @\frac{5}{8}@ ou @5:8@</li>
+      <li>A razão entre 12 e 4 é @\frac{12}{4} = 3@ ou @12:4 = 3@</li>
+      <li>A razão entre 7 e 2 é @\frac{7}{2} = 3{,}5@ ou @7:2 = 3{,}5@</li>
+    </ul>
+
+    <div class="nota">
+      <strong>Observação:</strong> A ordem dos termos em uma razão é fundamental. A razão @\frac{3}{6}@ é diferente da razão @\frac{6}{3}@.
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Razões Equivalentes)</h3>
+      <p>Duas razões @\frac{a}{b}@ e @\frac{c}{d}@ são <strong>equivalentes</strong> quando os quocientes @\frac{a}{b}@ e @\frac{c}{d}@ são iguais, ou seja, quando @a \cdot d = b \cdot c@.</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>@\frac{2}{3}@ e @\frac{4}{6}@ são equivalentes, pois @2 \cdot 6 = 3 \cdot 4 = 12@</li>
+      <li>@\frac{5}{10}@ e @\frac{1}{2}@ são equivalentes, pois @5 \cdot 2 = 10 \cdot 1 = 10@</li>
+      <li>@\frac{6}{9}@ e @\frac{2}{3}@ são equivalentes, pois @6 \cdot 3 = 9 \cdot 2 = 18@</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Proporção)</h3>
+      <p>Uma <strong>proporção</strong> é uma igualdade entre duas razões equivalentes. Se @\frac{a}{b} = \frac{c}{d}@, dizemos que @a@, @b@, @c@ e @d@ formam uma proporção.</p>
+      <p>Lê-se: "@a@ está para @b@ assim como @c@ está para @d@".</p>
+      <p>Os números @a@ e @d@ são chamados de <strong>extremos</strong>, e os números @b@ e @c@ são chamados de <strong>meios</strong>.</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>@\frac{2}{3} = \frac{4}{6}@ é uma proporção (extremos: 2 e 6; meios: 3 e 4)</li>
+      <li>@\frac{5}{10} = \frac{1}{2}@ é uma proporção (extremos: 5 e 2; meios: 10 e 1)</li>
+      <li>@3:6 = 5:10@ é uma proporção (extremos: 3 e 10; meios: 6 e 5)</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.4 (Grandezas Diretamente Proporcionais)</h3>
+      <p>Duas grandezas são <strong>diretamente proporcionais</strong> quando a razão entre os valores da primeira grandeza é igual à razão entre os valores correspondentes da segunda grandeza.</p>
+      <p>Em outras palavras, se uma grandeza aumenta, a outra também aumenta na mesma proporção. Se uma diminui, a outra também diminui na mesma proporção.</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>A quantidade de litros de combustível e o preço pago (quanto mais litros, maior o preço)</li>
+      <li>A distância percorrida e o tempo de viagem em velocidade constante</li>
+      <li>O número de operários e a quantidade de trabalho realizado em um mesmo período</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.5 (Grandezas Inversamente Proporcionais)</h3>
+      <p>Duas grandezas são <strong>inversamente proporcionais</strong> quando a razão entre os valores da primeira grandeza é igual ao inverso da razão entre os valores correspondentes da segunda grandeza.</p>
+      <p>Em outras palavras, se uma grandeza aumenta, a outra diminui na mesma proporção. Se uma diminui, a outra aumenta na mesma proporção.</p>
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>A velocidade e o tempo de viagem para percorrer uma mesma distância (maior velocidade, menor tempo)</li>
+      <li>O número de operários e o tempo para concluir uma mesma obra (mais operários, menos tempo)</li>
+      <li>O número de torneiras abertas e o tempo para encher um reservatório (mais torneiras, menos tempo)</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.6 (Divisão em Partes Proporcionais)</h3>
+      <p>Dividir um número @N@ em partes proporcionais aos números @a@, @b@, @c@, ... significa encontrar números @x@, @y@, @z@, ... tais que:</p>
+      @@
+      \frac{x}{a} = \frac{y}{b} = \frac{z}{c} = \ldots \quad \text{e} \quad x + y + z + \ldots = N
+      @@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: PROPRIEDADES E TEOREMAS
+         =============================================================== -->
+    <h2>2. Propriedades e Teoremas</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Propriedade Fundamental das Proporções)</h3>
+      <p>Em toda proporção, o produto dos meios é igual ao produto dos extremos. Ou seja, se @\frac{a}{b} = \frac{c}{d}@, então:</p>
+      @@
+      a \cdot d = b \cdot c
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Partindo da proporção @\frac{a}{b} = \frac{c}{d}@, multiplicamos ambos os lados por @b \cdot d@:</p>
+    @@
+    \begin{align}
+    \frac{a}{b} \cdot (b \cdot d) &= \frac{c}{d} \cdot (b \cdot d) \\
+    a \cdot d &= c \cdot b
+    \end{align}
+    @@
+    <p>Portanto, @a \cdot d = b \cdot c@. ∎</p>
+
+    <div class="nota">
+      <strong>Observação:</strong> Esta propriedade é extremamente útil para resolver problemas envolvendo proporções, pois permite transformar uma equação fracionária em uma equação linear.
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Propriedade da Soma dos Termos)</h3>
+      <p>Se @\frac{a}{b} = \frac{c}{d}@, então:</p>
+      @@
+      \frac{a + b}{b} = \frac{c + d}{d}
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Seja @k = \frac{a}{b} = \frac{c}{d}@. Então @a = kb@ e @c = kd@. Substituindo:</p>
+    @@
+    \begin{align}
+    \frac{a + b}{b} &= \frac{kb + b}{b} = \frac{b(k + 1)}{b} = k + 1 \\
+    \frac{c + d}{d} &= \frac{kd + d}{d} = \frac{d(k + 1)}{d} = k + 1
+    \end{align}
+    @@
+    <p>Logo, @\frac{a + b}{b} = \frac{c + d}{d}@. ∎</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.3 (Propriedade da Diferença dos Termos)</h3>
+      <p>Se @\frac{a}{b} = \frac{c}{d}@, então:</p>
+      @@
+      \frac{a - b}{b} = \frac{c - d}{d}
+      @@
+    </div>
+
+    <p><strong>Justificativa:</strong> A demonstração é análoga à do Teorema 2.2, usando @a = kb@ e @c = kd@.</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.4 (Propriedade da Soma das Razões)</h3>
+      <p>Se @\frac{a}{b} = \frac{c}{d}@, então:</p>
+      @@
+      \frac{a + c}{b + d} = \frac{a}{b} = \frac{c}{d}
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Seja @k = \frac{a}{b} = \frac{c}{d}@. Então @a = kb@ e @c = kd@. Calculando:</p>
+    @@
+    \begin{align}
+    \frac{a + c}{b + d} &= \frac{kb + kd}{b + d} = \frac{k(b + d)}{b + d} = k
+    \end{align}
+    @@
+    <p>Portanto, @\frac{a + c}{b + d} = k = \frac{a}{b} = \frac{c}{d}@. ∎</p>
+
+    <div class="destaque-box observacao">
+      <h3>Corolário 2.1 (Generalização para Múltiplas Proporções)</h3>
+      <p>Se @\frac{a_1}{b_1} = \frac{a_2}{b_2} = \frac{a_3}{b_3} = \ldots = \frac{a_n}{b_n} = k@, então:</p>
+      @@
+      \frac{a_1 + a_2 + a_3 + \ldots + a_n}{b_1 + b_2 + b_3 + \ldots + b_n} = k
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.5 (Fórmula para Divisão Proporcional)</h3>
+      <p>Para dividir um número @N@ em partes @x@, @y@ e @z@ proporcionais a @a@, @b@ e @c@, respectivamente, usamos:</p>
+      @@
+      x = \frac{a \cdot N}{a + b + c}, \quad y = \frac{b \cdot N}{a + b + c}, \quad z = \frac{c \cdot N}{a + b + c}
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Por definição, temos @\frac{x}{a} = \frac{y}{b} = \frac{z}{c} = k@ para algum @k \in \mathbb{R}@.</p>
+    <p>Então @x = ka@, @y = kb@ e @z = kc@. Como @x + y + z = N@:</p>
+    @@
+    \begin{align}
+    ka + kb + kc &= N \\
+    k(a + b + c) &= N \\
+    k &= \frac{N}{a + b + c}
+    \end{align}
+    @@
+    <p>Substituindo de volta:</p>
+    @@
+    x = ka = \frac{a \cdot N}{a + b + c}, \quad y = kb = \frac{b \cdot N}{a + b + c}, \quad z = kc = \frac{c \cdot N}{a + b + c}
+    @@
+    <p>∎</p>
+
+    <!-- ===============================================================
+         SEÇÃO 3: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>3. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Cálculo de Razão Simples</h3>
+      <p><strong>Enunciado:</strong> Uma sala de aula tem 18 meninos e 12 meninas. Qual é a razão entre o número de meninos e o número de meninas?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar os termos da razão. Queremos a razão entre meninos (18) e meninas (12).</p>
+
+      <p><strong>Passo 2:</strong> Calcular a razão:</p>
+      @@
+      \frac{18}{12} = \frac{18 \div 6}{12 \div 6} = \frac{3}{2}
+      @@
+
+      <p><strong>Resposta:</strong> A razão entre meninos e meninas é @\frac{3}{2}@ ou @3:2@. Isso significa que para cada 3 meninos há 2 meninas.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Verificando se Há Proporção</h3>
+      <p><strong>Enunciado:</strong> Verifique se os números 4, 6, 10 e 15 formam, nessa ordem, uma proporção.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Para formar uma proporção, devemos ter @\frac{4}{6} = \frac{10}{15}@.</p>
+
+      <p><strong>Passo 2:</strong> Usar a propriedade fundamental: verificar se @4 \cdot 15 = 6 \cdot 10@.</p>
+      @@
+      \begin{align}
+      4 \cdot 15 &= 60 \\
+      6 \cdot 10 &= 60
+      \end{align}
+      @@
+
+      <p><strong>Passo 3:</strong> Como os produtos são iguais, a igualdade é válida.</p>
+
+      <p><strong>Resposta:</strong> Sim, os números 4, 6, 10 e 15 formam uma proporção.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - Encontrando o Termo Desconhecido</h3>
+      <p><strong>Enunciado:</strong> Determine o valor de @x@ na proporção @\frac{x}{12} = \frac{5}{8}@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Aplicar a propriedade fundamental das proporções:</p>
+      @@
+      x \cdot 8 = 12 \cdot 5
+      @@
+
+      <p><strong>Passo 2:</strong> Resolver a equação:</p>
+      @@
+      \begin{align}
+      8x &= 60 \\
+      x &= \frac{60}{8} \\
+      x &= 7{,}5
+      \end{align}
+      @@
+
+      <p><strong>Resposta:</strong> @x = 7{,}5@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Grandezas Diretamente Proporcionais</h3>
+      <p><strong>Enunciado:</strong> Um carro percorre 180 km em 2 horas. Mantendo a mesma velocidade, quantos quilômetros ele percorrerá em 5 horas?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar as grandezas. Distância e tempo são diretamente proporcionais (mais tempo, mais distância).</p>
+
+      <p><strong>Passo 2:</strong> Montar a proporção:</p>
+      @@
+      \frac{180}{2} = \frac{x}{5}
+      @@
+
+      <p><strong>Passo 3:</strong> Aplicar a propriedade fundamental:</p>
+      @@
+      \begin{align}
+      180 \cdot 5 &= 2 \cdot x \\
+      900 &= 2x \\
+      x &= \frac{900}{2} \\
+      x &= 450
+      \end{align}
+      @@
+
+      <p><strong>Resposta:</strong> O carro percorrerá 450 km em 5 horas.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Grandezas Inversamente Proporcionais</h3>
+      <p><strong>Enunciado:</strong> Cinco operários constroem um muro em 12 dias. Quantos dias serão necessários para que 8 operários construam o mesmo muro?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar as grandezas. Número de operários e tempo são inversamente proporcionais (mais operários, menos tempo).</p>
+
+      <p><strong>Passo 2:</strong> Montar a proporção invertendo uma das razões:</p>
+      @@
+      \frac{5}{8} = \frac{x}{12}
+      @@
+
+      <p><strong>Passo 3:</strong> Aplicar a propriedade fundamental:</p>
+      @@
+      \begin{align}
+      5 \cdot 12 &= 8 \cdot x \\
+      60 &= 8x \\
+      x &= \frac{60}{8} \\
+      x &= 7{,}5
+      \end{align}
+      @@
+
+      <p><strong>Resposta:</strong> Serão necessários 7,5 dias (ou 7 dias e 12 horas).</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Divisão Proporcional Simples</h3>
+      <p><strong>Enunciado:</strong> Divida 240 em partes diretamente proporcionais a 2, 3 e 5.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Seja @\frac{x}{2} = \frac{y}{3} = \frac{z}{5} = k@ e @x + y + z = 240@.</p>
+
+      <p><strong>Passo 2:</strong> Expressar @x@, @y@ e @z@ em função de @k@:</p>
+      @@
+      x = 2k, \quad y = 3k, \quad z = 5k
+      @@
+
+      <p><strong>Passo 3:</strong> Substituir na soma:</p>
+      @@
+      \begin{align}
+      2k + 3k + 5k &= 240 \\
+      10k &= 240 \\
+      k &= 24
+      \end{align}
+      @@
+
+      <p><strong>Passo 4:</strong> Calcular cada parte:</p>
+      @@
+      \begin{align}
+      x &= 2 \cdot 24 = 48 \\
+      y &= 3 \cdot 24 = 72 \\
+      z &= 5 \cdot 24 = 120
+      \end{align}
+      @@
+
+      <p><strong>Verificação:</strong> @48 + 72 + 120 = 240@ ✓</p>
+
+      <p><strong>Resposta:</strong> As partes são 48, 72 e 120.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 7 - Problema com Escala</h3>
+      <p><strong>Enunciado:</strong> Em um mapa na escala 1:500.000, a distância entre duas cidades é de 8 cm. Qual é a distância real entre essas cidades em quilômetros?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> A escala 1:500.000 significa que 1 cm no mapa representa 500.000 cm na realidade.</p>
+
+      <p><strong>Passo 2:</strong> Montar a proporção:</p>
+      @@
+      \frac{1}{500000} = \frac{8}{x}
+      @@
+
+      <p><strong>Passo 3:</strong> Resolver:</p>
+      @@
+      \begin{align}
+      1 \cdot x &= 8 \cdot 500000 \\
+      x &= 4000000 \text{ cm}
+      \end{align}
+      @@
+
+      <p><strong>Passo 4:</strong> Converter para quilômetros:</p>
+      @@
+      x = 4000000 \text{ cm} = 40000 \text{ m} = 40 \text{ km}
+      @@
+
+      <p><strong>Resposta:</strong> A distância real entre as cidades é de 40 km.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 8 - Problema Composto</h3>
+      <p><strong>Enunciado:</strong> Duas torneiras enchem um reservatório em 6 horas. Quantas torneiras iguais a essas seriam necessárias para encher o mesmo reservatório em 4 horas?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar as grandezas. Número de torneiras e tempo são inversamente proporcionais.</p>
+
+      <p><strong>Passo 2:</strong> Montar a proporção invertendo uma razão:</p>
+      @@
+      \frac{2}{x} = \frac{4}{6}
+      @@
+
+      <p><strong>Passo 3:</strong> Aplicar a propriedade fundamental:</p>
+      @@
+      \begin{align}
+      2 \cdot 6 &= x \cdot 4 \\
+      12 &= 4x \\
+      x &= 3
+      \end{align}
+      @@
+
+      <p><strong>Resposta:</strong> Seriam necessárias 3 torneiras.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3.5: ERROS COMUNS
+         =============================================================== -->
+    <h2>⚠️ Erros Comuns</h2>
+    <p>Fique atento aos seguintes equívocos frequentes:</p>
+
+    <div class="erro-comum">
+      <h3>Erro Comum 1: Inverter a Ordem dos Termos</h3>
+      <p><strong>❌ Erro:</strong> Calcular a razão entre meninos e meninas quando o problema pede a razão entre meninas e meninos.</p>
+      <p>Se há 18 meninos e 12 meninas, e o problema pede a razão de meninas para meninos, o erro é calcular @\frac{18}{12}@.</p>
+
+      <p><strong>💡 Por que está errado:</strong> A ordem dos termos em uma razão é fundamental. @\frac{18}{12}@ é diferente de @\frac{12}{18}@.</p>
+
+      <p><strong>✅ Forma correta:</strong> Se o problema pede meninas para meninos:</p>
+      @@
+      \frac{12}{18} = \frac{2}{3}
+      @@
+    </div>
+
+    <div class="erro-comum">
+      <h3>Erro Comum 2: Confundir Grandezas Diretas e Inversas</h3>
+      <p><strong>❌ Erro:</strong> Tratar grandezas inversamente proporcionais como se fossem diretamente proporcionais.</p>
+      <p>Exemplo: "Se 4 operários fazem uma obra em 10 dias, quantos dias 8 operários levarão?" Erro: montar @\frac{4}{8} = \frac{10}{x}@.</p>
+
+      <p><strong>💡 Por que está errado:</strong> Mais operários significa menos tempo, portanto as grandezas são inversamente proporcionais.</p>
+
+      <p><strong>✅ Forma correta:</strong> Inverter uma das razões:</p>
+      @@
+      \frac{4}{8} = \frac{x}{10} \quad \Rightarrow \quad x = 5 \text{ dias}
+      @@
+    </div>
+
+    <div class="erro-comum">
+      <h3>Erro Comum 3: Esquecer de Somar os Coeficientes na Divisão Proporcional</h3>
+      <p><strong>❌ Erro:</strong> Ao dividir 100 em partes proporcionais a 2 e 3, fazer @x = \frac{2 \cdot 100}{2}@ e @y = \frac{3 \cdot 100}{3}@.</p>
+      @@
+      x = 100 \quad \text{e} \quad y = 100 \quad \text{(incorreto!)}
+      @@
+
+      <p><strong>💡 Por que está errado:</strong> A soma das partes deve ser 100, não 200. É necessário dividir pelo total dos coeficientes.</p>
+
+      <p><strong>✅ Forma correta:</strong> Somar os coeficientes (2 + 3 = 5):</p>
+      @@
+      x = \frac{2 \cdot 100}{5} = 40 \quad \text{e} \quad y = \frac{3 \cdot 100}{5} = 60
+      @@
+    </div>
+
+    <div class="erro-comum">
+      <h3>Erro Comum 4: Aplicar Incorretamente a Propriedade Fundamental</h3>
+      <p><strong>❌ Erro:</strong> Na proporção @\frac{x}{6} = \frac{9}{12}@, fazer @x \cdot 6 = 9 \cdot 12@.</p>
+      @@
+      6x = 108 \quad \Rightarrow \quad x = 18 \quad \text{(incorreto!)}
+      @@
+
+      <p><strong>💡 Por que está errado:</strong> O produto dos meios (@6 \cdot 9@) deve ser igual ao produto dos extremos (@x \cdot 12@), não o contrário.</p>
+
+      <p><strong>✅ Forma correta:</strong> Produto dos meios = produto dos extremos:</p>
+      @@
+      6 \cdot 9 = x \cdot 12 \quad \Rightarrow \quad 54 = 12x \quad \Rightarrow \quad x = 4{,}5
+      @@
+    </div>
+
+    <div class="erro-comum">
+      <h3>Erro Comum 5: Simplificar Incorretamente na Proporção</h3>
+      <p><strong>❌ Erro:</strong> Na proporção @\frac{a+2}{b+2} = \frac{a}{b}@, cancelar os "2" e concluir que a igualdade é sempre verdadeira.</p>
+
+      <p><strong>💡 Por que está errado:</strong> Não se pode "cancelar" termos que estão sendo somados/subtraídos em frações. Esta igualdade só é verdadeira em casos especiais.</p>
+
+      <p><strong>✅ Forma correta:</strong> Aplicar a propriedade fundamental:</p>
+      @@
+      (a+2) \cdot b = (b+2) \cdot a \quad \Rightarrow \quad ab + 2b = ab + 2a \quad \Rightarrow \quad 2b = 2a \quad \Rightarrow \quad a = b
+      @@
+      <p>A proporção só é verdadeira se @a = b@.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: EXERCÍCIOS PROPOSTOS
+         =============================================================== -->
+    <h2>4. Exercícios</h2>
+
+    <ol>
+      <li>Calcule a razão entre 28 e 7. Simplifique o resultado.</li>
+
+      <li>Em uma escola há 240 alunos, sendo 144 meninas. Qual é a razão entre o número de meninos e o número total de alunos?</li>
+
+      <li>Verifique se os números 3, 5, 9 e 15 formam, nessa ordem, uma proporção.</li>
+
+      <li>Determine o valor de @x@ na proporção @\frac{x}{15} = \frac{8}{12}@.</li>
+
+      <li>Em uma receita, a razão entre farinha e açúcar é de 3:2. Se foram usados 450 g de farinha, quantos gramas de açúcar foram necessários?</li>
+
+      <li>Um automóvel percorre 120 km com 10 litros de combustível. Quantos quilômetros ele percorrerá com 35 litros, mantendo o mesmo consumo?</li>
+
+      <li>Oito pedreiros constroem uma casa em 15 dias. Quantos dias seriam necessários para que 12 pedreiros construíssem a mesma casa?</li>
+
+      <li>Divida 360 em partes diretamente proporcionais a 4, 5 e 9.</li>
+
+      <li>A razão entre as idades de Paulo e Maria é de 5:3. Se Paulo tem 25 anos, qual é a idade de Maria?</li>
+
+      <li>Em um mapa na escala 1:250.000, duas cidades distam 12 cm. Qual é a distância real entre elas, em quilômetros?</li>
+
+      <li>Se @\frac{a}{3} = \frac{b}{5} = \frac{c}{7}@ e @a + b + c = 60@, determine os valores de @a@, @b@ e @c@.</li>
+
+      <li>Uma máquina produz 240 peças em 3 horas. Quantas peças ela produzirá em 7 horas, mantendo o mesmo ritmo?</li>
+
+      <li>Três sócios investiram R$ 15.000, R$ 20.000 e R$ 25.000 em um negócio. O lucro de R$ 36.000 será dividido proporcionalmente aos investimentos. Quanto cada um receberá?</li>
+
+      <li>Se @\frac{x}{4} = \frac{y}{7}@ e @x + y = 44@, calcule @x@ e @y@.</li>
+
+      <li>Uma torneira enche um tanque em 8 horas. Outra torneira enche o mesmo tanque em 12 horas. Se as duas torneiras forem abertas simultaneamente, em quanto tempo o tanque ficará cheio?</li>
+
+      <li>A razão entre os lados de um retângulo é de 4:3. Se o perímetro do retângulo é 56 cm, quais são as medidas dos lados?</li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+    1. 28:7 = 4 ou 4:1
+
+    2. Meninos: 240 - 144 = 96. Razão: 96/240 = 2/5 ou 2:5
+
+    3. Verificando: 3 × 15 = 45 e 5 × 9 = 45. Sim, formam proporção.
+
+    4. x × 12 = 15 × 8 → 12x = 120 → x = 10
+
+    5. 3/2 = 450/x → 3x = 900 → x = 300 g de açúcar
+
+    6. 120/10 = x/35 → 10x = 4200 → x = 420 km
+
+    7. Grandezas inversas: 8/12 = x/15 → 12x = 120 → x = 10 dias
+
+    8. Soma: 4+5+9=18. Partes: (4×360)/18=80, (5×360)/18=100, (9×360)/18=180
+
+    9. 5/3 = 25/x → 5x = 75 → x = 15 anos
+
+    10. 1/250000 = 12/x → x = 3.000.000 cm = 30 km
+
+    11. k = 60/15 = 4, então a=12, b=20, c=28
+
+    12. 240/3 = x/7 → 3x = 1680 → x = 560 peças
+
+    13. Total: 60.000. Partes: (15×36000)/60=9000, (20×36000)/60=12000, (25×36000)/60=15000
+
+    14. x=4k, y=7k, 4k+7k=44 → 11k=44 → k=4, então x=16 e y=28
+
+    15. Capacidades por hora: 1/8 e 1/12. Juntas: 1/8+1/12=5/24 por hora. Tempo: 24/5 = 4,8 horas = 4h48min
+
+    16. Lados: 4k e 3k. Perímetro: 2(4k+3k)=56 → 14k=56 → k=4. Lados: 16 cm e 12 cm
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

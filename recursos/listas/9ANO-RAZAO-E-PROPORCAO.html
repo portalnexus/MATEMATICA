@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Razões e Proporções</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press Start 2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    /* Container de metadados (fonte, dificuldade, tempo estimado) */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    /* Tag de tópico matemático */
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    /* Tag de dificuldade com cores diferentes */
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Cores por nível de dificuldade */
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }
+
+    /* Introdução de cada seção */
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    /* Caixas de dica para os estudantes */
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    /* Sistema de estrelas para dificuldade visual */
+    .dificuldade-estrelas {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    .dificuldade-estrelas .estrela {
+      color: #FFD700;
+      font-size: 1.2rem;
+      text-shadow: 0 0 3px rgba(255, 215, 0, 0.5);
+    }
+
+    .dificuldade-estrelas .label-dificuldade {
+      margin-left: 8px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .label-dificuldade.facil {
+      background-color: rgba(76, 175, 80, 0.3);
+      color: #4caf50;
+    }
+
+    .label-dificuldade.medio {
+      background-color: rgba(255, 193, 7, 0.3);
+      color: #ffc107;
+    }
+
+    .label-dificuldade.dificil {
+      background-color: rgba(244, 67, 54, 0.3);
+      color: #f44336;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+<div class="container">
+
+<!-- ============================================================================
+     TÍTULO PRINCIPAL DA LISTA
+     ============================================================================ -->
+<h1>RAZÕES E PROPORÇÕES</h1>
+
+<span class="badge-nivel ano-9">9º Ano</span>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas básicos para familiarização com os conceitos fundamentais de razões e proporções.
+  </p>
+
+  <ol>
+    <!-- Problema 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Razão entre números</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Calcule a razão entre 24 e 8. Simplifique o resultado.</p>
+    </li>
+
+    <!-- Problema 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Razão entre grandezas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Um retângulo tem 12 cm de comprimento e 8 cm de largura. Determine a razão entre comprimento e largura.</p>
+    </li>
+
+    <!-- Problema 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção simples</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Determine se os pares de razões formam uma proporção: @\frac{2}{3}@ e @\frac{8}{12}@.</p>
+    </li>
+
+    <!-- Problema 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção - termo desconhecido</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Determine o valor de @x@ na proporção: @\frac{x}{15} = \frac{4}{5}@.</p>
+    </li>
+
+    <!-- Problema 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Razão em contexto cotidiano</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Uma receita de bolo pede 2 xícaras de farinha para cada xícara de açúcar. Qual é a razão entre farinha e açúcar?</p>
+    </li>
+
+    <!-- Problema 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Escala numérica</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Em um mapa, 1 cm representa 50 km na realidade. Qual é a escala deste mapa?</p>
+    </li>
+
+    <!-- Problema 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Propriedade fundamental das proporções</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Verifique se a igualdade @\frac{6}{9} = \frac{10}{15}@ é uma proporção usando a propriedade fundamental (produto dos meios igual ao produto dos extremos).</p>
+    </li>
+
+    <!-- Problema 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Razão entre medidas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>A altura de João é 1,60 m e a de Pedro é 1,20 m. Qual é a razão entre as alturas de João e Pedro?</p>
+    </li>
+
+    <!-- Problema 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção direta</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Se 3 canetas custam R$ 12,00, quanto custarão 5 canetas ao mesmo preço unitário?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Monte uma proporção entre quantidade de canetas e preço total.
+      </div>
+    </li>
+
+    <!-- Problema 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Simplificação de razões</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Simplifique a razão @\frac{45}{60}@ até sua forma irredutível.</p>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas que requerem interpretação do enunciado e aplicação de conceitos combinados.
+  </p>
+
+  <ol>
+    <!-- Problema 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Divisão proporcional direta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Três amigos, Ana, Bruno e Carlos, vão dividir R$ 480,00 de forma diretamente proporcional às suas idades: 12, 15 e 18 anos, respectivamente. Quanto cada um receberá?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Primeiro, some as idades para encontrar o total de partes. Depois, calcule o valor de cada parte.
+      </div>
+    </li>
+
+    <!-- Problema 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Escala em mapas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Em um mapa com escala 1:2.000.000, a distância entre duas cidades é de 8 cm. Qual é a distância real entre essas cidades em quilômetros?</p>
+    </li>
+
+    <!-- Problema 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Velocidade média</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Um carro percorreu 240 km em 3 horas. Mantendo a mesma velocidade média, quanto tempo levará para percorrer 400 km?</p>
+    </li>
+
+    <!-- Problema 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção inversa</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Se 6 operários levam 12 dias para construir um muro, quantos dias levarão 8 operários para construir o mesmo muro, trabalhando no mesmo ritmo?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Mais operários levam menos tempo. Esta é uma relação inversamente proporcional.
+      </div>
+    </li>
+
+    <!-- Problema 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Receitas culinárias</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Uma receita de suco para 4 pessoas usa 6 laranjas. Para fazer o mesmo suco para 10 pessoas, quantas laranjas serão necessárias?</p>
+    </li>
+
+    <!-- Problema 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Divisão proporcional - lucros</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Dois sócios investiram R$ 15.000,00 e R$ 25.000,00 na abertura de uma loja. Após um ano, o lucro foi de R$ 12.000,00. Como esse lucro deve ser dividido de forma proporcional aos investimentos?</p>
+    </li>
+
+    <!-- Problema 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Grandezas diretamente proporcionais</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Se 5 metros de tecido custam R$ 45,00, quanto custarão 8 metros do mesmo tecido?</p>
+    </li>
+
+    <!-- Problema 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Escala - ampliação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Uma planta de uma casa na escala 1:100 mostra uma sala com 6 cm de comprimento. Qual é o comprimento real da sala em metros?</p>
+    </li>
+
+    <!-- Problema 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção - regra de três simples</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Uma torneira despeja 30 litros de água em 5 minutos. Quantos litros despejará em 12 minutos, mantendo a mesma vazão?</p>
+    </li>
+
+    <!-- Problema 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Divisão proporcional - herança</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Uma herança de R$ 150.000,00 será dividida entre três herdeiros na razão de 2:3:5. Quanto cada herdeiro receberá?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Some as partes da razão (2+3+5) para encontrar o total de partes. Depois divida o valor total pelo número de partes.
+      </div>
+    </li>
+
+    <!-- Problema 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Se 4 máquinas produzem 200 peças em 5 horas, quantas peças produzirão 6 máquinas em 8 horas, trabalhando na mesma capacidade?</p>
+    </li>
+
+    <!-- Problema 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Razão - porcentagem</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Em uma turma de 40 alunos, 24 são meninas. Qual é a razão entre meninas e o total de alunos? Expresse também como porcentagem.</p>
+    </li>
+
+    <!-- Problema 13 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção inversa - trabalho</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Uma obra seria concluída por 10 trabalhadores em 24 dias. Se forem contratados 15 trabalhadores no total, em quantos dias a obra ficará pronta?</p>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Problemas complexos que exigem raciocínio em múltiplas etapas e combinação de conceitos.
+  </p>
+
+  <ol>
+    <!-- Problema 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Divisão proporcional inversa</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Um prêmio de R$ 18.000,00 será dividido entre três pessoas de forma inversamente proporcional ao número de faltas que cada uma teve: 2, 3 e 4 faltas, respectivamente. Quanto cada pessoa receberá?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Para divisão inversamente proporcional, use os inversos dos números dados (1/2, 1/3, 1/4). Depois encontre um denominador comum.
+      </div>
+    </li>
+
+    <!-- Problema 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção composta - múltiplas grandezas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Se 8 operários, trabalhando 6 horas por dia durante 15 dias, constroem um muro de 60 m, quantos operários, trabalhando 8 horas por dia durante 10 dias, construirão um muro de 80 m?</p>
+
+      <p>a) Identifique quais grandezas são diretamente e quais são inversamente proporcionais.</p>
+      <p>b) Monte a proporção composta e resolva.</p>
+      <p>c) Interprete o resultado encontrado.</p>
+    </li>
+
+    <!-- Problema 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Divisão proporcional mista</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Três sócios investiram R$ 20.000,00, R$ 30.000,00 e R$ 50.000,00 em um negócio. Após um ano, o lucro de R$ 40.000,00 será dividido de forma diretamente proporcional ao capital investido e inversamente proporcional ao tempo de participação (12, 10 e 8 meses, respectivamente). Quanto cada sócio receberá?</p>
+    </li>
+
+    <!-- Problema 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Escala e área</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Uma planta de um terreno retangular está na escala 1:500. Na planta, o terreno mede 8 cm por 12 cm.</p>
+
+      <p>a) Quais são as dimensões reais do terreno em metros?</p>
+      <p>b) Qual é a área real do terreno em metros quadrados?</p>
+      <p>c) Qual é a área do terreno na planta em centímetros quadrados?</p>
+      <p>d) Qual é a razão entre a área na planta e a área real?</p>
+    </li>
+
+    <!-- Problema 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Misturas e concentrações</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Uma solução A contém água e suco na proporção de 2:3. Uma solução B contém água e suco na proporção de 3:5. Deseja-se obter 80 litros de uma nova solução que contenha água e suco na proporção de 5:8. Quantos litros de cada solução (A e B) devem ser misturados?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Primeiro, calcule a fração de suco em cada solução. Depois, monte um sistema de equações.
+      </div>
+    </li>
+
+    <!-- Problema 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção - problema investigativo</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Em uma proporção contínua @\frac{a}{b} = \frac{b}{c}@, temos que @a = 4@ e @c = 16@. Determine o valor de @b@ e explique por que @b@ é chamado de "média geométrica" entre @a@ e @c@.</p>
+    </li>
+
+    <!-- Problema 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Velocidades diferentes</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Dois ciclistas partem simultaneamente de pontos opostos de uma pista circular de 3.600 metros, pedalando em sentidos opostos. O primeiro completa uma volta em 12 minutos e o segundo em 18 minutos. Depois de quanto tempo eles se encontrarão pela primeira vez?</p>
+    </li>
+
+    <!-- Problema 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção - geometria</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Os lados de um triângulo estão na razão 3:4:5. Se o perímetro do triângulo é 72 cm, determine:</p>
+
+      <p>a) O comprimento de cada lado.</p>
+      <p>b) A área do triângulo (use que este é um triângulo retângulo).</p>
+      <p>c) A razão entre a área e o perímetro.</p>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para você praticar e consolidar seu aprendizado!
+  </p>
+
+  <ol>
+    <!-- Problema 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção - economia doméstica</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Uma família gasta 30% de sua renda mensal com alimentação e 20% com transporte. Se a renda mensal é de R$ 4.500,00, quanto é gasto com cada categoria? Qual é a razão entre os gastos com alimentação e transporte?</p>
+    </li>
+
+    <!-- Problema 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Divisão proporcional - custos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Três amigos alugaram um apartamento na praia por R$ 1.200,00. Ana ficou 5 dias, Bruno 7 dias e Carlos 3 dias. Como devem dividir o valor do aluguel de forma proporcional ao tempo de permanência?</p>
+    </li>
+
+    <!-- Problema 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Escala - redução</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Uma maquete de um prédio de 60 metros de altura foi construída com 40 cm de altura. Qual é a escala utilizada?</p>
+    </li>
+
+    <!-- Problema 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção - densidade demográfica</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>A cidade A tem 150.000 habitantes em uma área de 500 km², enquanto a cidade B tem 80.000 habitantes em 200 km². Qual cidade tem maior densidade demográfica (habitantes por km²)? Qual é a razão entre as densidades?</p>
+    </li>
+
+    <!-- Problema 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção inversa - torneiras</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Uma piscina é enchida por 4 torneiras idênticas em 6 horas. Se apenas 3 dessas torneiras estiverem funcionando, quanto tempo levará para encher a mesma piscina?</p>
+    </li>
+
+    <!-- Problema 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Razão - índice de aproveitamento</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Um time de basquete jogou 25 partidas e venceu 15. Qual é a razão entre vitórias e derrotas? Expresse também como porcentagem de aproveitamento.</p>
+    </li>
+
+    <!-- Problema 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção composta - produção</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Se 5 impressoras imprimem 3.000 páginas em 2 horas, quantas páginas imprimirão 8 impressoras em 5 horas, trabalhando na mesma velocidade?</p>
+    </li>
+
+    <!-- Problema 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Proporção - semelhança de figuras</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Dois retângulos semelhantes têm lados correspondentes na razão 3:5. Se o perímetro do retângulo menor é 48 cm, qual é o perímetro do retângulo maior?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Em figuras semelhantes, a razão entre perímetros é igual à razão entre lados correspondentes.
+      </div>
+    </li>
+
+  </ol>
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

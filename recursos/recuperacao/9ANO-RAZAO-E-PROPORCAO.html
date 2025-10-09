@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Razões e Proporções</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .orientacao-inicial { background-color: rgba(33, 150, 243, 0.2); border: 2px solid #2196f3; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .problema-meta { font-size: 0.75rem; color: var(--secondary-text-color); margin-bottom: 0.5rem; font-family: 'Fira Sans', sans-serif; }
+    .problema-meta .nivel-apoio { background-color: rgba(76, 175, 80, 0.3); padding: 2px 6px; border-radius: 3px; margin-right: 8px; }
+    .nivel-apoio.alto { background-color: rgba(76, 175, 80, 0.4); }
+    .nivel-apoio.medio { background-color: rgba(255, 193, 7, 0.3); }
+    .nivel-apoio.baixo { background-color: rgba(244, 67, 54, 0.2); }
+    .dica { background-color: rgba(33, 150, 243, 0.15); border-left: 4px solid #2196f3; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 4px; }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo { background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo { margin: 1rem 0; padding-left: 1.5rem; border-left: 2px solid #4caf50; }
+    .lembrete { background-color: rgba(255, 152, 0, 0.15); border-left: 4px solid #ff9800; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 4px; }
+    .lembrete strong { color: #ff9800; }
+    .conceito-basico { background-color: rgba(156, 39, 176, 0.1); border: 2px solid #9c27b0; border-radius: 6px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .section-intro { font-style: italic; color: var(--secondary-text-color); margin-bottom: 1.5rem; padding-left: 1rem; border-left: 3px solid var(--link-color); }
+    .badge-nivel { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .ano-9 { background-color: rgba(76, 175, 80, 0.3); color: #2e7d32; border: 1px solid #4caf50; }
+    .estrelas { color: #ffd700; font-size: 1.2rem; margin-left: 0.5rem; }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+<div class="container">
+<article>
+  <h1>Recuperação: Razões e Proporções</h1>
+  <span class="badge-nivel ano-9">9º Ano</span>
+  <span class="estrelas">★★</span>
+
+  <div class="orientacao-inicial">
+    <h3>📚 Como usar esta atividade de recuperação</h3>
+    <p>Esta atividade foi criada para ajudar você a reforçar conceitos fundamentais de <strong>Razões e Proporções</strong>. Siga estas orientações:</p>
+    <ul>
+      <li><strong>Não tenha pressa:</strong> Trabalhe com calma, entendendo cada passo.</li>
+      <li><strong>Use as dicas:</strong> Elas estão aqui para orientar seu raciocínio.</li>
+      <li><strong>Revise os conceitos básicos:</strong> Releia as definições e exemplos quando necessário.</li>
+      <li><strong>Faça anotações:</strong> Registre suas dúvidas e estratégias.</li>
+      <li><strong>Progressão gradual:</strong> Os problemas vão ficando menos apoiados à medida que você avança.</li>
+    </ul>
+  </div>
+
+  <!-- =========================================================================
+       REVISÃO DE CONCEITOS BÁSICOS
+       ========================================================================= -->
+  <h2>Relembrando: Conceitos Básicos</h2>
+
+  <div class="conceito-basico">
+    <h4>Conceito 1: O que é Razão?</h4>
+    <p>Uma <strong>razão</strong> é uma comparação entre duas grandezas através de uma divisão. É uma forma de mostrar quantas vezes uma quantidade cabe em outra.</p>
+    <p><strong>Notação:</strong> A razão entre dois números @a@ e @b@ (com @b \neq 0@) pode ser escrita de três formas:</p>
+    @@
+    \frac{a}{b} \quad \text{ou} \quad a:b \quad \text{ou} \quad a \text{ para } b
+    @@
+    <p><strong>Exemplo:</strong> Se uma receita usa 2 xícaras de farinha para 3 xícaras de açúcar, a razão de farinha para açúcar é:</p>
+    @@
+    \frac{2}{3} \quad \text{ou} \quad 2:3
+    @@
+    <p>Lê-se: "dois para três".</p>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 2: Simplificação de Razões</h4>
+    <p>Assim como frações, razões podem ser simplificadas dividindo ambos os termos pelo mesmo número (geralmente o MDC).</p>
+    <p><strong>Exemplo:</strong> Simplificar a razão @12:18@</p>
+    @@
+    \begin{align}
+    12:18 &= \frac{12}{18} \\
+    &= \frac{12 \div 6}{18 \div 6} \quad \text{(dividindo por 6, que é o MDC)} \\
+    &= \frac{2}{3} \quad \text{ou} \quad 2:3
+    \end{align}
+    @@
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 3: O que é Proporção?</h4>
+    <p>Uma <strong>proporção</strong> é uma igualdade entre duas razões. Indica que duas razões têm o mesmo valor.</p>
+    <p><strong>Notação:</strong></p>
+    @@
+    \frac{a}{b} = \frac{c}{d} \quad \text{ou} \quad a:b = c:d
+    @@
+    <p>Lê-se: "a está para b assim como c está para d".</p>
+    <p><strong>Exemplo:</strong></p>
+    @@
+    \frac{2}{3} = \frac{4}{6} \quad \text{é uma proporção verdadeira}
+    @@
+    <p>Pois ambas simplificam para @\frac{2}{3}@.</p>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 4: Propriedade Fundamental das Proporções</h4>
+    <p>Se @\frac{a}{b} = \frac{c}{d}@, então:</p>
+    @@
+    a \cdot d = b \cdot c
+    @@
+    <p>Ou seja: o <strong>produto dos meios é igual ao produto dos extremos</strong>.</p>
+    <p><strong>Exemplo:</strong> Verificar se @\frac{3}{5} = \frac{6}{10}@ é verdadeira</p>
+    @@
+    \begin{align}
+    3 \times 10 &= 30 \quad \text{(extremos)} \\
+    5 \times 6 &= 30 \quad \text{(meios)} \\
+    30 &= 30 \quad \checkmark \text{ (é proporção)}
+    \end{align}
+    @@
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 5: Grandezas Diretamente e Inversamente Proporcionais</h4>
+    <p><strong>Grandezas Diretamente Proporcionais:</strong> Quando uma aumenta, a outra aumenta na mesma proporção. Quando uma diminui, a outra também diminui.</p>
+    <p><strong>Exemplo:</strong> Velocidade constante → quanto mais tempo, mais distância percorrida.</p>
+
+    <p><strong>Grandezas Inversamente Proporcionais:</strong> Quando uma aumenta, a outra diminui. Quando uma diminui, a outra aumenta.</p>
+    <p><strong>Exemplo:</strong> Distância constante → quanto mais velocidade, menos tempo necessário.</p>
+  </div>
+
+  <!-- =========================================================================
+       PARTE 1: PRIMEIROS PASSOS (Alto Apoio)
+       ========================================================================= -->
+  <h2>Parte 1: Primeiros Passos</h2>
+  <p class="section-intro">
+    Problemas básicos com bastante orientação para você começar a praticar.
+  </p>
+
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo Resolvido: Calculando e Simplificando uma Razão</h4>
+    <p><strong>Problema:</strong> Em uma turma de 30 alunos, 18 são meninas e 12 são meninos. Calcule a razão entre o número de meninas e o número de meninos, simplificando o resultado.</p>
+
+    <div class="passo">
+      <p><strong>Passo 1:</strong> Identificar os números que vamos comparar</p>
+      <p>Queremos a razão: número de meninas para número de meninos</p>
+      @@
+      \text{Meninas} = 18 \quad \text{e} \quad \text{Meninos} = 12
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2:</strong> Escrever a razão como fração</p>
+      @@
+      \text{Razão} = \frac{\text{meninas}}{\text{meninos}} = \frac{18}{12}
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 3:</strong> Simplificar a fração (dividir ambos os termos pelo MDC)</p>
+      <p>O MDC de 18 e 12 é 6, então dividimos ambos por 6:</p>
+      @@
+      \frac{18}{12} = \frac{18 \div 6}{12 \div 6} = \frac{3}{2}
+      @@
+      <p><strong>Resposta:</strong> A razão entre meninas e meninos é @\frac{3}{2}@ ou @3:2@. Isso significa que para cada 3 meninas, há 2 meninos.</p>
+    </div>
+  </div>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio alto">Alto apoio</span>
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <p>Em um estacionamento há 15 carros e 10 motos. Calcule a razão entre o número de carros e o número de motos. Simplifique a razão.</p>
+
+      <div class="dica">
+        <strong>Dica 1:</strong> Primeiro, escreva a razão como fração: @\frac{\text{carros}}{\text{motos}}@. Substitua pelos valores dados.
+      </div>
+
+      <div class="dica">
+        <strong>Dica 2:</strong> Para simplificar, encontre o MDC de 15 e 10, que é 5. Divida tanto o numerador quanto o denominador por 5.
+      </div>
+
+      <div class="lembrete">
+        <strong>Lembre-se:</strong> Simplificar uma razão é como simplificar uma fração – dividimos os dois termos pelo mesmo número!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio alto">Alto apoio</span>
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <p>Uma receita de bolo usa 4 ovos para 2 xícaras de farinha. Qual é a razão de ovos para farinha? Simplifique.</p>
+
+      <div class="dica">
+        <strong>Dica 1:</strong> A razão de ovos para farinha é @\frac{4}{2}@.
+      </div>
+
+      <div class="dica">
+        <strong>Dica 2:</strong> Simplifique dividindo ambos os números por 2: @\frac{4 \div 2}{2 \div 2}@.
+      </div>
+
+      <div class="lembrete">
+        <strong>Lembre-se:</strong> A ordem importa! "Ovos para farinha" significa ovos no numerador e farinha no denominador.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio alto">Alto apoio</span>
+        <span>⏱️ 4 min</span>
+      </div>
+
+      <p>Verifique se a igualdade @\frac{3}{4} = \frac{9}{12}@ é uma proporção verdadeira usando a propriedade fundamental das proporções.</p>
+
+      <div class="dica">
+        <strong>Dica 1:</strong> Use a propriedade: produto dos extremos = produto dos meios. Os extremos são 3 e 12, os meios são 4 e 9.
+      </div>
+
+      <div class="dica">
+        <strong>Dica 2:</strong> Calcule: @3 \times 12 = ?@ e @4 \times 9 = ?@. Se os resultados forem iguais, é uma proporção verdadeira.
+      </div>
+
+      <div class="lembrete">
+        <strong>Lembre-se:</strong> Em @\frac{a}{b} = \frac{c}{d}@, os extremos são @a@ e @d@, e os meios são @b@ e @c@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio alto">Alto apoio</span>
+        <span>⏱️ 4 min</span>
+      </div>
+
+      <p>Simplifique a razão @20:25@.</p>
+
+      <div class="dica">
+        <strong>Dica 1:</strong> Escreva como fração: @\frac{20}{25}@.
+      </div>
+
+      <div class="dica">
+        <strong>Dica 2:</strong> O MDC de 20 e 25 é 5. Divida ambos os termos por 5.
+      </div>
+
+      <div class="lembrete">
+        <strong>Lembre-se:</strong> A razão está na forma mais simples quando não é possível dividir ambos os termos por um número maior que 1.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio alto">Alto apoio</span>
+        <span>⏱️ 4 min</span>
+      </div>
+
+      <p>Em uma proporção, os extremos são 2 e 15, e um dos meios é 5. Qual é o valor do outro meio?</p>
+
+      <div class="dica">
+        <strong>Dica 1:</strong> Use a propriedade: @a \times d = b \times c@. Temos @a = 2@, @d = 15@, @b = 5@, e queremos encontrar @c@.
+      </div>
+
+      <div class="dica">
+        <strong>Dica 2:</strong> Calcule @2 \times 15 = 30@. Agora, @5 \times c = 30@, então @c = 30 \div 5@.
+      </div>
+
+      <div class="lembrete">
+        <strong>Lembre-se:</strong> Produto dos extremos = Produto dos meios!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio alto">Alto apoio</span>
+        <span>⏱️ 4 min</span>
+      </div>
+
+      <p>Complete: Se @\frac{6}{8} = \frac{3}{x}@, qual é o valor de @x@?</p>
+
+      <div class="dica">
+        <strong>Dica 1:</strong> Use a propriedade fundamental: @6 \times x = 8 \times 3@.
+      </div>
+
+      <div class="dica">
+        <strong>Dica 2:</strong> Primeiro calcule @8 \times 3 = 24@, então @6 \times x = 24@. Divida ambos os lados por 6 para encontrar @x@.
+      </div>
+
+      <div class="lembrete">
+        <strong>Lembre-se:</strong> Quando você tem uma equação como @6x = 24@, divida ambos os lados por 6 para isolar @x@.
+      </div>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       PARTE 2: DESENVOLVENDO AUTONOMIA (Apoio Médio)
+       ========================================================================= -->
+  <h2>Parte 2: Desenvolvendo Autonomia</h2>
+  <p class="section-intro">
+    Agora você terá menos orientações. Tente resolver antes de olhar as dicas!
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio medio">Apoio médio</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <p>Um mapa está na escala @1:50000@. Se a distância no mapa entre duas cidades é 8 cm, qual é a distância real em quilômetros?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A escala @1:50000@ significa que 1 cm no mapa corresponde a 50000 cm na realidade. Multiplique 8 cm por 50000 e depois converta centímetros para quilômetros (1 km = 100000 cm).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio medio">Apoio médio</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <p>Uma torneira enche um tanque em 12 horas funcionando 4 horas por dia. Se ela funcionar 6 horas por dia, em quantos dias o tanque ficará cheio?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Este é um caso de grandezas inversamente proporcionais. Se aumentamos as horas por dia, diminuímos o número de dias. Use: @4 \times 12 = 6 \times x@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio medio">Apoio médio</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <p>Divida 240 em partes diretamente proporcionais a 2, 3 e 5.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Some as partes proporcionais: @2 + 3 + 5 = 10@. Depois divida 240 por 10 para encontrar quanto vale cada "parte". Multiplique cada proporção pelo valor da parte.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio medio">Apoio médio</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <p>Um carro percorre 180 km com 15 litros de gasolina. Quantos quilômetros percorrerá com 25 litros, mantendo o mesmo consumo?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Distância e litros de gasolina são grandezas diretamente proporcionais. Monte a proporção: @\frac{180}{15} = \frac{x}{25}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio medio">Apoio médio</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <p>A densidade de um material é a razão entre sua massa e seu volume. Se um bloco tem massa de 150 g e volume de 50 cm³, qual é sua densidade em g/cm³?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Densidade = @\frac{\text{massa}}{\text{volume}}@. Substitua os valores e simplifique se possível.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio medio">Apoio médio</span>
+        <span>⏱️ 6 min</span>
+      </div>
+
+      <p>Três sócios investiram R$ 5000, R$ 8000 e R$ 12000 em um negócio. O lucro de R$ 10000 será dividido proporcionalmente aos investimentos. Quanto cada sócio receberá?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Some todos os investimentos para encontrar o total. Depois calcule a fração que cada um investiu e multiplique pelo lucro de R$ 10000.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio medio">Apoio médio</span>
+        <span>⏱️ 6 min</span>
+      </div>
+
+      <p>A razão entre as idades de Ana e Bruno é @3:4@. Se Ana tem 18 anos, quantos anos Bruno tem?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Se @\frac{\text{Ana}}{\text{Bruno}} = \frac{3}{4}@, então @\frac{18}{\text{Bruno}} = \frac{3}{4}@. Use a propriedade fundamental das proporções.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio medio">Apoio médio</span>
+        <span>⏱️ 6 min</span>
+      </div>
+
+      <p>Uma equipe de 8 trabalhadores constrói um muro em 15 dias. Quantos trabalhadores seriam necessários para construir o mesmo muro em 10 dias?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Trabalhadores e dias são inversamente proporcionais (mais trabalhadores, menos dias). Use: @8 \times 15 = x \times 10@.
+      </div>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       PARTE 3: CONSOLIDAÇÃO (Baixo Apoio)
+       ========================================================================= -->
+  <h2>Parte 3: Consolidação</h2>
+  <p class="section-intro">
+    Problemas finais para você aplicar o que aprendeu de forma mais independente.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio baixo">Baixo apoio</span>
+        <span>⏱️ 6 min</span>
+      </div>
+
+      <p>Em uma escola, a razão entre alunos do período matutino e vespertino é @5:3@. Se há 480 alunos no total, quantos estudam em cada período?</p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio baixo">Baixo apoio</span>
+        <span>⏱️ 6 min</span>
+      </div>
+
+      <p>Dois números estão na razão @7:5@. Se a soma deles é 144, quais são esses números?</p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio baixo">Baixo apoio</span>
+        <span>⏱️ 7 min</span>
+      </div>
+
+      <p>Um trem percorre 240 km em 3 horas. Mantendo a mesma velocidade média, quanto tempo levará para percorrer 400 km?</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio baixo">Baixo apoio</span>
+        <span>⏱️ 7 min</span>
+      </div>
+
+      <p>Divida 720 em três partes proporcionais a @\frac{1}{2}@, @\frac{1}{3}@ e @\frac{1}{4}@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Primeiro encontre o MMC de 2, 3 e 4, que é 12. Converta as frações: @\frac{1}{2} = \frac{6}{12}@, @\frac{1}{3} = \frac{4}{12}@, @\frac{1}{4} = \frac{3}{12}@. Agora divida proporcionalmente a 6, 4 e 3.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio baixo">Baixo apoio</span>
+        <span>⏱️ 7 min</span>
+      </div>
+
+      <p>Uma máquina produz 450 peças em 6 horas. Quantas máquinas iguais seriam necessárias para produzir 1350 peças em 4 horas?</p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio baixo">Baixo apoio</span>
+        <span>⏱️ 8 min</span>
+      </div>
+
+      <p>A quantidade de tinta necessária para pintar uma parede é diretamente proporcional à área da parede. Se são necessários 3 litros para pintar 12 m², quantos litros serão necessários para pintar uma parede de 30 m²?</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="nivel-apoio baixo">Baixo apoio</span>
+        <span>⏱️ 8 min</span>
+      </div>
+
+      <p>As idades de três irmãos estão na razão @2:3:5@. Se o irmão mais novo tem 8 anos, qual é a soma das idades dos três irmãos?</p>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       AUTOAVALIAÇÃO
+       ========================================================================= -->
+  <h2>Autoavaliação</h2>
+
+  <div class="conceito-basico">
+    <h4>Verifique seu aprendizado:</h4>
+    <p>Após completar esta atividade, você deve ser capaz de:</p>
+    <ul>
+      <li>[ ] Calcular a razão entre duas grandezas e escrevê-la de diferentes formas (@\frac{a}{b}@, @a:b@)</li>
+      <li>[ ] Simplificar razões usando o MDC dos termos</li>
+      <li>[ ] Identificar se uma igualdade entre razões forma uma proporção usando a propriedade fundamental</li>
+      <li>[ ] Encontrar o termo desconhecido em uma proporção</li>
+      <li>[ ] Reconhecer grandezas diretamente proporcionais e inversamente proporcionais</li>
+      <li>[ ] Resolver problemas de divisão proporcional</li>
+      <li>[ ] Aplicar razões e proporções em situações do cotidiano (escalas, velocidade, densidade, etc.)</li>
+    </ul>
+
+    <p><strong>Se você marcou todos os itens:</strong> Parabéns! Você está pronto para avançar para problemas mais complexos envolvendo razões e proporções.</p>
+    <p><strong>Se ainda há dúvidas:</strong> Não há problema! Revise os conceitos básicos da seção inicial e refaça os problemas que você teve dificuldade. Peça ajuda ao professor se necessário. Lembre-se: aprender leva tempo e prática!</p>
+  </div>
+
+</article>
+
+<!-- GABARITO EM COMENTÁRIO HTML -->
+<!--
+GABARITO:
+
+PARTE 1: PRIMEIROS PASSOS
+
+1. Razão entre carros e motos:
+   carros:motos = 15:10 = 15/10 = (15÷5)/(10÷5) = 3/2
+   Resposta: 3:2 ou 3/2
+
+2. Razão de ovos para farinha:
+   ovos:farinha = 4:2 = 4/2 = 2/1 = 2
+   Resposta: 2:1 ou 2/1
+
+3. Verificar proporção 3/4 = 9/12:
+   Extremos: 3 × 12 = 36
+   Meios: 4 × 9 = 36
+   36 = 36 ✓
+   Resposta: Sim, é uma proporção verdadeira.
+
+4. Simplificar 20:25:
+   20:25 = 20/25 = (20÷5)/(25÷5) = 4/5
+   Resposta: 4:5 ou 4/5
+
+5. Encontrar o outro meio:
+   Extremos: 2 e 15, um meio é 5
+   2 × 15 = 5 × c
+   30 = 5c
+   c = 30 ÷ 5 = 6
+   Resposta: 6
+
+6. Encontrar x em 6/8 = 3/x:
+   6 × x = 8 × 3
+   6x = 24
+   x = 24 ÷ 6 = 4
+   Resposta: x = 4
+
+PARTE 2: DESENVOLVENDO AUTONOMIA
+
+1. Escala 1:50000, distância no mapa 8 cm:
+   Distância real = 8 × 50000 = 400000 cm
+   400000 cm = 400000 ÷ 100000 = 4 km
+   Resposta: 4 km
+
+2. Torneira - grandezas inversamente proporcionais:
+   4 horas/dia × 12 dias = 6 horas/dia × x dias
+   48 = 6x
+   x = 48 ÷ 6 = 8 dias
+   Resposta: 8 dias
+
+3. Dividir 240 proporcionalmente a 2, 3 e 5:
+   Soma das partes: 2 + 3 + 5 = 10
+   Cada parte = 240 ÷ 10 = 24
+   Primeira parte: 2 × 24 = 48
+   Segunda parte: 3 × 24 = 72
+   Terceira parte: 5 × 24 = 120
+   Resposta: 48, 72 e 120
+
+4. Carro com 15 litros percorre 180 km:
+   180/15 = x/25
+   15x = 180 × 25 = 4500
+   x = 4500 ÷ 15 = 300 km
+   Resposta: 300 km
+
+5. Densidade = massa/volume:
+   Densidade = 150/50 = 3 g/cm³
+   Resposta: 3 g/cm³
+
+6. Divisão proporcional do lucro:
+   Total investido: 5000 + 8000 + 12000 = 25000
+   Sócio 1: (5000/25000) × 10000 = 2000
+   Sócio 2: (8000/25000) × 10000 = 3200
+   Sócio 3: (12000/25000) × 10000 = 4800
+   Resposta: R$ 2000, R$ 3200 e R$ 4800
+
+7. Razão 3:4, Ana tem 18 anos:
+   18/Bruno = 3/4
+   3 × Bruno = 18 × 4 = 72
+   Bruno = 72 ÷ 3 = 24 anos
+   Resposta: 24 anos
+
+8. Grandezas inversamente proporcionais (trabalhadores e dias):
+   8 × 15 = x × 10
+   120 = 10x
+   x = 12 trabalhadores
+   Resposta: 12 trabalhadores
+
+PARTE 3: CONSOLIDAÇÃO
+
+1. Razão 5:3, total 480 alunos:
+   5 + 3 = 8 partes
+   Cada parte = 480 ÷ 8 = 60
+   Matutino: 5 × 60 = 300
+   Vespertino: 3 × 60 = 180
+   Resposta: 300 (matutino) e 180 (vespertino)
+
+2. Razão 7:5, soma 144:
+   7 + 5 = 12 partes
+   Cada parte = 144 ÷ 12 = 12
+   Primeiro número: 7 × 12 = 84
+   Segundo número: 5 × 12 = 60
+   Resposta: 84 e 60
+
+3. 240 km em 3 horas, quanto tempo para 400 km:
+   240/3 = 400/x
+   240x = 3 × 400 = 1200
+   x = 1200 ÷ 240 = 5 horas
+   Resposta: 5 horas
+
+4. Dividir 720 proporcionalmente a 1/2, 1/3, 1/4:
+   MMC(2,3,4) = 12
+   1/2 = 6/12, 1/3 = 4/12, 1/4 = 3/12
+   Proporcional a 6, 4, 3
+   Soma: 6 + 4 + 3 = 13
+   Cada parte = 720 ÷ 13 ≈ 55,38
+   Primeira: 6 × 55,38 ≈ 332,31
+   Segunda: 4 × 55,38 ≈ 221,54
+   Terceira: 3 × 55,38 ≈ 166,15
+   Ou exatamente: 3360/13, 2240/13, 1680/13
+   Resposta: aproximadamente 332,31; 221,54 e 166,15
+
+5. Regra de três composta:
+   1 máquina - 450 peças - 6 horas
+   x máquinas - 1350 peças - 4 horas
+
+   Mais peças → mais máquinas (diretamente proporcional)
+   Menos horas → mais máquinas (inversamente proporcional)
+
+   x/1 = (1350/450) × (6/4)
+   x = 3 × 1,5 = 4,5
+   Ou aproximando: 5 máquinas (na prática)
+
+   Cálculo exato:
+   1 máquina produz 450 peças em 6 horas = 75 peças/hora
+   Precisamos de 1350 peças em 4 horas = 1350/4 = 337,5 peças/hora
+   Número de máquinas = 337,5 / 75 = 4,5 máquinas
+   Resposta: 4,5 máquinas (ou 5 na prática)
+
+6. 3 litros para 12 m², quantos para 30 m²:
+   3/12 = x/30
+   12x = 3 × 30 = 90
+   x = 90 ÷ 12 = 7,5 litros
+   Resposta: 7,5 litros
+
+7. Razão 2:3:5, mais novo tem 8 anos:
+   Cada parte = 8 ÷ 2 = 4
+   Irmão 1: 2 × 4 = 8 anos
+   Irmão 2: 3 × 4 = 12 anos
+   Irmão 3: 5 × 4 = 20 anos
+   Soma: 8 + 12 + 20 = 40 anos
+   Resposta: 40 anos
+
+-->
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
             'theme-retro-terminal',
             'theme-light-classic-neon-red',
             'theme-blue-matrix',
-            'theme-orange-matrix'
+            'theme-orange-matrix',
+            'theme-high-contrast'
         ];
 
         // Remove todas as classes de tema

@@ -1,117 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXUS - Dashboard</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/dashboard.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
+
 <body>
-<div id="page-wrapper">
-  <nav>
-    <ul>
-      <li><a href="index.html" class="nav-button">INÍCIO</a></li>
-      <li><a href="recursos.html" class="nav-button">RECURSOS</a></li>
-      <li><a href="dashboard.html" class="nav-button">DASHBOARD</a></li>
-      <!-- Seletor de turma será adicionado aqui pelo class-selector.js -->
-    </ul>
-  </nav>
+    <div id="page-wrapper">
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-button">INÍCIO</a></li>
+                <li><a href="recursos.html" class="nav-button">RECURSOS</a></li>
+                <li><a href="dashboard.html" class="nav-button">DASHBOARD</a></li>
+                <!-- Seletor de turma será adicionado aqui pelo class-selector.js -->
+            </ul>
+        </nav>
 
-    <div class="container">
-        <article>
-            <!-- Seletor de Etapas -->
-            <div id="etapa-selector">
-                <button class="etapa-btn active" data-etapa="1">I</button>
-                <button class="etapa-btn" data-etapa="2">II</button>
-                <button class="etapa-btn" data-etapa="3">III</button>
-            </div>
-
-            <div class="dashboard-grid">
-                <!-- Linha 1: ID Input/Nome, Nível e Avatar -->
-                <div id="id-area" class="dashboard-box">
-                    <div id="id-form">
-                        <input type="text" id="id-input" placeholder="ID" maxlength="5">
-                        <button id="login-btn">&gt;</button>
-                    </div>
-                    <div id="user-display" class="hidden">
-                        <span id="user-name"></span>
-                        <button id="logout-btn">&lt;</button>
-                    </div>
-                    <div id="error-message"></div>
-                </div>
-                <div id="lvl-area" class="dashboard-box">
-                    <div id="lvl">LVL</div>
-                </div>
-                <div id="avatar-area" class="dashboard-box">
-                    <img id="avatar-img" src="data/avatar/default_avatar.png" onerror="this.src='data/avatar/default_avatar.png'; this.onerror=null;" alt="Avatar do Usuário">
+        <div class="container">
+            <article>
+                <!-- Seletor de Etapas -->
+                <div id="etapa-selector">
+                    <button class="etapa-btn active" data-etapa="1">I</button>
+                    <button class="etapa-btn" data-etapa="2">II</button>
+                    <button class="etapa-btn" data-etapa="3">III</button>
                 </div>
 
-                <!-- Linha 2: Barra de Progresso -->
-                <div id="progresso-area" class="dashboard-box">
-                    <span class="area-title">PROGRESSO</span>
-                    <div class="progress-bar-container">
-                        <div id="progress-bar-fill"></div>
-                        <span id="progress-bar-text">0 / 0 EXP</span>
-                    </div>
-                </div>
-
-                <!-- Linha 2.5: Painel de Estatísticas Gerais -->
-                <div id="estatisticas-area" class="dashboard-box">
-                    <span class="area-title">ESTATÍSTICAS</span>
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-value" id="stat-turma">-</span>
-                            <span class="stat-label">TURMA</span>
+                <div class="dashboard-grid">
+                    <!-- Linha 1: ID Input/Nome, Nível e Avatar -->
+                    <div id="id-area" class="dashboard-box">
+                        <div id="id-form">
+                            <input type="text" id="id-input" placeholder="ID" maxlength="5">
+                            <button id="login-btn">&gt;</button>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-value" id="stat-missoes">0/0</span>
-                            <span class="stat-label">MISSÕES</span>
+                        <div id="user-display" class="hidden">
+                            <span id="user-name"></span>
+                            <button id="logout-btn">&lt;</button>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-value" id="stat-media-geral">0.0</span>
-                            <span class="stat-label">MÉDIA GERAL</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-value" id="stat-trofeus">0</span>
-                            <span class="stat-label">TROFÉUS</span>
+                        <div id="error-message"></div>
+                    </div>
+                    <div id="lvl-area" class="dashboard-box">
+                        <div id="lvl">LVL</div>
+                    </div>
+                    <div id="avatar-area" class="dashboard-box">
+                        <img id="avatar-img" src="data/avatar/default_avatar.png"
+                            onerror="this.src='data/avatar/default_avatar.png'; this.onerror=null;"
+                            alt="Avatar do Usuário">
+                    </div>
+
+                    <!-- Linha 2: Barra de Progresso -->
+                    <div id="progresso-area" class="dashboard-box">
+                        <span class="area-title">PROGRESSO</span>
+                        <div class="progress-bar-container">
+                            <div id="progress-bar-fill"></div>
+                            <span id="progress-bar-text">0 / 0 EXP</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- Linha 3: Troféus -->
-                <div id="trofeus-area" class="dashboard-box">
-                    <div id="trofeus-conquistados"></div>
-                    <div id="trofeus-proximos">
-                        <h4>PRÓXIMAS CONQUISTAS</h4>
-                        <div id="trofeus-bloqueados-grid"></div>
+                    <!-- Linha 2.5: Painel de Estatísticas Gerais -->
+                    <div id="estatisticas-area" class="dashboard-box">
+                        <span class="area-title">ESTATÍSTICAS</span>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-value" id="stat-turma">-</span>
+                                <span class="stat-label">TURMA</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="stat-missoes">0/0</span>
+                                <span class="stat-label">MISSÕES</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="stat-media-geral">0.0</span>
+                                <span class="stat-label">MÉDIA GERAL</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="stat-trofeus">0</span>
+                                <span class="stat-label">TROFÉUS</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Linha 4: Missões e Sidebar (Notas e Menções) -->
-                <div id="missoes-area" class="dashboard-box">
-                    <h3>MISSÕES</h3>
-                    <ul id="lista-missoes"></ul>
-                </div>
 
-                <!-- Dashboard do Professor (oculto por padrão) -->
-                <div id="professor-dashboard" class="dashboard-box hidden">
-                    <h3>PAINEL DO PROFESSOR</h3>
-                    <div id="professor-filter">
-                        <label for="professor-turma-select">Filtrar por turma:</label>
-                        <select id="professor-turma-select">
-                            <option value="all">TODAS</option>
-                            <option value="9A">9º Ano A</option>
-                            <option value="9B">9º Ano B</option>
-                            <option value="1A">1º Ano EM A</option>
-                            <option value="1B">1º Ano EM B</option>
-                            <option value="2EM">2º Ano EM</option>
-                            <option value="3EM">3º Ano EM</option>
+                    <!-- Linha 3: Troféus -->
+                    <div id="trofeus-area" class="dashboard-box">
+                        <div id="trofeus-conquistados"></div>
+                        <div id="trofeus-proximos">
+                            <h4>PRÓXIMAS CONQUISTAS</h4>
+                            <div id="trofeus-bloqueados-grid"></div>
+                        </div>
+                    </div>
+
+                    <!-- Linha 4: Missões e Sidebar (Notas e Menções) -->
+                    <div id="missoes-area" class="dashboard-box">
+                        <option value="1A">1º Ano EM A</option>
+                        <option value="1B">1º Ano EM B</option>
+                        <option value="2EM">2º Ano EM</option>
+                        <option value="3EM">3º Ano EM</option>
                         </select>
                     </div>
                     <div id="professor-stats-grid"></div>
@@ -138,37 +131,24 @@
 
                 <div id="sidebar-area">
                     <div id="notas-container" class="dashboard-box">
-                      <div id="media-notas">MÉDIA: 0.0</div>
-                      NOTAS
-                      <div id="notas-grafico"></div>
-                      <div id="legenda-disciplinas">
-                        <span data-tooltip="Matemática Discreta e Aplicada">MDA</span>
-                        <span data-tooltip="Matemática Discreta e Pensamento Lógico">MDEP</span>
-                        <span data-tooltip="Números e Funções">NIF</span>
-                        <span data-tooltip="Números, Álgebra e Geometria">NAAG</span>
-                        <span data-tooltip="Português">PORT</span>
-                      </div>
+                        <div id="media-notas">MÉDIA: 0.0</div>
+                        NOTAS
+                        <div id="notas-grafico"></div>
+                        <div id="legenda-disciplinas">
+                            <span data-tooltip="Matemática Discreta e Aplicada">MDA</span>
+                            <span data-tooltip="Matemática Discreta e Pensamento Lógico">MDEP</span>
+                            <span data-tooltip="Números e Funções">NIF</span>
+                            <span data-tooltip="Números, Álgebra e Geometria">NAAG</span>
+                            <span data-tooltip="Português">PORT</span>
+                        </div>
                     </div>
-                     <div id="mencoes" class="dashboard-box">MENÇÕES</div>
+                    <div id="mencoes" class="dashboard-box">MENÇÕES</div>
                 </div>
 
-            </div>
+        </div>
         </article>
     </div>
-</div>
-
-<canvas id="matrixCanvas"></canvas>
-<script src="js/matrix-rain.js" defer></script>
-<script src="js/class-selector.js" defer></script>
-<script src="js/dashboard.js"></script>
-
-<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
-<div id="theme-selector-panel" class="hidden">
-    <h3>Escolha um Tema:</h3>
-    <button data-theme="theme-default" title="Tema Padrão">Default</button>
-    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
-    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
-    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    </div>
     <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
     <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
     <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
@@ -180,12 +160,13 @@
     <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
     <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
     <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
-</div>
-<script src="js/theme-switcher.js" defer></script>
-<div id="shared-tooltip"></div>
+    </div>
+    <script src="js/theme-switcher.js" defer></script>
+    <div id="shared-tooltip"></div>
 </body>
+
 </html>
-   <!-- BOTÃO VOLTAR DE FINAL DE PÁGINA
+<!-- BOTÃO VOLTAR DE FINAL DE PÁGINA
      <div style="text-align: center; margin-top: 30px;">
         <a href="index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
     </div>

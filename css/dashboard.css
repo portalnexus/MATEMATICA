@@ -444,3 +444,100 @@
     border-radius: 3px;
     font-family: 'Fira Sans', sans-serif;
 }
+/* News Modal Styles */
+#news-icon {
+    position: fixed;
+    bottom: 80px; /* Above the theme icon */
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border-color);
+}
+
+#news-icon:hover {
+    transform: scale(1.1) rotate(15deg);
+    background: var(--bg-color-secondary);
+}
+
+.modal {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: var(--bg-color-secondary);
+    border: 2px solid var(--link-color);
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--link-color);
+    position: relative;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    color: var(--text-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--link-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.news-item {
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-item h3 {
+    color: var(--link-color);
+    margin-bottom: 5px;
+}
+
+.news-date {
+    font-size: 0.8em;
+    color: var(--secondary-text-color);
+    display: block;
+    margin-top: 5px;
+    text-align: right;
+}

@@ -334,7 +334,7 @@ function renderizarDashboardProfessor(turmaFiltro = 'all') {
             <span class="stat-label">MISSÕES</span>
         </div>
         <div class="stat-item">
-            <span class="stat-value">${Math.round((totalMissoesCompletadas/totalMissoes)*100)}%</span>
+            <span class="stat-value">${Math.round((totalMissoesCompletadas / totalMissoes) * 100)}%</span>
             <span class="stat-label">CONCLUSÃO</span>
         </div>
     `;
@@ -378,6 +378,58 @@ function renderizarDashboardProfessor(turmaFiltro = 'all') {
     if (alertasList.children.length === 0) {
         alertasList.innerHTML = '<li style="background-color: rgba(76,175,80,0.2); border-left-color: #4caf50;">Nenhum alerta no momento ✓</li>';
     }
+
+    // Configurar botão de exportação
+    const exportBtn = document.getElementById('export-csv-btn');
+    if (exportBtn) {
+        // Remover listener anterior para evitar duplicidade (cloneNode)
+        const newBtn = exportBtn.cloneNode(true);
+        exportBtn.parentNode.replaceChild(newBtn, exportBtn);
+
+        newBtn.addEventListener('click', () => {
+            exportarDadosCSV(alunos);
+        });
+    }
+}
+
+/**
+ * Exporta os dados dos alunos para um arquivo CSV
+ * @param {Array} alunos Lista de objetos de alunos
+ */
+function exportarDadosCSV(alunos) {
+    if (!alunos || alunos.length === 0) {
+        alert("Sem dados para exportar.");
+        return;
+    }
+
+    // Cabeçalho do CSV
+    let csvContent = "data:text/csv;charset=utf-8,";
+    csvContent += "ID,Nome,Turma,Media Geral,Missoes Completadas,Total Missoes,Nivel,EXP\n";
+
+    // Linhas de dados
+    alunos.forEach(aluno => {
+        const row = [
+            aluno.id,
+            `"${aluno.nome}"`, // Aspas para evitar problemas com nomes compostos
+            aluno.turma,
+            aluno.mediaGeral.toFixed(2).replace('.', ','), // Formato brasileiro
+            aluno.missoesCompletadas,
+            aluno.totalMissoes,
+            aluno.nivel,
+            aluno.exp
+        ].join(",");
+        csvContent += row + "\n";
+    });
+
+    // Criar link de download e clicar automaticamente
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    const dataAtual = new Date().toISOString().slice(0, 10);
+    link.setAttribute("download", `nexus_relatorio_alunos_${dataAtual}.csv`);
+    document.body.appendChild(link); // Necessário para Firefox
+    link.click();
+    document.body.removeChild(link);
 }
 
 /**
@@ -718,6 +770,37 @@ etapaBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         mudarEtapa(btn.getAttribute('data-etapa'));
     });
+});
+
+// Atalho para Professor (Ctrl + Alt + P)
+document.addEventListener('keydown', (event) => {
+    if (event.ctrlKey && event.altKey && (event.key === 'p' || event.key === 'P')) {
+        idInput.value = 'PR0F1';
+        buscarUsuario();
+    }
+});
+
+// --- News Modal Logic ---
+document.addEventListener('DOMContentLoaded', () => {
+    const newsIcon = document.getElementById('news-icon');
+    const newsModal = document.getElementById('news-modal');
+    const closeModal = document.querySelector('.close-modal');
+
+    if (newsIcon && newsModal && closeModal) {
+        newsIcon.addEventListener('click', () => {
+            newsModal.classList.remove('hidden');
+        });
+
+        closeModal.addEventListener('click', () => {
+            newsModal.classList.add('hidden');
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === newsModal) {
+                newsModal.classList.add('hidden');
+            }
+        });
+    }
 });
 
 // --- Inicialização ---

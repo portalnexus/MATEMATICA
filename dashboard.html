@@ -101,38 +101,50 @@
 
                     <!-- Linha 4: Missões e Sidebar (Notas e Menções) -->
                     <div id="missoes-area" class="dashboard-box">
-                        <option value="1A">1º Ano EM A</option>
-                        <option value="1B">1º Ano EM B</option>
-                        <option value="2EM">2º Ano EM</option>
-                        <option value="3EM">3º Ano EM</option>
-                        </select>
+                        <span class="area-title">MISSÕES</span>
+                        <ul id="lista-missoes">
+                            <!-- Missões serão carregadas via JS -->
+                        </ul>
                     </div>
-                    <div id="professor-stats-grid"></div>
-                    <div id="professor-ranking">
-                        <h4>RANKING DE DESEMPENHO</h4>
-                        <table id="ranking-table">
-                            <thead>
-                                <tr>
-                                    <th>Pos.</th>
-                                    <th>Aluno</th>
-                                    <th>Média Geral</th>
-                                    <th>Missões</th>
-                                    <th>Nível</th>
-                                </tr>
-                            </thead>
-                            <tbody id="ranking-tbody"></tbody>
-                        </table>
-                    </div>
-                    <div id="professor-alertas">
-                        <h4>ALERTAS</h4>
-                        <ul id="alertas-list"></ul>
+
+                    <div id="professor-area" class="dashboard-box hidden">
+                        <span class="area-title">PAINEL DO PROFESSOR</span>
+                        <div id="professor-filter">
+                            <label for="professor-turma-select">Turma:</label>
+                            <select id="professor-turma-select">
+                                <option value="1A">1º Ano EM A</option>
+                                <option value="1B">1º Ano EM B</option>
+                                <option value="2EM">2º Ano EM</option>
+                                <option value="3EM">3º Ano EM</option>
+                            </select>
+                        </div>
+                        <div id="professor-stats-grid"></div>
+                        <div id="professor-ranking">
+                            <h4>RANKING DE DESEMPENHO</h4>
+                            <table id="ranking-table">
+                                <thead>
+                                    <tr>
+                                        <th>Pos.</th>
+                                        <th>Aluno</th>
+                                        <th>Média Geral</th>
+                                        <th>Missões</th>
+                                        <th>Nível</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ranking-tbody"></tbody>
+                            </table>
+                        </div>
+                        <div id="professor-alertas">
+                            <h4>ALERTAS</h4>
+                            <ul id="alertas-list"></ul>
+                        </div>
                     </div>
                 </div>
 
                 <div id="sidebar-area">
                     <div id="notas-container" class="dashboard-box">
                         <div id="media-notas">MÉDIA: 0.0</div>
-                        NOTAS
+                        <span class="area-title">NOTAS</span>
                         <div id="notas-grafico"></div>
                         <div id="legenda-disciplinas">
                             <span data-tooltip="Matemática Discreta e Aplicada">MDA</span>
@@ -142,12 +154,13 @@
                             <span data-tooltip="Português">PORT</span>
                         </div>
                     </div>
-                    <div id="mencoes" class="dashboard-box">MENÇÕES</div>
+                    <div id="mencoes" class="dashboard-box">
+                        <span class="area-title">MENÇÕES</span>
+                        <div id="mencoes-lista"></div>
+                    </div>
                 </div>
-
+            </article>
         </div>
-        </article>
-    </div>
     </div>
     <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
     <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>

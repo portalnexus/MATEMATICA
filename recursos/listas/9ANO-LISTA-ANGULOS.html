@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Lista: Ângulos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+                <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+                <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <article>
+                <span class="badge-nivel ano-9">9º ANO</span>
+                <h1>Lista de Exercícios: Ângulos e Circunferência</h1>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 1:</strong> Duas retas paralelas são cortadas por uma transversal. Dois ângulos
+                        correspondentes medem @3x + 10^\circ@ e @x + 50^\circ@. Determine o valor de @x@.</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade medio">Médio</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 2:</strong> Um ângulo central de uma circunferência intercepta um arco de 120°.
+                        Quanto mede o ângulo inscrito correspondente?</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade facil">Fácil</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 3:</strong> Dois ângulos colaterais internos medem @2x@ e @3x - 20^\circ@.
+                        Calcule a medida de cada ângulo.</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">★</span></div>
+                    <span class="label-dificuldade dificil">Difícil</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 4:</strong> Em um triângulo inscrito em uma semicircunferência, um dos ângulos
+                        agudos mede 30°. Quanto mede o outro ângulo agudo?</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade medio">Médio</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 5:</strong> Se o ângulo inscrito mede 45°, qual a medida do arco correspondente?
+                    </p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade facil">Fácil</span>
+                </div>
+
+                <details>
+                    <summary>Ver Gabarito</summary>
+                    <ol>
+                        <li>@3x + 10 = x + 50 \implies 2x = 40 \implies x = 20^\circ@</li>
+                        <li>@60^\circ@</li>
+                        <li>@2x + 3x - 20 = 180 \implies 5x = 200 \implies x = 40^\circ@. Ângulos: 80° e 100°.</li>
+                        <li>@60^\circ@ (O terceiro ângulo é 90°)</li>
+                        <li>@90^\circ@</li>
+                    </ol>
+                </details>
+            </article>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="../../recursos.html" class="themed-button"
+                    style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+            </div>
+        </div>
+    </div>
+    <canvas id="matrixCanvas"></canvas>
+    <script src="../../js/matrix-rain.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "@@", right: "@@", display: true },
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "@", right: "@", display: false },
+                    { left: "\\(", right: "\\)", display: false }
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+    <script src="../../js/theme-switcher.js" defer></script>
+    <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

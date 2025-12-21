@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Ângulos e Circunferência</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+                <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+                <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <article>
+                <span class="badge-nivel ano-9">9º ANO</span>
+                <h1>Ângulos e Circunferência</h1>
+                <p>O estudo da geometria plana nos permite compreender as relações espaciais e as propriedades das
+                    formas. Nesta seção, focaremos nas relações entre retas paralelas cortadas por transversais e nas
+                    propriedades angulares da circunferência.</p>
+
+                <h2>1. Retas Paralelas Cortadas por uma Transversal</h2>
+                <p>Quando duas retas paralelas são interceptadas por uma terceira reta (transversal), formam-se oito
+                    ângulos com relações específicas.</p>
+
+                <div class="destaque-box teorema">
+                    <h3>Ângulos Correspondentes</h3>
+                    <p>Estão na mesma posição relativa e são <strong>congruentes</strong> (possuem a mesma medida).</p>
+                </div>
+
+                <div class="destaque-box teorema">
+                    <h3>Ângulos Alternos (Internos e Externos)</h3>
+                    <p>Estão em lados opostos da transversal e são <strong>congruentes</strong>.</p>
+                </div>
+
+                <div class="destaque-box teorema">
+                    <h3>Ângulos Colaterais (Internos e Externos)</h3>
+                    <p>Estão do mesmo lado da transversal e são <strong>suplementares</strong> (a soma é 180°).</p>
+                </div>
+
+                <h2>2. Ângulos na Circunferência</h2>
+
+                <div class="destaque-box definicao">
+                    <h3>Ângulo Central</h3>
+                    <p>Possui o vértice no centro da circunferência. Sua medida é igual à medida do arco correspondente.
+                    </p>
+                    @@ \alpha = \text{Arco}_{AB} @@
+                </div>
+
+                <div class="destaque-box definicao">
+                    <h3>Ângulo Inscrito</h3>
+                    <p>Possui o vértice sobre a circunferência. Sua medida é igual à <strong>metade</strong> do arco
+                        correspondente.</p>
+                    @@ \beta = \frac{\text{Arco}_{AB}}{2} @@
+                </div>
+
+                <div class="destaque-box observacao">
+                    <p><strong>Consequência Importante:</strong> Todo ângulo inscrito em uma semicircunferência é um
+                        <strong>ângulo reto (90°)</strong>.</p>
+                </div>
+
+                <h2>3. Exemplos Resolvidos</h2>
+                <div class="exemplo-resolvido">
+                    <h3>Exemplo 1: Ângulo Inscrito</h3>
+                    <p>Se um arco mede 80°, qual o valor do ângulo inscrito que o intercepta?</p>
+                    <h4>Solução:</h4>
+                    <p>@\beta = \frac{80^\circ}{2} = 40^\circ@.</p>
+                </div>
+
+            </article>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="../../recursos.html" class="themed-button"
+                    style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+            </div>
+        </div>
+    </div>
+    <canvas id="matrixCanvas"></canvas>
+    <script src="../../js/matrix-rain.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "@@", right: "@@", display: true },
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "@", right: "@", display: false },
+                    { left: "\\(", right: "\\)", display: false }
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+    <script src="../../js/theme-switcher.js" defer></script>
+    <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

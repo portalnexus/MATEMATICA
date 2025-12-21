@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Lista: Geometria Espacial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+                <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+                <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <article>
+                <span class="badge-nivel ano-9">9º ANO</span>
+                <h1>Lista de Exercícios: Volumes e Geometria Espacial</h1>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 1:</strong> Uma caixa d'água tem o formato de um paralelepípedo com dimensões 2
+                        m, 3 m e 1,5 m. Qual o seu volume em metros cúbicos?</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade facil">Fácil</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 2:</strong> Qual a capacidade em litros de uma lata cilíndrica com raio 10 cm e
+                        altura 20 cm? (Considere @\pi = 3@ e @1 \text{ dm}^3 = 1 \text{ litro}@).</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade medio">Médio</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 3:</strong> Um prisma de base triangular tem área da base igual a 25 cm² e volume
+                        de 250 cm³. Qual a sua altura?</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade facil">Fácil</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 4:</strong> Descreva a projeção ortogonal de um cilindro sobre um plano ao qual
+                        seu eixo é paralelo.</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade medio">Médio</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 5:</strong> (Desafio) Se dobrarmos o raio de um cilindro e mantivermos a altura,
+                        o volume aumentará quantas vezes?</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">★</span></div>
+                    <span class="label-dificuldade dificil">Difícil</span>
+                </div>
+
+                <details>
+                    <summary>Ver Gabarito</summary>
+                    <ol>
+                        <li>@2 \cdot 3 \cdot 1,5 = 9 \text{ m}^3@</li>
+                        <li>@V = 3 \cdot 10^2 \cdot 20 = 6000 \text{ cm}^3 = 6 \text{ dm}^3 = 6 \text{ litros}@</li>
+                        <li>@h = \frac{V}{A_B} = \frac{250}{25} = 10 \text{ cm}@</li>
+                        <li>Um retângulo.</li>
+                        <li>4 vezes (@r^2@ vira @(2r)^2 = 4r^2@).</li>
+                    </ol>
+                </details>
+            </article>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="../../recursos.html" class="themed-button"
+                    style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+            </div>
+        </div>
+    </div>
+    <canvas id="matrixCanvas"></canvas>
+    <script src="../../js/matrix-rain.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "@@", right: "@@", display: true },
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "@", right: "@", display: false },
+                    { left: "\\(", right: "\\)", display: false }
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+    <script src="../../js/theme-switcher.js" defer></script>
+    <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

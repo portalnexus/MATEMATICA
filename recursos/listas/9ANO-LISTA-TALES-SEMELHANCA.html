@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Lista: Tales e Semelhança</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+                <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+                <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <article>
+                <span class="badge-nivel ano-9">9º ANO</span>
+                <h1>Lista de Exercícios: Tales e Semelhança</h1>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 1:</strong> Determine @x@ no feixe de paralelas abaixo, onde os segmentos na
+                        primeira transversal são @x@ e @12@, e na segunda transversal são @3@ e @9@.</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade facil">Fácil</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 2:</strong> Um triângulo tem lados @6, 8, 10@. Um triângulo semelhante a este tem
+                        o maior lado medindo @25@. Qual a medida do menor lado deste segundo triângulo?</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade medio">Médio</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 3:</strong> Uma pessoa de 1,80 m de altura projeta uma sombra de 2,40 m. No mesmo
+                        instante, um prédio projeta uma sombra de 16 m. Qual a altura do prédio?</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade medio">Médio</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 4:</strong> Em um triângulo ABC, uma reta paralela ao lado BC corta os lados AB e
+                        AC nos pontos D e E. Se @AD = 4, DB = 6@ e @AE = 2@, quanto mede @EC@?</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade medio">Médio</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 5:</strong> Os lados de um triângulo medem @10 \text{ cm}, 15 \text{ cm}@ e @20
+                        \text{ cm}@. O perímetro de um triângulo semelhante é @135 \text{ cm}@. Quanto mede o maior lado
+                        do segundo triângulo?</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">★</span></div>
+                    <span class="label-dificuldade dificil">Difícil</span>
+                </div>
+
+                <details>
+                    <summary>Ver Gabarito</summary>
+                    <ol>
+                        <li>@\frac{x}{12} = \frac{3}{9} \implies 9x = 36 \implies x = 4@</li>
+                        <li>@\frac{10}{25} = \frac{6}{y} \implies 10y = 150 \implies y = 15@</li>
+                        <li>@\frac{1,8}{2,4} = \frac{h}{16} \implies 2,4h = 28,8 \implies h = 12 \text{ m}@</li>
+                        <li>@\frac{4}{6} = \frac{2}{x} \implies 4x = 12 \implies x = 3@</li>
+                        <li>Perímetro 1 = @10 + 15 + 20 = 45@. Razão @k = \frac{135}{45} = 3@. Maior lado = @20 \cdot 3
+                            = 60 \text{ cm}@.</li>
+                    </ol>
+                </details>
+            </article>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="../../recursos.html" class="themed-button"
+                    style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+            </div>
+        </div>
+    </div>
+    <canvas id="matrixCanvas"></canvas>
+    <script src="../../js/matrix-rain.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "@@", right: "@@", display: true },
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "@", right: "@", display: false },
+                    { left: "\\(", right: "\\)", display: false }
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+    <script src="../../js/theme-switcher.js" defer></script>
+    <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

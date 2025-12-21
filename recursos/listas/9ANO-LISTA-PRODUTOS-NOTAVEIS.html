@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Lista: Produtos Notáveis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+                <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+                <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <article>
+                <span class="badge-nivel ano-9">9º ANO</span>
+                <h1>Lista de Exercícios: Produtos Notáveis e Fatoração</h1>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 1:</strong> Desenvolva @(2x + 3)^2@.</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade facil">Fácil</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 2:</strong> Fatore completamente a expressão @3x^2 + 6x@.</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade facil">Fácil</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 3:</strong> Desenvolva @(x - 4)(x + 4)@.</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade facil">Fácil</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 4:</strong> Fatore @x^2 - 10x + 25@.</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade medio">Médio</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 5:</strong> Simplifique a fração algébrica @\frac{x^2 - 9}{x + 3}@.</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">★</span></div>
+                    <span class="label-dificuldade dificil">Difícil</span>
+                </div>
+
+                <details>
+                    <summary>Ver Gabarito</summary>
+                    <ol>
+                        <li>@4x^2 + 12x + 9@</li>
+                        <li>@3x(x + 2)@</li>
+                        <li>@x^2 - 16@</li>
+                        <li>@(x - 5)^2@</li>
+                        <li>@\frac{(x-3)(x+3)}{x+3} = x - 3@</li>
+                    </ol>
+                </details>
+            </article>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="../../recursos.html" class="themed-button"
+                    style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+            </div>
+        </div>
+    </div>
+    <canvas id="matrixCanvas"></canvas>
+    <script src="../../js/matrix-rain.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "@@", right: "@@", display: true },
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "@", right: "@", display: false },
+                    { left: "\\(", right: "\\)", display: false }
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+    <script src="../../js/theme-switcher.js" defer></script>
+    <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

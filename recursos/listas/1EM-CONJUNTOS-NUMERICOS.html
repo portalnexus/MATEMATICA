@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS - Lista: Conjuntos Numéricos</title>
+    <title>NEXUS - Lista de Problemas: Conjuntos Numéricos</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,6 +14,102 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .problema-meta {
+            font-size: 0.75rem;
+            color: var(--secondary-text-color);
+            margin-bottom: 0.5rem;
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        .problema-meta .topico {
+            background-color: rgba(100, 100, 255, 0.3);
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 8px;
+            font-style: italic;
+        }
+
+        .problema-meta .dificuldade {
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+
+        .dificuldade.facil {
+            background-color: rgba(76, 175, 80, 0.3);
+        }
+
+        .dificuldade.media {
+            background-color: rgba(255, 193, 7, 0.3);
+        }
+
+        .dificuldade.dificil {
+            background-color: rgba(244, 67, 54, 0.3);
+        }
+
+        .section-intro {
+            font-style: italic;
+            color: var(--secondary-text-color);
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--link-color);
+        }
+
+        .dica {
+            background-color: rgba(33, 150, 243, 0.15);
+            border-left: 4px solid #2196f3;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-radius: 4px;
+        }
+
+        .dica strong {
+            color: #2196f3;
+        }
+
+        .dificuldade-estrelas {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .dificuldade-estrelas .estrela {
+            color: #FFD700;
+            font-size: 1.2rem;
+            text-shadow: 0 0 3px rgba(255, 215, 0, 0.5);
+        }
+
+        .label-dificuldade {
+            margin-left: 8px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        .label-dificuldade.facil {
+            background-color: rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+        }
+
+        .label-dificuldade.medio {
+            background-color: rgba(255, 193, 7, 0.3);
+            color: #ffc107;
+        }
+
+        .label-dificuldade.dificil {
+            background-color: rgba(244, 67, 54, 0.3);
+            color: #f44336;
+        }
+
+        ol li {
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,60 +122,364 @@
             </ul>
         </nav>
         <div class="container">
+            <span class="badge-nivel ano-1em">1º ANO EM</span>
+            <h1>Lista de Problemas: Conjuntos Numéricos</h1>
+
+            <!-- SEÇÃO 1 -->
             <article>
-                <span class="badge-nivel ano-1em">1º Ano EM</span>
-                <h1>Lista de Exercícios: Conjuntos Numéricos</h1>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 1:</strong> Represente na forma de conjunto: @A = [3, 7[@.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade facil">Fácil</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 2:</strong> Determine a intersecção dos intervalos @A = ]-2, 4]@ e @B = [0, 6[@.
-                    </p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade medio">Médio</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 3:</strong> O número @0,333\ldots@ pertence a qual conjunto numérico? (Selecione
-                        o mais restrito: @\mathbb{N, Z, Q}@ ou @\mathbb{I}@).</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade facil">Fácil</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 4:</strong> Dados @A = \{x \in \mathbb{R} | x > 5\}@ e @B = \{x \in \mathbb{R} |
-                        x \leq 8\}@, determine @A \cap B@ em notação de intervalos.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade medio">Médio</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 5:</strong> (Desafio) O número @\sqrt{2} + \sqrt{3}@ é racional ou irracional?
-                    </p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">★</span></div>
-                    <span class="label-dificuldade dificil">Difícil</span>
-                </div>
-
-                <details>
-                    <summary>Ver Gabarito</summary>
-                    <ol>
-                        <li>@\{x \in \mathbb{R} | 3 \leq x < 7\}@</li>
-                        <li>@[0, 4]@</li>
-                        <li>@\mathbb{Q}@ (Racionais)</li>
-                        <li>@ ]5, 8] @</li>
-                        <li>Irracional</li>
-                    </ol>
-                </details>
+                <h2>Problemas Introdutórios</h2>
+                <p class="section-intro">Conceitos básicos de conjuntos e classificação de números.</p>
+                <ol>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Classificação</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>O número @0@ (zero) pertence ao conjunto dos números Naturais (@\mathbb{N}@)?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Inteiros</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>O número @-5@ é um número natural ou inteiro?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Racionais</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Escreva o número decimal @0,75@ na forma de fração irredutível.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Irracionais</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>O número @\pi@ é racional ou irracional?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Subconjuntos</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>É correto afirmar que @\mathbb{Q} \subset \mathbb{R}@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Listagem</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Liste os elementos do conjunto @A = \{x \in \mathbb{N} | x < 5\}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Simbologia</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Use os símbolos @\in@ ou @\notin@: @2 \underline{\quad} \{1, 3, 5\}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">União</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Dados @A = \{1, 2\}@ e @B = \{2, 3\}@, determine @A \cup B@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Intersecção</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Dados @A = \{1, 2\}@ e @B = \{2, 3\}@, determine @A \cap B@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Diferença</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Sendo @A = \{1, 2, 3\}@ e @B = \{2\}@, qual o conjunto @A - B@?</p>
+                    </li>
+                </ol>
             </article>
+
+            <!-- SEÇÃO 2 -->
+            <article>
+                <h2>Problemas de Fixação</h2>
+                <p class="section-intro">Uso de intervalos reais e representações gráficas.</p>
+                <ol start="11">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Intervalos</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Represente na forma de conjunto (compreensão): @[2, 5]@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Intervalos</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Represente o intervalo @]3, +\infty[@ na reta real.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Intervalos</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Determine @A \cup B@ para @A = [1, 4]@ e @B = ]2, 6[@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Intervalos</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Determine @A \cap B@ para @A = [1, 4]@ e @B = ]2, 6[@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Representação</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Escreva em notação de intervalos: @\{x \in \mathbb{R} | -1 < x \leq 3\}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Dízima Periódica</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Represente @0,555\ldots@ como uma fração geratriz.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Classificação</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Classifique como V ou F: @\sqrt{4} \in \mathbb{I}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Geometria</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Identifique qual número está entre @2@ e @3@: @\sqrt{2}, \sqrt{5}@ ou @\sqrt{10}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Complementar</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Se @U = \{0, 1, 2, 3, 4\}@ e @A = \{1, 3\}@, qual o complementar de @A@ em relação a @U@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Lógica</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>O conjunto @\mathbb{Q} \cap \mathbb{I}@ é vazio?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Módulo</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Represente como intervalo o conjunto @\{x \in \mathbb{R} | |x| < 3\}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Diferença</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Descreva o conjunto @\mathbb{Z} - \mathbb{N}@.</p>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- SEÇÃO 3 -->
+            <article>
+                <h2>Problemas de Aprofundamento</h2>
+                <p class="section-intro">Operações complexas e propriedades lógicas de conjuntos.</p>
+                <ol start="23">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Diagramas</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Em uma escola, 50 alunos gostam de Música, 40 de Arte e 20 de ambos. Quantos alunos gostam de
+                            pelo menos uma dessas áreas?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Irracionalidade</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Explique por que a soma de um número racional e um irracional é sempre irracional.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Multi-Intervalos</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Dados @A = [0, 5]@, @B = ]2, 8]@ e @C = [-2, 3[@, determine @(A \cap B) \cup C@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Conjunto das Partes</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Se um conjunto @A@ possui 4 elementos, quantos subconjuntos ele possui ao todo?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Cardinalidade</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Se @n(A) = 10@, @n(B) = 15@ e @n(A \cap B) = 4@, qual o valor de @n(A \cup B)@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Análise</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Determine a forma de fração geratriz de @1,2333\ldots@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Lógica</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>O conjunto @\mathbb{R} - \mathbb{Q}@ é igual a qual conjunto padrão?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Identidade</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Simplifique a expressão de conjutos @A \cap (B \cup A)@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Propriedade</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>É possível encontrar um número racional entre @\sqrt{2}@ e @\sqrt{3}@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Densidade</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Explique o que significa dizer que o conjunto @\mathbb{Q}@ é denso em @\mathbb{R}@.</p>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- SEÇÃO 4 -->
+            <article>
+                <h2>Problemas Propostos</h2>
+                <p class="section-intro">Desafios adicionais para prática autônoma.</p>
+                <ol start="33">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Classificação</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>O número @2,121121112\ldots@ (onde a quantidade de '1' aumenta) é racional?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Intervalos</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <p>Determine @[1, 10] \cap [2, 8] \cap [4, 6]@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Partes</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Escreva o Conjunto das Partes de @A = \{a, b\}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Intervalos</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <p>Expresse em forma de desigualdade: @]-\infty, 2] \cup [5, +\infty[@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Subconjuntos</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Quantos elementos tem o conjunto @\{ \emptyset, \{ \emptyset \} \}@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Notação</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>O que significa o símbolo @\mathbb{R}^*@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Naturais</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Qual a diferença entre "inteiros não negativos" e "inteiros positivos"?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Propriedade</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Se @A \subset B@, então @A \cap B = A@. Verdadeiro ou Falso?</p>
+                    </li>
+                </ol>
+            </article>
+
+            <details>
+                <summary>Ver Gabarito</summary>
+                <div class="exemplo-resolvido">
+                    <ol>
+                        <li>Sim</li>
+                        <li>Inteiro (@-5 \notin \mathbb{N}@)</li>
+                        <li>@3/4@</li>
+                        <li>Irracional</li>
+                        <li>Sim</li>
+                        <li>@\{0, 1, 2, 3, 4\}@</li>
+                        <li>@\notin@</li>
+                        <li>@\{1, 2, 3\}@</li>
+                        <li>@\{2\}@</li>
+                        <li>@\{1, 3\}@</li>
+                        <li>@\{x \in \mathbb{R} | 2 \leq x \leq 5\}@</li>
+                        <li>Reta com bola aberta em 3 para a direita</li>
+                        <li>@[1, 6[@</li>
+                        <li>@]2, 4]@</li>
+                        <li>@ ]-1, 3] @</li>
+                        <li>@5/9@</li>
+                        <li>Falso (@2 \in \mathbb{Q}@)</li>
+                        <li>@\sqrt{5}@ (@\approx 2,23@)</li>
+                        <li>@\{0, 2, 4\}@</li>
+                        <li>Sim (são disjuntos)</li>
+                        <li>@]-3, 3[@</li>
+                        <li>Números inteiros negativos</li>
+                        <li>70</li>
+                        <li>A diferença resultaria em um racional, o que contradiz a irracionalidade original</li>
+                        <li>@[-2, 5]@</li>
+                        <li>@2^4 = 16@</li>
+                        <li>21</li>
+                        <li>@37/30@</li>
+                        <li>@\mathbb{I}@</li>
+                        <li>@A@</li>
+                        <li>Sim (infinitos)</li>
+                        <li>Sempre existe um racional entre dois reais quaisquer</li>
+                        <li>Não, é irracional (não periódico)</li>
+                        <li>@[4, 6]@</li>
+                        <li>@\{ \emptyset, \{a\}, \{b\}, \{a, b\} \}@</li>
+                        <li>@x \leq 2 \text{ ou } x \geq 5@</li>
+                        <li>2</li>
+                        <li>Reais sem o zero</li>
+                        <li>"Não negativos" inclui o zero; "Positivos" não</li>
+                        <li>Verdadeiro</li>
+                    </ol>
+                </div>
+            </details>
+
             <div style="text-align: center; margin-top: 30px;">
                 <a href="../../recursos.html" class="themed-button"
                     style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>

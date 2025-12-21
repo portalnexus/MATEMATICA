@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS - Lista: Matrizes</title>
+    <title>NEXUS - Lista de Problemas: Matrizes e Determinantes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,6 +14,102 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .problema-meta {
+            font-size: 0.75rem;
+            color: var(--secondary-text-color);
+            margin-bottom: 0.5rem;
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        .problema-meta .topico {
+            background-color: rgba(100, 100, 255, 0.3);
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 8px;
+            font-style: italic;
+        }
+
+        .problema-meta .dificuldade {
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+
+        .dificuldade.facil {
+            background-color: rgba(76, 175, 80, 0.3);
+        }
+
+        .dificuldade.media {
+            background-color: rgba(255, 193, 7, 0.3);
+        }
+
+        .dificuldade.dificil {
+            background-color: rgba(244, 67, 54, 0.3);
+        }
+
+        .section-intro {
+            font-style: italic;
+            color: var(--secondary-text-color);
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--link-color);
+        }
+
+        .dica {
+            background-color: rgba(33, 150, 243, 0.15);
+            border-left: 4px solid #2196f3;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-radius: 4px;
+        }
+
+        .dica strong {
+            color: #2196f3;
+        }
+
+        .dificuldade-estrelas {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .dificuldade-estrelas .estrela {
+            color: #FFD700;
+            font-size: 1.2rem;
+            text-shadow: 0 0 3px rgba(255, 215, 0, 0.5);
+        }
+
+        .label-dificuldade {
+            margin-left: 8px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        .label-dificuldade.facil {
+            background-color: rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+        }
+
+        .label-dificuldade.medio {
+            background-color: rgba(255, 193, 7, 0.3);
+            color: #ffc107;
+        }
+
+        .label-dificuldade.dificil {
+            background-color: rgba(244, 67, 54, 0.3);
+            color: #f44336;
+        }
+
+        ol li {
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,61 +122,379 @@
             </ul>
         </nav>
         <div class="container">
+            <span class="badge-nivel ano-2em">2º ANO EM</span>
+            <h1>Lista de Problemas: Matrizes e Determinantes</h1>
+
+            <!-- SEÇÃO 1 -->
             <article>
-                <span class="badge-nivel ano-2em">2º Ano EM</span>
-                <h1>Lista de Exercícios: Matrizes e Determinantes</h1>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 1:</strong> Determine a matriz @A = (a_{ij})_{2 \times 2}@ tal que @a_{ij} = i +
-                        2j@.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade facil">Fácil</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 2:</strong> Dadas @A = \begin{bmatrix} 1 & 3 \\ 0 & 2 \end{bmatrix}@ e @B =
-                        \begin{bmatrix} 2 & 1 \\ -1 & 4 \end{bmatrix}@, calcule @A + B@.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade facil">Fácil</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 3:</strong> Determine o determinante da matriz @X = \begin{bmatrix} \cos \theta &
-                        -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix}@.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade medio">Médio</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 4:</strong> Calcule o produto @\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \cdot
-                        \begin{bmatrix} 0 & 1 \\ 2 & 3 \end{bmatrix}@.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade medio">Médio</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 5:</strong> (Desafio) Encontre @x@ tal que @\text{det} \begin{bmatrix} x & 1 & 2
-                        \\ 0 & x & 3 \\ 0 & 0 & 4 \end{bmatrix} = 16@.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">★</span></div>
-                    <span class="label-dificuldade dificil">Difícil</span>
-                </div>
-
-                <details>
-                    <summary>Ver Gabarito</summary>
-                    <ol>
-                        <li>@\begin{bmatrix} 3 & 5 \\ 4 & 6 \end{bmatrix}@</li>
-                        <li>@\begin{bmatrix} 3 & 4 \\ -1 & 6 \end{bmatrix}@</li>
-                        <li>@\cos^2 \theta + \sin^2 \theta = 1@</li>
-                        <li>@\begin{bmatrix} 4 & 7 \\ 8 & 15 \end{bmatrix}@</li>
-                        <li>@4x^2 = 16 \implies x^2 = 4 \implies x = \pm 2@</li>
-                    </ol>
-                </details>
+                <h2>Problemas Introdutórios</h2>
+                <p class="section-intro">Definições básicas e operações elementares.</p>
+                <ol>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Definição</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Determine os elementos da matriz @A = (a_{ij})_{2 \times 2}@ tal que @a_{ij} = i + j@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Ordem</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Qual a ordem de uma matriz que possui 3 linhas e 5 colunas?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Adição</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Dadas @A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}@ e @B = \begin{bmatrix} 5 & 6 \\ 7 &
+                            8 \end{bmatrix}@, calcule @A + B@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Subtração</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Calcule @A - B@ para as matrizes da questão anterior.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Multiplicação Escalar</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Se @A = \begin{bmatrix} 2 & -1 \\ 0 & 3 \end{bmatrix}@, determine @3A@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Transposta</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Determine a transposta de @M = \begin{bmatrix} 1 & 5 \\ 2 & 6 \end{bmatrix}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Identidade</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Escreva a matriz identidade de ordem 2 (@I_2@).</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Determinante 2x2</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Calcule @\text{det} \begin{bmatrix} 3 & 1 \\ 4 & 2 \end{bmatrix}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Matriz Nula</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>O que define uma matriz nula?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Igualdade</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Determine @x@ e @y@ tais que @\begin{bmatrix} x \\ 3 \end{bmatrix} = \begin{bmatrix} 5 \\ y
+                            \end{bmatrix}@.</p>
+                    </li>
+                </ol>
             </article>
+
+            <!-- SEÇÃO 2 -->
+            <article>
+                <h2>Problemas de Fixação</h2>
+                <p class="section-intro">Multiplicação de matrizes e determinantes de 3ª ordem.</p>
+                <ol start="11">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Produto</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Seja @A = \begin{bmatrix} 1 & 2 \\ 0 & 3 \end{bmatrix}@ e @B = \begin{bmatrix} 4 & 1 \\ 2 & 5
+                            \end{bmatrix}@. Calcule @A \cdot B@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Produto</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Calcule o produto @\begin{bmatrix} 2 & 3 \end{bmatrix} \cdot \begin{bmatrix} 5 \\ 4
+                            \end{bmatrix}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Sarrus</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Calcule o determinante via Sarrus: @\begin{bmatrix} 1 & 0 & 2 \\ 3 & 4 & 5 \\ 0 & 1 & 0
+                            \end{bmatrix}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Inversa</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Determine a inversa de @A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Equação</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Resolva para @X@: @\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix} + X = \begin{bmatrix} 5 & 2
+                            \\ 3 & 4 \end{bmatrix}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Transposta</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Verifique se @(A+B)^t = A^t + B^t@ para matrizes @2 \times 2@ quaisquer.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Simétrica</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Uma matriz @A@ é dita simétrica se @A = A^t@. @\begin{bmatrix} 1 & 2 \\ 2 & 3 \end{bmatrix}@
+                            é simétrica?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Anti-simétrica</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Se @A = -A^t@, qual deve ser o valor dos elementos da diagonal principal?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Traço</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Calcule o traço (soma da diagonal principal) de @\begin{bmatrix} 5 & 1 \\ 2 & 9
+                            \end{bmatrix}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Diagonais</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Em uma matriz @3 \times 3@, liste os índices @(i,j)@ da diagonal secundária.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Construção</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Construa @B = (b_{ij})_{3 \times 2}@ tal que @b_{ij} = i^j@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Triangular</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>O que caracteriza uma matriz triangular superior?</p>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- SEÇÃO 3 -->
+            <article>
+                <h2>Problemas de Aprofundamento</h2>
+                <p class="section-intro">Propriedades avançadas de determinantes e sistemas lineares.</p>
+                <ol start="23">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Potência</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Dada @A = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}@, calcule @A^{10}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Teorema de Binet</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Se @\text{det}(A) = 3@ e @\text{det}(B) = 5@, qual o valor de @\text{det}(A \cdot B)@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Escalar e Det</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Se @A@ é de ordem 3 e @\text{det}(A) = 2@, calcule @\text{det}(2A)@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Cofatores</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Calcule o cofator @A_{23}@ da matriz @\begin{bmatrix} 1 & 2 & 3 \\ 0 & 1 & 4 \\ 2 & 0 & 1
+                            \end{bmatrix}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Cramer</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Resolva via Cramer: @\begin{cases} 2x + y = 7 \\ x - y = 2 \end{cases}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Ortogonal</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Verifique se @\begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta
+                            \end{bmatrix}@ é uma matriz ortogonal (@M^t = M^{-1}@).</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Autovalores</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Encontre @\lambda@ tais que @\text{det} \begin{bmatrix} 2-\lambda & 0 \\ 0 & 3-\lambda
+                            \end{bmatrix} = 0@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Vandermonde</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Calcule @\text{det} \begin{bmatrix} 1 & 1 & 1 \\ 2 & 3 & 4 \\ 4 & 9 & 16 \end{bmatrix}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Complexos</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Calcule @\text{det} \begin{bmatrix} i & 1 \\ 1 & i \end{bmatrix}@, onde @i^2 = -1@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Rotação</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Qual o efeito geométrico de multiplicar um vetor @(x,y)@ pela matriz @\begin{bmatrix} 0 & -1
+                            \\ 1 & 0 \end{bmatrix}@?</p>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- SEÇÃO 4 -->
+            <article>
+                <h2>Problemas Propostos</h2>
+                <p class="section-intro">Desafios adicionais para consolidar o aprendizado.</p>
+                <ol start="33">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Identidade</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Qual o determinante de @I_{10}@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Igualdade</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Encontre @x, y@ tais que @\begin{bmatrix} 2x & 1 \\ 0 & y-1 \end{bmatrix} = \begin{bmatrix}
+                            10 & 1 \\ 0 & 4 \end{bmatrix}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Traço</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Calcule @\text{tr}(A)@ para @A = \begin{bmatrix} 1 & 0 & 0 \\ 0 & -2 & 0 \\ 0 & 0 & 5
+                            \end{bmatrix}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Propriedade</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <p>É sempre verdade que @(AB)^t = A^t B^t@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Determinante</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Se @\det(A) = 7@, qual o valor de @\det(A^t)@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Singularidade</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Uma matriz é singular se @\text{det}(A) = 0@. @A = \begin{bmatrix} 1 & 1 \\ 1 & 1
+                            \end{bmatrix}@ é singular?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Dimensão</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Se @A@ é @2 \times 3@ e @B@ é @3 \times 2@, qual a ordem de @A \cdot B@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Nula</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Se @A \cdot B = 0@, isso implica que @A = 0@ ou @B = 0@? Justifique.</p>
+                    </li>
+                </ol>
+            </article>
+
+            <details>
+                <summary>Ver Gabarito</summary>
+                <div class="exemplo-resolvido">
+                    <ol>
+                        <li>@\begin{bmatrix} 2 & 3 \\ 3 & 4 \end{bmatrix}@</li>
+                        <li>@3 \times 5@</li>
+                        <li>@\begin{bmatrix} 6 & 8 \\ 10 & 12 \end{bmatrix}@</li>
+                        <li>@\begin{bmatrix} -4 & -4 \\ -4 & -4 \end{bmatrix}@</li>
+                        <li>@\begin{bmatrix} 6 & -3 \\ 0 & 9 \end{bmatrix}@</li>
+                        <li>@\begin{bmatrix} 1 & 2 \\ 5 & 6 \end{bmatrix}@</li>
+                        <li>@\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}@</li>
+                        <li>2</li>
+                        <li>Todos os elementos são zero</li>
+                        <li>@x=5, y=3@</li>
+                        <li>@\begin{bmatrix} 8 & 11 \\ 6 & 15 \end{bmatrix}@</li>
+                        <li>22</li>
+                        <li>1</li>
+                        <li>@\begin{bmatrix} -2 & 1 \\ 1,5 & -0,5 \end{bmatrix}@</li>
+                        <li>@\begin{bmatrix} 4 & 1 \\ 3 & 3 \end{bmatrix}@</li>
+                        <li>Sim (sempre)</li>
+                        <li>Sim</li>
+                        <li>Zero</li>
+                        <li>14</li>
+                        <li>(1,3), (2,2), (3,1)</li>
+                        <li>@\begin{bmatrix} 1 & 1 \\ 2 & 4 \\ 3 & 9 \end{bmatrix}@</li>
+                        <li>Elementos abaixo da diagonal são zero</li>
+                        <li>@\begin{bmatrix} 1 & 10 \\ 0 & 1 \end{bmatrix}@</li>
+                        <li>15</li>
+                        <li>@2^3 \cdot 2 = 16@</li>
+                        <li>4</li>
+                        <li>@x=3, y=1@</li>
+                        <li>Sim</li>
+                        <li>@2@ e @3@</li>
+                        <li>@2@</li>
+                        <li>-2</li>
+                        <li>Rotação de 90° (anti-horário)</li>
+                        <li>1</li>
+                        <li>@x=5, y=5@</li>
+                        <li>4</li>
+                        <li>Não, o correto é @(AB)^t = B^t A^t@</li>
+                        <li>7</li>
+                        <li>Sim</li>
+                        <li>@2 \times 2@</li>
+                        <li>Não (ex: @\begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} \cdot \begin{bmatrix} 1 & 0 \\ 0 & 0
+                            \end{bmatrix} = 0@)</li>
+                    </ol>
+                </div>
+            </details>
+
             <div style="text-align: center; margin-top: 30px;">
                 <a href="../../recursos.html" class="themed-button"
                     style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS - Lista: Produtos Notáveis</title>
+    <title>NEXUS - Lista de Problemas: Produtos Notáveis e Fatoração</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,6 +14,102 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .problema-meta {
+            font-size: 0.75rem;
+            color: var(--secondary-text-color);
+            margin-bottom: 0.5rem;
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        .problema-meta .topico {
+            background-color: rgba(100, 100, 255, 0.3);
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 8px;
+            font-style: italic;
+        }
+
+        .problema-meta .dificuldade {
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+
+        .dificuldade.facil {
+            background-color: rgba(76, 175, 80, 0.3);
+        }
+
+        .dificuldade.media {
+            background-color: rgba(255, 193, 7, 0.3);
+        }
+
+        .dificuldade.dificil {
+            background-color: rgba(244, 67, 54, 0.3);
+        }
+
+        .section-intro {
+            font-style: italic;
+            color: var(--secondary-text-color);
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--link-color);
+        }
+
+        .dica {
+            background-color: rgba(33, 150, 243, 0.15);
+            border-left: 4px solid #2196f3;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-radius: 4px;
+        }
+
+        .dica strong {
+            color: #2196f3;
+        }
+
+        .dificuldade-estrelas {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .dificuldade-estrelas .estrela {
+            color: #FFD700;
+            font-size: 1.2rem;
+            text-shadow: 0 0 3px rgba(255, 215, 0, 0.5);
+        }
+
+        .label-dificuldade {
+            margin-left: 8px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        .label-dificuldade.facil {
+            background-color: rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+        }
+
+        .label-dificuldade.medio {
+            background-color: rgba(255, 193, 7, 0.3);
+            color: #ffc107;
+        }
+
+        .label-dificuldade.dificil {
+            background-color: rgba(244, 67, 54, 0.3);
+            color: #f44336;
+        }
+
+        ol li {
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,56 +122,363 @@
             </ul>
         </nav>
         <div class="container">
+            <span class="badge-nivel ano-9">9º ANO</span>
+            <h1>Lista de Problemas: Produtos Notáveis e Fatoração</h1>
+
+            <!-- SEÇÃO 1 -->
             <article>
-                <span class="badge-nivel ano-9">9º ANO</span>
-                <h1>Lista de Exercícios: Produtos Notáveis e Fatoração</h1>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 1:</strong> Desenvolva @(2x + 3)^2@.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade facil">Fácil</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 2:</strong> Fatore completamente a expressão @3x^2 + 6x@.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade facil">Fácil</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 3:</strong> Desenvolva @(x - 4)(x + 4)@.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade facil">Fácil</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 4:</strong> Fatore @x^2 - 10x + 25@.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade medio">Médio</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 5:</strong> Simplifique a fração algébrica @\frac{x^2 - 9}{x + 3}@.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">★</span></div>
-                    <span class="label-dificuldade dificil">Difícil</span>
-                </div>
-
-                <details>
-                    <summary>Ver Gabarito</summary>
-                    <ol>
-                        <li>@4x^2 + 12x + 9@</li>
-                        <li>@3x(x + 2)@</li>
-                        <li>@x^2 - 16@</li>
-                        <li>@(x - 5)^2@</li>
-                        <li>@\frac{(x-3)(x+3)}{x+3} = x - 3@</li>
-                    </ol>
-                </details>
+                <h2>Problemas Introdutórios</h2>
+                <p class="section-intro">Desenvolvimento de produtos notáveis básicos.</p>
+                <ol>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Quadrado da Soma</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Desenvolva o produto notável: @(x + y)^2@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Quadrado da Diferença</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Desenvolva o produto notável: @(x - y)^2@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Produto da Soma pela Diferença</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Como fica a expressão @(x + y)(x - y)@ após o desenvolvimento?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Quadrado da Soma</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Desenvolva @(x + 5)^2@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Quadrado da Diferença</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Desenvolva @(a - 3)^2@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Produto da Soma pela Diferença</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Calcule @(y + 10)(y - 10)@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Quadrado da Soma</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Desenvolva @(2x + 1)^2@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Identificação</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Qual produto notável resulta em @x^2 + 2x + 1@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Identificação</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Qual produto notável resulta em @a^2 - 16@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Quadrado da Diferença</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Desenvolva @(3a - 2)^2@.</p>
+                    </li>
+                </ol>
             </article>
+
+            <!-- SEÇÃO 2 -->
+            <article>
+                <h2>Problemas de Fixação</h2>
+                <p class="section-intro">Técnicas de fatoração de expressões algébricas.</p>
+                <ol start="11">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Fator Comum</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Fatore a expressão @5x + 10@ colocando o fator comum em evidência.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Fator Comum</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Fatore @x^2 + xy@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Diferença de Quadrados</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Fatore a expressão @x^2 - 25@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Diferença de Quadrados</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Fatore @4a^2 - 9b^2@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Trinômio Quadrado Perfeito</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Fatore @x^2 + 4x + 4@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Trinômio Quadrado Perfeito</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Fatore @x^2 - 6x + 9@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Agrupamento</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Fatore por agrupamento: @ax + ay + bx + by@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Agrupamento</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Fatore @x^2 + 2x + xy + 2y@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Diferença de Quadrados</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Fatore @100 - y^2@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Trinômio Quadrado Perfeito</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Fatore @x^2 - 12x + 36@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Fatoração Completa</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Fatore completamente @x^3 - x@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Fatoração Completa</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Fatore @7x^2 - 7@.</p>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- SEÇÃO 3 -->
+            <article>
+                <h2>Problemas de Aprofundamento</h2>
+                <p class="section-intro">Simplificações algébricas e aplicações numéricas.</p>
+                <ol start="23">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Simplificação</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Simplifique a fração algébrica @\frac{x^2 - 1}{x + 1}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Simplificação</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Simplifique @\frac{x^2 - 4x + 4}{x - 2}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Trinômio ao Quadrado</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Desenvolva @(x + y + z)^2@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Cubo da Soma</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Desenvolva @(x + 1)^3@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Cubo da Diferença</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Desenvolva @(x - 1)^3@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Fração Complexa</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Simplifique @\frac{a^2 - b^2}{a^2 + 2ab + b^2}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Aplicação Numérica</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Calcule @101^2@ usando produtos notáveis.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Aplicação Numérica</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Calcule @99 \times 101@ usando o produto da soma pela diferença.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Dupla Fatoração</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Fatore completamente @x^4 - 1@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Geometria</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">☆</span><span
+                                class="label-dificuldade medio">Médio</span></div>
+                        <p>Determine a área de um quadrado cujo lado mede @(x + 3)@ unidades.</p>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- SEÇÃO 4 -->
+            <article>
+                <h2>Problemas Propostos</h2>
+                <p class="section-intro">Desafios adicionais para prática autônoma.</p>
+                <ol start="33">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Frações</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Desenvolva @(k + \frac{1}{2})^2@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Trinômio</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Fatore @x^2 - 14x + 49@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Simplificação</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Simplifique @\frac{2x + 2}{x + 1}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Identidade</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <p>Se @x + y = 5@ e @xy = 6@, quanto vale @x^2 + y^2@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Fatoração</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Fatore @a^2 - \frac{1}{4}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Desenvolvimento</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Desenvolva @(2a - 5b)(2a + 5b)@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Variáveis</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Fatore @m^2 - n^2@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Teoria</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>A expressão @x^2 + y^2@ pode ser fatorada como @(x+y)^2@? Por quê?</p>
+                    </li>
+                </ol>
+            </article>
+
+            <details>
+                <summary>Ver Gabarito</summary>
+                <div class="exemplo-resolvido">
+                    <ol>
+                        <li>@x^2 + 2xy + y^2@</li>
+                        <li>@x^2 - 2xy + y^2@</li>
+                        <li>@x^2 - y^2@</li>
+                        <li>@x^2 + 10x + 25@</li>
+                        <li>@a^2 - 6a + 9@</li>
+                        <li>@y^2 - 100@</li>
+                        <li>@4x^2 + 4x + 1@</li>
+                        <li>@(x + 1)^2@</li>
+                        <li>@(a - 4)(a + 4)@</li>
+                        <li>@9a^2 - 12a + 4@</li>
+                        <li>@5(x + 2)@</li>
+                        <li>@x(x + y)@</li>
+                        <li>@(x - 5)(x + 5)@</li>
+                        <li>@(2a - 3b)(2a + 3b)@</li>
+                        <li>@(x + 2)^2@</li>
+                        <li>@(x - 3)^2@</li>
+                        <li>@(a + b)(x + y)@</li>
+                        <li>@(x + 2)(x + y)@</li>
+                        <li>@(10 - y)(10 + y)@</li>
+                        <li>@(x - 6)^2@</li>
+                        <li>@x(x - 1)(x + 1)@</li>
+                        <li>@7(x - 1)(x + 1)@</li>
+                        <li>@x - 1@</li>
+                        <li>@x - 2@</li>
+                        <li>@x^2 + y^2 + z^2 + 2xy + 2xz + 2yz@</li>
+                        <li>@x^3 + 3x^2 + 3x + 1@</li>
+                        <li>@x^3 - 3x^2 + 3x - 1@</li>
+                        <li>@\frac{a - b}{a + b}@</li>
+                        <li>10201</li>
+                        <li>9999</li>
+                        <li>@(x - 1)(x + 1)(x^2 + 1)@</li>
+                        <li>@x^2 + 6x + 9@</li>
+                        <li>@k^2 + k + \frac{1}{4}@</li>
+                        <li>@(x - 7)^2@</li>
+                        <li>2</li>
+                        <li>13</li>
+                        <li>@(a - \frac{1}{2})(a + \frac{1}{2})@</li>
+                        <li>@4a^2 - 25b^2@</li>
+                        <li>@(m - n)(m + n)@</li>
+                        <li>Não, faltaria o termo @2xy@.</li>
+                    </ol>
+                </div>
+            </details>
+
             <div style="text-align: center; margin-top: 30px;">
                 <a href="../../recursos.html" class="themed-button"
                     style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS - Lista: Geometria Espacial</title>
+    <title>NEXUS - Lista de Problemas: Geometria Espacial</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,6 +14,102 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .problema-meta {
+            font-size: 0.75rem;
+            color: var(--secondary-text-color);
+            margin-bottom: 0.5rem;
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        .problema-meta .topico {
+            background-color: rgba(100, 100, 255, 0.3);
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 8px;
+            font-style: italic;
+        }
+
+        .problema-meta .dificuldade {
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+
+        .dificuldade.facil {
+            background-color: rgba(76, 175, 80, 0.3);
+        }
+
+        .dificuldade.media {
+            background-color: rgba(255, 193, 7, 0.3);
+        }
+
+        .dificuldade.dificil {
+            background-color: rgba(244, 67, 54, 0.3);
+        }
+
+        .section-intro {
+            font-style: italic;
+            color: var(--secondary-text-color);
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--link-color);
+        }
+
+        .dica {
+            background-color: rgba(33, 150, 243, 0.15);
+            border-left: 4px solid #2196f3;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-radius: 4px;
+        }
+
+        .dica strong {
+            color: #2196f3;
+        }
+
+        .dificuldade-estrelas {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .dificuldade-estrelas .estrela {
+            color: #FFD700;
+            font-size: 1.2rem;
+            text-shadow: 0 0 3px rgba(255, 215, 0, 0.5);
+        }
+
+        .label-dificuldade {
+            margin-left: 8px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        .label-dificuldade.facil {
+            background-color: rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+        }
+
+        .label-dificuldade.medio {
+            background-color: rgba(255, 193, 7, 0.3);
+            color: #ffc107;
+        }
+
+        .label-dificuldade.dificil {
+            background-color: rgba(244, 67, 54, 0.3);
+            color: #f44336;
+        }
+
+        ol li {
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,61 +122,380 @@
             </ul>
         </nav>
         <div class="container">
+            <span class="badge-nivel ano-9">9º ANO</span>
+            <h1>Lista de Problemas: Geometria Espacial</h1>
+
+            <!-- SEÇÃO 1 -->
             <article>
-                <span class="badge-nivel ano-9">9º ANO</span>
-                <h1>Lista de Exercícios: Volumes e Geometria Espacial</h1>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 1:</strong> Uma caixa d'água tem o formato de um paralelepípedo com dimensões 2
-                        m, 3 m e 1,5 m. Qual o seu volume em metros cúbicos?</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade facil">Fácil</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 2:</strong> Qual a capacidade em litros de uma lata cilíndrica com raio 10 cm e
-                        altura 20 cm? (Considere @\pi = 3@ e @1 \text{ dm}^3 = 1 \text{ litro}@).</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade medio">Médio</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 3:</strong> Um prisma de base triangular tem área da base igual a 25 cm² e volume
-                        de 250 cm³. Qual a sua altura?</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade facil">Fácil</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 4:</strong> Descreva a projeção ortogonal de um cilindro sobre um plano ao qual
-                        seu eixo é paralelo.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade medio">Médio</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 5:</strong> (Desafio) Se dobrarmos o raio de um cilindro e mantivermos a altura,
-                        o volume aumentará quantas vezes?</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">★</span></div>
-                    <span class="label-dificuldade dificil">Difícil</span>
-                </div>
-
-                <details>
-                    <summary>Ver Gabarito</summary>
-                    <ol>
-                        <li>@2 \cdot 3 \cdot 1,5 = 9 \text{ m}^3@</li>
-                        <li>@V = 3 \cdot 10^2 \cdot 20 = 6000 \text{ cm}^3 = 6 \text{ dm}^3 = 6 \text{ litros}@</li>
-                        <li>@h = \frac{V}{A_B} = \frac{250}{25} = 10 \text{ cm}@</li>
-                        <li>Um retângulo.</li>
-                        <li>4 vezes (@r^2@ vira @(2r)^2 = 4r^2@).</li>
-                    </ol>
-                </details>
+                <h2>Problemas Introdutórios</h2>
+                <p class="section-intro">Volumes de prismas e paralelepípedos.</p>
+                <ol>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Cubo</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Calcule o volume de um cubo cuja aresta mede @5 \text{ cm}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Paralelepípedo</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Uma caixa tem dimensões @2 \text{ m}, 3 \text{ m}@ e @1,5 \text{ m}@. Qual seu volume em
+                            @m^3@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Prisma</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Um prisma de base quadrada (@L=4@) tem altura @10@. Qual seu volume?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Conversão</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Quantos litros cabem em um reservatório de @2 \text{ m}^3@? (@1 \text{ m}^3 = 1000 \text{
+                            L}@)</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Área Total</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Qual a área total das faces de um cubo de aresta @2 \text{ cm}@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Aresta</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Se o volume de um cubo é @64 \text{ cm}^3@, quanto mede sua aresta?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Prisma Triangular</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Um prisma triangular tem área da base @20 \text{ cm}^2@ e altura @8 \text{ cm}@. Determine o
+                            volume.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Diagonal</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Qual a medida da diagonal de uma face de um cubo de aresta @10@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Piscina</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Uma piscina retangular tem @5 \text{ m}@ de largura, @8 \text{ m}@ de comprimento e @2 \text{
+                            m}@ de profundidade. Qual o volume?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Capacidade</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Um balde em formato de cubo com aresta @20 \text{ cm}@ está cheio de água. Qual a capacidade
+                            dele em litros?</p>
+                    </li>
+                </ol>
             </article>
+
+            <!-- SEÇÃO 2 -->
+            <article>
+                <h2>Problemas de Fixação</h2>
+                <p class="section-intro">Cilindros e Projeções Ortogonais.</p>
+                <ol start="11">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Cilindro</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Determine o volume de um cilindro com raio @3 \text{ cm}@ e altura @10 \text{ cm}@. Considere
+                            @\pi = 3@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Área Lateral</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Qual a área lateral de um cilindro cujo raio da base é @5 \text{ cm}@ e a altura é @12 \text{
+                            cm}@? (@\pi = 3@)</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Lata de Refri</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Uma lata cilíndrica tem @6 \text{ cm}@ de diâmetro e @12 \text{ cm}@ de altura. Qual seu
+                            volume aproximado em @cm^3@? (@\pi = 3,14@)</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Altura do Cilindro</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Se um cilindro de @300 \text{ cm}^3@ tem raio @5 \text{ cm}@, qual sua altura? (@\pi = 3@)
+                        </p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Projeção Esfera</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Qual a projeção ortogonal de uma esfera sobre um plano?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Projeção Cilindro</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Projete ortogonalmente um cilindro deitado (eixo paralelo ao plano) sobre o plano. Qual
+                            figura você obtém?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Projeção Cubo</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Um cubo tem uma face paralela a um plano. Qual a sua projeção ortogonal?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Corte Transversal</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Se cortarmos um cilindro por um plano paralelo à sua base, qual será a forma da seção obtida?
+                        </p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Tempo de Enchimento</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Uma torneira enche @2@ litros por minuto. Quanto tempo leva para encher uma caixa de @1
+                            \text{ m}^3@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Euler</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Um poliedro tem @6@ faces e @8@ vértices. Quantas arestas ele possui? (Use @V - E + F = 2@).
+                        </p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Cilindro Longitudinal</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Um corte longitudinal (pelo eixo) em um cilindro de revolução resulta em qual figura
+                            geométrica?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Esfera Intro</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>A seção obtida ao cortar uma esfera por qualquer plano é sempre o quê?</p>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- SEÇÃO 3 -->
+            <article>
+                <h2>Problemas de Aprofundamento</h2>
+                <p class="section-intro">Pirâmides, Cones e Desafios de Razão.</p>
+                <ol start="23">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Pirâmide</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">☆</span><span
+                                class="label-dificuldade medio">Médio</span></div>
+                        <p>Uma pirâmide tem base quadrada de área @100 \text{ cm}^2@ e altura @9 \text{ cm}@. Qual seu
+                            volume?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Cone</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">☆</span><span
+                                class="label-dificuldade medio">Médio</span></div>
+                        <p>Calcule o volume de um cone com @r=2 \text{ cm}@ e @h=6 \text{ cm}@. Considere @\pi = 3@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Esfera</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Qual o volume de uma esfera de raio @3 \text{ cm}@? (@\pi = 3@). Dica: @V = \frac{4}{3} \pi
+                            r^3@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Comparação</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Um cone e um cilindro têm o mesmo raio e a mesma altura. Qual a razão entre o volume do cone
+                            e o do cilindro?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Razão de Volumes</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Se dobrarmos todas as arestas de um cubo, seu volume aumenta quantas vezes?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Área Total Cilindro</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Calcule a área total de um cilindro com @r=4@ e @h=5@. (@\pi=3@). @A_T = 2A_B + A_L@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Nivel d'água</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Em um tanque retangular de @10x10x10@ cheio de água, mergulha-se um cubo de aresta @5@. Qual
+                            volume de água transborda?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Cone Inverso</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Um cone tem altura @12@ e o volume de @400 \text{ cm}^3@. Qual a área de sua base?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Transformação</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Fundimos um cubo de metal de aresta @10 \text{ cm}@ para fazer esferas de @1 \text{ cm}^3@
+                            cada. Quantas esferas faremos?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Planificação</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>A planificação da superfície lateral de um cilindro é qual figura plana?</p>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- SEÇÃO 4 -->
+            <article>
+                <h2>Problemas Propostos</h2>
+                <p class="section-intro">Consolidação conceitual.</p>
+                <ol start="33">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Definição</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>O que caracteriza um prisma reto?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Poliedros</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Uma esfera é considerada um poliedro? Por quê?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Faces do Cubo</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Quantas faces, vértices e arestas tem um cubo?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Unidade SI</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Qual a unidade padrão de volume no Sistema Internacional de Unidades?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Litros</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Um decímetro cúbico (@1 \text{ dm}^3@) equivale a quantos litros?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Projeção</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Pode a projeção ortogonal de um sólido ser apenas um ponto?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Volume Constante</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Se mudarmos a orientação de um sólido no espaço, seu volume se altera?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Fórmula Geral</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Escreva a fórmula geral para o volume de qualquer prisma.</p>
+                    </li>
+                </ol>
+            </article>
+
+            <details>
+                <summary>Ver Gabarito</summary>
+                <div class="exemplo-resolvido">
+                    <ol>
+                        <li>@125 \text{ cm}^3@</li>
+                        <li>@9 \text{ m}^3@</li>
+                        <li>@160@</li>
+                        <li>@2000 \text{ L}@</li>
+                        <li>@24 \text{ cm}^2@ (@6 \cdot 2^2@)</li>
+                        <li>@4 \text{ cm}@</li>
+                        <li>@160 \text{ cm}^3@</li>
+                        <li>@10\sqrt{2}@</li>
+                        <li>@80 \text{ m}^3@</li>
+                        <li>@8 \text{ L}@ (@8000 \text{ cm}^3 = 8 \text{ dm}^3@)</li>
+                        <li>@270 \text{ cm}^3@</li>
+                        <li>@180 \text{ cm}^2@ (@2 \cdot 3 \cdot 5 \cdot 12@)</li>
+                        <li>@339,12 \text{ cm}^3@ (@3,14 \cdot 3^2 \cdot 12@)</li>
+                        <li>@4 \text{ cm}@ (@300 / (3 \cdot 25)@)</li>
+                        <li>Um círculo.</li>
+                        <li>Um retângulo.</li>
+                        <li>Um quadrado.</li>
+                        <li>Um círculo constante (idêntico à base).</li>
+                        <li>@500@ minutos (@8,3@ horas).</li>
+                        <li>@12@</li>
+                        <li>Um retângulo.</li>
+                        <li>Um círculo.</li>
+                        <li>@300 \text{ cm}^3@ (@\frac{1}{3} \cdot 100 \cdot 9@)</li>
+                        <li>@8 \text{ cm}^3@ (@\frac{1}{3} \cdot 3 \cdot 2^2 \cdot 6@)</li>
+                        <li>@108 \text{ cm}^3@ (@\frac{4}{3} \cdot 3 \cdot 27@)</li>
+                        <li>@1/3@</li>
+                        <li>@8@ vezes (@2^3@)</li>
+                        <li>@216@ (@2 \cdot 48 + 120@, com @\pi=3@)</li>
+                        <li>@125@ (Volume do cubo imerso).</li>
+                        <li>@100 \text{ cm}^2@ (@V = \frac{1}{3} A_B \cdot h@)</li>
+                        <li>@1000@ esferas.</li>
+                        <li>Um retângulo.</li>
+                        <li>Arestas laterais perpendiculares às bases.</li>
+                        <li>Não, pois não tem faces planas poligonais.</li>
+                        <li>@6@ faces, @8@ vértices, @12@ arestas.</li>
+                        <li>Metro cúbico (@m^3@).</li>
+                        <li>@1 \text{ L}@</li>
+                        <li>Não (de um sólido, no mínimo uma linha ou área).</li>
+                        <li>Não.</li>
+                        <li>@V = A_B \cdot h@</li>
+                    </ol>
+                </div>
+            </details>
+
             <div style="text-align: center; margin-top: 30px;">
                 <a href="../../recursos.html" class="themed-button"
                     style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS - Lista: Tales e Semelhança</title>
+    <title>NEXUS - Lista de Problemas: Tales e Semelhança</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,6 +14,102 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .problema-meta {
+            font-size: 0.75rem;
+            color: var(--secondary-text-color);
+            margin-bottom: 0.5rem;
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        .problema-meta .topico {
+            background-color: rgba(100, 100, 255, 0.3);
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 8px;
+            font-style: italic;
+        }
+
+        .problema-meta .dificuldade {
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+
+        .dificuldade.facil {
+            background-color: rgba(76, 175, 80, 0.3);
+        }
+
+        .dificuldade.media {
+            background-color: rgba(255, 193, 7, 0.3);
+        }
+
+        .dificuldade.dificil {
+            background-color: rgba(244, 67, 54, 0.3);
+        }
+
+        .section-intro {
+            font-style: italic;
+            color: var(--secondary-text-color);
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--link-color);
+        }
+
+        .dica {
+            background-color: rgba(33, 150, 243, 0.15);
+            border-left: 4px solid #2196f3;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-radius: 4px;
+        }
+
+        .dica strong {
+            color: #2196f3;
+        }
+
+        .dificuldade-estrelas {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .dificuldade-estrelas .estrela {
+            color: #FFD700;
+            font-size: 1.2rem;
+            text-shadow: 0 0 3px rgba(255, 215, 0, 0.5);
+        }
+
+        .label-dificuldade {
+            margin-left: 8px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        .label-dificuldade.facil {
+            background-color: rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+        }
+
+        .label-dificuldade.medio {
+            background-color: rgba(255, 193, 7, 0.3);
+            color: #ffc107;
+        }
+
+        .label-dificuldade.dificil {
+            background-color: rgba(244, 67, 54, 0.3);
+            color: #f44336;
+        }
+
+        ol li {
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,63 +122,385 @@
             </ul>
         </nav>
         <div class="container">
+            <span class="badge-nivel ano-9">9º ANO</span>
+            <h1>Lista de Problemas: Tales e Semelhança</h1>
+
+            <!-- SEÇÃO 1 -->
             <article>
-                <span class="badge-nivel ano-9">9º ANO</span>
-                <h1>Lista de Exercícios: Tales e Semelhança</h1>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 1:</strong> Determine @x@ no feixe de paralelas abaixo, onde os segmentos na
-                        primeira transversal são @x@ e @12@, e na segunda transversal são @3@ e @9@.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade facil">Fácil</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 2:</strong> Um triângulo tem lados @6, 8, 10@. Um triângulo semelhante a este tem
-                        o maior lado medindo @25@. Qual a medida do menor lado deste segundo triângulo?</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade medio">Médio</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 3:</strong> Uma pessoa de 1,80 m de altura projeta uma sombra de 2,40 m. No mesmo
-                        instante, um prédio projeta uma sombra de 16 m. Qual a altura do prédio?</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade medio">Médio</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 4:</strong> Em um triângulo ABC, uma reta paralela ao lado BC corta os lados AB e
-                        AC nos pontos D e E. Se @AD = 4, DB = 6@ e @AE = 2@, quanto mede @EC@?</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade medio">Médio</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 5:</strong> Os lados de um triângulo medem @10 \text{ cm}, 15 \text{ cm}@ e @20
-                        \text{ cm}@. O perímetro de um triângulo semelhante é @135 \text{ cm}@. Quanto mede o maior lado
-                        do segundo triângulo?</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">★</span></div>
-                    <span class="label-dificuldade dificil">Difícil</span>
-                </div>
-
-                <details>
-                    <summary>Ver Gabarito</summary>
-                    <ol>
-                        <li>@\frac{x}{12} = \frac{3}{9} \implies 9x = 36 \implies x = 4@</li>
-                        <li>@\frac{10}{25} = \frac{6}{y} \implies 10y = 150 \implies y = 15@</li>
-                        <li>@\frac{1,8}{2,4} = \frac{h}{16} \implies 2,4h = 28,8 \implies h = 12 \text{ m}@</li>
-                        <li>@\frac{4}{6} = \frac{2}{x} \implies 4x = 12 \implies x = 3@</li>
-                        <li>Perímetro 1 = @10 + 15 + 20 = 45@. Razão @k = \frac{135}{45} = 3@. Maior lado = @20 \cdot 3
-                            = 60 \text{ cm}@.</li>
-                    </ol>
-                </details>
+                <h2>Problemas Introdutórios</h2>
+                <p class="section-intro">Teorema de Tales e proporcionalidade básica.</p>
+                <ol>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Tales</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Determine @x@ no feixe de paralelas onde os segmentos na primeira transversal são @x@ e @12@,
+                            e na segunda são @3@ e @9@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Tales no Triângulo</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Em um triângulo @ABC@, uma reta paralela à base @BC@ intercepta @AB@ em @D@ e @AC@ em @E@. Se
+                            @AD=4, DB=6@ e @AE=2@, determine @EC@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Tales</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Um feixe de 3 paralelas é cortado por 2 transversais. Na primeira, os segmentos medem @6@ e
+                            @x@. Na segunda, medem @2@ e @5@. Calcule @x@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Tales</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Determine @k@ na proporção @\frac{k}{10} = \frac{3}{5}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Segmentos</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Dois segmentos proporcionais a @4@ e @7@ têm soma igual a @22@. Quais os valores dos
+                            segmentos?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Triângulos</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Se @DE \parallel BC@ em um triângulo @ABC@, e @AB=20, AD=5, AC=16@, quanto mede @AE@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Razão</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Qual a razão de proporcionalidade entre segmentos de @10cm@ e @25cm@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Tales</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Determine @x@ se @\frac{x}{x+2} = \frac{3}{5}@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Bissetriz</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>A bissetriz interna de um triângulo divide o lado oposto em segmentos de @4@ e @6@. Se os
+                            outros lados medem @10@ e @y@, calcule @y@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Tales</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Em um mapa, @2cm@ representam @10km@. Qual a distância real para @5cm@?</p>
+                    </li>
+                </ol>
             </article>
+
+            <!-- SEÇÃO 2 -->
+            <article>
+                <h2>Problemas de Fixação</h2>
+                <p class="section-intro">Semelhança de triângulos e aplicações práticas.</p>
+                <ol start="11">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Razão de Semelhança</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Um triângulo tem lados @3, 4, 5@. Um semelhante tem lados @6, 8, x@. Qual o valor de @x@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Sombras</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Uma pessoa de @1,80m@ projeta uma sombra de @2,40m@. No mesmo instante, um prédio projeta
+                            sombra de @16m@. Qual a altura do prédio?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Perímetro</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Dois triângulos são semelhantes. O primeiro tem perímetro @30@. A razão de semelhança entre
+                            eles é @2@. Qual o perímetro do segundo?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Critérios</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Dois triângulos retângulos possuem um ângulo agudo de @30^\circ@. Eles são necessariamente
+                            semelhantes? Por quê?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Lados Semelhantes</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Os lados de um triângulo são @6, 8, 10@. O menor lado de um semelhante mede @15@. Determine
+                            os outros lados.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Triângulos Retângulos</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>A altura relativa à hipotenusa de um triângulo retângulo divide-o em dois triângulos menores.
+                            Eles são semelhantes ao original?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Espelho</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Uma fonte de luz pontual está a @2m@ de uma parede. Um objeto de @10cm@ é colocado a @50cm@
+                            da luz. Qual o tamanho da sombra na parede?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Trapézio</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>As bases de um trapézio medem @10@ e @15@. A altura é @8@. Ao prolongar os lados não
+                            paralelos, forma-se um triângulo. Qual a altura desse triângulo?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Razão de Áreas</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>A razão de semelhança entre dois triângulos é @k=3@. Se a área do menor é @5cm^2@, qual a
+                            área do maior?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Escala</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Numa escala @1:50@, uma porta mede @4cm@ de largura no desenho. Qual a largura real?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Alturas</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Dois triângulos semelhantes têm alturas @5@ e @15@. Qual a razão entre seus lados
+                            correspondentes?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Ângulos</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Se dois triângulos são semelhantes e os ângulos do primeiro são @40^\circ@ e @80^\circ@,
+                            quais os ângulos do segundo?</p>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- SEÇÃO 3 -->
+            <article>
+                <h2>Problemas de Aprofundamento</h2>
+                <p class="section-intro">Relações métricas no triângulo retângulo e desafios.</p>
+                <ol start="23">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Relações Métricas</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Em um triângulo retângulo, as projeções dos catetos sobre a hipotenusa medem @4@ e @9@.
+                            Determine a altura relativa à hipotenusa.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Relações Métricas</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Calcule o valor de um cateto cuja projeção sobre a hipotenusa mede @2@ e a hipotenusa total
+                            mede @8@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Pitágoras e Semelhança</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Demonstre que @h^2 = m \cdot n@ usando semelhança de triângulos.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Círculos e Tales</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Uma corda de uma circunferência é dividida por outra em segmentos @4@ e @x@. Se a outra corda
+                            tem segmentos @2@ e @8@, calcule @x@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Triângulos Inscritos</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Um triângulo de lados @5, 12, 13@ é semelhante a um de perímetro @60@. Calcule a hipotenusa
+                            do segundo.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Média Geométrica</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>A altura de um triângulo retângulo é a média geométrica de quais segmentos?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Polígonos</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Dois retângulos semelhantes têm lados @4x8@ e @10xy@. Determine @y@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Áreas</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Se dobrarmos todos os lados de um triângulo, o que acontece com sua área?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Ponto Médio</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">☆</span><span
+                                class="label-dificuldade medio">Médio</span></div>
+                        <p>O segmento que une os pontos médios de dois lados de um triângulo mede @10@. Quanto mede o
+                            terceiro lado?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Heron Adaptado</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Um triângulo semelhante a um triângulo egípcio (@3-4-5@) tem área @24@. Determine seus lados.
+                        </p>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- SEÇÃO 4 -->
+            <article>
+                <h2>Problemas Propostos</h2>
+                <p class="section-intro">Consolidação e conceitos finais.</p>
+                <ol start="33">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Definição</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>O que define dois triângulos como semelhantes?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Escala</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>O que significa uma escala @1:100@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Triângulos</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Todos os triângulos equiláteros são semelhantes? Por quê?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Quadrados</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Dois quadrados diferentes são sempre semelhantes?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Transitividade</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Se @A \sim B@ e @B \sim C@, podemos dizer que @A \sim C@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">História</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Qual matemático usou sombras para medir a altura das pirâmides do Egito?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Diagonal</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Qual a razão entre a diagonal e o lado de qualquer quadrado?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Volume</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Se a razão de semelhança entre dois cubos é @2@, qual a razão entre seus volumes?</p>
+                    </li>
+                </ol>
+            </article>
+
+            <details>
+                <summary>Ver Gabarito</summary>
+                <div class="exemplo-resolvido">
+                    <ol>
+                        <li>@4@</li>
+                        <li>@3@</li>
+                        <li>@15@</li>
+                        <li>@6@</li>
+                        <li>@8@ e @14@</li>
+                        <li>@4@</li>
+                        <li>@0,4@ (ou @2/5@)</li>
+                        <li>@3@</li>
+                        <li>@15@ (@\frac{10}{4} = \frac{y}{6}@)</li>
+                        <li>@25km@</li>
+                        <li>@10@</li>
+                        <li>@12m@</li>
+                        <li>@60@ (ou @15@ se a razão for inversa)</li>
+                        <li>Sim (Critério AA)</li>
+                        <li>@20@ e @25@</li>
+                        <li>Sim, todos possuem os mesmos ângulos.</li>
+                        <li>@40cm@ (@\frac{0,1}{0,5} = \frac{h}{2}@)</li>
+                        <li>@16@ (@\frac{x}{10} = \frac{x+8}{15}@)</li>
+                        <li>@45cm^2@ (@5 \cdot 3^2@)</li>
+                        <li>@2m@ (@200cm@)</li>
+                        <li>@1/3@ ou @3@</li>
+                        <li>@40^\circ, 80^\circ, 60^\circ@</li>
+                        <li>@6@ (@h^2 = 4 \cdot 9@)</li>
+                        <li>@4@ (@c^2 = a \cdot n \implies c^2 = 8 \cdot 2@)</li>
+                        <li>Via AA (@\Delta ABH \sim \Delta CBH@)</li>
+                        <li>@4@</li>
+                        <li>@26@ (perímetro @5+12+13=30@, razão 2)</li>
+                        <li>Das projeções dos catetos.</li>
+                        <li>@20@ (@\frac{4}{10} = \frac{8}{y}@)</li>
+                        <li>Quadruplica (@k^2 = 2^2 = 4@).</li>
+                        <li>@20@</li>
+                        <li>@6, 8, 10@ (Perímetro 24, área 24)</li>
+                        <li>Ângulos iguais e lados proporcionais.</li>
+                        <li>@1cm@ no mapa = @100cm@ na realidade.</li>
+                        <li>Sim, todos os ângulos medem @60^\circ@.</li>
+                        <li>Sim.</li>
+                        <li>Sim.</li>
+                        <li>Tales de Mileto.</li>
+                        <li>@\sqrt{2}@</li>
+                        <li>@8@ (@2^3@)</li>
+                    </ol>
+                </div>
+            </details>
+
             <div style="text-align: center; margin-top: 30px;">
                 <a href="../../recursos.html" class="themed-button"
                     style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>

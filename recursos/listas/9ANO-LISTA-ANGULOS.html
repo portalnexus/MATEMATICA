@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS - Lista: Ângulos</title>
+    <title>NEXUS - Lista de Problemas: Ângulos e Circunferência</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,6 +14,102 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .problema-meta {
+            font-size: 0.75rem;
+            color: var(--secondary-text-color);
+            margin-bottom: 0.5rem;
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        .problema-meta .topico {
+            background-color: rgba(100, 100, 255, 0.3);
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 8px;
+            font-style: italic;
+        }
+
+        .problema-meta .dificuldade {
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+
+        .dificuldade.facil {
+            background-color: rgba(76, 175, 80, 0.3);
+        }
+
+        .dificuldade.media {
+            background-color: rgba(255, 193, 7, 0.3);
+        }
+
+        .dificuldade.dificil {
+            background-color: rgba(244, 67, 54, 0.3);
+        }
+
+        .section-intro {
+            font-style: italic;
+            color: var(--secondary-text-color);
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--link-color);
+        }
+
+        .dica {
+            background-color: rgba(33, 150, 243, 0.15);
+            border-left: 4px solid #2196f3;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-radius: 4px;
+        }
+
+        .dica strong {
+            color: #2196f3;
+        }
+
+        .dificuldade-estrelas {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .dificuldade-estrelas .estrela {
+            color: #FFD700;
+            font-size: 1.2rem;
+            text-shadow: 0 0 3px rgba(255, 215, 0, 0.5);
+        }
+
+        .label-dificuldade {
+            margin-left: 8px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            font-family: 'Fira Sans', sans-serif;
+        }
+
+        .label-dificuldade.facil {
+            background-color: rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+        }
+
+        .label-dificuldade.medio {
+            background-color: rgba(255, 193, 7, 0.3);
+            color: #ffc107;
+        }
+
+        .label-dificuldade.dificil {
+            background-color: rgba(244, 67, 54, 0.3);
+            color: #f44336;
+        }
+
+        ol li {
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,61 +122,381 @@
             </ul>
         </nav>
         <div class="container">
+            <span class="badge-nivel ano-9">9º ANO</span>
+            <h1>Lista de Problemas: Ângulos e Circunferência</h1>
+
+            <!-- SEÇÃO 1 -->
             <article>
-                <span class="badge-nivel ano-9">9º ANO</span>
-                <h1>Lista de Exercícios: Ângulos e Circunferência</h1>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 1:</strong> Duas retas paralelas são cortadas por uma transversal. Dois ângulos
-                        correspondentes medem @3x + 10^\circ@ e @x + 50^\circ@. Determine o valor de @x@.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade medio">Médio</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 2:</strong> Um ângulo central de uma circunferência intercepta um arco de 120°.
-                        Quanto mede o ângulo inscrito correspondente?</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade facil">Fácil</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 3:</strong> Dois ângulos colaterais internos medem @2x@ e @3x - 20^\circ@.
-                        Calcule a medida de cada ângulo.</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">★</span></div>
-                    <span class="label-dificuldade dificil">Difícil</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 4:</strong> Em um triângulo inscrito em uma semicircunferência, um dos ângulos
-                        agudos mede 30°. Quanto mede o outro ângulo agudo?</p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade medio">Médio</span>
-                </div>
-
-                <div class="exemplo-resolvido">
-                    <p><strong>Questão 5:</strong> Se o ângulo inscrito mede 45°, qual a medida do arco correspondente?
-                    </p>
-                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
-                            class="estrela">☆</span></div>
-                    <span class="label-dificuldade facil">Fácil</span>
-                </div>
-
-                <details>
-                    <summary>Ver Gabarito</summary>
-                    <ol>
-                        <li>@3x + 10 = x + 50 \implies 2x = 40 \implies x = 20^\circ@</li>
-                        <li>@60^\circ@</li>
-                        <li>@2x + 3x - 20 = 180 \implies 5x = 200 \implies x = 40^\circ@. Ângulos: 80° e 100°.</li>
-                        <li>@60^\circ@ (O terceiro ângulo é 90°)</li>
-                        <li>@90^\circ@</li>
-                    </ol>
-                </details>
+                <h2>Problemas Introdutórios</h2>
+                <p class="section-intro">Fundamentos de ângulos e retas paralelas.</p>
+                <ol>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Complementares</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Determine o valor de @x@ se os ângulos @x@ e @40^\circ@ são complementares.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Suplementares</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Determine o suplemento de um ângulo de @110^\circ@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">OPV</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Se dois ângulos opostos pelo vértice medem @x + 20^\circ@ e @60^\circ@, qual o valor de @x@?
+                        </p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Paralelas</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Duas retas paralelas são cortadas por uma transversal. Se um ângulo alterno interno mede
+                            @70^\circ@, quanto mede o outro?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Paralelas</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Um par de ângulos correspondentes em retas paralelas cortadas por uma transversal mede @3x@ e
+                            @120^\circ@. Determine @x@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Colaterais</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Dois ângulos colaterais internos de retas paralelas medem @x@ e @80^\circ@. Calcule @x@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Classificação</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Como classificamos um ângulo que mede @95^\circ@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Bissetriz</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Uma bissetriz divide um ângulo de @80^\circ@ em duas partes. Qual a medida de cada parte?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Soma de Ângulos</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>A soma dos ângulos internos de um triângulo é sempre igual a quanto?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Equação</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Determine @x@ no diagrama onde @x@ e @2x@ são ângulos adjacentes suplementares.</p>
+                    </li>
+                </ol>
             </article>
+
+            <!-- SEÇÃO 2 -->
+            <article>
+                <h2>Problemas de Fixação</h2>
+                <p class="section-intro">Ângulos na circunferência e elementos do círculo.</p>
+                <ol start="11">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Ângulo Central</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Um ângulo central intercepta um arco de @50^\circ@. Qual a medida desse ângulo?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Ângulo Inscrito</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Um ângulo inscrito intercepta um arco de @120^\circ@. Quanto mede esse ângulo?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Arco Completo</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Se um arco de circunferência mede @300^\circ@, quanto mede o arco menor complementar a ele na
+                            mesma circunferência?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Tangente</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Qual o ângulo formado entre o raio de uma circunferência e uma reta tangente no ponto de
+                            contato?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Teorema de Tales</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Um triângulo está inscrito em uma semicircunferência. Um de seus lados coincide com o
+                            diâmetro. Qual a medida do ângulo oposto ao diâmetro?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Quadrilátero Inscrito</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Em um quadrilátero inscrito, um ângulo mede @100^\circ@. Qual a medida do ângulo oposto a
+                            ele?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Tangentes Externas</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Dois segmentos tangentes a uma circunferência partem de um mesmo ponto exterior @P@. Se um
+                            mede @15cm@, quanto mede o outro?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Ângulo de Segmento</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Um ângulo de segmento formado por uma corda e uma tangente mede @40^\circ@. Qual a medida do
+                            arco correspondente?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Círculos Tangentes</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Duas circunferências de raios @R=10@ e @r=4@ são tangentes externas. Qual a distância entre
+                            seus centros?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Hexágono Inscrito</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Qual a medida do ângulo central de um hexágono regular inscrito em uma circunferência?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Corda e Flecha</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="label-dificuldade medio">Médio</span></div>
+                        <p>Se o raio de uma circunferência é @5cm@ e uma corda dista @3cm@ do centro, qual o comprimento
+                            da corda? (Use Pitágoras).</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Arco de Quadrante</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="label-dificuldade facil">Fácil</span></div>
+                        <p>Quanto mede o arco de um quadrante de circunferência?</p>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- SEÇÃO 3 -->
+            <article>
+                <h2>Problemas de Aprofundamento</h2>
+                <p class="section-intro">Desafios geométricos e relações métricas.</p>
+                <ol start="23">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Ângulo Excêntrico</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>O ângulo formado por duas cordas que se cruzam no interior da circunferência intercepta arcos
+                            de @80^\circ@ e @40^\circ@. Determine o valor desse ângulo.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Ângulo Excêntrico</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Duas retas secantes a uma circunferência partem de um ponto @P@ exterior e interceptam arcos
+                            de @100^\circ@ e @30^\circ@. Calcule o ângulo entre as secantes.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Triângulo e Círculo</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Um triângulo isósceles está inscrito em um círculo. Se o ângulo do topo mede @40^\circ@,
+                            quanto medem os arcos formados pelos lados do triângulo?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Pentágono Regular</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Quanto mede cada ângulo interno de um pentágono regular?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Retas Tangentes</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Calcule o ângulo formado entre duas tangentes que partem de um ponto exterior e interceptam
+                            um arco menor de @120^\circ@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Ângulo Externo</span><span
+                                class="dificuldade media">Média</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">☆</span><span
+                                class="label-dificuldade medio">Médio</span></div>
+                        <p>Em um triângulo, um ângulo interno mede @50^\circ@ e outro @60^\circ@. Qual a medida do
+                            ângulo externo adjacente ao terceiro ângulo?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Potência de Ponto</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Duas cordas @AB@ e @CD@ se cortam em @P@. Se @AP=4, PB=9@ e @CP=3@, descubra @PD@.</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Distância em Círculos</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Dois círculos concêntricos têm raios @5cm@ e @13cm@. Uma corda do círculo maior é tangente ao
+                            círculo menor. Qual o comprimento dessa corda?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Ângulos de Estrela</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Qual a soma das medidas dos ângulos das "pontas" de uma estrela de 5 pontas regular?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Área Circular</span><span
+                                class="dificuldade dificil">Difícil</span></div>
+                        <div class="dificuldade-estrelas"><span class="estrela">★</span><span
+                                class="estrela">★</span><span class="estrela">★</span><span
+                                class="label-dificuldade dificil">Difícil</span></div>
+                        <p>Se o comprimento de uma circunferência é @20\pi@, qual a medida de seu raio?</p>
+                    </li>
+                </ol>
+            </article>
+
+            <!-- SEÇÃO 4 -->
+            <article>
+                <h2>Problemas Propostos</h2>
+                <p class="section-intro">Consolidação de conceitos e reflexão teórica.</p>
+                <ol start="33">
+                    <li>
+                        <div class="problema-meta"><span class="topico">Complementares</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Qual o complemento de um ângulo de @60^\circ@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Suplementares</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Qual o suplemento de um ângulo de @45^\circ@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Definição</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Quantos diâmetros diferentes existem em uma circunferência?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Graus</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>Qual o valor em graus de uma volta completa na circunferência?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Triângulo</span><span
+                                class="dificuldade facil">Fácil</span></div>
+                        <p>A soma dos ângulos internos de um triângulo é @180^\circ@ ou @360^\circ@?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Independência</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>O tamanho do raio altera a medida em graus de um ângulo central que intercepta @1/4@ da
+                            circunferência?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Relógio</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Qual o menor ângulo formado pelos ponteiros de um relógio às 3:00?</p>
+                    </li>
+                    <li>
+                        <div class="problema-meta"><span class="topico">Identidade</span><span
+                                class="dificuldade media">Média</span></div>
+                        <p>Qual a constante matemática definida pela razão entre a circunferência e seu diâmetro?</p>
+                    </li>
+                </ol>
+            </article>
+
+            <details>
+                <summary>Ver Gabarito</summary>
+                <div class="exemplo-resolvido">
+                    <ol>
+                        <li>@50^\circ@</li>
+                        <li>@70^\circ@</li>
+                        <li>@40^\circ@</li>
+                        <li>@70^\circ@</li>
+                        <li>@40@</li>
+                        <li>@100^\circ@</li>
+                        <li>Obtuso</li>
+                        <li>@40^\circ@</li>
+                        <li>@180^\circ@</li>
+                        <li>@60^\circ@ (@3x=180@)</li>
+                        <li>@50^\circ@</li>
+                        <li>@60^\circ@</li>
+                        <li>@60^\circ@</li>
+                        <li>@90^\circ@</li>
+                        <li>@90^\circ@</li>
+                        <li>@80^\circ@</li>
+                        <li>@15cm@</li>
+                        <li>@80^\circ@</li>
+                        <li>@14@</li>
+                        <li>@60^\circ@</li>
+                        <li>@8cm@ (@4^2+3^2=5^2@, corda é @4+4@)</li>
+                        <li>@90^\circ@</li>
+                        <li>@60^\circ@ (@\frac{80+40}{2}@)</li>
+                        <li>@35^\circ@ (@\frac{100-30}{2}@)</li>
+                        <li>Arco base = 80°, outros dois arcos = 140° cada.</li>
+                        <li>@108^\circ@</li>
+                        <li>@60^\circ@ (@180-120@)</li>
+                        <li>@110^\circ@ (@50+60@)</li>
+                        <li>@12@ (@4 \times 9 = 3 \times PD@)</li>
+                        <li>@24cm@ (@13^2-5^2=12^2@, corda = @12+12@)</li>
+                        <li>@180^\circ@</li>
+                        <li>@10@</li>
+                        <li>@30^\circ@</li>
+                        <li>@135^\circ@</li>
+                        <li>Infinitos</li>
+                        <li>@360^\circ@</li>
+                        <li>@180^\circ@</li>
+                        <li>Não (ângulo permanece @90^\circ@)</li>
+                        <li>@90^\circ@</li>
+                        <li>@\pi@ (Pi)</li>
+                    </ol>
+                </div>
+            </details>
+
             <div style="text-align: center; margin-top: 30px;">
                 <a href="../../recursos.html" class="themed-button"
                     style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>

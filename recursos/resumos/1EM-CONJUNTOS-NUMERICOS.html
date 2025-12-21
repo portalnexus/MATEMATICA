@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Conjuntos Numéricos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+                <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+                <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <article>
+                <span class="badge-nivel ano-1em">1º Ano EM</span>
+                <h1>Conjuntos Numéricos e Intervalos</h1>
+                <p>Os conjuntos numéricos são agrupamentos de números que possuem características semelhantes. No Ensino
+                    Médio, aprofundamos o estudo dos números Reais e suas representações em intervalos.</p>
+
+                <h2>1. Os Conjuntos Fundamentais</h2>
+                <div class="destaque-box definicao">
+                    <ul class="lista-propriedades">
+                        <li><strong>Naturais (@\mathbb{N}@):</strong> @\{0, 1, 2, 3, \ldots\}@</li>
+                        <li><strong>Inteiros (@\mathbb{Z}@):</strong> @\{\ldots, -2, -1, 0, 1, 2, \ldots\}@</li>
+                        <li><strong>Racionais (@\mathbb{Q}@):</strong> Números que podem ser escritos como @\frac{a}{b}@
+                            (@a, b \in \mathbb{Z}, b \neq 0@). Inclui decimais exatos e dízimas periódicas.</li>
+                        <li><strong>Irracionais (@\mathbb{I}@):</strong> Decimais infinitos e não periódicos (@\pi,
+                            \sqrt{2}, e@).</li>
+                        <li><strong>Reais (@\mathbb{R}@):</strong> A união dos Racionais com os Irracionais (@\mathbb{Q}
+                            \cup \mathbb{I}@).</li>
+                    </ul>
+                </div>
+
+                <h2>2. Intervalos Reais</h2>
+                <p>Intervalos são subconjuntos dos números reais que podem ser representados geometricamente na reta
+                    numérica.</p>
+                <div class="destaque-box teorema">
+                    <h3>Notações Principais</h3>
+                    <ul class="lista-propriedades">
+                        <li><strong>Fechado:</strong> @[a, b] = \{x \in \mathbb{R} | a \leq x \leq b\}@</li>
+                        <li><strong>Aberto:</strong> @(a, b) = ]a, b[ = \{x \in \mathbb{R} | a < x < b\}@</li>
+                        <li><strong>Semi-aberto à direita:</strong> @[a, b[ = \{x \in \mathbb{R} | a \leq x < b\}@</li>
+                    </ul>
+                </div>
+
+                <h2>3. Operações com Intervalos</h2>
+                <div class="exemplo-resolvido">
+                    <h3>Exemplo: União e Intersecção</h3>
+                    <p>Dados @A = [2, 5]@ e @B = [4, 8]@, determine @A \cup B@ e @A \cap B@.</p>
+                    <h4>Solução:</h4>
+                    <p><strong>União (@A \cup B@):</strong> Pegamos todos os elementos de ambos. @A \cup B = [2, 8]@.
+                    </p>
+                    <p><strong>Intersecção (@A \cap B@):</strong> Pegamos apenas o que é comum. @A \cap B = [4, 5]@.</p>
+                </div>
+
+            </article>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="../../recursos.html" class="themed-button"
+                    style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+            </div>
+        </div>
+    </div>
+    <canvas id="matrixCanvas"></canvas>
+    <script src="../../js/matrix-rain.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "@@", right: "@@", display: true },
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "@", right: "@", display: false },
+                    { left: "\\(", right: "\\)", display: false }
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+    <script src="../../js/theme-switcher.js" defer></script>
+    <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

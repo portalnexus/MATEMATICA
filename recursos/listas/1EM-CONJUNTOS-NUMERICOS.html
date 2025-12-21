@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Lista: Conjuntos Numéricos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+                <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+                <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <article>
+                <span class="badge-nivel ano-1em">1º Ano EM</span>
+                <h1>Lista de Exercícios: Conjuntos Numéricos</h1>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 1:</strong> Represente na forma de conjunto: @A = [3, 7[@.</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade facil">Fácil</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 2:</strong> Determine a intersecção dos intervalos @A = ]-2, 4]@ e @B = [0, 6[@.
+                    </p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade medio">Médio</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 3:</strong> O número @0,333\ldots@ pertence a qual conjunto numérico? (Selecione
+                        o mais restrito: @\mathbb{N, Z, Q}@ ou @\mathbb{I}@).</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">☆</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade facil">Fácil</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 4:</strong> Dados @A = \{x \in \mathbb{R} | x > 5\}@ e @B = \{x \in \mathbb{R} |
+                        x \leq 8\}@, determine @A \cap B@ em notação de intervalos.</p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">☆</span></div>
+                    <span class="label-dificuldade medio">Médio</span>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <p><strong>Questão 5:</strong> (Desafio) O número @\sqrt{2} + \sqrt{3}@ é racional ou irracional?
+                    </p>
+                    <div class="dificuldade-estrelas"><span class="estrela">★</span><span class="estrela">★</span><span
+                            class="estrela">★</span></div>
+                    <span class="label-dificuldade dificil">Difícil</span>
+                </div>
+
+                <details>
+                    <summary>Ver Gabarito</summary>
+                    <ol>
+                        <li>@\{x \in \mathbb{R} | 3 \leq x < 7\}@</li>
+                        <li>@[0, 4]@</li>
+                        <li>@\mathbb{Q}@ (Racionais)</li>
+                        <li>@ ]5, 8] @</li>
+                        <li>Irracional</li>
+                    </ol>
+                </details>
+            </article>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="../../recursos.html" class="themed-button"
+                    style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+            </div>
+        </div>
+    </div>
+    <canvas id="matrixCanvas"></canvas>
+    <script src="../../js/matrix-rain.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "@@", right: "@@", display: true },
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "@", right: "@", display: false },
+                    { left: "\\(", right: "\\)", display: false }
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+    <script src="../../js/theme-switcher.js" defer></script>
+    <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

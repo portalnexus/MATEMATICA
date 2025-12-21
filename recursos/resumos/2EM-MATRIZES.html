@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Matrizes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+                <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+                <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <article>
+                <span class="badge-nivel ano-2em">2º Ano EM</span>
+                <h1>Matrizes e Determinantes</h1>
+                <p>Matrizes são tabelas organizadas em linhas e colunas, fundamentais para a resolução de sistemas
+                    lineares e aplicações em computação gráfica e engenharia.</p>
+
+                <h2>1. Definição</h2>
+                <div class="destaque-box definicao">
+                    <p>Uma matriz @A@ de ordem @m \times n@ (@m@ linhas e @n@ colunas) é representada por:</p>
+                    @@ A = \begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\
+                    \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{bmatrix} @@
+                    <p>Onde cada elemento @a_{ij}@ está na linha @i@ e coluna @j@.</p>
+                </div>
+
+                <h2>2. Operações Básicas</h2>
+                <div class="destaque-box teorema">
+                    <ul class="lista-propriedades">
+                        <li><strong>Adição:</strong> Somamos os elementos correspondentes. (Devem ter a mesma ordem).
+                        </li>
+                        <li><strong>Multiplicação por Escalar:</strong> Multiplicamos todos os elementos pelo número
+                            real.</li>
+                        <li><strong>Multiplicação de Matrizes:</strong> O número de colunas da 1ª deve ser igual ao
+                            número de linhas da 2ª.</li>
+                    </ul>
+                </div>
+
+                <h2>3. Determinantes</h2>
+                <div class="destaque-box definicao">
+                    <h3>Matriz 2x2</h3>
+                    @@ \text{det} \begin{bmatrix} a & b \\ c & d \end{bmatrix} = ad - bc @@
+                </div>
+
+                <div class="destaque-box observacao">
+                    <h3>Regra de Sarrus (3x3)</h3>
+                    <p>Para matrizes 3x3, somamos os produtos das diagonais principais e subtraímos os produtos das
+                        diagonais secundárias.</p>
+                </div>
+
+                <h2>4. Exemplo Resolvido</h2>
+                <div class="exemplo-resolvido">
+                    <h3>Exemplo: Determinante 2x2</h3>
+                    <p>Calcule o determinante de @M = \begin{bmatrix} 5 & 2 \\ 3 & 4 \end{bmatrix}@.</p>
+                    <h4>Solução:</h4>
+                    <p>@\text{det}(M) = (5 \cdot 4) - (2 \cdot 3)@</p>
+                    <p>@\text{det}(M) = 20 - 6 = 14@.</p>
+                </div>
+
+            </article>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="../../recursos.html" class="themed-button"
+                    style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+            </div>
+        </div>
+    </div>
+    <canvas id="matrixCanvas"></canvas>
+    <script src="../../js/matrix-rain.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "@@", right: "@@", display: true },
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "@", right: "@", display: false },
+                    { left: "\\(", right: "\\)", display: false }
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+    <script src="../../js/theme-switcher.js" defer></script>
+    <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Radiciação e Potenciação</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+                <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+                <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <article>
+                <span class="badge-nivel ano-9">9º ANO</span>
+                <h1>Radiciação e Potenciação</h1>
+                <p>Nesta seção, exploraremos as propriedades fundamentais das potências e raízes, ferramentas essenciais
+                    para simplificar expressões matemáticas complexas e resolver equações.</p>
+
+                <h2>1. Potenciação</h2>
+                <div class="destaque-box definicao">
+                    <h3>Definição 1.1 (Potência)</h3>
+                    <p>A potência de base @a@ e expoente @n@ (@n \in \mathbb{N}, n \geq 2@) é o produto de @n@ fatores
+                        iguais a @a@:</p>
+                    @@ a^n = \underbrace{a \cdot a \cdot \ldots \cdot a}_{n \text{ fatores}} @@
+                </div>
+
+                <h3>Propriedades das Potências</h3>
+                <div class="destaque-box teorema">
+                    <ul class="lista-propriedades">
+                        <li><strong>P1. Produto de potências de mesma base:</strong> @a^m \cdot a^n = a^{m+n}@</li>
+                        <li><strong>P2. Divisão de potências de mesma base:</strong> @\frac{a^m}{a^n} = a^{m-n}@ (@a
+                            \neq 0@)</li>
+                        <li><strong>P3. Potência de potência:</strong> @(a^m)^n = a^{m \cdot n}@</li>
+                        <li><strong>P4. Potência de um produto:</strong> @(a \cdot b)^n = a^n \cdot b^n@</li>
+                        <li><strong>P5. Expoente Zero:</strong> @a^0 = 1@ (@a \neq 0@)</li>
+                        <li><strong>P6. Expoente Negativo:</strong> @a^{-n} = \frac{1}{a^n}@ (@a \neq 0@)</li>
+                    </ul>
+                </div>
+
+                <h2>2. Radiciação</h2>
+                <div class="destaque-box definicao">
+                    <h3>Definição 2.1 (Raiz @n@-ésima)</h3>
+                    <p>A raiz @n@-ésima de um número @a@ é o número @x@ tal que @x^n = a@. Denotamos por:</p>
+                    @@ \sqrt[n]{a} = x \iff x^n = a @@
+                </div>
+
+                <div class="destaque-box observacao">
+                    <p><strong>Relação com Potência de Expoente Fracionário:</strong></p>
+                    @@ \sqrt[n]{a^m} = a^{\frac{m}{n}} @@
+                </div>
+
+                <h2>3. Exemplos Resolvidos</h2>
+                <div class="exemplo-resolvido">
+                    <h3>Exemplo 1: Simplificação</h3>
+                    <p>Simplifique a expressão @\frac{2^5 \cdot 2^3}{2^6}@.</p>
+                    <h4>Solução:</h4>
+                    <p>Aplicando P1 no numerador: @2^5 \cdot 2^3 = 2^{5+3} = 2^8@.</p>
+                    <p>Aplicando P2: @\frac{2^8}{2^6} = 2^{8-6} = 2^2 = 4@.</p>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <h3>Exemplo 2: Raízes</h3>
+                    <p>Calcule @\sqrt{144} - \sqrt[3]{27}@.</p>
+                    <h4>Solução:</h4>
+                    <p>@\sqrt{144} = 12@, pois @12^2 = 144@.</p>
+                    <p>@\sqrt[3]{27} = 3@, pois @3^3 = 27@.</p>
+                    <p>Resultado: @12 - 3 = 9@.</p>
+                </div>
+
+            </article>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="../../recursos.html" class="themed-button"
+                    style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+            </div>
+        </div>
+    </div>
+    <canvas id="matrixCanvas"></canvas>
+    <script src="../../js/matrix-rain.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "@@", right: "@@", display: true },
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "@", right: "@", display: false },
+                    { left: "\\(", right: "\\)", display: false }
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+    <div id="theme-selector-panel" class="hidden">
+        <h3>Escolha um Tema:</h3>
+        <button data-theme="theme-default">Default</button>
+        <button data-theme="theme-green-circuit">Green Circuit</button>
+        <button data-theme="theme-high-contrast">Alto Contraste</button>
+    </div>
+    <script src="../../js/theme-switcher.js" defer></script>
+    <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Geometria Analítica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+                <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+                <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <article>
+                <span class="badge-nivel ano-3em">3º Ano EM</span>
+                <h1>Geometria Analítica: Ponto e Reta</h1>
+                <p>A Geometria Analítica estabelece a conexão entre Geometria e Álgebra através do plano cartesiano,
+                    permitindo descrever formas geométricas por meio de equações.</p>
+
+                <h2>1. Distância entre Dois Pontos</h2>
+                <div class="destaque-box definicao">
+                    <p>A distância @d@ entre os pontos @A(x_1, y_1)@ e @B(x_2, y_2)@ é dada por:</p>
+                    @@ d_{AB} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} @@
+                </div>
+
+                <h2>2. Ponto Médio de um Segmento</h2>
+                <div class="destaque-box teorema">
+                    <p>As coordenadas do ponto médio @M@ do segmento @AB@ são:</p>
+                    @@ M \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \right) @@
+                </div>
+
+                <h2>3. Equação da Reta</h2>
+                <div class="destaque-box definicao">
+                    <h3>Equação Geral</h3>
+                    @@ ax + by + c = 0 @@
+                    <h3>Equação Reduzida</h3>
+                    @@ y = mx + q @@
+                    <p>Onde @m@ é o coeficiente angular e @q@ é o coeficiente linear.</p>
+                </div>
+
+                <h2>4. Coeficiente Angular (@m@)</h2>
+                <div class="destaque-box observacao">
+                    <p>Representa a inclinação da reta em relação ao eixo @x@:</p>
+                    @@ m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} = \tan(\alpha) @@
+                </div>
+
+                <h2>5. Exemplo Resolvido</h2>
+                <div class="exemplo-resolvido">
+                    <h3>Exemplo: Distância entre Pontos</h3>
+                    <p>Calcule a distância entre @A(1, 2)@ e @B(4, 6)@.</p>
+                    <h4>Solução:</h4>
+                    <p>@d_{AB} = \sqrt{(4 - 1)^2 + (6 - 2)^2}@</p>
+                    <p>@d_{AB} = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5@.</p>
+                </div>
+
+            </article>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="../../recursos.html" class="themed-button"
+                    style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+            </div>
+        </div>
+    </div>
+    <canvas id="matrixCanvas"></canvas>
+    <script src="../../js/matrix-rain.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "@@", right: "@@", display: true },
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "@", right: "@", display: false },
+                    { left: "\\(", right: "\\)", display: false }
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+    <script src="../../js/theme-switcher.js" defer></script>
+    <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

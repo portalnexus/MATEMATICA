@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - Guia de Estudos: [CAPÍTULO]" -->
+  <title>NEXUS - Guia de Estudos: Teorema de Tales e Semelhança</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA GUIAS DE ESTUDOS - NEXUS RETRO-FUTURISTA
+       ========================================================================== */
+
+    /* Cabeçalho do guia */
+    .guia-header {
+      background-color: rgba(0, 0, 0, 0.25);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 5px solid var(--link-color);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .guia-header h1 {
+      margin-top: 0.5rem;
+      color: var(--heading-text-color);
+      font-size: 1.8rem;
+    }
+
+    .guia-meta-panel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+
+    .guia-meta-card {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .guia-meta-card strong {
+      display: block;
+      color: var(--heading-text-color);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.3rem;
+    }
+
+    .guia-meta-card span {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--main-text-color);
+    }
+
+    /* Grid de objetivos/habilidades BNCC */
+    .objetivos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .objetivo-item {
+      background-color: rgba(0, 0, 0, 0.22);
+      padding: 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--link-color);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .objetivo-item:hover {
+      transform: translateY(-2px);
+      border-left-color: var(--link-hover-color);
+    }
+
+    .objetivo-item strong {
+      color: var(--link-color);
+      display: block;
+      margin-bottom: 0.6rem;
+      font-family: 'Fira Sans', sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .objetivo-item p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       MAPA CONCEITUAL HIERÁRQUICO
+       ========================================================================== */
+    .mapa-conceitual {
+      background-color: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--container-border-color);
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+    }
+
+    .mapa-conceito-raiz {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .mapa-raiz-badge {
+      background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+      border: 2px solid var(--link-color);
+      color: var(--heading-text-color);
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.85rem;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+    }
+
+    .mapa-relacao-dual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 1rem 0 2rem 0;
+      font-weight: bold;
+      color: var(--secondary-text-color);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .mapa-grid-dual {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .mapa-coluna {
+      background-color: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .mapa-coluna-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--link-color);
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .mapa-coluna-header h4 {
+      margin: 0;
+      color: var(--heading-text-color);
+      font-size: 1.1rem;
+    }
+
+    .mapa-coluna-tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: var(--link-color);
+      border: 1px solid var(--link-color);
+    }
+
+    .mapa-item-card {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--secondary-text-color);
+    }
+
+    .mapa-item-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .mapa-item-card h5 {
+      margin: 0 0 0.5rem 0;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mapa-item-card .formula-box {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin: 0.5rem 0;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .mapa-item-card p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--main-text-color);
+      opacity: 0.9;
+    }
+
+    .mapa-item-card .ponte-inversa {
+      font-size: 0.78rem;
+      color: var(--heading-text-color);
+      margin-top: 0.5rem;
+      display: block;
+      font-style: italic;
+    }
+
+    /* ==========================================================================
+       ROTEIRO DE ESTUDOS EM ETAPAS (MISSÕES)
+       ========================================================================== */
+    .etapa-estudo {
+      background-color: rgba(0, 0, 0, 0.22);
+      padding: 1.8rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      border-left: 5px solid var(--link-color);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .etapa-estudo h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .etapa-numero {
+      background-color: var(--link-color);
+      color: var(--primary-bg-color);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+    }
+
+    .etapa-xp-badge {
+      margin-left: auto;
+      background-color: rgba(255, 215, 0, 0.15);
+      border: 1px solid #ffd700;
+      color: #ffd700;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-family: 'Press Start 2P', monospace;
+    }
+
+    .etapa-bloco-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0;
+    }
+
+    .etapa-subcard {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1rem;
+      border-radius: 6px;
+      border-top: 2px solid var(--secondary-text-color);
+    }
+
+    .etapa-subcard strong {
+      color: var(--heading-text-color);
+      display: block;
+      font-size: 0.88rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .etapa-subcard p, .etapa-subcard ul {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .etapa-subcard ul {
+      padding-left: 1.2rem;
+    }
+
+    .etapa-subcard li {
+      margin-bottom: 0.4rem;
+    }
+
+    .etapa-estudo a {
+      color: var(--link-color);
+      font-weight: bold;
+    }
+
+    .etapa-estudo a:hover {
+      color: var(--link-hover-color);
+      text-decoration: underline;
+    }
+
+    .etapa-tarefas-box {
+      background-color: rgba(0, 0, 0, 0.35);
+      border: 1px dashed var(--link-color);
+      padding: 1.2rem;
+      border-radius: 6px;
+      margin-top: 1.2rem;
+    }
+
+    .etapa-tarefas-box h4 {
+      margin: 0 0 0.8rem 0;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ==========================================================================
+       ESTRATÉGIAS DE ESTUDO & VISUALIZAÇÃO GEOMÉTRICA
+       ========================================================================== */
+    .estrategia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .estrategia-card {
+      background-color: rgba(0, 0, 0, 0.22);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-left: 4px solid var(--heading-text-color);
+    }
+
+    .estrategia-card h3 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .diagrama-geometrico {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--secondary-text-color);
+      border-radius: 6px;
+      padding: 1.2rem;
+      margin: 1rem 0;
+      font-family: monospace;
+      color: var(--main-text-color);
+      line-height: 1.35;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* ==========================================================================
+       CONEXÕES INTERDISCIPLINARES
+       ========================================================================== */
+    .interdisciplinar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .interdisciplinar-card {
+      background-color: rgba(0, 0, 0, 0.22);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-top: 4px solid var(--link-color);
+    }
+
+    .interdisciplinar-card h3 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .interdisciplinar-card strong {
+      color: var(--link-color);
+    }
+
+    /* ==========================================================================
+       CHECKLIST E GAMIFICAÇÃO (DASHBOARD NEXUS)
+       ========================================================================== */
+    .checklist-container {
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .checklist-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 1rem 0;
+    }
+
+    .checklist-item {
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.7rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      border-left: 3px solid var(--secondary-text-color);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .checklist-item:hover {
+      background-color: rgba(0, 0, 0, 0.35);
+    }
+
+    .checklist-checkbox {
+      margin-top: 0.25rem;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: var(--link-color);
+    }
+
+    .checklist-content {
+      flex: 1;
+    }
+
+    .checklist-content strong {
+      display: block;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .checklist-content p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--main-text-color);
+    }
+
+    .trofeus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .trofeu-card {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(0, 0, 0, 0.3));
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      padding: 1.2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .trofeu-icone {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .trofeu-titulo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.72rem;
+      color: #ffd700;
+      margin-bottom: 0.5rem;
+    }
+
+    .trofeu-desc {
+      font-size: 0.82rem;
+      margin: 0;
+      color: var(--main-text-color);
+      opacity: 0.9;
+    }
+
+    .cronograma-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .cronograma-table th, .cronograma-table td {
+      padding: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: left;
+    }
+
+    .cronograma-table th {
+      background-color: rgba(0, 0, 0, 0.4);
+      color: var(--heading-text-color);
+      font-weight: bold;
+    }
+
+    .cronograma-table tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      .guia-header {
+        padding: 1.2rem;
+      }
+      .etapa-estudo {
+        padding: 1.2rem;
+      }
+      .etapa-numero {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+      .mapa-conceitual {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <!-- ===============================================================
+         CABEÇALHO DO GUIA
+         =============================================================== -->
+    <div class="guia-header">
+      <span class="badge-nivel ano-9">9º Ano</span>
+      <h1>📚 NEXUS - Guia de Estudos: Teorema de Tales e Semelhança</h1>
+      <p style="margin-bottom: 0.5rem; font-size: 1.05rem;">
+        <strong>Capítulo 6:</strong> <em>'Explorando formas e proporções de triângulos'</em>
+      </p>
+      <p style="margin-bottom: 0; color: var(--secondary-text-color);">
+        Roteiro metacognitivo completo sobre feixes de retas paralelas, Teorema de Tales, critérios de semelhança de triângulos (AA, LAL, LLL), transformações por homotetia e aplicações práticas de medição indireta alinhadas à BNCC.
+      </p>
+
+      <div class="guia-meta-panel">
+        <div class="guia-meta-card">
+          <strong>Tempo Sugerido</strong>
+          <span>⏱️ 3 Semanas (~18h)</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>Etapas de Missão</strong>
+          <span>🚀 5 Etapas Práticas</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>EXP Total Disponível</strong>
+          <span>⚡ +300 EXP Nexus</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>Troféus Desbloqueáveis</strong>
+          <span>🏆 3 Insígnias</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 1: OBJETIVOS E COMPETÊNCIAS BNCC
+         =============================================================== -->
+    <h2>1. Objetivos de Aprendizagem e Habilidades BNCC</h2>
+    <p>
+      Este guia consolida o conceito de proporcionalidade geométrica e raciocínio dedutivo no 9º Ano, capacitando você a relacionar figuras em diferentes escalas e a medir grandezas fisicamente inacessíveis:
+    </p>
+
+    <div class="objetivos-grid">
+      <div class="objetivo-item">
+        <strong>(EF09MAT10)</strong>
+        <p>Demonstrar e aplicar o Teorema de Tales e suas generalizações em feixes de retas paralelas cortadas por transversais e no estudo de divisões proporcionais de segmentos em triângulos.</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT12)</strong>
+        <p>Reconhecer as condições necessárias e suficientes para que dois triângulos sejam semelhantes, identificando com rigor os critérios fundamentais (AA, LAL, LLL) e aplicando proporções aos lados homólogos.</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT14)</strong>
+        <p>Descrever e construir ampliações e reduções de figuras planas por homotetia com centro e razão de semelhança @k@ estabelecidos, utilizando instrumentos de desenho geométrico e recursos computacionais.</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT15)</strong>
+        <p>Compreender e calcular as variações dimensionais entre figuras semelhantes: razão linear (@k@), razão entre áreas (@k^2@) e razão entre volumes de sólidos correspondentes (@k^3@).</p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: MAPA CONCEITUAL HIERÁRQUICO
+         =============================================================== -->
+    <h2>2. Mapa Conceitual Hierárquico</h2>
+    <p>
+      A geometria das proporções organiza-se em dois eixos complementares: a <strong>Proporcionalidade Linear Unidimensional</strong> (Teorema de Tales e feixe de paralelas) e a <strong>Semelhança e Homotetia Bidimensional</strong> (triângulos e dilatações em escala):
+    </p>
+
+    <div class="mapa-conceitual">
+      <div class="mapa-conceito-raiz">
+        <span class="mapa-raiz-badge">PROPORCIONALIDADE GEOMÉTRICA: TALES E SEMELHANÇA</span>
+        <div class="mapa-relacao-dual">
+          <span>[Feixe de Paralelas & Divisão Linear] ➔</span>
+          <span style="color: var(--link-color); font-size: 1.3rem;">⇌</span>
+          <span>➔ [Semelhança, Escala & Homotetia]</span>
+        </div>
+      </div>
+
+      <div class="mapa-grid-dual">
+        <!-- COLUNA 1: TEOREMA DE TALES -->
+        <div class="mapa-coluna">
+          <div class="mapa-coluna-header">
+            <h4>1. Teorema de Tales & Aplicações</h4>
+            <span class="mapa-coluna-tag">SEGMENTOS PROPORCIONAIS</span>
+          </div>
+
+          <!-- Teorema de Tales Fundamental -->
+          <div class="mapa-item-card">
+            <h5>Teorema Fundamental de Tales</h5>
+            <div class="formula-box">@@\frac{a}{b} = \frac{c}{d} \iff a \cdot d = b \cdot c@@</div>
+            <p>Três ou mais retas paralelas determinam em duas retas transversais quaisquer segmentos de reta correspondentes diretamente proporcionais.</p>
+            <span class="ponte-inversa">↳ Base universal para medições lineares indiretas</span>
+          </div>
+
+          <!-- Tales no Triângulo -->
+          <div class="mapa-item-card">
+            <h5>Teorema de Tales no Triângulo</h5>
+            <div class="formula-box">@@DE \parallel BC \implies \frac{AD}{DB} = \frac{AE}{EC} \quad \text{e} \quad \frac{AD}{AB} = \frac{AE}{AC}@@</div>
+            <p>Toda reta paralela a um dos lados de um triângulo que corta os outros dois lados divide-os em partes proporcionais e gera um triângulo semelhante.</p>
+            <span class="ponte-inversa">↳ Elo direto com a semelhança pelo critério AA</span>
+          </div>
+
+          <!-- Teorema da Bissetriz Interna -->
+          <div class="mapa-item-card">
+            <h5>Teorema da Bissetriz Interna</h5>
+            <div class="formula-box">@@\frac{c}{b} = \frac{m}{n}@@</div>
+            <p>A bissetriz de um ângulo interno divide o lado oposto em dois segmentos (@m@ e @n@) proporcionais aos lados adjacentes (@c@ e @b@).</p>
+            <span class="ponte-inversa">↳ Demonstração traçando reta paralela à bissetriz</span>
+          </div>
+
+          <!-- Bissetriz Externa -->
+          <div class="mapa-item-card">
+            <h5>Teorema da Bissetriz Externa</h5>
+            <div class="formula-box">@@\frac{c}{b} = \frac{x}{y}@@</div>
+            <p>A bissetriz externa divide a reta suporte do lado oposto exteriormente em segmentos harmônicos com os lados adjacentes.</p>
+            <span class="ponte-inversa">↳ Harmonia angular e feixes perspectivos</span>
+          </div>
+        </div>
+
+        <!-- COLUNA 2: SEMELHANÇA E HOMOTETIA -->
+        <div class="mapa-coluna">
+          <div class="mapa-coluna-header">
+            <h4>2. Semelhança de Triângulos & Homotetia</h4>
+            <span class="mapa-coluna-tag">MESMA FORMA, OUTRA ESCALA</span>
+          </div>
+
+          <!-- Critério AA -->
+          <div class="mapa-item-card">
+            <h5>Critério AA (Ângulo-Ângulo)</h5>
+            <div class="formula-box">@@\hat{A} = \hat{A}' \quad \text{e} \quad \hat{B} = \hat{B}' \implies \Delta ABC \sim \Delta A'B'C'@@</div>
+            <p>Se dois triângulos possuem dois ângulos ordenadamente congruentes, eles são semelhantes (pois a soma dos 3 ângulos é sempre @180^\circ@).</p>
+            <span class="ponte-inversa">↳ O critério mais frequente em vestibulares e problemas práticos</span>
+          </div>
+
+          <!-- Critério LAL -->
+          <div class="mapa-item-card">
+            <h5>Critério LAL (Lado-Ângulo-Lado)</h5>
+            <div class="formula-box">@@\frac{a}{a'} = \frac{b}{b'} = k \quad \text{e} \quad \hat{C} = \hat{C}'@@</div>
+            <p>Dois lados proporcionais que compreendem entre si um ângulo exatamente congruente.</p>
+            <span class="ponte-inversa">↳ Análogo proporcional ao critério de congruência LAL</span>
+          </div>
+
+          <!-- Critério LLL -->
+          <div class="mapa-item-card">
+            <h5>Critério LLL (Lado-Lado-Lado)</h5>
+            <div class="formula-box">@@\frac{a}{a'} = \frac{b}{b'} = \frac{c}{c'} = k@@</div>
+            <p>Os três lados homólogos guardam a mesma constante de proporcionalidade @k@. Todos os ângulos internos resultam iguais.</p>
+            <span class="ponte-inversa">↳ Rigidez estrutural triangular aplicada em escala</span>
+          </div>
+
+          <!-- Homotetia e Razão de Áreas -->
+          <div class="mapa-item-card">
+            <h5>Homotetia & Razão de Áreas</h5>
+            <div class="formula-box">@@\frac{\text{Perímetro}_1}{\text{Perímetro}_2} = k, \quad \frac{\text{Área}_1}{\text{Área}_2} = k^2, \quad \frac{\text{Volume}_1}{\text{Volume}_2} = k^3@@</div>
+            <p>Ampliação (@k > 1@) ou redução (@0 < k < 1@) a partir de um centro focal. A área cresce com o quadrado da escala linear.</p>
+            <span class="ponte-inversa">↳ Lei de escala dimensional em arquitetura e física</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: ROTEIRO DE ESTUDOS EM 5 ETAPAS
+         =============================================================== -->
+    <h2>3. Roteiro de Estudos em 5 Etapas (Missões Nexus)</h2>
+    <p>
+      Siga o roteiro passo a passo. Cada etapa consolida uma competência indispensável e acumula pontos de experiência (EXP) no seu perfil do <strong>Dashboard Nexus</strong>.
+    </p>
+
+    <!-- ETAPA 1 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">1</span>
+        Missão: O Feixe de Paralelas e o Teorema Fundamental de Tales
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT10) Montar e resolver equações a partir de feixes de retas paralelas cortadas por transversais.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Identificar retas paralelas (@r \parallel s \parallel t@) e transversais (@u@ e @v@).</li>
+            <li>Montar proporções na ordem correta, evitando trocar segmentos correspondentes de transversais diferentes.</li>
+            <li>Resolver equações fracionárias algébricas envolvendo expressões do tipo @x + 2@, @2x - 3@.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Seja o feixe @r \parallel s \parallel t@ cortado por @u@ e @v@:</p>
+          <p>@@\frac{x}{6} = \frac{8}{12} \implies 12x = 48 \implies x = 4@@</p>
+          <p>Expressão algébrica: @@\frac{2x - 1}{x + 3} = \frac{3}{4} \implies 4(2x - 1) = 3(x + 3) \implies 8x - 4 = 3x + 9 \implies 5x = 13 \implies x = 2{,}6@@</p>
+          <p><em>Dica de ouro:</em> Quando as transversais se cruzam entre as paralelas (formando um 'X'), acompanhe cada reta transversal individualmente para não misturar os segmentos!</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Estude a <strong>Seção 1 (Teorema de Tales)</strong> e o <strong>Exemplo 1</strong> do <a href="../../recursos/resumos/9ANO-TALES-SEMELHANCA.html">Resumo Teórico</a>.</p>
+        <p>2. Desenhe no seu caderno 3 retas paralelas horizontais e duas transversais concorrentes em formato de "X"; rotule os 4 segmentos e monte a proporção correspondente.</p>
+        <p>3. Resolva os <strong>Problemas 1, 2, 3, 4 e 5</strong> da seção <em>Problemas Introdutórios</em> da <a href="../../recursos/listas/9ANO-LISTA-TALES-SEMELHANCA.html">Lista de Exercícios</a>.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 2 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">2</span>
+        Missão: Proporções no Triângulo: Paralelas e o Teorema da Bissetriz
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT10 e EF09MAT12) Aplicar Tales no interior de triângulos e calcular divisões pela bissetriz interna.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Aplicar o teorema da reta paralela a uma base (@DE \parallel BC@) para encontrar segmentos nos lados @AB@ e @AC@.</li>
+            <li>Diferenciar proporção entre segmentos dos lados (@\frac{AD}{DB} = \frac{AE}{EC}@) da proporção com a base (@\frac{AD}{AB} = \frac{DE}{BC}@).</li>
+            <li>Utilizar o Teorema da Bissetriz Interna: @\frac{c}{b} = \frac{m}{n}@.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Reta paralela à base do @\Delta ABC@ com @D \in AB@ e @E \in AC@:</p>
+          <p>@@\frac{AD}{DB} = \frac{AE}{EC} \quad \text{e} \quad \frac{AD}{AB} = \frac{DE}{BC}@@</p>
+          <p>Teorema da Bissetriz Interna (@AD@ é bissetriz do ângulo @\hat{A}@):</p>
+          <p>@@\frac{AB}{AC} = \frac{BD}{DC} \iff \frac{c}{b} = \frac{m}{n}@@</p>
+          <p><em>Exemplo:</em> Se @c = 8@, @b = 6@ e a base @a = BC = 7@, temos @m + n = 7@ e @\frac{8}{6} = \frac{m}{n} \implies m = 4@ e @n = 3@.</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Demonstre por que a razão com a base exige usar o lado total @AB@ e não apenas o segmento inferior @DB@ (dica: pense em semelhança dos triângulos @\Delta ADE@ e @\Delta ABC@!).</p>
+        <p>2. Aplique o Teorema da Bissetriz Interna em um triângulo de lados 10 cm, 15 cm e base 20 cm, determinando os dois segmentos em que a base é particionada.</p>
+        <p>3. Resolva os <strong>Problemas 6, 7, 8, 9 e 10</strong> da seção <em>Problemas Introdutórios</em> da <a href="../../recursos/listas/9ANO-LISTA-TALES-SEMELHANCA.html">Lista de Exercícios</a>.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 3 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">3</span>
+        Missão: A Tríade da Semelhança: Critérios AA, LAL e LLL
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT12) Identificar lados homólogos e provar semelhança de triângulos com critérios formais.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Compreender o conceito de <em>lados homólogos</em> (lados opostos a ângulos congruentes).</li>
+            <li>Identificar o caso AA como o critério mais rápido e frequente (basta 2 ângulos iguais).</li>
+            <li>Montar a constante de semelhança @k = \frac{a}{a'} = \frac{b}{b'} = \frac{c}{c'}@ sem inverter numeradores e denominadores.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Definição formal de Semelhança: @@\Delta ABC \sim \Delta A'B'C' \iff \begin{cases} \hat{A} = \hat{A}', \quad \hat{B} = \hat{B}', \quad \hat{C} = \hat{C}' \\ \frac{AB}{A'B'} = \frac{BC}{B'C'} = \frac{AC}{A'C'} = k \end{cases}@@</p>
+          <p><em>Regra de Ouro dos Homólogos:</em> Em dois triângulos semelhantes, o lado oposto ao ângulo @\alpha@ no primeiro triângulo é proporcional ao lado oposto ao ângulo @\alpha@ no segundo triângulo!</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Estude a <strong>Seção 2 (Semelhança de Triângulos)</strong> do <a href="../../recursos/resumos/9ANO-TALES-SEMELHANCA.html">Resumo Teórico</a>.</p>
+        <p>2. Desenhe dois triângulos semelhantes com orientações espaciais giradas; identifique com cores os pares de ângulos congruentes e escreva a proporção de lados homólogos correspondente.</p>
+        <p>3. Resolva os <strong>Problemas 1, 2, 3, 4 e 5</strong> da seção <em>Problemas de Fixação</em> da <a href="../../recursos/listas/9ANO-LISTA-TALES-SEMELHANCA.html">Lista de Exercícios</a>.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 4 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">4</span>
+        Missão: Homotetia e o Salto Quadrático das Áreas
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT14 e EF09MAT15) Construir dilatações homotéticas e demonstrar que a razão de áreas é @k^2@.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Definir homotetia com polo (centro) @O@ e razão @k@ (ampliação @k > 1@, redução @0 < k < 1@, inversão @k < 0@).</li>
+            <li>Demonstrar algebricamente que se todos os lados aumentam por @k@, o perímetro aumenta por @k@ e a área é multiplicada por @k^2@.</li>
+            <li>Resolver problemas de escalas em plantas baixas, maquetes e cartografia.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Relações de Escala Dimensional:</p>
+          <p>@@\frac{\text{Perímetro}_1}{\text{Perímetro}_2} = k \quad \implies \quad \frac{\text{Área}_1}{\text{Área}_2} = k^2 \quad \implies \quad \frac{\text{Volume}_1}{\text{Volume}_2} = k^3@@</p>
+          <p><em>Exemplo clássico:</em> Se um triângulo tem seus lados duplicados (@k = 2@), seu perímetro dobra (@2 \times@), mas sua área quadruplica (@2^2 = 4 \times@)!</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Construa no papel quadriculado um triângulo de base 4 cm e altura 3 cm (área = 6 cm²). Em seguida, desenhe uma homotetia de razão @k = 3@ e verifique que a nova área é @6 \times 3^2 = 54 \text{ cm}^2@.</p>
+        <p>2. Um mapa foi desenhado na escala @1 : 50.000@. Calcule a distância real em km representada por um segmento de 8 cm no mapa (@k = 50.000@).</p>
+        <p>3. Resolva os <strong>Problemas 6, 7, 8, 9 e 10</strong> da seção <em>Problemas de Fixação</em> da <a href="../../recursos/listas/9ANO-LISTA-TALES-SEMELHANCA.html">Lista de Exercícios</a>.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 5 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">5</span>
+        Missão Integradora: Tales e as Pirâmides: Medição Inacessível
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT10, EF09MAT12 e EF09MAT15) Resolver desafios complexos de medição de alturas e distâncias inacessíveis.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Reproduzir o método histórico de Tales de Mileto para medir a altura da Pirâmide de Quéops por projeção solar de sombras.</li>
+            <li>Calcular a largura de um rio ou a distância até um navio usando triângulos semelhantes sem atravessar a água.</li>
+            <li>Resolver problemas geométricos compostos envolvendo trapézios e triângulos retângulos sobrepostos.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>O Método da Sombra de Tales:</p>
+          <p>Como os raios solares que atingem a Terra em um mesmo instante são praticamente paralelos, o triângulo formado pelo objeto e sua sombra é semelhante ao triângulo formado por uma haste vertical e sua sombra:</p>
+          <p>@@\frac{H_{\text{objeto}}}{h_{\text{haste}}} = \frac{S_{\text{sombra objeto}}}{s_{\text{sombra haste}}} \implies H = h \cdot \frac{S}{s}@@</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Uma pessoa de 1,70 m projeta uma sombra de 2,55 m no mesmo instante em que um edifício projeta uma sombra de 36 m. Calcule a altura do prédio: @\frac{H}{1{,}70} = \frac{36}{2{,}55} \implies H = 24 \text{ m}@.</p>
+        <p>2. Resolva os <strong>Problemas 1, 2, 3, 4 e 5</strong> da seção <em>Problemas de Aprofundamento</em> da <a href="../../recursos/listas/9ANO-LISTA-TALES-SEMELHANCA.html">Lista de Exercícios</a>.</p>
+        <p>3. Registre suas respostas no <a href="../../dashboard.html">Dashboard Nexus</a> para validar seus troféus e pontos acumulados.</p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: ESTRATÉGIAS E TÉCNICAS DE ESTUDO
+         =============================================================== -->
+    <h2>4. Estratégias e Técnicas de Estudo</h2>
+    <p>
+      Para dominar semelhança e proporcionalidade geométrica, abandone a intuição visual ingênua e adote o <strong>rigor de correspondência angular</strong>:
+    </p>
+
+    <div class="estrategia-grid">
+      <!-- VISUALIZAÇÃO GEOMÉTRICA ASCII -->
+      <div class="estrategia-card">
+        <h3>📐 Visualização Geométrica e Sombras</h3>
+        <p>
+          Veja a representação esquemática do Teorema de Tales e da semelhança de sombras solares:
+        </p>
+        <div class="diagrama-geometrico">
+FEIXE DE TALES:
+  r -----------A-------A'-------
+              /       /
+  s ---------B-------B'---------  AB / BC = A'B' / B'C'
+            /       /
+  t -------C-------C'-----------
+
+MEDIÇÃO POR SOMBRAS (Raios Solares Paralelos):
+     \ Raio Solar
+      \
+       |\             |\
+       | \            | \
+     H |  \         h |  \
+       |   \          |   \
+       +----+         +----+
+         S              s
+   (Pirâmide)         (Haste)
+   Razão: H / h = S / s
+        </div>
+        <p style="font-size: 0.88rem; margin: 0;">
+          Dica visual crucial: os raios solares formam o mesmo ângulo de inclinação com o solo horizontal em ambos os locais. Portanto, pelo caso <strong>AA (Ângulo Reto + Inclinação Solar)</strong>, os dois triângulos são formalmente semelhantes!
+        </p>
+      </div>
+
+      <!-- ÁRVORE DE DECISÃO -->
+      <div class="estrategia-card">
+        <h3>🌳 Árvore de Decisão: "Como Provar Semelhança?"</h3>
+        <p>Diante de dois triângulos sob investigação geométrica, siga este roteiro analítico:</p>
+        <ol style="padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+          <li><strong>Você conhece ou deduz 2 ângulos iguais?</strong>
+            <br>➔ Use imediatamente o caso <strong>AA (Ângulo-Ângulo)</strong>. É o mais comum em problemas com paralelas ou retângulos!</li>
+          <li><strong>Você conhece 2 lados de cada e o ângulo entre eles?</strong>
+            <br>➔ Confira se @\hat{\theta}_1 = \hat{\theta}_2@ e teste se @\frac{a}{a'} = \frac{b}{b'}@. Se sim: caso <strong>LAL</strong>.</li>
+          <li><strong>Você conhece apenas as medidas dos 3 lados de cada?</strong>
+            <br>➔ Ordene os lados do menor ao maior:
+            <br>Calcule @\frac{\text{menor}}{\text{menor}}@, @\frac{\text{médio}}{\text{médio}}@ e @\frac{\text{maior}}{\text{maior}}@. Se todas as frações forem iguais a @k@: caso <strong>LLL</strong>.</li>
+          <li><strong>A figura é uma ampliação a partir de um ponto?</strong>
+            <br>➔ Trata-se de <strong>Homotetia</strong> com centro @O@ e razão @k@.</li>
+        </ol>
+      </div>
+
+      <!-- POMODORO & FLASHCARDS -->
+      <div class="estrategia-card">
+        <h3>⏱️ Pomodoro Proporcional & Flashcards</h3>
+        <p><strong>Ciclo Pomodoro Ágil (25/5):</strong></p>
+        <ul style="padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6;">
+          <li><strong>25 minutos focados:</strong> Resolva proporções sem calculadora. Simplifique as frações antes de multiplicar em cruz para não errar contas grandes!</li>
+          <li><strong>5 minutos de descanso:</strong> Hidrate-se e alongue os ombros.</li>
+        </ul>
+        <p><strong>Flashcards Ativos de Escala (Frente / Verso):</strong></p>
+        <p style="font-size: 0.88rem; margin: 0;">
+          Frente: "Se a razão linear de semelhança entre duas figuras é @k = 5@, qual a razão entre suas áreas e entre seus volumes?"<br>
+          Verso: "Áreas: @k^2 = 25@ vezes maior. Volumes: @k^3 = 125@ vezes maior!"
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: CONEXÕES INTERDISCIPLINARES
+         =============================================================== -->
+    <h2>5. Conexões Interdisciplinares</h2>
+    <p>
+      A semelhança geométrica é a base estrutural que permite à humanidade mapear o relevo do planeta, capturar imagens fotográficas e formular as leis da óptica dos telescópios:
+    </p>
+
+    <div class="interdisciplinar-grid">
+      <!-- TOPOGRAFIA -->
+      <div class="interdisciplinar-card">
+        <h3>🗺️ Topografia, Engenharia Civil & Teodolito</h3>
+        <p>
+          Engenheiros e agrimensores utilizam a <strong>triangulação geodésica</strong> e estações totais para traçar rodovias, ferrovias e perfurar túneis através de montanhas:
+        </p>
+        <p>@@\frac{\text{Largura do Rio}}{d_1} = \frac{d_2}{d_3} \implies L = d_1 \cdot \frac{d_2}{d_3}@@</p>
+        <p style="font-size: 0.88rem;">
+          Ao fincar balizas em terra firme alinhadas visualmente com pontos na margem oposta, constroem-se pares de triângulos retângulos semelhantes pelo critério AA. Isso permite determinar a largura exata de rios caudalosos ou desfiladeiros intransponíveis sem molhar os pés.
+        </p>
+      </div>
+
+      <!-- FOTOGRAFIA -->
+      <div class="interdisciplinar-card">
+        <h3>📷 Fotografia & A Câmera Escura (Pinhole)</h3>
+        <p>
+          O princípio fundamental da fotografia ótica e dos sensores digitais de smartphones baseia-se na semelhança direta entre os triângulos luminosos da câmara escura:
+        </p>
+        <p>@@\frac{h_{\text{sensor}}}{h_{\text{objeto}}} = \frac{f}{D}@@</p>
+        <p style="font-size: 0.88rem;">
+          Onde @h_{\text{objeto}}@ é o tamanho real do sujeito, @D@ é a distância até a lente, @f@ é a distância focal da câmera e @h_{\text{sensor}}@ é a imagem invertida projetada sobre o sensor. Cineastas e diretores de fotografia utilizam essa proporção para escolher lentes grandes angulares ou teleobjetivas e enquadrar cenas perfeitamente.
+        </p>
+      </div>
+
+      <!-- ÓPTICA GEOMÉTRICA -->
+      <div class="interdisciplinar-card">
+        <h3>🔬 Óptica Física: Lentes e Equação de Gauss</h3>
+        <p>
+          A famosa <strong>Equação de Gauss</strong> para lentes delgadas e espelhos esféricos é derivada algebricamente através de dois pares de triângulos semelhantes:
+        </p>
+        <p>@@\frac{1}{f} = \frac{1}{p} + \frac{1}{p'} \quad \text{e} \quad A = \frac{i}{o} = -\frac{p'}{p}@@</p>
+        <p style="font-size: 0.88rem;">
+          Onde @f@ é a distância focal, @p@ é a posição do objeto e @p'@ a posição da imagem formada. O aumento linear transversal @A@ é exatamente a constante de semelhança @k@ entre os triângulos formados pelos raios que atravessam o centro óptico da lente sem sofrer desvio!
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: CRONOGRAMA DE ESTUDOS
+         =============================================================== -->
+    <h2>6. Cronograma Sugerido de 3 Semanas</h2>
+    <p>Distribua suas horas de estudo sistematicamente ao longo de 21 dias:</p>
+
+    <table class="cronograma-table">
+      <thead>
+        <tr>
+          <th>Período</th>
+          <th>Foco de Estudo</th>
+          <th>Metas & Entregáveis</th>
+          <th>Tempo Estimado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Semana 1 (Dias 1 a 7)</strong></td>
+          <td>Teorema de Tales e Bissetriz Interna (Etapas 1 e 2)</td>
+          <td>Ler Seção 1 do Resumo; desenhar transversais em 'X'; resolver problemas 1 a 10 (Introdutórios).</td>
+          <td>6 horas</td>
+        </tr>
+        <tr>
+          <td><strong>Semana 2 (Dias 8 a 14)</strong></td>
+          <td>Critérios de Semelhança (AA, LAL, LLL) e Homotetia (Etapas 3 e 4)</td>
+          <td>Ler Seção 2 do Resumo; provar relação de áreas @k^2@; resolver problemas 1 a 10 (Fixação).</td>
+          <td>6 horas</td>
+        </tr>
+        <tr>
+          <td><strong>Semana 3 (Dias 15 a 21)</strong></td>
+          <td>Medição de Alturas Inacessíveis e Desafios (Etapa 5)</td>
+          <td>Resolver problemas 1 a 5 (Aprofundamento); preencher checklist de autoavaliação; registrar EXP no Dashboard.</td>
+          <td>6 horas</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ===============================================================
+         SEÇÃO 7: CHECKLIST DE AUTOAVALIAÇÃO & DASHBOARD NEXUS
+         =============================================================== -->
+    <h2>7. Checklist de Autoavaliação e Metas Nexus</h2>
+    <p>
+      Confira suas competências antes de encerrar este ciclo de aprendizagem. Marque as habilidades consolidadas:
+    </p>
+
+    <div class="checklist-container">
+      <h3 style="margin-top: 0; color: var(--heading-text-color);">📋 Checklist de Competências</h3>
+      <ul class="checklist-list">
+        <li class="checklist-item">
+          <input type="checkbox" id="chk1" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk1">
+              <strong>1. Teorema de Tales em Feixes Paralelos</strong>
+              <p>Monto equações proporcionais com feixes de retas paralelas e calculo segmentos desconhecidos sem inverter os termos.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk2" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk2">
+              <strong>2. Tales no Triângulo e Bissetriz Interna</strong>
+              <p>Aplico o teorema da paralela a uma base e utilizo a proporção da bissetriz (@\frac{c}{b} = \frac{m}{n}@) com segurança.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk3" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk3">
+              <strong>3. Critérios de Semelhança (AA, LAL, LLL)</strong>
+              <p>Identifico formalmente qual critério valida a semelhança entre dois triângulos e localizo lados homólogos opostos a ângulos iguais.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk4" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk4">
+              <strong>4. Razão Linear e Razão de Áreas</strong>
+              <p>Reconheço que ao multiplicar os lados de uma figura por @k@, o perímetro multiplica por @k@ e sua área multiplica por @k^2@.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk5" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk5">
+              <strong>5. Homotetia e Escalas</strong>
+              <p>Construo e interpreto figuras ampliadas ou reduzidas por homotetia a partir de um polo focal e realizo conversões de escalas.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk6" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk6">
+              <strong>6. Medição Indireta Inacessível</strong>
+              <p>Modelo problemas do mundo real (altura de prédios, largura de rios, projeção de sombras solares) através de triângulos semelhantes.</p>
+            </label>
+          </div>
+        </li>
+      </ul>
+
+      <h3 style="margin-top: 2rem; color: var(--heading-text-color);">🏆 Insígnias e Troféus do Dashboard Nexus</h3>
+      <p style="font-size: 0.9rem;">
+        Ao concluir as etapas deste guia e registrar seu rendimento, você desbloqueará as seguintes insígnias no seu <a href="../../dashboard.html">Dashboard Nexus</a>:
+      </p>
+
+      <div class="trofeus-grid">
+        <div class="trofeu-card">
+          <div class="trofeu-icone">📏</div>
+          <div class="trofeu-titulo">EXPLORADOR DE TALES</div>
+          <p class="trofeu-desc">Conclua as Etapas 1 e 2 dominando proporções em feixes de paralelas e o Teorema da Bissetriz (+100 EXP).</p>
+        </div>
+
+        <div class="trofeu-card">
+          <div class="trofeu-icone">📐</div>
+          <div class="trofeu-titulo">ARQUITETO DE FORMAS</div>
+          <p class="trofeu-desc">Conclua as Etapas 3 e 4 dominando a tríade de semelhança (AA, LAL, LLL) e o salto quadrático das áreas (+100 EXP).</p>
+        </div>
+
+        <div class="trofeu-card">
+          <div class="trofeu-icone">🏛️</div>
+          <div class="trofeu-titulo">MESTRE DA HOMOTETIA</div>
+          <p class="trofeu-desc">Complete todo o roteiro, resolva os problemas de medição inacessível e conquiste a pontuação máxima (+100 EXP).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO DE RECURSOS COMPLEMENTARES -->
+    <h2>8. Materiais e Recursos Vinculados</h2>
+    <div class="objetivos-grid">
+      <div class="objetivo-item">
+        <strong>📄 Resumo Teórico Completo</strong>
+        <p>Definições de feixes proporcionais, demonstrações dos critérios de semelhança e exemplos numéricos resolvidos.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../recursos/resumos/9ANO-TALES-SEMELHANCA.html">Acessar Resumo</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>📝 Lista de Problemas</strong>
+        <p>Mais de 30 exercícios graduados com gabarito, divididos em introdutórios, fixação e desafios de medição.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../recursos/listas/9ANO-LISTA-TALES-SEMELHANCA.html">Acessar Lista de Exercícios</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>📊 Dashboard do Aluno</strong>
+        <p>Acompanhe sua evolução em tempo real, registre suas missões cumpridas e confira seu total de EXP acumulado.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../dashboard.html">Ir para o Dashboard</a></p>
+      </div>
+    </div>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

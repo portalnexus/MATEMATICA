@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS - Geometria Analítica</title>
+    <title>NEXUS - Geometria Analítica Completa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -28,45 +28,238 @@
         <div class="container">
             <article>
                 <span class="badge-nivel ano-3em">3º Ano EM</span>
-                <h1>Geometria Analítica: Ponto e Reta</h1>
-                <p>A Geometria Analítica estabelece a conexão entre Geometria e Álgebra através do plano cartesiano,
-                    permitindo descrever formas geométricas por meio de equações.</p>
+                <h1>Geometria Analítica: Ponto, Reta e Circunferência</h1>
+                <p>A Geometria Analítica, inaugurada por René Descartes e Pierre de Fermat, une a intuição geométrica euclidiana ao poder computacional da álgebra. Através do sistema de coordenadas cartesianas no plano @\mathbb{R}^2@, curvas e figuras espaciais transformam-se em equações algébricas, permitindo resolver problemas geométricos complexos por meio de sistemas de equações e matrizes.</p>
 
-                <h2>1. Distância entre Dois Pontos</h2>
+                <h2>1. Estudo do Ponto no Plano Cartesiano</h2>
+                
                 <div class="destaque-box definicao">
-                    <p>A distância @d@ entre os pontos @A(x_1, y_1)@ e @B(x_2, y_2)@ é dada por:</p>
-                    @@ d_{AB} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} @@
+                    <h3>Sistema Cartesiano Ortogonal</h3>
+                    <p>Um sistema cartesiano ortogonal no plano é constituído por dois eixos orientados perpendiculares entre si na origem @O(0, 0)@: o eixo das abscissas (eixo @x@) e o eixo das ordenadas (eixo @y@). A cada ponto @P@ do plano corresponde um único par ordenado @(x_P, y_P) \in \mathbb{R}^2@.</p>
                 </div>
 
-                <h2>2. Ponto Médio de um Segmento</h2>
                 <div class="destaque-box teorema">
-                    <p>As coordenadas do ponto médio @M@ do segmento @AB@ são:</p>
-                    @@ M \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \right) @@
+                    <h3>Teorema da Distância entre Dois Pontos</h3>
+                    <p>Sejam @A(x_A, y_A)@ e @B(x_B, y_B)@ dois pontos no plano cartesiano. A distância euclidiana @d(A, B)@ é dada pela aplicação direta do Teorema de Pitágoras no triângulo retângulo de catetos @|\Delta x|@ e @|\Delta y|@:</p>
+                    @@ d(A, B) = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2} @@
                 </div>
 
-                <h2>3. Equação da Reta</h2>
                 <div class="destaque-box definicao">
-                    <h3>Equação Geral</h3>
-                    @@ ax + by + c = 0 @@
-                    <h3>Equação Reduzida</h3>
+                    <h3>Ponto Médio e Baricentro</h3>
+                    <p>O ponto médio @M@ do segmento de extremidades @A(x_A, y_A)@ e @B(x_B, y_B)@ possui coordenadas dadas pela média aritmética das coordenadas dos extremos:</p>
+                    @@ M\left(\frac{x_A + x_B}{2}, \frac{y_A + y_B}{2}\right) @@
+                    <p>Para um triângulo de vértices @A(x_A, y_A)@, @B(x_B, y_B)@ e @C(x_C, y_C)@, o <strong>baricentro</strong> @G@ (ponto de encontro das medianas) é o centro de massa geométrico:</p>
+                    @@ G\left(\frac{x_A + x_B + x_C}{3}, \frac{y_A + y_B + y_C}{3}\right) @@
+                </div>
+
+                <div class="destaque-box teorema">
+                    <h3>Condição de Alinhamento de Três Pontos e Área de Triângulo</h3>
+                    <p>Três pontos distintos @A(x_A, y_A)@, @B(x_B, y_B)@ e @C(x_C, y_C)@ são colineares se, e somente se, o determinante de suas coordenadas homogêneas for nulo:</p>
+                    @@ D = \begin{vmatrix} x_A & y_A & 1 \\ x_B & y_B & 1 \\ x_C & y_C & 1 \end{vmatrix} = 0 @@
+                    <p>Caso @D \neq 0@, os três pontos formam os vértices de um triângulo cuja área @S@ é exatamente a metade do módulo desse determinante:</p>
+                    @@ S = \frac{1}{2} |D| @@
+                </div>
+
+                <h2>2. Estudo da Reta</h2>
+
+                <div class="destaque-box definicao">
+                    <h3>Coeficiente Angular (Declividade)</h3>
+                    <p>Seja uma reta @r@ não vertical que forma um ângulo de inclinação @\alpha \in [0, \pi) \setminus \{\pi/2\}@ com o sentido positivo do eixo das abscissas. O <strong>coeficiente angular</strong> @m@ é a tangente trigonométrica dessa inclinação:</p>
+                    @@ m = \tan(\alpha) = \frac{\Delta y}{\Delta x} = \frac{y_B - y_A}{x_B - x_A} \quad (x_A \neq x_B) @@
+                    <p>Se a reta for vertical (@\alpha = 90^\circ@), o coeficiente angular não é definido nos números reais.</p>
+                </div>
+
+                <div class="destaque-box definicao">
+                    <h3>Formas da Equação da Reta</h3>
+                    <p><strong>1. Forma Fundamental (Ponto e Declividade):</strong> Conhecendo um ponto @P_0(x_0, y_0)@ e o coeficiente angular @m@:</p>
+                    @@ y - y_0 = m(x - x_0) @@
+                    <p><strong>2. Forma Reduzida:</strong> Isolando a variável dependente @y@:</p>
                     @@ y = mx + q @@
-                    <p>Onde @m@ é o coeficiente angular e @q@ é o coeficiente linear.</p>
+                    <p>Onde @m@ é o coeficiente angular e @q@ é o <em>coeficiente linear</em> (ordenada do ponto onde a reta intercepta o eixo @y@: @(0, q)@).</p>
+                    <p><strong>3. Forma Geral:</strong> Toda reta no plano admite representação linear da forma:</p>
+                    @@ ax + by + c = 0 \quad \text{com } (a, b) \neq (0, 0) @@
+                    <p>Se @b \neq 0@, temos @m = -\frac{a}{b}@ e @q = -\frac{c}{b}@.</p>
+                    <p><strong>4. Forma Segmentária:</strong> Para retas que cortam os eixos nos pontos @(p, 0)@ e @(0, q)@ com @p, q \neq 0@:</p>
+                    @@ \frac{x}{p} + \frac{y}{q} = 1 @@
                 </div>
 
-                <h2>4. Coeficiente Angular (@m@)</h2>
+                <div class="destaque-box teorema">
+                    <h3>Posições Relativas entre Duas Retas no Plano</h3>
+                    <p>Dadas duas retas @r: y = m_1 x + q_1@ e @s: y = m_2 x + q_2@:</p>
+                    <ul>
+                        <li><strong>Paralelas Distintas:</strong> @m_1 = m_2@ e @q_1 \neq q_2@ (interseção vazia: @r \cap s = \emptyset@).</li>
+                        <li><strong>Paralelas Coincidentes:</strong> @m_1 = m_2@ e @q_1 = q_2@ (são a mesma reta: @r = s@).</li>
+                        <li><strong>Concorrentes:</strong> @m_1 \neq m_2@ (possuem exatamente um ponto comum @r \cap s = \{P\}@).</li>
+                        <li><strong>Perpendiculares:</strong> São concorrentes formando ângulo reto (@90^\circ@). Isso ocorre se, e somente se:</li>
+                    </ul>
+                    @@ m_1 \cdot m_2 = -1 \iff m_2 = -\frac{1}{m_1} @@
+                </div>
+
+                <div class="destaque-box teorema">
+                    <h3>Distância de um Ponto a uma Reta</h3>
+                    <p>A menor distância entre um ponto @P(x_0, y_0)@ e uma reta @r: ax + by + c = 0@ é dada pelo comprimento do segmento perpendicular baixado de @P@ sobre @r@:</p>
+                    @@ d(P, r) = \frac{|a x_0 + b y_0 + c|}{\sqrt{a^2 + b^2}} @@
+                </div>
+
+                <h2>3. Estudo da Circunferência</h2>
+
+                <div class="destaque-box definicao">
+                    <h3>Definição Geométrica e Equação Reduzida</h3>
+                    <p>A circunferência @\lambda@ é o lugar geométrico dos pontos @P(x, y)@ do plano que distam uma medida constante @r > 0@ (raio) de um ponto fixo @C(a, b)@ (centro): @d(P, C) = r@. Elevando ao quadrado, obtém-se a <strong>equação reduzida</strong>:</p>
+                    @@ (x - a)^2 + (y - b)^2 = r^2 @@
+                </div>
+
+                <div class="destaque-box definicao">
+                    <h3>Equação Geral e Reconhecimento da Circunferência</h3>
+                    <p>Desenvolvendo os quadrados dos binômios:</p>
+                    @@ x^2 + y^2 - 2ax - 2by + (a^2 + b^2 - r^2) = 0 @@
+                    <p>Uma equação do segundo grau nas variáveis @x@ e @y@ da forma @A x^2 + B y^2 + C xy + D x + E y + F = 0@ representa uma circunferência real se, e somente se:</p>
+                    <ol>
+                        <li>@A = B \neq 0@ (coeficientes quadráticos iguais e não nulos; dividindo tudo por @A@, tornam-se unitários).</li>
+                        <li>@C = 0@ (ausência do termo retangular cruzado @xy@).</li>
+                        <li>O raio calculado for estritamente positivo: @r = \sqrt{a^2 + b^2 - F/A} > 0@.</li>
+                    </ol>
+                </div>
+
                 <div class="destaque-box observacao">
-                    <p>Representa a inclinação da reta em relação ao eixo @x@:</p>
-                    @@ m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} = \tan(\alpha) @@
+                    <h3>Posição Relativa entre Reta e Circunferência</h3>
+                    <p>Para determinar a posição relativa entre a reta @s: ax + by + c = 0@ e a circunferência @\lambda@ de centro @C@ e raio @r@, calcula-se a distância @d = d(C, s)@:</p>
+                    <ul>
+                        <li>Se @d < r@: A reta é <strong>secante</strong> à circunferência (intercepta em 2 pontos distintos).</li>
+                        <li>Se @d = r@: A reta é <strong>tangente</strong> à circunferência (intercepta em exatamente 1 ponto).</li>
+                        <li>Se @d > r@: A reta é <strong>externa</strong> à circunferência (interseção vazia).</li>
+                    </ul>
                 </div>
 
-                <h2>5. Exemplo Resolvido</h2>
+                <h2>4. Exemplos Práticos Resolvidos Passo a Passo</h2>
+
                 <div class="exemplo-resolvido">
-                    <h3>Exemplo: Distância entre Pontos</h3>
-                    <p>Calcule a distância entre @A(1, 2)@ e @B(4, 6)@.</p>
-                    <h4>Solução:</h4>
-                    <p>@d_{AB} = \sqrt{(4 - 1)^2 + (6 - 2)^2}@</p>
-                    <p>@d_{AB} = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5@.</p>
+                    <h3>Exemplo 1: Equação da Reta Mediatriz</h3>
+                    <p>Encontre a equação da mediatriz do segmento de extremos @A(1, 3)@ e @B(5, 7)@.</p>
+                    <h4>Solução Passo a Passo:</h4>
+                    <p><strong>Passo 1:</strong> A mediatriz é a reta perpendicular ao segmento @AB@ que passa pelo seu ponto médio @M@. Calculamos o ponto médio:</p>
+                    @@ M = \left(\frac{1 + 5}{2}, \frac{3 + 7}{2}\right) = (3, 5) @@
+                    <p><strong>Passo 2:</strong> Calculamos o coeficiente angular da reta que contém o segmento @AB@:</p>
+                    @@ m_{AB} = \frac{7 - 3}{5 - 1} = \frac{4}{4} = 1 @@
+                    <p><strong>Passo 3:</strong> Como a mediatriz @r@ é perpendicular a @AB@, temos @m_r \cdot m_{AB} = -1@, logo:</p>
+                    @@ m_r = -\frac{1}{1} = -1 @@
+                    <p><strong>Passo 4:</strong> Aplicamos a equação fundamental da reta que passa por @M(3, 5)@ com @m = -1@:</p>
+                    @@ y - 5 = -1(x - 3) \implies y - 5 = -x + 3 \implies x + y - 8 = 0 @@
+                    <p>A equação geral da mediatriz é @x + y - 8 = 0@.</p>
                 </div>
+
+                <div class="exemplo-resolvido">
+                    <h3>Exemplo 2: Posição Relativa e Reta Tangente</h3>
+                    <p>Verifique a posição da reta @r: 3x + 4y - 25 = 0@ em relação à circunferência @\lambda: x^2 + y^2 = 25@.</p>
+                    <h4>Solução Passo a Passo:</h4>
+                    <p><strong>Passo 1:</strong> Identificamos o centro e raio da circunferência: @C(0, 0)@ e @r^2 = 25 \implies r = 5@.</p>
+                    <p><strong>Passo 2:</strong> Calculamos a distância do centro @C(0, 0)@ à reta @r@ usando a fórmula da distância de ponto à reta:</p>
+                    @@ d(C, r) = \frac{|3(0) + 4(0) - 25|}{\sqrt{3^2 + 4^2}} = \frac{|-25|}{\sqrt{9 + 16}} = \frac{25}{\sqrt{25}} = \frac{25}{5} = 5 @@
+                    <p><strong>Passo 3:</strong> Comparando a distância com o raio, constatamos que @d(C, r) = 5 = r@. Portanto, a reta @r@ é <strong>tangente</strong> à circunferência @\lambda@ no ponto @(3, 4)@.</p>
+                </div>
+
+                <h2>5. Exercícios Conceituais de Fixação Rápida</h2>
+
+                <details class="gabarito-container">
+                    <summary>Exercício 1: Qual é a distância entre a origem @O(0, 0)@ e o ponto @P(-6, 8)@?</summary>
+                    <div class="resolucao-conteudo">
+                        <p>Aplicando a fórmula da distância euclidiana:</p>
+                        @@ d = \sqrt{(-6 - 0)^2 + (8 - 0)^2} = \sqrt{36 + 64} = \sqrt{100} = 10 @@
+                    </div>
+                </details>
+
+                <details class="gabarito-container">
+                    <summary>Exercício 2: Se uma reta tem inclinação de @135^\circ@, qual é o seu coeficiente angular?</summary>
+                    <div class="resolucao-conteudo">
+                        <p>O coeficiente angular é a tangente do ângulo de inclinação:</p>
+                        @@ m = \tan(135^\circ) = \tan(180^\circ - 45^\circ) = -\tan(45^\circ) = -1 @@
+                    </div>
+                </details>
+
+                <details class="gabarito-container">
+                    <summary>Exercício 3: Duas retas @r: 2x - 3y + 1 = 0@ e @s: kx + 4y - 5 = 0@ são perpendiculares. Qual é o valor de @k@?</summary>
+                    <div class="resolucao-conteudo">
+                        <p>Para @r@, o coeficiente angular é @m_r = -\frac{a}{b} = -\frac{2}{-3} = \frac{2}{3}@.</p>
+                        <p>Para @s@, o coeficiente angular é @m_s = -\frac{k}{4}@.</p>
+                        <p>Para perpendicularismo, @m_r \cdot m_s = -1 \implies \frac{2}{3} \cdot \left(-\frac{k}{4}\right) = -1 \implies -\frac{2k}{12} = -1 \implies 2k = 12 \implies k = 6@.</p>
+                    </div>
+                </details>
+
+                <details class="gabarito-container">
+                    <summary>Exercício 4: Determine o centro e o raio da circunferência @x^2 + y^2 - 6x + 8y = 0@.</summary>
+                    <div class="resolucao-conteudo">
+                        <p>Completando os quadrados:</p>
+                        @@ (x^2 - 6x + 9) + (y^2 + 8y + 16) = 9 + 16 @@
+                        @@ (x - 3)^2 + (y + 4)^2 = 25 @@
+                        <p>Portanto, o centro é @C(3, -4)@ e o raio é @r = \sqrt{25} = 5@.</p>
+                    </div>
+                </details>
+
+                <details class="gabarito-container">
+                    <summary>Exercício 5: Os pontos @A(1, 2)@, @B(3, 4)@ e @C(5, 6)@ formam um triângulo?</summary>
+                    <div class="resolucao-conteudo">
+                        <p>Calculamos o determinante das coordenadas homogêneas:</p>
+                        @@ D = \begin{vmatrix} 1 & 2 & 1 \\ 3 & 4 & 1 \\ 5 & 6 & 1 \end{vmatrix} = (4 + 10 + 18) - (20 + 6 + 6) = 32 - 32 = 0 @@
+                        <p>Como @D = 0@, os pontos são colineares e, portanto, <strong>não</strong> formam um triângulo.</p>
+                    </div>
+                </details>
+
+                <details class="gabarito-container">
+                    <summary>Exercício 6: Qual é a distância da reta @4x + 3y + 10 = 0@ ao ponto @P(2, 4)@?</summary>
+                    <div class="resolucao-conteudo">
+                        <p>Aplicando a fórmula da distância de ponto à reta:</p>
+                        @@ d = \frac{|4(2) + 3(4) + 10|}{\sqrt{4^2 + 3^2}} = \frac{|8 + 12 + 10|}{\sqrt{16 + 9}} = \frac{30}{\sqrt{25}} = \frac{30}{5} = 6 @@
+                    </div>
+                </details>
+
+                <details class="gabarito-container">
+                    <summary>Exercício 7: Qual é o ponto de interseção entre as retas @y = 2x - 1@ e @y = -x + 5@?</summary>
+                    <div class="resolucao-conteudo">
+                        <p>Igualando as duas expressões de @y@:</p>
+                        @@ 2x - 1 = -x + 5 \implies 3x = 6 \implies x = 2 @@
+                        <p>Substituindo @x = 2@ em uma das equações: @y = 2(2) - 1 = 3@. Logo, a interseção é o ponto @(2, 3)@.</p>
+                    </div>
+                </details>
+
+                <details class="gabarito-container">
+                    <summary>Exercício 8: Em qual ponto a reta @\frac{x}{3} + \frac{y}{-4} = 1@ intercepta o eixo das ordenadas?</summary>
+                    <div class="resolucao-conteudo">
+                        <p>Pela forma segmentária @\frac{x}{p} + \frac{y}{q} = 1@, a reta intercepta o eixo @x@ em @(p, 0) = (3, 0)@ e o eixo @y@ em @(0, q) = (0, -4)@.</p>
+                    </div>
+                </details>
+
+                <details class="gabarito-container">
+                    <summary>Exercício 9: Qual é o baricentro do triângulo de vértices @A(0, 0)@, @B(6, 0)@ e @C(3, 9)@?</summary>
+                    <div class="resolucao-conteudo">
+                        <p>Calculando as coordenadas médias:</p>
+                        @@ x_G = \frac{0 + 6 + 3}{3} = \frac{9}{3} = 3 \quad \text{e} \quad y_G = \frac{0 + 0 + 9}{3} = \frac{9}{3} = 3 @@
+                        <p>O baricentro é @G(3, 3)@.</p>
+                    </div>
+                </details>
+
+                <details class="gabarito-container">
+                    <summary>Exercício 10: O ponto @P(5, 5)@ é interno, externo ou pertencente à circunferência @x^2 + y^2 = 25@?</summary>
+                    <div class="resolucao-conteudo">
+                        <p>Substituímos o ponto na expressão @x^2 + y^2@: @5^2 + 5^2 = 25 + 25 = 50@.</p>
+                        <p>Como @50 > 25@ (a distância à origem @\sqrt{50} \approx 7,07@ é maior que o raio @r = 5@), o ponto é <strong>externo</strong> à circunferência.</p>
+                    </div>
+                </details>
+
+                <details class="gabarito-container">
+                    <summary>Exercício 11: Qual é a inclinação de uma reta horizontal constante @y = 4@?</summary>
+                    <div class="resolucao-conteudo">
+                        <p>Uma reta horizontal tem ângulo de inclinação @\alpha = 0^\circ@ com o eixo @x@, logo seu coeficiente angular é @m = \tan(0^\circ) = 0@.</p>
+                    </div>
+                </details>
+
+                <details class="gabarito-container">
+                    <summary>Exercício 12: Qual é a área do triângulo cujos vértices são @(0,0)@, @(4,0)@ e @(0,3)@?</summary>
+                    <div class="resolucao-conteudo">
+                        <p>O determinante das coordenadas homogêneas é:</p>
+                        @@ D = \begin{vmatrix} 0 & 0 & 1 \\ 4 & 0 & 1 \\ 0 & 3 & 1 \end{vmatrix} = 0(0 - 3) - 0(4 - 0) + 1(12 - 0) = 12 @@
+                        <p>A área é @S = \frac{1}{2} |D| = \frac{1}{2} \cdot 12 = 6@ unidades de área.</p>
+                    </div>
+                </details>
 
             </article>
             <div style="text-align: center; margin-top: 30px;">

@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Sistema Internacional de Unidades, Análise Dimensional e Conversões</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-1em {
+      background-color: rgba(16, 185, 129, 0.25);
+      border: 2px solid #10b981;
+      color: #a7f3d0;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-1em">1º Ano EM</div>
+
+    <h1>Sistema Internacional de Unidades, Análise Dimensional e Conversões</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 8: "Unidades de medida? Melhor deixar no padrão!"
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E CONTEXTO HISTÓRICO-EPISTEMOLÓGICO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para a compreensão profunda e formal deste resumo com rigor acadêmico inspirado nos <em>Fundamentos de Matemática Elementar</em> (FME), o estudante deve mobilizar:</p>
+      <ul>
+        <li><strong>Aritmética e Álgebra Básica:</strong> potenciação, radiciação, expoentes fracionários e inteiros negativos, produtos notáveis e fatoração.</li>
+        <li><strong>Razão, Proporção e Teoria de Escalas:</strong> proporcionalidade direta e inversa, regra de três simples e composta, e o método dos fatores unitários de conversão.</li>
+        <li><strong>Sistemas Lineares e Equações Algébricas:</strong> resolução de sistemas com @n@ equações e @n@ incógnitas por substituição e escalonamento para resolução dimensional.</li>
+      </ul>
+    </div>
+
+    <p>
+      Desde os primórdios das civilizações hidráulicas no Nilo, Eufrates e Yangtzé, medir sempre foi sinônimo de governar, edificar e comercializar. Contudo, até o final do século XVIII, o mundo vivia em uma verdadeira Torre de Babel metrológica: apenas na França pré-revolucionária, coexistiam mais de 250.000 unidades de medida locais distintas. O comprimento de um "pé" ou de uma "polegada" variava de acordo com a anatomia do monarca reinante, gerando arbitrariedades tributárias, litígios agrários e barreiras intransponíveis ao desenvolvimento do comércio e da ciência experimental.
+    </p>
+    <p>
+      Em 1791, a Academia Francesa de Ciências, sob a liderança de expoentes como <strong>Antoine Lavoisier</strong>, <strong>Pierre-Simon Laplace</strong> e <strong>Jean-Baptiste Delambre</strong>, concebeu o <strong>Sistema Métrico Decimal</strong> baseado no lema iluminista <em>"Pour tous les hommes, pour tous les temps"</em> ("Para todos os homens, para todos os tempos"). Estabeleceu-se que o metro seria a décima milionésima parte do quadrante do meridiano terrestre. Essa busca pela universalidade culminou na Convenção do Metro (1875), na criação do <strong>Bureau International des Poids et Mesures (BIPM)</strong> e na instituição oficial do <strong>Sistema Internacional de Unidades (SI)</strong> na 11ª Conferência Geral de Pesos e Medidas (CGPM) em 1960.
+    </p>
+    <p>
+      Em <strong>20 de maio de 2019</strong> (26ª CGPM), ocorreu a mais radical e bela revolução metrológica da história humana: todas as unidades fundamentais deixaram de depender de artefatos materiais perecíveis (como o cilindro de platina-irídio que definia o quilograma guardado em Sèvres) e passaram a ser ancoradas estritamente em <strong>constantes universais da física quântica e relativística</strong>.
+    </p>
+
+    <!-- ===============================================================
+         PARTE 1: O SISTEMA INTERNACIONAL DE UNIDADES (SI)
+         =============================================================== -->
+    <h2>1. A Estrutura Formal do Sistema Internacional de Unidades (SI)</h2>
+
+    <p>
+      O SI é construído axiomaticamente sobre <strong>sete grandezas fundamentais</strong> (ou grandezas de base), mutuamente independentes do ponto de vista dimensional, a partir das quais todas as demais grandezas físicas (derivadas) são construídas por relações multiplicativas.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (As Sete Grandezas e Unidades Fundamentais do SI)</h3>
+      <p>
+        Pelo marco regulatório do BIPM/CGPM (2019), as 7 grandezas fundamentais e suas respectivas unidades são definidas mediante a fixação de valores numéricos exatos de 7 constantes definidoras da natureza:
+      </p>
+      <div class="tabela-container">
+        <table class="tabela-comparativa">
+          <thead>
+            <tr>
+              <th>Grandeza de Base</th>
+              <th>Símbolo Dimensional</th>
+              <th>Unidade SI</th>
+              <th>Símbolo</th>
+              <th>Constante Universal Fixadora (Valor Exato)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Comprimento</strong></td>
+              <td>@[L]@</td>
+              <td>metro</td>
+              <td>@\text{m}@</td>
+              <td>Velocidade da luz no vácuo: @c = 299\,792\,458\text{ m}\cdot\text{s}^{-1}@</td>
+            </tr>
+            <tr>
+              <td><strong>Massa</strong></td>
+              <td>@[M]@</td>
+              <td>quilograma</td>
+              <td>@\text{kg}@</td>
+              <td>Constante de Planck: @h = 6{,}626\,070\,15 \times 10^{-34}\text{ J}\cdot\text{s}@</td>
+            </tr>
+            <tr>
+              <td><strong>Tempo</strong></td>
+              <td>@[T]@</td>
+              <td>segundo</td>
+              <td>@\text{s}@</td>
+              <td>Transição hiperfina do @^{133}\text{Cs}@: @\Delta\nu_{\text{Cs}} = 9\,192\,631\,770\text{ Hz}@</td>
+            </tr>
+            <tr>
+              <td><strong>Corrente Elétrica</strong></td>
+              <td>@[I]@</td>
+              <td>ampère</td>
+              <td>@\text{A}@</td>
+              <td>Carga elementar do próton: @e = 1{,}602\,176\,634 \times 10^{-19}\text{ C}@</td>
+            </tr>
+            <tr>
+              <td><strong>Temperatura Termodinâmica</strong></td>
+              <td>@[\Theta]@</td>
+              <td>kelvin</td>
+              <td>@\text{K}@</td>
+              <td>Constante de Boltzmann: @k_B = 1{,}380\,649 \times 10^{-23}\text{ J}\cdot\text{K}^{-1}@</td>
+            </tr>
+            <tr>
+              <td><strong>Quantidade de Substância</strong></td>
+              <td>@[N]@</td>
+              <td>mol</td>
+              <td>@\text{mol}@</td>
+              <td>Constante de Avogadro: @N_A = 6{,}022\,140\,76 \times 10^{23}\text{ mol}^{-1}@</td>
+            </tr>
+            <tr>
+              <td><strong>Intensidade Luminosa</strong></td>
+              <td>@[J]@</td>
+              <td>candela</td>
+              <td>@\text{cd}@</td>
+              <td>Eficácia luminosa de @540 \times 10^{12}\text{ Hz}@: @K_{\text{cd}} = 683\text{ lm}\cdot\text{W}^{-1}@</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>🔍 Grandezas Adimensionais e Unidades Suplementares</h3>
+      <p>
+        No SI, o <strong>ângulo plano</strong> e o <strong>ângulo sólido</strong> são grandezas adimensionais (razão de comprimentos @\text{m/m}@ e razão de áreas @\text{m}^2/\text{m}^2@, respectivamente). Suas unidades recebem nomes especiais puramente para clareza contextual:
+      </p>
+      <ul>
+        <li><strong>Radiano (@\text{rad}@):</strong> Ângulo plano que subtende um arco de circunferência cujo comprimento é numericamente igual ao raio: @1\text{ rad} = \frac{\ell}{R} \implies [1]@.</li>
+        <li><strong>Esferorradiano (@\text{sr}@):</strong> Ângulo sólido que subtende uma calota esférica cuja área é igual ao quadrado do raio da esfera: @1\text{ sr} = \frac{A}{R^2} \implies [1]@. Uma esfera completa subtende @4\pi\text{ sr}@.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 2: GRANDEZAS DERIVADAS
+         =============================================================== -->
+    <h2>2. Grandezas Derivadas do SI e Suas Relações Algébricas</h2>
+
+    <p>
+      Qualquer outra grandeza mecânica, eletromagnética, térmica ou química deriva algebricamente do produto e quociente das 7 grandezas fundamentais. A tabela abaixo sintetiza com rigor as principais grandezas derivadas do SI:
+    </p>
+
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Grandeza Derivada</th>
+            <th>Unidade SI</th>
+            <th>Símbolo</th>
+            <th>Expressão em Outras Unidades SI</th>
+            <th>Expressão em Unidades de Base do SI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Frequência</strong></td>
+            <td>hertz</td>
+            <td>@\text{Hz}@</td>
+            <td>@1/\text{s}@</td>
+            <td>@\text{s}^{-1}@</td>
+          </tr>
+          <tr>
+            <td><strong>Força, Peso</strong></td>
+            <td>newton</td>
+            <td>@\text{N}@</td>
+            <td>@\text{kg}\cdot\text{m/s}^2@</td>
+            <td>@\text{m}\cdot\text{kg}\cdot\text{s}^{-2}@</td>
+          </tr>
+          <tr>
+            <td><strong>Pressão, Tensão Mecânica</strong></td>
+            <td>pascal</td>
+            <td>@\text{Pa}@</td>
+            <td>@\text{N/m}^2 = \text{J/m}^3@</td>
+            <td>@\text{m}^{-1}\cdot\text{kg}\cdot\text{s}^{-2}@</td>
+          </tr>
+          <tr>
+            <td><strong>Energia, Trabalho, Calor</strong></td>
+            <td>joule</td>
+            <td>@\text{J}@</td>
+            <td>@\text{N}\cdot\text{m} = \text{Pa}\cdot\text{m}^3@</td>
+            <td>@\text{m}^2\cdot\text{kg}\cdot\text{s}^{-2}@</td>
+          </tr>
+          <tr>
+            <td><strong>Potência, Fluxo Radiante</strong></td>
+            <td>watt</td>
+            <td>@\text{W}@</td>
+            <td>@\text{J/s} = \text{V}\cdot\text{A}@</td>
+            <td>@\text{m}^2\cdot\text{kg}\cdot\text{s}^{-3}@</td>
+          </tr>
+          <tr>
+            <td><strong>Carga Elétrica</strong></td>
+            <td>coulomb</td>
+            <td>@\text{C}@</td>
+            <td>@\text{A}\cdot\text{s}@</td>
+            <td>@\text{s}\cdot\text{A}@</td>
+          </tr>
+          <tr>
+            <td><strong>Potencial Elétrico, Tensão</strong></td>
+            <td>volt</td>
+            <td>@\text{V}@</td>
+            <td>@\text{W/A} = \text{J/C}@</td>
+            <td>@\text{m}^2\cdot\text{kg}\cdot\text{s}^{-3}\cdot\text{A}^{-1}@</td>
+          </tr>
+          <tr>
+            <td><strong>Capacitância Elétrica</strong></td>
+            <td>farad</td>
+            <td>@\text{F}@</td>
+            <td>@\text{C/V}@</td>
+            <td>@\text{m}^{-2}\cdot\text{kg}^{-1}\cdot\text{s}^4\cdot\text{A}^2@</td>
+          </tr>
+          <tr>
+            <td><strong>Resistência Elétrica</strong></td>
+            <td>ohm</td>
+            <td>@\Omega@</td>
+            <td>@\text{V/A}@</td>
+            <td>@\text{m}^2\cdot\text{kg}\cdot\text{s}^{-3}\cdot\text{A}^{-2}@</td>
+          </tr>
+          <tr>
+            <td><strong>Condutância Elétrica</strong></td>
+            <td>siemens</td>
+            <td>@\text{S}@</td>
+            <td>@\Omega^{-1} = \text{A/V}@</td>
+            <td>@\text{m}^{-2}\cdot\text{kg}^{-1}\cdot\text{s}^3\cdot\text{A}^2@</td>
+          </tr>
+          <tr>
+            <td><strong>Fluxo Magnético</strong></td>
+            <td>weber</td>
+            <td>@\text{Wb}@</td>
+            <td>@\text{V}\cdot\text{s} = \text{T}\cdot\text{m}^2@</td>
+            <td>@\text{m}^2\cdot\text{kg}\cdot\text{s}^{-2}\cdot\text{A}^{-1}@</td>
+          </tr>
+          <tr>
+            <td><strong>Indução Magnética (Campo B)</strong></td>
+            <td>tesla</td>
+            <td>@\text{T}@</td>
+            <td>@\text{Wb/m}^2 = \text{N}/(\text{A}\cdot\text{m})@</td>
+            <td>@\text{kg}\cdot\text{s}^{-2}\cdot\text{A}^{-1}@</td>
+          </tr>
+          <tr>
+            <td><strong>Indutância</strong></td>
+            <td>henry</td>
+            <td>@\text{H}@</td>
+            <td>@\text{Wb/A}@</td>
+            <td>@\text{m}^2\cdot\text{kg}\cdot\text{s}^{-2}\cdot\text{A}^{-2}@</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 3: PREFIXOS MULTIPLICADORES DO SI
+         =============================================================== -->
+    <h2>3. Prefixos Multiplicadores do SI e Álgebra de Unidades</h2>
+
+    <p>
+      Para evitar a escrita excessiva de zeros em ordens muito grandes ou muito pequenas, o SI adota prefixos decimais oficiais que antecedem o nome da unidade fundamental ou derivada.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Escala Completa de Prefixos do SI)</h3>
+      <div class="tabela-container">
+        <table class="tabela-comparativa">
+          <thead>
+            <tr>
+              <th>Prefixo</th>
+              <th>Símbolo</th>
+              <th>Fator Decimal</th>
+              <th>Classificação</th>
+              <th>Exemplo Prático</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>tera</strong></td>
+              <td>@\text{T}@</td>
+              <td>@10^{12} = 1\,000\,000\,000\,000@</td>
+              <td>Múltiplo</td>
+              <td>@1\text{ THz} = 10^{12}\text{ Hz}@ (ondas terahertz)</td>
+            </tr>
+            <tr>
+              <td><strong>giga</strong></td>
+              <td>@\text{G}@</td>
+              <td>@10^9 = 1\,000\,000\,000@</td>
+              <td>Múltiplo</td>
+              <td>@1\text{ GW} = 10^9\text{ W}@ (usina de Itaipu)</td>
+            </tr>
+            <tr>
+              <td><strong>mega</strong></td>
+              <td>@\text{M}@</td>
+              <td>@10^6 = 1\,000\,000@</td>
+              <td>Múltiplo</td>
+              <td>@1\text{ MPa} = 10^6\text{ Pa}@ (resistência do concreto)</td>
+            </tr>
+            <tr>
+              <td><strong>quilo</strong></td>
+              <td>@\text{k}@</td>
+              <td>@10^3 = 1\,000@</td>
+              <td>Múltiplo</td>
+              <td>@1\text{ km} = 10^3\text{ m}@; @1\text{ kg} = 10^3\text{ g}@</td>
+            </tr>
+            <tr>
+              <td><strong>hecto</strong></td>
+              <td>@\text{h}@</td>
+              <td>@10^2 = 100@</td>
+              <td>Múltiplo</td>
+              <td>@1\text{ hPa} = 100\text{ Pa} = 1\text{ mbar}@ (pressão barométrica)</td>
+            </tr>
+            <tr>
+              <td><strong>deca</strong></td>
+              <td>@\text{da}@</td>
+              <td>@10^1 = 10@</td>
+              <td>Múltiplo</td>
+              <td>@1\text{ daN} = 10\text{ N}@ (esforço mecânico em cabos)</td>
+            </tr>
+            <tr style="background-color: rgba(59, 130, 246, 0.15); font-weight: bold;">
+              <td><em>Unidade Base</em></td>
+              <td>—</td>
+              <td>@10^0 = 1@</td>
+              <td>Referência</td>
+              <td>metro (@\text{m}@), joule (@\text{J}@), segundo (@\text{s}@)</td>
+            </tr>
+            <tr>
+              <td><strong>deci</strong></td>
+              <td>@\text{d}@</td>
+              <td>@10^{-1} = 0{,}1@</td>
+              <td>Submúltiplo</td>
+              <td>@1\text{ dm} = 0{,}1\text{ m} = 10\text{ cm}@</td>
+            </tr>
+            <tr>
+              <td><strong>centi</strong></td>
+              <td>@\text{c}@</td>
+              <td>@10^{-2} = 0{,}01@</td>
+              <td>Submúltiplo</td>
+              <td>@1\text{ cm} = 10^{-2}\text{ m} = 0{,}01\text{ m}@</td>
+            </tr>
+            <tr>
+              <td><strong>mili</strong></td>
+              <td>@\text{m}@</td>
+              <td>@10^{-3} = 0{,}001@</td>
+              <td>Submúltiplo</td>
+              <td>@1\text{ mg} = 10^{-3}\text{ g} = 10^{-6}\text{ kg}@</td>
+            </tr>
+            <tr>
+              <td><strong>micro</strong></td>
+              <td>@\mu@</td>
+              <td>@10^{-6} = 0{,}000001@</td>
+              <td>Submúltiplo</td>
+              <td>@1\text{ }\mu\text{m} = 10^{-6}\text{ m}@ (bactérias, células)</td>
+            </tr>
+            <tr>
+              <td><strong>nano</strong></td>
+              <td>@\text{n}@</td>
+              <td>@10^{-9}@</td>
+              <td>Submúltiplo</td>
+              <td>@1\text{ nm} = 10^{-9}\text{ m}@ (raio atômico, chips)</td>
+            </tr>
+            <tr>
+              <td><strong>pico</strong></td>
+              <td>@\text{p}@</td>
+              <td>@10^{-12}@</td>
+              <td>Submúltiplo</td>
+              <td>@1\text{ pF} = 10^{-12}\text{ F}@ (capacitância de circuitos)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Regra Exponencial da Conversão em Áreas e Volumes)</h3>
+      <p>
+        Seja uma grandeza de comprimento com fator de escala @10^\alpha@: @1\text{ u}_2 = 10^\alpha \text{ u}_1@. Ao elevarmos essa relação geométrica a uma dimensão @k \in \mathbb{N}@ (onde @k = 2@ para área e @k = 3@ para volume), o fator multiplicativo decimal fica compulsoriamente elevado à mesma potência @k@:
+      </p>
+      @@(1\text{ u}_2)^k = (10^\alpha \text{ u}_1)^k = 10^{\alpha \cdot k}\text{ u}_1^k@@
+      <p><strong>Corolários Fundamentais para Área (@k = 2@):</strong></p>
+      <ul>
+        <li>@1\text{ m} = 10^2\text{ cm} \implies 1\text{ m}^2 = (10^2\text{ cm})^2 = 10^4\text{ cm}^2 = 10\,000\text{ cm}^2@.</li>
+        <li>@1\text{ cm}^2 = (10^{-2}\text{ m})^2 = 10^{-4}\text{ m}^2 = 0{,}0001\text{ m}^2@.</li>
+        <li>@1\text{ km}^2 = (10^3\text{ m})^2 = 10^6\text{ m}^2 = 1\,000\,000\text{ m}^2@.</li>
+        <li>@1\text{ hectare (ha)} = 1\text{ hm}^2 = (10^2\text{ m})^2 = 10^4\text{ m}^2 = 10\,000\text{ m}^2@.</li>
+      </ul>
+      <p><strong>Corolários Fundamentais para Volume (@k = 3@) e Capacidade:</strong></p>
+      <ul>
+        <li>@1\text{ m} = 10\text{ dm} \implies 1\text{ m}^3 = 10^3\text{ dm}^3 = 1000\text{ dm}^3@.</li>
+        <li>Pela equivalência universal de capacidade: <strong>@1\text{ litro (L)} \equiv 1\text{ dm}^3 = 10^{-3}\text{ m}^3@</strong>.</li>
+        <li>Portanto: <strong>@1\text{ m}^3 = 1000\text{ L}@</strong>.</li>
+        <li>@1\text{ mL} = 10^{-3}\text{ L} = 10^{-3}\text{ dm}^3 = 1\text{ cm}^3@ (o famoso "centímetro cúbico", comumente abreviado por @\text{cc}@ na medicina e mecânica).</li>
+      </ul>
+    </div>
+
+    <div class="erro-comum">
+      <h3>⚠️ Armadilhas Metrológicas e Normas Gramaticais do SI (INMETRO / CGPM)</h3>
+      <ul>
+        <li><strong>Sem plural nos símbolos:</strong> Escreva @50\text{ kg}@ e @20\text{ m}@. NUNCA escreva <em>50 kgs</em> ou <em>20 ms</em> (pois @\text{ms}@ representa milissegundos!).</li>
+        <li><strong>Sem pontos de abreviação:</strong> Símbolos de unidades não são abreviaturas gramaticais: escreva @15\text{ h}@, e não <em>15 h.</em> ou <em>15 hrs</em>.</li>
+        <li><strong>Uso correto de maiúsculas e minúsculas:</strong> Símbolos derivados de nomes próprios de cientistas têm a letra inicial maiúscula (@\text{N}@ para Newton, @\text{J}@ para Joule, @\text{Pa}@ para Pascal, @\text{W}@ para Watt, @\text{A}@ para Ampère, @\text{K}@ para Kelvin, @\text{Hz}@ para Hertz). Todas as outras unidades são minúsculas: @\text{m}@ (metro), @\text{s}@ (segundo), @\text{kg}@ (quilograma).</li>
+        <li><strong>A pegadinha do quilo:</strong> O símbolo do prefixo quilo é estritamente minúsculo: @\text{k}@ (@\text{km}@, @\text{kg}@, @\text{kPa}@). A letra maiúscula @\text{K}@ é reservada com exclusividade para a temperatura termodinâmica (kelvin).</li>
+        <li><strong>Espaço obrigatório:</strong> Deve sempre haver um espaço fino entre o valor numérico e a unidade: @25\text{ }^{\circ}\text{C}@, @100\text{ m}@, @10\text{ kg}@ (a única exceção formal são os símbolos de graus, minutos e segundos de ângulo plano: @45^\circ 30' 15''@).</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 4: ANÁLISE DIMENSIONAL E HOMOGENEIDADE
+         =============================================================== -->
+    <h2>4. Análise Dimensional e o Princípio da Homogeneidade de Fourier</h2>
+
+    <p>
+      A <strong>Análise Dimensional</strong> é um dos instrumentos matemáticos mais elegantes e poderosos da física teórica e da engenharia. Formulada primordialmente por <strong>Jean-Baptiste Joseph Fourier</strong> em sua clássica obra <em>Théorie Analytique de la Chaleur</em> (1822), estabelece que a natureza das grandezas independe dos sistemas de unidades escolhidos para medi-las.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.1 (Fórmula Dimensional)</h3>
+      <p>
+        Representa-se a dimensão física de uma grandeza @G@ por meio de colchetes @[G]@. No domínio da mecânica clássica (onde atuam as três grandezas fundamentais Comprimento @L@, Massa @M@ e Tempo @T@), a fórmula dimensional monômica é dada por:
+      </p>
+      @@[G] = L^\alpha M^\beta T^\gamma@@
+      <p>onde os expoentes reais @\alpha, \beta, \gamma@ são denominados <strong>dimensões</strong> de @G@ relativamente ao comprimento, massa e tempo.</p>
+      <p>Se @\alpha = \beta = \gamma = 0@, a grandeza diz-se <strong>adimensional</strong> e denota-se @[G] = 1@.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Princípio de Fourier da Homogeneidade Dimensional)</h3>
+      <p>
+        Toda equação física fisicamente admissível e representativa de uma lei da natureza, escrita na forma:
+      </p>
+      @@A = B_1 + B_2 + \cdots + B_n@@
+      <p>deve ser <strong>dimensionalmente homogênea</strong>. Isto implica rigorosamente que:</p>
+      <ol>
+        <li>Não se podem somar ou subtrair grandezas de naturezas físicas distintas:
+          @@[B_1] = [B_2] = \cdots = [B_n]@@
+        </li>
+        <li>O primeiro membro deve possuir exatamente a mesma equação dimensional que qualquer uma das parcelas do segundo membro:
+          @@[A] = [B_i], \quad \forall i \in \{1, 2, \dots, n\}@@
+        </li>
+        <li>Argumentos de funções transcendentais (trigonométricas, exponenciais, logarítmicas) devem ser identicamente <strong>adimensionais</strong>:
+          @@y = A \operatorname{sen}(\omega t + \phi) \implies [\omega t] = 1 \implies [\omega] = T^{-1}@@
+        </li>
+      </ol>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.2 (Método de Rayleigh / Dedução Dimensional)</h3>
+      <p>
+        Se uma grandeza física dependente @y@ é governada por @k@ grandezas independentes conhecidas @x_1, x_2, \dots, x_k@, assume-se a existência de uma relação monomial do tipo:
+      </p>
+      @@y = C \cdot x_1^{\alpha_1} x_2^{\alpha_2} \cdots x_k^{\alpha_k}@@
+      <p>
+        onde @C@ é uma constante adimensional pura (@[C] = 1@). Tomando a equação dimensional de ambos os membros e igualando os expoentes das dimensões fundamentais @L, M, T@ (pelo Teorema Fundamental da Álgebra nos monômios), obtém-se um sistema linear determinando univocamente os expoentes @\alpha_i@.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 5: SISTEMA INGLÊS / IMPERIAL VS SI
+         =============================================================== -->
+    <h2>5. Sistema Imperial / US Customary versus SI e Conversões Críticas</h2>
+
+    <p>
+      Embora o mundo moderno tenha padronizado o SI, os Estados Unidos e a indústria aeroespacial, naval e de petróleo ainda utilizam extensivamente o <em>US Customary System</em> (derivado do antigo Sistema Imperial Britânico). Desde o <strong>Acordo Internacional de Jardas e Libras de 1959</strong>, todas as unidades imperiais e norte-americanas são <strong>definidas legalmente a partir de padrões métricos do SI</strong>.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 5.1 (Relações Exatas e Factuais de Conversão)</h3>
+      <div class="tabela-container">
+        <table class="tabela-comparativa">
+          <thead>
+            <tr>
+              <th>Grandeza</th>
+              <th>Unidade Imperial / US</th>
+              <th>Símbolo</th>
+              <th>Definição Exata no SI</th>
+              <th>Aproximação Operatória Útil</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Comprimento</strong></td>
+              <td>Polegada (inch)</td>
+              <td>@\text{in}@ ou @"@</td>
+              <td>@1\text{ in} \equiv 25{,}4\text{ mm} = 0{,}0254\text{ m}@ (exato)</td>
+              <td>@2{,}54\text{ cm}@</td>
+            </tr>
+            <tr>
+              <td><strong>Comprimento</strong></td>
+              <td>Pé (foot)</td>
+              <td>@\text{ft}@ ou @'@</td>
+              <td>@1\text{ ft} \equiv 12\text{ in} = 0{,}3048\text{ m}@ (exato)</td>
+              <td>@30{,}48\text{ cm}@</td>
+            </tr>
+            <tr>
+              <td><strong>Comprimento</strong></td>
+              <td>Jarda (yard)</td>
+              <td>@\text{yd}@</td>
+              <td>@1\text{ yd} \equiv 3\text{ ft} = 36\text{ in} = 0{,}9144\text{ m}@ (exato)</td>
+              <td>@91{,}44\text{ cm}@</td>
+            </tr>
+            <tr>
+              <td><strong>Comprimento</strong></td>
+              <td>Milha Terrestre (mile)</td>
+              <td>@\text{mi}@</td>
+              <td>@1\text{ mi} \equiv 1760\text{ yd} = 5280\text{ ft} = 1609{,}344\text{ m}@</td>
+              <td>@1{,}609\text{ km}@</td>
+            </tr>
+            <tr>
+              <td><strong>Comprimento</strong></td>
+              <td>Milha Náutica</td>
+              <td>@\text{NM}@ ou @\text{nmi}@</td>
+              <td>@1\text{ NM} \equiv 1852\text{ m}@ (exato, 1' de arco do meridiano)</td>
+              <td>@1{,}852\text{ km}@</td>
+            </tr>
+            <tr>
+              <td><strong>Massa</strong></td>
+              <td>Libra Avoirdupois (pound)</td>
+              <td>@\text{lb}@</td>
+              <td>@1\text{ lb} \equiv 0{,}45359237\text{ kg}@ (exato)</td>
+              <td>@453{,}6\text{ g}@</td>
+            </tr>
+            <tr>
+              <td><strong>Massa</strong></td>
+              <td>Onça (ounce)</td>
+              <td>@\text{oz}@</td>
+              <td>@1\text{ oz} \equiv \frac{1}{16}\text{ lb} \approx 0{,}0283495\text{ kg}@</td>
+              <td>@28{,}35\text{ g}@</td>
+            </tr>
+            <tr>
+              <td><strong>Volume</strong></td>
+              <td>Galão Americano Líquido</td>
+              <td>@\text{US gal}@</td>
+              <td>@1\text{ US gal} \equiv 231\text{ in}^3 \approx 3{,}785411784\text{ L}@</td>
+              <td>@3{,}785\text{ L}@</td>
+            </tr>
+            <tr>
+              <td><strong>Volume</strong></td>
+              <td>Galão Imperial Britânico</td>
+              <td>@\text{imp gal}@</td>
+              <td>@1\text{ imp gal} \approx 4{,}54609\text{ L}@ (volume de 10 lb de água)</td>
+              <td>@4{,}546\text{ L}@</td>
+            </tr>
+            <tr>
+              <td><strong>Pressão</strong></td>
+              <td>PSI (@\text{lbf/in}^2@)</td>
+              <td>@\text{psi}@</td>
+              <td>@1\text{ psi} \equiv \frac{1\text{ lbf}}{1\text{ in}^2} \approx 6894{,}757\text{ Pa}@</td>
+              <td>@6{,}895\text{ kPa} \approx 0{,}06895\text{ bar}@</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>🚀 O Desastre da Mars Climate Orbiter (1999)</h3>
+      <p>
+        Em 23 de setembro de 1999, a sonda espacial da NASA de US$ 125 milhões <em>Mars Climate Orbiter</em> entrou na atmosfera de Marte a apenas 57 km de altitude (quando a altitude mínima segura de sobrevivência era de 85 km) e foi consumida por fricção e estresse mecânico.
+      </p>
+      <p>
+        A investigação oficial revelou um erro crasso e histórico de conversão: o software da Lockheed Martin no solo calculava o impulso de empuxo dos propulsores em <strong>libras-força segundo (@\text{lbf}\cdot\text{s}@)</strong>, enquanto o computador de bordo da NASA esperava os dados em <strong>newtons segundo (@\text{N}\cdot\text{s}@)</strong> no padrão SI. Como @1\text{ lbf} \approx 4{,}44822\text{ N}@, o empuxo real aplicado foi subestimado por um fator de 4,45! Um monumento pedagógico indelével da necessidade de rigor absoluto em sistemas de unidades.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 6: EXEMPLOS RESOLVIDOS PASSO A PASSO
+         =============================================================== -->
+    <h2>6. Exemplos Resolvidos Passo a Passo</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6.1 (Método dos Fatores Unitários em Conversões Múltiplas)</h3>
+      <p>
+        Um veículo de alta performance trafega a uma velocidade escalar constante de @v = 108\text{ km/h}@.
+      </p>
+      <p><strong>(a)</strong> Converta essa velocidade para metros por segundo (@\text{m/s}@) utilizando explicitamente frações unitárias.</p>
+      <p><strong>(b)</strong> Converta esse valor para milhas por hora (@\text{mph}@), adotando @1\text{ mi} = 1{,}609\text{ km}@.</p>
+
+      <h4>Resolução:</h4>
+      <p><strong>(a)</strong> Construímos fatores unitários que cancelam algebricamente as unidades originais:</p>
+      @@v = 108\,\frac{\text{km}}{\text{h}} \times \left(\frac{1000\text{ m}}{1\text{ km}}\right) \times \left(\frac{1\text{ h}}{3600\text{ s}}\right)@@
+      <p>Cancelando @\text{km}@ e @\text{h}@:</p>
+      @@v = \frac{108 \times 1000}{3600}\text{ m/s} = \frac{108}{3{,}6}\text{ m/s} = 30\text{ m/s}@@
+      <p><em>Conclusão Geral:</em> A consagrada regra prática @\div 3{,}6@ decorre diretamente do quociente @\frac{1000}{3600} = \frac{1}{3{,}6}@.</p>
+
+      <p><strong>(b)</strong> Aplicando o fator unitário @\left(\frac{1\text{ mi}}{1{,}609\text{ km}}\right)@:</p>
+      @@v = 108\,\frac{\text{km}}{\text{h}} \times \left(\frac{1\text{ mi}}{1{,}609\text{ km}}\right) = \frac{108}{1{,}609}\text{ mph} \approx 67{,}12\text{ mph}@@
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6.2 (Determinação da Equação Dimensional da Constante de Gravitação @G@)</h3>
+      <p>
+        Pela Lei da Gravitação Universal de Isaac Newton, o módulo da força de atração entre duas massas pontuais @m_1@ e @m_2@ separadas por uma distância @r@ é dado por:
+      </p>
+      @@F = G \frac{m_1 m_2}{r^2}@@
+      <p>Determine a fórmula dimensional de @G@ no sistema @[L, M, T]@ e sua respectiva unidade fundamental no SI.</p>
+
+      <h4>Resolução:</h4>
+      <p><strong>Passo 1:</strong> Isolamos a constante @G@ na equação:</p>
+      @@G = \frac{F \cdot r^2}{m_1 \cdot m_2}@@
+      <p><strong>Passo 2:</strong> Aplicamos os colchetes dimensionais a ambos os lados:</p>
+      @@[G] = \frac{[F] \cdot [r]^2}{[m_1] \cdot [m_2]}@@
+      <p>Sabemos da Segunda Lei de Newton que @F = m \cdot a \implies [F] = M \cdot (L T^{-2}) = L M T^{-2}@. Como @[r] = L@ e @[m_1] = [m_2] = M@:</p>
+      @@[G] = \frac{(L M T^{-2}) \cdot L^2}{M \cdot M} = \frac{L^3 M T^{-2}}{M^2} = L^3 M^{-1} T^{-2}@@
+      <p><strong>Passo 3:</strong> Substituição pelas unidades básicas do SI:</p>
+      <ul>
+        <li>@[L]^3 \to \text{m}^3@</li>
+        <li>@[M]^{-1} \to \text{kg}^{-1}@</li>
+        <li>@[T]^{-2} \to \text{s}^{-2}@</li>
+      </ul>
+      <p>Logo, a unidade SI de @G@ é <strong>@\text{m}^3\cdot\text{kg}^{-1}\cdot\text{s}^{-2}@</strong> (ou, de forma derivada equivalente, @\text{N}\cdot\text{m}^2/\text{kg}^2@).</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6.3 (Dedução Dimensional do Período de um Pêndulo Simples)</h3>
+      <p>
+        Considere um pêndulo simples constituído por uma massa puntiforme @m@ suspensa por um fio inextensível de comprimento @L@ em um local de aceleração da gravidade @g@. Mostre, exclusivamente por análise dimensional, que o período de oscilação @T@ independe da massa do corpo e deduza sua lei de dependência funcional.
+      </p>
+
+      <h4>Resolução:</h4>
+      <p><strong>Passo 1:</strong> Postulamos a relação monômica:</p>
+      @@T = C \cdot m^\alpha \cdot L^\beta \cdot g^\gamma@@
+      <p>onde @C@ é uma constante adimensional pura (@[C] = 1@).</p>
+      <p><strong>Passo 2:</strong> Escrevemos as fórmulas dimensionais de cada variável envolvida:</p>
+      <ul>
+        <li>@[T] = T = L^0 M^0 T^1@</li>
+        <li>@[m] = M@</li>
+        <li>@[L] = L@</li>
+        <li>@[g] = L T^{-2}@</li>
+      </ul>
+      <p><strong>Passo 3:</strong> Substituímos na equação dimensional:</p>
+      @@L^0 M^0 T^1 = M^\alpha \cdot L^\beta \cdot (L T^{-2})^\gamma = M^\alpha \cdot L^{\beta + \gamma} \cdot T^{-2\gamma}@@
+      <p><strong>Passo 4:</strong> Igualamos os expoentes das grandezas homólogas (sistema linear):</p>
+      @@\begin{cases}
+      \text{Para } M: & \alpha = 0 \\
+      \text{Para } L: & \beta + \gamma = 0 \implies \beta = -\gamma \\
+      \text{Para } T: & -2\gamma = 1 \implies \gamma = -\frac{1}{2}
+      \end{cases}@@
+      <p>Substituindo @\gamma = -\frac{1}{2}@ na equação de @L@:</p>
+      @@\beta = -\left(-\frac{1}{2}\right) = \frac{1}{2}@@
+      <p><strong>Passo 5:</strong> Conclusão da lei funcional:</p>
+      <p>Como @\alpha = 0@, o período <strong>independe rigorosamente da massa @m@</strong> do pêndulo. Substituindo os expoentes:</p>
+      @@T = C \cdot m^0 \cdot L^{1/2} \cdot g^{-1/2} = C \sqrt{\frac{L}{g}}@@
+      <p><em>Nota Teórica:</em> A constante adimensional @C@ não pode ser obtida por análise dimensional pura. A resolução dinâmica formal via equações diferenciais lineares para pequenas oscilações revela que @C = 2\pi@, fornecendo a celebérrima fórmula @T = 2\pi \sqrt{\frac{L}{g}}@.</p>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 7: EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO
+         =============================================================== -->
+    <h2>7. Exercícios Conceituais de Fixação</h2>
+    <p>
+      Abaixo estão dispostas 12 questões conceituais e analíticas com elevado rigor matemático. Tente resolvê-las formalmente antes de expandir o gabarito comentado.
+    </p>
+
+    <ol class="lista-exercicios">
+
+      <!-- EXERCÍCIO 1 -->
+      <li>
+        <strong>(Grandezas Fundamentais do SI)</strong>
+        Dentre as grandezas físicas a seguir: <em>pressão, intensidade de corrente elétrica, trabalho, temperatura termodinâmica, velocidade linear e quantidade de matéria</em>, identifique quais pertencem ao conjunto das 7 grandezas fundamentais do SI e especifique seus respectivos símbolos dimensionais.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Classificação formal:</strong></p>
+            <ul>
+              <li><strong>Fundamentais:</strong>
+                <ol>
+                  <li><em>Intensidade de corrente elétrica:</em> unidade ampère (@\text{A}@), dimensão @[I]@.</li>
+                  <li><em>Temperatura termodinâmica:</em> unidade kelvin (@\text{K}@), dimensão @[\Theta]@.</li>
+                  <li><em>Quantidade de matéria (substância):</em> unidade mol (@\text{mol}@), dimensão @[N]@.</li>
+                </ol>
+              </li>
+              <li><strong>Derivadas:</strong>
+                <ul>
+                  <li><em>Pressão:</em> derivada (@\text{Pa} = \text{N/m}^2@, dimensão @L^{-1} M T^{-2}@).</li>
+                  <li><em>Trabalho:</em> derivada (@\text{J} = \text{N}\cdot\text{m}@, dimensão @L^2 M T^{-2}@).</li>
+                  <li><em>Velocidade linear:</em> derivada (@\text{m/s}@, dimensão @L T^{-1}@).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 2 -->
+      <li>
+        <strong>(Conversão de Volume e Densidade)</strong>
+        A densidade absoluta do mercúrio metálico líquido a @20\text{ }^{\circ}\text{C}@ é de @d = 13{,}6\text{ g/cm}^3@.
+        <br>Calcule, demonstrando os fatores unitários passo a passo, essa densidade em unidades do Sistema Internacional (@\text{kg/m}^3@). Quantos quilogramas de mercúrio cabem em uma garrafa de @1{,}5\text{ litro}@?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>1. Conversão para o SI (@\text{kg/m}^3@):</strong></p>
+            <p>Sabemos que @1\text{ kg} = 10^3\text{ g} \implies 1\text{ g} = 10^{-3}\text{ kg}@ e @1\text{ cm} = 10^{-2}\text{ m} \implies 1\text{ cm}^3 = (10^{-2}\text{ m})^3 = 10^{-6}\text{ m}^3@.</p>
+            @@d = 13{,}6\,\frac{\text{g}}{\text{cm}^3} \times \left(\frac{10^{-3}\text{ kg}}{1\text{ g}}\right) \times \left(\frac{1\text{ cm}^3}{10^{-6}\text{ m}^3}\right) = 13{,}6 \times \frac{10^{-3}}{10^{-6}}\,\frac{\text{kg}}{\text{m}^3} = 13{,}6 \times 10^3\,\frac{\text{kg}}{\text{m}^3} = 13\,600\text{ kg/m}^3@@
+            <p><strong>2. Massa em 1,5 L:</strong></p>
+            <p>Como @1\text{ L} = 1\text{ dm}^3 = 1000\text{ cm}^3@, o volume é @V = 1{,}5 \times 1000\text{ cm}^3 = 1500\text{ cm}^3@.</p>
+            @@m = d \times V = 13{,}6\,\frac{\text{g}}{\text{cm}^3} \times 1500\text{ cm}^3 = 20\,400\text{ g} = 20{,}4\text{ kg}@@
+            <p>Portanto, a densidade é @13\,600\text{ kg/m}^3@ e a garrafa conterá impressionantes @20{,}4\text{ kg}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 3 -->
+      <li>
+        <strong>(Prefixos Multiplicadores e Capacitância)</strong>
+        Um circuito eletrônico sintonizador de radiofrequência contém um microcapacitor de @C_1 = 470\text{ pF}@ e um supercapacitor de armazenamento de @C_2 = 2{,}5\text{ mF}@.
+        <br>Expresse ambos os valores em farads (@\text{F}@) em potências de 10 e determine a razão adimensional exata @\frac{C_2}{C_1}@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>1. Conversão para Farads (@\text{F}@):</strong></p>
+            <ul>
+              <li>Prefixo pico: @\text{p} = 10^{-12} \implies C_1 = 470\text{ pF} = 470 \times 10^{-12}\text{ F} = 4{,}7 \times 10^{-10}\text{ F}@.</li>
+              <li>Prefixo mili: @\text{m} = 10^{-3} \implies C_2 = 2{,}5\text{ mF} = 2{,}5 \times 10^{-3}\text{ F}@.</li>
+            </ul>
+            <p><strong>2. Cálculo da Razão:</strong></p>
+            @@\frac{C_2}{C_1} = \frac{2{,}5 \times 10^{-3}\text{ F}}{470 \times 10^{-12}\text{ F}} = \frac{2{,}5}{470} \times 10^{-3 - (-12)} = \frac{2{,}5}{470} \times 10^9 \approx 0{,}00531915 \times 10^9 \approx 5{,}32 \times 10^6@@
+            <p>O supercapacitor possui capacitância aproximadamente @5{,}32\text{ milhões}@ de vezes maior.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 4 -->
+      <li>
+        <strong>(Dimensão da Pressão e Energia Volumétrica)</strong>
+        Mostre algebricamente que a unidade de pressão no SI (pascal, @\text{Pa}@) é identicamente equivalente à densidade volumétrica de energia, ou seja, à razão @\text{J/m}^3@. Em seguida, deduza a equação dimensional de @\text{Pa}@ no sistema @[L, M, T]@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>1. Equivalência Algébrica:</strong></p>
+            @@1\text{ Pa} = \frac{1\text{ N}}{1\text{ m}^2}@@
+            <p>Multiplicando numerador e denominador por metro (@\text{m}@):</p>
+            @@1\text{ Pa} = \frac{1\text{ N} \cdot \text{m}}{1\text{ m}^2 \cdot \text{m}} = \frac{1\text{ J}}{1\text{ m}^3}@@
+            <p>Logo, fisicamente, pressão corresponde à densidade volumétrica de energia mecânica ou termodinâmica.</p>
+            <p><strong>2. Equação Dimensional:</strong></p>
+            <p>Como @[F] = L M T^{-2}@ e @[A] = L^2@:</p>
+            @@[\text{Pressão}] = \frac{[F]}{[A]} = \frac{L M T^{-2}}{L^2} = L^{-1} M T^{-2}@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 5 -->
+      <li>
+        <strong>(Princípio da Homogeneidade em Equações Cinemáticas)</strong>
+        A posição @x(t)@ de uma partícula em movimento retilíneo acelerado é modelada pela equação:
+        @@x(t) = \alpha \cdot t^3 + \beta \cdot \cos(\gamma \cdot t) + \frac{\delta}{t^2 + \tau^2}@@
+        onde @x@ é medido em metros e @t@ é medido em segundos. Determine as dimensões @[L, M, T]@ e as respectivas unidades SI das constantes @\alpha, \beta, \gamma, \delta@ e @\tau@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Como @[x] = L@, pelo Princípio de Fourier, cada parcela deve ter dimensão de comprimento @L@:</p>
+            <ol>
+              <li><strong>Parcela @\alpha \cdot t^3@:</strong>
+                @@[\alpha \cdot t^3] = [\alpha] \cdot T^3 = L \implies [\alpha] = L T^{-3} \quad (\text{unidade: m/s}^3)@@
+              </li>
+              <li><strong>Argumento do cosseno:</strong> Argumentos de funções trigonométricas são adimensionais:
+                @@[\gamma \cdot t] = 1 \implies [\gamma] \cdot T = 1 \implies [\gamma] = T^{-1} \quad (\text{unidade: s}^{-1}\text{ ou rad/s})@@
+              </li>
+              <li><strong>Amplitude @\beta@:</strong> Como @\cos(\gamma t)@ é adimensional:
+                @@[\beta \cdot \cos(\gamma t)] = [\beta] \cdot 1 = L \implies [\beta] = L \quad (\text{unidade: m})@@
+              </li>
+              <li><strong>Termo temporal no denominador @(t^2 + \tau^2)@:</strong> Só se somam grandezas homogêneas:
+                @@[\tau^2] = [t^2] = T^2 \implies [\tau] = T \quad (\text{unidade: s})@@
+              </li>
+              <li><strong>Parcela fracionária total:</strong>
+                @@\left[\frac{\delta}{t^2 + \tau^2}\right] = \frac{[\delta]}{T^2} = L \implies [\delta] = L T^2 \quad (\text{unidade: m}\cdot\text{s}^2)@@
+              </li>
+            </ol>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 6 -->
+      <li>
+        <strong>(Dedução Dimensional: Energia Cinética / Teorema de Buckingham)</strong>
+        Suponha que a energia cinética @E_c@ de um projétil dependa apenas de sua massa @m@ e de sua velocidade @v@: @E_c = k \cdot m^\alpha \cdot v^\beta@. Prove por análise dimensional que @\alpha = 1@ e @\beta = 2@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>1. Dimensões dos termos:</strong></p>
+            <ul>
+              <li>Energia (@\text{J} = \text{N}\cdot\text{m}@): @[E_c] = L^2 M T^{-2}@.</li>
+              <li>Massa: @[m] = M@.</li>
+              <li>Velocidade: @[v] = L T^{-1}@.</li>
+              <li>Constante @k@: adimensional (@[k] = 1@).</li>
+            </ul>
+            <p><strong>2. Montagem da igualdade dimensional:</strong></p>
+            @@L^2 M T^{-2} = M^\alpha \cdot (L T^{-1})^\beta = M^\alpha \cdot L^\beta \cdot T^{-\beta}@@
+            <p><strong>3. Sistema linear dos expoentes:</strong></p>
+            @@\begin{cases}
+            \text{Para } M: & \alpha = 1 \\
+            \text{Para } L: & \beta = 2 \\
+            \text{Para } T: & -\beta = -2 \implies \beta = 2
+            \end{cases}@@
+            <p>Portanto, @\alpha = 1@ e @\beta = 2@, provando formalmente que @E_c = k \cdot m v^2@. (A mecânica newtoniana via cálculo integral prova que @k = 1/2@).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 7 -->
+      <li>
+        <strong>(Conversões do Sistema Imperial: Área e Volume)</strong>
+        Um campo de futebol americano possui dimensões regulamentares de @120\text{ jardas}@ de comprimento por @53{,}33\text{ jardas}@ de largura.
+        <br>Adotando a definição exata @1\text{ yd} = 0{,}9144\text{ m}@:
+        <br><strong>(a)</strong> Calcule a área do campo em metros quadrados (@\text{m}^2@).
+        <br><strong>(b)</strong> Quantos hectares (@\text{ha}@) essa área representa?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Cálculo da área em @\text{m}^2@:</strong></p>
+            <p>Primeiro, calculamos a área em jardas quadradas:</p>
+            @@A = 120\text{ yd} \times 53{,}3333\text{ yd} = 6400\text{ yd}^2@@
+            <p>Como @1\text{ yd} = 0{,}9144\text{ m}@, então @1\text{ yd}^2 = (0{,}9144\text{ m})^2 = 0{,}83612736\text{ m}^2@.</p>
+            @@A = 6400 \times 0{,}83612736\text{ m}^2 \approx 5351{,}22\text{ m}^2@@
+            <p><strong>(b) Conversão para hectares:</strong></p>
+            <p>Como @1\text{ ha} = 10^4\text{ m}^2 = 10\,000\text{ m}^2@:</p>
+            @@A_{\text{ha}} = \frac{5351{,}22}{10\,000}\text{ ha} \approx 0{,}535\text{ ha}@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 8 -->
+      <li>
+        <strong>(Conversão de Pressão: Manômetro em PSI para SI)</strong>
+        O manual de um automóvel recomenda que a calibragem dos pneus dianteiros seja de @32\text{ psi}@.
+        <br>Determine o valor dessa pressão em pascals (@\text{Pa}@), em quilopascals (@\text{kPa}@) e em bars (@\text{bar}@), sabendo que @1\text{ psi} \approx 6894{,}76\text{ Pa}@ e @1\text{ bar} = 10^5\text{ Pa}@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>1. Pressão em @\text{Pa}@ e @\text{kPa}@:</strong></p>
+            @@P = 32 \times 6894{,}76\text{ Pa} = 220\,632{,}32\text{ Pa}@@
+            @@P \approx 220{,}63\text{ kPa}@@
+            <p><strong>2. Pressão em @\text{bar}@:</strong></p>
+            <p>Como @1\text{ bar} = 10^5\text{ Pa} = 100\text{ kPa}@:</p>
+            @@P_{\text{bar}} = \frac{220\,632{,}32}{10^5}\text{ bar} \approx 2{,}206\text{ bar} \approx 2{,}21\text{ bar}@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 9 -->
+      <li>
+        <strong>(Vazão e Tempo de Esvaziamento)</strong>
+        Uma piscina municipal olímpica de formato paralelepipédico possui dimensões de @50\text{ m}@ de comprimento, @25\text{ m}@ de largura e @2\text{ m}@ de profundidade média. Um sistema de bombas de drenagem opera com vazão de @125\text{ L/s}@.
+        <br><strong>(a)</strong> Qual o volume total da piscina em @\text{m}^3@ e em litros?
+        <br><strong>(b)</strong> Quanto tempo (em horas, minutos e segundos) levará para drenar completamente a piscina?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Volume:</strong></p>
+            @@V = 50\text{ m} \times 25\text{ m} \times 2\text{ m} = 2500\text{ m}^3@@
+            <p>Como @1\text{ m}^3 = 1000\text{ L}@:</p>
+            @@V = 2500 \times 1000\text{ L} = 2\,500\,000\text{ L} = 2{,}5 \times 10^6\text{ L}@@
+            <p><strong>(b) Tempo de drenagem:</strong></p>
+            <p>Vazão @Q = \frac{V}{\Delta t} \implies \Delta t = \frac{V}{Q}@:</p>
+            @@\Delta t = \frac{2\,500\,000\text{ L}}{125\text{ L/s}} = 20\,000\text{ s}@@
+            <p>Convertendo para horas:</p>
+            @@20\,000 \div 3600 = 5\text{ h com resto de } 20\,000 - 18\,000 = 2000\text{ s}@@
+            @@2000 \div 60 = 33\text{ min com resto de } 2000 - 1980 = 20\text{ s}@@
+            <p>Tempo total: <strong>5 horas, 33 minutos e 20 segundos</strong>.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 10 -->
+      <li>
+        <strong>(Análise Dimensional da Velocidade de Propagação de Ondas em Cordas)</strong>
+        A velocidade de propagação @v@ de uma onda transversal em uma corda tensa depende da força de tração @F@ aplicada à corda e da densidade linear de massa @\mu@ (massa por unidade de comprimento: @\mu = m/\ell@).
+        <br>Utilize a análise dimensional para deduzir a fórmula teórica da velocidade @v@ em função de @F@ e @\mu@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>1. Dimensões das variáveis:</strong></p>
+            <ul>
+              <li>Velocidade: @[v] = L T^{-1}@.</li>
+              <li>Força de tração: @[F] = L M T^{-2}@.</li>
+              <li>Densidade linear: @[\mu] = \frac{[m]}{[\ell]} = \frac{M}{L} = L^{-1} M@.</li>
+            </ul>
+            <p><strong>2. Hipótese monomial:</strong></p>
+            @@v = C \cdot F^\alpha \cdot \mu^\beta@@
+            <p><strong>3. Equação dimensional:</strong></p>
+            @@L T^{-1} = (L M T^{-2})^\alpha \cdot (L^{-1} M)^\beta = L^{\alpha - \beta} \cdot M^{\alpha + \beta} \cdot T^{-2\alpha}@@
+            <p><strong>4. Sistema de expoentes:</strong></p>
+            @@\begin{cases}
+            \text{Para } T: & -2\alpha = -1 \implies \alpha = \frac{1}{2} \\
+            \text{Para } M: & \alpha + \beta = 0 \implies \beta = -\alpha = -\frac{1}{2} \\
+            \text{Para } L: & \alpha - \beta = \frac{1}{2} - \left(-\frac{1}{2}\right) = 1 \quad (\text{compatível!})
+            \end{cases}@@
+            <p><strong>5. Expressão final:</strong></p>
+            @@v = C \cdot F^{1/2} \cdot \mu^{-1/2} = C \sqrt{\frac{F}{\mu}}@@
+            <p>A física ondulatória clássica deduz que a constante @C = 1@, resultando na célebre <strong>Fórmula de Taylor</strong>: @v = \sqrt{\frac{F}{\mu}}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 11 -->
+      <li>
+        <strong>(Consumo de Combustível: MPG versus L/100km)</strong>
+        Nos Estados Unidos, o rendimento dos automóveis é aferido em <em>milhas por galão</em> (@\text{mpg}@), enquanto na Europa e no Brasil a métrica comum de consumo é a quantidade de litros consumidos a cada 100 quilômetros (@\text{L}/100\text{ km}@).
+        <br>Sabendo que @1\text{ mi} \approx 1{,}60934\text{ km}@ e @1\text{ US gal} \approx 3{,}78541\text{ L}@:
+        <br><strong>(a)</strong> Deduza a fórmula algébrica de conversão funcional entre @x@ (em mpg) e @y@ (em L/100 km).
+        <br><strong>(b)</strong> Um carro importado indica rendimento de @30\text{ mpg}@. Qual é seu consumo equivalente em @\text{L}/100\text{ km}@?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Dedução da relação inversa:</strong></p>
+            <p>Se o veículo faz @x\text{ milhas por galão}@, para percorrer @100\text{ km}@:</p>
+            <p>Distância em milhas: @d = \frac{100\text{ km}}{1{,}60934\text{ km/mi}} \approx 62{,}137\text{ mi}@.</p>
+            <p>Galões consumidos: @G = \frac{d}{x} = \frac{62{,}137}{x}\text{ gal}@.</p>
+            <p>Convertendo os galões para litros:</p>
+            @@y = G \times 3{,}78541 = \frac{62{,}137 \times 3{,}78541}{x} \approx \frac{235{,}215}{x}@@
+            <p>A relação é <strong>inversamente proporcional</strong>: <strong>@y \approx \frac{235{,}2}{x}@</strong>.</p>
+            <p><strong>(b) Para @x = 30\text{ mpg}@:</strong></p>
+            @@y = \frac{235{,}215}{30} \approx 7{,}84\text{ L}/100\text{ km}@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 12 -->
+      <li>
+        <strong>(Constante de Planck e Homogeneidade Quântica)</strong>
+        No modelo atômico de Bohr, a energia de um fóton emitido em uma transição quântica é dada por @E = h \cdot \nu@, onde @E@ é a energia, @\nu@ é a frequência da radiação e @h@ é a constante fundamental de Planck.
+        <br><strong>(a)</strong> Determine a dimensão @[L, M, T]@ da constante de Planck @h@.
+        <br><strong>(b)</strong> Mostre que a constante @h@ possui a mesma dimensão física do <em>momento angular</em> (@L = r \times p@, onde @r@ é o raio e @p = m \cdot v@ é o momento linear).
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Dimensão de @h@:</strong></p>
+            @@E = h \nu \implies h = \frac{E}{\nu}@@
+            <p>Como @[E] = L^2 M T^{-2}@ e @[\nu] = T^{-1}@:</p>
+            @@[h] = \frac{L^2 M T^{-2}}{T^{-1}} = L^2 M T^{-1}@@
+            <p>No SI, sua unidade é <strong>@\text{J}\cdot\text{s}@</strong> ou <strong>@\text{kg}\cdot\text{m}^2\cdot\text{s}^{-1}@</strong>.</p>
+            <p><strong>(b) Dimensão do Momento Angular (@L_{\text{ang}}@):</strong></p>
+            @@L_{\text{ang}} = r \cdot (m \cdot v) \implies [L_{\text{ang}}] = [r] \cdot [m] \cdot [v] = L \cdot M \cdot (L T^{-1}) = L^2 M T^{-1}@@
+            <p>Constata-se a identidade exata: <strong>@[h] = [L_{\text{ang}}] = L^2 M T^{-1}@</strong>. É por este motivo físico transcendental que Niels Bohr postulou a quantização do momento angular orbital do elétron como um múltiplo inteiro de @\hbar = \frac{h}{2\pi}@: @L_{\text{ang}} = n \hbar@.</p>
+          </div>
+        </details>
+      </li>
+
+    </ol>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 35px; margin-bottom: 25px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+    <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

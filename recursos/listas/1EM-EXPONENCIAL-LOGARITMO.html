@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Lista de Problemas: Exponencial e Logaritmos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    /* Container de metadados (fonte, dificuldade, tempo estimado) */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    /* Tag de tópico matemático */
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    /* Tag de fonte do problema */
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Tag de dificuldade com cores diferentes */
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Cores por nível de dificuldade */
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }    /* Verde */
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }    /* Amarelo */
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }  /* Vermelho */
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); } /* Roxo */
+
+    /* Introdução de cada seção */
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    /* Caixas de dica para os estudantes */
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    /* Gabarito expansível */
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-secao ol {
+      padding-left: 1.5rem;
+    }
+
+    .gabarito-secao li {
+      margin-bottom: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: 600;
+      color: var(--secondary-text-color);
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<!-- ============================================================================
+     TÍTULO PRINCIPAL DA LISTA
+     ============================================================================ -->
+<h1>LISTA DE PROBLEMAS: EXPONENCIAL E LOGARITMOS</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas fundamentais para fixação e aplicação direta de conceitos: cálculo de potências com expoentes inteiros negativos e fracionários, propriedades da potenciação, definição formal de logaritmo, condições de existência e equações elementares.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Potências com expoente negativo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Calcule o valor numérico exato de cada uma das seguintes potências com expoentes inteiros negativos:</p>
+      <p>a) @2^{-4}@</p>
+      <p>b) @\left(\frac{3}{5}\right)^{-2}@</p>
+      <p>c) @(-4)^{-3}@</p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Expoentes fracionários e radiciação</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Converta os expoentes fracionários na forma de radicais e determine o valor real exato de:</p>
+      <p>a) @64^{1/3}@</p>
+      <p>b) @81^{3/4}@</p>
+      <p>c) @\left(\frac{4}{9}\right)^{-3/2}@</p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Propriedades fundamentais da potenciação</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Utilize as propriedades operatórias das potências para simplificar a expressão a seguir, apresentando o resultado na forma de uma única potência de base @2@:</p>
+      <p>@@E = \frac{(2^3)^4 \cdot 8^2 \cdot 2^{-5}}{16^3 \cdot 2^0}@@</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação exponencial elementar</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Determine o conjunto solução @S \subset \mathbb{R}@ da equação exponencial por redução à mesma base:</p>
+      <p>@@2^{3x - 1} = 128@@</p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação exponencial com frações e radicais</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Resolva no conjunto dos números reais @\mathbb{R}@ a equação exponencial:</p>
+      <p>@@5^{2x + 1} = \frac{1}{\sqrt{125}}@@</p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Definição elementar de logaritmo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Pela aplicação direta da definição de logaritmo (@\log_b(N) = x \iff b^x = N@), determine o valor numérico de cada item:</p>
+      <p>a) @\log_3(243)@</p>
+      <p>b) @\log_2\left(\frac{1}{64}\right)@</p>
+      <p>c) @\log_{10}(0{,}0001)@</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Logaritmos com base fracionária e raízes</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Determine o valor dos seguintes logaritmos:</p>
+      <p>a) @\log_{1/2}(32)@</p>
+      <p>b) @\log_{\sqrt{3}}(27)@</p>
+      <p>c) @\log_{4}(\sqrt[3]{2})@</p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Condições de existência do logaritmo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Determine a condição de existência (domínio de validade) em @\mathbb{R}@ para cada uma das expressões logarítmicas:</p>
+      <p>a) @f(x) = \log_5(2x - 8)@</p>
+      <p>b) @g(x) = \log_{(x - 2)}(10)@</p>
+      <p>c) @h(x) = \log_{(x + 1)}(7 - x)@</p>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Consequências imediatas da definição</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Aplique as identidades fundamentais @b^{\log_b(N)} = N@ e @\log_b(b^k) = k@ para calcular o valor numérico das expressões:</p>
+      <p>a) @A = 7^{\log_7(15)}@</p>
+      <p>b) @B = 5^{2\log_5(3)}@</p>
+      <p>c) @C = 2^{3 + \log_2(5)}@</p>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação logarítmica imediata</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Resolva em @\mathbb{R}@ a equação logarítmica elementar:</p>
+      <p>@@\log_3(4x + 1) = 4@@</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas com contextualizações práticas, propriedades operatórias, mudança de base, equações e inequações com substituição de variáveis, além de modelagem de juros compostos, Escala Richter, decaimento de fármacos e crescimento bacteriano.
+  </p>
+
+  <ol start="11">
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Propriedades operatórias: logaritmo do produto</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Sabendo que @\log_{10}(2) \approx 0{,}301@ e @\log_{10}(3) \approx 0{,}477@, calcule o valor aproximado dos seguintes logaritmos decimais:</p>
+      <p>a) @\log_{10}(6)@</p>
+      <p>b) @\log_{10}(18)@</p>
+      <p>c) @\log_{10}(72)@</p>
+      <div class="dica">
+        <strong>Dica:</strong> Decomponha os argumentos em fatores primos (@2@ e @3@) e aplique a propriedade aditiva: @\log(a \cdot b) = \log a + \log b@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Propriedades operatórias: logaritmo do quociente</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Utilizando ainda as aproximações @\log_{10}(2) \approx 0{,}301@ e @\log_{10}(3) \approx 0{,}477@, determine o valor numérico de:</p>
+      <p>a) @\log_{10}(5)@</p>
+      <p>b) @\log_{10}(1{,}5)@</p>
+      <p>c) @\log_{10}(0{,}75)@</p>
+      <div class="dica">
+        <strong>Dica:</strong> Lembre-se de que @5 = \frac{10}{2}@, @1{,}5 = \frac{3}{2}@ e @0{,}75 = \frac{3}{4}@. Aplique a propriedade do quociente @\log(a/b) = \log a - \log b@ e use @\log_{10}(10) = 1@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Propriedades operatórias: potência e radiciação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Dados @\log_{10}(2) \approx 0{,}301@ e @\log_{10}(3) \approx 0{,}477@, calcule o valor numérico aproximado de:</p>
+      <p>@@\log_{10}(\sqrt[5]{12})@@</p>
+      <div class="dica">
+        <strong>Dica:</strong> Escreva o radical como expoente fracionário (@\sqrt[5]{12} = 12^{1/5}@), aplique a propriedade do expoente (@\log(N^p) = p \cdot \log N@) e fatore o número @12 = 2^2 \cdot 3@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Mudança de base e produto de logaritmos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>a) Sabendo que @\log_{10}(2) \approx 0{,}301@ e @\log_{10}(5) \approx 0{,}699@, determine o valor aproximado de @\log_2(5)@.</p>
+      <p>b) Calcule o valor exato do produto:</p>
+      <p>@@P = \log_2(3) \cdot \log_3(4) \cdot \log_4(5) \dots \log_{31}(32)@@</p>
+      <div class="dica">
+        <strong>Dica:</strong> Em (a), use a mudança de base @\log_b(a) = \frac{\log_{10}(a)}{\log_{10}(b)}@. Em (b), transforme todos os logaritmos para a mesma base e observe o cancelamento em cadeia dos fatores.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 15 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação exponencial com substituição quadrática</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Resolva no conjunto dos números reais @\mathbb{R}@ a equação exponencial:</p>
+      <p>@@4^x - 10 \cdot 2^x + 16 = 0@@</p>
+      <div class="dica">
+        <strong>Dica:</strong> Observe que @4^x = (2^x)^2@. Faça a substituição de variável @y = 2^x@ com a condição @y > 0@, resolva a equação do segundo grau resultante e encontre os valores de @x@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 16 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação exponencial com expoente negativo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Encontre todas as soluções reais da equação:</p>
+      <p>@@2^x + 2^{1 - x} = 3@@</p>
+      <div class="dica">
+        <strong>Dica:</strong> Note que @2^{1-x} = \frac{2}{2^x}@. Fazendo @u = 2^x@, multiplique ambos os lados da igualdade por @u@ para obter uma equação quadrática.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 17 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequações exponenciais e análise de base</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Determine o conjunto solução em @\mathbb{R}@ para cada uma das inequações exponenciais a seguir:</p>
+      <p>a) @3^{2x - 5} \leq 27@</p>
+      <p>b) @\left(\frac{1}{2}\right)^{3x + 1} > \left(\frac{1}{2}\right)^{x + 7}@</p>
+      <div class="dica">
+        <strong>Dica:</strong> Verifique a base da exponencial: se a base for maior que @1@, a função é estritamente crescente e conserva o sinal; se estiver entre @0@ e @1@, a função é estritamente decrescente e inverte o sentido da desigualdade.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 18 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação logarítmica com soma de termos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Resolva em @\mathbb{R}@ a equação logarítmica:</p>
+      <p>@@\log_2(x + 2) + \log_2(x - 2) = 5@@</p>
+      <div class="dica">
+        <strong>Dica:</strong> Comece estabelecendo as condições de existência simultâneas (@x + 2 > 0@ e @x - 2 > 0@). Depois utilize a propriedade da soma @\log(a) + \log(b) = \log(ab)@ e descarte eventuais raízes estranhas.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 19 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação logarítmica com diferença</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Determine o conjunto solução em @\mathbb{R}@ da equação:</p>
+      <p>@@\log_3(x + 5) - \log_3(x - 1) = 2@@</p>
+      <div class="dica">
+        <strong>Dica:</strong> Verifique a condição de existência de ambos os termos e condense a expressão no quociente @\log_3\left(\frac{x+5}{x-1}\right) = 2@ antes de passar à forma de potência.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 20 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequação logarítmica com base fracionária</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Resolva no universo dos números reais @\mathbb{R}@ a inequação:</p>
+      <p>@@\log_{1/3}(2x - 4) \geq -2@@</p>
+      <div class="dica">
+        <strong>Dica:</strong> Calcule primeiro a restrição @2x - 4 > 0@. Por ter base @\frac{1}{3} < 1@, lembre-se de inverter o sentido da desigualdade ao exponenciar os dois lados: @2x - 4 \leq (1/3)^{-2}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 21 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Contextualização: Escala Richter</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>A magnitude @M@ de um terremoto na escala Richter é calculada pela relação @M = \frac{2}{3}\log_{10}\left(\frac{E}{E_0}\right)@, em que @E@ é a energia liberada pelo sismo em Joules (@\text{J}@) e @E_0 = 10^{4{,}4}\text{ J}@ é uma constante padrão de referência.</p>
+      <p>Considere que um terremoto @A@ atingiu magnitude @M_A = 7{,}0@ e outro terremoto @B@ atingiu magnitude @M_B = 5{,}0@. Calcule a razão @\frac{E_A}{E_B}@ e informe quantas vezes a energia liberada pelo terremoto @A@ foi superior à do terremoto @B@.</p>
+      <div class="dica">
+        <strong>Dica:</strong> Efetue a subtração @M_A - M_B@ para cancelar a constante de referência @E_0@ aplicando a propriedade @\log(E_A/E_0) - \log(E_B/E_0) = \log(E_A/E_B)@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 22 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Contextualização: Meia-vida de fármacos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>A concentração de determinado fármaco no plasma sanguíneo de um paciente decai exponencialmente conforme o modelo @C(t) = C_0 \cdot 2^{-t/6}@, onde @t@ é o tempo em horas após a administração e @C_0@ é a concentração inicial em @\text{mg/L}@.</p>
+      <p>Sabendo que foi aplicada uma dose resultando em @C_0 = 80\text{ mg/L}@:</p>
+      <p>a) Determine a meia-vida desse fármaco no organismo humano.</p>
+      <p>b) Calcule após quantas horas a concentração se reduzirá a @5\text{ mg/L}@.</p>
+      <div class="dica">
+        <strong>Dica:</strong> A meia-vida é o período de tempo necessário para que @C(t) = \frac{C_0}{2}@. Para o item (b), iguale a função dada a @5@ e isole a potência de base @2@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 23 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Contextualização: Crescimento bacteriano</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma população inicial de @1500@ bactérias em placa de Petri duplica sua quantidade a cada @40@ minutos em condições ótimas de proliferação.</p>
+      <p>a) Escreva a lei da função @N(t)@ que fornece o número de bactérias presentes na placa após @t@ horas.</p>
+      <p>b) Determine em quantas horas a cultura atingirá exatamente @96000@ bactérias.</p>
+      <div class="dica">
+        <strong>Dica:</strong> Converta o intervalo de @40@ minutos para horas: @40\text{ min} = \frac{2}{3}\text{ h}@. Em @t@ horas ocorrem @\frac{t}{2/3} = \frac{3t}{2}@ ciclos completos de duplicação.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 24 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Contextualização: Juros compostos e tempo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Um investimento financeiro de @R\$\ 10.000{,}00@ rende à taxa de juros compostos de @10\%@ ao ano, de modo que o montante após @t@ anos é dado por @M(t) = 10000 \cdot (1{,}1)^t@.</p>
+      <p>Utilizando as aproximações @\log_{10}(2) \approx 0{,}3010@ e @\log_{10}(1{,}1) \approx 0{,}0414@, determine a quantidade mínima de anos inteiros necessários para que o valor acumulado seja pelo menos o dobro do capital inicial investido.</p>
+      <div class="dica">
+        <strong>Dica:</strong> Monte a desigualdade @10000 \cdot (1{,}1)^t \geq 20000 \iff (1{,}1)^t \geq 2@, aplique o logaritmo decimal em ambos os lados e divida os valores para isolar @t@.
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Questões de alto nível conceitual e analítico selecionadas e adaptadas de grandes vestibulares (FUVEST, UNICAMP, ENEM, ITA/IME) e olimpíadas matemáticas (OBMEP). Envolvem sistemas não lineares, inequações com bases variáveis, decaimento térmico e representação de ordens de grandeza.
+  </p>
+
+  <ol start="25">
+    <!-- PROBLEMA 25 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Sistema exponencial não linear</span>
+        <span class="fonte">FUVEST (Adaptada)</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Determine todos os pares ordenados de números reais @(x, y)@ que satisfazem simultaneamente o sistema de equações exponenciais:</p>
+      <p>@@\begin{cases} 2^x \cdot 4^y = 32 \\ 3^{2x} \cdot 9^{-y} = 81 \end{cases}@@</p>
+    </li>
+
+    <!-- PROBLEMA 26 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequação logarítmica com incógnita na base</span>
+        <span class="fonte">UNICAMP</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Encontre o conjunto de todos os números reais @x@ que satisfazem a inequação:</p>
+      <p>@@\log_x(2x + 3) > 1@@</p>
+    </li>
+
+    <!-- PROBLEMA 27 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Modelagem de intensidade sonora em Decibéis</span>
+        <span class="fonte">ENEM</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>O nível de intensidade sonora @\beta@, medido em decibéis (@\text{dB}@), é dado pela expressão @\beta = 10 \cdot \log_{10}\left(\frac{I}{I_0}\right)@, em que @I@ é a intensidade da onda sonora e @I_0 = 10^{-12}\text{ W/m}^2@ é o limiar de audibilidade da audição humana.</p>
+      <p>Durante um espetáculo musical, o nível de ruído medido perto das caixas acústicas subiu de @80\text{ dB}@ para @110\text{ dB}@.</p>
+      <p>a) Calcule a intensidade sonora @I_1@ (em @\text{W/m}^2@) associada ao nível de @80\text{ dB}@.</p>
+      <p>b) Quantas vezes a nova intensidade da onda sonora @I_2@ é maior que a intensidade original @I_1@?</p>
+    </li>
+
+    <!-- PROBLEMA 28 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação com logaritmo na potência</span>
+        <span class="fonte">ITA / IME (Adaptada)</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Determine todas as raízes reais da equação:</p>
+      <p>@@x^{\log_2(x)} = 64 x@@</p>
+    </li>
+
+    <!-- PROBLEMA 29 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Modelagem gráfica e determinação de assíntota</span>
+        <span class="fonte">FUVEST</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>A curva representativa de uma função real da forma @f(x) = k \cdot a^x + b@, com @k, a, b \in \mathbb{R}@ e @a > 1@, passa pelos pontos @P(0, 5)@ e @Q(1, 9)@, possuindo a reta horizontal @y = 1@ como assíntota quando @x \to -\infty@.</p>
+      <p>a) Determine as constantes reais @k@, @a@ e @b@.</p>
+      <p>b) Encontre o valor da abscissa @x@ para o qual @f(x) = 65@.</p>
+    </li>
+
+    <!-- PROBLEMA 30 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Quantidade de dígitos em base decimal</span>
+        <span class="fonte">OBMEP / Olimpíada</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Quantos algarismos possui o número natural @N = 2^{2026} \cdot 5^{2020}@ quando escrito na base decimal usual? Justifique sua resposta apresentando o cálculo algébrico por meio de potências de @10@ e com a interpretação via logaritmos.</p>
+    </li>
+
+    <!-- PROBLEMA 31 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Lei do Resfriamento de Newton</span>
+        <span class="fonte">UNICAMP / FUVEST</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Um corpo a alta temperatura é colocado em uma sala com temperatura ambiente constante de @20^\circ\text{C}@. A temperatura @T(t)@ do corpo em graus Celsius decorridos @t@ minutos é dada pela Lei de Resfriamento de Newton:</p>
+      <p>@@T(t) = 20 + 80 \cdot e^{-0{,}05 t}@@</p>
+      <p>Considerando o dado @\ln(2) \approx 0{,}693@:</p>
+      <p>a) Calcule a temperatura do corpo no instante inicial @t = 0@.</p>
+      <p>b) Determine em quantos minutos a temperatura atingirá @30^\circ\text{C}@.</p>
+    </li>
+
+    <!-- PROBLEMA 32 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação com bases em progressão geométrica</span>
+        <span class="fonte">ITA (Adaptada)</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Resolva no universo @\mathbb{R}@ a equação com diferentes bases logarítmicas:</p>
+      <p>@@\log_2(x) + \log_4(x) + \log_8(x) = 11@@</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para treinamento autônomo e consolidação prática de todo o conteúdo estudado na unidade.
+  </p>
+
+  <ol start="33">
+    <!-- PROBLEMA 33 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Expressões logarítmicas diretas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Calcule o valor numérico da expressão:</p>
+      <p>@@E = \log_2(16) - \log_3\left(\frac{1}{27}\right) + \log_{10}(0{,}1)@@</p>
+    </li>
+
+    <!-- PROBLEMA 34 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação exponencial quadrática</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Determine o conjunto solução em @\mathbb{R}@ da equação exponencial:</p>
+      <p>@@9^x - 4 \cdot 3^x + 3 = 0@@</p>
+    </li>
+
+    <!-- PROBLEMA 35 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Composição algébrica de logaritmos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Se @\log_{10}(2) = a@ e @\log_{10}(3) = b@, escreva o valor de @\log_{10}(60)@ em termos algébricos de @a@ e @b@.</p>
+    </li>
+
+    <!-- PROBLEMA 36 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Domínio de função com radical e logaritmo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Determine o domínio real de validade @D \subset \mathbb{R}@ da função definida por:</p>
+      <p>@@f(x) = \sqrt{\log_2(x - 3)}@@</p>
+    </li>
+
+    <!-- PROBLEMA 37 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequação exponencial decrescente</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Resolva em @\mathbb{R}@ a inequação exponencial:</p>
+      <p>@@\left(\frac{1}{3}\right)^{2x - 1} \leq \frac{1}{27}@@</p>
+    </li>
+
+    <!-- PROBLEMA 38 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Escala química de pH</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>O potencial hidrogeniônico de uma solução aquosa é dado por @\text{pH} = -\log_{10}[\text{H}^+]@, em que @[\text{H}^+]@ é a concentração de íons hidrogênio em @\text{mol/L}@. Sabendo que uma solução de vinagre tem @[\text{H}^+] = 10^{-3}\text{ mol/L}@ e uma solução de sabão tem @[\text{H}^+] = 10^{-10}\text{ mol/L}@, calcule o @\text{pH}@ de cada amostra e informe se o meio é ácido (@\text{pH} < 7@) ou básico (@\text{pH} > 7@).</p>
+    </li>
+
+    <!-- PROBLEMA 39 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação com logaritmo na base e no argumento</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Encontre as raízes reais da equação:</p>
+      <p>@@\log_2(x) + \log_x(2) = \frac{5}{2}@@</p>
+    </li>
+
+    <!-- PROBLEMA 40 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Decaimento radioativo contínuo</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>A massa restante @M(t)@ de um isótopo radioativo diminui conforme @M(t) = M_0 \cdot e^{-0{,}02 t}@, com @t@ expresso em anos e @M_0@ sendo a massa inicial. Em aproximadamente quantos anos a amostra restará reduzida a @25\%@ de seu valor original? Considere o dado @\ln(2) \approx 0{,}693@.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     GABARITO E SOLUÇÕES ESTRUTURADAS
+     ============================================================================ -->
+<details class="gabarito-container">
+  <summary>🔍 Clique para Ver o Gabarito e as Soluções Estruturadas</summary>
+  <div class="gabarito-content">
+
+    <!-- GABARITO DA SEÇÃO 1 -->
+    <div class="gabarito-secao">
+      <h3>Seção 1: Problemas Introdutórios</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Pela definição de potência negativa @a^{-n} = \frac{1}{a^n}@: @2^{-4} = \frac{1}{2^4} = \frac{1}{16}@.<br>
+          b) Invertendo a fração da base: @\left(\frac{3}{5}\right)^{-2} = \left(\frac{5}{3}\right)^2 = \frac{25}{9}@.<br>
+          c) Com base negativa e expoente ímpar: @(-4)^{-3} = \frac{1}{(-4)^3} = \frac{1}{-64} = -\frac{1}{64}@.<br>
+          <strong>Resposta:</strong> a) @\frac{1}{16}@; b) @\frac{25}{9}@; c) @-\frac{1}{64}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Pela equivalência @a^{m/n} = \sqrt[n]{a^m}@: @64^{1/3} = \sqrt[3]{64} = 4@.<br>
+          b) @81^{3/4} = (\sqrt[4]{81})^3 = 3^3 = 27@.<br>
+          c) Invertendo e extraindo a raiz: @\left(\frac{4}{9}\right)^{-3/2} = \left(\frac{9}{4}\right)^{3/2} = \left(\sqrt{\frac{9}{4}}\right)^3 = \left(\frac{3}{2}\right)^3 = \frac{27}{8}@.<br>
+          <strong>Resposta:</strong> a) @4@; b) @27@; c) @\frac{27}{8}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Convertendo todos os fatores para potências de base @2@:<br>
+          @(2^3)^4 = 2^{12}@, @8^2 = (2^3)^2 = 2^6@, @16^3 = (2^4)^3 = 2^{12}@ e @2^0 = 1@.<br>
+          Numerador: @2^{12} \cdot 2^6 \cdot 2^{-5} = 2^{12 + 6 - 5} = 2^{13}@.<br>
+          Denominador: @2^{12} \cdot 1 = 2^{12}@.<br>
+          Divisão de potências: @E = \frac{2^{13}}{2^{12}} = 2^{13 - 12} = 2^1 = 2@.<br>
+          <strong>Resposta:</strong> @2^1 = 2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Fatorando @128 = 2^7@. Como as bases são iguais e positivas (diferentes de @1@), igualamos os expoentes:<br>
+          @3x - 1 = 7 \implies 3x = 8 \implies x = \frac{8}{3}@.<br>
+          <strong>Resposta:</strong> @S = \left\{\frac{8}{3}\right\}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Fatorando @125 = 5^3@, temos @\sqrt{125} = 5^{3/2}@, logo @\frac{1}{\sqrt{125}} = 5^{-3/2}@.<br>
+          A equação torna-se @5^{2x + 1} = 5^{-3/2}@.<br>
+          Igualando os expoentes: @2x + 1 = -\frac{3}{2} \implies 2x = -\frac{5}{2} \implies x = -\frac{5}{4}@.<br>
+          <strong>Resposta:</strong> @S = \left\{-\frac{5}{4}\right\}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @\log_3(243) = x \iff 3^x = 243 = 3^5 \implies x = 5@.<br>
+          b) @\log_2(1/64) = x \iff 2^x = \frac{1}{64} = 2^{-6} \implies x = -6@.<br>
+          c) @\log_{10}(0{,}0001) = x \iff 10^x = 10^{-4} \implies x = -4@.<br>
+          <strong>Resposta:</strong> a) @5@; b) @-6@; c) @-4@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @\left(\frac{1}{2}\right)^x = 32 \implies 2^{-x} = 2^5 \implies -x = 5 \implies x = -5@.<br>
+          b) @(\sqrt{3})^x = 27 \implies (3^{1/2})^x = 3^3 \implies 3^{x/2} = 3^3 \implies \frac{x}{2} = 3 \implies x = 6@.<br>
+          c) @4^x = \sqrt[3]{2} \implies (2^2)^x = 2^{1/3} \implies 2x = \frac{1}{3} \implies x = \frac{1}{6}@.<br>
+          <strong>Resposta:</strong> a) @-5@; b) @6@; c) @\frac{1}{6}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) O logaritmando deve ser estritamente positivo: @2x - 8 > 0 \implies 2x > 8 \implies x > 4@.<br>
+          b) A base deve ser positiva e diferente de @1@: @x - 2 > 0 \implies x > 2@ e @x - 2 \neq 1 \implies x \neq 3@. Logo @D = (2, 3) \cup (3, \infty)@.<br>
+          c) Logaritmando: @7 - x > 0 \implies x < 7@. Base: @x + 1 > 0 \implies x > -1@ e @x + 1 \neq 1 \implies x \neq 0@. Fazendo a interseção das três condições: @-1 < x < 7@ com @x \neq 0@.<br>
+          <strong>Resposta:</strong> a) @x > 4@; b) @x > 2@ e @x \neq 3@; c) @(-1, 0) \cup (0, 7)@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Pela identidade direta @b^{\log_b(N)} = N@, temos @7^{\log_7(15)} = 15@.<br>
+          b) Pela propriedade da potência no expoente: @2\log_5(3) = \log_5(3^2) = \log_5(9)@. Logo, @5^{\log_5(9)} = 9@.<br>
+          c) Separando a soma de expoentes no produto de potências: @2^{3 + \log_2(5)} = 2^3 \cdot 2^{\log_2(5)} = 8 \cdot 5 = 40@.<br>
+          <strong>Resposta:</strong> a) @15@; b) @9@; c) @40@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Condição de existência: @4x + 1 > 0 \implies x > -\frac{1}{4}@.<br>
+          Aplicando a definição: @4x + 1 = 3^4 \implies 4x + 1 = 81 \implies 4x = 80 \implies x = 20@.<br>
+          Como @20 > -1/4@, a raiz é válida.<br>
+          <strong>Resposta:</strong> @S = \{20\}@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- GABARITO DA SEÇÃO 2 -->
+    <div class="gabarito-secao">
+      <h3>Seção 2: Problemas de Fixação</h3>
+      <ol start="11">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @\log_{10}(6) = \log_{10}(2 \cdot 3) = \log_{10}(2) + \log_{10}(3) \approx 0{,}301 + 0{,}477 = 0{,}778@.<br>
+          b) @\log_{10}(18) = \log_{10}(2 \cdot 3^2) = \log_{10}(2) + 2\log_{10}(3) \approx 0{,}301 + 2(0{,}477) = 0{,}301 + 0{,}954 = 1{,}255@.<br>
+          c) @\log_{10}(72) = \log_{10}(2^3 \cdot 3^2) = 3\log_{10}(2) + 2\log_{10}(3) \approx 3(0{,}301) + 2(0{,}477) = 0{,}903 + 0{,}954 = 1{,}857@.<br>
+          <strong>Resposta:</strong> a) @0{,}778@; b) @1{,}255@; c) @1{,}857@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @\log_{10}(5) = \log_{10}\left(\frac{10}{2}\right) = \log_{10}(10) - \log_{10}(2) \approx 1 - 0{,}301 = 0{,}699@.<br>
+          b) @\log_{10}(1{,}5) = \log_{10}\left(\frac{3}{2}\right) = \log_{10}(3) - \log_{10}(2) \approx 0{,}477 - 0{,}301 = 0{,}176@.<br>
+          c) @\log_{10}(0{,}75) = \log_{10}\left(\frac{3}{4}\right) = \log_{10}(3) - 2\log_{10}(2) \approx 0{,}477 - 2(0{,}301) = 0{,}477 - 0{,}602 = -0{,}125@.<br>
+          <strong>Resposta:</strong> a) @0{,}699@; b) @0{,}176@; c) @-0{,}125@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Escrevemos @\sqrt[5]{12} = 12^{1/5}@. Logo, @\log_{10}(\sqrt[5]{12}) = \frac{1}{5}\log_{10}(12)@.<br>
+          Fatorando: @12 = 2^2 \cdot 3 \implies \log_{10}(12) = 2\log_{10}(2) + \log_{10}(3) \approx 2(0{,}301) + 0{,}477 = 0{,}602 + 0{,}477 = 1{,}079@.<br>
+          Portanto, @\frac{1}{5} \cdot 1{,}079 = 0{,}2158@.<br>
+          <strong>Resposta:</strong> @0{,}2158@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Mudança para a base decimal: @\log_2(5) = \frac{\log_{10}(5)}{\log_{10}(2)} \approx \frac{0{,}699}{0{,}301} \approx 2{,}322@.<br>
+          b) Convertendo todos os fatores para a base decimal:<br>
+          @P = \frac{\log 3}{\log 2} \cdot \frac{\log 4}{\log 3} \cdot \frac{\log 5}{\log 4} \dots \frac{\log 32}{\log 31} = \frac{\log 32}{\log 2} = \log_2(32)@.<br>
+          Como @32 = 2^5@, temos @\log_2(32) = 5@.<br>
+          <strong>Resposta:</strong> a) @\approx 2{,}322@; b) @5@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Reescrevendo a equação: @(2^x)^2 - 10 \cdot 2^x + 16 = 0@.<br>
+          Fazendo @y = 2^x@ com @y > 0@: @y^2 - 10y + 16 = 0@.<br>
+          Por soma e produto: @(y - 2)(y - 8) = 0 \implies y = 2 \text{ ou } y = 8@.<br>
+          Para @y = 2 \implies 2^x = 2^1 \implies x = 1@.<br>
+          Para @y = 8 \implies 2^x = 2^3 \implies x = 3@.<br>
+          <strong>Resposta:</strong> @S = \{1, 3\}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Reescrevemos @2^{1-x} = \frac{2}{2^x}@, obtendo @2^x + \frac{2}{2^x} = 3@.<br>
+          Definindo @u = 2^x > 0@ e multiplicando por @u@: @u^2 + 2 = 3u \implies u^2 - 3u + 2 = 0@.<br>
+          Fatorando: @(u - 1)(u - 2) = 0 \implies u = 1 \text{ ou } u = 2@.<br>
+          Para @u = 1 \implies 2^x = 2^0 \implies x = 0@.<br>
+          Para @u = 2 \implies 2^x = 2^1 \implies x = 1@.<br>
+          <strong>Resposta:</strong> @S = \{0, 1\}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Como a base @3 > 1@, a função exponencial é crescente e mantém a desigualdade: @3^{2x - 5} \leq 3^3 \implies 2x - 5 \leq 3 \implies 2x \leq 8 \implies x \leq 4@.<br>
+          b) Como a base @\frac{1}{2} < 1@, a função exponencial é decrescente e inverte a desigualdade: @3x + 1 < x + 7 \implies 2x < 6 \implies x < 3@.<br>
+          <strong>Resposta:</strong> a) @S = (-\infty, 4]@; b) @S = (-\infty, 3)@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Condições de existência: @x + 2 > 0 \implies x > -2@ e @x - 2 > 0 \implies x > 2@. Logo, @x > 2@.<br>
+          Aplicando a propriedade da soma: @\log_2[(x + 2)(x - 2)] = 5 \implies \log_2(x^2 - 4) = 5@.<br>
+          Pela definição: @x^2 - 4 = 2^5 = 32 \implies x^2 = 36 \implies x = 6 \text{ ou } x = -6@.<br>
+          Pela condição de existência (@x > 2@), descartamos @-6@. Portanto, resta apenas @x = 6@.<br>
+          <strong>Resposta:</strong> @S = \{6\}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Condição de existência: @x + 5 > 0 \implies x > -5@ e @x - 1 > 0 \implies x > 1@. Interseção: @x > 1@.<br>
+          Condensando os logaritmos: @\log_3\left(\frac{x+5}{x-1}\right) = 2 \implies \frac{x+5}{x-1} = 3^2 = 9@.<br>
+          Multiplicando em cruz: @x + 5 = 9(x - 1) \implies x + 5 = 9x - 9 \implies 8x = 14 \implies x = \frac{14}{8} = \frac{7}{4}@.<br>
+          Como @\frac{7}{4} = 1{,}75 > 1@, a solução satisfaz a condição de existência.<br>
+          <strong>Resposta:</strong> @S = \left\{\frac{7}{4}\right\}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Condição de existência: @2x - 4 > 0 \implies 2x > 4 \implies x > 2@.<br>
+          Como a base @\frac{1}{3} < 1@, invertemos o sinal da desigualdade:<br>
+          @2x - 4 \leq \left(\frac{1}{3}\right)^{-2} \implies 2x - 4 \leq 3^2 = 9 \implies 2x \leq 13 \implies x \leq \frac{13}{2}@.<br>
+          Fazendo a interseção com a condição @x > 2@: @2 < x \leq \frac{13}{2}@.<br>
+          <strong>Resposta:</strong> @S = \left(2, \frac{13}{2}\right]@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Subtraindo as expressões das duas magnitudes:<br>
+          @M_A - M_B = \frac{2}{3}\left[\log_{10}\left(\frac{E_A}{E_0}\right) - \log_{10}\left(\frac{E_B}{E_0}\right)\right] = \frac{2}{3}\log_{10}\left(\frac{E_A}{E_B}\right)@.<br>
+          Substituindo os valores @7{,}0 - 5{,}0 = 2{,}0@:<br>
+          @2{,}0 = \frac{2}{3}\log_{10}\left(\frac{E_A}{E_B}\right) \implies \log_{10}\left(\frac{E_A}{E_B}\right) = 2 \cdot \frac{3}{2} = 3@.<br>
+          Pela definição de logaritmo decimal: @\frac{E_A}{E_B} = 10^3 = 1000@.<br>
+          Assim, o terremoto @A@ liberou @1000@ vezes mais energia que o terremoto @B@.<br>
+          <strong>Resposta:</strong> @\frac{E_A}{E_B} = 1000@ (liberou @1000@ vezes mais energia).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A meia-vida é o tempo @t@ tal que @C(t) = \frac{C_0}{2} = C_0 \cdot 2^{-1}@.<br>
+          Logo, @C_0 \cdot 2^{-t/6} = C_0 \cdot 2^{-1} \implies -\frac{t}{6} = -1 \implies t = 6@ horas.<br>
+          b) Para @C(t) = 5@ mg/L com @C_0 = 80@ mg/L:<br>
+          @80 \cdot 2^{-t/6} = 5 \implies 2^{-t/6} = \frac{5}{80} = \frac{1}{16} = 2^{-4}@.<br>
+          Igualando os expoentes: @-\frac{t}{6} = -4 \implies t = 24@ horas.<br>
+          <strong>Resposta:</strong> a) @6@ horas; b) @24@ horas.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Como o tempo de duplicação é de @40\text{ min} = \frac{2}{3}\text{ h}@, em @t@ horas o número de ciclos é @\frac{t}{2/3} = \frac{3t}{2}@.<br>
+          Portanto: @N(t) = 1500 \cdot 2^{\frac{3t}{2}}@.<br>
+          b) Igualando a @96000@ indivíduos:<br>
+          @1500 \cdot 2^{\frac{3t}{2}} = 96000 \implies 2^{\frac{3t}{2}} = \frac{96000}{1500} = 64 = 2^6@.<br>
+          Igualando os expoentes: @\frac{3t}{2} = 6 \implies 3t = 12 \implies t = 4@ horas.<br>
+          <strong>Resposta:</strong> a) @N(t) = 1500 \cdot 2^{\frac{3t}{2}}@; b) @4@ horas.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Queremos determinar o menor número inteiro @t@ tal que @M(t) \geq 20000@:<br>
+          @10000 \cdot (1{,}1)^t \geq 20000 \implies (1{,}1)^t \geq 2@.<br>
+          Aplicando logaritmo decimal em ambos os membros:<br>
+          @\log_{10}((1{,}1)^t) \geq \log_{10}(2) \implies t \cdot \log_{10}(1{,}1) \geq \log_{10}(2)@.<br>
+          Isolando @t@: @t \geq \frac{\log_{10}(2)}{\log_{10}(1{,}1)} \approx \frac{0{,}3010}{0{,}0414} \approx 7{,}27@ anos.<br>
+          Como o problema requer anos completos (inteiros), são necessários @8@ anos inteiros.<br>
+          <strong>Resposta:</strong> @8@ anos inteiros (aproximadamente @7{,}27@ anos).
+        </li>
+      </ol>
+    </div>
+
+    <!-- GABARITO DA SEÇÃO 3 -->
+    <div class="gabarito-secao">
+      <h3>Seção 3: Problemas de Aprofundamento</h3>
+      <ol start="25">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Primeira equação: @2^x \cdot (2^2)^y = 2^5 \implies 2^{x + 2y} = 2^5 \implies x + 2y = 5@.<br>
+          Segunda equação: @3^{2x} \cdot (3^2)^{-y} = 3^4 \implies 3^{2x - 2y} = 3^4 \implies 2x - 2y = 4 \implies x - y = 2@.<br>
+          Temos um sistema linear clássico:<br>
+          Da segunda equação, @x = y + 2@. Substituindo na primeira: @(y + 2) + 2y = 5 \implies 3y = 3 \implies y = 1@.<br>
+          Logo, @x = 1 + 2 = 3@.<br>
+          Verificando: @2^3 \cdot 4^1 = 8 \cdot 4 = 32@ e @3^6 \cdot 9^{-1} = 729 / 9 = 81@.<br>
+          <strong>Resposta:</strong> @(x, y) = (3, 1)@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Condições de existência:<br>
+          Logaritmando: @2x + 3 > 0 \implies x > -1{,}5@.<br>
+          Base: @x > 0@ e @x \neq 1@.<br>
+          Logo, o domínio é @(0, 1) \cup (1, \infty)@.<br>
+          Reescrevendo o lado direito como @1 = \log_x(x)@, temos @\log_x(2x + 3) > \log_x(x)@.<br>
+          Dividimos a análise em dois casos conforme o valor da base @x@:<br>
+          Caso 1: @x > 1@ (a função é crescente e preserva o sentido):<br>
+          @2x + 3 > x \implies x > -3@. Interseção com @x > 1@ resulta em @x \in (1, \infty)@.<br>
+          Caso 2: @0 < x < 1@ (a função é decrescente e inverte o sentido):<br>
+          @2x + 3 < x \implies x < -3@. A interseção de @x < -3@ com @0 < x < 1@ é o conjunto vazio @\emptyset@.<br>
+          Portanto, unindo os dois casos, a solução completa é @x > 1@.<br>
+          <strong>Resposta:</strong> @S = (1, \infty) = \{x \in \mathbb{R} \mid x > 1\}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Para @\beta_1 = 80\text{ dB}@: @80 = 10 \cdot \log_{10}\left(\frac{I_1}{10^{-12}}\right) \implies \log_{10}\left(\frac{I_1}{10^{-12}}\right) = 8@.<br>
+          Pela definição: @\frac{I_1}{10^{-12}} = 10^8 \implies I_1 = 10^{-12} \cdot 10^8 = 10^{-4}\text{ W/m}^2@.<br>
+          b) Pela fórmula da diferença de níveis sonoros:<br>
+          @\beta_2 - \beta_1 = 10 \cdot \log_{10}\left(\frac{I_2}{I_1}\right) \implies 110 - 80 = 10 \cdot \log_{10}\left(\frac{I_2}{I_1}\right)@.<br>
+          @30 = 10 \cdot \log_{10}\left(\frac{I_2}{I_1}\right) \implies \log_{10}\left(\frac{I_2}{I_1}\right) = 3 \implies \frac{I_2}{I_1} = 10^3 = 1000@.<br>
+          A nova intensidade sonora é @1000@ vezes maior que a inicial.<br>
+          <strong>Resposta:</strong> a) @I_1 = 10^{-4}\text{ W/m}^2@; b) @1000@ vezes maior.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Condição de existência: @x > 0@ (para que a base e o argumento do logaritmo sejam positivos).<br>
+          Aplicando o logaritmo de base @2@ em ambos os membros da equação:<br>
+          @\log_2\left(x^{\log_2(x)}\right) = \log_2(64x)@.<br>
+          Pela regra da potência e do produto:<br>
+          @\log_2(x) \cdot \log_2(x) = \log_2(64) + \log_2(x)@.<br>
+          Como @\log_2(64) = 6@, definindo @y = \log_2(x)@:<br>
+          @y^2 = 6 + y \implies y^2 - y - 6 = 0@.<br>
+          Fatorando a quadrática: @(y - 3)(y + 2) = 0 \implies y = 3 \text{ ou } y = -2@.<br>
+          Para @y = 3 \implies \log_2(x) = 3 \implies x = 2^3 = 8@.<br>
+          Para @y = -2 \implies \log_2(x) = -2 \implies x = 2^{-2} = \frac{1}{4}@.<br>
+          Ambos os valores satisfazem @x > 0@.<br>
+          <strong>Resposta:</strong> @S = \left\{\frac{1}{4}, 8\right\}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Como @a > 1@, quando @x \to -\infty@ o termo @a^x \to 0@. Assim, a assíntota horizontal é dada pela reta @y = b@. Como o enunciado informa que a assíntota é @y = 1@, segue que @b = 1@.<br>
+          A lei passa a ser @f(x) = k \cdot a^x + 1@.<br>
+          Usando o ponto @P(0, 5)@: @f(0) = k \cdot a^0 + 1 = 5 \implies k(1) + 1 = 5 \implies k = 4@.<br>
+          A lei fica @f(x) = 4 \cdot a^x + 1@.<br>
+          Usando o ponto @Q(1, 9)@: @f(1) = 4 \cdot a^1 + 1 = 9 \implies 4a = 8 \implies a = 2@.<br>
+          Portanto, @k = 4@, @a = 2@ e @b = 1@, e a função é @f(x) = 4 \cdot 2^x + 1@.<br>
+          b) Igualando @f(x) = 65@: @4 \cdot 2^x + 1 = 65 \implies 4 \cdot 2^x = 64 \implies 2^x = 16 = 2^4 \implies x = 4@.<br>
+          <strong>Resposta:</strong> a) @k = 4, a = 2, b = 1@; b) @x = 4@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Fatorando @N@ para isolar potências de @10@:<br>
+          @N = 2^{2026} \cdot 5^{2020} = 2^{2020 + 6} \cdot 5^{2020} = 2^6 \cdot (2 \cdot 5)^{2020} = 64 \cdot 10^{2020}@.<br>
+          O número @64 \cdot 10^{2020}@ consiste no número @64@ seguido por exatamente @2020@ zeros.<br>
+          Como o número @64@ possui @2@ algarismos, o total de algarismos é @2 + 2020 = 2022@ algarismos.<br>
+          Via logaritmo decimal: @\log_{10}(N) = \log_{10}(64) + 2020 = \log_{10}(6{,}4 \cdot 10) + 2020 = 2021 + \log_{10}(6{,}4)@. Como @1 < 6{,}4 < 10@, temos @0 < \log_{10}(6{,}4) < 1@, logo a parte inteira de @\log_{10}(N)@ é @2021@. A quantidade de dígitos é dada por @\lfloor \log_{10}(N) \rfloor + 1 = 2021 + 1 = 2022@.<br>
+          <strong>Resposta:</strong> @2022@ algarismos.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) No instante @t = 0@: @T(0) = 20 + 80 \cdot e^0 = 20 + 80(1) = 100^\circ\text{C}@.<br>
+          b) Queremos encontrar @t@ tal que @T(t) = 30@:<br>
+          @20 + 80 \cdot e^{-0{,}05 t} = 30 \implies 80 \cdot e^{-0{,}05 t} = 10 \implies e^{-0{,}05 t} = \frac{10}{80} = \frac{1}{8} = 2^{-3}@.<br>
+          Aplicando o logaritmo natural @\ln@ a ambos os membros:<br>
+          @-0{,}05 t = \ln(2^{-3}) = -3 \ln(2)@.<br>
+          Multiplicando por @-1@ e substituindo @\ln(2) \approx 0{,}693@:<br>
+          @0{,}05 t \approx 3 \cdot 0{,}693 = 2{,}079 \implies t \approx \frac{2{,}079}{0{,}05} = 41{,}58@ minutos.<br>
+          <strong>Resposta:</strong> a) @100^\circ\text{C}@; b) @\approx 41{,}58@ minutos (ou @41@ min e @35@ s).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Condição de existência: @x > 0@.<br>
+          Convertendo todos os logaritmos para a base @2@ pela fórmula da mudança de base:<br>
+          @\log_4(x) = \frac{\log_2(x)}{\log_2(4)} = \frac{\log_2(x)}{2} = \frac{1}{2}\log_2(x)@.<br>
+          @\log_8(x) = \frac{\log_2(x)}{\log_2(8)} = \frac{\log_2(x)}{3} = \frac{1}{3}\log_2(x)@.<br>
+          Substituindo na equação original:<br>
+          @\log_2(x) + \frac{1}{2}\log_2(x) + \frac{1}{3}\log_2(x) = 11@.<br>
+          Colocando @\log_2(x)@ em evidência:<br>
+          @\log_2(x)\left(1 + \frac{1}{2} + \frac{1}{3}\right) = 11 \implies \log_2(x)\left(\frac{6 + 3 + 2}{6}\right) = 11 \implies \log_2(x) \cdot \frac{11}{6} = 11@.<br>
+          Multiplicando por @\frac{6}{11}@: @\log_2(x) = 11 \cdot \frac{6}{11} = 6@.<br>
+          Pela definição de logaritmo: @x = 2^6 = 64@.<br>
+          Como @64 > 0@, a solução é válida.<br>
+          <strong>Resposta:</strong> @S = \{64\}@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- GABARITO DA SEÇÃO 4 -->
+    <div class="gabarito-secao">
+      <h3>Seção 4: Problemas Propostos</h3>
+      <ol start="33">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Calculando termo a termo:<br>
+          @\log_2(16) = 4@, pois @2^4 = 16@.<br>
+          @\log_3(1/27) = -3@, pois @3^{-3} = \frac{1}{27}@.<br>
+          @\log_{10}(0{,}1) = -1@, pois @10^{-1} = 0{,}1@.<br>
+          Substituindo na expressão: @E = 4 - (-3) + (-1) = 4 + 3 - 1 = 6@.<br>
+          <strong>Resposta:</strong> @E = 6@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Fazendo @y = 3^x > 0@, temos @9^x = (3^x)^2 = y^2@.<br>
+          A equação fica @y^2 - 4y + 3 = 0 \implies (y - 1)(y - 3) = 0 \implies y = 1 \text{ ou } y = 3@.<br>
+          Para @y = 1 \implies 3^x = 1 \implies x = 0@.<br>
+          Para @y = 3 \implies 3^x = 3 \implies x = 1@.<br>
+          <strong>Resposta:</strong> @S = \{0, 1\}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Fatorando @60 = 10 \cdot 2 \cdot 3@:<br>
+          @\log_{10}(60) = \log_{10}(10 \cdot 2 \cdot 3) = \log_{10}(10) + \log_{10}(2) + \log_{10}(3) = 1 + a + b@.<br>
+          <strong>Resposta:</strong> @1 + a + b@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Para existir a raiz quadrada real, o radicando deve ser maior ou igual a zero:<br>
+          @\log_2(x - 3) \geq 0 \implies x - 3 \geq 2^0 = 1 \implies x \geq 4@.<br>
+          Como @x \geq 4@ já garante a condição do logaritmando (@x - 3 > 0@), o domínio é @D = [4, \infty)@.<br>
+          <strong>Resposta:</strong> @D = [4, \infty) = \{x \in \mathbb{R} \mid x \geq 4\}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Reescrevendo: @\left(\frac{1}{3}\right)^{2x - 1} \leq \left(\frac{1}{3}\right)^3@.<br>
+          Como a base @\frac{1}{3} < 1@, a função exponencial é decrescente, invertendo o sentido:<br>
+          @2x - 1 \geq 3 \implies 2x \geq 4 \implies x \geq 2@.<br>
+          <strong>Resposta:</strong> @S = [2, \infty) = \{x \in \mathbb{R} \mid x \geq 2\}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Para o vinagre: @\text{pH} = -\log_{10}(10^{-3}) = -(-3) = 3@. Como @3 < 7@, é ácida.<br>
+          Para o sabão: @\text{pH} = -\log_{10}(10^{-10}) = -(-10) = 10@. Como @10 > 7@, é básica.<br>
+          <strong>Resposta:</strong> Vinagre: @\text{pH} = 3@ (ácida); Sabão: @\text{pH} = 10@ (básica).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Condições de existência: @x > 0@ e @x \neq 1@.<br>
+          Pela mudança de base, @\log_x(2) = \frac{1}{\log_2(x)}@.<br>
+          Definindo @y = \log_2(x)@: @y + \frac{1}{y} = \frac{5}{2}@.<br>
+          Multiplicando por @2y@: @2y^2 - 5y + 2 = 0@.<br>
+          As raízes são @y = 2@ ou @y = \frac{1}{2}@.<br>
+          Para @y = 2 \implies \log_2(x) = 2 \implies x = 2^2 = 4@.<br>
+          Para @y = \frac{1}{2} \implies \log_2(x) = \frac{1}{2} \implies x = 2^{1/2} = \sqrt{2}@.<br>
+          <strong>Resposta:</strong> @S = \{\sqrt{2}, 4\}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Queremos que @M(t) = 0{,}25 M_0 = \frac{1}{4} M_0 = 2^{-2} M_0@.<br>
+          Igualando: @M_0 \cdot e^{-0{,}02 t} = M_0 \cdot 2^{-2} \implies e^{-0{,}02 t} = 2^{-2}@.<br>
+          Aplicando logaritmo natural: @-0{,}02 t = -2\ln(2) \implies 0{,}02 t = 2 \cdot 0{,}693 = 1{,}386@.<br>
+          Dividindo: @t = \frac{1{,}386}{0{,}02} = 69{,}3@ anos.<br>
+          <strong>Resposta:</strong> @\approx 69{,}3@ anos.
+        </li>
+      </ol>
+    </div>
+
+  </div>
+</details>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

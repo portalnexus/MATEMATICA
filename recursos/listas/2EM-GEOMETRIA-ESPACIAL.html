@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lista de Problemas: Pirâmides e Sólidos Geométricos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil {
+      background-color: rgba(76, 175, 80, 0.3);
+    }
+
+    .dificuldade.media {
+      background-color: rgba(255, 193, 7, 0.3);
+    }
+
+    .dificuldade.dificil {
+      background-color: rgba(244, 67, 54, 0.3);
+    }
+
+    .dificuldade.desafio {
+      background-color: rgba(156, 39, 176, 0.3);
+    }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    /* Gabarito expansível */
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-secao ol {
+      padding-left: 1.5rem;
+    }
+
+    .gabarito-secao li {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: 600;
+      color: var(--secondary-text-color);
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<!-- ============================================================================
+     TÍTULO PRINCIPAL DA LISTA
+     ============================================================================ -->
+<h1>PIRÂMIDES E SÓLIDOS GEOMÉTRICOS</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS (10 PROBLEMAS)
+     ============================================================================ -->
+<article>
+  <h2>Seção 1: Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Fundamentos de geometria espacial métrica e poliedros: Teorema de Euler, elementos de pirâmides (arestas, apótemas, altura), cálculo direto de áreas superficiais e volumes fundamentais.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Relação de Euler em Pirâmides</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>
+        Uma pirâmide possui como base um polígono de 8 lados (octógono regular). Determine o número total de vértices (@V@), faces (@F@) e arestas (@A@) desse poliedro e verifique a validade da Relação de Euler (@V - A + F = 2@).
+      </p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Relação de Euler Geral</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>
+        Um poliedro convexo fechado é formado por exatamente @12@ faces triangulares e @6@ faces quadrangulares. Determine a quantidade de arestas (@A@) e de vértices (@V@) desse sólido geométrico.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Apótemas e Relações Métricas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>
+        Uma pirâmide regular de base quadrada possui aresta da base medindo @a = 6\text{ cm}@ e altura @h = 4\text{ cm}@. Calcule:
+        <br>a) O apótema da base (@m@);
+        <br>b) O apótema da pirâmide (@g@);
+        <br>c) O comprimento da aresta lateral (@L@).
+      </p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área Lateral e Área Total</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>
+        Uma pirâmide quadrangular regular tem aresta da base medindo @10\text{ m}@ e apótema da pirâmide igual a @13\text{ m}@. Calcule a área da base (@A_b@), a área lateral total (@A_l@) e a área total da superfície (@A_t@).
+      </p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Volume de Pirâmide Regular</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>
+        Determine o volume de uma pirâmide regular de base quadrada cuja aresta da base mede @12\text{ cm}@ e cuja altura vertical mede @15\text{ cm}@.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tetraedro Regular: Área de Superfície</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>
+        Um tetraedro regular possui todas as suas arestas com comprimento igual a @6\text{ cm}@. Calcule a área total de sua superfície poliédrica.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Volume e Capacidade em Litros</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>
+        Um reservatório de água possui o formato interno de uma pirâmide reta invertida cuja base retangular mede @4\text{ m} \times 6\text{ m}@ e cuja profundidade (altura) é de @3\text{ m}@. Calcule a capacidade máxima de armazenamento de água desse reservatório em litros.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Pirâmide Triangular Regular</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>
+        Uma pirâmide regular possui base formada por um triângulo equilátero de lado @4\text{ cm}@ e altura vertical @h = 6\text{ cm}@. Calcule a área da base e o volume dessa pirâmide.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Soma dos Ângulos das Faces</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>
+        A soma de todos os ângulos internos de todas as faces de qualquer poliedro convexo de @V@ vértices é dada por @S = (V - 2) \cdot 360^\circ@. Calcule essa soma para uma pirâmide cuja base é um pentágono e comprove o resultado somando diretamente os ângulos da base e das faces laterais.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aresta Lateral e Altura de Pirâmide</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>
+        Em uma pirâmide regular de base quadrada, a aresta da base mede @8\text{ cm}@ e cada uma das arestas laterais mede @10\text{ cm}@. Determine o apótema da pirâmide e a altura vertical da pirâmide em relação à base.
+      </p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO (14 PROBLEMAS COM .DICA)
+     ============================================================================ -->
+<article>
+  <h2>Seção 2: Problemas de Fixação</h2>
+  <p class="section-intro">
+    Aplicações aprofundadas com pirâmides hexagonais, tetraedro regular, seções transversais paralelas à base, semelhança espacial (razões linear, superficial e volumétrica) e troncos de pirâmide.
+  </p>
+
+  <ol start="11">
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Pirâmide Hexagonal Regular Completa</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>
+        Uma pirâmide regular possui base hexagonal de aresta @a = 6\text{ cm}@ e arestas laterais @L = 10\text{ cm}@. Determine:
+        <br>a) O raio da circunferência circunscrita à base e a altura @h@ da pirâmide;
+        <br>b) O apótema da base (@m@) e o apótema da pirâmide (@g@);
+        <br>c) A área da base (@A_b@) e o volume (@V@) da pirâmide.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> No hexágono regular, o raio da circunferência circunscrita é igual ao próprio lado (@R = a = 6\text{ cm}@). O triângulo retângulo formado pela altura, raio e aresta lateral fornece @h = \sqrt{L^2 - R^2}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tetraedro Regular: Fórmulas Deduzidas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>
+        Considere um tetraedro regular cujas seis arestas medem @a = 6\sqrt{2}\text{ cm}@.
+        <br>a) Deduza a fórmula da altura @h = \frac{a\sqrt{6}}{3}@ a partir do baricentro da base;
+        <br>b) Calcule numericamente a altura @h@, a área total @A_t = a^2\sqrt{3}@ e o volume @V = \frac{a^3\sqrt{2}}{12}@ para a aresta dada.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> A projeção ortogonal do vértice superior coincide com o baricentro da base equilátera, que dista @\frac{2}{3}@ da altura da base em relação a cada vértice.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Seção Transversal Paralela à Base</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>
+        Uma pirâmide possui altura total @H = 20\text{ cm}@ e área da base @A_B = 100\text{ cm}^2@. Um plano paralelo à base secciona a pirâmide a uma distância de @8\text{ cm}@ do seu vértice. Determine:
+        <br>a) A razão de semelhança linear @k@ entre a pirâmide menor destacada e a pirâmide original;
+        <br>b) A área @A_s@ da seção transversal obtida.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> A razão entre as áreas de figuras semelhantes é proporcional ao quadrado da razão de semelhança linear: @\frac{A_s}{A_B} = k^2 = \left(\frac{h'}{H}\right)^2@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Divisão Volumétrica por Seção Transversal</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>
+        Uma pirâmide possui volume de @540\text{ cm}^3@ e altura vertical de @15\text{ cm}@. Um plano paralelo à base intercepta a pirâmide a uma distância de @5\text{ cm}@ da base (isto é, a @10\text{ cm}@ do vértice superior). Calcule o volume da pirâmide menor situada acima do plano e o volume do tronco de pirâmide remanescente.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> A razão entre os volumes de sólidos semelhantes é o cubo da razão linear: @\frac{V'}{V} = \left(\frac{h'}{H}\right)^3@. O volume do tronco é dado pela diferença @V_{\text{tronco}} = V - V'@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 15 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tronco de Pirâmide de Bases Paralelas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>
+        Um vaso de cerâmica tem o formato de um tronco de pirâmide regular de bases quadradas paralelas. A base maior possui lado de @12\text{ cm}@, a base menor possui lado de @6\text{ cm}@ e a altura vertical do tronco é de @8\text{ cm}@. Calcule o volume interno do vaso utilizando a fórmula de Heron para troncos de pirâmide:
+        @@V = \frac{h}{3} \left(A_B + \sqrt{A_B \cdot A_b} + A_b\right)@@
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> Calcule as áreas das duas bases quadradas @A_B = 12^2@ e @A_b = 6^2@ e aplique diretamente a expressão do volume do tronco.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 16 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área Lateral do Tronco de Pirâmide</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>
+        Em um tronco de pirâmide regular quadrangular de bases paralelas, os lados das bases medem @16\text{ cm}@ e @10\text{ cm}@, e a altura do tronco é @4\text{ cm}@. Determine:
+        <br>a) O apótema do tronco de pirâmide (@g_t@);
+        <br>b) A área lateral total do tronco (área dos 4 trapézios isósceles que formam as faces laterais).
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> No plano que corta o tronco pelos apótemas, forma-se um trapézio retângulo com altura @h = 4@ e base menor/maior correspondentes aos apótemas das bases (@m_2 = 5@ e @m_1 = 8@).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 17 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tetraedro Tri-retângulo e Teorema de de Gua</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>
+        Um tetraedro @\text{OABC}@ possui o vértice @O@ com três arestas mutuamente perpendiculares: @OA \perp OB@, @OB \perp OC@ e @OC \perp OA@. As arestas medem @OA = 3\text{ cm}@, @OB = 4\text{ cm}@ e @OC = 5\text{ cm}@.
+        <br>a) Calcule o volume do tetraedro;
+        <br>b) Calcule a área da face @ABC@ e determine a distância do vértice @O@ ao plano da face @ABC@.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> Para o volume, tome uma das faces retangulares como base e a terceira aresta como altura: @V = \frac{1}{6} a b c@. Pelo Teorema de de Gua (Pitágoras 3D de áreas), @(A_{ABC})^2 = (A_{OAB})^2 + (A_{OBC})^2 + (A_{OCA})^2@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 18 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">A Grande Pirâmide de Gizé</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>
+        A Grande Pirâmide de Quéops, em Gizé, foi construída originalmente como uma pirâmide regular de base quadrada com lado de @230\text{ m}@ e altura original de aproximadamente @146\text{ m}@.
+        <br>a) Calcule o volume total de rochas empregado na sua construção (em milhões de metros cúbicos com duas casas decimais);
+        <br>b) Calcule a tangente do ângulo de inclinação (@\theta@) das faces laterais em relação ao solo plano horizontal.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> A inclinação da face lateral com o solo é dada no triângulo retângulo formado pela altura @h@ e o apótema da base @m = a/2@, logo @\tan \theta = \frac{h}{m}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 19 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Pirâmide Inscrita em Prisma Reto</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>
+        Uma pirâmide possui como base uma das bases de um prisma hexagonal regular reto de altura @H@, e seu vértice superior localiza-se exatamente no centro da base superior oposta do prisma.
+        <br>a) Determine a razão entre o volume da pirâmide e o volume do prisma;
+        <br>b) Determine a razão entre o volume da pirâmide e o volume do sólido remanescente no interior do prisma exterior à pirâmide.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> Como ambos os sólidos compartilham a mesma área de base @A_b@ e a mesma altura @H@, aplique diretamente as definições @V_{\text{prisma}} = A_b \cdot H@ e @V_{pir} = \frac{1}{3} A_b \cdot H@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 20 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Planificação e Geodésica Lateral</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>
+        Uma pirâmide regular de base quadrada possui todas as suas 8 arestas (base e laterais) medindo @6\text{ cm}@, de modo que suas faces laterais são triângulos equiláteros. Uma formiga parte de um vértice @A@ da base e caminha sobre a superfície externa lateral até atingir o ponto médio @M@ da aresta lateral oposta @VD@. Planificando as faces percorridas, determine o comprimento do menor caminho possível (geodésica) percorrido pela formiga.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> Planifique as duas faces triangulares laterais adjacentes que a formiga atravessa no plano. O ângulo no vértice comum @V@ será a soma dos ângulos das duas faces (@60^\circ + 60^\circ = 120^\circ@). Aplique a Lei dos Cossenos no triângulo plano @AVM@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 21 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Princípio de Cavalieri e Pirâmides Oblíquas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>
+        Duas pirâmides têm bases situadas sobre o mesmo plano horizontal com áreas congruentes iguais a @36\text{ cm}^2@ e alturas verticais idênticas de @10\text{ cm}@. A primeira pirâmide é reta e a segunda é oblíqua (sua cúspide projeta-se ortogonalmente fora do perímetro da base). Justifique por meio do Princípio de Cavalieri por que ambas possuem volumes estritamente iguais e determine esse valor numérico.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> Mostre que para qualquer plano secante horizontal a uma altura @z@, as seções transversais de ambas as pirâmides possuem áreas iguais dadas por @A(z) = A_b \left(\frac{h-z}{h}\right)^2@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 22 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tanque Piramidal com Nível Parcial</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>
+        Um tanque industrial em formato de pirâmide regular reta invertida possui profundidade total @H = 6\text{ m}@ e base superior quadrada de lado @4\text{ m}@. O tanque contém água até a metade exata de sua profundidade (@h' = 3\text{ m}@ a partir do vértice inferior).
+        <br>a) Determine a fração percentual do volume total do tanque que está ocupada pela água;
+        <br>b) Calcule o volume total do tanque e quantos litros de água ainda faltam para enchê-lo completamente.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> A razão linear de preenchimento é @k = \frac{3}{6} = \frac{1}{2}@. A razão de volumes do líquido acumulado em relação ao total é @k^3@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 23 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Seção Diagonal de Pirâmide Regular</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>
+        Uma pirâmide regular quadrangular tem aresta da base medindo @8\text{ cm}@ e altura vertical medindo @6\text{ cm}@. Um plano secante passa pelo vértice da pirâmide e por uma das diagonais da base quadrada, determinando a seção triangular diagonal.
+        <br>a) Calcule a área dessa seção diagonal;
+        <br>b) Determine o comprimento da aresta lateral da pirâmide.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> A seção diagonal é um triângulo isósceles cuja base é a diagonal da base quadrada (@d = a\sqrt{2}@) e cuja altura é a própria altura vertical @h@ da pirâmide.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 24 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tronco de Pirâmide Triangular Regular</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>
+        Uma pirâmide regular de base triangular equilátera de aresta @a = 9\text{ cm}@ e altura @H = 12\text{ cm}@ é seccionada por um plano paralelo à base situado na metade exata de sua altura (@h = 6\text{ cm}@). Calcule:
+        <br>a) As áreas da base maior (@A_B@) e da base menor (@A_b@) do tronco obtido;
+        <br>b) O volume do tronco de pirâmide.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> Sendo seccionada na metade da altura, a pirâmide menor superior tem lado da base @a' = 4{,}5\text{ cm}@ e volume igual a @\frac{1}{8}@ do volume da pirâmide original.
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO (8 PROBLEMAS)
+     ============================================================================ -->
+<article>
+  <h2>Seção 3: Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Desafios de alto nível técnico inspirados em FUVEST, UNICAMP, ITA e ENEM: esferas inscritas e circunscritas em pirâmides, sólidos compostos e monumentos, seções oblíquas, proporção áurea e o octaedro regular.
+  </p>
+
+  <ol start="25">
+    <!-- PROBLEMA 25 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST</span>
+        <span class="topico">Esfera Inscrita em Pirâmide Regular</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>
+        Uma pirâmide regular de base quadrada tem aresta da base medindo @a = 8\text{ cm}@ e altura vertical @h = 3\text{ cm}@. Uma esfera está perfeitamente inscrita no interior dessa pirâmide (tangenciando a base quadrada e todas as quatro faces triangulares laterais).
+        <br>a) Calcule a área total (@A_t@) e o volume (@V@) da pirâmide;
+        <br>b) Utilizando a partição do volume da pirâmide em cinco pirâmides menores a partir do centro da esfera (@V = \frac{1}{3} A_t \cdot r@), calcule o raio @r@ da esfera inscrita.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 26 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ITA</span>
+        <span class="topico">Esferas Inscrita e Circunscrita no Tetraedro Regular</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>
+        Considere um tetraedro regular de aresta @a@. Sabendo que seu centro de gravidade (baricentro espacial) coincide com o centro da esfera circunscrita (raio @R@) e da esfera inscrita (raio @r@):
+        <br>a) Mostre que o centro divide a altura @h = \frac{a\sqrt{6}}{3}@ na proporção @3:1@, determinando as expressões de @R@ e @r@ em função de @a@;
+        <br>b) Prove que @R = 3r@ e calcule a razão entre o volume da esfera circunscrita e o volume da esfera inscrita.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 27 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ENEM</span>
+        <span class="topico">Sólido Composto: Monumento e Revestimento</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>
+        Um monumento comemorativo no formato de um obelisco é formado por um prisma reto de base quadrada com aresta de @4\text{ m}@ e altura de @10\text{ m}@, encimado por uma pirâmide regular de mesma base. A altura total da estrutura (do piso ao vértice da pirâmide) é de @16\text{ m}@.
+        <br>a) Determine o volume total do obelisco;
+        <br>b) Toda a superfície externa do monumento (as 4 paredes verticais do prisma e as 4 faces triangulares da pirâmide superior, excluída a base no solo) será revestida com placas de mármore. Calcule a área total a ser revestida (use @\sqrt{10} \approx 3{,}16@).
+      </p>
+    </li>
+
+    <!-- PROBLEMA 28 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST</span>
+        <span class="topico">Seção Oblíqua em Pirâmide Regular</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>
+        Em uma pirâmide regular de vértice @V@ e base quadrada @\text{ABCD}@, todas as 8 arestas têm comprimento igual a @a@. Um plano corta a pirâmide contendo a aresta da base @AB@ e passando pelos pontos médios @M@ e @N@ das arestas laterais opostas @VC@ e @VD@, respectivamente.
+        <br>a) Identifique a figura geométrica plana formada por essa seção transversal;
+        <br>b) Determine a área dessa seção plana em função de @a@.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 29 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ITA</span>
+        <span class="topico">Pirâmide de Base Trapezoidal</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>
+        A base de uma pirâmide é um trapézio isósceles cujas bases paralela maior e menor medem, respectivamente, @10\text{ cm}@ e @4\text{ cm}@, e cujos lados oblíquos não paralelos medem @5\text{ cm}@ cada. A altura vertical dessa pirâmide mede @12\text{ cm}@. Calcule o volume da pirâmide.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 30 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">UNICAMP</span>
+        <span class="topico">Proporção Áurea e o Triângulo de Kepler</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>
+        Em uma pirâmide regular de base quadrada, a razão entre o apótema da pirâmide (@g@) e o apótema da base (@m = a/2@) é igual à razão áurea @\phi = \frac{1 + \sqrt{5}}{2} \approx 1{,}618@.
+        <br>a) Sabendo que @\phi^2 = \phi + 1@, mostre que a razão entre a altura vertical @h@ e o apótema da base @m@ satisfaz @\frac{h}{m} = \sqrt{\phi}@ (configurando o chamado Triângulo de Kepler);
+        <br>b) Mostre que a razão entre a área lateral total (@A_l@) e a área da base (@A_b@) dessa pirâmide é rigorosamente igual a @\phi@.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 31 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST / Geometria Espacial</span>
+        <span class="topico">Octaedro Regular como Bipirâmide</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>
+        Um octaedro regular de aresta @a = 6\text{ cm}@ pode ser decomposto como a união de duas pirâmides regulares congruentes de base quadrada justapostas pela base comum.
+        <br>a) Calcule a altura de cada uma das pirâmides componentes e o volume total do octaedro regular;
+        <br>b) Determine a distância entre duas faces opostas e paralelas do octaedro regular.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 32 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Olimpíada / Canguru</span>
+        <span class="topico">Tetraedro Inscrito no Cubo</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>
+        Em um cubo de aresta @L = 6\text{ cm}@ e volume @V_c = 216\text{ cm}^3@, selecionam-se quatro vértices alternados que não compartilham arestas entre si. Unindo esses quatro vértices, obtém-se um tetraedro regular inscrito no cubo.
+        <br>a) Determine o comprimento da aresta do tetraedro regular formado em função de @L@;
+        <br>b) Calcule o volume de cada um dos quatro cantos piramidais tri-retângulos retirados do cubo e determine a fração do volume do cubo ocupada pelo tetraedro regular inscrito.
+      </p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS (8 PROBLEMAS)
+     ============================================================================ -->
+<article>
+  <h2>Seção 4: Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas complementares para estudo independente e consolidação do raciocínio espacial, com gabarito e resoluções completas ao final.
+  </p>
+
+  <ol start="33">
+    <!-- PROBLEMA 33 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Relação de Euler</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>
+        Um poliedro convexo fechado possui @10@ vértices e @15@ arestas. Determine o número de faces desse poliedro.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 34 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Altura de Pirâmide Regular</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>
+        Uma pirâmide regular de base quadrada tem aresta da base medindo @10\text{ cm}@ e apótema lateral medindo @13\text{ cm}@. Calcule a altura vertical dessa pirâmide.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 35 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Pirâmide Triangular Regular</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>
+        Uma pirâmide regular possui base triangular equilátera com lado de @6\text{ cm}@ e arestas laterais de comprimento @5\text{ cm}@. Calcule o volume dessa pirâmide.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 36 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Razão de Volumes e Seção</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>
+        Um plano paralelo à base intercepta uma pirâmide a @\frac{1}{3}@ da sua altura a partir do vértice. Qual é a razão entre o volume da pirâmide menor destacada e o volume do tronco de pirâmide resultante?
+      </p>
+    </li>
+
+    <!-- PROBLEMA 37 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tronco de Pirâmide Quadrangular</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>
+        As bases de um tronco de pirâmide regular são quadrados de lados @8\text{ cm}@ e @4\text{ cm}@. Sabendo que a altura do tronco é de @6\text{ cm}@, calcule o seu volume.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 38 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Distância entre Arestas Reversas no Tetraedro</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>
+        Em um tetraedro regular de aresta @a = 12\text{ cm}@, calcule a distância mínima entre duas arestas opostas e reversas ortogonais (segmento que une os pontos médios de ambas as arestas).
+      </p>
+    </li>
+
+    <!-- PROBLEMA 39 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Esfera Inscrita em Octaedro Regular</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>
+        Determine o raio @r@ da esfera perfeitamente inscrita em um octaedro regular cuja aresta mede @a = 6\sqrt{6}\text{ cm}@.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 40 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Pirâmide Hexagonal: Volume e Superfície</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>
+        Uma pirâmide regular de base hexagonal possui aresta da base medindo @4\text{ cm}@ e arestas laterais medindo @8\text{ cm}@. Calcule o volume exato e a área total da superfície da pirâmide.
+      </p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     GABARITO E RESOLUÇÕES DETALHADAS
+     ============================================================================ -->
+<details class="gabarito-container">
+  <summary>📖 Clique aqui para ver o Gabarito com Resoluções Passo a Passo</summary>
+  <div class="gabarito-content">
+
+    <!-- GABARITO SEÇÃO 1 -->
+    <div class="gabarito-secao">
+      <h3>Seção 1: Problemas Introdutórios</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Para uma pirâmide de base com @n@ lados, temos @V = n + 1@, @F = n + 1@ e @A = 2n@.<br>
+          Como @n = 8@ (octógono):<br>
+          • Vértices: @V = 8 + 1 = 9@;<br>
+          • Faces: @F = 8 + 1 = 9@ (1 base octogonal + 8 faces laterais triangulares);<br>
+          • Arestas: @A = 2 \times 8 = 16@ (8 da base + 8 laterais).<br>
+          Verificando a Relação de Euler: @V - A + F = 9 - 16 + 9 = 2@ (verdadeira).<br>
+          <strong>Resposta:</strong> @V = 9@, @F = 9@, @A = 16@; Euler verificado: @9 - 16 + 9 = 2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Total de faces: @F = 12 + 6 = 18@ faces.<br>
+          Contagem de arestas: cada face triangular contribui com 3 arestas e cada quadrangular com 4 arestas. Como cada aresta pertence a duas faces:<br>
+          @2A = 12 \times 3 + 6 \times 4 = 36 + 24 = 60 \implies A = \frac{60}{2} = 30@ arestas.<br>
+          Pela Relação de Euler (@V - A + F = 2@):<br>
+          @V - 30 + 18 = 2 \implies V - 12 = 2 \implies V = 14@ vértices.<br>
+          <strong>Resposta:</strong> @A = 30@ arestas e @V = 14@ vértices.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) O apótema da base quadrada é o inraio da base: @m = \frac{a}{2} = \frac{6}{2} = 3\text{ cm}@.<br>
+          b) No triângulo retângulo formado pela altura (@h@), apótema da base (@m@) e apótema da pirâmide (@g@):<br>
+          @g = \sqrt{h^2 + m^2} = \sqrt{4^2 + 3^2} = \sqrt{16 + 9} = \sqrt{25} = 5\text{ cm}@.<br>
+          c) No triângulo retângulo da face lateral (formado por @g@, metade da aresta da base @a/2@ e a aresta lateral @L@):<br>
+          @L = \sqrt{g^2 + (a/2)^2} = \sqrt{5^2 + 3^2} = \sqrt{25 + 9} = \sqrt{34}\text{ cm} \approx 5{,}83\text{ cm}@.<br>
+          <strong>Resposta:</strong> a) @m = 3\text{ cm}@; b) @g = 5\text{ cm}@; c) @L = \sqrt{34}\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Área da base quadrada: @A_b = a^2 = 10^2 = 100\text{ m}^2@.<br>
+          Área de cada face lateral triangular: @A_{\text{face}} = \frac{a \cdot g}{2} = \frac{10 \cdot 13}{2} = 65\text{ m}^2@.<br>
+          Área lateral total: @A_l = 4 \times 65 = 260\text{ m}^2@.<br>
+          Área total da superfície: @A_t = A_b + A_l = 100 + 260 = 360\text{ m}^2@.<br>
+          <strong>Resposta:</strong> @A_b = 100\text{ m}^2@, @A_l = 260\text{ m}^2@ e @A_t = 360\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Área da base quadrada: @A_b = a^2 = 12^2 = 144\text{ cm}^2@.<br>
+          Volume: @V = \frac{1}{3} A_b \cdot h = \frac{1}{3} \cdot 144 \cdot 15 = 144 \cdot 5 = 720\text{ cm}^3@.<br>
+          <strong>Resposta:</strong> @V = 720\text{ cm}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          O tetraedro regular é composto por 4 triângulos equiláteros congruentes de lado @a = 6\text{ cm}@.<br>
+          Área de uma face: @A_{\text{face}} = \frac{a^2\sqrt{3}}{4} = \frac{6^2\sqrt{3}}{4} = \frac{36\sqrt{3}}{4} = 9\sqrt{3}\text{ cm}^2@.<br>
+          Área total: @A_t = 4 \times A_{\text{face}} = 4 \times 9\sqrt{3} = 36\sqrt{3}\text{ cm}^2 \approx 62{,}35\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> @A_t = 36\sqrt{3}\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Área da base retangular: @A_b = 4 \times 6 = 24\text{ m}^2@.<br>
+          Volume da pirâmide: @V = \frac{1}{3} A_b \cdot h = \frac{1}{3} \cdot 24 \cdot 3 = 24\text{ m}^3@.<br>
+          Convertendo para litros (sabendo que @1\text{ m}^3 = 1.000\text{ L}@):<br>
+          @\text{Capacidade} = 24 \times 1.000 = 24.000\text{ litros}@.<br>
+          <strong>Resposta:</strong> @24.000\text{ litros}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Área da base (triângulo equilátero): @A_b = \frac{a^2\sqrt{3}}{4} = \frac{4^2\sqrt{3}}{4} = 4\sqrt{3}\text{ cm}^2@.<br>
+          Volume da pirâmide: @V = \frac{1}{3} A_b \cdot h = \frac{1}{3} \cdot 4\sqrt{3} \cdot 6 = 8\sqrt{3}\text{ cm}^3 \approx 13{,}86\text{ cm}^3@.<br>
+          <strong>Resposta:</strong> @A_b = 4\sqrt{3}\text{ cm}^2@ e @V = 8\sqrt{3}\text{ cm}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          A pirâmide pentagonal possui base com 5 vértices e mais o vértice superior, totalizando @V = 6@ vértices.<br>
+          Pela fórmula geral de Descartes: @S = (V - 2) \cdot 360^\circ = (6 - 2) \cdot 360^\circ = 4 \cdot 360^\circ = 1.440^\circ@.<br>
+          Comprovando diretamente:<br>
+          • Soma dos ângulos internos da base pentagonal: @(5 - 2) \times 180^\circ = 3 \times 180^\circ = 540^\circ@;<br>
+          • As 5 faces laterais são triângulos: @5 \times 180^\circ = 900^\circ@;<br>
+          • Soma total: @540^\circ + 900^\circ = 1.440^\circ@. Idêntico!<br>
+          <strong>Resposta:</strong> @S = 1.440^\circ@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Face lateral é um triângulo isósceles de base @a = 8\text{ cm}@ e lados @L = 10\text{ cm}@.<br>
+          O apótema da pirâmide @g@ é a altura desse triângulo relativa à base:<br>
+          @g = \sqrt{L^2 - (a/2)^2} = \sqrt{10^2 - 4^2} = \sqrt{100 - 16} = \sqrt{84} = 2\sqrt{21}\text{ cm} \approx 9{,}17\text{ cm}@.<br>
+          Como o apótema da base quadrada é @m = 4\text{ cm}@, a altura @h@ é obtida por:<br>
+          @h = \sqrt{g^2 - m^2} = \sqrt{84 - 16} = \sqrt{68} = 2\sqrt{17}\text{ cm} \approx 8{,}25\text{ cm}@.<br>
+          <strong>Resposta:</strong> Apótema da pirâmide: @g = 2\sqrt{21}\text{ cm}@; Altura: @h = 2\sqrt{17}\text{ cm}@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- GABARITO SEÇÃO 2 -->
+    <div class="gabarito-secao">
+      <h3>Seção 2: Problemas de Fixação</h3>
+      <ol start="11">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) No hexágono regular, o raio da circunferência circunscrita é igual à aresta: @R = a = 6\text{ cm}@.<br>
+          No triângulo retângulo formado pela aresta lateral, altura e raio: @h = \sqrt{L^2 - R^2} = \sqrt{10^2 - 6^2} = \sqrt{100 - 36} = \sqrt{64} = 8\text{ cm}@.<br>
+          b) O apótema da base (inraio do hexágono) é: @m = \frac{a\sqrt{3}}{2} = \frac{6\sqrt{3}}{2} = 3\sqrt{3}\text{ cm}@.<br>
+          O apótema da pirâmide é: @g = \sqrt{h^2 + m^2} = \sqrt{8^2 + (3\sqrt{3})^2} = \sqrt{64 + 27} = \sqrt{91}\text{ cm} \approx 9{,}54\text{ cm}@.<br>
+          c) Área da base hexagonal (6 triângulos equiláteros): @A_b = 6 \cdot \frac{a^2\sqrt{3}}{4} = 6 \cdot \frac{36\sqrt{3}}{4} = 54\sqrt{3}\text{ cm}^2 \approx 93{,}53\text{ cm}^2@.<br>
+          Volume: @V = \frac{1}{3} A_b \cdot h = \frac{1}{3} \cdot 54\sqrt{3} \cdot 8 = 144\sqrt{3}\text{ cm}^3 \approx 249{,}42\text{ cm}^3@.<br>
+          <strong>Resposta:</strong> a) @R = 6\text{ cm}@ e @h = 8\text{ cm}@; b) @m = 3\sqrt{3}\text{ cm}@ e @g = \sqrt{91}\text{ cm}@; c) @A_b = 54\sqrt{3}\text{ cm}^2@ e @V = 144\sqrt{3}\text{ cm}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A altura da base equilátera de lado @a@ é @h_b = \frac{a\sqrt{3}}{2}@. O baricentro dista @R = \frac{2}{3} h_b = \frac{a\sqrt{3}}{3}@ dos vértices. Pelo Teorema de Pitágoras no triângulo retângulo formado pela aresta @a@, raio @R@ e altura @h@:<br>
+          @h = \sqrt{a^2 - R^2} = \sqrt{a^2 - \left(\frac{a\sqrt{3}}{3}\right)^2} = \sqrt{a^2 - \frac{a^2}{3}} = \sqrt{\frac{2a^2}{3}} = \frac{a\sqrt{6}}{3}@.<br>
+          b) Para @a = 6\sqrt{2}\text{ cm}@:<br>
+          • Altura: @h = \frac{6\sqrt{2} \cdot \sqrt{6}}{3} = 2\sqrt{12} = 4\sqrt{3}\text{ cm}@;<br>
+          • Área total: @A_t = a^2\sqrt{3} = (6\sqrt{2})^2 \sqrt{3} = 72\sqrt{3}\text{ cm}^2@;<br>
+          • Volume: @V = \frac{a^3\sqrt{2}}{12} = \frac{(6\sqrt{2})^3 \sqrt{2}}{12} = \frac{216 \cdot 2\sqrt{2} \cdot \sqrt{2}}{12} = \frac{216 \cdot 4}{12} = 72\text{ cm}^3@.<br>
+          <strong>Resposta:</strong> @h = 4\sqrt{3}\text{ cm}@, @A_t = 72\sqrt{3}\text{ cm}^2@ e @V = 72\text{ cm}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Razão linear: @k = \frac{h'}{H} = \frac{8}{20} = \frac{2}{5} = 0{,}4@.<br>
+          b) A razão das áreas é o quadrado da razão linear: @\frac{A_s}{A_B} = k^2 = \left(\frac{2}{5}\right)^2 = \frac{4}{25} = 0{,}16@.<br>
+          Área da seção: @A_s = A_B \cdot 0{,}16 = 100 \cdot 0{,}16 = 16\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) @k = \frac{2}{5} = 0{,}4@; b) @A_s = 16\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Distância do vértice ao plano de corte: @h' = 15 - 5 = 10\text{ cm}@.<br>
+          Razão de semelhança linear: @k = \frac{10}{15} = \frac{2}{3}@.<br>
+          Razão de volumes: @\frac{V'}{V} = k^3 = \left(\frac{2}{3}\right)^3 = \frac{8}{27}@.<br>
+          Volume da pirâmide menor: @V' = 540 \cdot \frac{8}{27} = 20 \cdot 8 = 160\text{ cm}^3@.<br>
+          Volume do tronco: @V_{\text{tronco}} = V - V' = 540 - 160 = 380\text{ cm}^3@.<br>
+          <strong>Resposta:</strong> Pirâmide menor: @160\text{ cm}^3@; Tronco: @380\text{ cm}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Áreas das bases: @A_B = 12^2 = 144\text{ cm}^2@ e @A_b = 6^2 = 36\text{ cm}^2@.<br>
+          Termo geométrico médio: @\sqrt{A_B \cdot A_b} = \sqrt{144 \cdot 36} = 12 \cdot 6 = 72\text{ cm}^2@.<br>
+          Volume pelo tronco de pirâmide:<br>
+          @V = \frac{h}{3} (A_B + \sqrt{A_B \cdot A_b} + A_b) = \frac{8}{3} (144 + 72 + 36) = \frac{8}{3} \cdot 252 = 8 \cdot 84 = 672\text{ cm}^3@.<br>
+          <strong>Resposta:</strong> @V = 672\text{ cm}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Os apótemas das bases quadradas são @m_1 = \frac{16}{2} = 8\text{ cm}@ e @m_2 = \frac{10}{2} = 5\text{ cm}@.<br>
+          A projeção do apótema do tronco no plano horizontal é @m_1 - m_2 = 8 - 5 = 3\text{ cm}@.<br>
+          Apótema do tronco: @g_t = \sqrt{h^2 + (m_1 - m_2)^2} = \sqrt{4^2 + 3^2} = 5\text{ cm}@.<br>
+          b) Cada face lateral é um trapézio isósceles de bases @16\text{ cm}@ e @10\text{ cm}@ e altura @g_t = 5\text{ cm}@:<br>
+          @A_{\text{face}} = \frac{(16 + 10) \cdot 5}{2} = \frac{26 \cdot 5}{2} = 65\text{ cm}^2@.<br>
+          Área lateral total (4 faces): @A_l = 4 \times 65 = 260\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) @g_t = 5\text{ cm}@; b) @A_l = 260\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Como as três arestas no vértice @O@ são perpendiculares:<br>
+          @V = \frac{1}{3} A_{OAB} \cdot OC = \frac{1}{3} \left(\frac{3 \cdot 4}{2}\right) \cdot 5 = \frac{1}{3} \cdot 6 \cdot 5 = 10\text{ cm}^3@.<br>
+          b) Pelo Teorema de de Gua:<br>
+          @(A_{ABC})^2 = (A_{OAB})^2 + (A_{OBC})^2 + (A_{OCA})^2 = 6^2 + \left(\frac{4 \cdot 5}{2}\right)^2 + \left(\frac{3 \cdot 5}{2}\right)^2 = 36 + 100 + 56{,}25 = 192{,}25@.<br>
+          Logo, @A_{ABC} = \sqrt{192{,}25} \approx 13{,}87\text{ cm}^2@.<br>
+          Distância @d@ do vértice @O@ ao plano @ABC@:<br>
+          @V = \frac{1}{3} A_{ABC} \cdot d \implies 10 = \frac{1}{3} \cdot 13{,}87 \cdot d \implies d = \frac{30}{13{,}87} \approx 2{,}16\text{ cm}@.<br>
+          <strong>Resposta:</strong> a) @V = 10\text{ cm}^3@; b) @A_{ABC} = \sqrt{192{,}25} \approx 13{,}87\text{ cm}^2@ e distância @d \approx 2{,}16\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Área da base quadrada: @A_b = 230^2 = 52.900\text{ m}^2@.<br>
+          Volume: @V = \frac{1}{3} \cdot 52.900 \cdot 146 = \frac{7.723.400}{3} \approx 2.574.466{,}67\text{ m}^3 \approx 2{,}57@ milhões de @\text{m}^3@.<br>
+          b) Apótema da base: @m = \frac{230}{2} = 115\text{ m}@.<br>
+          Tangente da inclinação: @\tan \theta = \frac{h}{m} = \frac{146}{115} \approx 1{,}27@ (ângulo diedro de aproximadamente @51^\circ 47'@).<br>
+          <strong>Resposta:</strong> a) @\approx 2{,}57@ milhões de @\text{m}^3@; b) @\tan \theta \approx 1{,}27@ (@\theta \approx 51{,}8^\circ@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A base da pirâmide e do prisma é a mesma (@A_b@) e a altura vertical é a mesma (@H@).<br>
+          @\frac{V_{pir}}{V_{\text{prisma}}} = \frac{\frac{1}{3} A_b H}{A_b H} = \frac{1}{3}@.<br>
+          b) O volume remanescente no prisma é @V_{rem} = V_{\text{prisma}} - V_{pir} = 1 - \frac{1}{3} = \frac{2}{3} V_{\text{prisma}}@.<br>
+          Razão pedida: @\frac{V_{pir}}{V_{rem}} = \frac{1/3}{2/3} = \frac{1}{2}@.<br>
+          <strong>Resposta:</strong> a) @\frac{1}{3}@; b) @\frac{1}{2}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Desenvolvendo no mesmo plano as duas faces adjacentes @VAB@ e @VBC@ (ou @VCD@) que compartilham o vértice @V@:<br>
+          O trajeto liga o ponto @A@ da base ao ponto médio @M@ da aresta oposta (@VM = 3\text{ cm}@), com @VA = 6\text{ cm}@.<br>
+          Como cada face é um triângulo equilátero, o ângulo total em @V@ é @60^\circ + 60^\circ = 120^\circ@.<br>
+          Pela Lei dos Cossenos no triângulo plano @AVM@:<br>
+          @d^2 = VA^2 + VM^2 - 2 \cdot VA \cdot VM \cdot \cos(120^\circ)@.<br>
+          Como @\cos(120^\circ) = -0{,}5@:<br>
+          @d^2 = 6^2 + 3^2 - 2(6)(3)(-0{,}5) = 36 + 9 + 18 = 63 \implies d = \sqrt{63} = 3\sqrt{7}\text{ cm} \approx 7{,}94\text{ cm}@.<br>
+          <strong>Resposta:</strong> @d = 3\sqrt{7}\text{ cm} \approx 7{,}94\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Pelo Princípio de Cavalieri, dois sólidos de mesma altura que possuem seções transversais paralelas de áreas iguais em qualquer plano secante à mesma altura possuem volumes rigorosamente iguais.<br>
+          Em uma pirâmide qualquer (reta ou oblíqua), a seção a uma distância @z@ da base (distância @h - z@ do vértice) tem área dada por @A(z) = A_b \cdot \left(\frac{h-z}{h}\right)^2@, dependendo unicamente da área da base e da altura.<br>
+          Como ambas têm a mesma base (@36\text{ cm}^2@) e altura (@10\text{ cm}@), seus volumes são iguais:<br>
+          @V = \frac{1}{3} A_b \cdot h = \frac{1}{3} \cdot 36 \cdot 10 = 120\text{ cm}^3@.<br>
+          <strong>Resposta:</strong> Justificado pelo Princípio de Cavalieri; @V = 120\text{ cm}^3@ para ambas.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A razão linear do líquido em relação ao tanque é @k = \frac{h'}{H} = \frac{3}{6} = \frac{1}{2}@.<br>
+          A razão volumétrica ocupada é @k^3 = \left(\frac{1}{2}\right)^3 = \frac{1}{8} = 0{,}125 = 12{,}5\%@.<br>
+          b) Volume total do tanque: @V_{\text{total}} = \frac{1}{3} A_b \cdot H = \frac{1}{3} \cdot (4^2) \cdot 6 = \frac{1}{3} \cdot 16 \cdot 6 = 32\text{ m}^3 = 32.000\text{ L}@.<br>
+          Volume de água presente: @\frac{1}{8} \times 32.000 = 4.000\text{ L}@.<br>
+          Falta para encher: @32.000 - 4.000 = 28.000\text{ L}@ (ou @87{,}5\%@ do tanque).<br>
+          <strong>Resposta:</strong> a) @12{,}5\%@; b) Volume total: @32.000\text{ L}@; faltam @28.000\text{ L}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A diagonal da base quadrada de lado @8\text{ cm}@ é @d = a\sqrt{2} = 8\sqrt{2}\text{ cm}@.<br>
+          A seção diagonal é um triângulo isósceles de base @d@ e altura vertical @h = 6\text{ cm}@:<br>
+          @A_{sd} = \frac{d \cdot h}{2} = \frac{8\sqrt{2} \cdot 6}{2} = 24\sqrt{2}\text{ cm}^2 \approx 33{,}94\text{ cm}^2@.<br>
+          b) A semi-diagonal da base é @\frac{d}{2} = 4\sqrt{2}\text{ cm}@.<br>
+          A aresta lateral é a hipotenusa: @L = \sqrt{h^2 + (d/2)^2} = \sqrt{6^2 + (4\sqrt{2})^2} = \sqrt{36 + 32} = \sqrt{68} = 2\sqrt{17}\text{ cm} \approx 8{,}25\text{ cm}@.<br>
+          <strong>Resposta:</strong> a) @A_{sd} = 24\sqrt{2}\text{ cm}^2@; b) @L = 2\sqrt{17}\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Base maior: @A_B = \frac{a^2\sqrt{3}}{4} = \frac{9^2\sqrt{3}}{4} = \frac{81\sqrt{3}}{4}\text{ cm}^2 \approx 35{,}07\text{ cm}^2@.<br>
+          Como a seção está na metade da altura (@k = \frac{1}{2}@), a base menor tem lado @a' = 4{,}5\text{ cm}@ e área @A_b = \frac{A_B}{4} = \frac{81\sqrt{3}}{16}\text{ cm}^2 \approx 8{,}77\text{ cm}^2@.<br>
+          b) O volume total da pirâmide original é @V = \frac{1}{3} A_B \cdot H = \frac{1}{3} \cdot \frac{81\sqrt{3}}{4} \cdot 12 = 81\sqrt{3}\text{ cm}^3@.<br>
+          O tronco retém @1 - k^3 = 1 - \frac{1}{8} = \frac{7}{8}@ do volume total:<br>
+          @V_{\text{tronco}} = \frac{7}{8} \cdot 81\sqrt{3} = \frac{567\sqrt{3}}{8}\text{ cm}^3 \approx 122{,}76\text{ cm}^3@.<br>
+          <strong>Resposta:</strong> a) @A_B = \frac{81\sqrt{3}}{4}\text{ cm}^2@ e @A_b = \frac{81\sqrt{3}}{16}\text{ cm}^2@; b) @V_{\text{tronco}} = \frac{567\sqrt{3}}{8}\text{ cm}^3@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- GABARITO SEÇÃO 3 -->
+    <div class="gabarito-secao">
+      <h3>Seção 3: Problemas de Aprofundamento</h3>
+      <ol start="25">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Área da base: @A_b = 8^2 = 64\text{ cm}^2@.<br>
+          Apótema da base: @m = 4\text{ cm}@. Apótema da pirâmide: @g = \sqrt{h^2 + m^2} = \sqrt{3^2 + 4^2} = 5\text{ cm}@.<br>
+          Área lateral: @A_l = 4 \times \left(\frac{8 \cdot 5}{2}\right) = 80\text{ cm}^2@.<br>
+          Área total: @A_t = 64 + 80 = 144\text{ cm}^2@.<br>
+          Volume: @V = \frac{1}{3} A_b \cdot h = \frac{1}{3} \cdot 64 \cdot 3 = 64\text{ cm}^3@.<br>
+          b) O centro da esfera inscrita dista @r@ de todas as 5 faces. Dividindo a pirâmide em 5 pirâmides com vértice no centro da esfera:<br>
+          @V = \frac{1}{3} A_t \cdot r \implies 64 = \frac{1}{3} \cdot 144 \cdot r = 48 r \implies r = \frac{64}{48} = \frac{4}{3}\text{ cm} \approx 1{,}33\text{ cm}@.<br>
+          <strong>Resposta:</strong> a) @A_t = 144\text{ cm}^2@ e @V = 64\text{ cm}^3@; b) @r = \frac{4}{3}\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A altura total do tetraedro regular é @h = \frac{a\sqrt{6}}{3}@.<br>
+          Por simetria e equilíbrio de momentos, o centro de gravidade divide a altura na proporção @3:1@.<br>
+          • Raio circunscrito (distância do centro ao vértice): @R = \frac{3}{4} h = \frac{3}{4} \cdot \frac{a\sqrt{6}}{3} = \frac{a\sqrt{6}}{4}@;<br>
+          • Raio inscrito (distância do centro a cada face): @r = \frac{1}{4} h = \frac{1}{4} \cdot \frac{a\sqrt{6}}{3} = \frac{a\sqrt{6}}{12}@.<br>
+          b) Comparando os raios: @\frac{R}{r} = \frac{\frac{a\sqrt{6}}{4}}{\frac{a\sqrt{6}}{12}} = \frac{12}{4} = 3 \implies R = 3r@.<br>
+          Razão entre os volumes das esferas circunscrita e inscrita:<br>
+          @\frac{V_{\text{circ}}}{V_{\text{insc}}} = \left(\frac{R}{r}\right)^3 = 3^3 = 27@.<br>
+          <strong>Resposta:</strong> @R = \frac{a\sqrt{6}}{4}@, @r = \frac{a\sqrt{6}}{12}@; @R = 3r@ e a razão de volumes é @27@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Altura da pirâmide: @h_{pir} = 16 - 10 = 6\text{ m}@.<br>
+          Volume do prisma: @V_{\text{prisma}} = 4^2 \times 10 = 160\text{ m}^3@.<br>
+          Volume da pirâmide: @V_{pir} = \frac{1}{3} \cdot (4^2) \cdot 6 = 32\text{ m}^3@.<br>
+          Volume total: @V = 160 + 32 = 192\text{ m}^3@.<br>
+          b) Área lateral do prisma (4 paredes): @A_{lp} = 4 \times (4 \times 10) = 160\text{ m}^2@.<br>
+          Apótema da pirâmide: @g = \sqrt{6^2 + 2^2} = \sqrt{40} = 2\sqrt{10}\text{ m}@.<br>
+          Área lateral da pirâmide: @A_{\text{lpir}} = 4 \times \left(\frac{4 \cdot 2\sqrt{10}}{2}\right) = 16\sqrt{10}\text{ m}^2 \approx 16 \times 3{,}16 = 50{,}56\text{ m}^2@.<br>
+          Área total externa revestida: @160 + 50{,}56 = 210{,}56\text{ m}^2@.<br>
+          <strong>Resposta:</strong> a) @V = 192\text{ m}^3@; b) @A \approx 210{,}56\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Como @M@ e @N@ são pontos médios de @VC@ e @VD@ no triângulo @VCD@, o segmento @MN@ é base média, sendo paralelo a @CD@ (e portanto paralelo a @AB@) com comprimento @\frac{a}{2}@. Logo, a seção @\text{ABNM}@ é um <strong>trapézio isósceles</strong>.<br>
+          b) Bases do trapézio: base maior @B = a@ e base menor @b = \frac{a}{2}@.<br>
+          Lados oblíquos @AM@ e @BN@: são medianas nos triângulos equiláteros das faces laterais de lado @a@, logo @AM = \frac{a\sqrt{3}}{2}@.<br>
+          A projeção do lado oblíquo na base maior mede @\frac{B - b}{2} = \frac{a - a/2}{2} = \frac{a}{4}@.<br>
+          Altura do trapézio: @h_t = \sqrt{AM^2 - (a/4)^2} = \sqrt{\frac{3a^2}{4} - \frac{a^2}{16}} = \sqrt{\frac{11a^2}{16}} = \frac{a\sqrt{11}}{4}@.<br>
+          Área da seção: @A = \frac{(B + b) \cdot h_t}{2} = \frac{\left(a + \frac{a}{2}\right) \cdot \frac{a\sqrt{11}}{4}}{2} = \frac{\frac{3a}{2} \cdot \frac{a\sqrt{11}}{4}}{2} = \frac{3a^2\sqrt{11}}{16}@.<br>
+          <strong>Resposta:</strong> a) Trapézio isósceles; b) @A = \frac{3a^2\sqrt{11}}{16}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          No trapézio isósceles da base, a projeção do lado oblíquo sobre a base maior é @x = \frac{10 - 4}{2} = 3\text{ cm}@.<br>
+          Altura da base trapezoidal: @h_b = \sqrt{5^2 - 3^2} = \sqrt{16} = 4\text{ cm}@.<br>
+          Área da base trapezoidal: @A_{\text{base}} = \frac{(10 + 4) \cdot 4}{2} = \frac{14 \cdot 4}{2} = 28\text{ cm}^2@.<br>
+          Volume da pirâmide: @V = \frac{1}{3} A_{\text{base}} \cdot H = \frac{1}{3} \cdot 28 \cdot 12 = 28 \cdot 4 = 112\text{ cm}^3@.<br>
+          <strong>Resposta:</strong> @V = 112\text{ cm}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) No triângulo retângulo formado por @(m, h, g)@, temos @g^2 = h^2 + m^2@.<br>
+          Dividindo tudo por @m^2@: @\left(\frac{g}{m}\right)^2 = \left(\frac{h}{m}\right)^2 + 1@.<br>
+          Como @\frac{g}{m} = \phi@: @\phi^2 = \left(\frac{h}{m}\right)^2 + 1@.<br>
+          Pela identidade áurea @\phi^2 = \phi + 1@, segue que @\phi + 1 = \left(\frac{h}{m}\right)^2 + 1 \implies \left(\frac{h}{m}\right)^2 = \phi \implies \frac{h}{m} = \sqrt{\phi}@.<br>
+          b) Área da base quadrada: @A_b = a^2 = (2m)^2 = 4m^2@.<br>
+          Área lateral: @A_l = 4 \times \left(\frac{a \cdot g}{2}\right) = 2 a g = 2(2m)g = 4mg@.<br>
+          Razão: @\frac{A_l}{A_b} = \frac{4mg}{4m^2} = \frac{g}{m} = \phi@.<br>
+          <strong>Resposta:</strong> Demonstrado; a razão entre área lateral e área da base é exatamente o número de ouro @\phi \approx 1{,}618@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A base comum quadrada tem lado @a = 6\text{ cm}@ e diagonal @d = 6\sqrt{2}\text{ cm}@. A semi-diagonal é @R = 3\sqrt{2}\text{ cm}@.<br>
+          Altura de cada pirâmide: @h = \sqrt{a^2 - R^2} = \sqrt{36 - 18} = \sqrt{18} = 3\sqrt{2}\text{ cm}@.<br>
+          Volume do octaedro: @V = 2 \times \left(\frac{1}{3} a^2 h\right) = 2 \times \left(\frac{1}{3} \cdot 36 \cdot 3\sqrt{2}\right) = 72\sqrt{2}\text{ cm}^3 \approx 101{,}82\text{ cm}^3@.<br>
+          b) O octaedro tem 8 faces equiláteras, logo @A_t = 8 \cdot \frac{a^2\sqrt{3}}{4} = 2a^2\sqrt{3} = 2(36)\sqrt{3} = 72\sqrt{3}\text{ cm}^2@.<br>
+          Como @V = \frac{1}{3} A_t \cdot r@ (onde @r@ é o raio da esfera inscrita):<br>
+          @72\sqrt{2} = \frac{1}{3} \cdot (72\sqrt{3}) \cdot r \implies r = \frac{3\sqrt{2}}{\sqrt{3}} = \sqrt{6}\text{ cm}@.<br>
+          A distância entre duas faces opostas e paralelas é @D = 2r = 2\sqrt{6}\text{ cm} \approx 4{,}90\text{ cm}@.<br>
+          <strong>Resposta:</strong> a) Altura @h = 3\sqrt{2}\text{ cm}@ e volume @V = 72\sqrt{2}\text{ cm}^3@; b) Distância @D = 2\sqrt{6}\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Os quatro vértices alternados do cubo formam arestas que são diagonais das faces quadradas do cubo: @a = L\sqrt{2} = 6\sqrt{2}\text{ cm}@.<br>
+          b) Cada um dos 4 cantos retirados é uma pirâmide tri-retângulo de catetos iguais à aresta do cubo @L = 6\text{ cm}@:<br>
+          @V_{\text{canto}} = \frac{1}{6} L^3 = \frac{1}{6} \cdot 216 = 36\text{ cm}^3@.<br>
+          O volume total retirado nos 4 cantos é @4 \times 36 = 144\text{ cm}^3@.<br>
+          Volume do tetraedro regular inscrito: @V_{tet} = V_c - 144 = 216 - 144 = 72\text{ cm}^3@.<br>
+          Fração do volume do cubo: @\frac{72}{216} = \frac{1}{3}@.<br>
+          <strong>Resposta:</strong> a) @a = 6\sqrt{2}\text{ cm}@; b) Volume do canto: @36\text{ cm}^3@; fração do cubo ocupada pelo tetraedro: @\frac{1}{3}@ (@33{,}33\%@).
+        </li>
+      </ol>
+    </div>
+
+    <!-- GABARITO SEÇÃO 4 -->
+    <div class="gabarito-secao">
+      <h3>Seção 4: Problemas Propostos</h3>
+      <ol start="33">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Pela Relação de Euler: @V - A + F = 2@.<br>
+          @10 - 15 + F = 2 \implies -5 + F = 2 \implies F = 7@ faces.<br>
+          <strong>Resposta:</strong> @F = 7@ faces.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          O apótema da base é @m = \frac{10}{2} = 5\text{ cm}@.<br>
+          No triângulo retângulo: @h = \sqrt{g^2 - m^2} = \sqrt{13^2 - 5^2} = \sqrt{169 - 25} = \sqrt{144} = 12\text{ cm}@.<br>
+          <strong>Resposta:</strong> @h = 12\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Raio da base circunscrita: @R = \frac{a\sqrt{3}}{3} = \frac{6\sqrt{3}}{3} = 2\sqrt{3}\text{ cm}@.<br>
+          Altura: @h = \sqrt{L^2 - R^2} = \sqrt{5^2 - (2\sqrt{3})^2} = \sqrt{25 - 12} = \sqrt{13}\text{ cm}@.<br>
+          Área da base: @A_b = \frac{6^2\sqrt{3}}{4} = 9\sqrt{3}\text{ cm}^2@.<br>
+          Volume: @V = \frac{1}{3} \cdot 9\sqrt{3} \cdot \sqrt{13} = 3\sqrt{39}\text{ cm}^3 \approx 18{,}73\text{ cm}^3@.<br>
+          <strong>Resposta:</strong> @V = 3\sqrt{39}\text{ cm}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Razão linear: @k = \frac{1}{3}@.<br>
+          Razão de volume da pirâmide menor: @\frac{V'}{V} = k^3 = \frac{1}{27}@.<br>
+          Volume do tronco: @V_{\text{tronco}} = V - \frac{1}{27} V = \frac{26}{27} V@.<br>
+          Razão entre a menor e o tronco: @\frac{1/27}{26/27} = \frac{1}{26}@.<br>
+          <strong>Resposta:</strong> @\frac{1}{26}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Áreas das bases: @A_B = 8^2 = 64\text{ cm}^2@ e @A_b = 4^2 = 16\text{ cm}^2@.<br>
+          Média geométrica: @\sqrt{A_B A_b} = \sqrt{64 \cdot 16} = 8 \cdot 4 = 32\text{ cm}^2@.<br>
+          Volume do tronco: @V = \frac{h}{3} (A_B + \sqrt{A_B A_b} + A_b) = \frac{6}{3} (64 + 32 + 16) = 2 \cdot 112 = 224\text{ cm}^3@.<br>
+          <strong>Resposta:</strong> @V = 224\text{ cm}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          A distância entre duas arestas reversas ortogonais no tetraedro regular de aresta @a@ é dada por @d = \frac{a\sqrt{2}}{2}@.<br>
+          Para @a = 12\text{ cm}@:<br>
+          @d = \frac{12\sqrt{2}}{2} = 6\sqrt{2}\text{ cm} \approx 8{,}49\text{ cm}@.<br>
+          <strong>Resposta:</strong> @d = 6\sqrt{2}\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          O raio da esfera inscrita em um octaedro regular de aresta @a@ é @r = \frac{a\sqrt{6}}{6}@.<br>
+          Substituindo @a = 6\sqrt{6}\text{ cm}@:<br>
+          @r = \frac{(6\sqrt{6})\sqrt{6}}{6} = \frac{36}{6} = 6\text{ cm}@.<br>
+          <strong>Resposta:</strong> @r = 6\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          No hexágono regular, @R = a = 4\text{ cm}@.<br>
+          Altura: @h = \sqrt{L^2 - R^2} = \sqrt{8^2 - 4^2} = \sqrt{64 - 16} = \sqrt{48} = 4\sqrt{3}\text{ cm}@.<br>
+          Área da base: @A_b = 6 \cdot \frac{4^2\sqrt{3}}{4} = 24\sqrt{3}\text{ cm}^2@.<br>
+          Volume: @V = \frac{1}{3} A_b \cdot h = \frac{1}{3} \cdot 24\sqrt{3} \cdot 4\sqrt{3} = 96\text{ cm}^3@.<br>
+          Apótema da pirâmide: @g = \sqrt{8^2 - 2^2} = \sqrt{60} = 2\sqrt{15}\text{ cm}@.<br>
+          Área lateral: @A_l = 6 \cdot \frac{4 \cdot 2\sqrt{15}}{2} = 24\sqrt{15}\text{ cm}^2@.<br>
+          Área total: @A_t = 24\sqrt{3} + 24\sqrt{15} = 24\sqrt{3}(1 + \sqrt{5})\text{ cm}^2 \approx 134{,}54\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> @V = 96\text{ cm}^3@ e @A_t = 24\sqrt{3}(1 + \sqrt{5})\text{ cm}^2@.
+        </li>
+      </ol>
+    </div>
+
+  </div>
+</details>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

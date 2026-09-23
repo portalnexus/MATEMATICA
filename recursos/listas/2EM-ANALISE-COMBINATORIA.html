@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lista de Problemas: Análise Combinatória</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil {
+      background-color: rgba(76, 175, 80, 0.3);
+    }
+
+    .dificuldade.media {
+      background-color: rgba(255, 193, 7, 0.3);
+    }
+
+    .dificuldade.dificil {
+      background-color: rgba(244, 67, 54, 0.3);
+    }
+
+    .dificuldade.desafio {
+      background-color: rgba(156, 39, 176, 0.3);
+    }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    /* Gabarito expansível */
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: bold;
+      color: #00ffcc;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+        <li><a href="../../recursos.html">RECURSOS</a></li>
+        <li><a href="../../dashboard.html">DASHBOARD</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+
+      <h1>ANÁLISE COMBINATÓRIA</h1>
+      <p class="section-intro">
+        Capítulo 6 — "Assim como na sociedade, os elementos devem ser permutados, combinados e arranjados." Princípio Fundamental da Contagem, permutações, arranjos, combinações simples e completas, método dos traços e bolas, gavetas de Dirichlet e desarranjos.
+      </p>
+
+      <!-- ============================================================================
+           SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS (10 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 1: Problemas Introdutórios</h2>
+        <p class="section-intro">
+          Exercícios diretos para consolidação do conceito de fatorial, Princípio Fundamental da Contagem (PFC), permutações simples e identificação inicial entre arranjos e combinações.
+        </p>
+
+        <ol>
+          <!-- Problema 1 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Fatorial e simplificação algébrica</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Simplifique a expressão algébrica para @n \ge 1@:
+              @@E = \frac{(n + 1)! - n!}{(n - 1)!}@@
+            </p>
+          </li>
+
+          <!-- Problema 2 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação com fatorial</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Encontre o número natural @n@ que satisfaz a equação:
+              @@\frac{(n + 2)!}{n!} = 72@@
+            </p>
+          </li>
+
+          <!-- Problema 3 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Princípio Fundamental da Contagem (PFC)</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Um estudante possui 4 camisas de cores diferentes, 3 calças distintas e 2 pares de sapatos. De quantas maneiras diferentes ele pode se vestir escolhendo exatamente uma camisa, uma calça e um par de sapatos?
+            </p>
+          </li>
+
+          <!-- Problema 4 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Formação de senhas com dígitos distintos</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Quantas senhas bancárias de 4 dígitos distintos podem ser criadas utilizando os algarismos do sistema decimal @\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}@?
+            </p>
+          </li>
+
+          <!-- Problema 5 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Permutação simples</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              De quantas maneiras diferentes 6 pessoas podem se posicionar em fila indiana para comprar ingressos em uma bilheteria de teatro?
+            </p>
+          </li>
+
+          <!-- Problema 6 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Anagramas simples</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Quantos anagramas distintos podem ser formados com as letras da palavra "BRASIL"? Quantos desses anagramas começam pela letra "B"?
+            </p>
+          </li>
+
+          <!-- Problema 7 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Arranjo simples direto</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Em uma corrida de 100 metros rasos com 10 competidores de alto nível, de quantas maneiras distintas podem ser preenchidos os três primeiros lugares no pódio (medalhas de ouro, prata e bronze), supondo que não ocorram empates?
+            </p>
+          </li>
+
+          <!-- Problema 8 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Combinação simples direta</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Um grupo de 8 pesquisadores precisa selecionar uma comissão de 3 membros para representar o laboratório em um congresso internacional. De quantas formas distintas essa delegação pode ser escolhida?
+            </p>
+          </li>
+
+          <!-- Problema 9 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Subconjuntos e combinações</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Dado o conjunto @A = \{1, 2, 3, 4, 5\}@:
+              <br>a) Quantos subconjuntos com exatamente 2 elementos possui o conjunto @A@?
+              <br>b) Quantos subconjuntos no total (incluindo o conjunto vazio e o próprio conjunto @A@) possui esse conjunto?
+            </p>
+          </li>
+
+          <!-- Problema 10 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">PFC com restrição de paridade</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Utilizando exclusivamente os algarismos do conjunto @\{1, 2, 3, 4, 5, 6\}@, quantos números naturais pares de três algarismos distintos podem ser formados?
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 2: PROBLEMAS DE FIXAÇÃO (14 Problemas com .dica)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 2: Problemas de Fixação</h2>
+        <p class="section-intro">
+          Problemas contextualizados envolvendo anagramas com restrições de adjacência, permutações com repetição, formação de comissões, caminhos em malhas e princípios de contagem complementar.
+        </p>
+
+        <ol start="11">
+          <!-- Problema 11 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Anagramas com elementos agrupados em bloco</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Quantos anagramas da palavra "VESTIBULAR" (10 letras distintas: 4 vogais E, I, U, A e 6 consoantes V, S, T, B, L, R) mantêm as 4 vogais sempre juntas em qualquer ordem?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Considere o bloco formado pelas quatro vogais @(E, I, U, A)@ como se fosse um único "super-elemento". Permute esse bloco juntamente com as 6 consoantes restantes e, em seguida, multiplique pelas permutações internas das vogais dentro do bloco.
+            </div>
+          </li>
+
+          <!-- Problema 12 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Permutação com repetição</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Calcule o número total de anagramas distintos da palavra "MATEMATICA". Quantos desses anagramas começam e terminam pela letra "M"?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> A palavra possui 10 letras no total, com repetições: 3 letras A, 2 letras M e 2 letras T. Use a fórmula @P_n^{a,b,c} = \frac{n!}{a!b!c!}@. Para a segunda pergunta, fixe uma letra M na primeira posição e outra na última, permutando as 8 letras restantes.
+            </div>
+          </li>
+
+          <!-- Problema 13 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Comissões com condição "ao menos um"</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Um conselho gestor comunitário é formado por 7 advogados e 5 economistas. Deve-se formar uma comissão disciplinar composta por 4 pessoas. De quantas maneiras podemos compor essa comissão contendo pelo menos 1 economista?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Aplique a técnica da contagem pelo complementar: subtraia do número total de comissões possíveis de 4 pessoas o número de comissões indesejadas (aquelas formadas exclusivamente por advogados).
+            </div>
+          </li>
+
+          <!-- Problema 14 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Arranjo vs Combinação — Diferenciação conceitual</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Em uma empresa de tecnologia com 12 analistas de dados seniores:
+              <br>a) De quantas maneiras distintas pode-se escolher uma diretoria composta por 1 Diretor Presidente, 1 Diretor Técnico e 1 Diretor Financeiro?
+              <br>b) De quantas maneiras distintas pode-se formar um grupo de trabalho com 3 membros de igual hierarquia para auditar um algoritmo?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> No item (a), a ordem de atribuição dos cargos altera o resultado final (Arranjo Simples). No item (b), a ordem de seleção dos indivíduos no grupo é irrelevante (Combinação Simples).
+            </div>
+          </li>
+
+          <!-- Problema 15 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Fila com elementos que não podem ficar adjacentes</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Cinco rapazes e quatro moças devem ser organizados em uma fileira de 9 poltronas de cinema. De quantas maneiras essa fileira pode ser formada de tal forma que duas moças NUNCA fiquem sentadas lado a lado?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Posicione primeiro os 5 rapazes, gerando @5!@ ordenações. Observe que eles criam 6 espaços vazios (entre eles e nas extremidades: _ R _ R _ R _ R _ R _). As 4 moças devem ser alocadas nesses 6 espaços disponíveis para que nenhuma fique vizinha de outra.
+            </div>
+          </li>
+
+          <!-- Problema 16 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Caminhos em malha quadriculada (Lattice Paths)</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Um robô móvel desloca-se em uma grade cartesiana a partir do ponto @O(0, 0)@ até o ponto @B(6, 4)@, dando somente passos unitários para a direita (@D@) ou para cima (@C@).
+              <br>a) Quantos caminhos distintos ligam a origem @O(0,0)@ ao destino @B(6,4)@?
+              <br>b) Quantos desses caminhos passam obrigatoriamente pelo ponto de controle intermediário @A(3, 2)@?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Cada caminho de @(0,0)@ a @(6,4)@ é um anagrama composto por 6 passos @D@ e 4 passos @C@. Para passar por @A(3,2)@, multiplique a quantidade de caminhos de @(0,0)@ até @(3,2)@ pela quantidade de caminhos de @(3,2)@ até @(6,4)@.
+            </div>
+          </li>
+
+          <!-- Problema 17 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Geometria combinatória sobre circunferência</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Sobre uma circunferência estão marcados 10 pontos distintos. Nenhum trio de pontos forma segmentos colineares.
+              <br>a) Quantas cordas ligando dois desses pontos podem ser traçadas?
+              <br>b) Quantos triângulos com vértices nesses 10 pontos podem ser construídos?
+              <br>c) Quantos quadriláteros convexos podem ser formados?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Para formar cada corda precisamos de 2 pontos; para cada triângulo precisamos de 3 pontos; e para cada quadrilátero precisamos de 4 pontos. Como estão sobre a circunferência, a ordem dos pontos escolhidos não altera a figura geométrica.
+            </div>
+          </li>
+
+          <!-- Problema 18 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Anagramas com elementos mutuamente separados</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Quantos anagramas da palavra "CADERNO" (7 letras distintas: consoantes C, D, R, N e vogais A, E, O) podem ser formados de modo que as vogais fiquem todas separadas umas das outras (nenhuma vogal adjacente a outra vogal)?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Distribua primeiro as 4 consoantes (@4!@ maneiras). Elas criam 5 "gavetas" ou espaços disponíveis (_ C _ D _ R _ N _). Escolha 3 desses 5 espaços para posicionar as vogais (@C_{5,3}@) e permute as vogais nesses espaços (@3!@).
+            </div>
+          </li>
+
+          <!-- Problema 19 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Sinalização marítima e permutações com repetição</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Um navio de pesquisa comunica-se com a costa hasteando sequencialmente, em uma única linha vertical de um mastro, um conjunto de bandeiras coloridas. Ele possui 4 bandeiras vermelhas idênticas, 3 bandeiras azuis idênticas e 2 bandeiras amarelas idênticas. Quantos sinais visuais distintos podem ser formados hasteando todas as 9 bandeiras simultaneamente?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Trata-se de uma permutação com repetição de 9 elementos com frequências 4, 3 e 2: @P_9^{4, 3, 2}@.
+            </div>
+          </li>
+
+          <!-- Problema 20 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Divisão em duplas não rotuladas</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Oito atletas de tênis de mesa reúnem-se para um treinamento e devem ser divididos em exatamente 4 duplas simultâneas para partidas amistosas. De quantas maneiras diferentes essas duplas podem ser organizadas, sabendo que as duplas não possuem nomes ou identificadores distintos?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Escolha 2 de 8, depois 2 de 6, 2 de 4 e 2 de 2. Como a ordem de formação das 4 duplas não as distingue (são grupos não rotulados), divida o produto por @4!@ para eliminar redundâncias de contagem.
+            </div>
+          </li>
+
+          <!-- Problema 21 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Posicionamento de peças em tabuleiro</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              De quantas maneiras podemos posicionar duas torres de xadrez (uma branca e uma preta) em um tabuleiro convencional @8 \times 8@ de modo que nenhuma delas ataque a outra (ou seja, não ocupem a mesma linha nem a mesma coluna)?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> A torre branca pode ser colocada em qualquer uma das 64 casas do tabuleiro. Ao ser posicionada, ela bloqueia sua própria casa, as outras 7 casas de sua linha e as outras 7 casas de sua coluna. Quantas casas sobram disponíveis para a torre preta?
+            </div>
+          </li>
+
+          <!-- Problema 22 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Comissão com restrição de incompatibilidade</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Um hospital dispõe de 10 cirurgiões para formar uma equipe de plantão de emergência composta por 4 médicos. Dentre eles, o Dr. Carlos e a Dra. Daniela têm divergências profissionais e recusam-se a participar do mesmo plantão. De quantas formas distintas a equipe de 4 cirurgiões pode ser selecionada atendendo a essa restrição?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Calcule o total geral de equipes de 4 médicos sem restrições (@C_{10, 4}@) e subtraia as equipes proibidas nas quais ambos (Carlos e Daniela) estão presentes juntos.
+            </div>
+          </li>
+
+          <!-- Problema 23 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Anagramas com ordem relativa pré-fixada</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Quantos anagramas da palavra "PROBLEMA" (8 letras distintas) possuem as vogais @(O, E, A)@ aparecendo exatamente nessa ordem relativa (ou seja, a letra O aparece antes da letra E, e a letra E aparece antes da letra A, não necessariamente em posições consecutivas)?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Escolha 3 das 8 posições no anagrama para alocar as vogais (@C_{8,3}@). Como a ordem entre elas já está estritamente definida (O, depois E, depois A), há apenas 1 forma de distribuí-las nessas posições. Em seguida, permute as 5 consoantes nas posições restantes.
+            </div>
+          </li>
+
+          <!-- Problema 24 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Partição em grupos de tamanhos distintos</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Uma turma de 12 estudantes de biologia deve ser distribuída em três projetos de pesquisa de campo específicos: 5 alunos estudarão a fauna bentônica, 4 investigarão a vegetação costeira e 3 analisarão a qualidade da água. De quantas maneiras diferentes os estudantes podem ser distribuídos entre esses três projetos?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Como os três projetos são distintos e têm tamanhos diferentes (5, 4 e 3), escolha primeiro 5 de 12 para o primeiro projeto, depois 4 dos 7 restantes para o segundo projeto, restando os 3 últimos para o terceiro projeto.
+            </div>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO (8 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 3: Problemas de Aprofundamento</h2>
+        <p class="section-intro">
+          Problemas avançados presentes nos vestibulares mais exigentes (FUVEST, UNICAMP, ITA) e nas Olimpíadas de Matemática (OBMEP, Cone Sul), abordando combinações completas (traços e bolas), Princípio das Gavetas, permutações circulares, Lema de Kaplansky e inclusão-exclusão.
+        </p>
+
+        <ol start="25">
+          <!-- Problema 25 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">FUVEST / Traços e Bolas</span>
+              <span class="topico">Soluções inteiras não negativas e estritamente positivas</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Considere a equação diofantina linear:
+              @@x_1 + x_2 + x_3 + x_4 = 10@@
+              <br>a) Quantas soluções inteiras não negativas (@x_i \ge 0@ para @i = 1, 2, 3, 4@) essa equação possui?
+              <br>b) Quantas soluções inteiras estritamente positivas (@x_i \ge 1@ para @i = 1, 2, 3, 4@) existem?
+            </p>
+          </li>
+
+          <!-- Problema 26 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">UNICAMP</span>
+              <span class="topico">Combinação com repetição (Combinações completas)</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 8 min</span>
+            </div>
+            <p>
+              Uma gelateria artesanal comercializa sorvetes em 6 sabores clássicos diferentes. Um cliente deseja pedir uma taça especial contendo exatamente 4 bolas de sorvete, podendo repetir sabores à vontade (por exemplo, 2 bolas de chocolate e 2 de baunilha, ou 4 de morango). A ordem das bolas na taça não é levada em consideração. De quantas formas distintas o cliente pode montar sua taça de 4 bolas?
+            </p>
+          </li>
+
+          <!-- Problema 27 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">OBMEP / Princípio das Gavetas</span>
+              <span class="topico">Princípio das Gavetas de Dirichlet (Pigeonhole Principle)</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              O Princípio das Gavetas de Dirichlet afirma que se @n@ objetos forem distribuídos em @k@ gavetas, com @n > k@, ao menos uma gaveta conterá pelo menos @\lceil n/k \rceil@ objetos.
+              <br>a) Qual é o número mínimo de alunos que devem estar presentes em uma sala para que possamos garantir com absoluta certeza que pelo menos 5 deles fazem aniversário no mesmo mês do ano?
+              <br>b) Em um grupo de 50 pessoas, cada uma escolhe secretamente um número inteiro distinto no conjunto @\{1, 2, 3, \dots, 98\}@. Demonstre rigorosamente que sempre existirão duas pessoas cujos números escolhidos somam exatamente 99.
+            </p>
+          </li>
+
+          <!-- Problema 28 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">ITA</span>
+              <span class="topico">Permutações circulares com restrições de vizinhança</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Oito líderes internacionais devem sentar-se ao redor de uma mesa de conferência circular contendo 8 cadeiras igualmente espaçadas. Duas configurações de assentos são consideradas equivalentes se uma puder ser obtida da outra por uma rotação da mesa.
+              <br>a) De quantas maneiras distintas os 8 líderes podem sentar-se à mesa sem nenhuma restrição?
+              <br>b) Se dois líderes específicos, o Presidente Alpha e o Primeiro-Ministro Beta, não podem de forma alguma sentar-se em cadeiras adjacentes, de quantas maneiras os assentos podem ser dispostos?
+            </p>
+          </li>
+
+          <!-- Problema 29 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">ENEM</span>
+              <span class="topico">Contagem sob restrições múltiplas de caracteres</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 8 min</span>
+            </div>
+            <p>
+              Um órgão governamental de controle aéreo emite placas de identificação para drones civis. Cada placa é constituída por uma sequência de 2 letras do alfabeto de 26 letras, seguidas de 3 dígitos numéricos escolhidos entre 0 e 9. Para evitar equívocos de leitura visual, as seguintes regras foram estabelecidas:
+              <br>• As letras 'I' e 'O' não podem ser utilizadas em nenhuma hipótese;
+              <br>• As duas letras escolhidas devem ser distintas entre si;
+              <br>• Os três dígitos numéricos devem ser distintos entre si e o número de 3 dígitos formado deve ser obrigatoriamente ÍMPAR.
+              <br>Quantas placas distintas podem ser geradas cumprindo todos os requisitos?
+            </p>
+          </li>
+
+          <!-- Problema 30 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">OBMEP / Lema de Kaplansky</span>
+              <span class="topico">Primeiro Lema de Kaplansky — Escolhas sem elementos consecutivos</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              O Primeiro Lema de Kaplansky estabelece que o número de subconjuntos com @p@ elementos escolhidos do conjunto @\{1, 2, 3, \dots, n\}@ de tal modo que nenhum par de elementos seja consecutivo é dado por:
+              @@K(n, p) = \binom{n - p + 1}{p}@@
+              <br>a) Demonstre essa fórmula modelando o problema por meio de uma sequência binária de @p@ uns (elementos escolhidos) e @n - p@ zeros (elementos não escolhidos).
+              <br>b) De quantas formas um comitê de 4 senadores pode ser escolhido em uma bancada de 15 senadores sentados em fila de modo que nenhum par de senadores adjacentes na bancada seja convocado junto?
+            </p>
+          </li>
+
+          <!-- Problema 31 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">FUVEST / Permutação Caótica</span>
+              <span class="topico">Desarranjos ou Permutações Caóticas (Subfatorial)</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              Em uma confraternização de fim de ano, 4 colegas (Ana, Beto, Carla e Daniel) realizam um "amigo secreto". Cada um deles coloca seu próprio nome em uma urna e, em seguida, cada um retira um papel ao acaso. Uma configuração é chamada de "permutação caótica" ou "desarranjo" se NENHUM dos quatro retirar o próprio nome da urna.
+              <br>a) Liste explicitamente todos os desarranjos possíveis e mostre que o subfatorial @!4 = D_4@ vale exatamente 9.
+              <br>b) Utilizando o Princípio da Inclusão-Exclusão, deduza a fórmula clássica:
+              @@!n = n! \sum_{k=0}^n \frac{(-1)^k}{k!}@@
+              e confirme o valor para @n = 4@.
+            </p>
+          </li>
+
+          <!-- Problema 32 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">Desafio Olímpico</span>
+              <span class="topico">Princípio da Inclusão-Exclusão para Três Conjuntos</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 14 min</span>
+            </div>
+            <p>
+              Determine quantos números inteiros no intervalo fechado de 1 a 1000 (inclusive) NÃO são divisíveis por 2, NÃO são divisíveis por 3 e NÃO são divisíveis por 5.
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 4: PROBLEMAS PROPOSTOS (8 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 4: Problemas Propostos</h2>
+        <p class="section-intro">
+          Exercícios extras para fixação e desenvolvimento de autonomia nos métodos de contagem.
+        </p>
+
+        <ol start="33">
+          <!-- Problema 33 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cálculo de combinação</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Calcule o valor numérico exato da expressão:
+              @@\binom{12}{2} = \frac{12!}{10! \cdot 2!}@@
+            </p>
+          </li>
+
+          <!-- Problema 34 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">PFC e números com dígitos distintos</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Quantos números naturais de 4 algarismos distintos podem ser formados utilizando apenas os algarismos @\{1, 2, 3, 4, 5, 6, 7\}@?
+            </p>
+          </li>
+
+          <!-- Problema 35 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Combinações simples de equipe</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              De quantas maneiras um gerente pode selecionar uma comissão de 4 profissionais a partir de um departamento com 9 colaboradores disponíveis?
+            </p>
+          </li>
+
+          <!-- Problema 36 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Anagrama com múltiplas repetições</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Quantos anagramas distintos possui a palavra "ARARAQUARA"?
+            </p>
+          </li>
+
+          <!-- Problema 37 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Sorteio de elementos de tipos distintos</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Uma urna contém 5 bolas brancas e 4 bolas pretas idênticas em textura e formato. De quantas formas podemos retirar simultaneamente 3 bolas de tal maneira que exatamente 2 sejam brancas e 1 seja preta?
+            </p>
+          </li>
+
+          <!-- Problema 38 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação diofantina não negativa</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Quantas soluções inteiras e não negativas (@a, b, c \ge 0@) existem para a equação @a + b + c = 7@?
+            </p>
+          </li>
+
+          <!-- Problema 39 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Permutação circular simples</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              De quantas maneiras 6 amigos podem se posicionar ao redor de uma mesa circular para um almoço de domingo?
+            </p>
+          </li>
+
+          <!-- Problema 40 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Princípio das Gavetas e meias na gaveta</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Em uma gaveta há 10 meias pretas e 10 meias brancas, todas misturadas e idênticas ao toque. Se você retira meias da gaveta no escuro, qual é o número mínimo de meias que precisa retirar para ter a certeza absoluta de obter pelo menos um par da mesma cor?
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           GABARITO E RESOLUÇÕES DETALHADAS (EXPANSÍVEL)
+           ============================================================================ -->
+      <details class="gabarito-container">
+        <summary>📝 GABARITO E RESOLUÇÕES DETALHADAS (Clique para expandir)</summary>
+        <div class="gabarito-content">
+
+          <!-- GABARITO SEÇÃO 1 -->
+          <div class="gabarito-secao">
+            <h3>Seção 1: Problemas Introdutórios</h3>
+            <ol>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Podemos fatorar o termo @n!@ no numerador:<br>
+                @(n + 1)! = (n + 1) \cdot n!@.<br>
+                Assim, o numerador torna-se:<br>
+                @(n + 1)! - n! = (n + 1)n! - n! = n! \cdot [(n + 1) - 1] = n! \cdot n@.<br>
+                Substituindo na fração e expandindo @n! = n \cdot (n - 1)!@:<br>
+                @E = \frac{n \cdot n!}{(n - 1)!} = \frac{n \cdot n(n - 1)!}{(n - 1)!} = n \cdot n = n^2@.<br>
+                <strong>Resposta:</strong> @E = n^2@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Desenvolvendo o fatorial @(n + 2)!@ até alcançar @n!@:<br>
+                @(n + 2)! = (n + 2)(n + 1)n!@.<br>
+                Substituindo na equação:<br>
+                @\frac{(n + 2)(n + 1)n!}{n!} = 72 \implies (n + 2)(n + 1) = 72@.<br>
+                Como @(n + 1)@ e @(n + 2)@ são dois números inteiros positivos consecutivos cujo produto é 72, e sabendo que @9 \times 8 = 72@:<br>
+                @n + 2 = 9 \implies n = 7@ (ou @n^2 + 3n - 70 = 0 \implies (n - 7)(n + 10) = 0@, descartando a raiz negativa).<br>
+                <strong>Resposta:</strong> @n = 7@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Pelo Princípio Fundamental da Contagem (PFC), o número total de combinações de vestuário é dado pelo produto das opções de cada etapa independente de decisão:<br>
+                @N = (\text{camisas}) \times (\text{calças}) \times (\text{sapatos}) = 4 \times 3 \times 2 = 24@ maneiras.<br>
+                <strong>Resposta:</strong> 24 maneiras.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Temos 10 algarismos disponíveis e uma sequência ordenada de 4 posições sem repetição:<br>
+                • 1º dígito: 10 opções;<br>
+                • 2º dígito: 9 opções;<br>
+                • 3º dígito: 8 opções;<br>
+                • 4º dígito: 7 opções.<br>
+                Total: @A_{10, 4} = 10 \times 9 \times 8 \times 7 = 5040@ senhas.<br>
+                <strong>Resposta:</strong> 5.040 senhas.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A organização de 6 pessoas em fila corresponde a uma permutação simples de 6 elementos distintos:<br>
+                @P_6 = 6! = 6 \times 5 \times 4 \times 3 \times 2 \times 1 = 720@ maneiras.<br>
+                <strong>Resposta:</strong> 720 maneiras.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A palavra "BRASIL" possui 6 letras distintas (B, R, A, S, I, L).<br>
+                • O número total de anagramas é @P_6 = 6! = 720@.<br>
+                • Para os anagramas que começam pela letra "B", fixamos o "B" na primeira posição e permutamos as 5 letras restantes: @P_5 = 5! = 120@.<br>
+                <strong>Resposta:</strong> 720 anagramas no total; 120 começam com "B".
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Como a ordem dos competidores no pódio importa (ouro, prata e bronze são distinções de mérito diferentes), trata-se de um arranjo simples de 10 elementos tomados 3 a 3:<br>
+                @A_{10, 3} = \frac{10!}{(10 - 3)!} = 10 \times 9 \times 8 = 720@ formas.<br>
+                <strong>Resposta:</strong> 720 maneiras.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Na formação de uma comissão de representantes, a ordem em que os membros são selecionados não altera a comissão formada. Logo, trata-se de uma combinação simples de 8 elementos tomados 3 a 3:<br>
+                @C_{8, 3} = \binom{8}{3} = \frac{8 \times 7 \times 6}{3 \times 2 \times 1} = 56@ comissões distintas.<br>
+                <strong>Resposta:</strong> 56 formas.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) O número de subconjuntos de 2 elementos é o número de combinações de 5 elementos tomados 2 a 2:<br>
+                @C_{5, 2} = \frac{5 \times 4}{2 \times 1} = 10@ subconjuntos.<br>
+                b) O número total de subconjuntos de um conjunto com @n@ elementos é dado por @2^n@ (cada elemento tem 2 opções: pertencer ou não pertencer ao subconjunto):<br>
+                @2^5 = 32@ subconjuntos no total.<br>
+                <strong>Resposta:</strong> a) 10 subconjuntos; b) 32 subconjuntos.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Para que o número seja par, o último algarismo (unidades) deve ser par. Do conjunto @\{1, 2, 3, 4, 5, 6\}@, os algarismos pares são @\{2, 4, 6\}@ (3 opções).<br>
+                Após fixar o algarismo das unidades:<br>
+                • Algarismo das centenas: sobram 5 algarismos disponíveis;<br>
+                • Algarismo das dezenas: sobram 4 algarismos disponíveis.<br>
+                Pelo PFC: @5 \times 4 \times 3 = 60@ números pares.<br>
+                <strong>Resposta:</strong> 60 números.
+              </li>
+            </ol>
+          </div>
+
+          <!-- GABARITO SEÇÃO 2 -->
+          <div class="gabarito-secao">
+            <h3>Seção 2: Problemas de Fixação</h3>
+            <ol start="11">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Agrupamos as 4 vogais @(E, I, U, A)@ em um único bloco. Temos então:<br>
+                • O bloco das vogais: 1 elemento;<br>
+                • As 6 consoantes @(V, S, T, B, L, R)@: 6 elementos.<br>
+                Total de elementos para permutar: @1 + 6 = 7@ elementos, gerando @P_7 = 7!@ permutações.<br>
+                Dentro do bloco, as 4 vogais distintas podem se organizar de @P_4 = 4!@ maneiras.<br>
+                Pelo PFC, o total de anagramas é:<br>
+                @N = 7! \times 4! = 5040 \times 24 = 120.960@ anagramas.<br>
+                <strong>Resposta:</strong> 120.960 anagramas.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A palavra "MATEMATICA" possui 10 letras no total, sendo:<br>
+                • 3 letras 'A', 2 letras 'M', 2 letras 'T', 1 letra 'E', 1 letra 'I', 1 letra 'C'.<br>
+                O número total de anagramas é:<br>
+                @P_{10}^{3, 2, 2} = \frac{10!}{3! \cdot 2! \cdot 2!} = \frac{3.628.800}{6 \cdot 2 \cdot 2} = \frac{3.628.800}{24} = 151.200@ anagramas.<br>
+                Para os que começam e terminam por 'M': fixamos as duas letras 'M' nas extremidades (_ M ... M _). Restam 8 posições intermediárias a serem preenchidas pelas letras restantes: 3 letras 'A', 2 letras 'T', 1 'E', 1 'I', 1 'C':<br>
+                @P_8^{3, 2} = \frac{8!}{3! \cdot 2!} = \frac{40.320}{6 \cdot 2} = \frac{40.320}{12} = 3.360@ anagramas.<br>
+                <strong>Resposta:</strong> Total de 151.200 anagramas; 3.360 começam e terminam por "M".
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Temos @7 + 5 = 12@ profissionais disponíveis. O número total de comissões de 4 membros sem qualquer restrição é:<br>
+                @C_{12, 4} = \frac{12 \times 11 \times 10 \times 9}{4 \times 3 \times 2 \times 1} = 495@ comissões.<br>
+                O evento complementar indesejado é formar uma comissão sem nenhum economista (ou seja, formada exclusivamente por advogados):<br>
+                @C_{7, 4} = \frac{7 \times 6 \times 5 \times 4}{4 \times 3 \times 2 \times 1} = 35@ comissões.<br>
+                Logo, o número de comissões contendo pelo menos 1 economista é:<br>
+                @N = C_{12, 4} - C_{7, 4} = 495 - 35 = 460@ comissões.<br>
+                <strong>Resposta:</strong> 460 comissões.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Como os cargos são distintos (Presidente, Técnico e Financeiro), a ordem importa:<br>
+                @A_{12, 3} = 12 \times 11 \times 10 = 1320@ diretorias distintas.<br>
+                b) Como o grupo de trabalho não possui distinção interna de cargos ou funções, a ordem não importa:<br>
+                @C_{12, 3} = \frac{12 \times 11 \times 10}{3 \times 2 \times 1} = 220@ grupos de trabalho distintos.<br>
+                <strong>Resposta:</strong> a) 1.320 maneiras; b) 220 maneiras.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Primeiro, posicionamos os 5 rapazes nas poltronas. Há @P_5 = 5! = 120@ formas de ordená-los.<br>
+                Esses 5 rapazes criam 6 espaços disponíveis para que nenhuma moça fique adjacente a outra (antes do primeiro, entre rapazes consecutivos e após o último):<br>
+                @\_ \; R_1 \; \_ \; R_2 \; \_ \; R_3 \; \_ \; R_4 \; \_ \; R_5 \; \_@<br>
+                Devemos escolher 4 desses 6 espaços para as 4 moças e ordená-las nesses espaços, o que equivale a um arranjo simples @A_{6, 4}@ (ou @C_{6, 4} \times 4!@):<br>
+                @A_{6, 4} = 6 \times 5 \times 4 \times 3 = 360@ formas.<br>
+                Pelo princípio multiplicativo:<br>
+                @N = 5! \times A_{6, 4} = 120 \times 360 = 43.200@ maneiras.<br>
+                <strong>Resposta:</strong> 43.200 maneiras.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Para ir de @(0,0)@ a @(6,4)@, são necessários exatamente 6 passos para a Direita (@D@) e 4 passos para Cima (@C@), totalizando 10 passos. O total de caminhos é dado pela permutação com repetição:<br>
+                @P_{10}^{6, 4} = \binom{10}{4} = \frac{10 \times 9 \times 8 \times 7}{4 \times 3 \times 2 \times 1} = 210@ caminhos.<br>
+                b) Para passar por @A(3, 2)@, decompomos o trajeto em duas etapas sucessivas:<br>
+                1. De @(0,0)@ até @(3,2)@: 3 passos @D@ e 2 passos @C@ (@P_5^{3, 2} = \binom{5}{2} = 10@ caminhos);<br>
+                2. De @(3,2)@ até @(6,4)@: @6 - 3 = 3@ passos @D@ e @4 - 2 = 2@ passos @C@ (@P_5^{3, 2} = \binom{5}{2} = 10@ caminhos).<br>
+                Pelo princípio multiplicativo:<br>
+                @N_A = 10 \times 10 = 100@ caminhos.<br>
+                <strong>Resposta:</strong> a) 210 caminhos; b) 100 caminhos.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Como os 10 pontos estão sobre a circunferência, quaisquer 3 pontos não são colineares e quaisquer 4 pontos determinam um quadrilátero convexo simples:<br>
+                a) Número de cordas: escolher 2 dos 10 pontos: @C_{10, 2} = \frac{10 \times 9}{2} = 45@ cordas.<br>
+                b) Número de triângulos: escolher 3 dos 10 pontos: @C_{10, 3} = \frac{10 \times 9 \times 8}{6} = 120@ triângulos.<br>
+                c) Número de quadriláteros convexos: escolher 4 dos 10 pontos: @C_{10, 4} = \frac{10 \times 9 \times 8 \times 7}{24} = 210@ quadriláteros.<br>
+                <strong>Resposta:</strong> a) 45 cordas; b) 120 triângulos; c) 210 quadriláteros.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Na palavra "CADERNO" temos 4 consoantes (C, D, R, N) e 3 vogais (A, E, O).<br>
+                1. Permutamos as 4 consoantes: @4! = 24@ modos.<br>
+                2. As 4 consoantes determinam 5 espaços vazios (espaços externos e entre consoantes): @\_ \; C_1 \; \_ \; C_2 \; \_ \; C_3 \; \_ \; C_4 \; \_@.<br>
+                3. Para que nenhuma vogal fique junta de outra, devemos escolher 3 desses 5 espaços: @C_{5, 3} = 10@ maneiras.<br>
+                4. Permutamos as 3 vogais nos 3 espaços escolhidos: @3! = 6@ maneiras.<br>
+                Total de anagramas:<br>
+                @N = 24 \times 10 \times 6 = 1.440@ anagramas.<br>
+                <strong>Resposta:</strong> 1.440 anagramas.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Temos um total de @4 + 3 + 2 = 9@ bandeiras a serem dispostas em fila vertical:<br>
+                • 4 vermelhas, 3 azuis e 2 amarelas.<br>
+                O número de sinais visuais distintos corresponde à permutação com repetição:<br>
+                @P_9^{4, 3, 2} = \frac{9!}{4! \cdot 3! \cdot 2!} = \frac{362.880}{24 \cdot 6 \cdot 2} = \frac{362.880}{288} = 1.260@ sinais.<br>
+                <strong>Resposta:</strong> 1.260 sinais distintos.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Queremos particionar 8 elementos em 4 duplas não rotuladas.<br>
+                Se as duplas fossem identificadas (Dupla 1, Dupla 2, Dupla 3, Dupla 4), a quantidade seria:<br>
+                @C_{8, 2} \times C_{6, 2} \times C_{4, 2} \times C_{2, 2} = 28 \times 15 \times 6 \times 1 = 2520@.<br>
+                Porém, a ordem de escolha das duplas não tem significado algum (as mesmas 4 duplas podem aparecer em @4! = 24@ ordens diferentes).<br>
+                Portanto, dividimos por @4!@:<br>
+                @N = \frac{2520}{4!} = \frac{2520}{24} = 105@ maneiras.<br>
+                Alternativamente: @\frac{8!}{2! \cdot 2! \cdot 2! \cdot 2! \cdot 4!} = \frac{40320}{16 \times 24} = 105@.<br>
+                <strong>Resposta:</strong> 105 maneiras.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Um tabuleiro @8 \times 8@ possui 64 casas.<br>
+                1. Posicionamos a torre branca em qualquer casa do tabuleiro: 64 opções.<br>
+                2. Ao ocupar uma casa, a torre branca ataca sua própria casa, as 7 outras casas de sua linha e as 7 outras casas de sua coluna, eliminando um total de @1 + 7 + 7 = 15@ casas.<br>
+                3. Restam para a torre preta: @64 - 15 = 49@ casas livres.<br>
+                Pelo princípio multiplicativo:<br>
+                @N = 64 \times 49 = 3.136@ maneiras.<br>
+                <strong>Resposta:</strong> 3.136 maneiras.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Total de equipes de 4 médicos escolhidos entre os 10 disponíveis:<br>
+                @C_{10, 4} = \frac{10 \times 9 \times 8 \times 7}{24} = 210@ equipes.<br>
+                Equipes proibidas em que Carlos e Daniela estão ambos escalados juntos: fixamos Carlos e Daniela na equipe e escolhemos os outros 2 membros entre os 8 restantes:<br>
+                @C_{8, 2} = \frac{8 \times 7}{2} = 28@ equipes.<br>
+                Total de equipes válidas:<br>
+                @N = 210 - 28 = 182@ equipes.<br>
+                <strong>Resposta:</strong> 182 equipes.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A palavra "PROBLEMA" tem 8 letras distintas, das quais 3 são vogais (O, E, A) e 5 são consoantes (P, R, B, L, M).<br>
+                1. Das 8 posições disponíveis no anagrama, escolhemos 3 posições onde as vogais serão colocadas: @C_{8, 3} = \frac{8 \times 7 \times 6}{6} = 56@ escolhas.<br>
+                2. Nas 3 posições escolhidas, as vogais DEVEM aparecer na ordem O, depois E, depois A. Existe apenas 1 maneira de alocá-las.<br>
+                3. Nas 5 posições restantes, permutamos as 5 consoantes livremente: @P_5 = 5! = 120@ maneiras.<br>
+                Total de anagramas:<br>
+                @N = 56 \times 1 \times 120 = 6.720@ anagramas.<br>
+                (Note que @\frac{8!}{3!} = \frac{40320}{6} = 6720@, pois em exatamente @\frac{1}{3!}@ das permutações totais as 3 vogais aparecem nessa ordem relativa).<br>
+                <strong>Resposta:</strong> 6.720 anagramas.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Como cada projeto possui tema específico e quantidade de vagas distintas, os grupos são rotulados e diferenciados:<br>
+                1. Escolha de 5 alunos para o projeto de fauna: @C_{12, 5} = \frac{12 \times 11 \times 10 \times 9 \times 8}{120} = 792@.<br>
+                2. Escolha de 4 alunos entre os 7 restantes para o projeto de vegetação: @C_{7, 4} = \frac{7 \times 6 \times 5}{6} = 35@.<br>
+                3. Os 3 alunos restantes vão automaticamente para o projeto de qualidade da água: @C_{3, 3} = 1@.<br>
+                Total de distribuições:<br>
+                @N = 792 \times 35 \times 1 = 27.720@ maneiras.<br>
+                <strong>Resposta:</strong> 27.720 maneiras.
+              </li>
+            </ol>
+          </div>
+
+          <!-- GABARITO SEÇÃO 3 -->
+          <div class="gabarito-secao">
+            <h3>Seção 3: Problemas de Aprofundamento</h3>
+            <ol start="25">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Pelo método dos traços e bolas (combinação com repetição), o número de soluções inteiras e não negativas (@x_i \ge 0@) de @x_1 + x_2 + x_3 + x_4 = 10@ equivale a distribuir 10 bolas idênticas entre 4 recipientes, o que exige 3 barras separadoras (|). O número total de posições é @10 + 4 - 1 = 13@:<br>
+                @N_{\ge 0} = \binom{10 + 4 - 1}{10} = \binom{13}{10} = \binom{13}{3} = \frac{13 \times 12 \times 11}{3 \times 2 \times 1} = 286@ soluções.<br>
+                b) Para soluções estritamente positivas (@x_i \ge 1@), fazemos a mudança de variáveis @y_i = x_i - 1 \ge 0@:<br>
+                @(y_1 + 1) + (y_2 + 1) + (y_3 + 1) + (y_4 + 1) = 10 \implies y_1 + y_2 + y_3 + y_4 = 6@.<br>
+                Agora aplicamos a mesma fórmula para soma 6 com 4 variáveis:<br>
+                @N_{\ge 1} = \binom{6 + 4 - 1}{6} = \binom{9}{6} = \binom{9}{3} = \frac{9 \times 8 \times 7}{3 \times 2 \times 1} = 84@ soluções.<br>
+                (Equivalente a escolher 3 espaços separadores entre as 10 bolas alinhadas: @\binom{10-1}{4-1} = \binom{9}{3} = 84@).<br>
+                <strong>Resposta:</strong> a) 286 soluções; b) 84 soluções.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Temos @n = 6@ sabores e devemos escolher @p = 4@ bolas, com repetição permitida e sem que a ordem importe (combinação com repetição ou combinação completa @CR_n^p@):<br>
+                @CR_6^4 = \binom{6 + 4 - 1}{4} = \binom{9}{4}@.<br>
+                Calculando o número binomial:<br>
+                @\binom{9}{4} = \frac{9 \times 8 \times 7 \times 6}{4 \times 3 \times 2 \times 1} = \frac{3024}{24} = 126@ maneiras.<br>
+                Isso corresponde ao número de soluções inteiras não negativas da equação @s_1 + s_2 + s_3 + s_4 + s_5 + s_6 = 4@, onde cada @s_i@ é o número de bolas do sabor @i@.<br>
+                <strong>Resposta:</strong> 126 formas distintas.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Existem @k = 12@ meses no ano (as "gavetas"). Queremos que pelo menos um mês contenha 5 aniversariantes. Se tivéssemos apenas 4 aniversariantes em cada um dos 12 meses, teríamos @4 \times 12 = 48@ alunos sem que nenhum mês atingisse 5. Portanto, com mais 1 aluno (total de 49 alunos), pelo Princípio das Gavetas, pelo menos um mês terá no mínimo @\lceil 49 / 12 \rceil = 5@ aniversariantes.<br>
+                b) Agrupamos os 98 números inteiros em 49 pares cuja soma é exatamente 99:<br>
+                @\{1, 98\}, \{2, 97\}, \{3, 96\}, \dots, \{49, 50\}@.<br>
+                Cada par desses atua como uma "gaveta" (totalizando 49 gavetas). Como temos 50 pessoas e cada uma escolhe um número diferente, foram selecionados 50 números distintos. Pelo Princípio das Gavetas de Dirichlet, ao distribuir 50 números em 49 pares disjuntos, pelo menos uma das gavetas terá seus dois números selecionados. Esses dois números somam exatamente 99.<br>
+                <strong>Resposta:</strong> a) Mínimo de 49 alunos; b) Demonstração pelas 49 gavetas de soma 99.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) O número de permutações circulares de @n@ pessoas é dado por @PC_n = (n - 1)!@.<br>
+                Para @n = 8@ líderes:<br>
+                @PC_8 = (8 - 1)! = 7! = 5.040@ maneiras.<br>
+                b) Vamos calcular o número de configurações em que Alpha e Beta se sentam juntos. Trate o par @(Alpha, Beta)@ como um único bloco. Agora temos @(8 - 2 + 1) = 7@ elementos ao redor da mesa circular:<br>
+                @PC_7 = (7 - 1)! = 6! = 720@.<br>
+                Como Alpha e Beta podem inverter suas posições relativas dentro do bloco de @2! = 2@ maneiras, o número de arranjos com os dois juntos é:<br>
+                @N_{\text{juntos}} = 2 \times 6! = 2 \times 720 = 1.440@.<br>
+                Subtraindo do total:<br>
+                @N_{\text{separados}} = 5.040 - 1.440 = 3.600@ maneiras.<br>
+                <strong>Resposta:</strong> a) 5.040 maneiras; b) 3.600 maneiras.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                1. Escolha das letras:<br>
+                O alfabeto possui 26 letras. Excluindo 'I' e 'O', restam 24 letras válidas. Como devem ser distintas:<br>
+                @24 \times 23 = 552@ opções de pares de letras.<br>
+                2. Escolha dos três dígitos numéricos distintos com resultado ímpar:<br>
+                • O último dígito (unidades) deve ser ímpar: do conjunto @\{1, 3, 5, 7, 9\}@, há 5 opções.<br>
+                • O primeiro dígito pode ser qualquer um dos 9 restantes (incluindo 0, pois uma placa de drone aceita 0 no início): 9 opções.<br>
+                • O segundo dígito pode ser qualquer um dos 8 restantes: 8 opções.<br>
+                Total de combinações de dígitos: @5 \times 9 \times 8 = 360@ trios numéricos.<br>
+                Total geral de placas pelo princípio multiplicativo:<br>
+                @N = 552 \times 360 = 198.720@ placas.<br>
+                <strong>Resposta:</strong> 198.720 placas distintas.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Representamos a escolha por uma sequência de @n@ caracteres binários, contendo @p@ números "1" (elementos escolhidos) e @n - p@ zeros (elementos não escolhidos).<br>
+                Para que nenhum par de elementos escolhidos seja consecutivo, dois "1" nunca podem estar adjacentes. Dispomos primeiro os @n - p@ zeros:<br>
+                @\_ \; 0 \; \_ \; 0 \; \_ \; \dots \; \_ \; 0 \; \_@<br>
+                Eles geram exatamente @(n - p) + 1 = n - p + 1@ espaços disponíveis para alocar os @p@ uns. Como cada espaço pode receber no máximo um "1", a escolha de onde posicionar os "1" equivale a escolher @p@ espaços dentre os @n - p + 1@ disponíveis:<br>
+                @K(n, p) = \binom{n - p + 1}{p}@.<br>
+                b) Aplicando para @n = 15@ senadores e @p = 4@ convocados sem vizinhos:<br>
+                @K(15, 4) = \binom{15 - 4 + 1}{4} = \binom{12}{4} = \frac{12 \times 11 \times 10 \times 9}{24} = 495@ maneiras.<br>
+                <strong>Resposta:</strong> a) Demonstração por inserção nos @n - p + 1@ espaços entre zeros; b) 495 maneiras.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Sejam os 4 amigos 1, 2, 3, 4. Uma permutação caótica @\sigma@ satisfaz @\sigma(i) \neq i@ para todo @i@.<br>
+                Fixando o amigo 1 tirando o 2, temos os desarranjos: (2, 1, 4, 3), (2, 3, 4, 1), (2, 4, 1, 3) (3 opções).<br>
+                Como o amigo 1 pode tirar 2, 3 ou 4 (3 escolhas simétricas), o total é @3 \times 3 = 9@ desarranjos.<br>
+                b) Pelo Princípio da Inclusão-Exclusão:<br>
+                Seja @A_i@ a propriedade de que o elemento @i@ fica em sua posição correta (@\sigma(i) = i@).<br>
+                O número de permutações com ao menos um ponto fixo é:<br>
+                @|\bigcup_{i=1}^n A_i| = \sum |A_i| - \sum |A_i \cap A_j| + \dots = \sum_{k=1}^n (-1)^{k-1} \binom{n}{k} (n - k)! = n! \sum_{k=1}^n \frac{(-1)^{k-1}}{k!}@.<br>
+                O número de desarranjos @D_n@ é o complementar em relação a @n!@:<br>
+                @D_n = n! - n! \sum_{k=1}^n \frac{(-1)^{k-1}}{k!} = n! \sum_{k=0}^n \frac{(-1)^k}{k!}@.<br>
+                Para @n = 4@:<br>
+                @D_4 = 4! \left(1 - 1 + \frac{1}{2!} - \frac{1}{3!} + \frac{1}{4!}\right) = 24 \left(\frac{1}{2} - \frac{1}{6} + \frac{1}{24}\right) = 24 \left(\frac{12 - 4 + 1}{24}\right) = 9@.<br>
+                <strong>Resposta:</strong> a) 9 desarranjos listados; b) Demonstração pelo PIE confirmando @D_4 = 9@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Seja @U = \{1, 2, \dots, 1000\}@ com @|U| = 1000@. Definimos os conjuntos de múltiplos:<br>
+                • @A_2@: múltiplos de 2 @\implies |A_2| = \lfloor 1000 / 2 \rfloor = 500@;<br>
+                • @A_3@: múltiplos de 3 @\implies |A_3| = \lfloor 1000 / 3 \rfloor = 333@;<br>
+                • @A_5@: múltiplos de 5 @\implies |A_5| = \lfloor 1000 / 5 \rfloor = 200@.<br>
+                Interseções duas a duas:<br>
+                • @|A_2 \cap A_3| = |A_6| = \lfloor 1000 / 6 \rfloor = 166@;<br>
+                • @|A_2 \cap A_5| = |A_{10}| = \lfloor 1000 / 10 \rfloor = 100@;<br>
+                • @|A_3 \cap A_5| = |A_{15}| = \lfloor 1000 / 15 \rfloor = 66@.<br>
+                Interseção das três:<br>
+                • @|A_2 \cap A_3 \cap A_5| = |A_{30}| = \lfloor 1000 / 30 \rfloor = 33@.<br>
+                Pelo Princípio da Inclusão-Exclusão, a união é:<br>
+                @|A_2 \cup A_3 \cup A_5| = (500 + 333 + 200) - (166 + 100 + 66) + 33 = 1033 - 332 + 33 = 734@.<br>
+                A quantidade de números não divisíveis por nenhum dos três é:<br>
+                @N = 1000 - 734 = 266@ números.<br>
+                <strong>Resposta:</strong> 266 números inteiros.
+              </li>
+            </ol>
+          </div>
+
+          <!-- GABARITO SEÇÃO 4 -->
+          <div class="gabarito-secao">
+            <h3>Seção 4: Problemas Propostos</h3>
+            <ol start="33">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                @\binom{12}{2} = \frac{12 \times 11}{2 \times 1} = 6 \times 11 = 66@.<br>
+                <strong>Resposta:</strong> 66.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Temos 7 algarismos e 4 posições ordenadas sem repetição:<br>
+                @A_{7, 4} = 7 \times 6 \times 5 \times 4 = 840@ números.<br>
+                <strong>Resposta:</strong> 840 números.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                @C_{9, 4} = \frac{9 \times 8 \times 7 \times 6}{4 \times 3 \times 2 \times 1} = 9 \times 2 \times 7 = 126@ comissões.<br>
+                <strong>Resposta:</strong> 126 comissões.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A palavra "ARARAQUARA" possui 10 letras no total: 5 letras 'A', 3 letras 'R', 1 'Q', 1 'U'.<br>
+                @P_{10}^{5, 3} = \frac{10!}{5! \cdot 3!} = \frac{3.628.800}{120 \cdot 6} = \frac{3.628.800}{720} = 5.040@ anagramas.<br>
+                <strong>Resposta:</strong> 5.040 anagramas.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Escolher 2 brancas dentre as 5 disponíveis: @C_{5, 2} = 10@.<br>
+                Escolher 1 preta dentre as 4 disponíveis: @C_{4, 1} = 4@.<br>
+                Pelo PFC: @10 \times 4 = 40@ maneiras.<br>
+                <strong>Resposta:</strong> 40 maneiras.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Pelo método dos traços e bolas, com 7 bolas e 2 barras separadoras:<br>
+                @\binom{7 + 3 - 1}{7} = \binom{9}{7} = \binom{9}{2} = \frac{9 \times 8}{2} = 36@ soluções.<br>
+                <strong>Resposta:</strong> 36 soluções.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Permutação circular de 6 pessoas:<br>
+                @PC_6 = (6 - 1)! = 5! = 120@ maneiras.<br>
+                <strong>Resposta:</strong> 120 maneiras.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Existem apenas duas cores de meias: preta e branca (2 gavetas). No pior cenário possível, você retira 1 meia preta e 1 meia branca (2 meias de cores distintas). A terceira meia retirada pertencerá obrigatoriamente a uma das duas cores, completando um par idêntico pelo Princípio das Gavetas. Logo, são necessárias no mínimo 3 meias.<br>
+                <strong>Resposta:</strong> 3 meias.
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </details>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+      </div>
+
+    </div> <!-- /.container -->
+  </div> <!-- /#page-wrapper -->
+
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "@@", right: "@@", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "@", right: "@", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+  <div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  </div>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

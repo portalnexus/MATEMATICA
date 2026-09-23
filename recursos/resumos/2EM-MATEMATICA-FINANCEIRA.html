@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Matemática Financeira e Sistemas de Amortização</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Tabelas comparativas financeiras */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: left;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar 2º EM */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-2em {
+      background-color: rgba(245, 158, 11, 0.25);
+      border: 2px solid #f59e0b;
+      color: #fef3c7;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-2em">2º Ano EM</div>
+
+    <h1>Matemática Financeira e Sistemas de Amortização</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 3: "Uma maratona se completa com planejamento"
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E CONTEXTO ECONÔMICO-MATEMÁTICO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para o domínio formal e operacional dos modelos desta teoria, o estudante deve mobilizar:</p>
+      <ul>
+        <li><strong>Progressões Aritméticas (PA):</strong> termo geral @a_n = a_1 + (n-1)r@ e soma dos termos @S_n = \frac{(a_1 + a_n)n}{2}@ (base analítica do SAC).</li>
+        <li><strong>Progressões Geométricas (PG):</strong> termo geral @a_n = a_1 \cdot q^{n-1}@ e soma finita @S_n = a_1 \cdot \frac{1 - q^n}{1 - q}@ (base analítica da Tabela Price e da capitalização composta).</li>
+        <li><strong>Álgebra Exponencial e Logaritmos:</strong> resolução de equações do tipo @(1+i)^t = k@ através da aplicação de logaritmos neperianos ou decimais: @t = \frac{\ln k}{\ln(1+i)}@.</li>
+        <li><strong>Séries Uniformes de Pagamento:</strong> conceito de equivalência de capitais em diferentes linhas do tempo sob valor presente líquido.</li>
+      </ul>
+    </div>
+
+    <p>
+      A <strong>Matemática Financeira</strong> é a disciplina axiomática encarregada de quantificar e modelar a transformação do valor da moeda ao longo da dimensão temporal. Toda transação econômica estendida no tempo pressupõe três fatores constitutivos:
+    </p>
+    <ol>
+      <li><strong>Preferência Temporal do Consumo:</strong> agentes econômicos atribuem utilidade marginal superior a um bem presente em relação ao mesmo bem no futuro incerto.</li>
+      <li><strong>Custo de Oportunidade do Capital:</strong> a retenção ou cessão de liquidez impede a aplicação dos recursos em atividades produtivas concorrentes alternativas.</li>
+      <li><strong>Incerteza e Risco de Inadimplência:</strong> a probabilidade estocástica de que a promessa de liquidação futura não se concretize.</li>
+    </ol>
+    <p>
+      A síntese desses três pilares materializa-se na categoria analítica do <strong>juro</strong> &mdash; o preço do aluguel do capital ao longo do tempo.
+    </p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: JUROS SIMPLES
+         =============================================================== -->
+    <h2>1. O Regime de Juros Simples (Crescimento Linear)</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Capital, Taxa, Prazo e Montante)</h3>
+      <p>Considere uma operação financeira iniciada no instante @t = 0@ com liquidação no instante @t@:</p>
+      <ul>
+        <li><strong>Capital Principal (@C@ ou @PV@):</strong> o valor monetário originário mutuado ou aplicado.</li>
+        <li><strong>Taxa de Juros (@i@):</strong> o coeficiente percentual ou unitário cobrado por unidade de tempo (@i \ge 0@).</li>
+        <li><strong>Tempo ou Prazo (@t@ ou @n@):</strong> a quantidade de períodos em que o capital permanece imobilizado. A unidade temporal de @t@ deve ser rigorosamente coincidente com a da taxa @i@.</li>
+        <li><strong>Juros (@J@):</strong> a remuneração monetária bruta gerada pelo capital.</li>
+        <li><strong>Montante (@M@ ou @FV@):</strong> o valor acumulado ao final do período, definido universalmente por @M = C + J@.</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.1 (Equação Fundamental dos Juros Simples)</h3>
+      <p>
+        No regime de capitalização simples, a base de cálculo dos juros permanece invariavelmente igual ao capital principal originário @C@ em todos os períodos. Portanto, a cada ciclo unitário @\Delta t = 1@, gera-se uma quantia idêntica de juros dada por @\Delta J = C \cdot i@.
+      </p>
+      <p>Para um prazo contínuo ou discreto de @t@ períodos, os juros acumulados @J@ e o montante final @M@ são:</p>
+      @@
+      J = C \cdot i \cdot t
+      @@
+      @@
+      M(t) = C + J = C(1 + i \cdot t)
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.2 (Natureza da Função Montante Simples)</h3>
+      <p>
+        A função montante @M: \mathbb{R}_+ \to \mathbb{R}@ sob capitalização simples é uma <strong>função afim estritamente crescente</strong> (para @i > 0@), com intercepto vertical @M(0) = C@ e taxa de variação constante (coeficiente angular) dada por @\frac{dM}{dt} = C \cdot i@.
+      </p>
+      <p>
+        Discretizando para períodos inteiros @t \in \mathbb{N}@, a sequência dos montantes @(M_0, M_1, M_2, \dots, M_t)@ constitui uma <strong>Progressão Aritmética (PA)</strong> de primeiro termo @a_1 = M_0 = C@ e razão @r = C \cdot i@:
+      </p>
+      @@
+      M_t = M_{t-1} + C \cdot i
+      @@
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Taxas Proporcionais em Juros Simples)</h3>
+      <p>
+        Duas taxas @i_1@ e @i_2@, referenciadas aos prazos @t_1@ e @t_2@ respectivamente, são ditas <strong>proporcionais</strong> (ou lineares) se e somente se:
+      </p>
+      @@
+      \frac{i_1}{t_1} = \frac{i_2}{t_2} \iff i_2 = i_1 \cdot \frac{t_2}{t_1}
+      @@
+      <p>
+        <em>Exemplo:</em> Uma taxa de @24\%@ ao ano (@t_1 = 12@ meses) é proporcional a @\frac{24\%}{12} = 2\%@ ao mês (@t_2 = 1@ mês) e a @\frac{24\%}{4} = 6\%@ ao trimestre. No regime simples, taxas proporcionais geram montantes rigorosamente equivalentes sobre o mesmo prazo total.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: JUROS COMPOSTOS
+         =============================================================== -->
+    <h2>2. O Regime de Juros Compostos (Crescimento Exponencial)</h2>
+
+    <p>
+      Na economia contemporânea e nos mercados de capitais globais, o regime de juros simples possui aplicabilidade residual (restrita a operações de curtíssimo prazo ou desconto comercial cambial). A esmagadora maioria dos contratos adota o <strong>regime de capitalização composta</strong>, onde impera o princípio econômico do reinvestimento automático: os juros apurados ao fim de cada ciclo são agregados ao saldo anterior, passando a render novos juros no ciclo conseguinte.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Mecanismo de Capitalização Composta)</h3>
+      <p>
+        Seja @M_0 = C@ o capital depositado no início da operação. Ao final de cada período @k \in \{1, 2, \dots, t\}@, o montante @M_k@ é calculado incidindo a taxa @i@ sobre o montante apurado no período imediatamente precedente @M_{k-1}@:
+      </p>
+      @@
+      M_k = M_{k-1} + i \cdot M_{k-1} = M_{k-1}(1 + i)
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Equação Fundamental dos Juros Compostos)</h3>
+      <p>
+        O montante @M_t@ acumulado ao término de @t@ períodos sob taxa unitária periódica @i@ sobre o capital originário @C@ é dado por:
+      </p>
+      @@
+      M(t) = C(1 + i)^t
+      @@
+      <p><strong>Demonstração por Indução Matemática:</strong></p>
+      <ol>
+        <li><strong>Base indutiva (@t = 1@):</strong> @M_1 = C + C \cdot i = C(1 + i)^1@. A proposição é verdadeira para @t = 1@.</li>
+        <li><strong>Hipótese de indução:</strong> Suponhamos válida para um inteiro @k \ge 1@, isto é, @M_k = C(1 + i)^k@.</li>
+        <li><strong>Passo indutivo:</strong> Pela Definição 2.1, para o período @k + 1@:
+          @@
+          M_{k+1} = M_k(1 + i) = \left[ C(1 + i)^k \right] (1 + i) = C(1 + i)^{k+1}
+          @@
+        </li>
+      </ol>
+      <p>
+        Pelo Princípio da Indução Finita, a fórmula vigora para todo @t \in \mathbb{N}^*@. O operador estende-se formalmente a @t \in \mathbb{R}_+@ por interpolação exponencial contínua. @\blacksquare@
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Natureza Geométrica do Regime Composto)</h3>
+      <p>
+        A sequência discreta dos montantes @(M_0, M_1, M_2, \dots, M_t)@ constitui uma <strong>Progressão Geométrica (PG)</strong> cujo primeiro termo é @M_0 = C@ e cuja razão constante (fator de acumulação de capital) é @q = 1 + i@:
+      </p>
+      @@
+      \frac{M_k}{M_{k-1}} = 1 + i = \text{constante}
+      @@
+      <p>
+        Os juros totais acumulados no regime composto correspondem à diferença entre o montante final e o capital inicial:
+      </p>
+      @@
+      J(t) = M(t) - C = C\left[(1 + i)^t - 1\right]
+      @@
+    </div>
+
+    <!-- CONFRONTO GRÁFICO E CONVEXIDADE -->
+    <div class="destaque-box observacao">
+      <h3>⚖️ Confronto Analítico: Simples vs Compostos (O Ponto de Inflexão @t = 1@)</h3>
+      <p>
+        Comparando as funções @M_S(t) = C(1 + it)@ e @M_C(t) = C(1 + i)^t@ para @C > 0@ e @i > 0@:
+      </p>
+      <ul>
+        <li>
+          <strong>No intervalo @0 < t < 1@ (Subperíodo fracionário):</strong><br>
+          Pela desigualdade de Bernoulli e convexidade estrita da função exponencial @f(t) = (1+i)^t@, temos @(1 + i)^t < 1 + it@. Logo:
+          @@
+          M_S(t) > M_C(t) \quad \forall t \in ]0, 1[
+          @@
+          <em>Consequência teórica:</em> Em frações de período (por exemplo, 15 dias para uma taxa mensal), o regime simples gera formalmente mais juros que a capitalização exponencial pura.
+        </li>
+        <li>
+          <strong>No ponto @t = 1@:</strong><br>
+          @@
+          M_S(1) = C(1 + i) = M_C(1)
+          @@
+          Os dois regimes coincidem exatamente no fechamento do primeiro período unitário de capitalização.
+        </li>
+        <li>
+          <strong>Para @t > 1@ (Superperíodo):</strong><br>
+          @@
+          M_C(t) > M_S(t) \quad \forall t > 1
+          @@
+          A curvatura exponencial domina exponencialmente o crescimento linear. Conforme @t \to \infty@, a razão @\frac{M_C(t)}{M_S(t)} = \frac{(1+i)^t}{1+it} \to +\infty@.
+        </li>
+      </ul>
+    </div>
+
+    <!-- CAPITALIZAÇÃO CONTÍNUA -->
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.3 (Capitalização Contínua e o Número de Euler @e@)</h3>
+      <p>
+        Se uma taxa nominal anual @i@ é capitalizada @m@ vezes ao ano, a taxa por período é @\frac{i}{m}@ e o montante após @t@ anos é @M(t) = C\left(1 + \frac{i}{m}\right)^{m \cdot t}@. Fazendo a frequência de capitalizações tender ao infinito (@m \to \infty@, juros calculados instantaneamente a cada microssegundo):
+      </p>
+      @@
+      \lim_{m \to \infty} C \left(1 + \frac{i}{m}\right)^{mt} = C \cdot \left[ \lim_{m \to \infty} \left(1 + \frac{1}{\frac{m}{i}}\right)^{\frac{m}{i}} \right]^{it} = C \cdot e^{it}
+      @@
+      <p>
+        Onde @e \approx 2{,}71828\dots@ é a constante de Euler. Este é o limite superior teórico de rendimento para uma taxa nominal @i@ em um horizonte contínuo.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: TAXAS NOMINAIS, EFETIVAS E EQUIVALENTES
+         =============================================================== -->
+    <h2>3. Taxas Nominais, Efetivas e Equivalentes</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Taxa Nominal versus Taxa Efetiva)</h3>
+      <p>
+        A clareza terminológica em finanças exige distinguir com exatidão a unidade declarada de indexação da periodicidade real de incidência:
+      </p>
+      <ul>
+        <li>
+          <strong>Taxa Efetiva (@i_{\text{efetiva}}@):</strong> é a taxa cuja unidade de tempo coincide integralmente com a periodicidade em que os juros são capitalizados e incorporados ao saldo devedor. Exemplo: @1{,}5\%@ ao mês com capitalização mensal.
+        </li>
+        <li>
+          <strong>Taxa Nominal (@i_{\text{nominal}}@):</strong> é uma taxa de convenção contratual cujo prazo de referência diverge da periodicidade de capitalização. Ela serve meramente como indicador provisório e deve ser convertida para a taxa efetiva periódica proporcionalmente.
+        </li>
+      </ul>
+      <p>
+        <em>Exemplo clássico:</em> Um contrato imobiliário estabelece taxa de <strong>@12\%@ ao ano, com capitalização mensal</strong>. A taxa nominal é @12\%@ a.a., mas a taxa efetiva aplicada a cada mês é a taxa proporcional mensal:
+      </p>
+      @@
+      i_m = \frac{12\%}{12} = 1\% \text{ ao mês}
+      @@
+      <p>
+        A taxa efetiva anual auferida ao final de 12 meses sob juros compostos será:
+      </p>
+      @@
+      i_{\text{efetiva anual}} = (1 + 0{,}01)^{12} - 1 \approx 1{,}126825 - 1 = 12{,}6825\% \text{ a.a.}
+      @@
+      <p>
+        Nota-se que @i_{\text{efetiva anual}} > i_{\text{nominal}}@ sempre que a frequência de capitalização for intra-anual (@m > 1@).
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Equivalência de Taxas no Regime Composto)</h3>
+      <p>
+        Duas taxas @i_1@ e @i_2@, referenciadas aos períodos de capitalização unitários @t_1@ e @t_2@, são ditas <strong>equivalentes</strong> se e somente se, aplicadas a um mesmo capital principal @C@ durante um mesmo intervalo de tempo global idêntico @T@, produzem o mesmo montante final acumulado @M@.
+      </p>
+      <p>
+        Sejam @q_1 = \frac{T}{t_1}@ e @q_2 = \frac{T}{t_2}@ o número de ciclos de capitalização contidos no prazo @T@. A condição de equivalência traduz-se algebricamente por:
+      </p>
+      @@
+      C(1 + i_1)^{q_1} = C(1 + i_2)^{q_2} \implies (1 + i_1)^{q_1} = (1 + i_2)^{q_2}
+      @@
+      <p>
+        Em particular, tomando o horizonte padrão de 1 ano (@T = 1@ ano = 12 meses = 4 trimestres = 2 semestres = 360 dias comerciais):
+      </p>
+      @@
+      1 + i_{\text{anual}} = (1 + i_{\text{semestral}})^2 = (1 + i_{\text{trimestral}})^4 = (1 + i_{\text{mensal}})^{12} = (1 + i_{\text{diária}})^{360}
+      @@
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>⚠️ Armadilha Conceitual Frequente: Proporcional vs Equivalente</h3>
+      <p>
+        Em juros simples, taxa proporcional e taxa equivalente são sinônimos perfeitos. <strong>Em juros compostos, jamais!</strong>
+      </p>
+      <p>
+        Para obter a taxa mensal equivalente a @20\%@ ao ano no regime composto:
+      </p>
+      @@
+      1 + i_m = (1 + 0{,}20)^{1/12} \implies i_m = \sqrt[12]{1{,}20} - 1 \approx 1{,}5309\% \text{ a.m.}
+      @@
+      <p>
+        Dividir @20\% / 12 = 1{,}6667\%@ constitui um erro grosseiro que ignora o efeito multiplicativo dos juros sobre juros.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: INFLAÇÃO, PODER DE COMPRA E EQUAÇÃO DE FISHER
+         =============================================================== -->
+    <h2>4. Inflação, Poder de Compra e a Equação de Fisher</h2>
+
+    <p>
+      No ambiente econômico real, as unidades monetárias sofrem oscilações dinâmicas no seu poder liberatório de compra. O ganho nominal de uma aplicação financeira não coincide necessariamente com o enriquecimento real do investidor em termos de poder aquisitivo de bens e serviços.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.1 (Inflação e Poder de Compra)</h3>
+      <p>
+        Seja @I \in \mathbb{R}@ a <strong>taxa de inflação</strong> observada num intervalo temporal, definida como a variação relativa do nível geral de preços de uma cesta representativa de produtos:
+      </p>
+      @@
+      P_1 = P_0(1 + I)
+      @@
+      <p>
+        O <strong>poder de compra</strong> (@PC@) de uma unidade monetária nominal é o inverso do nível de preços: @PC = \frac{1}{P}@. Portanto, a taxa de variação do poder de compra da moeda (@\Delta PC@) é:
+      </p>
+      @@
+      1 + \Delta PC = \frac{PC_1}{PC_0} = \frac{P_0}{P_1} = \frac{1}{1 + I} \implies \Delta PC = \frac{-I}{1 + I}
+      @@
+      <p>
+        <em>Exemplo:</em> Se a inflação anual for de @I = 25\% = 0{,}25@, a perda de poder de compra não é de 25%, mas sim @\Delta PC = \frac{-0{,}25}{1 + 0{,}25} = -0{,}20 = -20\%@. Com a mesma cédula, compra-se exatamente 80% do que se comprava no período inicial.
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Dedução Rigorosa da Equação de Fisher)</h3>
+      <p>
+        Seja @i@ a <strong>taxa nominal</strong> (ou aparente) de juros contratada, @I@ a <strong>taxa de inflação</strong> acumulada no período e @r@ a <strong>taxa real</strong> de juros (o ganho efetivo em volume de cesta de bens). Então vigorará rigorosamente a <strong>Equação de Irving Fisher</strong>:
+      </p>
+      @@
+      1 + i = (1 + r)(1 + I)
+      @@
+      <p><strong>Demonstração:</strong></p>
+      <ol>
+        <li>No instante inicial @t = 0@, um investidor detém um capital @C@. Suponha que o preço unitário da cesta básica de consumo seja @P_0@. O investidor tem poder de compra equivalente a @Q_0 = \frac{C}{P_0}@ cestas.</li>
+        <li>O capital @C@ é aplicado à taxa aparente @i@ por um período, gerando o montante final nominal @M = C(1 + i)@.</li>
+        <li>Simultaneamente, ao longo do mesmo período, o preço da cesta básica de consumo sofre inflação à taxa @I@, atingindo o preço final @P_1 = P_0(1 + I)@.</li>
+        <li>No instante final @t = 1@, o investidor resgata seu montante nominal @M@ e pode adquirir uma quantidade física @Q_1@ de cestas:
+          @@
+          Q_1 = \frac{M}{P_1} = \frac{C(1 + i)}{P_0(1 + I)} = \left(\frac{C}{P_0}\right) \cdot \frac{1 + i}{1 + I} = Q_0 \cdot \frac{1 + i}{1 + I}
+          @@
+        </li>
+        <li>Por definição axiológica de retorno real, o crescimento da quantidade física de bens é dado por @Q_1 = Q_0(1 + r)@. Igualando as expressões:
+          @@
+          Q_0(1 + r) = Q_0 \cdot \frac{1 + i}{1 + I} \iff 1 + r = \frac{1 + i}{1 + I} \iff 1 + i = (1 + r)(1 + I)
+          @@
+        </li>
+      </ol>
+      <p>Isolando algebricamente a taxa real @r@, obtemos: @\blacksquare@</p>
+      @@
+      r = \frac{i - I}{1 + I}
+      @@
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>🔬 A Aproximação Linear de Primeira Ordem e seus Perigos</h3>
+      <p>
+        Expandindo a Equação de Fisher:
+      </p>
+      @@
+      1 + i = 1 + r + I + r \cdot I \implies i = r + I + r \cdot I \implies r = i - I - r \cdot I
+      @@
+      <p>
+        Em economias de inflação infinitesimalmente baixa (@r \approx 0@ e @I \approx 0@), o produto cruzado de segunda ordem @r \cdot I \approx 0@ torna-se desprezível, justificando a regra empírica linear:
+      </p>
+      @@
+      r \approx i - I \quad (\text{Aproximação Linear})
+      @@
+      <p>
+        <strong>Alerta Crítico:</strong> Em contextos de inflação moderada ou alta, aplicar a subtração direta gera distorções massivas. Se uma aplicação rende nominalmente @i = 100\%@ em um período com inflação de @I = 80\%@:
+      </p>
+      <ul>
+        <li>Pela aproximação simplista: @r \approx 100\% - 80\% = 20\%@ (ilusão monetária).</li>
+        <li>Pela Equação de Fisher exata: @r = \frac{1 + 1{,}00}{1 + 0{,}80} - 1 = \frac{2{,}00}{1{,}80} - 1 = 1{,}1111 - 1 = 11{,}11\%@.</li>
+      </ul>
+      <p>O ganho real é de apenas 11,11%, quase metade do que o cálculo empírico ingênuo previa!</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: TEORIA DOS SISTEMAS DE AMORTIZAÇÃO
+         =============================================================== -->
+    <h2>5. Teoria dos Sistemas de Amortização de Empréstimos</h2>
+
+    <p>
+      Um <strong>financiamento ou empréstimo</strong> consiste na cessão imediata de um capital principal @C@ por um credor a um mutuário, que se compromete a restituí-lo ao longo de @n@ datas futuras mediante uma sucessão de desembolsos financeiros denominados <strong>prestações</strong> ou <strong>parcelas</strong> (@P_k@).
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 5.1 (Estrutura Canônica de um Sistema de Amortização)</h3>
+      <p>Para cada período @k \in \{1, 2, \dots, n\}@, definem-se as quatro grandezas de estado:</p>
+      <ol>
+        <li>
+          <strong>Saldo Devedor (@SD_k@):</strong> O estado de endividamento remanescente imediatamente após o processamento do @k@-ésimo pagamento. Convenciona-se no instante da celebração do contrato (@k = 0@) que:
+          @@
+          SD_0 = C
+          @@
+        </li>
+        <li>
+          <strong>Juros do Período (@J_k@):</strong> O custo financeiro do aluguel do capital retido pelo devedor durante o intervalo @[k-1, k]@. Na modalidade pós-fixada com incidência temporal regular sob taxa periódica @i@:
+          @@
+          J_k = i \cdot SD_{k-1}
+          @@
+        </li>
+        <li>
+          <strong>Cota de Amortização (@A_k@):</strong> A parcela da prestação destinada exclusivamente ao abatimento do saldo principal devedor:
+          @@
+          A_k = P_k - J_k
+          @@
+        </li>
+        <li>
+          <strong>Prestação ou Parcela (@P_k@):</strong> O fluxo financeiro total despendido pelo devedor ao credor na data @k@:
+          @@
+          P_k = A_k + J_k
+          @@
+        </li>
+      </ol>
+      <p>
+        A dinâmica do saldo devedor obedece à equação de diferenças finitas:
+      </p>
+      @@
+      SD_k = SD_{k-1} - A_k
+      @@
+      <p>
+        A condição de quitação plena do contrato ao final do prazo @n@ impõe o axioma de fechamento:
+      </p>
+      @@
+      SD_n = 0 \iff \sum_{k=1}^n A_k = C
+      @@
+      <p>
+        Em palavras: a soma cumulativa de todas as amortizações individuais deve igualar com exatidão o capital originariamente emprestado.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: TABELA PRICE (SISTEMA FRANCÊS)
+         =============================================================== -->
+    <h2>6. Tabela Price / Sistema Francês de Amortização</h2>
+
+    <p>
+      Criada pelo reverendo inglês <strong>Richard Price</strong> em 1771 e popularizada na França, a <strong>Tabela Price</strong> é o modelo de amortização universalmente adotado no crédito direto ao consumidor, financiamento de veículos e empréstimos pessoais de curto e médio prazos.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 6.1 (Axioma da Tabela Price)</h3>
+      <p>
+        A característica definidora do Sistema Francês de Amortização é a <strong>constância estrita de todas as prestações periódicas</strong>:
+      </p>
+      @@
+      P_1 = P_2 = P_3 = \dots = P_n = P = \text{constante}
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 6.1 (Dedução da Fórmula da Prestação Constante da Tabela Price)</h3>
+      <p>
+        Dado um capital financiado @C@, reembolsável em @n@ prestações periódicas constantes postecipadas @P@ sob taxa periódica de juros @i@, o valor unitário da prestação @P@ é dado por:
+      </p>
+      @@
+      P = C \cdot \left[ \frac{i \cdot (1 + i)^n}{(1 + i)^n - 1} \right] = C \cdot \left[ \frac{i}{1 - (1 + i)^{-n}} \right]
+      @@
+      <p><strong>Demonstração:</strong></p>
+      <p>
+        Pelo Princípio da Equivalência de Capitais, o capital presente @C@ na data @0@ deve ser rigorosamente igual à soma dos valores presentes de todas as @n@ prestações futuras descontadas à taxa @i@:
+      </p>
+      @@
+      C = \sum_{k=1}^n \frac{P}{(1 + i)^k} = \frac{P}{(1+i)^1} + \frac{P}{(1+i)^2} + \dots + \frac{P}{(1+i)^n}
+      @@
+      <p>Colocando a prestação constante @P@ em evidência:</p>
+      @@
+      C = P \cdot \sum_{k=1}^n \left(\frac{1}{1 + i}\right)^k
+      @@
+      <p>
+        A expressão somatória no membro direito é uma <strong>Progressão Geométrica finita</strong> de @n@ termos, com primeiro termo @u_1 = \frac{1}{1+i}@ e razão @q = \frac{1}{1+i}@. Aplicando a fórmula da soma da PG finita @S_n = u_1 \frac{1 - q^n}{1 - q}@:
+      </p>
+      @@
+      S_n = \left(\frac{1}{1+i}\right) \cdot \frac{1 - \left(\frac{1}{1+i}\right)^n}{1 - \frac{1}{1+i}} = \left(\frac{1}{1+i}\right) \cdot \frac{1 - (1+i)^{-n}}{\frac{1+i - 1}{1+i}} = \left(\frac{1}{1+i}\right) \cdot \frac{1 - (1+i)^{-n}}{\frac{i}{1+i}} = \frac{1 - (1+i)^{-n}}{i}
+      @@
+      <p>Substituindo @S_n@ na equação do capital @C@:</p>
+      @@
+      C = P \cdot \left[ \frac{1 - (1+i)^{-n}}{i} \right]
+      @@
+      <p>
+        O termo @a_{\overline{n}|i} = \frac{1 - (1+i)^{-n}}{i}@ é o fator atuarial clássico de anuidade. Isolando @P@:
+      </p>
+      @@
+      P = C \cdot \frac{i}{1 - (1+i)^{-n}} = C \cdot \frac{i \cdot (1+i)^n}{(1+i)^n - 1} \quad \blacksquare
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 6.2 (Comportamento das Cotas de Amortização na Tabela Price)</h3>
+      <p>
+        Na Tabela Price, as cotas de amortização @(A_1, A_2, \dots, A_n)@ constituem uma <strong>Progressão Geométrica estritamente crescente</strong> de razão @q = 1 + i@:
+      </p>
+      @@
+      A_k = A_1 \cdot (1 + i)^{k-1} \quad \forall k \in \{1, 2, \dots, n\}
+      @@
+      <p><strong>Demonstração:</strong></p>
+      <ol>
+        <li>Sabemos que @P = A_k + J_k = A_k + i \cdot SD_{k-1}@ para qualquer @k@.</li>
+        <li>Analogamente, para o período conseguinte @k+1@: @P = A_{k+1} + J_{k+1} = A_{k+1} + i \cdot SD_k@.</li>
+        <li>Como a prestação é constante, igualamos os dois períodos:
+          @@
+          A_{k+1} + i \cdot SD_k = A_k + i \cdot SD_{k-1}
+          @@
+        </li>
+        <li>Reorganizando os termos:
+          @@
+          A_{k+1} - A_k = i \cdot (SD_{k-1} - SD_k)
+          @@
+        </li>
+        <li>Contudo, pela definição de amortização, a diminuição do saldo devedor é precisamente @SD_{k-1} - SD_k = A_k@. Substituindo:
+          @@
+          A_{k+1} - A_k = i \cdot A_k \iff A_{k+1} = A_k(1 + i)
+          @@
+        </li>
+      </ol>
+      <p>
+        Portanto, @\frac{A_{k+1}}{A_k} = 1 + i@ para todo @k@, o que comprova que as amortizações crescem exponencialmente a uma taxa @i@ a cada ciclo. Como @P = A_k + J_k@ é constante e @A_k@ cresce, decorre imediatamente que os juros @J_k@ decrescem monotonicamente ao longo de todo o plano financeiro. @\blacksquare@
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 7: SAC (SISTEMA DE AMORTIZAÇÃO CONSTANTE)
+         =============================================================== -->
+    <h2>7. SAC - Sistema de Amortização Constante</h2>
+
+    <p>
+      O <strong>Sistema de Amortização Constante (SAC)</strong> é o modelo predominante nos financiamentos imobiliários de longo prazo no Brasil (como os contratos do Sistema Financeiro da Habitação - SFH).
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 7.1 (Axioma do SAC)</h3>
+      <p>
+        A característica primária do SAC é a <strong>uniformidade de todas as cotas de amortização</strong> ao longo de todos os períodos @k \in \{1, 2, \dots, n\}@:
+      </p>
+      @@
+      A_k = A = \frac{C}{n} \quad \forall k \in \{1, 2, \dots, n\}
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 7.1 (Equações do Saldo Devedor, Juros e Prestações no SAC)</h3>
+      <p>No SAC, sob capital inicial @C@, prazo de @n@ amortizações e taxa periódica @i@:</p>
+      <ol>
+        <li>
+          <strong>Saldo Devedor (@SD_k@):</strong> Como a cada etapa amortiza-se rigorosamente @\frac{C}{n}@, o saldo decresce linearmente segundo uma função afim discreta:
+          @@
+          SD_k = C - k \cdot A = C - k \cdot \frac{C}{n} = C \left(1 - \frac{k}{n}\right)
+          @@
+        </li>
+        <li>
+          <strong>Juros no Período @k@ (@J_k@):</strong>
+          @@
+          J_k = i \cdot SD_{k-1} = i \cdot C \left(1 - \frac{k-1}{n}\right) = i \cdot \frac{C}{n} \cdot (n - k + 1)
+          @@
+        </li>
+        <li>
+          <strong>Prestação no Período @k@ (@P_k@):</strong>
+          @@
+          P_k = A_k + J_k = \frac{C}{n} + i \cdot \frac{C}{n} \cdot (n - k + 1) = \frac{C}{n} \left[ 1 + i(n - k + 1) \right]
+          @@
+        </li>
+      </ol>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 7.2 (Comportamento Aritmético das Prestações no SAC)</h3>
+      <p>
+        No SAC, a sequência das prestações @(P_1, P_2, \dots, P_n)@ constitui uma <strong>Progressão Aritmética (PA) estritamente decrescente</strong> cuja razão constante @r_{PA}@ é dada por:
+      </p>
+      @@
+      r_{PA} = P_{k+1} - P_k = - A \cdot i = - \frac{C \cdot i}{n}
+      @@
+      <p><strong>Demonstração:</strong></p>
+      @@
+      P_{k+1} - P_k = (A + J_{k+1}) - (A + J_k) = J_{k+1} - J_k = i \cdot SD_k - i \cdot SD_{k-1} = i \cdot (SD_k - SD_{k-1})
+      @@
+      <p>
+        Como @SD_k - SD_{k-1} = -A_k = -A = -\frac{C}{n}@, obtemos:
+      </p>
+      @@
+      P_{k+1} - P_k = - i \cdot A = - \frac{C \cdot i}{n} = \text{constante negativa} \quad \blacksquare
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 7.3 (Total de Juros Pagos no SAC)</h3>
+      <p>
+        O volume total de juros desembolsados ao longo de todo o financiamento pelo SAC corresponde à soma dos termos da PA de juros @J_k@:
+      </p>
+      @@
+      J_{\text{total SAC}} = \sum_{k=1}^n J_k = \frac{C \cdot i \cdot (n + 1)}{2}
+      @@
+      <p><strong>Demonstração:</strong></p>
+      @@
+      J_{\text{total}} = \sum_{k=1}^n i \cdot \frac{C}{n} (n - k + 1) = \frac{i \cdot C}{n} \sum_{k=1}^n (n - k + 1)
+      @@
+      <p>
+        Quando @k@ varia de @1@ a @n@, a soma @\sum_{k=1}^n (n - k + 1) = n + (n-1) + \dots + 1 = \frac{n(n+1)}{2}@. Substituindo:
+      </p>
+      @@
+      J_{\text{total}} = \frac{i \cdot C}{n} \cdot \frac{n(n+1)}{2} = \frac{C \cdot i \cdot (n + 1)}{2} \quad \blacksquare
+      @@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 8: CONFRONTO ESTRUTURAL: PRICE VS SAC
+         =============================================================== -->
+    <h2>8. Confronto Estrutural: Tabela Price vs SAC</h2>
+
+    <p>
+      Para um mesmo valor financiado @C@, prazo @n@ e mesma taxa periódica de juros @i@, os dois sistemas operam dinâmicas patrimoniais distintas:
+    </p>
+
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Propriedade Analítica</th>
+            <th>Tabela Price (Sistema Francês)</th>
+            <th>SAC (Amortização Constante)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Perfil da Prestação (@P_k@)</strong></td>
+            <td>Rigorosamente constante (@P_k = P@).</td>
+            <td>Decrescente em PA de razão @r = -A \cdot i@.</td>
+          </tr>
+          <tr>
+            <td><strong>Perfil da Amortização (@A_k@)</strong></td>
+            <td>Crescente em PG de razão @q = 1 + i@.</td>
+            <td>Rigorosamente constante (@A_k = C/n@).</td>
+          </tr>
+          <tr>
+            <td><strong>Evolução do Saldo Devedor</strong></td>
+            <td>Decai lentamente no início e acelera no final.</td>
+            <td>Decai estritamente de forma linear uniforme.</td>
+          </tr>
+          <tr>
+            <td><strong>Primeira Parcela (@P_1@)</strong></td>
+            <td>Menor que a primeira parcela do SAC (@P_{1,\text{Price}} < P_{1,\text{SAC}}@).</td>
+            <td>Maior parcela do contrato (@P_{1,\text{SAC}} = \frac{C}{n} + i \cdot C@).</td>
+          </tr>
+          <tr>
+            <td><strong>Última Parcela (@P_n@)</strong></td>
+            <td>Idêntica a todas as anteriores (@P_n = P@).</td>
+            <td>Menor parcela do contrato (@P_{n,\text{SAC}} = \frac{C}{n}(1 + i)@).</td>
+          </tr>
+          <tr>
+            <td><strong>Juros Totais Pagos (@J_{\text{total}}@)</strong></td>
+            <td>Maior total de juros desembolsados ao credor.</td>
+            <td>Menor total de juros acumulados ao longo do contrato.</td>
+          </tr>
+          <tr>
+            <td><strong>Exigência de Renda Inicial</strong></td>
+            <td>Mais branda (acessa mutuários com menor renda inicial).</td>
+            <td>Mais severa (exige margem consignável maior para @P_1@).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 9: EXEMPLOS RESOLVIDOS PASSO A PASSO
+         =============================================================== -->
+    <h2>9. Exemplos Resolvidos Passo a Passo</h2>
+
+    <!-- EXEMPLO 1 -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1: Equivalência Composta e Valor Presente de Fluxos</h3>
+      <p>
+        <strong>Problema:</strong> Um investidor avalia aplicar @R\$\,50.000{,}00@ em um fundo que rende uma taxa nominal de @18\%@ ao ano com capitalização mensal.
+      </p>
+      <p>
+        (a) Determine a taxa efetiva mensal e a taxa efetiva anual equivalente da aplicação.<br>
+        (b) Calcule o montante final acumulado após 2 anos e meio (@30@ meses).<br>
+        (c) Quanto tempo exato levaria para o capital duplicar (@M = 2C@)?
+      </p>
+
+      <h4>Resolução Detalhada:</h4>
+      <p><strong>Item (a):</strong> A taxa nominal é @18\%@ ao ano com capitalização mensal. A taxa efetiva mensal proporcional é:</p>
+      @@
+      i_m = \frac{18\%}{12} = 1{,}5\% \text{ ao mês} = 0{,}015
+      @@
+      <p>Para determinar a taxa efetiva anual equivalente @i_a@ no regime composto:</p>
+      @@
+      1 + i_a = (1 + i_m)^{12} = (1 + 0{,}015)^{12} = (1{,}015)^{12}
+      @@
+      <p>Calculando @(1{,}015)^{12}@:</p>
+      @@
+      (1{,}015)^{12} \approx 1{,}195618 \implies i_a = 0{,}195618 = 19{,}5618\% \text{ ao ano}
+      @@
+
+      <p><strong>Item (b):</strong> Para @t = 30@ meses a @i = 0{,}015@ a.m.:</p>
+      @@
+      M = C(1 + i)^t = 50.000 \cdot (1{,}015)^{30}
+      @@
+      <p>Como @(1{,}015)^{30} \approx 1{,}563080@:</p>
+      @@
+      M = 50.000 \cdot 1{,}563080 = R\$\,78.154{,}01
+      @@
+
+      <p><strong>Item (c):</strong> Queremos @M = 2C@, ou seja, @(1 + i)^t = 2@:</p>
+      @@
+      (1{,}015)^t = 2 \implies \ln((1{,}015)^t) = \ln(2) \implies t \cdot \ln(1{,}015) = \ln(2)
+      @@
+      @@
+      t = \frac{\ln(2)}{\ln(1{,}015)} \approx \frac{0{,}693147}{0{,}0148886} \approx 46{,}55 \text{ meses}
+      @@
+      <p>Portanto, o capital dobra em aproximadamente 46 meses e 17 dias.</p>
+    </div>
+
+    <!-- EXEMPLO 2 -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2: Equação de Fisher e Hiperinflação</h3>
+      <p>
+        <strong>Problema:</strong> Durante um período de instabilidade monetária de 1 ano, um título de renda fixa remunerou seus cotistas com uma taxa aparente nominal de @i = 38\%@ ao ano. O índice oficial de inflação no mesmo ano registrou @I = 25\%@.
+      </p>
+      <p>
+        (a) Calcule a taxa real exata de juros obtida pelos investidores segundo a Equação de Fisher.<br>
+        (b) Compare o resultado com a taxa aproximada pela subtração direta e analise o erro relativo cometido.<br>
+        (c) Suponha que no ano seguinte a inflação subisse para @I_2 = 45\%@ e o governo mantivesse a taxa nominal fixada em @i_2 = 38\%@. Qual seria a taxa real de juros nesse segundo cenário?
+      </p>
+
+      <h4>Resolução Detalhada:</h4>
+      <p><strong>Item (a):</strong> Pela Equação de Irving Fisher:</p>
+      @@
+      1 + r = \frac{1 + i}{1 + I} = \frac{1 + 0{,}38}{1 + 0{,}25} = \frac{1{,}38}{1{,}25} = 1{,}104
+      @@
+      @@
+      r = 1{,}104 - 1 = 0{,}104 = 10{,}4\% \text{ ao ano}
+      @@
+
+      <p><strong>Item (b):</strong> Pela aproximação linear empírica:</p>
+      @@
+      r_{\text{aprox}} = i - I = 38\% - 25\% = 13\%
+      @@
+      <p>O erro absoluto é de @13\% - 10{,}4\% = 2{,}6@ pontos percentuais. O erro relativo da aproximação em relação ao valor exato é:</p>
+      @@
+      E_{\text{rel}} = \frac{13\% - 10{,}4\%}{10{,}4\%} = \frac{2{,}6}{10{,}4} = 0{,}25 = 25\%
+      @@
+      <p>A taxa foi superestimada em 25% pelo cálculo linear simplista.</p>
+
+      <p><strong>Item (c):</strong> Para @i_2 = 38\%@ e @I_2 = 45\%@:</p>
+      @@
+      1 + r = \frac{1 + 0{,}38}{1 + 0{,}45} = \frac{1{,}38}{1{,}45} \approx 0{,}951724
+      @@
+      @@
+      r = 0{,}951724 - 1 = -0{,}048276 = -4{,}83\% \text{ ao ano}
+      @@
+      <p>
+        Neste cenário, a taxa real é <strong>negativa</strong> (@-4{,}83\%@): o investidor sofreu corrosão de poder de compra real, apesar de auferir ganho monetário nominal positivo de 38%.
+      </p>
+    </div>
+
+    <!-- EXEMPLO 3 -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3: Planilha Completa de Financiamento (Price vs SAC)</h3>
+      <p>
+        <strong>Problema:</strong> Um capital de @C = R\$\,100.000{,}00@ é financiado para quitação em exatamente @4@ parcelas mensais, à taxa periódica pós-fixada de @i = 2\%@ ao mês (@0{,}02@). Construa passo a passo o quadro analítico completo de evolução da dívida:
+      </p>
+      <p>
+        (a) Pelo Sistema de Amortização Constante (SAC).<br>
+        (b) Pela Tabela Price (Sistema Francês).<br>
+        (c) Compare os juros acumulados totais pagos nas duas modalidades.
+      </p>
+
+      <h4>Resolução Detalhada:</h4>
+      <p><strong>Item (a) - Construção do SAC:</strong></p>
+      <ol>
+        <li>Amortização constante mensal: @A = \frac{C}{n} = \frac{100.000}{4} = R\$\,25.000{,}00@.</li>
+        <li><strong>Mês 1:</strong>
+          <ul>
+            <li>@SD_0 = 100.000@</li>
+            <li>@J_1 = 0{,}02 \cdot 100.000 = 2.000{,}00@</li>
+            <li>@A_1 = 25.000{,}00@</li>
+            <li>@P_1 = A_1 + J_1 = 25.000 + 2.000 = 27.000{,}00@</li>
+            <li>@SD_1 = 100.000 - 25.000 = 75.000{,}00@</li>
+          </ul>
+        </li>
+        <li><strong>Mês 2:</strong>
+          <ul>
+            <li>@J_2 = 0{,}02 \cdot 75.000 = 1.500{,}00@</li>
+            <li>@A_2 = 25.000{,}00@</li>
+            <li>@P_2 = 25.000 + 1.500 = 26.500{,}00@ (redução de @R\$\,500{,}00@)</li>
+            <li>@SD_2 = 75.000 - 25.000 = 50.000{,}00@</li>
+          </ul>
+        </li>
+        <li><strong>Mês 3:</strong>
+          <ul>
+            <li>@J_3 = 0{,}02 \cdot 50.000 = 1.000{,}00@</li>
+            <li>@A_3 = 25.000{,}00@</li>
+            <li>@P_3 = 25.000 + 1.000 = 26.000{,}00@</li>
+            <li>@SD_3 = 50.000 - 25.000 = 25.000{,}00@</li>
+          </ul>
+        </li>
+        <li><strong>Mês 4:</strong>
+          <ul>
+            <li>@J_4 = 0{,}02 \cdot 25.000 = 500{,}00@</li>
+            <li>@A_4 = 25.000{,}00@</li>
+            <li>@P_4 = 25.000 + 500 = 25.500{,}00@</li>
+            <li>@SD_4 = 25.000 - 25.000 = 0{,}00@ (quitação exata)</li>
+          </ul>
+        </li>
+      </ol>
+      <p>Total de juros pagos no SAC: @J_{\text{total SAC}} = 2.000 + 1.500 + 1.000 + 500 = R\$\,5.000{,}00@.</p>
+
+      <p><strong>Item (b) - Construção da Tabela Price:</strong></p>
+      <ol>
+        <li>Cálculo da prestação constante @P@:
+          @@
+          P = C \cdot \frac{i}{1 - (1+i)^{-4}} = 100.000 \cdot \frac{0{,}02}{1 - (1{,}02)^{-4}}
+          @@
+          Como @(1{,}02)^{-4} \approx 0{,}923845@:
+          @@
+          P = 100.000 \cdot \frac{0{,}02}{1 - 0{,}923845} = 100.000 \cdot \frac{0{,}02}{0{,}076155} \approx R\$\,26.262{,}38
+          @@
+        </li>
+        <li><strong>Mês 1:</strong>
+          <ul>
+            <li>@SD_0 = 100.000{,}00@</li>
+            <li>@J_1 = 0{,}02 \cdot 100.000 = 2.000{,}00@</li>
+            <li>@A_1 = P - J_1 = 26.262{,}38 - 2.000{,}00 = 24.262{,}38@</li>
+            <li>@SD_1 = 100.000 - 24.262{,}38 = 75.737{,}62@</li>
+          </ul>
+        </li>
+        <li><strong>Mês 2:</strong>
+          <ul>
+            <li>@J_2 = 0{,}02 \cdot 75.737{,}62 = 1.514{,}75@</li>
+            <li>@A_2 = 26.262{,}38 - 1.514{,}75 = 24.747{,}63@ (note que @24.747{,}63 / 24.262{,}38 = 1{,}02@)</li>
+            <li>@SD_2 = 75.737{,}62 - 24.747{,}63 = 50.989{,}99@</li>
+          </ul>
+        </li>
+        <li><strong>Mês 3:</strong>
+          <ul>
+            <li>@J_3 = 0{,}02 \cdot 50.989{,}99 = 1.019{,}80@</li>
+            <li>@A_3 = 26.262{,}38 - 1.019{,}80 = 25.242{,}58@</li>
+            <li>@SD_3 = 50.989{,}99 - 25.242{,}58 = 25.747{,}41@</li>
+          </ul>
+        </li>
+        <li><strong>Mês 4:</strong>
+          <ul>
+            <li>@J_4 = 0{,}02 \cdot 25.747{,}41 = 514{,}95@</li>
+            <li>@A_4 = 26.262{,}38 - 514{,}95 = 25.747{,}43 \approx 25.747{,}41@</li>
+            <li>@SD_4 = 0{,}00@ (diferença residual de centavos por arredondamento)</li>
+          </ul>
+        </li>
+      </ol>
+      <p>Total de juros pagos na Price: @J_{\text{total Price}} = 4 \cdot 26.262{,}38 - 100.000 = 105.049{,}52 - 100.000 = R\$\,5.049{,}52@.</p>
+
+      <p><strong>Item (c) - Síntese Comparativa:</strong></p>
+      <ul>
+        <li>O total de desembolso no SAC foi @R\$\,105.000{,}00@, contra @R\$\,105.049{,}52@ na Price.</li>
+        <li>O SAC gerou uma economia líquida direta de @R\$\,49{,}52@ em apenas 4 parcelas, pois amortizou mais capital logo nos primeiros meses (@A_{1,\text{SAC}} = 25.000 > A_{1,\text{Price}} = 24.262{,}38@), gerando bases de cálculo menores para os juros dos períodos subsequentes.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 10: 12 EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO RÁPIDA
+         =============================================================== -->
+    <h2>10. Exercícios Conceituais de Fixação Rápida</h2>
+
+    <ol class="lista-exercicios">
+      <!-- EXERCÍCIO 1 -->
+      <li>
+        <strong>Juros Simples e Tempo de Aplicação:</strong><br>
+        Um capital de @R\$\,12.000{,}00@ foi aplicado a uma taxa de juros simples de @18\%@ ao ano e produziu um montante de @R\$\,15.600{,}00@. Determine o tempo exato em que o capital permaneceu aplicado (em anos e em meses).
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Identificar os dados da operação:</p>
+            @@
+            C = 12.000, \quad M = 15.600, \quad i = 18\% = 0{,}18 \text{ a.a.}
+            @@
+            <p><strong>Passo 2:</strong> Calcular os juros auferidos @J@:</p>
+            @@
+            J = M - C = 15.600 - 12.000 = 3.600
+            @@
+            <p><strong>Passo 3:</strong> Aplicar a fórmula fundamental de juros simples @J = C \cdot i \cdot t@:</p>
+            @@
+            3.600 = 12.000 \cdot 0{,}18 \cdot t \implies 3.600 = 2.160 \cdot t
+            @@
+            @@
+            t = \frac{3.600}{2.160} = \frac{5}{3} \text{ anos} = 1{,}666\dots \text{ anos}
+            @@
+            <p><strong>Passo 4:</strong> Converter para meses:</p>
+            @@
+            t = \frac{5}{3} \cdot 12 = 20 \text{ meses (1 ano e 8 meses)}
+            @@
+            <p><strong>Resposta:</strong> @t = \frac{5}{3}@ anos (@1@ ano e @8@ meses, ou @20@ meses).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 2 -->
+      <li>
+        <strong>Taxa Proporcional vs Taxa Equivalente Composta:</strong><br>
+        Dada a taxa de @36\%@ ao ano, calcule:
+        (a) a taxa mensal proporcional no regime de juros simples;
+        (b) a taxa semestral equivalente no regime de juros compostos (considere @\sqrt{1{,}36} \approx 1{,}16619@).
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Taxa proporcional mensal simples:</strong></p>
+            @@
+            i_m = \frac{i_a}{12} = \frac{36\%}{12} = 3\% \text{ ao mês}
+            @@
+            <p><strong>(b) Taxa semestral equivalente composta:</strong><br>
+            Como 1 ano possui 2 semestres, a relação de equivalência impõe:</p>
+            @@
+            (1 + i_s)^2 = 1 + i_a = 1 + 0{,}36 = 1{,}36
+            @@
+            @@
+            1 + i_s = \sqrt{1{,}36} \approx 1{,}16619 \implies i_s = 0{,}16619 = 16{,}619\% \text{ ao semestre}
+            @@
+            <p>Observe que a taxa semestral proporcional simples seria @36\% / 2 = 18\%@, superior à taxa composta equivalente.</p>
+            <p><strong>Resposta:</strong> (a) @3\%@ a.m.; (b) @\approx 16{,}62\%@ a.s.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 3 -->
+      <li>
+        <strong>Triplicação de Capital em Juros Compostos:</strong><br>
+        Um capital @C@ é aplicado à taxa de juros compostos de @10\%@ ao ano. Adotando @\log_{10}(3) \approx 0{,}4771@ e @\log_{10}(1{,}1) \approx 0{,}0414@, determine em quantos anos completos esse capital triplicará de valor.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Expressar a condição @M = 3C@ na fórmula de montante composto:</p>
+            @@
+            C(1 + 0{,}10)^t = 3C \iff (1{,}1)^t = 3
+            @@
+            <p><strong>Passo 2:</strong> Aplicar o logaritmo decimal em ambos os membros:</p>
+            @@
+            \log_{10}((1{,}1)^t) = \log_{10}(3) \implies t \cdot \log_{10}(1{,}1) = \log_{10}(3)
+            @@
+            <p><strong>Passo 3:</strong> Substituir os valores numéricos dos dados:</p>
+            @@
+            t = \frac{\log_{10}(3)}{\log_{10}(1{,}1)} = \frac{0{,}4771}{0{,}0414} \approx 11{,}524 \text{ anos}
+            @@
+            <p>Para triplicar plenamente em períodos anuais fechados, são necessários no mínimo 12 anos completos.</p>
+            <p><strong>Resposta:</strong> Aproximadamente @11{,}52@ anos (ou @12@ períodos anuais inteiros).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 4 -->
+      <li>
+        <strong>Taxa Real Positiva e Equação de Fisher:</strong><br>
+        Um fundo de previdência auferiu uma rentabilidade nominal de @14\%@ em determinado ano. Sabendo que o índice de preços ao consumidor (inflação) apurado no mesmo período foi de @6\%@, calcule a taxa real de juros gerada pela aplicação.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Identificar as grandezas: @i = 0{,}14@ (aparente) e @I = 0{,}06@ (inflação).</p>
+            <p><strong>Passo 2:</strong> Aplicar a Equação de Fisher isolando a taxa real @r@:</p>
+            @@
+            r = \frac{i - I}{1 + I} = \frac{0{,}14 - 0{,}06}{1 + 0{,}06} = \frac{0{,}08}{1{,}06} \approx 0{,}07547
+            @@
+            <p><strong>Passo 3:</strong> Converter para notação percentual:</p>
+            @@
+            r \approx 7{,}55\% \text{ ao ano}
+            @@
+            <p>Note a diferença em relação à estimativa linear @14\% - 6\% = 8\%@.</p>
+            <p><strong>Resposta:</strong> @r \approx 7{,}55\%@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 5 -->
+      <li>
+        <strong>Taxa Real Negativa sob Desvalorização Cambial e Inflação:</strong><br>
+        Uma caderneta de poupança rendeu @6\%@ nominais em um ano cuja inflação acumulou @10\%@. Determine a taxa real obtida pelo poupador e interprete o significado do sinal obtido.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Dados: @i = 0{,}06@ e @I = 0{,}10@.</p>
+            <p><strong>Passo 2:</strong> Equação de Fisher:</p>
+            @@
+            r = \frac{0{,}06 - 0{,}10}{1 + 0{,}10} = \frac{-0{,}04}{1{,}10} = -\frac{4}{110} \approx -0{,}03636 = -3{,}64\%
+            @@
+            <p><strong>Interpretação:</strong> O sinal negativo demonstra que, embora o saldo bancário numérico tenha aumentado em 6%, a capacidade real de aquisição de bens diminuiu @3{,}64\%@. O investidor empobreceu em termos reais.</p>
+            <p><strong>Resposta:</strong> @r \approx -3{,}64\%@ (perda real de poder aquisitivo).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 6 -->
+      <li>
+        <strong>Amortização e Prestações no SAC:</strong><br>
+        Um empréstimo de @R\$\,60.000{,}00@ deve ser amortizado pelo SAC em @10@ prestações mensais a uma taxa de juros de @1\%@ ao mês sobre o saldo devedor remanescente. Calcule:
+        (a) a cota de amortização mensal fixa;
+        (b) o valor da 1ª prestação (@P_1@);
+        (c) o valor da última prestação (@P_{10}@).
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Amortização mensal constante (@A@):</strong></p>
+            @@
+            A = \frac{C}{n} = \frac{60.000}{10} = R\$\,6.000{,}00
+            @@
+            <p><strong>(b) 1ª Prestação (@P_1@):</strong><br>
+            O saldo devedor inicial é @SD_0 = 60.000@. Os juros do 1º mês são @J_1 = 0{,}01 \cdot 60.000 = 600{,}00@.</p>
+            @@
+            P_1 = A + J_1 = 6.000 + 600 = R\$\,6.600{,}00
+            @@
+            <p><strong>(c) Última Prestação (@P_{10}@):</strong><br>
+            Após 9 amortizações de @R\$\,6.000{,}00@, o saldo devedor antes da última parcela é:</p>
+            @@
+            SD_9 = 60.000 - 9 \cdot 6.000 = 6.000{,}00
+            @@
+            <p>Os juros do mês 10 são @J_{10} = 0{,}01 \cdot 6.000 = 60{,}00@. Logo:</p>
+            @@
+            P_{10} = A + J_{10} = 6.000 + 60 = R\$\,6.060{,}00
+            @@
+            <p><strong>Resposta:</strong> (a) @R\$\,6.000{,}00@; (b) @R\$\,6.600{,}00@; (c) @R\$\,6.060{,}00@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 7 -->
+      <li>
+        <strong>Razão da PA das Prestações no SAC:</strong><br>
+        No exercício anterior (@C = 60.000@, @n = 10@, @i = 1\%@ a.m.), mostre que as prestações formam uma Progressão Aritmética e determine a razão @r@ dessa progressão.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Pelo Teorema 7.2, a variação entre parcelas consecutivas no SAC é dada exclusivamente pela variação dos juros:</p>
+            @@
+            r = P_{k+1} - P_k = - A \cdot i = - 6.000 \cdot 0{,}01 = - R\$\,60{,}00
+            @@
+            <p>Verificação pelo termo geral da PA: @a_n = a_1 + (n-1)r@:</p>
+            @@
+            P_{10} = P_1 + (10 - 1) \cdot (-60) = 6.600 + 9 \cdot (-60) = 6.600 - 540 = R\$\,6.060{,}00
+            @@
+            <p>O resultado coincide rigorosamente com o cálculo direto.</p>
+            <p><strong>Resposta:</strong> As parcelas formam uma PA decrescente de razão @r = -R\$\,60{,}00@ ao mês.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 8 -->
+      <li>
+        <strong>Cálculo do Total de Juros no SAC sem Planilha:</strong><br>
+        Um empréstimo de @R\$\,120.000{,}00@ é contratado sob SAC para liquidação em @24@ meses à taxa de @1{,}5\%@ ao mês. Calcule o valor total de juros pagos ao final dos 2 anos utilizando a fórmula analítica fechada.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Pelo Teorema 7.3, o total acumulado de juros no SAC é dado por:</p>
+            @@
+            J_{\text{total}} = \frac{C \cdot i \cdot (n + 1)}{2}
+            @@
+            <p>Substituindo @C = 120.000@, @i = 0{,}015@ e @n = 24@:</p>
+            @@
+            J_{\text{total}} = \frac{120.000 \cdot 0{,}015 \cdot (24 + 1)}{2} = \frac{1.800 \cdot 25}{2} = 900 \cdot 25 = R\$\,22.500{,}00
+            @@
+            <p><strong>Resposta:</strong> @J_{\text{total}} = R\$\,22.500{,}00@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 9 -->
+      <li>
+        <strong>Cálculo da Prestação na Tabela Price:</strong><br>
+        Um cliente financia um bem de @R\$\,10.000{,}00@ em @3@ prestações mensais iguais pela Tabela Price, à taxa de @5\%@ ao mês. Sendo @(1{,}05)^{-3} \approx 0{,}863838@, calcule o valor exato da parcela @P@.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Aplicar a fórmula de anuidade constante da Tabela Price:</p>
+            @@
+            P = C \cdot \frac{i}{1 - (1 + i)^{-n}} = 10.000 \cdot \frac{0{,}05}{1 - (1{,}05)^{-3}}
+            @@
+            <p><strong>Passo 2:</strong> Substituir o valor de @(1{,}05)^{-3}@:</p>
+            @@
+            1 - 0{,}863838 = 0{,}136162
+            @@
+            @@
+            P = 10.000 \cdot \frac{0{,}05}{0{,}136162} = \frac{500}{0{,}136162} \approx R\$\,3.672{,}09
+            @@
+            <p><strong>Resposta:</strong> @P \approx R\$\,3.672{,}09@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 10 -->
+      <li>
+        <strong>Progressão Geométrica das Amortizações na Price:</strong><br>
+        No financiamento da Tabela Price do Exercício 9 (@C = 10.000@, @i = 0{,}05@, @P = 3.672{,}09@):
+        (a) Calcule a 1ª cota de amortização @A_1@;
+        (b) Calcule a 2ª cota de amortização @A_2@ multiplicando @A_1@ pela razão da PG @(1 + i)@;
+        (c) Verifique que @A_2 + J_2 = P@.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) 1ª Amortização @A_1@:</strong></p>
+            @@
+            J_1 = 0{,}05 \cdot 10.000 = 500{,}00
+            @@
+            @@
+            A_1 = P - J_1 = 3.672{,}09 - 500{,}00 = R\$\,3.172{,}09
+            @@
+            <p><strong>(b) 2ª Amortização @A_2@ via razão da PG @(1 + i)@:</strong></p>
+            @@
+            A_2 = A_1 \cdot (1 + 0{,}05) = 3.172{,}09 \cdot 1{,}05 \approx R\$\,3.330{,}69
+            @@
+            <p><strong>(c) Verificação de consistência:</strong><br>
+            O saldo devedor após a primeira parcela é @SD_1 = 10.000 - 3.172{,}09 = 6.827{,}91@.<br>
+            Os juros do segundo mês são: @J_2 = 0{,}05 \cdot 6.827{,}91 = 341{,}40@.<br>
+            Somando amortização e juros:</p>
+            @@
+            A_2 + J_2 = 3.330{,}69 + 341{,}40 = 3.672{,}09 = P
+            @@
+            <p>A identidade confirma a fundamentação analítica da PG.</p>
+            <p><strong>Resposta:</strong> @A_1 = R\$\,3.172{,}09@ e @A_2 = R\$\,3.330{,}69@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 11 -->
+      <li>
+        <strong>Comparação de Primeira Parcela: SAC vs Price:</strong><br>
+        Considere um financiamento de @R\$\,200.000{,}00@ pelo prazo de @100@ meses à taxa de @1\%@ ao mês. Determine a primeira prestação calculada pelo SAC e compare-a com a prestação da Tabela Price (dado: @(1{,}01)^{-100} \approx 0{,}369711@).
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>1. Primeira prestação pelo SAC (@P_{1,\text{SAC}}@):</strong></p>
+            @@
+            A_{\text{SAC}} = \frac{200.000}{100} = 2.000{,}00
+            @@
+            @@
+            J_{1} = 0{,}01 \cdot 200.000 = 2.000{,}00
+            @@
+            @@
+            P_{1,\text{SAC}} = 2.000 + 2.000 = R\$\,4.000{,}00
+            @@
+            <p><strong>2. Prestação constante pela Tabela Price (@P_{\text{Price}}@):</strong></p>
+            @@
+            P_{\text{Price}} = 200.000 \cdot \frac{0{,}01}{1 - 0{,}369711} = \frac{2.000}{0{,}630289} \approx R\$\,3.173{,}15
+            @@
+            <p><strong>Conclusão:</strong> A parcela inicial do SAC (@R\$\,4.000{,}00@) é @26\%@ maior que a parcela da Price (@R\$\,3.173{,}15@), exigindo maior renda comprovada do comprador na largada.</p>
+            <p><strong>Resposta:</strong> @P_{1,\text{SAC}} = R\$\,4.000{,}00@ e @P_{\text{Price}} = R\$\,3.173{,}15@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 12 -->
+      <li>
+        <strong>Perda Acumulada de Poder de Compra em Inflação Composta:</strong><br>
+        Durante três anos sucessivos, a inflação de um país foi de @10\%@ no 1º ano, @20\%@ no 2º ano e @30\%@ no 3º ano. Calcule:
+        (a) a taxa acumulada de inflação no triênio;
+        (b) a perda real percentual do poder de compra de uma quantia guardada sem rendimento nesse período.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Inflação composta acumulada (@I_{\text{total}}@):</strong><br>
+            As taxas inflacionárias acumulam-se por produto de fatores, jamais por soma simples:</p>
+            @@
+            1 + I_{\text{total}} = (1 + 0{,}10)(1 + 0{,}20)(1 + 0{,}30) = (1{,}1)(1{,}2)(1{,}3)
+            @@
+            @@
+            (1{,}1 \cdot 1{,}2) = 1{,}32 \implies 1{,}32 \cdot 1{,}3 = 1{,}716
+            @@
+            @@
+            I_{\text{total}} = 1{,}716 - 1 = 0{,}716 = 71{,}6\%
+            @@
+            <p><strong>(b) Perda percentual do poder de compra (@\Delta PC@):</strong></p>
+            @@
+            \Delta PC = \frac{1}{1 + I_{\text{total}}} - 1 = \frac{1}{1{,}716} - 1 \approx 0{,}58275 - 1 = -0{,}41725 = -41{,}73\%
+            @@
+            <p>Uma cédula guardada em casa perdeu mais de 41,7% de sua capacidade real de consumo.</p>
+            <p><strong>Resposta:</strong> (a) @71{,}6\%@; (b) perda de @\approx 41{,}73\%@.</p>
+          </div>
+        </details>
+      </li>
+    </ol>
+
+    <div style="margin: 2.5rem 0; text-align: center;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+    </div>
+
+</article>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

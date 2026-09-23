@@ -137,5 +137,104 @@
                 "notas": [7, 8.0, 8.5, 8.8, 9.0]
             }
         }
+    },
+    "GS321": {
+        "nome": "Gabriel Santos",
+        "turma": "9B",
+        "lvl": 6,
+        "exp": 1420,
+        "trofeus": [
+            { "nome": "Iniciante", "descricao": "Completou sua primeira missão.", "categoria": "progresso", "raridade": "comum" },
+            { "nome": "Bom Aluno", "descricao": "Média geral acima de 7.0.", "categoria": "academico", "raridade": "comum" }
+        ],
+        "mencoes": [
+            { "nome": "Determinação", "descricao": "Grande avanço no aprendizado de Geometria." }
+        ],
+        "etapas": {
+            "1": {
+                "missoes": [
+                    { "nome": "Lista de Ângulos", "descricao": "Resolver 15 problemas da lista de Ângulos.", "xp": 120, "completada": true, "tipo": "obrigatoria" }
+                ],
+                "notas": [7.0, 7.5, 8.0, 8.5, 7.8]
+            },
+            "2": {
+                "missoes": [
+                    { "nome": "Produtos Notáveis", "descricao": "Concluir o guia de estudos de produtos notáveis.", "xp": 150, "completada": true, "tipo": "obrigatoria" }
+                ],
+                "notas": [7.2, 7.8, 8.0, 8.2, 7.9]
+            },
+            "3": {
+                "missoes": [
+                    { "nome": "Simulado Geral", "descricao": "Participar do simulado de encerramento.", "xp": 200, "completada": false, "tipo": "bonus" }
+                ],
+                "notas": [7.5, 8.0, 8.5, 8.0, 8.2]
+            }
+        }
+    },
+    "CL654": {
+        "nome": "Clara Lima",
+        "turma": "1B",
+        "lvl": 8,
+        "exp": 2100,
+        "trofeus": [
+            { "nome": "Persistente", "descricao": "Completou 10 missões com dedicação.", "categoria": "progresso", "raridade": "comum" },
+            { "nome": "Excelência", "descricao": "Atingiu média acima de 9.0.", "categoria": "academico", "raridade": "epico" }
+        ],
+        "mencoes": [
+            { "nome": "Monitora de Matemática", "descricao": "Apoio constante aos colegas de turma." }
+        ],
+        "etapas": {
+            "1": {
+                "missoes": [
+                    { "nome": "Função do 1º Grau", "descricao": "Dominar os conceitos de taxa de variação e gráfico.", "xp": 140, "completada": true, "tipo": "obrigatoria" }
+                ],
+                "notas": [9.0, 9.5, 8.8, 9.2, 9.5]
+            },
+            "2": {
+                "missoes": [
+                    { "nome": "Progressões PA/PG", "descricao": "Resolver os problemas de termo geral e soma.", "xp": 150, "completada": true, "tipo": "obrigatoria" }
+                ],
+                "notas": [9.2, 9.0, 9.4, 9.6, 9.3]
+            },
+            "3": {
+                "missoes": [
+                    { "nome": "Função Quadrática", "descricao": "Aplicar máximos e mínimos em problemas reais.", "xp": 180, "completada": false, "tipo": "obrigatoria" }
+                ],
+                "notas": [9.0, 9.5, 9.2, 9.4, 9.6]
+            }
+        }
+    },
+    "RA987": {
+        "nome": "Rafael Alves",
+        "turma": "3EM",
+        "lvl": 10,
+        "exp": 2850,
+        "trofeus": [
+            { "nome": "Gênio da Matemática", "descricao": "Excelente raciocínio em Geometria Analítica.", "categoria": "academico", "raridade": "epico" },
+            { "nome": "Liderança", "descricao": "Coordenação de equipes de estudo preparatórias para o ENEM.", "categoria": "social", "raridade": "epico" }
+        ],
+        "mencoes": [
+            { "nome": "Destaque ENEM", "descricao": "Excelente nota no simulado preparatório de vestibulares." }
+        ],
+        "etapas": {
+            "1": {
+                "missoes": [
+                    { "nome": "Geometria Analítica", "descricao": "Equações da reta, circunferência e distâncias no plano.", "xp": 180, "completada": true, "tipo": "obrigatoria" }
+                ],
+                "notas": [9.5, 9.0, 9.8, 9.2, 9.6]
+            },
+            "2": {
+                "missoes": [
+                    { "nome": "Sistemas Lineares", "descricao": "Escalonamento e regra de Cramer para sistemas 3x3.", "xp": 160, "completada": true, "tipo": "obrigatoria" }
+                ],
+                "notas": [9.0, 9.2, 9.5, 9.4, 9.3]
+            },
+            "3": {
+                "missoes": [
+                    { "nome": "Revisão Vestibulares", "descricao": "Bateria de 50 questões ENEM/FUVEST/UNICAMP.", "xp": 250, "completada": false, "tipo": "bonus" }
+                ],
+                "notas": [9.4, 9.6, 9.5, 9.7, 9.8]
+            }
+        }
     }
 }

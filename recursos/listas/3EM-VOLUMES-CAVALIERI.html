@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lista de Problemas: Volumes e Corpos Redondos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil {
+      background-color: rgba(76, 175, 80, 0.3);
+    }
+
+    .dificuldade.media {
+      background-color: rgba(255, 193, 7, 0.3);
+    }
+
+    .dificuldade.dificil {
+      background-color: rgba(244, 67, 54, 0.3);
+    }
+
+    .dificuldade.desafio {
+      background-color: rgba(156, 39, 176, 0.3);
+    }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: bold;
+      color: #00ffcc;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+        <li><a href="../../recursos.html">RECURSOS</a></li>
+        <li><a href="../../dashboard.html">DASHBOARD</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+
+      <h1>VOLUMES E CORPOS REDONDOS</h1>
+      <p class="section-intro">
+        Capítulo 5 — A geometria do espaço tridimensional contínuo. Cilindros, cones, esferas, troncos de revolução e calotas esféricas. O Princípio de Cavalieri como precursor do cálculo integral, otimização isoperimétrica de embalagens e sólidos de revolução.
+      </p>
+
+      <!-- ============================================================================
+           SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS (10 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 1: Problemas Introdutórios</h2>
+        <p class="section-intro">
+          Exercícios diretos para fixação de fórmulas de área da base, área lateral, área total e volume dos três corpos redondos fundamentais: cilindro reto, cone reto e esfera.
+        </p>
+
+        <ol>
+          <!-- Problema 1 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cilindro reto: medidas completas</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Um cilindro circular reto possui raio da base @r = 3\text{ cm}@ e altura @h = 10\text{ cm}@. Calcule a área de sua base @A_b@, a área lateral @A_l@, a área total @A_t@ e o seu volume @V@ em termos de @\pi@.
+            </p>
+          </li>
+
+          <!-- Problema 2 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cilindro e capacidade volumétrica em litros</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Um reservatório cilíndrico reto possui diâmetro interno de @4\text{ m}@ e altura interna de @5\text{ m}@. Adotando @\pi \approx 3{,}14@ e sabendo que @1\text{ m}^3 = 1.000\text{ litros}@, determine a capacidade máxima de armazenamento desse reservatório em litros.
+            </p>
+          </li>
+
+          <!-- Problema 3 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cone circular reto: geratriz e volume</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Em um cone circular reto, o raio da base mede @r = 6\text{ cm}@ e a altura mede @h = 8\text{ cm}@.
+              <br>a) Determine o comprimento da geratriz @g@ do cone.
+              <br>b) Calcule a área lateral @A_l@ e o volume @V@ do cone em função de @\pi@.
+            </p>
+          </li>
+
+          <!-- Problema 4 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cone equilátero</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Um cone é denominado <em>equilátero</em> quando sua seção meridiana é um triângulo equilátero (ou seja, @g = 2r@). Se o raio da base desse cone mede @r = 6\text{ cm}@, determine a sua altura @h@ e o seu volume @V@ em termos de @\pi@.
+            </p>
+          </li>
+
+          <!-- Problema 5 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Esfera: área da superfície e volume</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Uma esfera de raio @R = 6\text{ cm}@ é utilizada em um experimento de física. Calcule a área total de sua superfície esférica e o seu volume em função de @\pi@.
+            </p>
+          </li>
+
+          <!-- Problema 6 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Comparação entre cone e cilindro de mesma base e altura</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 2 min</span>
+            </div>
+            <p>
+              Um cone e um cilindro retos compartilham o mesmo raio de base @r@ e a mesma altura @h@. Se o volume do cilindro é @180\pi\text{ cm}^3@, qual é o volume do cone?
+            </p>
+          </li>
+
+          <!-- Problema 7 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cálculo do raio de esfera a partir do volume</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Uma esfera maciça de chumbo possui volume igual a @36\pi\text{ cm}^3@. Qual é a medida do raio @R@ e do diâmetro dessa esfera?
+            </p>
+          </li>
+
+          <!-- Problema 8 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Seção plana paralela ao eixo de um cilindro</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Um cilindro reto de raio @r = 5\text{ cm}@ e altura @h = 10\text{ cm}@ é cortado por um plano paralelo ao seu eixo longitudinal a uma distância de @3\text{ cm}@ desse eixo. Calcule a área da seção retangular resultante.
+            </p>
+          </li>
+
+          <!-- Problema 9 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Semiesfera: capacidade e área</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Uma tigela hemisférica (semiesfera oca) possui raio interno @R = 10\text{ cm}@. Adotando @\pi \approx 3{,}14@, determine o volume máximo de líquido que essa tigela suporta em centímetros cúbicos e em litros.
+            </p>
+          </li>
+
+          <!-- Problema 10 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Densidade e massa de corpo redondo</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Uma esfera maciça de ferro possui raio @R = 5\text{ cm}@. Sabendo que a densidade do ferro é @\rho = 7{,}8\text{ g/cm}^3@ e adotando @\pi \approx 3{,}14@, calcule o volume da esfera e a sua massa total em quilogramas.
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 2: PROBLEMAS DE FIXAÇÃO (14 Problemas com .dica)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 2: Problemas de Fixação</h2>
+        <p class="section-intro">
+          Exercícios contextualizados sobre troncos de cone, seções meridianas, calotas e fusos esféricos, reservatórios compostos, escoamento de fluidos e o Princípio de Arquimedes geométrico.
+        </p>
+
+        <ol start="11">
+          <!-- Problema 11 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Tronco de cone: copo descartável</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Um copo de açaí possui o formato de um tronco de cone circular reto com altura de @12\text{ cm}@, raio da boca superior de @5\text{ cm}@ e raio da base inferior de @3\text{ cm}@. Calcule a capacidade volumétrica desse copo em mililitros (use @\pi \approx 3{,}14@).
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Aplique a fórmula do volume do tronco de cone: @V = \frac{\pi h}{3}(R^2 + Rr + r^2)@, onde @R@ e @r@ são os raios das bases maior e menor. Lembre-se de que @1\text{ cm}^3 = 1\text{ mL}@.
+            </div>
+          </li>
+
+          <!-- Problema 12 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Tronco de cone por semelhança de sólidos</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Um cone reto de altura @H = 20\text{ cm}@ e volume @V_0 = 800\text{ cm}^3@ é seccionado por um plano paralelo à base exatamente na metade de sua altura (@h = 10\text{ cm}@ a partir do vértice).
+              <br>a) Qual é a razão de semelhança @k@ entre o cone menor superior e o cone original?
+              <br>b) Determine o volume do cone menor superior e o volume do tronco de cone inferior restante.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> A razão entre os volumes de dois sólidos semelhantes é o cubo da razão linear de semelhança: @\frac{V_{\text{menor}}}{V_{\text{total}}} = k^3 = \left(\frac{h}{H}\right)^3@. O tronco é a diferença dos dois volumes.
+            </div>
+          </li>
+
+          <!-- Problema 13 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cilindro equilátero a partir da seção meridiana</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Em um cilindro equilátero, a seção meridiana que passa pelo eixo é um quadrado cuja área mede @36\text{ cm}^2@. Determine a área total @A_t@ e o volume @V@ desse cilindro.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Como a seção meridiana de um cilindro equilátero é um quadrado de lado @2r = h@, a área desse quadrado é @(2r)^2 = 4r^2 = 36@. Encontre o raio @r@ e substitua nas fórmulas de área total e volume.
+            </div>
+          </li>
+
+          <!-- Problema 14 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Fuso e cunha esférica</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Deseja-se cortar uma "fatia" (gomo) de uma melancia perfeitamente esférica de raio @R = 12\text{ cm}@ com ângulo diedro central de @30^\circ@.
+              <br>a) Calcule a área da casca correspondente ao fuso esférico dessa fatia.
+              <br>b) Calcule o volume de polpa correspondente à cunha esférica.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> A esfera completa corresponde a @360^\circ@. Um ângulo diedro de @30^\circ@ representa uma fração de @\frac{30^\circ}{360^\circ} = \frac{1}{12}@ de toda a superfície e de todo o volume da esfera.
+            </div>
+          </li>
+
+          <!-- Problema 15 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Calota esférica e cúpula arquitetônica</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              A cúpula de um observatório astronômico possui o formato de uma calota esférica de altura @h = 4\text{ m}@ pertencente a uma esfera de raio @R = 10\text{ m}@.
+              <br>a) Calcule o raio @a@ da base circular de apoio da cúpula no teto do observatório.
+              <br>b) Calcule o volume de ar sob a cúpula utilizando a fórmula @V_{\text{calota}} = \frac{\pi h^2}{3}(3R - h)@.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> No triângulo retângulo formado pelo centro da esfera, o centro da base da calota e um ponto da borda, a distância do centro ao plano é @d = R - h = 10 - 4 = 6\text{ m}@. Use @R^2 = d^2 + a^2@.
+            </div>
+          </li>
+
+          <!-- Problema 16 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Reservatório horizontal e nível de combustível</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Um tanque de combustível cilíndrico reto está posicionado horizontalmente. Seu comprimento é de @6\text{ m}@ e o raio de suas bases circulares é de @1\text{ m}@. Um medidor indica que o nível do combustível atingiu exatamente a metade da altura do tanque (isto é, profundidade de @1\text{ m}@). Qual é o volume de combustível presente no tanque? Se o nível estivesse a @2\text{ m}@, qual seria o volume?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Quando o nível atinge a metade da altura de um cilindro horizontal, o líquido ocupa exatamente um semicilindro (@V = \frac{1}{2}\pi r^2 L@). Para o tanque cheio, use @V = \pi r^2 L@.
+            </div>
+          </li>
+
+          <!-- Problema 17 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Reservatório composto cilíndrico-hemisférico (cápsula)</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Um tanque industrial para armazenagem de gás GLP possui o formato de uma cápsula cilíndrica fechada nas extremidades por duas semiesferas congruentes de mesmo raio @r = 2\text{ m}@. O comprimento da parte cilíndrica central é de @8\text{ m}@.
+              <br>a) Determine o comprimento total de ponta a ponta do reservatório.
+              <br>b) Calcule a capacidade volumétrica total do reservatório em termos de @\pi@ e em metros cúbicos (@\pi \approx 3{,}14@).
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> As duas semiesferas unidas compõem uma esfera inteira de raio @r = 2\text{ m}@. Portanto, o volume total é a soma do volume do cilindro central com o volume de uma esfera completa.
+            </div>
+          </li>
+
+          <!-- Problema 18 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Escoamento e variação de nível em cone invertido</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Um funil cônico de altura @H = 30\text{ cm}@ e raio da boca superior @R = 10\text{ cm}@ está cheio de água. Uma torneira na parte inferior esvazia o funil de tal forma que a altura do líquido diminui de @30\text{ cm}@ para @15\text{ cm}@. Que porcentagem do volume inicial de água foi escoada?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> A nova altura é a metade da inicial (@h = \frac{1}{2}H@). A razão entre o volume de líquido restante e o volume total é @\left(\frac{1}{2}\right)^3 = \frac{1}{8}@. Calcule a fração de líquido que já escoou (@1 - \frac{1}{8}@).
+            </div>
+          </li>
+
+          <!-- Problema 19 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Imersão de sólidos e deslocamento de líquido</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Um vaso de vidro cilíndrico reto com raio interno da base igual a @4\text{ cm}@ contém água até uma certa altura. Uma esfera metálica maciça de raio @3\text{ cm}@ é totalmente submersa no líquido sem que haja transbordamento. Em quantos centímetros se elevará o nível da coluna de água dentro do vaso?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Pelo Princípio de Arquimedes geométrico, o volume de líquido deslocado é exatamente igual ao volume da esfera submersa: @V_{\text{deslocado}} = A_{\text{base do vaso}} \cdot \Delta h = V_{\text{esfera}}@.
+            </div>
+          </li>
+
+          <!-- Problema 20 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Perfuração cilíndrica coaxial em cilindro</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Uma peça mecânica de precisão é feita a partir de um cilindro de aço maciço com raio @R = 6\text{ cm}@ e comprimento @h = 15\text{ cm}@. Ao longo do seu eixo central, faz-se um furo cilíndrico passante de raio @r = 2\text{ cm}@. Determine o volume de material que restou na peça e a razão percentual entre o volume retirado e o volume original.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> O volume do cilindro oco é dado por @V = \pi(R^2 - r^2)h@. O volume removido é @V_{\text{furo}} = \pi r^2 h@.
+            </div>
+          </li>
+
+          <!-- Problema 21 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Dimensionamento de balde e transporte de concreto</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Em uma obra de engenharia, operários utilizam um balde em formato de tronco de cone de revolução com raio superior de @15\text{ cm}@, raio inferior de @10\text{ cm}@ e altura de @30\text{ cm}@ para concretar uma sapata retangular de volume @0{,}35\text{ m}^3@.
+              <br>a) Calcule o volume de um único balde em litros (adotando @\pi \approx 3{,}14@).
+              <br>b) Quantos baldes cheios serão necessários no mínimo para concretar totalmente a sapata?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Use a fórmula do volume do tronco de cone e converta @\text{cm}^3@ para litros dividindo por 1.000. Lembre-se de que @0{,}35\text{ m}^3 = 350\text{ litros}@.
+            </div>
+          </li>
+
+          <!-- Problema 22 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cone equilátero circunscrito a semiesfera</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Um cone reto equilátero de raio da base @R = 6\sqrt{3}\text{ cm}@ circunscreve uma semiesfera apoiada na mesma base do cone, de tal modo que a superfície esférica tangencia a superfície lateral do cone ao longo de uma circunferência paralela à base. Calcule o raio @r@ da semiesfera inscrita.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Faça um corte meridiano. O triângulo é equilátero de lado @2R = 12\sqrt{3}@ e altura @H = R\sqrt{3} = 18@. O raio da semiesfera apoiada na base corresponde à distância do centro da base ao lado do triângulo equilátero, isto é, @r = R \sin(60^\circ)@.
+            </div>
+          </li>
+
+          <!-- Problema 23 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Fusão de esfera de gelo em recipiente cilíndrico</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Uma esfera de gelo maciça de raio @R = 6\text{ cm}@ é colocada em um recipiente cilíndrico vazio de raio @r = 4\text{ cm}@. Suponha que, ao derreter completamente, o volume de água líquida corresponda a 90% do volume original do gelo (devido à contração na fusão). Determine a altura que a coluna de água alcançará no cilindro.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Calcule o volume da esfera @V_{\text{gelo}} = \frac{4}{3}\pi R^3@ e multiplique por @0{,}90@ para encontrar o volume de água líquida @V_{\text{água}}@. Em seguida, iguale ao volume cilíndrico @\pi r^2 h@.
+            </div>
+          </li>
+
+          <!-- Problema 24 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Geometria de ampulheta cônica</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Uma ampulheta é composta por dois cones circulares retos idênticos unidos pelos seus vértices. Cada cone possui altura de @8\text{ cm}@ e diâmetro da base de @6\text{ cm}@. Inicialmente, o cone superior contém areia ocupando exatamente 75% de seu volume total. Se a areia escoa pelo gargalo a uma vazão constante de @0{,}5\text{ cm}^3/\text{s}@, determine o tempo total de escoamento em segundos (adote @\pi \approx 3{,}14@).
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Calcule o volume de um cone completo (@V = \frac{1}{3}\pi r^2 h@ com @r = 3\text{ cm}@). Calcule 75% desse valor e divida pela vazão de escoamento.
+            </div>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO (8 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 3: Problemas de Aprofundamento</h2>
+        <p class="section-intro">
+          Questões de excelência analítica de vestibulares concorridos (ENEM, FUVEST, ITA, UNICAMP): esferas inscritas em cones, princípio de Cavalieri com sólidos oblíquos, otimização isoperimétrica e o Teorema do Anel Esférico.
+        </p>
+
+        <ol start="25">
+          <!-- Problema 25 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">FUVEST</span>
+              <span class="topico">Esfera inscrita em cone reto</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Uma esfera é inscrita em um cone circular reto cujo raio da base mede @R = 6\text{ cm}@ e cuja altura mede @H = 8\text{ cm}@.
+              <br>a) Determine a geratriz @g@ do cone.
+              <br>b) Utilizando a semelhança de triângulos na seção meridiana, determine o raio @r@ da esfera inscrita.
+              <br>c) Calcule a razão percentual entre o volume da esfera inscrita e o volume do cone circunscrito.
+            </p>
+          </li>
+
+          <!-- Problema 26 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">UNICAMP</span>
+              <span class="topico">Princípio de Cavalieri em cilindros oblíquos</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 9 min</span>
+            </div>
+            <p>
+              O <strong>Princípio de Cavalieri</strong> afirma que se dois sólidos na mesma região do espaço têm a mesma altura e qualquer plano paralelo à base produz seções transversais com áreas iguais, então os dois sólidos possuem o mesmo volume.
+              <br>Considere um cilindro oblíquo cujas bases são círculos de raio @r = 4\text{ cm}@ e cujas geratrizes medem @g = 10\text{ cm}@ e formam um ângulo de @30^\circ@ com o plano das bases.
+              <br>a) Determine a altura perpendicular @h@ do cilindro oblíquo.
+              <br>b) Calcule o volume desse cilindro oblíquo e justifique por que a fórmula @V = \pi r^2 h@ permanece rigorosamente válida.
+            </p>
+          </li>
+
+          <!-- Problema 27 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">ITA</span>
+              <span class="topico">Otimização de embalagem cilíndrica com tampa</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              Uma indústria química projeta uma lata cilíndrica metálica com tampa para armazenar um volume fixo @V_0 = 500\pi\text{ cm}^3@ de um solvente. Para minimizar os custos de fabricação, deve-se utilizar a menor quantidade possível de folha de flandres, isto é, minimizar a área total @A_t@ da embalagem.
+              <br>a) Expresse a área total @A_t(r)@ como função exclusiva do raio da base @r@.
+              <br>b) Utilizando a desigualdade das médias (MA-MG) ou derivada, prove que a lata que consome a menor quantidade de metal tem altura igual ao dobro do raio (@h = 2r@, isto é, é um cilindro equilátero).
+              <br>c) Calcule as medidas exatas do raio @r@ e da altura @h@ dessa embalagem ótima.
+            </p>
+          </li>
+
+          <!-- Problema 28 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">ENEM</span>
+              <span class="topico">Cisterna com corpo cilíndrico e cobertura cônica</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 9 min</span>
+            </div>
+            <p>
+              Uma comunidade no semiárido brasileiro constrói uma cisterna comunitária para captação de água pluvial. A cisterna é composta por uma base cilíndrica de raio @r = 3\text{ m}@ e altura @h_1 = 4\text{ m}@, encimada por uma cobertura em formato de cone reto de mesma base e altura @h_2 = 1\text{ m}@. Por motivos de segurança, a água pode atingir no máximo @90\%@ do volume do cilindro, ficando o cone destinado exclusivamente para ventilação e estrutura.
+              <br>Adotando @\pi \approx 3{,}14@:
+              <br>a) Calcule o volume máximo útil de água que pode ser armazenado em litros.
+              <br>b) Se uma família de 5 pessoas consome em média 600 litros de água por dia, por quantos dias de estiagem a cisterna cheia conseguirá abastecer essa família?
+            </p>
+          </li>
+
+          <!-- Problema 29 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">ITA</span>
+              <span class="topico">Sólido de revolução em torno da hipotenusa</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 11 min</span>
+            </div>
+            <p>
+              Um triângulo retângulo possui catetos de comprimentos @a = 3\text{ cm}@ e @b = 4\text{ cm}@. Faz-se esse triângulo girar @360^\circ@ em torno da reta suporte de sua hipotenusa, gerando um sólido de revolução composto por dois cones retos unidos pela base circular comum.
+              <br>a) Determine a medida da hipotenusa @c@ e da altura relativa à hipotenusa @h_c@.
+              <br>b) Calcule o raio da base comum e as alturas de cada um dos dois cones que formam o sólido.
+              <br>c) Calcule o volume total do sólido de revolução gerado em termos de @\pi@.
+            </p>
+          </li>
+
+          <!-- Problema 30 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">FUVEST</span>
+              <span class="topico">Seções planas paralelas e anel esférico</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Uma esfera maciça de raio @R = 13\text{ cm}@ é seccionada por dois planos paralelos entre si, situados do mesmo lado em relação ao centro da esfera, a distâncias de @5\text{ cm}@ e @12\text{ cm}@ desse centro.
+              <br>a) Calcule as áreas das duas seções circulares planas produzidas pelos planos na esfera.
+              <br>b) Determine o raio de cada círculo de interseção e calcule a distância entre os dois planos de corte.
+            </p>
+          </li>
+
+          <!-- Problema 31 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">IME</span>
+              <span class="topico">Tronco de cone circunscrito a esfera</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              Um tronco de cone circular reto é circunscrito a uma esfera de raio @R_e = 6\text{ cm}@ (isto é, a esfera tangencia as duas bases circulares e toda a superfície lateral do tronco). Sabendo que o raio da base maior do tronco mede @R_1 = 9\text{ cm}@:
+              <br>a) Mostre que a geratriz @g@ do tronco é igual à soma dos raios das bases, isto é, @g = R_1 + R_2@.
+              <br>b) Determine o raio da base menor @R_2@.
+              <br>c) Calcule o volume do tronco de cone em termos de @\pi@.
+            </p>
+          </li>
+
+          <!-- Problema 32 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">UNICAMP/FUVEST</span>
+              <span class="topico">O Teorema do Anel Esférico de Cavalieri</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 11 min</span>
+            </div>
+            <p>
+              Perfecciona-se um orifício cilíndrico central através de uma esfera maciça de raio @R@ ao longo de um de seus diâmetros, de tal modo que o comprimento da parede cilíndrica restante (a altura do anel esférico) meça exatamente @h = 6\text{ cm}@.
+              <br>a) Utilize o Teorema de Pitágoras para relacionar o raio da esfera @R@, o raio do orifício cilíndrico @r_0@ e a semi-altura @\frac{h}{2}@.
+              <br>b) Demonstre que, ao cortar o anel restante por um plano horizontal a uma altura @y@ do centro, a área da coroa circular resultante é dada por @A(y) = \pi \left[\left(\frac{h}{2}\right)^2 - y^2\right]@, sendo completamente independente do raio @R@ da esfera original!
+              <br>c) Calcule o volume do sólido restante em termos de @\pi@.
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 4: PROBLEMAS PROPOSTOS (8 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 4: Problemas Propostos</h2>
+        <p class="section-intro">
+          Exercícios complementares para consolidação autônoma de geometria espacial métrica, com soluções e respostas detalhadas no gabarito expansível.
+        </p>
+
+        <ol start="33">
+          <!-- Problema 33 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cilindro reto com raio 4 e altura 7</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Calcule a área lateral, a área total e o volume de um cilindro circular reto cujas dimensões são raio da base @r = 4\text{ cm}@ e altura @h = 7\text{ cm}@.
+            </p>
+          </li>
+
+          <!-- Problema 34 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cone circular reto pitagórico</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Um cone reto possui geratriz @g = 13\text{ cm}@ e raio da base @r = 5\text{ cm}@. Calcule a altura @h@ do cone e o seu volume @V@.
+            </p>
+          </li>
+
+          <!-- Problema 35 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Razão entre área superficial e volume de esfera</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Considere uma esfera de raio @R = 9\text{ cm}@. Determine o valor numérico da razão @\frac{A}{V}@ entre a área de sua superfície esférica e o seu volume.
+            </p>
+          </li>
+
+          <!-- Problema 36 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Tronco de cone de balde comercial</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Um balde de plástico tem formato de tronco de cone circular reto de altura @h = 24\text{ cm}@. O raio superior mede @15\text{ cm}@ e o raio inferior mede @10\text{ cm}@. Calcule a capacidade volumétrica total desse balde em litros (adote @\pi \approx 3{,}14@).
+            </p>
+          </li>
+
+          <!-- Problema 37 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Coalescência de microgotas esféricas</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Mil pequenas gotículas esféricas idênticas de mercúrio, cada uma com raio @r = 1\text{ mm}@, unem-se (coalescem) formando uma única gota esférica maior. Desprezando perdas, calcule o raio @R@ da nova gota esférica em milímetros.
+            </p>
+          </li>
+
+          <!-- Problema 38 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cone com ângulo de abertura reto</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              A seção meridiana de um cone circular reto é um triângulo retângulo isósceles com hipotenusa coincidindo com o diâmetro da base. Se o raio da base mede @r = 5\text{ cm}@, determine a altura @h@, a geratriz @g@ e o volume @V@ desse cone.
+            </p>
+          </li>
+
+          <!-- Problema 39 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Tanque esférico de gás sob pressão</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Um tanque esférico de armazenamento de gás metano possui diâmetro interno de @6\text{ metros}@. Sabendo que o gás está comprimido de modo que cada metro cúbico sob essa pressão equivale a @150\text{ m}^3@ de gás em condições normais de temperatura e pressão (CNTP), calcule o volume de gás em CNTP armazenado no tanque (adote @\pi \approx 3{,}14@).
+            </p>
+          </li>
+
+          <!-- Problema 40 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">O Teorema de Arquimedes: esfera e cilindro circunscrito</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Arquimedes de Siracusa considerava sua maior descoberta matemática a relação entre uma esfera e o cilindro equilátero circunscrito a ela:
+              <br>a) Calcule a razão entre o volume da esfera de raio @R@ e o volume do cilindro equilátero circunscrito (raio @R@ e altura @2R@).
+              <br>b) Calcule a razão entre a área da superfície da esfera e a área total do cilindro circunscrito.
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           GABARITO E SOLUÇÕES ESTRUTURADAS
+           ============================================================================ -->
+      <details class="gabarito-container">
+        <summary>Visualizar Gabarito e Soluções Detalhadas</summary>
+        <div class="gabarito-content">
+
+          <div class="gabarito-secao">
+            <h3>Seção 1: Problemas Introdutórios</h3>
+            <ol>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Área da base: @A_b = \pi r^2 = \pi (3)^2 = 9\pi\text{ cm}^2@.<br>
+                Área lateral: @A_l = 2\pi r h = 2\pi (3)(10) = 60\pi\text{ cm}^2@.<br>
+                Área total: @A_t = 2A_b + A_l = 2(9\pi) + 60\pi = 18\pi + 60\pi = 78\pi\text{ cm}^2@.<br>
+                Volume: @V = \pi r^2 h = 9\pi \cdot 10 = 90\pi\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> @A_b = 9\pi\text{ cm}^2@, @A_l = 60\pi\text{ cm}^2@, @A_t = 78\pi\text{ cm}^2@ e @V = 90\pi\text{ cm}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O diâmetro é @4\text{ m}@, logo o raio é @r = 2\text{ m}@.<br>
+                O volume em metros cúbicos é:<br>
+                @V = \pi r^2 h = \pi (2^2)(5) = 20\pi\text{ m}^3@.<br>
+                Com @\pi \approx 3{,}14@: @V \approx 20 \cdot 3{,}14 = 62{,}8\text{ m}^3@.<br>
+                Como @1\text{ m}^3 = 1.000\text{ litros}@:<br>
+                @\text{Capacidade} = 62{,}8 \times 1.000 = 62.800\text{ litros}@.<br>
+                <strong>Resposta:</strong> @62.800\text{ litros}@ (ou @20.000\pi\text{ L}@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Pelo Teorema de Pitágoras no triângulo meridiano: @g^2 = r^2 + h^2@.<br>
+                @g = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10\text{ cm}@.<br>
+                b) Área lateral: @A_l = \pi r g = \pi (6)(10) = 60\pi\text{ cm}^2@.<br>
+                Volume: @V = \frac{1}{3}\pi r^2 h = \frac{1}{3}\pi (36)(8) = 12 \cdot 8\pi = 96\pi\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> a) @g = 10\text{ cm}@; b) @A_l = 60\pi\text{ cm}^2@ e @V = 96\pi\text{ cm}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Em um cone equilátero, @g = 2r = 2(6) = 12\text{ cm}@.<br>
+                A altura é a altura de um triângulo equilátero de lado @12\text{ cm}@:<br>
+                @h = \sqrt{g^2 - r^2} = \sqrt{12^2 - 6^2} = \sqrt{144 - 36} = \sqrt{108} = 6\sqrt{3}\text{ cm}@.<br>
+                Volume: @V = \frac{1}{3}\pi r^2 h = \frac{1}{3}\pi (36)(6\sqrt{3}) = 72\sqrt{3}\pi\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> @h = 6\sqrt{3}\text{ cm}@ e @V = 72\sqrt{3}\pi\text{ cm}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Área esférica: @A = 4\pi R^2 = 4\pi (6^2) = 4\pi \cdot 36 = 144\pi\text{ cm}^2@.<br>
+                Volume: @V = \frac{4}{3}\pi R^3 = \frac{4}{3}\pi (216) = 4 \cdot 72\pi = 288\pi\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> Área @= 144\pi\text{ cm}^2@ e Volume @= 288\pi\text{ cm}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O volume de um cone é exatamente um terço do volume do cilindro de mesma base e mesma altura:<br>
+                @V_{\text{cone}} = \frac{1}{3} V_{\text{cilindro}} = \frac{1}{3} \cdot 180\pi = 60\pi\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> @60\pi\text{ cm}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Aplicando a fórmula do volume esférico:<br>
+                @\frac{4}{3}\pi R^3 = 36\pi \implies 4R^3 = 3 \cdot 36 \implies 4R^3 = 108 \implies R^3 = 27 \implies R = 3\text{ cm}@.<br>
+                O diâmetro mede @D = 2R = 6\text{ cm}@.<br>
+                <strong>Resposta:</strong> Raio @R = 3\text{ cm}@ e diâmetro @D = 6\text{ cm}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O plano secciona o círculo da base em uma corda a uma distância @d = 3\text{ cm}@ do centro.<br>
+                Seja @w@ a largura dessa seção (comprimento da corda). Pelo Teorema de Pitágoras:<br>
+                @\left(\frac{w}{2}\right)^2 + d^2 = r^2 \implies \left(\frac{w}{2}\right)^2 + 3^2 = 5^2 \implies \frac{w}{2} = \sqrt{25 - 9} = 4\text{ cm} \implies w = 8\text{ cm}@.<br>
+                A seção é um retângulo de dimensões @w = 8\text{ cm}@ e altura @h = 10\text{ cm}@:<br>
+                @A_{\text{seção}} = 8 \times 10 = 80\text{ cm}^2@.<br>
+                <strong>Resposta:</strong> @80\text{ cm}^2@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O volume de uma semiesfera é a metade do volume da esfera:<br>
+                @V = \frac{2}{3}\pi R^3 = \frac{2}{3}\pi (10^3) = \frac{2000\pi}{3}\text{ cm}^3@.<br>
+                Com @\pi \approx 3{,}14@:<br>
+                @V \approx \frac{2000 \cdot 3{,}14}{3} = \frac{6280}{3} \approx 2.093{,}33\text{ cm}^3@.<br>
+                Em litros: @\frac{2.093{,}33}{1000} \approx 2{,}093\text{ L}@.<br>
+                <strong>Resposta:</strong> @\approx 2.093{,}33\text{ cm}^3@ (aproximadamente @2{,}09\text{ litros}@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Volume da esfera:<br>
+                @V = \frac{4}{3}\pi (5^3) = \frac{4}{3}\pi (125) = \frac{500\pi}{3} \approx \frac{500 \cdot 3{,}14}{3} = \frac{1570}{3} \approx 523{,}33\text{ cm}^3@.<br>
+                Massa total: @M = \rho \cdot V = 7{,}8\text{ g/cm}^3 \times 523{,}33\text{ cm}^3 \approx 4.082\text{ g} \approx 4{,}08\text{ kg}@.<br>
+                <strong>Resposta:</strong> Volume @\approx 523{,}33\text{ cm}^3@ e Massa @\approx 4{,}08\text{ kg}@.
+              </li>
+            </ol>
+          </div>
+
+          <div class="gabarito-secao">
+            <h3>Seção 2: Problemas de Fixação</h3>
+            <ol start="11">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Fórmula do volume do tronco de cone:<br>
+                @V = \frac{\pi h}{3}(R^2 + Rr + r^2) = \frac{\pi \cdot 12}{3}(5^2 + 5 \cdot 3 + 3^2)@.<br>
+                @V = 4\pi (25 + 15 + 9) = 4\pi (49) = 196\pi\text{ cm}^3@.<br>
+                Com @\pi \approx 3{,}14@:<br>
+                @V \approx 196 \cdot 3{,}14 = 615{,}44\text{ cm}^3 = 615{,}44\text{ mL}@.<br>
+                <strong>Resposta:</strong> @196\pi\text{ cm}^3 \approx 615{,}44\text{ mL}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Razão linear de semelhança: @k = \frac{h}{H} = \frac{10}{20} = \frac{1}{2}@.<br>
+                b) A razão de volumes é @k^3 = \left(\frac{1}{2}\right)^3 = \frac{1}{8}@.<br>
+                Volume do cone menor superior: @V_{\text{superior}} = \frac{1}{8} V_0 = \frac{1}{8} \cdot 800 = 100\text{ cm}^3@.<br>
+                Volume do tronco de cone: @V_{\text{tronco}} = V_0 - V_{\text{superior}} = 800 - 100 = 700\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> a) @k = 1/2@; b) Cone superior: @100\text{ cm}^3@; Tronco: @700\text{ cm}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A seção meridiana de um cilindro equilátero é um quadrado de lado @2r = h@.<br>
+                Área do quadrado: @(2r)^2 = 4r^2 = 36 \implies r^2 = 9 \implies r = 3\text{ cm}@.<br>
+                Logo, @h = 2r = 6\text{ cm}@.<br>
+                Área lateral: @A_l = 2\pi r h = 2\pi (3)(6) = 36\pi\text{ cm}^2@.<br>
+                Área das bases: @2A_b = 2\pi r^2 = 2\pi (9) = 18\pi\text{ cm}^2@.<br>
+                Área total: @A_t = 36\pi + 18\pi = 54\pi\text{ cm}^2@.<br>
+                Volume: @V = \pi r^2 h = \pi (9)(6) = 54\pi\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> @A_t = 54\pi\text{ cm}^2@ e @V = 54\pi\text{ cm}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A fração da esfera correspondente a @30^\circ@ é @\frac{30^\circ}{360^\circ} = \frac{1}{12}@.<br>
+                a) Área total da esfera: @4\pi R^2 = 4\pi (144) = 576\pi\text{ cm}^2@.<br>
+                Área do fuso esférico (casca): @A_{\text{fuso}} = \frac{1}{12} \cdot 576\pi = 48\pi\text{ cm}^2@.<br>
+                b) Volume total da esfera: @\frac{4}{3}\pi R^3 = \frac{4}{3}\pi (1728) = 2304\pi\text{ cm}^3@.<br>
+                Volume da cunha esférica: @V_{\text{cunha}} = \frac{1}{12} \cdot 2304\pi = 192\pi\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> a) @48\pi\text{ cm}^2@; b) @192\pi\text{ cm}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) No triângulo retângulo do centro da esfera: a distância ao plano de corte é @d = R - h = 10 - 4 = 6\text{ m}@.<br>
+                O raio da base circular @a@ satisfaz @R^2 = d^2 + a^2 \implies 10^2 = 6^2 + a^2 \implies a^2 = 100 - 36 = 64 \implies a = 8\text{ m}@.<br>
+                b) Volume da calota esférica:<br>
+                @V = \frac{\pi h^2}{3}(3R - h) = \frac{\pi \cdot 4^2}{3}(3 \cdot 10 - 4) = \frac{16\pi}{3}(26) = \frac{416\pi}{3}\text{ m}^3 \approx 435{,}63\text{ m}^3@.<br>
+                <strong>Resposta:</strong> a) @a = 8\text{ m}@; b) @V = \frac{416\pi}{3}\text{ m}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A profundidade de 1 m em um raio de 1 m indica que o plano da superfície livre do combustível passa exatamente pelo centro das bases circulares (nível médio).<br>
+                Portanto, a seção do combustível é um semicírculo de raio @r = 1\text{ m}@.<br>
+                O volume com o tanque à meia altura é:<br>
+                @V_{1/2} = \frac{1}{2}\pi r^2 L = \frac{1}{2}\pi (1^2)(6) = 3\pi\text{ m}^3 \approx 9{,}42\text{ m}^3 = 9.420\text{ litros}@.<br>
+                Com o tanque cheio a 2 m de nível, o volume é o dobro:<br>
+                @V_{\text{cheio}} = \pi r^2 L = \pi (1^2)(6) = 6\pi\text{ m}^3 \approx 18.840\text{ litros}@.<br>
+                <strong>Resposta:</strong> Meio nível: @3\pi\text{ m}^3 \approx 9.420\text{ L}@; Cheio: @6\pi\text{ m}^3 \approx 18.840\text{ L}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Cada semiesfera acrescenta o seu raio nas extremidades do cilindro central:<br>
+                @L_{\text{total}} = 2 + 8 + 2 = 12\text{ metros}@.<br>
+                b) As duas semiesferas juntas formam uma esfera completa de raio @r = 2\text{ m}@:<br>
+                @V_{\text{esfera}} = \frac{4}{3}\pi (2^3) = \frac{32\pi}{3}\text{ m}^3@.<br>
+                Volume do cilindro central: @V_{\text{cilindro}} = \pi (2^2)(8) = 32\pi\text{ m}^3 = \frac{96\pi}{3}\text{ m}^3@.<br>
+                Volume total: @V = 32\pi + \frac{32\pi}{3} = \frac{128\pi}{3}\text{ m}^3 \approx \frac{128 \cdot 3{,}14}{3} \approx 133{,}97\text{ m}^3@.<br>
+                <strong>Resposta:</strong> a) @12\text{ metros}@; b) @\frac{128\pi}{3}\text{ m}^3 \approx 133{,}97\text{ m}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A altura do líquido cai de 30 cm para 15 cm, que é a metade da altura total.<br>
+                O volume de água que permanece no funil é proporcional ao cubo da altura:<br>
+                @\frac{V_{\text{restante}}}{V_{\text{inicial}}} = \left(\frac{15}{30}\right)^3 = \left(\frac{1}{2}\right)^3 = \frac{1}{8} = 12{,}5\%@.<br>
+                Logo, a fração e a porcentagem de água escoada é:<br>
+                @1 - \frac{1}{8} = \frac{7}{8} = 87{,}5\%@.<br>
+                <strong>Resposta:</strong> @87{,}5\%@ do volume inicial foi escoado.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Volume da esfera imersa:<br>
+                @V_{\text{esfera}} = \frac{4}{3}\pi R^3 = \frac{4}{3}\pi (3^3) = \frac{4}{3}\pi (27) = 36\pi\text{ cm}^3@.<br>
+                Área da base circular do cilindro:<br>
+                @A_{\text{base}} = \pi r^2 = \pi (4^2) = 16\pi\text{ cm}^2@.<br>
+                Pelo Princípio de Arquimedes geométrico: @V_{\text{esfera}} = A_{\text{base}} \cdot \Delta h@:<br>
+                @\Delta h = \frac{V_{\text{esfera}}}{A_{\text{base}}} = \frac{36\pi}{16\pi} = \frac{9}{4} = 2{,}25\text{ cm}@.<br>
+                <strong>Resposta:</strong> A coluna de água subirá @2{,}25\text{ cm}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Volume do cilindro original: @V_{\text{orig}} = \pi R^2 h = \pi (6^2)(15) = 540\pi\text{ cm}^3@.<br>
+                Volume do furo cilíndrico retirado: @V_{\text{furo}} = \pi r^2 h = \pi (2^2)(15) = 60\pi\text{ cm}^3@.<br>
+                Volume de material restante: @V = 540\pi - 60\pi = 480\pi\text{ cm}^3@.<br>
+                Razão percentual retirada: @\frac{V_{\text{furo}}}{V_{\text{orig}}} = \frac{60\pi}{540\pi} = \frac{1}{9} \approx 11{,}11\%@.<br>
+                <strong>Resposta:</strong> Volume restante: @480\pi\text{ cm}^3@; Volume retirado: @11{,}11\%@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Volume de um balde:<br>
+                @V = \frac{\pi \cdot 30}{3}(15^2 + 15 \cdot 10 + 10^2) = 10\pi (225 + 150 + 100) = 10\pi (475) = 4.750\pi\text{ cm}^3@.<br>
+                Com @\pi \approx 3{,}14@: @V \approx 4.750 \times 3{,}14 = 14.915\text{ cm}^3 = 14{,}915\text{ litros}@.<br>
+                b) Volume da sapata em litros: @0{,}35\text{ m}^3 = 350\text{ litros}@.<br>
+                Número de baldes necessários:<br>
+                @N = \frac{350}{14{,}915} \approx 23{,}46@.<br>
+                Como o número de baldes deve ser inteiro e suficiente para completar a concretagem, são necessários no mínimo 24 baldes.<br>
+                <strong>Resposta:</strong> a) @14{,}915\text{ L}@; b) 24 baldes cheios.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                No corte meridional, o triângulo é equilátero de lado @2R = 12\sqrt{3}\text{ cm}@ e o vértice superior tem ângulo de @60^\circ@.<br>
+                A geratriz forma um ângulo de @60^\circ@ com a base.<br>
+                O centro da semiesfera está no centro da base do cone.<br>
+                O segmento perpendicular traçado do centro da base à geratriz é o raio @r@ da semiesfera.<br>
+                No triângulo retângulo formado pela base, altura e raio de tangência:<br>
+                @\sin(60^\circ) = \frac{r}{R} \implies r = R \sin(60^\circ) = 6\sqrt{3} \cdot \frac{\sqrt{3}}{2} = 6 \cdot \frac{3}{2} = 9\text{ cm}@.<br>
+                <strong>Resposta:</strong> @r = 9\text{ cm}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Volume da esfera de gelo:<br>
+                @V_{\text{gelo}} = \frac{4}{3}\pi (6^3) = \frac{4}{3}\pi (216) = 288\pi\text{ cm}^3@.<br>
+                Volume de água líquida obtido (90%):<br>
+                @V_{\text{água}} = 0{,}90 \times 288\pi = 259{,}2\pi\text{ cm}^3@.<br>
+                No cilindro de raio @r = 4\text{ cm}@:<br>
+                @V_{\text{água}} = \pi r^2 h = \pi (4^2) h = 16\pi h@.<br>
+                @16\pi h = 259{,}2\pi \implies h = \frac{259{,}2}{16} = 16{,}2\text{ cm}@.<br>
+                <strong>Resposta:</strong> @h = 16{,}2\text{ cm}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O raio da base do cone é @r = 6/2 = 3\text{ cm}@ e a altura é @h = 8\text{ cm}@.<br>
+                Volume total do cone:<br>
+                @V = \frac{1}{3}\pi r^2 h = \frac{1}{3}\pi (3^2)(8) = 24\pi\text{ cm}^3@.<br>
+                Volume de areia (75%):<br>
+                @V_{\text{areia}} = 0{,}75 \times 24\pi = 18\pi\text{ cm}^3@.<br>
+                Com @\pi \approx 3{,}14@: @V_{\text{areia}} \approx 18 \times 3{,}14 = 56{,}52\text{ cm}^3@.<br>
+                Tempo total para escoamento à vazão de @0{,}5\text{ cm}^3/\text{s}@:<br>
+                @t = \frac{56{,}52}{0{,}5} = 113{,}04\text{ segundos}@ (aproximadamente 1 minuto e 53 segundos).<br>
+                <strong>Resposta:</strong> @113{,}04\text{ segundos}@ (ou @36\pi\text{ s}@).
+              </li>
+            </ol>
+          </div>
+
+          <div class="gabarito-secao">
+            <h3>Seção 3: Problemas de Aprofundamento</h3>
+            <ol start="25">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Geratriz do cone: @g = \sqrt{R^2 + H^2} = \sqrt{6^2 + 8^2} = 10\text{ cm}@.<br>
+                b) Na seção meridiana, temos um triângulo isósceles de base @2R = 12@ e altura @H = 8@. O centro da esfera inscrita dista @r@ da base e @r@ da geratriz.<br>
+                A distância do centro da esfera ao vértice superior do cone é @H - r = 8 - r@.<br>
+                Pela semelhança entre o triângulo retângulo pequeno do vértice e o triângulo retângulo metade da seção meridiana:<br>
+                @\frac{r}{R} = \frac{H - r}{g} \implies \frac{r}{6} = \frac{8 - r}{10}@.<br>
+                @10r = 6(8 - r) = 48 - 6r \implies 16r = 48 \implies r = 3\text{ cm}@.<br>
+                c) Volume da esfera inscrita: @V_e = \frac{4}{3}\pi (3^3) = 36\pi\text{ cm}^3@.<br>
+                Volume do cone: @V_c = \frac{1}{3}\pi (6^2)(8) = 96\pi\text{ cm}^3@.<br>
+                Razão: @\frac{V_e}{V_c} = \frac{36\pi}{96\pi} = \frac{3}{8} = 0{,}375 = 37{,}5\%@.<br>
+                <strong>Resposta:</strong> a) @g = 10\text{ cm}@; b) @r = 3\text{ cm}@; c) @37{,}5\%@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) A geratriz @g = 10\text{ cm}@ forma ângulo de @30^\circ@ com o plano da base. A altura perpendicular @h@ é a projeção vertical de @g@:<br>
+                @h = g \sin(30^\circ) = 10 \cdot \frac{1}{2} = 5\text{ cm}@.<br>
+                b) Pelo Princípio de Cavalieri, qualquer plano paralelo às bases a uma altura intermediária @z@ intercepta o cilindro oblíquo em uma seção idêntica à base, que é um círculo de raio @r = 4\text{ cm}@ e área @A(z) = \pi r^2 = 16\pi\text{ cm}^2@.<br>
+                Como a área da seção é constante ao longo de toda a altura vertical @h = 5\text{ cm}@, o volume é exatamente:<br>
+                @V = A_{\text{base}} \cdot h = \pi r^2 h = 16\pi \cdot 5 = 80\pi\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> a) @h = 5\text{ cm}@; b) @V = 80\pi\text{ cm}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Volume fixo: @V_0 = \pi r^2 h \implies h = \frac{V_0}{\pi r^2}@.<br>
+                Área total da lata com tampa:<br>
+                @A_t(r) = 2\pi r^2 + 2\pi r h = 2\pi r^2 + 2\pi r \left(\frac{V_0}{\pi r^2}\right) = 2\pi r^2 + \frac{2V_0}{r}@.<br>
+                b) Derivando em relação a @r@ e igualando a zero:<br>
+                @A'_t(r) = 4\pi r - \frac{2V_0}{r^2} = 0 \implies 4\pi r^3 = 2V_0 \implies V_0 = 2\pi r^3@.<br>
+                Substituindo @V_0 = \pi r^2 h@: @\pi r^2 h = 2\pi r^3 \implies h = 2r@.<br>
+                Portanto, a lata ótima é sempre um cilindro equilátero.<br>
+                c) Para @V_0 = 500\pi@:<br>
+                @2\pi r^3 = 500\pi \implies r^3 = 250 \implies r = \sqrt[3]{250} = 5\sqrt[3]{2}\text{ cm} \approx 6{,}30\text{ cm}@.<br>
+                A altura ótima é @h = 2r = 10\sqrt[3]{2}\text{ cm} \approx 12{,}60\text{ cm}@.<br>
+                <strong>Resposta:</strong> a) @A_t(r) = 2\pi r^2 + \frac{1000\pi}{r}@; b) Prova de @h = 2r@; c) @r = 5\sqrt[3]{2}\text{ cm}@ e @h = 10\sqrt[3]{2}\text{ cm}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Volume do cilindro:<br>
+                @V_{\text{cil}} = \pi r^2 h_1 = \pi (3^2)(4) = 36\pi\text{ m}^3@.<br>
+                Volume útil permitido (90%):<br>
+                @V_{\text{útil}} = 0{,}90 \times 36\pi = 32{,}4\pi\text{ m}^3 \approx 32{,}4 \times 3{,}14 = 101{,}736\text{ m}^3@.<br>
+                Em litros: @101{,}736 \times 1.000 = 101.736\text{ litros}@.<br>
+                b) O consumo diário da família é de @5 \times 120 = 600\text{ L/dia}@.<br>
+                Número de dias de autonomia:<br>
+                @\text{Dias} = \frac{101.736}{600} \approx 169{,}56@ dias (aproximadamente 169 dias completos).<br>
+                <strong>Resposta:</strong> a) @101.736\text{ litros}@; b) 169 dias de autonomia.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Hipotenusa do triângulo: @c = \sqrt{3^2 + 4^2} = 5\text{ cm}@.<br>
+                Área do triângulo: @\frac{3 \times 4}{2} = 6\text{ cm}^2@.<br>
+                Altura relativa à hipotenusa: @\frac{c \cdot h_c}{2} = 6 \implies h_c = \frac{12}{5} = 2{,}4\text{ cm}@.<br>
+                b) O raio da base comum dos dois cones é exatamente @R = h_c = 2{,}4\text{ cm}@.<br>
+                As alturas dos cones são as projeções dos catetos sobre a hipotenusa: @m = \frac{a^2}{c} = \frac{9}{5} = 1{,}8\text{ cm}@ e @n = \frac{b^2}{c} = \frac{16}{5} = 3{,}2\text{ cm}@.<br>
+                c) Volume total do sólido:<br>
+                @V = V_1 + V_2 = \frac{1}{3}\pi R^2 m + \frac{1}{3}\pi R^2 n = \frac{1}{3}\pi R^2 (m + n) = \frac{1}{3}\pi R^2 c@.<br>
+                @V = \frac{1}{3}\pi (2{,}4)^2 \cdot 5 = \frac{1}{3}\pi (5{,}76)(5) = \frac{28{,}8\pi}{3} = 9{,}6\pi\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> a) @c = 5\text{ cm}@ e @h_c = 2{,}4\text{ cm}@; b) Raio comum @= 2{,}4\text{ cm}@ e alturas @1{,}8\text{ cm}@ e @3{,}2\text{ cm}@; c) @V = 9{,}6\pi\text{ cm}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Para o plano situado a @d_1 = 5\text{ cm}@ do centro:<br>
+                @r_1 = \sqrt{R^2 - d_1^2} = \sqrt{13^2 - 5^2} = \sqrt{169 - 25} = \sqrt{144} = 12\text{ cm}@.<br>
+                Área da seção 1: @A_1 = \pi r_1^2 = 144\pi\text{ cm}^2@.<br>
+                Para o plano situado a @d_2 = 12\text{ cm}@ do centro:<br>
+                @r_2 = \sqrt{R^2 - d_2^2} = \sqrt{13^2 - 12^2} = \sqrt{169 - 144} = \sqrt{25} = 5\text{ cm}@.<br>
+                Área da seção 2: @A_2 = \pi r_2^2 = 25\pi\text{ cm}^2@.<br>
+                b) Como os dois planos estão do mesmo lado em relação ao centro, a distância entre eles é:<br>
+                @\Delta d = d_2 - d_1 = 12 - 5 = 7\text{ cm}@.<br>
+                <strong>Resposta:</strong> a) @A_1 = 144\pi\text{ cm}^2@ e @A_2 = 25\pi\text{ cm}^2@; b) Raios: @12\text{ cm}@ e @5\text{ cm}@; Distância entre planos: @7\text{ cm}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Pelo corte meridiano, os lados do trapézio isósceles são tangentes à circunferência inscrita. Os segmentos de tangência traçados dos vértices às bases e à geratriz têm comprimentos iguais aos respectivos raios das bases. Assim, a geratriz é a soma das partes: @g = R_1 + R_2@.<br>
+                b) A altura do tronco é o diâmetro da esfera inscrita: @h = 2 R_e = 2(6) = 12\text{ cm}@.<br>
+                No trapézio retângulo lateral da seção: @g^2 = h^2 + (R_1 - R_2)^2@.<br>
+                Substituindo @g = R_1 + R_2@:<br>
+                @(R_1 + R_2)^2 = 12^2 + (R_1 - R_2)^2 \implies (R_1 + R_2)^2 - (R_1 - R_2)^2 = 144@.<br>
+                @4 R_1 R_2 = 144 \implies R_1 R_2 = 36@.<br>
+                Como @R_1 = 9\text{ cm}@: @9 R_2 = 36 \implies R_2 = 4\text{ cm}@.<br>
+                c) Volume do tronco:<br>
+                @V = \frac{\pi h}{3}(R_1^2 + R_1 R_2 + R_2^2) = \frac{\pi \cdot 12}{3}(9^2 + 9 \cdot 4 + 4^2) = 4\pi (81 + 36 + 16) = 4\pi (133) = 532\pi\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> a) Demonstração baseada em segmentos tangentes; b) @R_2 = 4\text{ cm}@; c) @V = 532\pi\text{ cm}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) No plano equatorial, a distância da borda cilíndrica ao centro da esfera é @r_0@ e a metade da altura é @h/2@. Pelo Teorema de Pitágoras: @R^2 = r_0^2 + (h/2)^2 \implies r_0^2 = R^2 - (h/2)^2@.<br>
+                b) A uma altura @y@ a partir do centro (@-h/2 \le y \le h/2@), a seção da esfera é um círculo de raio @\rho(y) = \sqrt{R^2 - y^2}@ e o orifício é um círculo de raio @r_0@.<br>
+                A área da coroa circular restante é:<br>
+                @A(y) = \pi \rho(y)^2 - \pi r_0^2 = \pi (R^2 - y^2) - \pi \left[R^2 - (h/2)^2\right] = \pi \left[(h/2)^2 - y^2\right]@.<br>
+                Observe que o termo @R^2@ se cancela completamente!<br>
+                c) Essa área de seção @A(y)@ é idêntica à seção transversal de uma esfera de diâmetro @h@ (raio @h/2@). Pelo Princípio de Cavalieri, o volume do anel é igual ao volume de uma esfera de raio @h/2@:<br>
+                @V = \frac{4}{3}\pi \left(\frac{h}{2}\right)^3 = \frac{\pi h^3}{6}@.<br>
+                Para @h = 6\text{ cm}@:<br>
+                @V = \frac{\pi (6^3)}{6} = \frac{216\pi}{6} = 36\pi\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> @V = 36\pi\text{ cm}^3@.
+              </li>
+            </ol>
+          </div>
+
+          <div class="gabarito-secao">
+            <h3>Seção 4: Problemas Propostos</h3>
+            <ol start="33">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                @A_l = 2\pi r h = 2\pi (4)(7) = 56\pi\text{ cm}^2@.<br>
+                @A_t = 2\pi r (r + h) = 2\pi (4)(11) = 88\pi\text{ cm}^2@.<br>
+                @V = \pi r^2 h = \pi (16)(7) = 112\pi\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> @A_l = 56\pi\text{ cm}^2@, @A_t = 88\pi\text{ cm}^2@ e @V = 112\pi\text{ cm}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                @h = \sqrt{g^2 - r^2} = \sqrt{13^2 - 5^2} = \sqrt{169 - 25} = 12\text{ cm}@.<br>
+                @V = \frac{1}{3}\pi r^2 h = \frac{1}{3}\pi (25)(12) = 100\pi\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> @h = 12\text{ cm}@ e @V = 100\pi\text{ cm}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                @A = 4\pi R^2@ e @V = \frac{4}{3}\pi R^3@.<br>
+                Razão: @\frac{A}{V} = \frac{4\pi R^2}{\frac{4}{3}\pi R^3} = \frac{3}{R}@.<br>
+                Para @R = 9\text{ cm}@: @\frac{A}{V} = \frac{3}{9} = \frac{1}{3}\text{ cm}^{-1}@.<br>
+                <strong>Resposta:</strong> @1/3\text{ cm}^{-1}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                @V = \frac{\pi \cdot 24}{3}(15^2 + 15 \cdot 10 + 10^2) = 8\pi (225 + 150 + 100) = 8\pi (475) = 3.800\pi\text{ cm}^3@.<br>
+                Com @\pi \approx 3{,}14@: @V \approx 3.800 \times 3{,}14 = 11.932\text{ cm}^3 = 11{,}932\text{ litros}@.<br>
+                <strong>Resposta:</strong> @\approx 11{,}93\text{ litros}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Volume de uma gotícula: @v = \frac{4}{3}\pi (1^3) = \frac{4}{3}\pi\text{ mm}^3@.<br>
+                Volume total de 1.000 gotículas: @V = 1000 \cdot \frac{4}{3}\pi = \frac{4000}{3}\pi\text{ mm}^3@.<br>
+                Para a gota maior: @\frac{4}{3}\pi R^3 = \frac{4000}{3}\pi \implies R^3 = 1000 \implies R = 10\text{ mm}@.<br>
+                <strong>Resposta:</strong> @R = 10\text{ mm}@ (ou @1\text{ cm}@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A seção meridiana é um triângulo retângulo isósceles com base @2r = 10@. A altura é metade da hipotenusa: @h = r = 5\text{ cm}@.<br>
+                Geratriz: @g = r\sqrt{2} = 5\sqrt{2}\text{ cm}@.<br>
+                Volume: @V = \frac{1}{3}\pi r^2 h = \frac{1}{3}\pi (25)(5) = \frac{125\pi}{3}\text{ cm}^3@.<br>
+                <strong>Resposta:</strong> @h = 5\text{ cm}@, @g = 5\sqrt{2}\text{ cm}@ e @V = \frac{125\pi}{3}\text{ cm}^3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O diâmetro é 6 m, logo o raio é @R = 3\text{ m}@.<br>
+                Volume do tanque: @V = \frac{4}{3}\pi (3^3) = 36\pi\text{ m}^3 \approx 36 \times 3{,}14 = 113{,}04\text{ m}^3@.<br>
+                Em CNTP (fator de compressão de 150):<br>
+                @V_{\text{CNTP}} = 113{,}04 \times 150 = 16.956\text{ m}^3@.<br>
+                <strong>Resposta:</strong> @16.956\text{ m}^3@ de gás em CNTP.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Volume da esfera: @V_e = \frac{4}{3}\pi R^3@.<br>
+                Volume do cilindro circunscrito: @V_c = \pi R^2 (2R) = 2\pi R^3@.<br>
+                Razão dos volumes: @\frac{V_e}{V_c} = \frac{\frac{4}{3}\pi R^3}{2\pi R^3} = \frac{4}{6} = \frac{2}{3}@.<br>
+                b) Área da esfera: @A_e = 4\pi R^2@.<br>
+                Área total do cilindro: @A_c = 2\pi R^2 + 2\pi R(2R) = 2\pi R^2 + 4\pi R^2 = 6\pi R^2@.<br>
+                Razão das áreas: @\frac{A_e}{A_c} = \frac{4\pi R^2}{6\pi R^2} = \frac{2}{3}@.<br>
+                <strong>Resposta:</strong> Ambas as razões são exatamente iguais a @\frac{2}{3}@.
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </details>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+      </div>
+
+    </div> <!-- /.container -->
+  </div> <!-- /#page-wrapper -->
+
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "@@", right: "@@", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "@", right: "@", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+  <div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  </div>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

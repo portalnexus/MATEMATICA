@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lista de Problemas: Matemática Financeira e Planejamento</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil {
+      background-color: rgba(76, 175, 80, 0.3);
+    }
+
+    .dificuldade.media {
+      background-color: rgba(255, 193, 7, 0.3);
+    }
+
+    .dificuldade.dificil {
+      background-color: rgba(244, 67, 54, 0.3);
+    }
+
+    .dificuldade.desafio {
+      background-color: rgba(156, 39, 176, 0.3);
+    }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    /* Gabarito expansível */
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-secao ol {
+      padding-left: 1.5rem;
+    }
+
+    .gabarito-secao li {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: 600;
+      color: var(--secondary-text-color);
+    }
+
+    table.finance-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    table.finance-table th, table.finance-table td {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 10px;
+      text-align: center;
+    }
+
+    table.finance-table th {
+      background-color: rgba(0, 255, 204, 0.15);
+      color: var(--link-color, #00ffcc);
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<!-- ============================================================================
+     TÍTULO PRINCIPAL DA LISTA
+     ============================================================================ -->
+<h1>MATEMÁTICA FINANCEIRA E PLANEJAMENTO</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS (10 PROBLEMAS)
+     ============================================================================ -->
+<article>
+  <h2>Seção 1: Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Aplicações diretas dos fundamentos da matemática comercial e financeira: porcentagens, acréscimos e descontos simples, regime de juros simples e compostos básicos, montante, capital e deduções em folha.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Porcentagem e Acréscimo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>
+        Um boleto bancário de condomínio no valor de @\text{R\$\ } 420{,}00@ foi pago com atraso e sofreu uma multa por inadimplência de @15\%@ sobre o valor nominal. Determine o valor da multa e o total pago pelo condômino.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Desconto Percentual Direto</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>
+        Uma loja de eletrodomésticos anuncia uma televisão por @\text{R\$\ } 1.800{,}00@. Para pagamento à vista via transferência PIX, o cliente recebe um desconto de @12\%@. Calcule o valor do desconto concedido e o valor líquido pago pelo aparelho.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aumentos e Descontos Sucessivos</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>
+        O preço de um par de tênis que custava @\text{R\$\ } 500{,}00@ sofreu um reajuste positivo de @10\%@ em janeiro. Em março, para liquidar o estoque restante, a loja concedeu um desconto de @10\%@ sobre o novo preço. Determine o valor final do calçado e a taxa percentual de variação acumulada em relação ao preço inicial.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Juros Simples: Montante e Rendimento</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>
+        Um investidor aplicou o capital de @\text{R\$\ } 3.000{,}00@ em um título a juros simples remunerado à taxa de @2\%@ ao mês durante @8@ meses. Determine o valor total dos juros produzidos e o montante resgatado ao final da operação.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Juros Simples: Determinação do Prazo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>
+        Um capital de @\text{R\$\ } 5.000{,}00@ foi emprestado à taxa de juros simples de @1{,}5\%@ ao mês. Sabendo que o credor recebeu @\text{R\$\ } 900{,}00@ exclusivamente a título de juros, calcule por quanto tempo o dinheiro permaneceu aplicado.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Juros Simples: Taxa de Juros Mensal</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>
+        Uma quantia de @\text{R\$\ } 4.000{,}00@ foi aplicada durante @10@ meses e resultou em um montante final de @\text{R\$\ } 5.200{,}00@. Considerando o regime de juros simples, determine a taxa mensal de juros dessa aplicação.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Juros Compostos: Montante Básico</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>
+        Um estudante aplicou @\text{R\$\ } 2.000{,}00@ em um Certificado de Depósito Bancário (CDB) que rende @1\%@ ao mês em regime de juros compostos. Calcule o montante acumulado após @4@ meses de aplicação.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Comparação: Juros Simples vs Compostos</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>
+        Um capital de @\text{R\$\ } 10.000{,}00@ é aplicado pelo prazo de @3@ anos à taxa de @10\%@ ao ano. Calcule o montante final obtido sob o regime de juros simples e sob o regime de juros compostos, determinando a diferença em reais auferida pelo investidor entre os dois regimes.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Juros Compostos: Valor Presente</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>
+        Uma pessoa deseja resgatar exatamente @\text{R\$\ } 13.000{,}00@ daqui a @3@ meses para pagar uma viagem. Se a instituição financeira remunera os depósitos a uma taxa de juros compostos de @2\%@ ao mês, qual é o capital inicial que ela deve aplicar hoje?
+      </p>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Descontos Legais em Folha de Pagamento</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>
+        Um trabalhador possui salário bruto contratual de @\text{R\$\ } 3.000{,}00@. Em seu contracheque incidem dois descontos lineares: @8\%@ correspondente à contribuição previdenciária (INSS) e @6\%@ relativo à coparticipação em vale-transporte, ambos calculados sobre o salário bruto. Calcule o total de descontos e o salário líquido recebido.
+      </p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO (14 PROBLEMAS COM .DICA)
+     ============================================================================ -->
+<article>
+  <h2>Seção 2: Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas intermediários contextualizados envolvendo taxas proporcionais e equivalentes, desconto comercial e racional, análise de parcelamentos e taxa implícita, inflação real (Equação de Fisher) e depreciação.
+  </p>
+
+  <ol start="11">
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Taxas Proporcionais vs. Equivalentes</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>
+        Um contrato bancário estipula uma taxa nominal de @24\%@ ao ano. Determine:
+        <br>a) A taxa mensal proporcional no regime de juros simples;
+        <br>b) A taxa mensal equivalente no regime de juros compostos (considere @\sqrt[12]{1{,}24} \approx 1{,}0181@).
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> Em juros simples, divide-se a taxa anual pelo número de meses (@i_m = \frac{i_a}{12}@). Em juros compostos, utiliza-se a relação @(1 + i_m)^{12} = 1 + i_a@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Taxas Equivalentes Compostas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>
+        Calcule:
+        <br>a) A taxa trimestral de juros compostos equivalente a @8\%@ ao semestre (use @\sqrt{1{,}08} \approx 1{,}0392@);
+        <br>b) A taxa anual de juros compostos equivalente a @1\%@ ao mês (use @1{,}01^{12} \approx 1{,}1268@).
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> Como um semestre possui 2 trimestres, temos @(1 + i_t)^2 = 1 + i_s@. Já para converter taxa mensal para anual, lembre-se de que @1 + i_a = (1 + i_m)^{12}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Desconto Racional Simples (Por Dentro)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>
+        Uma duplicata de valor nominal @N = \text{R\$\ } 12.000{,}00@ com vencimento para daqui a @4@ meses foi resgatada antecipadamente sob taxa de desconto racional simples de @2{,}5\%@ ao mês. Calcule o valor atual racional (@A_r@) recebido pela empresa e o desconto concedido (@D_r@).
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> No desconto racional ("por dentro"), os juros incidem sobre o valor atual: @N = A_r(1 + d \cdot t) \implies A_r = \frac{N}{1 + d \cdot t}@. O desconto é @D_r = N - A_r@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Desconto Comercial Simples (Por Fora)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>
+        Considere a mesma duplicata de valor nominal @N = \text{R\$\ } 12.000{,}00@ com vencimento em @4@ meses. Suponha agora que o banco aplique a praxe bancária de desconto comercial simples ("por fora") à mesma taxa de @2{,}5\%@ ao mês. Determine o desconto comercial (@D_c@), o valor líquido recebido (@A_c@) e a diferença em reais entre os descontos comercial e racional calculados.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> No desconto comercial, a dedução incide diretamente sobre o valor futuro nominal: @D_c = N \cdot d \cdot t@ e @A_c = N - D_c@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 15 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Taxa Efetiva no Desconto Bancário</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>
+        Uma empresa desconta em um banco uma nota promissória de @\text{R\$\ } 10.000{,}00@ com prazo de @3@ meses. O banco opera com taxa de desconto comercial simples de @4\%@ ao mês. Calcule o valor líquido creditado na conta da empresa e determine a taxa mensal efetiva de juros simples que a empresa pagou sobre o capital que efetivamente recebeu.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> Primeiro determine o valor liberado @A_c = N(1 - d \cdot t)@. Em seguida, descubra a taxa @i_{ef}@ tal que @A_c(1 + i_{ef} \cdot t) = N@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 16 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Parcelamento 1 + 1 (Entrada e 30 dias)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>
+        Um aparelho de ar-condicionado custa @\text{R\$\ } 1.200{,}00@ à vista. A loja oferece a opção de pagamento em duas prestações iguais de @\text{R\$\ } 650{,}00@: a primeira dada no ato da compra como entrada e a segunda após @30@ dias. Determine a taxa mensal de juros embutida nesse financiamento a prazo.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> A entrada abate imediatamente o saldo devedor. Logo, o valor efetivamente financiado por 30 dias não é @1.200@, mas sim @1.200 - 650@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 17 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Parcelamento Sem Entrada (30 e 60 dias)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>
+        Um computador de @\text{R\$\ } 3.000{,}00@ à vista é comercializado em duas parcelas mensais e consecutivas de @\text{R\$\ } 1.600{,}00@ cada, vencendo a primeira em @30@ dias e a segunda em @60@ dias da data da compra. Escreva a equação de equivalência financeira em regime de juros compostos e determine a taxa mensal de juros embutida na operação (dado: @\sqrt{544} \approx 23{,}32@).
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> O valor presente à vista deve igualar a soma dos valores presentes das parcelas: @3.000 = \frac{1.600}{1+i} + \frac{1.600}{(1+i)^2}@. Faça a mudança de variável @x = \frac{1}{1+i}@ para obter uma equação do 2º grau.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 18 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inflação e Taxa Real (Equação de Fisher)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>
+        No ano de 2025, um fundo de investimento ofereceu uma rentabilidade aparente (nominal) de @13{,}4\%@ ao ano. Se o Índice de Preços ao Consumidor Amplo (IPCA) registrou uma inflação acumulada de @6\%@ no mesmo período, calcule a taxa de rentabilidade real auferida pelo cotista do fundo.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> A relação exata de Irving Fisher é dada por @(1 + i_{\text{aparente}}) = (1 + i_{\text{real}})(1 + i_{\text{inflação}})@. Nunca subtraia simplesmente as porcentagens!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 19 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Poder de Compra e Perda Inflacionária</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>
+        Um profissional recebia um salário mensal de @\text{R\$\ } 4.000{,}00@ e permaneceu sem nenhum aumento salarial durante um ano no qual a inflação acumulada foi de @8\%@.
+        <br>a) Qual deveria ser o novo salário do profissional para manter rigorosamente seu poder de compra?
+        <br>b) Qual foi a perda percentual real do poder aquisitivo do seu salário original?
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> O poder de compra relativo após a inflação @i@ é dado por @\frac{1}{1 + i}@. A perda percentual de poder aquisitivo é dada por @1 - \frac{1}{1+i}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 20 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Depreciação de Bens Duráveis</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>
+        Uma máquina industrial foi adquirida por uma empresa pelo valor de @\text{R\$\ } 80.000{,}00@. Por conta do desgaste e obsolescência tecnológica, estima-se que ela sofra uma depreciação anual constante de @15\%@ ao ano sobre o valor residual do ano anterior (regime composto de depreciação). Calcule o valor contábil dessa máquina ao término do terceiro ano de operação.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> A cada ano o valor do bem é multiplicado pelo fator @(1 - 0{,}15) = 0{,}85@. Logo, após @t@ anos, @V(t) = V_0 \cdot (0{,}85)^t@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 21 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Desconto Composto Racional</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>
+        Um empréstimo de @\text{R\$\ } 5.000{,}00@ deve ser liquidado em uma parcela única no prazo de @6@ meses. Se o devedor optar por liquidar integralmente a dívida hoje e o banco conceder um desconto composto racional à taxa de @2\%@ ao mês, qual será o montante pago na liquidação antecipada e qual o valor total economizado? (Dado: @1{,}02^6 \approx 1{,}126162@).
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> Em juros compostos, o valor atual racional @A@ trazido do vencimento é dado por @A = \frac{N}{(1 + i)^n}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 22 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Planejamento Orçamentário Familiar</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>
+        Uma família possui renda líquida mensal de @\text{R\$\ } 7.500{,}00@. O orçamento atual é distribuído da seguinte maneira: @55\%@ para despesas essenciais fixas (moradia, saúde, educação), @30\%@ para despesas variáveis e estilo de vida, e o restante destinado à poupança e investimentos.
+        <br>a) Calcule os valores em reais destinados a cada uma das três categorias.
+        <br>b) Se as despesas variáveis aumentarem em @20\%@ e as despesas fixas forem mantidas constantes, quanto restará em reais para poupança por mês e qual será a nova taxa percentual de poupança sobre a renda familiar?
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> O aumento de 20% ocorre sobre o valor da categoria de despesas variáveis, isto é, sobre os 30% da renda.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 23 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Rotativo de Cartão de Crédito e IOF</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>
+        Um cliente não realizou o pagamento de uma fatura de cartão de crédito no valor de @\text{R\$\ } 2.000{,}00@ no vencimento. O emissor do cartão cobra juros rotativos de @14\%@ ao mês (para 30 dias), além de alíquota do Imposto sobre Operações Financeiras (IOF) composta por @0{,}38\%@ fixo sobre o valor principal acrescido de @0{,}0082\%@ ao dia durante 30 dias. Calcule o valor total dos juros, do IOF e a dívida consolidada após 30 dias de atraso.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> Calcule os juros multiplicando @2.000 \times 0{,}14@. Em seguida, calcule as parcelas do IOF fixa e diária sobre os @2.000@ e some todos os valores ao saldo devedor inicial.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 24 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Comparação: Tesouro Selic vs. Poupança</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>
+        Um poupador dispõe de @\text{R\$\ } 10.000{,}00@ para investir por @1@ ano e compara duas opções de renda fixa:
+        <br><strong>Opção A (Tesouro Selic):</strong> Rentabilidade bruta de @10{,}5\%@ ao ano. Incide taxa de custódia da B3 de @0{,}2\%@ ao ano sobre o capital total e Imposto de Renda de @17{,}5\%@ sobre os rendimentos brutos auferidos.
+        <br><strong>Opção B (Caderneta de Poupança):</strong> Rendimento isento de impostos e taxas de @6{,}17\%@ ao ano.
+        <br>Determine o valor líquido resgatado em cada opção e qual delas oferece maior ganho ao investidor ao final de um ano.
+      </p>
+      <div class="dica">
+        <strong>Dica:</strong> No Tesouro Selic, o rendimento bruto é de @10{,}5\%@. O IR incide exclusivamente sobre esse rendimento bruto: @IR = 0{,}175 \times \text{Rendimento}@. Subtraia o IR e a taxa da B3 do montante bruto.
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO (8 PROBLEMAS)
+     ============================================================================ -->
+<article>
+  <h2>Seção 3: Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Problemas avançados no padrão ENEM, FUVEST, UNICAMP e concursos públicos: sistemas de amortização (SAC vs. Tabela Price), equivalência financeira de capitais com fluxos múltiplos, Valor Presente Líquido (VPL) e perpetuidades.
+  </p>
+
+  <ol start="25">
+    <!-- PROBLEMA 25 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Concurso Público / BACEN</span>
+        <span class="topico">Sistema de Amortização Constante (SAC)</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>
+        Um empréstimo habitacional de @\text{R\$\ } 120.000{,}00@ foi contratado para ser quitado em @60@ prestações mensais pelo Sistema de Amortização Constante (SAC), à taxa de juros de @1\%@ ao mês sobre o saldo devedor residual.
+        <br>a) Calcule a cota de amortização mensal constante @A@.
+        <br>b) Determine o valor da @1^{\text{a}}@ prestação, da @30^{\text{a}}@ prestação e da @60^{\text{a}}@ (última) prestação.
+        <br>c) Mostre que o total de juros pagos ao longo do financiamento equivale à soma de uma progressão aritmética (PA) e calcule o montante global de juros quitados.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 26 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST / Economia</span>
+        <span class="topico">Sistema Francês de Amortização (Tabela Price)</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>
+        Um empresário tomou um crédito de @\text{R\$\ } 40.000{,}00@ a ser pago em @4@ prestações mensais, iguais e postecipadas pelo Sistema Price à taxa de juros compostos de @2\%@ ao mês.
+        <br>a) Utilizando o fator de anuidade @P = C \cdot \frac{i(1+i)^n}{(1+i)^n - 1}@, calcule o valor exato de cada prestação mensal (dado: @1{,}02^4 \approx 1{,}082432@).
+        <br>b) Construa a planilha completa de amortização mês a mês, detalhando os juros, a amortização e o saldo devedor em cada período.
+        <br>c) Calcule o total pago em juros e compare com o total de juros que seriam pagos se o mesmo empréstimo fosse liquidado pelo SAC em 4 meses.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 27 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equivalência de Capitais com Múltiplos Fluxos</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>
+        Uma sociedade empresária possui duas notas promissórias pendentes com um fornecedor:
+        <br>• Primeira nota: @\text{R\$\ } 50.000{,}00@ com vencimento para daqui a @2@ meses;
+        <br>• Segunda nota: @\text{R\$\ } 70.000{,}00@ com vencimento para daqui a @5@ meses.
+        <br>Desejando unificar e renegociar os vencimentos, a empresa propõe efetuar um pagamento único ao final do @4^{\text{o}}@ mês. Sabendo que a taxa de juros compostos adotada na renegociação é de @1{,}5\%@ ao mês, determine o valor nominal do pagamento único equivalente na data focal @4@ (considere @1{,}015^2 = 1{,}030225@ e @1{,}015^{-1} \approx 0{,}985222@).
+      </p>
+    </li>
+
+    <!-- PROBLEMA 28 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">UNICAMP / Administração</span>
+        <span class="topico">Valor Presente Líquido (VPL) e Viabilidade</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>
+        Um grupo investidor analisa a abertura de uma franquia que demanda um investimento inicial imediato (@t = 0@) de @\text{R\$\ } 100.000{,}00@. Os fluxos de caixa líquidos anuais projetados para os próximos três anos são:
+        <br>• Ano 1: @\text{R\$\ } 35.000{,}00@;
+        <br>• Ano 2: @\text{R\$\ } 45.000{,}00@;
+        <br>• Ano 3: @\text{R\$\ } 50.000{,}00@.
+        <br>Considerando uma Taxa Mínima de Atratividade (TMA) de @10\%@ ao ano, calcule o Valor Presente Líquido (VPL) do empreendimento e indique fundamentadamente se a franquia deve ser implementada ou rejeitada.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 29 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ENEM</span>
+        <span class="topico">Modelagem Algébrica e Decisão de Consumo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>
+        Uma loja comercializa um televisor smart com as seguintes condições de venda:
+        <br><strong>Plano A:</strong> À vista, com @10\%@ de abatimento sobre o preço de tabela @P = \text{R\$\ } 2.400{,}00@.
+        <br><strong>Plano B:</strong> Pagamento em @10@ parcelas mensais de @\text{R\$\ } 280{,}00@ sem entrada (primeira em 30 dias).
+        <br><strong>Plano C:</strong> Entrada imediata de @\text{R\$\ } 600{,}00@ e o saldo restante em @6@ prestações fixas de @\text{R\$\ } 340{,}00@.
+        <br>a) Determine o desembolso total nominal em cada plano.
+        <br>b) Calcule a taxa de juros simples mensal aparente embutida no Plano B em relação ao preço à vista com desconto do Plano A.
+        <br>c) Se um consumidor possui o valor integral do Plano A aplicado em um fundo de liquidez imediata com retorno de @1\%@ ao mês, qual estratégia de pagamento resulta em maior preservação de capital?
+      </p>
+    </li>
+
+    <!-- PROBLEMA 30 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST / Concursos</span>
+        <span class="topico">Anuidades e Perpetuidade na Aposentadoria</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>
+        Uma jovem de 25 anos planeja constituir uma carteira de investimentos que lhe garanta uma renda perpétua de @\text{R\$\ } 5.000{,}00@ ao mês a partir dos 55 anos de idade (ou seja, após 30 anos ou 360 meses de contribuição), sem consumir o montante principal acumulado.
+        <br>a) Admitindo que a carteira renda uma taxa real de juros de @0{,}5\%@ ao mês na fase de usufruto, qual é o patrimônio financeiro mínimo acumulado necessário (@P@)?
+        <br>b) Sabendo que o valor futuro de uma série uniforme de depósitos mensais postecipados de valor @A@ por @n@ períodos é dado por @VF = A \cdot \frac{(1+i)^n - 1}{i}@, determine o aporte mensal constante @A@ que ela deve investir durante os 360 meses à taxa real de @0{,}5\%@ ao mês para atingir o montante calculado no item anterior (considere @1{,}005^{360} \approx 6{,}0226@).
+      </p>
+    </li>
+
+    <!-- PROBLEMA 31 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ITA / Análise Financeira</span>
+        <span class="topico">Taxa Interna de Retorno (TIR)</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>
+        Um investidor adquiriu um título privado de renda fixa por @\text{R\$\ } 850{,}00@ no instante @t = 0@. O contrato estipula o pagamento de um cupom de juros de @\text{R\$\ } 50{,}00@ ao final do 1º ano (@t = 1@) e o pagamento final do cupom mais amortização no valor de @\text{R\$\ } 1.000{,}00@ ao término do 2º ano (@t = 2@).
+        <br>Determine a Taxa Interna de Retorno (TIR) anual dessa operação resolvendo a equação quadrática em função do fator de desconto @x = (1 + i)^{-1}@ (considere @\sqrt{1361} \approx 36{,}89@).
+      </p>
+    </li>
+
+    <!-- PROBLEMA 32 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">Planejamento Patrimonial</span>
+        <span class="topico">Custo de Oportunidade: Comprar vs. Alugar</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>
+        Um indivíduo dispõe de @\text{R\$\ } 500.000{,}00@ e pondera entre duas opções financeiras para moradia:
+        <br><strong>Opção 1:</strong> Comprar à vista um imóvel residencial no valor de @\text{R\$\ } 500.000{,}00@, arcando apenas com custos de manutenção desprezíveis no período.
+        <br><strong>Opção 2:</strong> Manter os @\text{R\$\ } 500.000{,}00@ integralmente aplicados em um portfólio que rende taxa líquida real de @0{,}7\%@ ao mês e morar em um imóvel idêntico alugado por @\text{R\$\ } 2.000{,}00@ mensais (ou seja, @0{,}4\%@ do valor do imóvel), pagando o aluguel religiosamente com os próprios rendimentos auferidos no mês.
+        <br>a) Calcule os rendimentos mensais gerados pela aplicação logo no primeiro mês e o montante líquido excedente que será reinvestido no capital principal.
+        <br>b) Explique, sob a ótica da equivalência de fluxos e do custo de oportunidade, por que a opção de alugar e reinvestir o excedente gera maior patrimônio financeiro no médio prazo quando o rendimento líquido da aplicação supera o custo do aluguel.
+      </p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS (8 PROBLEMAS)
+     ============================================================================ -->
+<article>
+  <h2>Seção 4: Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para consolidação do domínio operacional e conceitual de matemática comercial, taxas de desconto e amortizações.
+  </p>
+
+  <ol start="33">
+    <!-- PROBLEMA 33 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Descontos e Acréscimos Sucessivos</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>
+        Um artigo de vestuário teve seu preço reduzido em @20\%@ em uma promoção relâmpago. Terminada a promoção, o novo preço foi reajustado com um aumento de @25\%@. Determine se o preço final ficou maior, menor ou igual ao preço original antes do desconto.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 34 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Juros Simples com Prazo em Meses e Taxa Anual</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>
+        Um capital de @\text{R\$\ } 8.000{,}00@ foi aplicado à taxa simples de @18\%@ ao ano durante o período de @7@ meses. Calcule o montante final obtido.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 35 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Taxa Nominal e Efetiva Anual</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>
+        Uma linha de crédito empresarial informa uma taxa nominal de juros de @36\%@ ao ano, com capitalização mensal. Calcule a taxa efetiva anual dessa operação (considere @1{,}03^{12} \approx 1{,}42576@).
+      </p>
+    </li>
+
+    <!-- PROBLEMA 36 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Taxa Implícita em 1 + 2 Parcelas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>
+        Um produto cujo preço à vista é @\text{R\$\ } 800{,}00@ é vendido em plano "1 + 2" parcelas mensais iguais de @\text{R\$\ } 300{,}00@ (uma entrada de @\text{R\$\ } 300{,}00@ e duas parcelas mensais consecutivas de @\text{R\$\ } 300{,}00@). Formule a equação de valor presente e verifique se a taxa mensal é superior a @10\%@ ao mês (considere para @i = 13\%@ os valores @(1{,}13)^{-1} \approx 0{,}885@ e @(1{,}13)^{-2} \approx 0{,}783@).
+      </p>
+    </li>
+
+    <!-- PROBLEMA 37 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Taxa Real com Inflação Negativa ou Baixa</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>
+        Um título de renda fixa remunerou uma taxa aparente de @12\%@ em um período em que a inflação medida pelo IPCA foi de @4{,}5\%@. Determine a rentabilidade real obtida pelo aplicador.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 38 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Substituição de Títulos em Data Futura</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>
+        Dois títulos de valores nominais @\text{R\$\ } 10.000{,}00@ e @\text{R\$\ } 20.000{,}00@ vencem, respectivamente, em @3@ e @6@ meses. Devedor e credor acordam substituir ambos os pagamentos por um único título a vencer no final do mês @12@. Sob a taxa de juros compostos de @2\%@ ao mês, determine o valor nominal do novo título (dados: @1{,}02^9 \approx 1{,}195093@ e @1{,}02^6 \approx 1{,}126162@).
+      </p>
+    </li>
+
+    <!-- PROBLEMA 39 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Análise de Projeto via VPL</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>
+        Um projeto de automação requer investimento de @\text{R\$\ } 50.000{,}00@ e promete gerar economias líquidas de caixa de @\text{R\$\ } 30.000{,}00@ ao final do ano 1 e @\text{R\$\ } 30.000{,}00@ ao final do ano 2. Se a taxa de desconto da empresa for @8\%@ ao ano, determine o VPL do projeto e decida se a automação é economicamente rentável.
+      </p>
+    </li>
+
+    <!-- PROBLEMA 40 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Evolução do Saldo Devedor na Tabela SAC</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>
+        Um financiamento de @\text{R\$\ } 60.000{,}00@ é contraído pelo SAC em @24@ parcelas mensais à taxa de @1{,}5\%@ ao mês. Calcule a amortização mensal @A@, o saldo devedor logo após o pagamento da @11^{\text{a}}@ parcela e o valor exato da @12^{\text{a}}@ prestação.
+      </p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     GABARITO E RESOLUÇÕES DETALHADAS
+     ============================================================================ -->
+<details class="gabarito-container">
+  <summary>📖 Clique aqui para ver o Gabarito com Resoluções Passo a Passo</summary>
+  <div class="gabarito-content">
+
+    <!-- GABARITO SEÇÃO 1 -->
+    <div class="gabarito-secao">
+      <h3>Seção 1: Problemas Introdutórios</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Cálculo da multa de 15%: @\text{Multa} = 0{,}15 \times 420{,}00 = \text{R\$\ } 63{,}00@.<br>
+          Total a ser pago: @420{,}00 + 63{,}00 = \text{R\$\ } 483{,}00@.<br>
+          <strong>Resposta:</strong> Multa: @\text{R\$\ } 63{,}00@; Total: @\text{R\$\ } 483{,}00@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Desconto de 12%: @\text{Desconto} = 0{,}12 \times 1.800{,}00 = \text{R\$\ } 216{,}00@.<br>
+          Preço líquido: @1.800{,}00 - 216{,}00 = \text{R\$\ } 1.584{,}00@.<br>
+          <strong>Resposta:</strong> Desconto: @\text{R\$\ } 216{,}00@; Preço à vista: @\text{R\$\ } 1.584{,}00@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Após aumento de 10%: @P_1 = 500{,}00 \times 1{,}10 = \text{R\$\ } 550{,}00@.<br>
+          Após desconto de 10% sobre o novo valor: @P_2 = 550{,}00 \times (1 - 0{,}10) = 550{,}00 \times 0{,}90 = \text{R\$\ } 495{,}00@.<br>
+          Fator acumulado: @1{,}10 \times 0{,}90 = 0{,}99@, o que representa uma redução líquida de @1 - 0{,}99 = 0{,}01 = 1\%@.<br>
+          <strong>Resposta:</strong> Preço final: @\text{R\$\ } 495{,}00@; Variação acumulada: redução de @1\%@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          No regime simples: @J = C \cdot i \cdot t@.<br>
+          @J = 3.000 \cdot 0{,}02 \cdot 8 = 3.000 \cdot 0{,}16 = \text{R\$\ } 480{,}00@.<br>
+          Montante: @M = C + J = 3.000{,}00 + 480{,}00 = \text{R\$\ } 3.480{,}00@.<br>
+          <strong>Resposta:</strong> Juros: @\text{R\$\ } 480{,}00@; Montante: @\text{R\$\ } 3.480{,}00@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Pela fórmula dos juros simples: @J = C \cdot i \cdot t \implies 900 = 5.000 \cdot 0{,}015 \cdot t@.<br>
+          @900 = 75 \cdot t \implies t = \frac{900}{75} = 12\text{ meses}@.<br>
+          <strong>Resposta:</strong> @12@ meses (ou @1@ ano).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          O juro gerado é @J = M - C = 5.200 - 4.000 = \text{R\$\ } 1.200{,}00@.<br>
+          Aplicando na fórmula simples: @1.200 = 4.000 \cdot i \cdot 10 = 40.000 \cdot i@.<br>
+          @i = \frac{1.200}{40.000} = 0{,}03 = 3\%@ ao mês.<br>
+          <strong>Resposta:</strong> @3\%@ ao mês.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Fórmula dos juros compostos: @M = C(1 + i)^t@.<br>
+          @M = 2.000 \cdot (1 + 0{,}01)^4 = 2.000 \cdot 1{,}01^4@.<br>
+          Como @1{,}01^4 = 1{,}04060401@, temos @M = 2.000 \cdot 1{,}04060401 = \text{R\$\ } 2.081{,}21@.<br>
+          <strong>Resposta:</strong> @\text{R\$\ } 2.081{,}21@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Em juros simples: @M_s = C(1 + i \cdot t) = 10.000 \cdot (1 + 0{,}10 \cdot 3) = 10.000 \cdot 1{,}30 = \text{R\$\ } 13.000{,}00@.<br>
+          Em juros compostos: @M_c = C(1 + i)^t = 10.000 \cdot (1{,}10)^3 = 10.000 \cdot 1{,}331 = \text{R\$\ } 13.310{,}00@.<br>
+          Diferença: @13.310{,}00 - 13.000{,}00 = \text{R\$\ } 310{,}00@ a mais no regime composto.<br>
+          <strong>Resposta:</strong> @M_s = \text{R\$\ } 13.000{,}00@; @M_c = \text{R\$\ } 13.310{,}00@; Ganho adicional: @\text{R\$\ } 310{,}00@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Temos @M = 13.000@, @i = 0{,}02@ e @t = 3@.<br>
+          @C = \frac{M}{(1+i)^t} = \frac{13.000}{(1{,}02)^3} = \frac{13.000}{1{,}061208} \approx \text{R\$\ } 12.250{,}19@.<br>
+          <strong>Resposta:</strong> @\text{R\$\ } 12.250{,}19@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Desconto de INSS: @0{,}08 \times 3.000 = \text{R\$\ } 240{,}00@.<br>
+          Desconto de VT: @0{,}06 \times 3.000 = \text{R\$\ } 180{,}00@.<br>
+          Total de deduções: @240 + 180 = \text{R\$\ } 420{,}00@.<br>
+          Salário líquido: @3.000 - 420 = \text{R\$\ } 2.580{,}00@.<br>
+          <strong>Resposta:</strong> Total de descontos: @\text{R\$\ } 420{,}00@; Salário líquido: @\text{R\$\ } 2.580{,}00@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- GABARITO SEÇÃO 2 -->
+    <div class="gabarito-secao">
+      <h3>Seção 2: Problemas de Fixação</h3>
+      <ol start="11">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Taxa proporcional simples: @i_m = \frac{24\%}{12} = 2\%@ ao mês.<br>
+          b) Taxa equivalente composta: @(1 + i_m)^{12} = 1 + 0{,}24 = 1{,}24 \implies 1 + i_m = \sqrt[12]{1{,}24} \approx 1{,}0181 \implies i_m \approx 1{,}81\%@ ao mês.<br>
+          <strong>Resposta:</strong> a) @2\%@ a.m.; b) @\approx 1{,}81\%@ a.m.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Um semestre tem 2 trimestres: @(1 + i_t)^2 = 1 + 0{,}08 = 1{,}08 \implies 1 + i_t = \sqrt{1{,}08} \approx 1{,}0392 \implies i_t \approx 3{,}92\%@ ao trimestre.<br>
+          b) Doze meses no ano: @1 + i_a = (1 + 0{,}01)^{12} \approx 1{,}1268 \implies i_a \approx 12{,}68\%@ ao ano.<br>
+          <strong>Resposta:</strong> a) @\approx 3{,}92\%@ ao trimestre; b) @\approx 12{,}68\%@ ao ano.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          No desconto racional simples: @A_r = \frac{N}{1 + d \cdot t} = \frac{12.000}{1 + 0{,}025 \cdot 4} = \frac{12.000}{1 + 0{,}10} = \frac{12.000}{1{,}10} \approx \text{R\$\ } 10.909{,}09@.<br>
+          O desconto racional é: @D_r = N - A_r = 12.000 - 10.909{,}09 = \text{R\$\ } 1.090{,}91@.<br>
+          <strong>Resposta:</strong> @A_r \approx \text{R\$\ } 10.909{,}09@; @D_r \approx \text{R\$\ } 1.090{,}91@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          No desconto comercial simples: @D_c = N \cdot d \cdot t = 12.000 \cdot 0{,}025 \cdot 4 = 12.000 \cdot 0{,}10 = \text{R\$\ } 1.200{,}00@.<br>
+          Valor atual comercial: @A_c = N - D_c = 12.000 - 1.200 = \text{R\$\ } 10.800{,}00@.<br>
+          Diferença entre os descontos: @D_c - D_r = 1.200{,}00 - 1.090{,}91 = \text{R\$\ } 109{,}09@.<br>
+          <strong>Resposta:</strong> @D_c = \text{R\$\ } 1.200{,}00@; @A_c = \text{R\$\ } 10.800{,}00@; Diferença: @\text{R\$\ } 109{,}09@ (o desconto comercial é sempre mais oneroso ao cliente).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Desconto bancário: @D_c = 10.000 \cdot 0{,}04 \cdot 3 = \text{R\$\ } 1.200{,}00@.<br>
+          Valor líquido recebido: @A_c = 10.000 - 1.200 = \text{R\$\ } 8.800{,}00@.<br>
+          Taxa efetiva linear mensal: @8.800(1 + 3 \cdot i_{ef}) = 10.000 \implies 3 \cdot i_{ef} = \frac{1.200}{8.800} = \frac{3}{22} \approx 0{,}13636 \implies i_{ef} = \frac{1}{22} \approx 0{,}04545 = 4{,}55\%@ ao mês.<br>
+          <strong>Resposta:</strong> Valor recebido: @\text{R\$\ } 8.800{,}00@; Taxa efetiva mensal: @\approx 4{,}55\%@ a.m. (superior aos 4% nominais contratados).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Preço à vista: @\text{R\$\ } 1.200{,}00@. Entrada imediata: @\text{R\$\ } 650{,}00@.<br>
+          Saldo devedor financiado: @1.200 - 650 = \text{R\$\ } 550{,}00@.<br>
+          Após 30 dias, paga-se @\text{R\$\ } 650{,}00@, logo os juros foram @650 - 550 = \text{R\$\ } 100{,}00@.<br>
+          Taxa mensal: @i = \frac{100}{550} = \frac{2}{11} \approx 0{,}1818 = 18{,}18\%@ ao mês.<br>
+          <strong>Resposta:</strong> @18{,}18\%@ ao mês.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Equação de valor presente: @3.000 = \frac{1.600}{1+i} + \frac{1.600}{(1+i)^2}@.<br>
+          Dividindo por 100 e definindo @x = \frac{1}{1+i}@: @30 = 16x + 16x^2 \implies 16x^2 + 16x - 30 = 0 \implies 8x^2 + 8x - 15 = 0@.<br>
+          Fórmula de Bhaskara: @\Delta = 8^2 - 4(8)(-15) = 64 + 480 = 544@.<br>
+          Como @\sqrt{544} \approx 23{,}32@, temos @x = \frac{-8 + 23{,}32}{16} = \frac{15{,}32}{16} \approx 0{,}9575@.<br>
+          Portanto, @1 + i = \frac{1}{0{,}9575} \approx 1{,}0444 \implies i \approx 4{,}44\%@ ao mês.<br>
+          <strong>Resposta:</strong> @\approx 4{,}44\%@ ao mês.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Pela Equação de Fisher: @1 + i_{ap} = (1 + i_r)(1 + i_p)@.<br>
+          Substituindo @i_{ap} = 0{,}134@ e @i_p = 0{,}06@:<br>
+          @1{,}134 = (1 + i_r) \cdot 1{,}06 \implies 1 + i_r = \frac{1{,}134}{1{,}06} = 1{,}07@.<br>
+          Logo, @i_r = 0{,}07 = 7\%@ ao ano.<br>
+          <strong>Resposta:</strong> @7\%@ ao ano.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Para recompor os 8% de inflação: @S_{\text{novo}} = 4.000 \times 1{,}08 = \text{R\$\ } 4.320{,}00@.<br>
+          b) O poder de compra do salário de @4.000@ equivale a @\frac{4.000}{1{,}08} \approx 3.703{,}70@ em moeda de poder aquisitivo constante.<br>
+          A perda real relativa é @1 - \frac{1}{1{,}08} = \frac{0{,}08}{1{,}08} \approx 0{,}07407 = 7{,}41\%@.<br>
+          <strong>Resposta:</strong> a) @\text{R\$\ } 4.320{,}00@; b) Perda real de @\approx 7{,}41\%@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Depreciação composta de 15% a.a. por 3 anos:<br>
+          @V(3) = 80.000 \cdot (1 - 0{,}15)^3 = 80.000 \cdot (0{,}85)^3@.<br>
+          Calculando @0{,}85^3 = 0{,}614125@.<br>
+          @V(3) = 80.000 \cdot 0{,}614125 = \text{R\$\ } 49.130{,}00@.<br>
+          <strong>Resposta:</strong> @\text{R\$\ } 49.130{,}00@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Valor presente composto: @A = \frac{N}{(1+i)^n} = \frac{5.000}{(1{,}02)^6} = \frac{5.000}{1{,}126162} \approx \text{R\$\ } 4.439{,}86@.<br>
+          Desconto obtido: @D = 5.000 - 4.439{,}86 = \text{R\$\ } 560{,}14@.<br>
+          <strong>Resposta:</strong> Valor pago: @\text{R\$\ } 4.439{,}86@; Economia: @\text{R\$\ } 560{,}14@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Despesas fixas (55%): @0{,}55 \times 7.500 = \text{R\$\ } 4.125{,}00@.<br>
+          Despesas variáveis (30%): @0{,}30 \times 7.500 = \text{R\$\ } 2.250{,}00@.<br>
+          Poupança original (15%): @0{,}15 \times 7.500 = \text{R\$\ } 1.125{,}00@.<br>
+          b) Novas despesas variáveis com aumento de 20%: @2.250 \times 1{,}20 = \text{R\$\ } 2.700{,}00@.<br>
+          Total de gastos: @4.125 + 2.700 = \text{R\$\ } 6.825{,}00@.<br>
+          Nova poupança mensal: @7.500 - 6.825 = \text{R\$\ } 675{,}00@.<br>
+          Percentual: @\frac{675}{7.500} = 9\%@.<br>
+          <strong>Resposta:</strong> a) Fixas: @\text{R\$\ } 4.125{,}00@, Variáveis: @\text{R\$\ } 2.250{,}00@, Poupança: @\text{R\$\ } 1.125{,}00@; b) Nova poupança: @\text{R\$\ } 675{,}00@ (@9\%@ da renda).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Juros rotativos: @2.000 \times 0{,}14 = \text{R\$\ } 280{,}00@.<br>
+          IOF fixo (0,38%): @2.000 \times 0{,}0038 = \text{R\$\ } 7{,}60@.<br>
+          IOF diário (0,0082% ao dia por 30 dias = 0,246%): @2.000 \times 0{,}00246 = \text{R\$\ } 4{,}92@.<br>
+          IOF total: @7{,}60 + 4{,}92 = \text{R\$\ } 12{,}52@.<br>
+          Dívida total após 30 dias: @2.000 + 280 + 12{,}52 = \text{R\$\ } 2.292{,}52@.<br>
+          <strong>Resposta:</strong> Juros: @\text{R\$\ } 280{,}00@; IOF: @\text{R\$\ } 12{,}52@; Dívida consolidada: @\text{R\$\ } 2.292{,}52@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          <strong>Opção A (Tesouro Selic):</strong><br>
+          Rendimento bruto: @10.000 \times 0{,}105 = \text{R\$\ } 1.050{,}00@.<br>
+          Imposto de Renda (17,5% sobre o rendimento): @1.050 \times 0{,}175 = \text{R\$\ } 183{,}75@.<br>
+          Taxa B3 (0,2% sobre o total investido): @10.000 \times 0{,}002 = \text{R\$\ } 20{,}00@.<br>
+          Rendimento líquido Selic: @1.050 - 183{,}75 - 20{,}00 = \text{R\$\ } 846{,}25@. Montante resgatado: @\text{R\$\ } 10.846{,}25@.<br>
+          <strong>Opção B (Poupança):</strong><br>
+          Rendimento isento: @10.000 \times 0{,}0617 = \text{R\$\ } 617{,}00@. Montante resgatado: @\text{R\$\ } 10.617{,}00@.<br>
+          O Tesouro Selic rende @846{,}25 - 617{,}00 = \text{R\$\ } 229{,}25@ a mais.<br>
+          <strong>Resposta:</strong> Tesouro Selic líquido: @\text{R\$\ } 10.846{,}25@; Poupança: @\text{R\$\ } 10.617{,}00@; O Tesouro Selic é mais vantajoso com ganho extra de @\text{R\$\ } 229{,}25@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- GABARITO SEÇÃO 3 -->
+    <div class="gabarito-secao">
+      <h3>Seção 3: Problemas de Aprofundamento</h3>
+      <ol start="25">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) No SAC, a amortização mensal é constante: @A = \frac{C}{n} = \frac{120.000}{60} = \text{R\$\ } 2.000{,}00@ ao mês.<br>
+          b) Prestação no mês @k@: @P_k = A + J_k = 2.000 + 0{,}01 \cdot SD_{k-1}@.<br>
+          • Para @k = 1@: @SD_0 = 120.000 \implies J_1 = 1.200 \implies P_1 = 2.000 + 1.200 = \text{R\$\ } 3.200{,}00@.<br>
+          • Para @k = 30@: @SD_{29} = 120.000 - 29 \times 2.000 = 120.000 - 58.000 = 62.000 \implies J_{30} = 620 \implies P_{30} = 2.000 + 620 = \text{R\$\ } 2.620{,}00@.<br>
+          • Para @k = 60@: @SD_{59} = 2.000 \implies J_{60} = 0{,}01 \times 2.000 = 20 \implies P_{60} = 2.000 + 20 = \text{R\$\ } 2.020{,}00@.<br>
+          c) Os juros mensais decrescem linearmente formando uma PA: @(1.200, 1.180, \dots, 20)@ com @60@ termos e razão @r = -20@.<br>
+          Soma dos juros: @S_J = \frac{60 \cdot (1.200 + 20)}{2} = 30 \cdot 1.220 = \text{R\$\ } 36.600{,}00@.<br>
+          <strong>Resposta:</strong> a) @A = \text{R\$\ } 2.000{,}00@; b) @P_1 = \text{R\$\ } 3.200{,}00@, @P_{30} = \text{R\$\ } 2.620{,}00@, @P_{60} = \text{R\$\ } 2.020{,}00@; c) Total de juros: @\text{R\$\ } 36.600{,}00@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Cálculo da prestação constante (Price):<br>
+          @P = 40.000 \cdot \frac{0{,}02 \times 1{,}082432}{1{,}082432 - 1} = 40.000 \cdot \frac{0{,}02164864}{0{,}082432} = 40.000 \cdot 0{,}262624 = \text{R\$\ } 10.504{,}96@.<br>
+          b) Planilha de Amortização Price:<br>
+          <table class="finance-table">
+            <thead>
+              <tr><th>Mês (@k@)</th><th>Prestação (@P@)</th><th>Juros (@J = 2\% \cdot SD_{k-1}@)</th><th>Amortização (@A = P - J@)</th><th>Saldo Devedor (@SD@)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0</td><td>-</td><td>-</td><td>-</td><td>R$ 40.000,00</td></tr>
+              <tr><td>1</td><td>R$ 10.504,96</td><td>R$ 800,00</td><td>R$ 9.704,96</td><td>R$ 30.295,04</td></tr>
+              <tr><td>2</td><td>R$ 10.504,96</td><td>R$ 605,90</td><td>R$ 9.899,06</td><td>R$ 20.395,98</td></tr>
+              <tr><td>3</td><td>R$ 10.504,96</td><td>R$ 407,92</td><td>R$ 10.097,04</td><td>R$ 10.298,94</td></tr>
+              <tr><td>4</td><td>R$ 10.504,96</td><td>R$ 205,98</td><td>R$ 10.298,98</td><td>R$ 0,00</td></tr>
+              <tr><th>Total</th><th>R$ 42.019,84</th><th>R$ 2.019,84</th><th>R$ 40.000,00</th><th>-</th></tr>
+            </tbody>
+          </table>
+          c) No SAC em 4 meses: @A = 10.000@; Juros = @800 + 600 + 400 + 200 = \text{R\$\ } 2.000{,}00@.<br>
+          No Sistema Price paga-se @\text{R\$\ } 2.019{,}84@ em juros (@\text{R\$\ } 19{,}84@ a mais do que no SAC), pois no SAC o saldo devedor é abatido mais rapidamente no início.<br>
+          <strong>Resposta:</strong> Prestação Price: @\text{R\$\ } 10.504{,}96@; Juros Price: @\text{R\$\ } 2.019{,}84@ vs. Juros SAC: @\text{R\$\ } 2.000{,}00@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Levando ambos os valores para a data focal @4@ sob @i = 1{,}5\% = 0{,}015@ a.m.:<br>
+          • O capital de @\text{R\$\ } 50.000{,}00@ que vence no mês 2 avança 2 meses até o mês 4:<br>
+          @V_1 = 50.000 \cdot (1{,}015)^2 = 50.000 \cdot 1{,}030225 = \text{R\$\ } 51.511{,}25@.<br>
+          • O capital de @\text{R\$\ } 70.000{,}00@ que vence no mês 5 recua 1 mês até o mês 4:<br>
+          @V_2 = \frac{70.000}{1{,}015} \approx 70.000 \cdot 0{,}985222 \approx \text{R\$\ } 68.965{,}54@.<br>
+          O valor nominal equivalente @X@ na data focal 4 é a soma dos capitais homogêneos:<br>
+          @X = 51.511{,}25 + 68.965{,}54 = \text{R\$\ } 120.476{,}79@.<br>
+          <strong>Resposta:</strong> @\text{R\$\ } 120.476{,}79@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Calculando o valor presente dos fluxos de caixa a uma taxa de @10\%@ a.a.:<br>
+          @VP(FC_1) = \frac{35.000}{1{,}10} = \text{R\$\ } 31.818{,}18@.<br>
+          @VP(FC_2) = \frac{45.000}{(1{,}10)^2} = \frac{45.000}{1{,}21} = \text{R\$\ } 37.190{,}08@.<br>
+          @VP(FC_3) = \frac{50.000}{(1{,}10)^3} = \frac{50.000}{1{,}331} = \text{R\$\ } 37.565{,}74@.<br>
+          Soma do valor presente dos fluxos operacionais:<br>
+          @VP_{\text{total}} = 31.818{,}18 + 37.190{,}08 + 37.565{,}74 = \text{R\$\ } 106.574{,}00@.<br>
+          Valor Presente Líquido:<br>
+          @VPL = VP_{\text{total}} - I_0 = 106.574{,}00 - 100.000{,}00 = +\text{R\$\ } 6.574{,}00@.<br>
+          Como @VPL > 0@, o projeto remunera o capital acima da TMA de 10% e deve ser aprovado.<br>
+          <strong>Resposta:</strong> @VPL = +\text{R\$\ } 6.574{,}00@; O projeto é economicamente viável e deve ser aceito.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Desembolso total:<br>
+          • Plano A: @2.400 \times 0{,}90 = \text{R\$\ } 2.160{,}00@.<br>
+          • Plano B: @10 \times 280 = \text{R\$\ } 2.800{,}00@.<br>
+          • Plano C: @600 + 6 \times 340 = 600 + 2.040 = \text{R\$\ } 2.640{,}00@.<br>
+          b) Em relação ao preço à vista (@2.160{,}00@), os juros no Plano B somam @2.800 - 2.160 = \text{R\$\ } 640{,}00@ ao longo de 10 meses.<br>
+          Taxa linear aproximada no período: @\frac{640}{2.160} \approx 0{,}2963 = 29{,}63\%@ em 10 meses, ou seja, @\approx 2{,}96\%@ ao mês.<br>
+          c) Se o dinheiro render 1% a.m., pagar à vista com 10% de desconto imediato equivale a economizar 10% instantaneamente, o que supera expressivamente os rendimentos de 1% gerados mês a mês na aplicação. Logo, o Plano A é a melhor decisão financeira.<br>
+          <strong>Resposta:</strong> a) A: R$ 2.160,00; B: R$ 2.800,00; C: R$ 2.640,00; b) @\approx 2{,}96\%@ a.m.; c) Plano A (à vista com desconto).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Numa perpetuidade com taxa @i@: @R = P \cdot i \implies P = \frac{R}{i}@.<br>
+          Com @R = 5.000@ e @i = 0{,}005@ (@0{,}5\%@ a.m.):<br>
+          @P = \frac{5.000}{0{,}005} = \text{R\$\ } 1.000.000{,}00@.<br>
+          b) Fórmula da série de depósitos: @VF = A \cdot \frac{(1+i)^n - 1}{i}@.<br>
+          @1.000.000 = A \cdot \frac{6{,}0226 - 1}{0{,}005} = A \cdot \frac{5{,}0226}{0{,}005} = A \cdot 1.004{,}52@.<br>
+          @A = \frac{1.000.000}{1.004{,}52} \approx \text{R\$\ } 995{,}50@ por mês.<br>
+          <strong>Resposta:</strong> a) @\text{R\$\ } 1.000.000{,}00@; b) Aporte mensal de @\approx \text{R\$\ } 995{,}50@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Equação da TIR na data @0@: @850 = \frac{50}{1+i} + \frac{1.000}{(1+i)^2}@.<br>
+          Definindo @x = \frac{1}{1+i}@: @850 = 50x + 1.000x^2 \implies 1.000x^2 + 50x - 850 = 0@.<br>
+          Dividindo tudo por 50: @20x^2 + x - 17 = 0@.<br>
+          Discriminante: @\Delta = 1^2 - 4(20)(-17) = 1 + 1.360 = 1.361@.<br>
+          Como @\sqrt{1.361} \approx 36{,}89@, temos:<br>
+          @x = \frac{-1 + 36{,}89}{40} = \frac{35{,}89}{40} \approx 0{,}89725@.<br>
+          Calculando a taxa: @1 + i = \frac{1}{0{,}89725} \approx 1{,}1145 \implies i \approx 11{,}45\%@ ao ano.<br>
+          <strong>Resposta:</strong> @\text{TIR} \approx 11{,}45\%@ ao ano.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) No primeiro mês, a carteira de @\text{R\$\ } 500.000{,}00@ rende @0{,}7\%@ líquido:<br>
+          @\text{Rendimento} = 500.000 \times 0{,}007 = \text{R\$\ } 3.500{,}00@.<br>
+          Pagando o aluguel de @\text{R\$\ } 2.000{,}00@, resta o excedente de @3.500 - 2.000 = \text{R\$\ } 1.500{,}00@ reinvestido na própria aplicação.<br>
+          b) O custo de moradia na opção de compra é o custo de oportunidade de imobilizar @\text{R\$\ } 500.000{,}00@. Como a taxa de retorno real da aplicação (@0{,}7\%@ a.m.) é muito maior do que o custo de locação do ativo (@0{,}4\%@ a.m.), manter o capital investido permite custear integralmente a moradia e ainda gerar um fluxo contínuo de aporte líquido (@\text{R\$\ } 1.500{,}00@ no mês 1 e crescente com os juros compostos), maximizando o patrimônio financeiro no longo prazo.<br>
+          <strong>Resposta:</strong> a) Rendimento: @\text{R\$\ } 3.500{,}00@; Excedente reinvestido: @\text{R\$\ } 1.500{,}00@; b) O rendimento líquido superando o custo do aluguel viabiliza a acumulação patrimonial contínua.
+        </li>
+      </ol>
+    </div>
+
+    <!-- GABARITO SEÇÃO 4 -->
+    <div class="gabarito-secao">
+      <h3>Seção 4: Problemas Propostos</h3>
+      <ol start="33">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Fator após redução de 20%: @1 - 0{,}20 = 0{,}80@.<br>
+          Fator após aumento de 25%: @1 + 0{,}25 = 1{,}25@.<br>
+          Fator combinado acumulado: @0{,}80 \times 1{,}25 = 1{,}00@.<br>
+          O preço final retornou rigorosamente ao valor original (@0\%@ de alteração líquida).<br>
+          <strong>Resposta:</strong> O preço final é exatamente igual ao preço original.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Taxa mensal proporcional: @i_m = \frac{18\%}{12} = 1{,}5\% = 0{,}015@ a.m.<br>
+          Juros simples para 7 meses: @J = 8.000 \cdot 0{,}015 \cdot 7 = 8.000 \cdot 0{,}105 = \text{R\$\ } 840{,}00@.<br>
+          Montante: @M = 8.000 + 840 = \text{R\$\ } 8.840{,}00@.<br>
+          <strong>Resposta:</strong> @\text{R\$\ } 8.840{,}00@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Taxa mensal: @i_m = \frac{36\%}{12} = 3\% = 0{,}03@ ao mês.<br>
+          Taxa efetiva anual: @1 + i_{ef} = (1 + 0{,}03)^{12} \approx 1{,}42576 \implies i_{ef} \approx 42{,}58\%@ ao ano.<br>
+          <strong>Resposta:</strong> @\approx 42{,}58\%@ ao ano.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Financiado: @800 - 300 = \text{R\$\ } 500{,}00@.<br>
+          Equação: @500 = \frac{300}{1+i} + \frac{300}{(1+i)^2}@.<br>
+          Testando para @i = 10\%@ (@x = \frac{1}{1{,}10} \approx 0{,}909@): @300(0{,}909 + 0{,}826) = 300 \cdot 1{,}7355 = 520{,}65 > 500@.<br>
+          Para @i = 13\%@: @300(0{,}885 + 0{,}783) = 300 \cdot 1{,}668 = 500{,}40 \approx 500@.<br>
+          A taxa embutida é de aproximadamente @13\%@ a.m., superando com folga os 10% a.m.<br>
+          <strong>Resposta:</strong> Sim, a taxa é de aproximadamente @13\%@ ao mês.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Pela Equação de Fisher: @1 + i_r = \frac{1 + i_{ap}}{1 + i_p} = \frac{1{,}12}{1{,}045} \approx 1{,}07177@.<br>
+          Logo, @i_r \approx 7{,}18\%@ no período.<br>
+          <strong>Resposta:</strong> @\approx 7{,}18\%@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Levando ambos os títulos ao mês 12:<br>
+          • Título 1 (vence no mês 3, capitaliza por 9 meses): @10.000 \cdot (1{,}02)^9 \approx 10.000 \cdot 1{,}195093 = \text{R\$\ } 11.950{,}93@.<br>
+          • Título 2 (vence no mês 6, capitaliza por 6 meses): @20.000 \cdot (1{,}02)^6 \approx 20.000 \cdot 1{,}126162 = \text{R\$\ } 22.523{,}24@.<br>
+          Valor único consolidado no mês 12: @11.950{,}93 + 22.523{,}24 = \text{R\$\ } 34.474{,}17@.<br>
+          <strong>Resposta:</strong> @\text{R\$\ } 34.474{,}17@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Descontando os fluxos a 8% a.a.:<br>
+          @VP = \frac{30.000}{1{,}08} + \frac{30.000}{(1{,}08)^2} = 27.777{,}78 + 25.720{,}16 = \text{R\$\ } 53.497{,}94@.<br>
+          @VPL = 53.497{,}94 - 50.000{,}00 = +\text{R\$\ } 3.497{,}94@.<br>
+          Como @VPL > 0@, o projeto agrega valor e deve ser executado.<br>
+          <strong>Resposta:</strong> @VPL = +\text{R\$\ } 3.497{,}94@; O projeto é rentável.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Amortização constante: @A = \frac{60.000}{24} = \text{R\$\ } 2.500{,}00@ ao mês.<br>
+          Após 11 parcelas quitadas, o total amortizado foi @11 \times 2.500 = \text{R\$\ } 27.500{,}00@.<br>
+          Saldo devedor residual: @SD_{11} = 60.000 - 27.500 = \text{R\$\ } 32.500{,}00@.<br>
+          Juros da 12ª prestação: @J_{12} = 0{,}015 \times 32.500 = \text{R\$\ } 487{,}50@.<br>
+          Valor da 12ª prestação: @P_{12} = A + J_{12} = 2.500 + 487{,}50 = \text{R\$\ } 2.987{,}50@.<br>
+          <strong>Resposta:</strong> Amortização: @\text{R\$\ } 2.500{,}00@; @SD_{11} = \text{R\$\ } 32.500{,}00@; @P_{12} = \text{R\$\ } 2.987{,}50@.
+        </li>
+      </ol>
+    </div>
+
+  </div>
+</details>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

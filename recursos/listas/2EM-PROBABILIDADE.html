@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lista de Problemas: Probabilidade</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil {
+      background-color: rgba(76, 175, 80, 0.3);
+    }
+
+    .dificuldade.media {
+      background-color: rgba(255, 193, 7, 0.3);
+    }
+
+    .dificuldade.dificil {
+      background-color: rgba(244, 67, 54, 0.3);
+    }
+
+    .dificuldade.desafio {
+      background-color: rgba(156, 39, 176, 0.3);
+    }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    /* Gabarito expansível */
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: bold;
+      color: #00ffcc;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+        <li><a href="../../recursos.html">RECURSOS</a></li>
+        <li><a href="../../dashboard.html">DASHBOARD</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+
+      <h1>PROBABILIDADE</h1>
+      <p class="section-intro">
+        Capítulo 7 — "Nessa vida, a única certeza é a incerteza... Temos chance?" Espaço amostral, probabilidade laplaciana, regra da adição, eventos complementares, probabilidade condicional, independência de eventos, Teorema da Probabilidade Total, Teorema de Bayes e distribuição binomial.
+      </p>
+
+      <!-- ============================================================================
+           SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS (10 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 1: Problemas Introdutórios</h2>
+        <p class="section-intro">
+          Conceitos essenciais de espaço amostral, eventos equiprováveis e cálculo direto pela definição clássica de Laplace: @P(A) = \frac{n(A)}{n(\Omega)}@.
+        </p>
+
+        <ol>
+          <!-- Problema 1 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Definição laplaciana em dados</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Um dado cúbico equilibrado com faces numeradas de 1 a 6 é lançado uma única vez. Calcule a probabilidade de a face voltada para cima exibir um número primo.
+            </p>
+          </li>
+
+          <!-- Problema 2 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Espaço amostral de dois dados</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Dois dados honestos comuns são lançados simultaneamente. Qual é a probabilidade de a soma dos dois números obtidos ser exatamente igual a 7?
+            </p>
+          </li>
+
+          <!-- Problema 3 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Baralho tradicional</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              De um baralho padrão completo contendo 52 cartas divididas em 4 naipes, retira-se uma carta aleatoriamente. Qual é a probabilidade de a carta retirada ser um Ás ou uma Dama?
+            </p>
+          </li>
+
+          <!-- Problema 4 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Urnas e evento complementar direto</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Uma urna opaca contém 7 bolas vermelhas, 5 bolas azuis e 8 bolas verdes, todas de mesmo tamanho e massa. Uma bola é sorteada ao acaso. Qual é a probabilidade de a bola sorteada NÃO ser verde?
+            </p>
+          </li>
+
+          <!-- Problema 5 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Lançamento de moedas</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Três moedas perfeitas são lançadas simultaneamente para o alto. Determine a probabilidade de se obterem exatamente duas caras e uma coroa.
+            </p>
+          </li>
+
+          <!-- Problema 6 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Divisibilidade em conjunto numérico</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Sorteia-se aleatoriamente um número inteiro no conjunto @\{1, 2, 3, \dots, 100\}@. Qual é a probabilidade de o número sorteado ser um múltiplo de 7?
+            </p>
+          </li>
+
+          <!-- Problema 7 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Evento impossível e evento certo</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Em um sorteio com uma urna contendo exclusivamente fichas numeradas de 1 a 10:
+              <br>a) Qual é a probabilidade de sair um número maior que 15?
+              <br>b) Qual é a probabilidade de sair um número natural menor que 12?
+              <br>Classifique cada um desses eventos.
+            </p>
+          </li>
+
+          <!-- Problema 8 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Probabilidade e Diagrama de Venn</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Em uma turma de 40 estudantes do Ensino Médio, 24 jogam futebol, 16 jogam voleibol e 8 praticam ambas as modalidades. Ao sortear um estudante dessa turma ao acaso, qual é a probabilidade de ele não praticar nenhuma dessas duas modalidades esportivas?
+            </p>
+          </li>
+
+          <!-- Problema 9 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">União de eventos simples na roleta</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Uma roleta de brinquedo possui 12 setores circulares idênticos numerados de 1 a 12. Ao girar a roleta, qual é a probabilidade de o ponteiro parar em um número par ou em um número estritamente maior que 8?
+            </p>
+          </li>
+
+          <!-- Problema 10 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Diferença entre faces de dois dados</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Lançam-se dois dados convencionais não viciados. Qual é a probabilidade de que a diferença absoluta entre os números obtidos nas duas faces seja menor ou igual a 1?
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 2: PROBLEMAS DE FIXAÇÃO (14 Problemas com .dica)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 2: Problemas de Fixação</h2>
+        <p class="section-intro">
+          Exercícios contextualizados sobre probabilidade da união @P(A \cup B)@, eventos complementares, probabilidade condicional @P(A|B)@, multiplicação de probabilidades e amostragem com/sem reposição.
+        </p>
+
+        <ol start="11">
+          <!-- Problema 11 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Regra da adição / União de eventos</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Uma pesquisa em uma comunidade revelou que 45% dos moradores leem o Jornal da Cidade, 35% leem a Folha Local e 15% leem ambos os periódicos. Escolhendo ao acaso um morador dessa comunidade, qual é a probabilidade de ele ser leitor de pelo menos um desses jornais? E qual a probabilidade de não ler nenhum dos dois?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Aplique o princípio da inclusão para probabilidades: @P(A \cup B) = P(A) + P(B) - P(A \cap B)@. Para a segunda pergunta, use o evento complementar: @P((A \cup B)^c) = 1 - P(A \cup B)@.
+            </div>
+          </li>
+
+          <!-- Problema 12 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Eventos independentes e regra do "ao menos um"</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Três sistemas de alarme de segurança operam de forma independente para detectar vazamento de gás em uma indústria química. As probabilidades individuais de detecção de cada alarme são @P(A) = 0{,}80@, @P(B) = 0{,}70@ e @P(C) = 0{,}90@. Na ocorrência de um vazamento, qual é a probabilidade de o alarme soar (ou seja, de pelo menos um dos três detectores disparar)?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> O alarme falhará apenas se os três sistemas falharem simultaneamente. Como são independentes, @P(\text{todos falham}) = P(A^c) \cdot P(B^c) \cdot P(C^c)@. Em seguida, subtraia esse valor de 1.
+            </div>
+          </li>
+
+          <!-- Problema 13 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Probabilidade condicional em dados</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Dois dados perfeitos são lançados sobre uma mesa. O lançador observa o resultado e informa que a soma dos dois números obtidos foi igual a 8. Sabendo dessa informação, qual é a probabilidade condicional de que uma das faces sorteadas tenha sido o número 5?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Reduza o espaço amostral aos pares ordenados cuja soma é 8: @B = \{(2,6), (3,5), (4,4), (5,3), (6,2)\}@. Em seguida, conte quantos desses pares contêm o número 5 e calcule @\frac{n(A \cap B)}{n(B)}@.
+            </div>
+          </li>
+
+          <!-- Problema 14 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Amostragem sem reposição</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Um lote de controle de qualidade contém 10 peças metálicas, das quais exatamente 3 apresentam defeito de fabricação. Retiram-se aleatoriamente duas peças do lote, uma após a outra e SEM reposição. Calcule a probabilidade de que:
+              <br>a) Ambas as peças retiradas sejam defeituosas.
+              <br>b) Pelo menos uma das peças retiradas seja perfeita.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Para o item (a), use @P(D_1 \cap D_2) = P(D_1) \cdot P(D_2|D_1) = \frac{3}{10} \times \frac{2}{9}@. Para o item (b), note que é o complementar do evento "ambas são defeituosas".
+            </div>
+          </li>
+
+          <!-- Problema 15 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Amostragem com vs sem reposição</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Uma urna possui 6 bolas brancas e 4 bolas pretas. Duas bolas são extraídas sucessivamente.
+              <br>a) Se a extração for COM reposição, qual é a probabilidade de sortear uma bola branca e uma preta (em qualquer ordem)?
+              <br>b) Se a extração for SEM reposição, qual é a probabilidade do mesmo evento?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> O evento "uma branca e uma preta" pode ocorrer na ordem (Branca, Preta) ou (Preta, Branca). Some as duas probabilidades para cada modalidade de reposição.
+            </div>
+          </li>
+
+          <!-- Problema 16 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Tabela de contingência e probabilidade condicional</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Um grupo de 200 participantes de um estudo clínico foi classificado de acordo com a faixa etária e o resultado em um teste sorológico, conforme a tabela:
+              <br>• Jovens (até 30 anos): 50 com teste positivo e 70 com teste negativo;
+              <br>• Adultos/Idosos (acima de 30 anos): 60 com teste positivo e 20 com teste negativo.
+              <br>Se um participante for selecionado ao acaso:
+              <br>a) Qual a probabilidade de ele ter testado positivo?
+              <br>b) Dado que o participante selecionado é do grupo "Adultos/Idosos", qual é a probabilidade condicional de seu teste ter sido positivo?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> No item (a), some todos os positivos sobre 200. No item (b), restrinja o denominador apenas ao total de pessoas acima de 30 anos (@60 + 20 = 80@).
+            </div>
+          </li>
+
+          <!-- Problema 17 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Independência vs Exclusão mútua</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Sejam @A@ e @B@ dois eventos em um mesmo espaço amostral com @P(A) = 0{,}40@ e @P(B) = 0{,}50@.
+              <br>a) Se os eventos @A@ e @B@ forem estatisticamente independentes, calcule @P(A \cap B)@ e @P(A \cup B)@.
+              <br>b) Demonstre por que dois eventos @A@ e @B@ com probabilidades estritamente positivas (@P(A) > 0@ e @P(B) > 0@) NUNCA podem ser simultaneamente independentes e mutuamente exclusivos.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Por definição, se são mutuamente exclusivos, @P(A \cap B) = 0@. Se são independentes, @P(A \cap B) = P(A) \cdot P(B)@. Compare essas duas expressões quando as probabilidades são maiores que zero.
+            </div>
+          </li>
+
+          <!-- Problema 18 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cartas do mesmo naipe sem reposição</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Duas cartas são sorteadas consecutivamente sem reposição de um baralho tradicional de 52 cartas. Qual é a probabilidade de que ambas as cartas pertençam exatamente ao mesmo naipe?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> A primeira carta retirada pode ser de qualquer naipe (probabilidade 1). Das 51 cartas restantes no baralho, quantas possuem o mesmo naipe da primeira?
+            </div>
+          </li>
+
+          <!-- Problema 19 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Probabilidade em loteria e combinações</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Em uma mini-loteria escolar, uma urna contém 20 bolas numeradas de 1 a 20. São sorteadas 4 bolas simultaneamente. Um apostador marca um cartão com 4 números distintos.
+              <br>a) Qual é a probabilidade de o apostador acertar todos os 4 números sorteados (prêmio máximo)?
+              <br>b) Qual é a probabilidade de ele acertar exatamente 3 dos 4 números sorteados?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> O espaço amostral é @C_{20, 4}@. Para acertar exatamente 3 números, deve-se escolher 3 dos 4 números sorteados (@C_{4, 3}@) e 1 dos 16 números não sorteados (@C_{16, 1}@).
+            </div>
+          </li>
+
+          <!-- Problema 20 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Paradoxo do Aniversário (Versão introdutória)</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Considere um ano padrão não bissexto com 365 dias, todos equiprováveis para nascimentos. Em uma sala com 3 pessoas escolhidas aleatoriamente, calcule:
+              <br>a) A probabilidade de todas as 3 pessoas fazerem aniversário em dias distintos do ano.
+              <br>b) A probabilidade de pelo menos duas pessoas fazerem aniversário no mesmo dia.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Para dias distintos, a primeira pessoa pode nascer em qualquer um dos 365 dias; a segunda em 364 dias; a terceira em 363 dias. Use o evento complementar para o item (b).
+            </div>
+          </li>
+
+          <!-- Problema 21 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Transferência entre urnas</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              A Urna 1 contém 3 bolas brancas e 2 pretas. A Urna 2 contém 4 bolas brancas e 4 pretas. Uma bola é sorteada da Urna 1 e transferida para a Urna 2, sem que sua cor seja revelada. Em seguida, uma bola é retirada da Urna 2. Qual é a probabilidade de a bola retirada da Urna 2 ser branca?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Divida o problema em dois casos mutuamente exclusivos: a bola transferida da Urna 1 foi branca (probabilidade 3/5) ou foi preta (probabilidade 2/5). Calcule a probabilidade condicional de retirar branca da Urna 2 em cada cenário e some os resultados.
+            </div>
+          </li>
+
+          <!-- Problema 22 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Confiabilidade de sistemas em série e paralelo</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Um satélite científico opera com três módulos eletrônicos redundantes @M_1, M_2, M_3@. Cada módulo tem probabilidade independente de pane de @p = 0{,}10@ ao longo de um ano.
+              <br>a) Se os módulos estiverem configurados <strong>em paralelo</strong> (o sistema funciona se pelo menos um módulo estiver operacional), qual é a probabilidade de o sistema operar com sucesso?
+              <br>b) Se a configuração exigisse que todos os três operassem <strong>em série</strong> (o sistema falha se qualquer um falhar), qual seria a probabilidade de sucesso?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> No sistema paralelo, o fracasso ocorre apenas se todos falharem: @P(\text{falha}) = 0{,}10^3@. No sistema em série, o sucesso exige que todos funcionem: @(1 - 0{,}10)^3@.
+            </div>
+          </li>
+
+          <!-- Problema 23 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Probabilidade condicional clássica das duas crianças</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Sabe-se que uma família tem exatamente duas crianças e que cada criança tem probabilidade @1/2@ de nascer do sexo feminino (M) ou do sexo masculino (H), independentemente da ordem. Um vizinho sabe que pelo menos uma das crianças é menina. Qual é a probabilidade de ambas as crianças serem meninas?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> O espaço amostral completo ordenado por nascimento é @\Omega = \{(M,M), (M,H), (H,M), (H,H)\}@. Elimine o resultado impossível @(H,H)@ e analise os casos restantes.
+            </div>
+          </li>
+
+          <!-- Problema 24 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Distribuição geométrica — Tempo até o primeiro sucesso</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Um jogador lança um dado não viciado repetidas vezes até obter a face 6 pela primeira vez. Qual é a probabilidade de que ele consiga obter a face 6 em no máximo 3 lançamentos?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> O evento complementar é NÃO obter a face 6 nos 3 primeiros lançamentos consecutivos. A probabilidade de não sair 6 em cada tentativa é @5/6@.
+            </div>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO (8 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 3: Problemas de Aprofundamento</h2>
+        <p class="section-intro">
+          Problemas de alto impacto conceitual (ENEM, FUVEST, UNICAMP, ITA, OBMEP) abordando Teorema de Bayes em diagnósticos médicos, Teorema da Probabilidade Total, Paradoxo de Monty Hall, distribuição binomial e probabilidade geométrica.
+        </p>
+
+        <ol start="25">
+          <!-- Problema 25 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">FUVEST / Medicina</span>
+              <span class="topico">Teorema de Bayes em testes diagnósticos (Falsos Positivos)</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              Uma doença rara afeta 1 em cada 1.000 indivíduos de uma população (prevalência @P(D) = 0{,}001@). Foi desenvolvido um teste laboratorial para diagnosticar a doença com as seguintes características:
+              <br>• <strong>Sensibilidade:</strong> se a pessoa está doente, a probabilidade de o teste dar positivo é de 99% (@P(+|D) = 0{,}99@);
+              <br>• <strong>Especificidade:</strong> se a pessoa não está doente, a probabilidade de o teste dar negativo é de 95% (@P(-|D^c) = 0{,}95@, o que acarreta uma taxa de falso positivo de @P(+|D^c) = 0{,}05@).
+              <br>Uma pessoa dessa população é selecionada ao acaso e realiza o teste, cujo resultado é POSITIVO. Calcule a probabilidade real de essa pessoa realmente possuir a doença (@P(D|+)@) e interprete por que esse valor é inferior a 2%.
+            </p>
+          </li>
+
+          <!-- Problema 26 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">ENEM</span>
+              <span class="topico">Teorema da Probabilidade Total e Bayes em Linha de Produção</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Uma fábrica produz microprocessadores utilizando três máquinas industriais: @M_1, M_2@ e @M_3@.
+              <br>• A máquina @M_1@ é responsável por 50% de toda a produção da fábrica, e 2% de seus chips apresentam defeito;
+              <br>• A máquina @M_2@ responde por 30% da produção, e 3% de seus chips apresentam defeito;
+              <br>• A máquina @M_3@ fabrica os 20% restantes, e 5% de seus chips saem defeituosos.
+              <br>Todos os chips fabricados são armazenados juntos em um único depósito.
+              <br>a) Um chip é retirado ao acaso do depósito. Qual é a probabilidade de ele ser defeituoso?
+              <br>b) Constatado que o chip retirado é defeituoso, qual é a probabilidade de que ele tenha sido produzido pela máquina @M_1@?
+            </p>
+          </li>
+
+          <!-- Problema 27 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">OBMEP / Clássico</span>
+              <span class="topico">O Paradoxo de Monty Hall</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Em um programa de televisão, há três portas fechadas (@P_1, P_2, P_3@). Atrás de uma delas há um automóvel zero quilômetro e, atrás de cada uma das outras duas, há um bode. O participante escolhe a Porta 1 (que permanece fechada). O apresentador, que sabe exatamente onde está o carro, abre então a Porta 3, revelando um bode, e pergunta ao participante: "Você deseja manter sua escolha na Porta 1 ou prefere trocar para a Porta 2?".
+              <br>a) Calcule formalmente a probabilidade de vitória se o participante optar por manter a Porta 1.
+              <br>b) Calcule a probabilidade de vitória se o participante decidir trocar para a Porta 2 e explique matematicamente por que a troca é sempre vantajosa.
+            </p>
+          </li>
+
+          <!-- Problema 28 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">ITA</span>
+              <span class="topico">Distribuição Binomial de Probabilidade</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              Um arqueiro de alto rendimento possui probabilidade constante @p = \frac{2}{3}@ de acertar o centro do alvo em cada tiro disparado. Ele realiza uma série de 6 tiros independentes.
+              <br>a) Calcule a probabilidade exata de o arqueiro acertar o centro do alvo exatamente 4 vezes.
+              <br>b) Calcule a probabilidade de ele acertar o centro do alvo em pelo menos 5 dos 6 tiros.
+            </p>
+          </li>
+
+          <!-- Problema 29 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">UNICAMP</span>
+              <span class="topico">Probabilidade Geométrica no Plano Cartesiano</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              Dois amigos, Bernardo e Clara, combinaram de se encontrar em uma cafeteria entre 12h00 e 13h00. Cada um chega em um instante uniformemente distribuído e independente ao longo dessa hora. Como ambos têm compromissos posteriores, cada um concorda em esperar pelo outro por no máximo 15 minutos (1/4 de hora); se o outro não chegar nesse intervalo, quem chegou primeiro vai embora.
+              <br>Modelando o espaço amostral no plano cartesiano como o quadrado unitário @[0, 1] \times [0, 1]@, determine a probabilidade de que os dois amigos consigam se encontrar.
+            </p>
+          </li>
+
+          <!-- Problema 30 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">OBMEP / Problema dos Pontos</span>
+              <span class="topico">O Histórico Problema dos Pontos (Fermat e Pascal)</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 14 min</span>
+            </div>
+            <p>
+              Dois jogadores, @A@ e @B@, de habilidades idênticas disputam uma série de partidas em que não há empates. O campeão será aquele que primeiro acumular 5 vitórias, recebendo um prêmio de R$ 1.600,00. Contudo, por razões de força maior, o jogo precisa ser interrompido definitivamente no momento em que o jogador @A@ possui 4 vitórias e o jogador @B@ possui 2 vitórias.
+              <br>De acordo com o método probabilístico formulado por Blaise Pascal e Pierre de Fermat em 1654, qual fração justa do prêmio deve ser entregue ao jogador @A@ e qual ao jogador @B@?
+            </p>
+          </li>
+
+          <!-- Problema 31 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">FUVEST</span>
+              <span class="topico">Distribuição Hipergeométrica e Valor Esperado</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              Um lote de 15 semicondutores contém 5 unidades defeituosas e 10 perfeitas. Uma amostra aleatória de 4 semicondutores é selecionada simultaneamente para análise (amostragem sem reposição). Seja @X@ a variável aleatória que conta o número de semicondutores defeituosos na amostra.
+              <br>a) Determine a probabilidade de a amostra conter exatamente 2 unidades defeituosas (@P(X = 2)@).
+              <br>b) Calcule o valor esperado (média teórica) @E(X)@ de semicondutores defeituosos encontrados nessa amostra de tamanho 4.
+            </p>
+          </li>
+
+          <!-- Problema 32 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">Desafio Olímpico</span>
+              <span class="topico">Problema da Ruína do Jogador (Passeio Aleatório Unidimensional)</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 15 min</span>
+            </div>
+            <p>
+              Um jogador dispõe de um capital inicial de @k = 2@ moedas e aposta repetidamente contra um adversário que possui 3 moedas (o capital conjunto total é @N = 2 + 3 = 5@ moedas). A cada rodada, uma moeda não viciada é lançada: se der cara (probabilidade @1/2@), o jogador ganha 1 moeda do adversário; se der coroa (probabilidade @1/2@), o jogador perde 1 moeda para o adversário. O jogo cessa quando um dos participantes atinge 0 moedas (ruína).
+              <br>a) Demonstre que a probabilidade de ruína do adversário (isto é, a vitória final do jogador com 2 moedas) é dada por @P = \frac{k}{N} = \frac{2}{5}@.
+              <br>b) Deduza o número médio de rodadas esperadas até o término da partida.
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 4: PROBLEMAS PROPOSTOS (8 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 4: Problemas Propostos</h2>
+        <p class="section-intro">
+          Exercícios suplementares para prática individual e autoavaliação contínua.
+        </p>
+
+        <ol start="33">
+          <!-- Problema 33 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Soma de dados maior ou igual a 10</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Ao lançar dois dados comuns honestos, qual é a probabilidade de que a soma dos pontos obtidos seja maior ou igual a 10?
+            </p>
+          </li>
+
+          <!-- Problema 34 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Retirada sem reposição na urna</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Uma urna contém 8 bolas azuis e 12 amarelas idênticas em tamanho. Duas bolas são extraídas consecutivamente e sem reposição. Qual é a probabilidade de ambas serem azuis?
+            </p>
+          </li>
+
+          <!-- Problema 35 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Sequência de caras em moedas</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Uma moeda equilibrada é lançada 4 vezes consecutivas. Qual é a probabilidade de obter "cara" em todos os 4 lançamentos?
+            </p>
+          </li>
+
+          <!-- Problema 36 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Números primos entre 1 e 50</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Um número inteiro é sorteado aleatoriamente entre 1 e 50 (inclusive). Qual é a probabilidade de o número sorteado ser um número primo?
+            </p>
+          </li>
+
+          <!-- Problema 37 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Chute aleatório em prova</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Um teste rápido é composto por 5 questões de múltipla escolha. Cada questão possui 4 alternativas, das quais apenas uma é correta. Se um candidato responder a todas as questões assinalando as opções puramente ao acaso, qual é a probabilidade de ele acertar todas as 5 questões?
+            </p>
+          </li>
+
+          <!-- Problema 38 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cálculo de união e condicional</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Sejam @A@ e @B@ eventos em que @P(A) = 0{,}60@, @P(B) = 0{,}50@ e @P(A \cap B) = 0{,}30@. Calcule @P(A \cup B)@ e @P(A|B)@.
+            </p>
+          </li>
+
+          <!-- Problema 39 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Peças defeituosas com reposição</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Em uma caixa há 3 parafusos defeituosos e 7 perfeitos. Retiram-se dois parafusos sucessivamente com reposição. Qual é a probabilidade de retirar pelo menos um parafuso defeituoso?
+            </p>
+          </li>
+
+          <!-- Problema 40 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Faces distintas em três dados</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Três dados comuns honestos são lançados simultaneamente. Qual é a probabilidade de que os números obtidos nas três faces superiores sejam todos distintos entre si?
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           GABARITO E RESOLUÇÕES DETALHADAS (EXPANSÍVEL)
+           ============================================================================ -->
+      <details class="gabarito-container">
+        <summary>📝 GABARITO E RESOLUÇÕES DETALHADAS (Clique para expandir)</summary>
+        <div class="gabarito-content">
+
+          <!-- GABARITO SEÇÃO 1 -->
+          <div class="gabarito-secao">
+            <h3>Seção 1: Problemas Introdutórios</h3>
+            <ol>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O espaço amostral do lançamento do dado é @\Omega = \{1, 2, 3, 4, 5, 6\}@, com @n(\Omega) = 6@.<br>
+                Os números primos entre 1 e 6 são @A = \{2, 3, 5\}@, com @n(A) = 3@.<br>
+                Pela definição de probabilidade laplaciana:<br>
+                @P(A) = \frac{n(A)}{n(\Omega)} = \frac{3}{6} = \frac{1}{2} = 50\%@.<br>
+                <strong>Resposta:</strong> @\frac{1}{2}@ (ou @50\%@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                No lançamento de dois dados honestos, o número total de resultados possíveis é @n(\Omega) = 6 \times 6 = 36@.<br>
+                Os pares ordenados cuja soma é 7 são:<br>
+                @E = \{(1, 6), (2, 5), (3, 4), (4, 3), (5, 2), (6, 1)\}@, totalizando @n(E) = 6@ pares favoráveis.<br>
+                A probabilidade é:<br>
+                @P(E) = \frac{6}{36} = \frac{1}{6} \approx 16{,}67\%@.<br>
+                <strong>Resposta:</strong> @\frac{1}{6}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Um baralho de 52 cartas possui 4 Ases (um de cada naipe) e 4 Damas (uma de cada naipe). Como os conjuntos são mutuamente exclusivos:<br>
+                @n(A \cup D) = 4 + 4 = 8@ cartas favoráveis.<br>
+                @P(A \cup D) = \frac{8}{52} = \frac{2}{13} \approx 15{,}38\%@.<br>
+                <strong>Resposta:</strong> @\frac{2}{13}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Total de bolas na urna: @7 + 5 + 8 = 20@ bolas.<br>
+                Bolas que não são verdes: @7 \text{ vermelhas} + 5 \text{ azuis} = 12@ bolas.<br>
+                @P(\text{não verde}) = \frac{12}{20} = \frac{3}{5} = 0{,}60 = 60\%@.<br>
+                Alternativamente: @P = 1 - P(\text{verde}) = 1 - \frac{8}{20} = 1 - \frac{2}{5} = \frac{3}{5}@.<br>
+                <strong>Resposta:</strong> @\frac{3}{5}@ (ou @60\%@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O espaço amostral de 3 moedas tem @n(\Omega) = 2^3 = 8@ elementos.<br>
+                Os resultados com exatamente duas caras (C) e uma coroa (K) são as permutações de CCK:<br>
+                @\{(C, C, K), (C, K, C), (K, C, C)\}@, totalizando 3 casos favoráveis (@\binom{3}{2} = 3@).<br>
+                @P = \frac{3}{8} = 0{,}375 = 37{,}5\%@.<br>
+                <strong>Resposta:</strong> @\frac{3}{8}@ (ou @37{,}5\%@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O total de números é @n(\Omega) = 100@.<br>
+                Os múltiplos de 7 entre 1 e 100 são da forma @7k@ para @k \in \{1, 2, \dots, 14\}@, já que @14 \times 7 = 98 \le 100@ e @15 \times 7 = 105 > 100@.<br>
+                Portanto, há 14 números favoráveis:<br>
+                @P = \frac{14}{100} = \frac{7}{50} = 14\%@.<br>
+                <strong>Resposta:</strong> @\frac{7}{50}@ (ou @14\%@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Não existe nenhum número maior que 15 na urna (o conjunto favorável é vazio: @\emptyset@). Logo, @P = \frac{0}{10} = 0@. Trata-se de um <strong>evento impossível</strong>.<br>
+                b) Todos os números da urna @\{1, 2, \dots, 10\}@ são naturais menores que 12. O conjunto favorável é o próprio espaço amostral @\Omega@. Logo, @P = \frac{10}{10} = 1@. Trata-se de um <strong>evento certo</strong>.<br>
+                <strong>Resposta:</strong> a) @P = 0@ (evento impossível); b) @P = 1@ (evento certo).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Sejam @F@ o conjunto dos alunos que jogam futebol e @V@ o dos que jogam vôlei.<br>
+                @n(F \cup V) = n(F) + n(V) - n(F \cap V) = 24 + 16 - 8 = 32@ alunos.<br>
+                Alunos que não praticam nenhum dos dois esportes:<br>
+                @n(\text{nenhum}) = 40 - 32 = 8@ alunos.<br>
+                A probabilidade é:<br>
+                @P = \frac{8}{40} = \frac{1}{5} = 20\%@.<br>
+                <strong>Resposta:</strong> @\frac{1}{5}@ (ou @20\%@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Espaço amostral: @\Omega = \{1, 2, 3, \dots, 12\}@, com @n(\Omega) = 12@.<br>
+                • Evento A (número par): @A = \{2, 4, 6, 8, 10, 12\}@ (@n(A) = 6@);<br>
+                • Evento B (maior que 8): @B = \{9, 10, 11, 12\}@ (@n(B) = 4@);<br>
+                • Interseção @A \cap B@ (par E maior que 8): @\{10, 12\}@ (@n(A \cap B) = 2@).<br>
+                Pela união de eventos:<br>
+                @n(A \cup B) = 6 + 4 - 2 = 8@ elementos.<br>
+                @P(A \cup B) = \frac{8}{12} = \frac{2}{3} \approx 66{,}67\%@.<br>
+                <strong>Resposta:</strong> @\frac{2}{3}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A diferença absoluta @|x - y| \le 1@ significa que @|x - y| = 0@ ou @|x - y| = 1@.<br>
+                • Casos com diferença 0 (faces iguais): @(1,1), (2,2), (3,3), (4,4), (5,5), (6,6)@ (6 casos).<br>
+                • Casos com diferença 1: @(1,2), (2,1), (2,3), (3,2), (3,4), (4,3), (4,5), (5,4), (5,6), (6,5)@ (10 casos).<br>
+                Total de casos favoráveis: @6 + 10 = 16@ casos em 36 possíveis.<br>
+                @P = \frac{16}{36} = \frac{4}{9} \approx 44{,}44\%@.<br>
+                <strong>Resposta:</strong> @\frac{4}{9}@.
+              </li>
+            </ol>
+          </div>
+
+          <!-- GABARITO SEÇÃO 2 -->
+          <div class="gabarito-secao">
+            <h3>Seção 2: Problemas de Fixação</h3>
+            <ol start="11">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Sejam @A@ o evento "ler o Jornal da Cidade" e @B@ o evento "ler a Folha Local".<br>
+                Temos @P(A) = 0{,}45@, @P(B) = 0{,}35@ e @P(A \cap B) = 0{,}15@.<br>
+                Probabilidade de ler ao menos um dos dois:<br>
+                @P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0{,}45 + 0{,}35 - 0{,}15 = 0{,}65 = 65\%@.<br>
+                Probabilidade de não ler nenhum dos dois (evento complementar):<br>
+                @P((A \cup B)^c) = 1 - P(A \cup B) = 1 - 0{,}65 = 0{,}35 = 35\%@.<br>
+                <strong>Resposta:</strong> @65\%@ leem ao menos um; @35\%@ não leem nenhum.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                As probabilidades de falha de cada detector individualmente são:<br>
+                @P(A^c) = 1 - 0{,}80 = 0{,}20@,<br>
+                @P(B^c) = 1 - 0{,}70 = 0{,}30@,<br>
+                @P(C^c) = 1 - 0{,}90 = 0{,}10@.<br>
+                Como operam de maneira independente, a probabilidade de os três falharem juntos é:<br>
+                @P(\text{todos falham}) = 0{,}20 \times 0{,}30 \times 0{,}10 = 0{,}006@ (@0{,}6\%@).<br>
+                Logo, a probabilidade de pelo menos um alarme disparar é:<br>
+                @P(\text{ao menos um}) = 1 - P(\text{todos falham}) = 1 - 0{,}006 = 0{,}994 = 99{,}4\%@.<br>
+                <strong>Resposta:</strong> @0{,}994@ (ou @99{,}4\%@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Seja @B@ o evento "a soma é igual a 8":<br>
+                @B = \{(2, 6), (3, 5), (4, 4), (5, 3), (6, 2)\}@, logo @n(B) = 5@.<br>
+                Seja @A@ o evento "uma das faces é 5". Os resultados em @B@ que pertencem a @A@ são:<br>
+                @A \cap B = \{(3, 5), (5, 3)\}@, logo @n(A \cap B) = 2@.<br>
+                Pela fórmula da probabilidade condicional:<br>
+                @P(A|B) = \frac{n(A \cap B)}{n(B)} = \frac{2}{5} = 0{,}40 = 40\%@.<br>
+                <strong>Resposta:</strong> @\frac{2}{5}@ (ou @40\%@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                No lote há 10 peças: 3 defeituosas (@D@) e 7 perfeitas (@P@).<br>
+                a) Probabilidade de ambas serem defeituosas:<br>
+                @P(D_1 \cap D_2) = P(D_1) \cdot P(D_2|D_1) = \frac{3}{10} \times \frac{2}{9} = \frac{6}{90} = \frac{1}{15} \approx 6{,}67\%@.<br>
+                b) O evento "pelo menos uma ser perfeita" é o complementar de "ambas serem defeituosas":<br>
+                @P(\text{ao menos uma perfeita}) = 1 - P(D_1 \cap D_2) = 1 - \frac{1}{15} = \frac{14}{15} \approx 93{,}33\%@.<br>
+                <strong>Resposta:</strong> a) @\frac{1}{15}@; b) @\frac{14}{15}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Na urna há 6 brancas (@B@) e 4 pretas (@P@), total de 10 bolas.<br>
+                a) COM reposição: eventos independentes em cada retirada:<br>
+                • @P(B_1 \cap P_2) = \frac{6}{10} \times \frac{4}{10} = \frac{24}{100}@.<br>
+                • @P(P_1 \cap B_2) = \frac{4}{10} \times \frac{6}{10} = \frac{24}{100}@.<br>
+                Total: @\frac{24}{100} + \frac{24}{100} = \frac{48}{100} = \frac{12}{25} = 48\%@.<br>
+                b) SEM reposição:<br>
+                • @P(B_1 \cap P_2) = \frac{6}{10} \times \frac{4}{9} = \frac{24}{90}@.<br>
+                • @P(P_1 \cap B_2) = \frac{4}{10} \times \frac{6}{9} = \frac{24}{90}@.<br>
+                Total: @\frac{24}{90} + \frac{24}{90} = \frac{48}{90} = \frac{8}{15} \approx 53{,}33\%@.<br>
+                <strong>Resposta:</strong> a) @\frac{12}{25}@ (@48\%@); b) @\frac{8}{15}@ (@53{,}33\%@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Total geral de participantes: @N = 200@.<br>
+                a) Total de testes positivos: @50 \text{ (jovens)} + 60 \text{ (adultos)} = 110@.<br>
+                @P(\text{Positivo}) = \frac{110}{200} = \frac{11}{20} = 55\%@.<br>
+                b) Para a probabilidade condicional @P(\text{Positivo} | \text{Adulto/Idoso})@, restringimos o espaço amostral aos adultos/idosos, cujo total é @60 + 20 = 80@:<br>
+                @P(\text{Positivo} | \text{Adulto/Idoso}) = \frac{60}{80} = \frac{3}{4} = 75\%@.<br>
+                <strong>Resposta:</strong> a) @55\%@; b) @75\%@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Se @A@ e @B@ são independentes, @P(A \cap B) = P(A) \cdot P(B)@:<br>
+                @P(A \cap B) = 0{,}40 \times 0{,}50 = 0{,}20@.<br>
+                Pela união:<br>
+                @P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0{,}40 + 0{,}50 - 0{,}20 = 0{,}70@.<br>
+                b) Demonstração: Se fossem mutuamente exclusivos, @A \cap B = \emptyset \implies P(A \cap B) = 0@.<br>
+                Mas por independência, @P(A \cap B) = P(A) \cdot P(B)@. Como @P(A) > 0@ e @P(B) > 0@, o produto @P(A) \cdot P(B) > 0@.<br>
+                Isso gera a contradição @0 > 0@. Logo, eventos com probabilidades não nulas não podem ser simultaneamente independentes e mutuamente exclusivos.<br>
+                <strong>Resposta:</strong> a) @P(A \cap B) = 0{,}20@ e @P(A \cup B) = 0{,}70@; b) Demonstrado pela contradição @P(A \cap B) = 0 \neq P(A)P(B) > 0@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Seja qual for a primeira carta sorteada, ela pertence a um dos 4 naipes (probabilidade 1).<br>
+                Sobram no baralho 51 cartas, das quais exatamente 12 pertencem ao mesmo naipe da primeira carta.<br>
+                Logo, a probabilidade condicional de a segunda carta ser do mesmo naipe é:<br>
+                @P = \frac{12}{51} = \frac{4}{17} \approx 23{,}53\%@.<br>
+                (Alternativamente, @\frac{4 \times \binom{13}{2}}{\binom{52}{2}} = \frac{4 \times 78}{1326} = \frac{312}{1326} = \frac{4}{17}@).<br>
+                <strong>Resposta:</strong> @\frac{4}{17}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O número total de resultados possíveis do sorteio de 4 números entre 20 é:<br>
+                @n(\Omega) = \binom{20}{4} = \frac{20 \times 19 \times 18 \times 17}{24} = 4.845@ combinações.<br>
+                a) Há apenas 1 combinação que coincide com os 4 números sorteados:<br>
+                @P(\text{4 acertos}) = \frac{1}{4845} \approx 0{,}0002064@ (@\approx 0{,}0206\%@).<br>
+                b) Para acertar exatamente 3 números: devemos acertar 3 dos 4 sorteados e errar 1 (escolhendo entre os 16 não sorteados):<br>
+                @n(3) = \binom{4}{3} \times \binom{16}{1} = 4 \times 16 = 64@ combinações favoráveis.<br>
+                @P(\text{3 acertos}) = \frac{64}{4845} \approx 0{,}01321@ (@\approx 1{,}32\%@).<br>
+                <strong>Resposta:</strong> a) @\frac{1}{4845}@; b) @\frac{64}{4845}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) A primeira pessoa pode fazer aniversário em qualquer dia (@\frac{365}{365}@). A segunda deve fazer em um dia diferente (@\frac{364}{365}@), e a terceira em um terceiro dia diferente (@\frac{363}{365}@):<br>
+                @P(\text{distintos}) = 1 \times \frac{364}{365} \times \frac{363}{365} = \frac{132.132}{133.225} \approx 0{,}9918@ (@99{,}18\%@).<br>
+                b) Pelo evento complementar, a probabilidade de pelo menos duas compartilharem o mesmo dia de aniversário é:<br>
+                @P(\text{ao menos 2 iguais}) = 1 - P(\text{distintos}) = 1 - 0{,}9918 = 0{,}0082 = 0{,}82\%@.<br>
+                <strong>Resposta:</strong> a) @\approx 99{,}18\%@; b) @\approx 0{,}82\%@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Pelo Teorema da Probabilidade Total, consideramos os dois eventos de transferência da Urna 1 (que tem 3 brancas e 2 pretas, total 5):<br>
+                • Evento @T_B@: transferir bola branca @\implies P(T_B) = \frac{3}{5}@.<br>
+                  A Urna 2 passa a ter 5 brancas e 4 pretas (total 9). Logo, @P(B_2 | T_B) = \frac{5}{9}@.<br>
+                • Evento @T_P@: transferir bola preta @\implies P(T_P) = \frac{2}{5}@.<br>
+                  A Urna 2 passa a ter 4 brancas e 5 pretas (total 9). Logo, @P(B_2 | T_P) = \frac{4}{9}@.<br>
+                Somando as duas probabilidades ponderadas:<br>
+                @P(B_2) = P(T_B) \cdot P(B_2 | T_B) + P(T_P) \cdot P(B_2 | T_P) = \left(\frac{3}{5} \times \frac{5}{9}\right) + \left(\frac{2}{5} \times \frac{4}{9}\right) = \frac{15}{45} + \frac{8}{45} = \frac{23}{45} \approx 51{,}11\%@.<br>
+                <strong>Resposta:</strong> @\frac{23}{45}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Em paralelo, o sistema só falha se os 3 módulos falharem simultaneamente:<br>
+                @P(\text{pane do sistema}) = 0{,}10 \times 0{,}10 \times 0{,}10 = 0{,}001@.<br>
+                Logo, a confiabilidade é:<br>
+                @P(\text{sucesso}) = 1 - 0{,}001 = 0{,}999 = 99{,}9\%@.<br>
+                b) Em série, o sistema funciona se e somente se todos os 3 funcionarem simultaneamente:<br>
+                @P(\text{sucesso}) = (1 - 0{,}10)^3 = 0{,}90^3 = 0{,}729 = 72{,}9\%@.<br>
+                <strong>Resposta:</strong> a) @99{,}9\%@; b) @72{,}9\%@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O espaço amostral completo ordenado por ordem de nascimento (mais velho, mais novo) é:<br>
+                @\Omega = \{(M, M), (M, H), (H, M), (H, H)\}@, com todos os 4 pares tendo probabilidade @1/4@.<br>
+                A informação "pelo menos uma é menina" restringe o espaço amostral para:<br>
+                @E = \{(M, M), (M, H), (H, M)\}@, com @n(E) = 3@.<br>
+                Dentre esses 3 casos equiprováveis, apenas @(M, M)@ corresponde a "ambas são meninas" (1 caso).<br>
+                Logo:<br>
+                @P(\text{ambas meninas} | \text{ao menos uma menina}) = \frac{1}{3} \approx 33{,}33\%@.<br>
+                <strong>Resposta:</strong> @\frac{1}{3}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A probabilidade de não sair a face 6 em cada tentativa independente é @q = 1 - \frac{1}{6} = \frac{5}{6}@.<br>
+                O evento complementar de "obter 6 em no máximo 3 lançamentos" é "NÃO obter a face 6 em nenhum dos 3 primeiros lançamentos":<br>
+                @P(\text{nenhum 6 nos 3}) = \left(\frac{5}{6}\right)^3 = \frac{125}{216}@.<br>
+                Portanto, a probabilidade desejada é:<br>
+                @P = 1 - \frac{125}{216} = \frac{216 - 125}{216} = \frac{91}{216} \approx 42{,}13\%@.<br>
+                <strong>Resposta:</strong> @\frac{91}{216}@.
+              </li>
+            </ol>
+          </div>
+
+          <!-- GABARITO SEÇÃO 3 -->
+          <div class="gabarito-secao">
+            <h3>Seção 3: Problemas de Aprofundamento</h3>
+            <ol start="25">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Dados:<br>
+                • Prevalência: @P(D) = 0{,}001@ e @P(D^c) = 0{,}999@;<br>
+                • Sensibilidade: @P(+|D) = 0{,}99@;<br>
+                • Taxa de falso positivo: @P(+|D^c) = 1 - 0{,}95 = 0{,}05@.<br>
+                Pelo Teorema de Bayes:<br>
+                @P(D|+) = \frac{P(D) \cdot P(+|D)}{P(D) \cdot P(+|D) + P(D^c) \cdot P(+|D^c)}@.<br>
+                Calculando o numerador (verdadeiros positivos):<br>
+                @0{,}001 \times 0{,}99 = 0{,}00099@.<br>
+                Calculando os falsos positivos no denominador:<br>
+                @0{,}999 \times 0{,}05 = 0{,}04995@.<br>
+                Denominador total @P(+)@:<br>
+                @P(+) = 0{,}00099 + 0{,}04995 = 0{,}05094@.<br>
+                Portanto:<br>
+                @P(D|+) = \frac{0{,}00099}{0{,}05094} = \frac{99}{5094} \approx 0{,}01943 = 1{,}94\%@.<br>
+                <strong>Interpretação:</strong> Como a doença é extremamente rara na população (apenas 1 em cada 1.000 pessoas), a imensa maioria da população é sadia (999 em 1.000). A taxa de falso positivo de 5%, embora baixa, atua sobre uma massa esmagadora de pessoas sadias, gerando cerca de 50 falsos positivos para cada 1 caso verdadeiro positivo. Logo, um teste positivo tem menos de 2% de probabilidade de confirmar a doença real.<br>
+                <strong>Resposta:</strong> @P(D|+) = \frac{99}{5094} \approx 1{,}94\%@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Pelo Teorema da Probabilidade Total, sendo @D@ o evento "peça defeituosa":<br>
+                @P(D) = P(M_1)P(D|M_1) + P(M_2)P(D|M_2) + P(M_3)P(D|M_3)@<br>
+                @P(D) = (0{,}50 \times 0{,}02) + (0{,}30 \times 0{,}03) + (0{,}20 \times 0{,}05) = 0{,}010 + 0{,}009 + 0{,}010 = 0{,}029 = 2{,}9\%@.<br>
+                b) Pelo Teorema de Bayes:<br>
+                @P(M_1|D) = \frac{P(M_1 \cap D)}{P(D)} = \frac{0{,}010}{0{,}029} = \frac{10}{29} \approx 34{,}48\%@.<br>
+                <strong>Resposta:</strong> a) @2{,}9\%@ (@0{,}029@); b) @\frac{10}{29} \approx 34{,}48\%@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) No momento da escolha inicial, o participante tem 3 opções equiprováveis: o carro está atrás da porta escolhida com probabilidade @1/3@ e atrás de uma das outras duas portas com probabilidade @2/3@.<br>
+                Se o participante decidir manter a escolha inicial, sua probabilidade de vitória permanece exatamente igual à probabilidade inicial: @P(\text{manter}) = \frac{1}{3}@.<br>
+                b) O apresentador NUNCA abre a porta do participante e NUNCA abre a porta com o carro (ele sempre escolhe uma porta com bode dentre as restantes).<br>
+                Se o carro estava em uma das outras duas portas (o que ocorre em @2/3@ das vezes), a revelação do bode em uma delas transfere TODA a probabilidade daquele conjunto de duas portas (@2/3@) para a única porta restante que não foi aberta.<br>
+                Assim, ao trocar de porta, o participante ganha sempre que sua escolha inicial foi errada, o que ocorre com probabilidade @1 - \frac{1}{3} = \frac{2}{3}@.<br>
+                A troca dobra a probabilidade de vitória de @33{,}33\%@ para @66{,}67\%@.<br>
+                <strong>Resposta:</strong> a) @\frac{1}{3}@; b) @\frac{2}{3}@. A troca é vantajosa pois a probabilidade complementar de 2/3 se concentra na porta restante.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Pela fórmula da probabilidade binomial com @n = 6@ e @p = 2/3@ (logo @q = 1/3@):<br>
+                @P(X = k) = \binom{n}{k} p^k q^{n - k}@.<br>
+                a) Para @k = 4@ acertos:<br>
+                @P(X = 4) = \binom{6}{4} \left(\frac{2}{3}\right)^4 \left(\frac{1}{3}\right)^2 = 15 \times \frac{16}{81} \times \frac{1}{9} = 15 \times \frac{16}{729} = \frac{240}{729} = \frac{80}{243} \approx 32{,}92\%@.<br>
+                b) Para pelo menos 5 acertos (@k = 5@ ou @k = 6@):<br>
+                • @P(X = 5) = \binom{6}{5} \left(\frac{2}{3}\right)^5 \left(\frac{1}{3}\right)^1 = 6 \times \frac{32}{243} \times \frac{1}{3} = \frac{192}{729} = \frac{64}{243}@.<br>
+                • @P(X = 6) = \binom{6}{6} \left(\frac{2}{3}\right)^6 \left(\frac{1}{3}\right)^0 = 1 \times \frac{64}{729} = \frac{64}{729}@.<br>
+                Somando as duas:<br>
+                @P(X \ge 5) = \frac{192 + 64}{729} = \frac{256}{729} \approx 35{,}12\%@.<br>
+                <strong>Resposta:</strong> a) @\frac{80}{243} \approx 32{,}92\%@; b) @\frac{256}{729} \approx 35{,}12\%@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Sejam @x, y \in [0, 1]@ as frações de hora (em horas) em que Bernardo e Clara chegam, respectivamente. O espaço amostral é o quadrado unitário de área @1 \times 1 = 1@.<br>
+                Os dois se encontram se e somente se a diferença de horário for de no máximo 15 minutos (@1/4@ de hora):<br>
+                @|x - y| \le \frac{1}{4} \iff -\frac{1}{4} \le x - y \le \frac{1}{4} \iff x - \frac{1}{4} \le y \le x + \frac{1}{4}@.<br>
+                A região em que eles NÃO se encontram é formada por dois triângulos retângulos isósceles nos cantos superior esquerdo e inferior direito do quadrado unitário:<br>
+                • Triângulo 1 (@y > x + 1/4@): catetos de comprimento @1 - \frac{1}{4} = \frac{3}{4}@. Área = @\frac{1}{2} \left(\frac{3}{4}\right)^2 = \frac{9}{32}@.<br>
+                • Triângulo 2 (@y < x - 1/4@): catetos de comprimento @\frac{3}{4}@. Área = @\frac{9}{32}@.<br>
+                Área da região de não encontro:<br>
+                @A_{\text{não}} = 2 \times \frac{9}{32} = \frac{18}{32} = \frac{9}{16}@.<br>
+                Logo, a área da região favorável (probabilidade de encontro) é:<br>
+                @P = 1 - \frac{9}{16} = \frac{7}{16} = 0{,}4375 = 43{,}75\%@.<br>
+                <strong>Resposta:</strong> @\frac{7}{16}@ (ou @43{,}75\%@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Como @A@ precisa de apenas 1 vitória para ser campeão (já tem 4) e @B@ precisa de 3 vitórias (tem 2), o campeonato duraria no máximo mais 3 partidas.<br>
+                Em 3 partidas hipotéticas independentes, há @2^3 = 8@ sequências de resultados igualmente prováveis.<br>
+                O jogador @B@ só será campeão se vencer TODAS as 3 partidas restantes consecutivas (sequência BBB). A probabilidade disso ocorrer é:<br>
+                @P(B) = \left(\frac{1}{2}\right)^3 = \frac{1}{8}@.<br>
+                Em todas as outras 7 sequências, o jogador @A@ vence ao menos uma partida e sagra-se campeão:<br>
+                @P(A) = 1 - \frac{1}{8} = \frac{7}{8}@.<br>
+                Dividindo o prêmio de R$ 1.600,00 proporcionalmente às probabilidades de vitória:<br>
+                • Jogador A: @\frac{7}{8} \times 1600 = 7 \times 200 = \text{R\$} 1.400{,}00@;<br>
+                • Jogador B: @\frac{1}{8} \times 1600 = 1 \times 200 = \text{R\$} 200{,}00@.<br>
+                <strong>Resposta:</strong> Jogador A deve receber @\frac{7}{8}@ (R$ 1.400,00) e Jogador B deve receber @\frac{1}{8}@ (R$ 200,00).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Total de maneiras de escolher 4 semicondutores dentre os 15 disponíveis:<br>
+                @n(\Omega) = \binom{15}{4} = \frac{15 \times 14 \times 13 \times 12}{24} = 1.365@ combinações.<br>
+                Para obter exatamente 2 defeituosos (e 2 perfeitos):<br>
+                @n(X = 2) = \binom{5}{2} \times \binom{10}{2} = 10 \times 45 = 450@ combinações.<br>
+                @P(X = 2) = \frac{450}{1365} = \frac{30}{91} \approx 32{,}97\%@.<br>
+                b) O valor esperado de uma variável hipergeométrica com população @N = 15@, proporção de defeituosos @p = \frac{K}{N} = \frac{5}{15} = \frac{1}{3}@ e amostra @n = 4@ é simplesmente:<br>
+                @E(X) = n \cdot p = 4 \times \frac{1}{3} = \frac{4}{3} \approx 1{,}33@ semicondutores defeituosos.<br>
+                <strong>Resposta:</strong> a) @\frac{30}{91} \approx 32{,}97\%@; b) @E(X) = \frac{4}{3}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Seja @P_x@ a probabilidade de o jogador com @x@ moedas vencer quando o jogo termina com 0 ou @N = 5@ moedas. Como a moeda é justa (@p = 1/2@), temos a relação de recorrência de martingal:<br>
+                @P_x = \frac{1}{2} P_{x+1} + \frac{1}{2} P_{x-1}@ com condições de fronteira @P_0 = 0@ e @P_N = 1@.<br>
+                A solução linear para moeda justa é @P_x = \frac{x}{N}@.<br>
+                Para @k = 2@ moedas e @N = 5@:<br>
+                @P_2 = \frac{2}{5} = 0{,}40 = 40\%@.<br>
+                b) Seja @D_x@ o número esperado de jogadas partindo de @x@ moedas. A relação de recorrência é @D_x = 1 + \frac{1}{2} D_{x+1} + \frac{1}{2} D_{x-1}@ com @D_0 = D_N = 0@.<br>
+                A solução clássica é dada por @D_x = x(N - x)@.<br>
+                Para @x = 2@ e @N = 5@:<br>
+                @D_2 = 2 \times (5 - 2) = 2 \times 3 = 6@ rodadas em média.<br>
+                <strong>Resposta:</strong> a) @P = \frac{2}{5}@; b) Média de 6 rodadas.
+              </li>
+            </ol>
+          </div>
+
+          <!-- GABARITO SEÇÃO 4 -->
+          <div class="gabarito-secao">
+            <h3>Seção 4: Problemas Propostos</h3>
+            <ol start="33">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Somas possíveis @\ge 10@:<br>
+                • Soma 10: @(4,6), (5,5), (6,4)@ (3 pares);<br>
+                • Soma 11: @(5,6), (6,5)@ (2 pares);<br>
+                • Soma 12: @(6,6)@ (1 par).<br>
+                Total: @3 + 2 + 1 = 6@ pares favoráveis em 36.<br>
+                @P = \frac{6}{36} = \frac{1}{6}@.<br>
+                <strong>Resposta:</strong> @\frac{1}{6}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Total de bolas: @8 + 12 = 20@.<br>
+                @P = \frac{8}{20} \times \frac{7}{19} = \frac{2}{5} \times \frac{7}{19} = \frac{14}{95} \approx 14{,}74\%@.<br>
+                <strong>Resposta:</strong> @\frac{14}{95}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Cada lançamento é independente com probabilidade @1/2@:<br>
+                @P = \left(\frac{1}{2}\right)^4 = \frac{1}{16} = 6{,}25\%@.<br>
+                <strong>Resposta:</strong> @\frac{1}{16}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Os números primos de 1 a 50 são: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47 (total de 15 números primos).<br>
+                @P = \frac{15}{50} = \frac{3}{10} = 30\%@.<br>
+                <strong>Resposta:</strong> @\frac{3}{10}@ (ou @30\%@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A probabilidade de acertar cada questão no chute é @\frac{1}{4}@.<br>
+                Como os chutes são independentes:<br>
+                @P = \left(\frac{1}{4}\right)^5 = \frac{1}{1024} \approx 0{,}000976 = 0{,}0976\%@.<br>
+                <strong>Resposta:</strong> @\frac{1}{1024}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                @P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0{,}60 + 0{,}50 - 0{,}30 = 0{,}80@.<br>
+                @P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{0{,}30}{0{,}50} = \frac{3}{5} = 0{,}60@.<br>
+                <strong>Resposta:</strong> @P(A \cup B) = 0{,}80@ e @P(A|B) = 0{,}60@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A probabilidade de retirar um parafuso perfeito com reposição é @\frac{7}{10}@.<br>
+                A probabilidade de ambos serem perfeitos é @\left(\frac{7}{10}\right)^2 = \frac{49}{100}@.<br>
+                Logo, pelo menos um ser defeituoso é o evento complementar:<br>
+                @P = 1 - \frac{49}{100} = \frac{51}{100} = 51\%@.<br>
+                <strong>Resposta:</strong> @\frac{51}{100}@ (ou @51\%@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Espaço amostral: @6^3 = 216@ resultados.<br>
+                Resultados com faces todas distintas: @6 \times 5 \times 4 = 120@.<br>
+                @P = \frac{120}{216} = \frac{5}{9} \approx 55{,}56\%@.<br>
+                <strong>Resposta:</strong> @\frac{5}{9}@.
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </details>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+      </div>
+
+    </div> <!-- /.container -->
+  </div> <!-- /#page-wrapper -->
+
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "@@", right: "@@", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "@", right: "@", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+  <div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  </div>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

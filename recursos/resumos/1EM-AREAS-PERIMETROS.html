@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Superfícies, Áreas e Perímetros no Plano Euclidiano</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-1em {
+      background-color: rgba(16, 185, 129, 0.25);
+      border: 2px solid #10b981;
+      color: #a7f3d0;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-1em">1º Ano EM</div>
+
+    <h1>Superfícies, Áreas e Perímetros no Plano Euclidiano</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 9: "Superfícies e contornos"
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E CONTEXTO HISTÓRICO-EPISTEMOLÓGICO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para o aproveitamento integral e domínio analítico deste compêndio com rigor formal no padrão dos <em>Fundamentos de Matemática Elementar</em> (Iezzi et al.) e da OBMEP, o estudante deve ter assimilado:</p>
+      <ul>
+        <li><strong>Geometria Plana Euclidiana:</strong> congruência de triângulos, feixe de paralelas cortadas por transversais (Teorema de Tales) e semelhança de polígonos.</li>
+        <li><strong>Relações Métricas e Trigonometria:</strong> Teorema de Pitágoras, Lei dos Cossenos, Lei dos Senos e identidades trigonométricas fundamentais (@\operatorname{sen}^2\theta + \cos^2\theta = 1@).</li>
+        <li><strong>Teoria de Conjuntos e Aritmética Real:</strong> noções de conjuntos disjuntos, supremo, ínfimo e aproximações de números irracionais por limites de racionais.</li>
+      </ul>
+    </div>
+
+    <p>
+      A palavra <strong>Geometria</strong> — do grego <em>gê</em> (terra) e <em>metrein</em> (medir) — nasceu indissociavelmente ligada à agrimensura e ao cálculo prático de áreas. Após cada inundação anual do Nilo, os <em>harpedonaptai</em> (estiradores de corda) do Egito Antigo precisavam restabelecer os contornos e as áreas dos campos agrícolas para redistribuição agrária e tributação faraônica.
+    </p>
+    <p>
+      Contudo, a passagem da agrimensura empírica para a ciência matemática pura exigiu séculos de maturação conceitual. Foi nos <em>Elementos</em> de <strong>Euclides de Alexandria</strong> (c. 300 a.C.) e nos tratados de <strong>Arquimedes de Siracusa</strong> sobre a medida do círculo e a quadratura da parábola que o conceito de área ganhou forma dedutiva rigorosa. No início do século XX, com <strong>David Hilbert</strong> e a moderna Teoria da Medida de <strong>Henri Lebesgue</strong> e <strong>Camille Jordan</strong>, a noção de área foi definitivamente assentada sobre uma base axiomática sólida: área não é um mero produto mecânico de números, mas sim uma <strong>medida</strong> funcional que mapeia regiões do espaço em números reais positivos.
+    </p>
+
+    <!-- ===============================================================
+         PARTE 1: AXIOMÁTICA DA ÁREA E DO PERÍMETRO
+         =============================================================== -->
+    <h2>1. A Estrutura Axiomática da Medida de Superfície (Área e Perímetro)</h2>
+
+    <p>
+      Seja @\mathcal{P}@ o conjunto de todas as regiões poligonais mensuráveis contidas no plano euclidiano @\mathbb{R}^2@. Uma função @\mathcal{A}: \mathcal{P} \to \mathbb{R}@ é formalmente denominada <strong>função área</strong> se, e somente se, satisfaz ao seguinte sistema de quatro axiomas fundamentais de Hilbert-Jordan:
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Os Quatro Axiomas da Medida de Área)</h3>
+      <ol>
+        <li>
+          <strong>Axioma da Positividade:</strong> Para qualquer região poligonal não-degenerada @R \in \mathcal{P}@, sua área é um número real estritamente positivo:
+          @@\mathcal{A}(R) > 0@@
+        </li>
+        <li>
+          <strong>Axioma da Invariância por Congruência (Isometria):</strong> Se duas regiões @R_1@ e @R_2@ são congruentes no plano (@R_1 \cong R_2@ por translação, rotação ou reflexão), então suas medidas de área são identicamente iguais:
+          @@R_1 \cong R_2 \implies \mathcal{A}(R_1) = \mathcal{A}(R_2)@@
+        </li>
+        <li>
+          <strong>Axioma da Aditividade Finita:</strong> Se uma região @R@ é formada pela união de duas regiões @R_1@ e @R_2@ cujos interiores são mutuamente disjuntos (@\text{int}(R_1) \cap \text{int}(R_2) = \emptyset@, compartilhando no máximo segmentos de fronteira em comum), então:
+          @@\mathcal{A}(R_1 \cup R_2) = \mathcal{A}(R_1) + \mathcal{A}(R_2)@@
+        </li>
+        <li>
+          <strong>Axioma da Unidade de Medida (Normalização):</strong> A área de um quadrado @Q_1@ cujo lado mede @1\text{ u.c.}@ (uma unidade de comprimento) é convencionada como sendo exatamente @1\text{ u.a.}@ (uma unidade de área):
+          @@\mathcal{A}(Q_1) = 1@@
+        </li>
+      </ol>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Definição Formal de Perímetro)</h3>
+      <p>
+        O <strong>perímetro</strong> @P(\Gamma)@ de uma curva fechada simples e retificável @\Gamma@ no plano euclidiano é definido como o comprimento do seu contorno exterior unidimensional:
+      </p>
+      <ul>
+        <li>Para uma poligonal fechada simples de @n@ vértices @V_1, V_2, \dots, V_n@ com lados de comprimentos @\ell_1, \ell_2, \dots, \ell_n@:
+          @@P = \sum_{i=1}^n \ell_i = \ell_1 + \ell_2 + \cdots + \ell_n@@
+        </li>
+        <li>Denota-se frequentemente por @2p@ o perímetro total de um polígono e por @p@ o seu <strong>semiperímetro</strong>:
+          @@p = \frac{P}{2} = \frac{\ell_1 + \ell_2 + \cdots + \ell_n}{2}@@
+        </li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 2: DEDUÇÃO FORMAL DAS FÓRMULAS DE POLÍGONOS
+         =============================================================== -->
+    <h2>2. Dedução Rigorosa das Fórmulas de Polígonos Elementares</h2>
+
+    <p>
+      A partir dos quatro axiomas de área, deduzem-se analiticamente todas as relações métricas de áreas poligonais da geometria euclidiana.
+    </p>
+
+    <!-- RETÂNGULO -->
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Área do Retângulo)</h3>
+      <p>
+        A área de um retângulo @R@ de base @b \in \mathbb{R}^+@ e altura @h \in \mathbb{R}^+@ é igual ao produto de suas dimensões:
+      </p>
+      @@\mathcal{A}_{\text{ret}} = b \cdot h@@
+
+      <p><strong>Demonstração Rigorosa (Passo a Passo):</strong></p>
+      <ol>
+        <li>
+          <em>Caso Comensurável:</em> Suponha inicialmente que @b@ e @h@ sejam números inteiros positivos @m, n \in \mathbb{Z}^+@. Pela aditividade finita (Axioma 3), podemos decompor o retângulo em uma malha reticulada de @m \times n@ quadrados unitários de lado 1. Pelo Axioma 4, cada quadrado tem área 1, logo @\mathcal{A} = m \cdot n \cdot 1 = b \cdot h@.
+          <br>Se @b = \frac{p}{q}@ e @h = \frac{r}{s}@ com @p, q, r, s \in \mathbb{Z}^+@, subdividimos o retângulo em @p \cdot r@ pequenos quadrados de lado @\frac{1}{qs}@. Como um quadrado unitário contém @(qs)^2@ desses pequenos quadrados, cada um tem área @\frac{1}{q^2 s^2}@. A área total é:
+          @@\mathcal{A} = (p \cdot r) \times \left(\frac{1}{qs}\right)^2 \times s q = \frac{p \cdot r}{q \cdot s} = \left(\frac{p}{q}\right) \cdot \left(\frac{r}{s}\right) = b \cdot h@@
+        </li>
+        <li>
+          <em>Caso Incomensurável (Reais arbitrários):</em> Se @b@ ou @h@ forem irracionais, construímos duas sequências monótonas de números racionais @\{b_k\}@ e @\{h_k\}@ aproximando @b@ e @h@ por defeito e excesso. Pela completude do corpo dos reais (@\mathbb{R}@) e pelo Teorema do Confronto (Sanduíche), o supremo das áreas dos retângulos racionais inscritos coincide com o ínfimo das áreas dos circunscritos:
+          @@\mathcal{A} = \lim_{k \to \infty} (b_k \cdot h_k) = b \cdot h \quad \blacksquare@@
+        </li>
+      </ol>
+    </div>
+
+    <!-- PARALELOGRAMO -->
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Área do Paralelogramo)</h3>
+      <p>
+        A área de qualquer paralelogramo de base @b@ e altura @h@ (distância perpendicular entre as retas suportes das bases) é dada por:
+      </p>
+      @@\mathcal{A}_{\text{paral}} = b \cdot h@@
+
+      <p><strong>Demonstração (Método de Cisalhamento / Decomposição):</strong></p>
+      <p>
+        Seja o paralelogramo @\text{ABCD}@ com base @\overline{AB} = b@ e altura @h@. Tracemos as perpendiculares aos vértices @D@ e @C@ sobre a reta suporte da base @AB@, interceptando-a nos pontos @E@ e @F@.
+      </p>
+      <p>
+        Obtém-se assim o retângulo @\text{EFCD}@ de base @\overline{EF}@ e altura @h@. Observa-se que os triângulos retângulos @\triangle ADE@ e @\triangle BCF@ são congruentes pelo caso Hipotenusa-Cateto (@AD = BC@ pois são lados opostos do paralelogramo, e @DE = CF = h@).
+      </p>
+      <p>
+        Pelo Axioma da Congruência, @\mathcal{A}(\triangle ADE) = \mathcal{A}(\triangle BCF)@. Pelo Axioma da Aditividade:
+      </p>
+      @@\mathcal{A}(\text{ABCD}) = \mathcal{A}(\text{EBCD}) + \mathcal{A}(\triangle ADE) - \mathcal{A}(\triangle ADE) = \mathcal{A}(\text{EFCD}) = b \cdot h \quad \blacksquare@@
+    </div>
+
+    <!-- TRIÂNGULO -->
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.3 (As Fórmulas Estruturais da Área do Triângulo)</h3>
+      <p>
+        Seja um triângulo @\triangle ABC@ de lados @a, b, c@ opostos aos vértices @A, B, C@, semiperímetro @p = \frac{a+b+c}{2}@, inraio @r@ (raio da circunferência inscrita) e circunraio @R@ (raio da circunferência circunscrita). Sua área @\mathcal{A}@ pode ser determinada de forma equivalente por cinco formulações primordiais:
+      </p>
+
+      <ol>
+        <!-- 1. Base e Altura -->
+        <li>
+          <strong>Fórmula Clássica (Base e Altura):</strong>
+          @@\mathcal{A} = \frac{b \cdot h_b}{2} = \frac{a \cdot h_a}{2} = \frac{c \cdot h_c}{2}@@
+          <p><em>Demonstração:</em> Duplicando o triângulo @\triangle ABC@ por uma rotação de @180^\circ@ em torno do ponto médio de um lado, obtém-se um paralelogramo congruente de base @b@ e mesma altura @h@. Como a área do paralelogramo é @b \cdot h@ e ele é formado por dois triângulos congruentes, @\mathcal{A} = \frac{b \cdot h}{2}@.</p>
+        </li>
+
+        <!-- 2. Trigonométrica -->
+        <li>
+          <strong>Fórmula Trigonométrica (Dois Lados e o Ângulo Compreendido):</strong>
+          @@\mathcal{A} = \frac{1}{2} a b \operatorname{sen}(C) = \frac{1}{2} b c \operatorname{sen}(A) = \frac{1}{2} a c \operatorname{sen}(B)@@
+          <p><em>Demonstração:</em> No triângulo retângulo formado pela projeção ortogonal da altura @h_a@ sobre o lado @b@ a partir do vértice @A@, tem-se pela definição de seno no triângulo retângulo: @\operatorname{sen}(C) = \frac{h_a}{b} \implies h_a = b \operatorname{sen}(C)@. Substituindo na fórmula clássica @\mathcal{A} = \frac{a \cdot h_a}{2}@, obtém-se imediatamente @\mathcal{A} = \frac{1}{2} a b \operatorname{sen}(C)@.</p>
+        </li>
+
+        <!-- 3. Heron -->
+        <li>
+          <strong>Fórmula de Heron de Alexandria:</strong>
+          @@\mathcal{A} = \sqrt{p(p-a)(p-b)(p-c)}@@
+          <p><em>Demonstração Rigorosa Completa:</em></p>
+          <p>Pela fórmula trigonométrica, @\mathcal{A} = \frac{1}{2}ab \operatorname{sen} C \implies 4\mathcal{A} = 2ab \operatorname{sen} C@. Elevando ao quadrado:</p>
+          @@16\mathcal{A}^2 = 4a^2 b^2 \operatorname{sen}^2 C = 4a^2 b^2 (1 - \cos^2 C) = (2ab)^2 - (2ab \cos C)^2@@
+          <p>Pela Lei dos Cossenos, @c^2 = a^2 + b^2 - 2ab \cos C \implies 2ab \cos C = a^2 + b^2 - c^2@. Substituindo:</p>
+          @@16\mathcal{A}^2 = (2ab)^2 - (a^2 + b^2 - c^2)^2@@
+          <p>Fatorando sucessivamente como diferença de quadrados @(x^2 - y^2) = (x - y)(x + y)@:</p>
+          @@16\mathcal{A}^2 = \left[ 2ab + (a^2 + b^2 - c^2) \right] \cdot \left[ 2ab - (a^2 + b^2 - c^2) \right]@@
+          @@16\mathcal{A}^2 = \left[ (a+b)^2 - c^2 \right] \cdot \left[ c^2 - (a-b)^2 \right]@@
+          <p>Aplicando a diferença de quadrados mais uma vez a cada fator colchete:</p>
+          @@16\mathcal{A}^2 = (a + b + c)(a + b - c)(c + a - b)(c - a + b)@@
+          <p>Como @a + b + c = 2p@, temos:</p>
+          <ul>
+            <li>@a + b - c = (a + b + c) - 2c = 2p - 2c = 2(p - c)@</li>
+            <li>@c + a - b = (a + b + c) - 2b = 2p - 2b = 2(p - b)@</li>
+            <li>@c - a + b = (a + b + c) - 2a = 2p - 2a = 2(p - a)@</li>
+          </ul>
+          <p>Substituindo essas igualdades na equação de @16\mathcal{A}^2@:</p>
+          @@16\mathcal{A}^2 = (2p) \cdot 2(p-c) \cdot 2(p-b) \cdot 2(p-a) = 16 p(p-a)(p-b)(p-c)@@
+          <p>Dividindo ambos os membros por 16 e extraindo a raiz quadrada positiva:</p>
+          @@\mathcal{A} = \sqrt{p(p-a)(p-b)(p-c)} \quad \blacksquare@@
+        </li>
+
+        <!-- 4. Inraio -->
+        <li>
+          <strong>Fórmula do Raio do Círculo Inscrito (Inraio @r@):</strong>
+          @@\mathcal{A} = p \cdot r@@
+          <p><em>Demonstração:</em> O incentro @I@ é o centro da circunferência inscrita e é equidistante dos três lados, distando @r@ de cada um. Ligando @I@ aos vértices @A, B, C@, o triângulo @\triangle ABC@ é particionado em três triângulos menores: @\triangle IBC, \triangle ICA, \triangle IAB@. A altura relativa a cada base é exatamente o raio @r@. Pelo Axioma da Aditividade:</p>
+          @@\mathcal{A} = \mathcal{A}(\triangle IBC) + \mathcal{A}(\triangle ICA) + \mathcal{A}(\triangle IAB) = \frac{a \cdot r}{2} + \frac{b \cdot r}{2} + \frac{c \cdot r}{2} = \left(\frac{a+b+c}{2}\right) \cdot r = p \cdot r \quad \blacksquare@@
+        </li>
+
+        <!-- 5. Circunraio -->
+        <li>
+          <strong>Fórmula do Raio do Círculo Circunscrito (Circunraio @R@):</strong>
+          @@\mathcal{A} = \frac{a b c}{4R}@@
+          <p><em>Demonstração:</em> Pela Lei dos Senos, o diâmetro da circunferência circunscrita relaciona-se a qualquer lado por @\frac{c}{\operatorname{sen}(C)} = 2R \implies \operatorname{sen}(C) = \frac{c}{2R}@. Substituindo na fórmula trigonométrica @\mathcal{A} = \frac{1}{2}ab \operatorname{sen}(C)@:</p>
+          @@\mathcal{A} = \frac{1}{2} a b \left(\frac{c}{2R}\right) = \frac{a b c}{4R} \quad \blacksquare@@
+        </li>
+      </ol>
+    </div>
+
+    <!-- LOSANGO E TRAPÉZIO -->
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.4 (Áreas do Losango e do Trapézio)</h3>
+      <ol>
+        <li>
+          <strong>Losango:</strong> Sendo @D@ a diagonal maior e @d@ a diagonal menor:
+          @@\mathcal{A}_{\text{losango}} = \frac{D \cdot d}{2}@@
+          <p><em>Demonstração:</em> As diagonais de qualquer losango interceptam-se perpendicularmente em seus pontos médios. As duas diagonais dividem o losango em 4 triângulos retângulos congruentes de catetos @\frac{D}{2}@ e @\frac{d}{2}@. Pela aditividade:</p>
+          @@\mathcal{A} = 4 \times \left(\frac{1}{2} \cdot \frac{D}{2} \cdot \frac{d}{2}\right) = 4 \times \frac{D \cdot d}{8} = \frac{D \cdot d}{2} \quad \blacksquare@@
+        </li>
+        <li>
+          <strong>Trapézio:</strong> Sendo @B@ a base maior, @b@ a base menor e @h@ a altura:
+          @@\mathcal{A}_{\text{trapézio}} = \frac{(B + b)\cdot h}{2}@@
+          <p><em>Demonstração:</em> Tracemos uma diagonal que liga um vértice da base menor a um vértice não-consecutivo da base maior. Essa diagonal decompõe o trapézio em dois triângulos com a mesma altura @h@: um de base @B@ e outro de base @b@. Pela aditividade:</p>
+          @@\mathcal{A} = \frac{B \cdot h}{2} + \frac{b \cdot h}{2} = \frac{(B + b)\cdot h}{2} \quad \blacksquare@@
+        </li>
+      </ol>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 3: CÍRCULO E REGIÕES CIRCULARES
+         =============================================================== -->
+    <h2>3. O Círculo e Suas Regiões: Setor, Coroa e Segmento Circular</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (A Constante @\pi@ e o Comprimento da Circunferência)</h3>
+      <p>
+        Define-se formalmente o número transcendental <strong>@\pi \approx 3{,}1415926535...@</strong> como a razão constante e invariante, no plano euclidiano, entre o perímetro (comprimento @C@) de qualquer circunferência e o seu diâmetro @2R@:
+      </p>
+      @@\pi \equiv \frac{C}{2R} \implies C = 2\pi R@@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Área do Círculo pelo Método de Exaustão de Arquimedes)</h3>
+      <p>
+        A área de um círculo @\mathcal{C}@ de raio @R@ é dada por:
+      </p>
+      @@\mathcal{A}_{\text{círculo}} = \pi R^2@@
+
+      <p><strong>Demonstração (Método Limite de Polígonos Regulares):</strong></p>
+      <p>
+        Inscrevamos no círculo um polígono regular de @n@ lados. Cada lado mede @\ell_n@ e o apótema mede @a_n@. O polígono é a união de @n@ triângulos isósceles de base @\ell_n@ e altura @a_n@. Sua área @\mathcal{A}_n@ é:
+      </p>
+      @@\mathcal{A}_n = n \cdot \left(\frac{\ell_n \cdot a_n}{2}\right) = \left(\frac{n \cdot \ell_n}{2}\right) \cdot a_n = p_n \cdot a_n@@
+      <p>onde @p_n = \frac{P_n}{2}@ é o semiperímetro do polígono regular inscrito.</p>
+      <p>Quando o número de lados tende ao infinito (@n \to \infty@):</p>
+      <ul>
+        <li>O perímetro @P_n@ converge para o comprimento da circunferência: @\lim_{n \to \infty} P_n = 2\pi R \implies \lim_{n \to \infty} p_n = \pi R@.</li>
+        <li>O apótema @a_n@ converge para o raio da circunferência: @\lim_{n \to \infty} a_n = R@.</li>
+      </ul>
+      <p>Tomando o limite:</p>
+      @@\mathcal{A}_{\text{círculo}} = \lim_{n \to \infty} (p_n \cdot a_n) = (\pi R) \cdot R = \pi R^2 \quad \blacksquare@@
+    </div>
+
+    <!-- SETOR, COROA E SEGMENTO -->
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.2 (Regiões Circulares Deduzidas)</h3>
+      <div class="tabela-container">
+        <table class="tabela-comparativa">
+          <thead>
+            <tr>
+              <th>Região Circular</th>
+              <th>Definição Geométrica</th>
+              <th>Fórmula em Graus (@\alpha@)</th>
+              <th>Fórmula em Radianos (@\theta@)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Setor Circular</strong></td>
+              <td>Fatia delimitada por dois raios e pelo arco compreendido.</td>
+              <td>@\mathcal{A}_{\text{setor}} = \frac{\pi R^2 \alpha}{360^\circ}@</td>
+              <td>@\mathcal{A}_{\text{setor}} = \frac{1}{2}\theta R^2 = \frac{1}{2}\ell R@</td>
+            </tr>
+            <tr>
+              <td><strong>Coroa Circular</strong></td>
+              <td>Região compreendida entre duas circunferências concêntricas de raios @R@ e @r@ (@R > r@).</td>
+              <td colspan="2">@\mathcal{A}_{\text{coroa}} = \pi(R^2 - r^2)@</td>
+            </tr>
+            <tr>
+              <td><strong>Segmento Circular</strong></td>
+              <td>Região entre uma corda e o arco interceptado por ela: @\mathcal{A}_{\text{seg}} = \mathcal{A}_{\text{setor}} - \mathcal{A}_{\triangle}@.</td>
+              <td>@\mathcal{A}_{\text{seg}} = \frac{\pi R^2 \alpha}{360^\circ} - \frac{1}{2}R^2 \operatorname{sen}\alpha@</td>
+              <td>@\mathcal{A}_{\text{seg}} = \frac{1}{2}R^2(\theta - \operatorname{sen}\theta)@</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.3 (O Teorema da Corda Tangente na Coroa Circular de Mamikon)</h3>
+      <p>
+        A área de uma coroa circular pode ser determinada <strong>sem conhecer os raios @R@ ou @r@</strong>, conhecendo-se unicamente o comprimento @L@ de um segmento de reta tangente à circunferência interna e com extremidades apoiadas na circunferência externa:
+      </p>
+      @@\mathcal{A}_{\text{coroa}} = \pi \left(\frac{L}{2}\right)^2 = \frac{\pi L^2}{4}@@
+
+      <p><strong>Demonstração:</strong></p>
+      <p>
+        O ponto de tangência divide a corda de comprimento @L@ em dois segmentos iguais de medida @\frac{L}{2}@, e o raio @r@ no ponto de contato é perpendicular à corda tangente. Forma-se um triângulo retângulo cujos catetos são @r@ e @\frac{L}{2}@, e cuja hipotenusa é o raio maior @R@.
+      </p>
+      <p>Pelo Teorema de Pitágoras:</p>
+      @@\left(\frac{L}{2}\right)^2 + r^2 = R^2 \implies R^2 - r^2 = \left(\frac{L}{2}\right)^2@@
+      <p>Multiplicando ambos os membros por @\pi@:</p>
+      @@\mathcal{A}_{\text{coroa}} = \pi(R^2 - r^2) = \pi \left(\frac{L}{2}\right)^2 \quad \blacksquare@@
+    </div>
+
+    <!-- ===============================================================
+         PARTE 4: TEOREMAS DE SEMELHANÇA E O PROBLEMA ISOPERIMÉTRICO
+         =============================================================== -->
+    <h2>4. Relação de Áreas em Figuras Semelhantes e a Desigualdade Isoperimétrica</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Razão de Áreas de Figuras Semelhantes)</h3>
+      <p>
+        Se duas figuras planas @F_1@ e @F_2@ são geometricamente semelhantes com razão linear de semelhança @k = \frac{\ell_1}{\ell_2}@:
+      </p>
+      <ol>
+        <li>A razão entre seus perímetros é linear:
+          @@\frac{P(F_1)}{P(F_2)} = k@@
+        </li>
+        <li>A razão entre suas áreas é estritamente proporcional ao <strong>quadrado</strong> da razão de semelhança:
+          @@\frac{\mathcal{A}(F_1)}{\mathcal{A}(F_2)} = k^2@@
+        </li>
+      </ol>
+      <p><em>Demonstração:</em> Qualquer figura mensurável pode ser aproximada por uma triangulação. Em cada triângulo, a base é multiplicada por @k@ e a altura homóloga por @k@. Logo, a nova área elementar é @\frac{(k b)(k h)}{2} = k^2 \frac{bh}{2}@. Pela aditividade, a área total fica multiplicada por @k^2@.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.2 (A Desigualdade Isoperimétrica Clássica)</h3>
+      <p>
+        Dentre todas as curvas fechadas simples no plano com um perímetro fixado @P@, a figura geométrica que encerra a <strong>maior área possível</strong> é a <strong>circunferência</strong>. Para qualquer figura plana mensurável de perímetro @P@ e área @\mathcal{A}@, vale a célebre desigualdade:
+      </p>
+      @@\mathcal{A} \le \frac{P^2}{4\pi}@@
+      <p>com a igualdade ocorrendo se, e somente se, a fronteira da região for perfeitamente circular.</p>
+      <ul>
+        <li>Entre todos os retângulos de mesmo perímetro, o <strong>quadrado</strong> é o de área máxima.</li>
+        <li>Entre todos os triângulos isoperimétricos, o <strong>triângulo equilátero</strong> é o de área máxima.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 5: EXEMPLOS RESOLVIDOS PASSO A PASSO
+         =============================================================== -->
+    <h2>5. Exemplos Resolvidos Passo a Passo</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5.1 (Análise Completa de um Triângulo Escaleno: Heron, Inraio e Circunraio)</h3>
+      <p>
+        Considere um triângulo cujos lados medem exatamente @a = 13@, @b = 14@ e @c = 15@.
+      </p>
+      <p><strong>(a)</strong> Calcule sua área utilizando a Fórmula de Heron.</p>
+      <p><strong>(b)</strong> Determine o comprimento da altura relativa ao lado de comprimento 14.</p>
+      <p><strong>(c)</strong> Calcule o raio @r@ da circunferência inscrita (inraio) e o raio @R@ da circunferência circunscrita (circunraio).</p>
+
+      <h4>Resolução:</h4>
+      <p><strong>(a) Cálculo da área por Heron:</strong></p>
+      <p>Calculamos o semiperímetro @p@:</p>
+      @@p = \frac{13 + 14 + 15}{2} = \frac{42}{2} = 21@@
+      <p>Calculamos as diferenças @(p - a), (p - b), (p - c)@:</p>
+      <ul>
+        <li>@p - a = 21 - 13 = 8@</li>
+        <li>@p - b = 21 - 14 = 7@</li>
+        <li>@p - c = 21 - 15 = 6@</li>
+      </ul>
+      <p>Pela fórmula de Heron:</p>
+      @@\mathcal{A} = \sqrt{21 \times 8 \times 7 \times 6} = \sqrt{(3 \times 7) \times (8) \times (7) \times (2 \times 3)}@@
+      @@\mathcal{A} = \sqrt{3^2 \times 7^2 \times 16} = 3 \times 7 \times 4 = 84\text{ u.a.}@@
+
+      <p><strong>(b) Altura relativa ao lado @b = 14@:</strong></p>
+      @@\mathcal{A} = \frac{b \cdot h_b}{2} \implies 84 = \frac{14 \cdot h_b}{2} = 7 \cdot h_b \implies h_b = \frac{84}{7} = 12\text{ u.c.}@@
+
+      <p><strong>(c) Inraio e circunraio:</strong></p>
+      <p>Para o inraio (@r@): @\mathcal{A} = p \cdot r \implies 84 = 21 \cdot r \implies r = \frac{84}{21} = 4\text{ u.c.}@</p>
+      <p>Para o circunraio (@R@):</p>
+      @@\mathcal{A} = \frac{a b c}{4R} \implies 84 = \frac{13 \times 14 \times 15}{4R} = \frac{2730}{4R} \implies 4R = \frac{2730}{84} = 32{,}5 \implies R = \frac{32{,}5}{4} = \frac{65}{8} = 8{,}125\text{ u.c.}@@
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5.2 (Área de um Trapézio Escaleno Determinada por Seus Quatro Lados)</h3>
+      <p>
+        Um trapézio tem bases paralelas medindo @B = 25@ e @b = 11@, e lados não paralelos medindo @13@ e @15@. Calcule a área exata desse trapézio.
+      </p>
+
+      <h4>Resolução:</h4>
+      <p><strong>Passo 1:</strong> Traçamos pelo vértice da base menor um segmento paralelo ao lado oposto de comprimento 15. Esse traçado decompõe o trapézio em um paralelogramo de base 11 e lados 15, e um triângulo cujos lados medem 13, 15 e a base remanescente:</p>
+      @@B - b = 25 - 11 = 14@@
+      <p><strong>Passo 2:</strong> Observamos que o triângulo resultante tem lados @13, 14, 15@! Pelo Exemplo 5.1 anterior, já demonstramos que a área deste triângulo é @84@ e que sua altura relativa à base 14 é exatamente:</p>
+      @@h = 12@@
+      <p>Como a altura do triângulo é identicamente a altura @h@ do trapézio entre suas bases paralelas, temos @h = 12@.</p>
+      <p><strong>Passo 3:</strong> Aplicamos a fórmula da área do trapézio:</p>
+      @@\mathcal{A}_{\text{trapézio}} = \frac{(B + b)\cdot h}{2} = \frac{(25 + 11)\cdot 12}{2} = \frac{36 \cdot 12}{2} = 36 \times 6 = 216\text{ u.a.}@@
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5.3 (Área de um Segmento Circular)</h3>
+      <p>
+        Em uma circunferência de raio @R = 6\text{ cm}@, uma corda @AB@ subtende um arco cujo ângulo central mede @\alpha = 60^\circ@ (ou @\theta = \frac{\pi}{3}\text{ rad}@). Determine a área exata do menor segmento circular determinado por essa corda.
+      </p>
+
+      <h4>Resolução:</h4>
+      <p>A área do segmento circular é a diferença entre a área do setor correspondente e a área do triângulo isósceles @\triangle OAB@:</p>
+      @@\mathcal{A}_{\text{seg}} = \mathcal{A}_{\text{setor}} - \mathcal{A}_{\triangle OAB}@@
+      <p>1. Área do setor (@60^\circ@):</p>
+      @@\mathcal{A}_{\text{setor}} = \frac{\pi R^2 \cdot 60^\circ}{360^\circ} = \frac{\pi (6)^2}{6} = \frac{36\pi}{6} = 6\pi\text{ cm}^2@@
+      <p>2. Área do triângulo @\triangle OAB@ (como o ângulo central é @60^\circ@ e @OA = OB = 6@, o triângulo é equilátero!):</p>
+      @@\mathcal{A}_{\triangle} = \frac{1}{2} R^2 \operatorname{sen}(60^\circ) = \frac{1}{2} \cdot 36 \cdot \frac{\sqrt{3}}{2} = 9\sqrt{3}\text{ cm}^2@@
+      <p>3. Área do segmento circular:</p>
+      @@\mathcal{A}_{\text{seg}} = 6\pi - 9\sqrt{3} = 3(2\pi - 3\sqrt{3})\text{ cm}^2 \approx 3(6{,}283 - 5{,}196) = 3(1{,}087) \approx 3{,}26\text{ cm}^2@@
+    </div>
+
+    <!-- ===============================================================
+         PARTE 6: EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO
+         =============================================================== -->
+    <h2>6. Exercícios Conceituais de Fixação</h2>
+    <p>
+      Resolva as 12 questões formais a seguir, cobrindo todo o espectro das propriedades de superfícies e contornos. Ao terminar cada tentativa, confira a dedução rigorosa em cada caixa retrátil.
+    </p>
+
+    <ol class="lista-exercicios">
+
+      <!-- EXERCÍCIO 1 -->
+      <li>
+        <strong>(Axiomática de Hilbert-Jordan)</strong>
+        Um aluno afirma que se duas regiões planas @R_1@ e @R_2@ possuem a mesma medida de área (@\mathcal{A}(R_1) = \mathcal{A}(R_2)@), então elas são necessariamente congruentes (@R_1 \cong R_2@). Analise formalmente a veracidade ou falsidade dessa afirmação com base nos axiomas de área, apresentando um contraexemplo canônico irrefutável.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>A afirmação é FALSA.</strong></p>
+            <p>O Axioma 2 estabelece que a congruência implica igualdade de áreas: @R_1 \cong R_2 \implies \mathcal{A}(R_1) = \mathcal{A}(R_2)@. A recíproca (@\mathcal{A}(R_1) = \mathcal{A}(R_2) \implies R_1 \cong R_2@), contudo, não é verdadeira.</p>
+            <p><strong>Contraexemplo:</strong></p>
+            <ul>
+              <li>Considere um quadrado @Q@ de lado @2@. Sua área é @\mathcal{A}(Q) = 2 \times 2 = 4@.</li>
+              <li>Considere um retângulo @R@ de dimensões @1@ e @4@. Sua área é @\mathcal{A}(R) = 1 \times 4 = 4@.</li>
+            </ul>
+            <p>Ambas as figuras possuem a mesma área de 4 u.a. (são ditas <em>figuras equivalentes</em>), mas manifestamente não são congruentes (seus perímetros diferem: @P(Q) = 8 \ne P(R) = 10@, e suas formas geométricas são incompatíveis sob qualquer isometria rígida).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 2 -->
+      <li>
+        <strong>(Fórmula Trigonométrica da Área de um Paralelogramo)</strong>
+        Prove que a área de um paralelogramo cujos lados adjacentes medem @a@ e @b@ e formam entre si um ângulo agudo @\theta@ é dada por @\mathcal{A} = a \cdot b \cdot \operatorname{sen}\theta@. Calcule a área de um paralelogramo com lados @8\text{ cm}@ e @12\text{ cm}@ e ângulo de @30^\circ@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>1. Demonstração:</strong></p>
+            <p>A diagonal que liga os vértices opostos particiona o paralelogramo em dois triângulos congruentes, ambos com lados @a@ e @b@ e ângulo compreendido @\theta@.</p>
+            <p>Pela fórmula trigonométrica da área do triângulo:</p>
+            @@\mathcal{A}_{\triangle} = \frac{1}{2} a b \operatorname{sen}\theta@@
+            <p>Pela aditividade finita:</p>
+            @@\mathcal{A}_{\text{paral}} = 2 \times \mathcal{A}_{\triangle} = 2 \times \left(\frac{1}{2} a b \operatorname{sen}\theta\right) = a b \operatorname{sen}\theta \quad \blacksquare@@
+            <p><strong>2. Aplicação Numérica:</strong></p>
+            @@\mathcal{A} = 8 \times 12 \times \operatorname{sen}(30^\circ) = 96 \times \frac{1}{2} = 48\text{ cm}^2@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 3 -->
+      <li>
+        <strong>(Teorema da Corda Tangente de Mamikon)</strong>
+        Uma corda de comprimento @L = 16\text{ cm}@ tangencia a circunferência interna de uma coroa circular e tem suas duas extremidades sobre a circunferência externa. Calcule a área exata dessa coroa circular em função de @\pi@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Pelo Teorema de Pitágoras no triângulo retângulo formado pelo centro, pelo ponto de tangência (ponto médio da corda) e por uma das extremidades da corda:</p>
+            @@R^2 = r^2 + \left(\frac{L}{2}\right)^2 \implies R^2 - r^2 = \left(\frac{16}{2}\right)^2 = 8^2 = 64@@
+            <p>A área da coroa circular é dada por:</p>
+            @@\mathcal{A}_{\text{coroa}} = \pi (R^2 - r^2) = \pi \times 64 = 64\pi\text{ cm}^2 \approx 201{,}06\text{ cm}^2@@
+            <p>Note que o resultado é rigorosamente independente dos valores individuais de @R@ e @r@!</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 4 -->
+      <li>
+        <strong>(Fórmula de Heron e Inraio)</strong>
+        Os lados de um triângulo medem @7\text{ cm}@, @8\text{ cm}@ e @9\text{ cm}@.
+        <br><strong>(a)</strong> Mostre que sua área vale exatamente @12\sqrt{5}\text{ cm}^2@.
+        <br><strong>(b)</strong> Determine o raio @r@ da circunferência inscrita a esse triângulo em forma racionalizada.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Área por Heron:</strong></p>
+            <p>Semiperímetro @p = \frac{7+8+9}{2} = \frac{24}{2} = 12@.</p>
+            <p>Fatores: @p - a = 12 - 7 = 5@; @p - b = 12 - 8 = 4@; @p - c = 12 - 9 = 3@.</p>
+            @@\mathcal{A} = \sqrt{12 \times 5 \times 4 \times 3} = \sqrt{144 \times 5} = 12\sqrt{5}\text{ cm}^2@@
+            <p><strong>(b) Inraio @r@:</strong></p>
+            @@\mathcal{A} = p \cdot r \implies 12\sqrt{5} = 12 \cdot r \implies r = \sqrt{5}\text{ cm} \approx 2{,}236\text{ cm}@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 5 -->
+      <li>
+        <strong>(Área de Quadrilátero com Diagonais Perpendiculares)</strong>
+        Prove que a área de <em>qualquer</em> quadrilátero convexo cujas diagonais são mutuamente perpendiculares (ortogonais) é dada por @\mathcal{A} = \frac{D_1 \cdot D_2}{2}@, mesmo que o quadrilátero não seja um losango (como ocorre em um deltoide ou pipa).
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Demonstração:</strong></p>
+            <p>Seja o quadrilátero convexo @\text{ABCD}@ cujas diagonais @AC@ (comprimento @D_1@) e @BD@ (comprimento @D_2@) interceptam-se ortogonalmente no ponto @O@.</p>
+            <p>A diagonal @BD@ divide o quadrilátero em dois triângulos: @\triangle ABD@ e @\triangle CBD@, ambos com base comum @BD = D_2@.</p>
+            <p>Como @AC \perp BD@, os segmentos @AO@ e @CO@ são as alturas relativas à base comum @BD@ nos triângulos @\triangle ABD@ e @\triangle CBD@, respectivamente.</p>
+            <p>Pela aditividade finita:</p>
+            @@\mathcal{A}(\text{ABCD}) = \mathcal{A}(\triangle ABD) + \mathcal{A}(\triangle CBD) = \frac{D_2 \cdot AO}{2} + \frac{D_2 \cdot CO}{2} = \frac{D_2 (AO + CO)}{2}@@
+            <p>Como @AO + CO = AC = D_1@:</p>
+            @@\mathcal{A}(\text{ABCD}) = \frac{D_1 \cdot D_2}{2} \quad \blacksquare@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 6 -->
+      <li>
+        <strong>(Razão de Áreas em Semelhança: A Divisão da Altura)</strong>
+        Em um triângulo @\triangle ABC@ de área total @A = 100\text{ cm}^2@ e altura @h@ relativa à base @BC@, traça-se um segmento paralelo à base a uma distância @\frac{2}{5}h@ do vértice @A@.
+        <br>Determine a área do pequeno triângulo superior formado e a área do trapézio inferior resultante.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>1. Triângulo superior semelhante:</strong></p>
+            <p>Como o segmento é paralelo à base, o triângulo superior @\triangle ADE@ é semelhante ao triângulo original @\triangle ABC@.</p>
+            <p>A razão de semelhança linear é a razão de suas alturas: @k = \frac{h_{\text{menor}}}{h_{\text{maior}}} = \frac{2}{5}@.</p>
+            <p>Pelo Teorema 4.1, a razão de suas áreas é @k^2@:</p>
+            @@\frac{\mathcal{A}(\triangle ADE)}{\mathcal{A}(\triangle ABC)} = k^2 = \left(\frac{2}{5}\right)^2 = \frac{4}{25}@@
+            @@\mathcal{A}(\triangle ADE) = \frac{4}{25} \times 100\text{ cm}^2 = 16\text{ cm}^2@@
+            <p><strong>2. Área do trapézio inferior:</strong></p>
+            <p>Pela aditividade de áreas:</p>
+            @@\mathcal{A}_{\text{trapézio}} = \mathcal{A}(\triangle ABC) - \mathcal{A}(\triangle ADE) = 100 - 16 = 84\text{ cm}^2@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 7 -->
+      <li>
+        <strong>(Otimização Isoperimétrica: O Retângulo de Custo Fixo)</strong>
+        Um agricultor dispõe de @80\text{ metros}@ lineares de cerca para delimitar uma horta retangular aproveitando um muro reto já existente como um dos lados (de modo que a cerca precisará fechar apenas os outros três lados).
+        <br>Determine as dimensões da horta que maximizam sua área e o valor dessa área máxima.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Sejam @x@ o comprimento dos dois lados perpendiculares ao muro e @y@ o comprimento do lado paralelo ao muro.</p>
+            <p>A restrição do comprimento da cerca fornece:</p>
+            @@2x + y = 80 \implies y = 80 - 2x@@
+            <p>A função área em termos da variável @x@ é dada por uma função quadrática:</p>
+            @@\mathcal{A}(x) = x \cdot y = x(80 - 2x) = -2x^2 + 80x@@
+            <p>Como a parábola tem concavidade voltada para baixo (@a = -2 < 0@), o ponto de máximo ocorre no vértice:</p>
+            @@x_v = -\frac{b}{2a} = -\frac{80}{2(-2)} = \frac{80}{4} = 20\text{ m}@@
+            <p>Substituindo em @y@:</p>
+            @@y = 80 - 2(20) = 40\text{ m}@@
+            <p>Área máxima delimitada:</p>
+            @@\mathcal{A}_{\text{máx}} = 20\text{ m} \times 40\text{ m} = 800\text{ m}^2@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 8 -->
+      <li>
+        <strong>(Área de Triângulo Equilátero e Circunferências Concêntricas)</strong>
+        Um triângulo equilátero possui lado de comprimento @\ell = 6\text{ cm}@.
+        <br><strong>(a)</strong> Calcule sua área e sua altura.
+        <br><strong>(b)</strong> Determine as áreas da circunferência inscrita e da circunferência circunscrita a esse triângulo.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Área e Altura:</strong></p>
+            @@h = \frac{\ell \sqrt{3}}{2} = \frac{6\sqrt{3}}{2} = 3\sqrt{3}\text{ cm}@@
+            @@\mathcal{A} = \frac{\ell^2 \sqrt{3}}{4} = \frac{36\sqrt{3}}{4} = 9\sqrt{3}\text{ cm}^2@@
+            <p><strong>(b) Círculos Inscrito e Circunscrito:</strong></p>
+            <p>No triângulo equilátero, o baricentro coincide com o incentro e com o circuncentro. O baricentro divide a mediana/altura na razão 2:1:</p>
+            <ul>
+              <li>Inraio: @r = \frac{1}{3}h = \frac{1}{3}(3\sqrt{3}) = \sqrt{3}\text{ cm}@.
+                <br>Área do círculo inscrito: @\mathcal{A}_{\text{ins}} = \pi r^2 = \pi (\sqrt{3})^2 = 3\pi\text{ cm}^2@.
+              </li>
+              <li>Circunraio: @R = \frac{2}{3}h = \frac{2}{3}(3\sqrt{3}) = 2\sqrt{3}\text{ cm}@.
+                <br>Área do círculo circunscrito: @\mathcal{A}_{\text{circ}} = \pi R^2 = \pi (2\sqrt{3})^2 = 12\pi\text{ cm}^2@.
+              </li>
+            </ul>
+            <p>Note que @\frac{\mathcal{A}_{\text{circ}}}{\mathcal{A}_{\text{ins}}} = \frac{12\pi}{3\pi} = 4 = \left(\frac{R}{r}\right)^2@, exatamente como prevê a teoria de semelhança!</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 9 -->
+      <li>
+        <strong>(Lúnulas de Hipócrates de Quios)</strong>
+        Sobre os três lados de um triângulo retângulo @\triangle ABC@ (reto em @A@), constroem-se semicircunferências externas tendo como diâmetros os catetos @b@ e @c@ e a hipotenusa @a@. As duas regiões em forma de crescente delimitadas pelas semicircunferências dos catetos e a semicircunferência da hipotenusa são as célebres <em>Lúnulas de Hipócrates</em>.
+        <br>Prove que a soma das áreas das duas lúnulas é identicamente igual à área do triângulo retângulo @\triangle ABC@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Demonstração Clássica:</strong></p>
+            <p>Sejam os catetos @b, c@ e a hipotenusa @a@, onde @a^2 = b^2 + c^2@ (Teorema de Pitágoras).</p>
+            <p>A área de uma semicircunferência de diâmetro @d@ é @S(d) = \frac{1}{2}\pi \left(\frac{d}{2}\right)^2 = \frac{\pi d^2}{8}@.</p>
+            <p>A soma das áreas das semicircunferências sobre os catetos é:</p>
+            @@S(b) + S(c) = \frac{\pi b^2}{8} + \frac{\pi c^2}{8} = \frac{\pi (b^2 + c^2)}{8} = \frac{\pi a^2}{8} = S(a)@@
+            <p>Ou seja, a soma das semicircunferências dos catetos equivale exatamente à semicircunferência construída sobre a hipotenusa!</p>
+            <p>A união total da figura é composta pelas duas semicircunferências dos catetos mais o triângulo @\triangle ABC@:</p>
+            @@\mathcal{A}_{\text{total}} = S(b) + S(c) + \mathcal{A}(\triangle ABC)@@
+            <p>Por outro lado, essa mesma união corresponde à área das duas lúnulas @(L_1 + L_2)@ somada à área da semicircunferência da hipotenusa @S(a)@:</p>
+            @@\mathcal{A}_{\text{total}} = (L_1 + L_2) + S(a)@@
+            <p>Igualando as duas expressões:</p>
+            @@(L_1 + L_2) + S(a) = [S(b) + S(c)] + \mathcal{A}(\triangle ABC)@@
+            <p>Como @S(a) = S(b) + S(c)@, cancelamos ambos os membros:</p>
+            @@L_1 + L_2 = \mathcal{A}(\triangle ABC) \quad \blacksquare@@
+            <p>Esta foi a primeira vez na história da humanidade (século V a.C.) em que se provou que uma região curva delimitada por arcos possui área rigorosamente igual a uma região poligonal retilínea.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 10 -->
+      <li>
+        <strong>(Hexágono Regular e Relações de Apótema)</strong>
+        Um hexágono regular está inscrito em uma circunferência de raio @R = 10\text{ cm}@.
+        <br><strong>(a)</strong> Deduza a fórmula da área de um hexágono regular em função de seu lado @\ell@.
+        <br><strong>(b)</strong> Calcule a área exata do hexágono e a área da região interna à circunferência que sobra fora do hexágono.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Dedução da fórmula:</strong></p>
+            <p>Ligando o centro aos seis vértices, o hexágono decompõe-se em 6 triângulos equiláteros congruentes de lado @\ell@.</p>
+            @@\mathcal{A}_{\text{hex}} = 6 \times \left(\frac{\ell^2 \sqrt{3}}{4}\right) = \frac{3\ell^2 \sqrt{3}}{2}@@
+            <p><strong>(b) Aplicação Numérica para @R = 10\text{ cm}@ (como está inscrito, @\ell = R = 10@):</strong></p>
+            @@\mathcal{A}_{\text{hex}} = \frac{3 \times 10^2 \times \sqrt{3}}{2} = \frac{300\sqrt{3}}{2} = 150\sqrt{3}\text{ cm}^2 \approx 259{,}81\text{ cm}^2@@
+            <p>Área do círculo: @\mathcal{A}_{\text{círculo}} = \pi R^2 = \pi (10)^2 = 100\pi\text{ cm}^2 \approx 314{,}16\text{ cm}^2@.</p>
+            <p>Área que sobra fora do hexágono:</p>
+            @@\Delta \mathcal{A} = 100\pi - 150\sqrt{3} \approx 314{,}16 - 259{,}81 = 54{,}35\text{ cm}^2@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 11 -->
+      <li>
+        <strong>(Setor Circular e Resolução do Comprimento de Cerca)</strong>
+        Um canteiro de flores tem a forma de um setor circular com raio @R@ e ângulo central @\theta@ (em radianos). O perímetro total do canteiro (os dois raios retos somados ao arco curvo) é fixado em @20\text{ metros}@.
+        <br>Determine o valor do raio @R@ e do ângulo central @\theta@ que maximizam a área plantada do canteiro.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>O comprimento do contorno é dado pela soma dos dois raios e do comprimento do arco @\ell = \theta R@:</p>
+            @@P = 2R + \ell = 20 \implies \ell = 20 - 2R@@
+            <p>A área do setor em termos de @R@ e @\ell@ é:</p>
+            @@\mathcal{A} = \frac{1}{2} \ell R = \frac{1}{2}(20 - 2R)R = (10 - R)R = -R^2 + 10R@@
+            <p>Esta é uma parábola com concavidade para baixo, cujo vértice é:</p>
+            @@R_v = -\frac{10}{2(-1)} = 5\text{ metros}@@
+            <p>Substituindo @R = 5@ no comprimento do arco:</p>
+            @@\ell = 20 - 2(5) = 10\text{ metros}@@
+            <p>O ângulo central correspondente é:</p>
+            @@\theta = \frac{\ell}{R} = \frac{10}{5} = 2\text{ radianos} \approx 114{,}59^\circ@@
+            <p>A área máxima é @\mathcal{A}_{\text{máx}} = \frac{1}{2}(10)(5) = 25\text{ m}^2@. (Resultado notável: o ângulo que maximiza o setor é sempre constante e igual a 2 radianos!).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 12 -->
+      <li>
+        <strong>(Área de Trapézio Isósceles Circunscritível)</strong>
+        Um trapézio isósceles está circunscrito a uma circunferência (isto é, todos os seus 4 lados tangenciam o círculo). Sabendo que as bases do trapézio medem @B = 16\text{ cm}@ e @b = 4\text{ cm}@:
+        <br><strong>(a)</strong> Calcule o comprimento de cada lado não paralelo utilizando o Teorema de Pitot.
+        <br><strong>(b)</strong> Determine o raio @r@ da circunferência inscrita e a área total do trapézio.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Lados não paralelos pelo Teorema de Pitot:</strong></p>
+            <p>Pelo Teorema de Pitot, em qualquer quadrilátero circunscrito a uma circunferência, a soma dos lados opostos é igual:</p>
+            @@B + b = \ell + \ell \implies 16 + 4 = 2\ell \implies 20 = 2\ell \implies \ell = 10\text{ cm}@@
+            <p><strong>(b) Altura @h@ e Inraio @r@:</strong></p>
+            <p>Projetando os vértices da base menor sobre a base maior, os dois segmentos extremos medem:</p>
+            @@d = \frac{B - b}{2} = \frac{16 - 4}{2} = 6\text{ cm}@@
+            <p>No triângulo retângulo de hipotenusa @\ell = 10@ e cateto adjacente @6@:</p>
+            @@h^2 + 6^2 = 10^2 \implies h^2 + 36 = 100 \implies h^2 = 64 \implies h = 8\text{ cm}@@
+            <p>Como a altura do trapézio circunscrito é exatamente o diâmetro da circunferência inscrita:</p>
+            @@2r = h = 8\text{ cm} \implies r = 4\text{ cm}@@
+            <p><strong>(c) Área total do trapézio:</strong></p>
+            @@\mathcal{A} = \frac{(B + b)\cdot h}{2} = \frac{(16 + 4)\cdot 8}{2} = \frac{20 \cdot 8}{2} = 80\text{ cm}^2@@
+          </div>
+        </details>
+      </li>
+
+    </ol>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 35px; margin-bottom: 25px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+    <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

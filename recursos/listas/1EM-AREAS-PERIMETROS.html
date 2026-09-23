@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Lista de Problemas: Áreas e Perímetros de Figuras Planas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-secao ol {
+      padding-left: 1.5rem;
+    }
+
+    .gabarito-secao li {
+      margin-bottom: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: 600;
+      color: var(--secondary-text-color);
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<!-- ============================================================================
+     TÍTULO PRINCIPAL DA LISTA
+     ============================================================================ -->
+<h1>LISTA DE PROBLEMAS: ÁREAS E PERÍMETROS DE FIGURAS PLANAS</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Exercícios fundamentais para fixação e aplicação direta das fórmulas de áreas e perímetros de figuras planas clássicas: polígonos regulares, quadriláteros notáveis, triângulos e círculos.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área e perímetro do retângulo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Uma sala retangular possui @8{,}5\text{ m}@ de comprimento por @4{,}2\text{ m}@ de largura.</p>
+      <p>a) Calcule o perímetro dessa sala em metros.</p>
+      <p>b) Determine a área total do piso dessa sala em metros quadrados (@\text{m}^2@).</p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Quadrado a partir da diagonal</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>A diagonal de uma praça quadrada mede exatamente @10\sqrt{2}\text{ m}@.</p>
+      <p>a) Determine a medida do lado dessa praça.</p>
+      <p>b) Calcule o perímetro e a área total da praça.</p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área do paralelogramo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um paralelogramo possui base medindo @14\text{ cm}@ e a altura relativa a essa base mede @7{,}5\text{ cm}@. Sabendo que os lados não paralelos medem @9\text{ cm}@ cada:</p>
+      <p>a) Calcule a área desse paralelogramo.</p>
+      <p>b) Calcule o seu perímetro.</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área do triângulo retângulo e relações métricas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Os catetos de um triângulo retângulo medem @9\text{ cm}@ e @12\text{ cm}@.</p>
+      <p>a) Calcule a área desse triângulo.</p>
+      <p>b) Determine o comprimento da hipotenusa e a medida da altura relativa à hipotenusa.</p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área e altura do triângulo equilátero</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um triângulo equilátero possui lado com medida @L = 8\text{ cm}@.</p>
+      <p>a) Calcule a altura @h@ desse triângulo em função de @\sqrt{3}@.</p>
+      <p>b) Calcule a área desse triângulo equilátero, deixando indicada a raiz quadrada.</p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área e perímetro de trapézio</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Um trapézio retângulo tem base maior @B = 18\text{ cm}@, base menor @b = 10\text{ cm}@ e altura @h = 6\text{ cm}@.</p>
+      <p>a) Calcule a área desse trapézio.</p>
+      <p>b) Determine a medida do lado oblíquo e o perímetro total do trapézio.</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área e perímetro do losango</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>As diagonais de um losango medem @16\text{ cm}@ e @12\text{ cm}@.</p>
+      <p>a) Calcule a área desse losango.</p>
+      <p>b) Utilizando o Teorema de Pitágoras no triângulo formado pelas semi-diagonais, determine a medida do lado do losango e seu perímetro total.</p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Comprimento e área do círculo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um jardim circular tem raio @R = 7\text{ m}@ (adote @\pi \approx \frac{22}{7}@ ou @3{,}14@).</p>
+      <p>a) Calcule o comprimento da cerca necessária para circundar completamente esse jardim.</p>
+      <p>b) Calcule a área total de gramado ocupada pelo jardim.</p>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área do hexágono regular</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Um piso ornamental tem a forma de um hexágono regular de lado @6\text{ cm}@.</p>
+      <p>a) Demonstre que a área do hexágono regular de lado @L@ é dada por @A = \frac{3\sqrt{3}}{2} L^2@.</p>
+      <p>b) Calcule o valor exato da área desse piso ornamental em @\text{cm}^2@.</p>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação prática: revestimento cerâmico e margem de perda</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Deseja-se revestir o piso de uma garagem retangular que mede @6\text{ m}@ de comprimento por @4\text{ m}@ de largura com placas de piso cerâmico. O fabricante recomenda adquirir uma quantidade @10\%@ superior à área da sala para cobrir recortes e possíveis quebras. Se cada caixa do piso contém @1{,}5\text{ m}^2@ de placas:</p>
+      <p>a) Qual é a área real da garagem e a área total que deve ser comprada com a margem de segurança?</p>
+      <p>b) Quantas caixas de piso cerâmico devem ser compradas no mínimo?</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas de consolidação que envolvem interpretação geométrica aprofundada: setores e coroas circulares, segmentos, Teorema de Heron, áreas trigonometrizadas, figuras compostas e relações métricas com círculos inscritos e circunscritos.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Setor circular: ângulo em graus e radianos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma pizza circular de raio @20\text{ cm}@ foi dividida em 8 fatias iguais idênticas (cada fatia forma um setor circular).</p>
+      <p>a) Determine a medida do ângulo central de cada fatia em graus e em radianos.</p>
+      <p>b) Calcule o comprimento da borda externa (arco de circunferência) de uma fatia.</p>
+      <p>c) Calcule a área superficial de uma fatia de pizza, mantendo @\pi@ indicado e fornecendo o valor aproximado para @\pi \approx 3{,}14@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Cada setor representa @\frac{1}{8}@ do círculo total. A área de um setor com ângulo @\theta@ é @A = \frac{\theta}{360^\circ} \pi R^2@ ou @A = \frac{1}{2} \theta_{\text{rad}} R^2@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Comprimento de arco em curvas circulares</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma curva de concordância em um traçado ferroviário é descrita por um arco de circunferência com raio de curvatura @R = 300\text{ m}@ subtendido por um ângulo central de @75^\circ@.</p>
+      <p>a) Expresse o ângulo central de @75^\circ@ em radianos como uma fração irredutível de @\pi@.</p>
+      <p>b) Calcule o comprimento total dos trilhos ao longo dessa curva (adote @\pi \approx 3{,}14@).</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Use a conversão @\theta_{\text{rad}} = \frac{75 \cdot \pi}{180}@ e calcule o arco pela relação linear @s = R \cdot \theta_{\text{rad}}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área de coroa circular e pista de caminhada</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um parque municipal possui um lago circular com raio de @20\text{ m}@. Em volta de todo o contorno desse lago, foi construída uma pista de caminhada pavimentada com largura uniforme de @3\text{ m}@.</p>
+      <p>a) Identifique o raio interno (@r@) e o raio externo (@R@) da coroa circular formada pela pista.</p>
+      <p>b) Calcule a área total de pavimentação da pista de caminhada em metros quadrados, adotando @\pi \approx 3{,}14@.</p>
+      <p>c) Se o custo por metro quadrado de piso ecológico drenante é de @\text{R\$}~80{,}00@, qual foi o investimento total na pavimentação?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> O raio externo é @R = r + \text{largura} = 20 + 3 = 23\text{ m}@. A área da coroa circular é dada por @A = \pi(R^2 - r^2)@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Segmento circular e calotas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Em um círculo de centro @O@ e raio @R = 10\text{ cm}@, uma corda @AB@ subentende um ângulo central reto de @\angle AOB = 90^\circ@.</p>
+      <p>a) Calcule a área do setor circular @AOB@ correspondente.</p>
+      <p>b) Calcule a área do triângulo isósceles @\triangle AOB@.</p>
+      <p>c) Determine a área do segmento circular compreendido entre a corda @AB@ e o arco correspondente (adote @\pi \approx 3{,}14@).</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A área do segmento circular é obtida subtraindo a área do triângulo da área do setor circular: @A_{\text{seg}} = A_{\text{setor}} - A_{\triangle}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 15 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Fórmula de Heron para áreas triangulares</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Um topógrafo mediu os limites de um terreno triangular cujos lados medem exatamente @a = 13\text{ m}@, @b = 14\text{ m}@ e @c = 15\text{ m}@.</p>
+      <p>a) Calcule o semiperímetro @s = \frac{a+b+c}{2}@ desse terreno.</p>
+      <p>b) Utilizando a fórmula de Heron (@A = \sqrt{s(s-a)(s-b)(s-c)}@), determine a área exata do terreno em metros quadrados.</p>
+      <p>c) Determine o comprimento da altura relativa ao lado que mede @14\text{ m}@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Calcule os fatores @(s-a)@, @(s-b)@ e @(s-c)@. Para encontrar a altura relativa à base @b = 14\text{ m}@, utilize @A = \frac{b \cdot h_b}{2}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 16 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área com seno do ângulo compreendido</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um lote de esquina em formato triangular possui duas frentes para ruas que medem @40\text{ m}@ e @50\text{ m}@. O ângulo formado pela confluência dessas duas ruas mede @150^\circ@.</p>
+      <p>a) Sabendo que @\sin(150^\circ) = \sin(180^\circ - 150^\circ) = \sin(30^\circ) = \frac{1}{2}@, deduza a área do lote pela relação trigonométrica @A = \frac{1}{2} a b \sin \theta@.</p>
+      <p>b) Qual seria a área desse mesmo lote se as ruas se encontrassem em ângulo perpendicular de @90^\circ@?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A fórmula @A = \frac{1}{2} a b \sin \theta@ é extremamente conveniente quando se conhecem dois lados adjacentes e o ângulo compreendido entre eles.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 17 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Raio da circunferência inscrita (incentro)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>A área de qualquer triângulo pode ser expressa pelo produto de seu semiperímetro pelo raio de sua circunferência inscrita: @A = s \cdot r@.</p>
+      <p>a) Considere um triângulo retângulo com lados medindo @6\text{ cm}@, @8\text{ cm}@ e @10\text{ cm}@. Calcule a sua área diretamente pelo produto dos catetos.</p>
+      <p>b) Calcule o raio @r@ da circunferência inscrita nesse triângulo retângulo.</p>
+      <p>c) Verifique a fórmula específica para triângulos retângulos: @r = \frac{a + b - c}{2}@, onde @c@ é a hipotenusa.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> O semiperímetro é @s = \frac{6+8+10}{2} = 12\text{ cm}@. A partir de @A = s \cdot r@, temos @r = \frac{A}{s}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 18 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Raio da circunferência circunscrita (circuncentro)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>A área de um triângulo com lados @a@, @b@ e @c@ também se relaciona com o raio @R@ da circunferência circunscrita através da fórmula @A = \frac{a \cdot b \cdot c}{4R}@.</p>
+      <p>a) Para o triângulo com lados @13\text{ cm}@, @14\text{ cm}@ e @15\text{ cm}@ (cuja área foi calculada no Problema 15 como @84\text{ cm}^2@), calcule o raio @R@ da circunferência circunscrita.</p>
+      <p>b) Calcule a área do círculo circunscrito a esse triângulo, adotando @\pi \approx 3{,}14@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Isole @R@ na fórmula: @R = \frac{a \cdot b \cdot c}{4A} = \frac{13 \times 14 \times 15}{4 \times 84}@. Simplifique a fração antes de efetuar os produtos.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 19 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Figura plana composta: lote irregular</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Um lote urbano possui uma geometria irregular que pode ser decomposta em três figuras básicas contíguas: um retângulo central de @15\text{ m} \times 20\text{ m}@; em um de seus lados menores está acoplado um trapézio retângulo de bases @15\text{ m}@ e @9\text{ m}@ com altura de @8\text{ m}@; e no outro lado menor há um semicírculo cujo diâmetro coincide com o lado de @15\text{ m}@.</p>
+      <p>a) Calcule a área do retângulo central.</p>
+      <p>b) Calcule a área do trapézio acoplado.</p>
+      <p>c) Calcule a área do semicírculo (adote @\pi \approx 3{,}14@).</p>
+      <p>d) Determine a área total desse lote urbano.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> No semicírculo, o raio é a metade do diâmetro: @r = \frac{15}{2} = 7{,}5\text{ m}@. Sua área é @\frac{1}{2}\pi r^2@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 20 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área sombreada: círculo inscrito em quadrado</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>De uma chapa de aço quadrada homogênea com lado @L = 30\text{ cm}@, um mecânico corta e retira com maçarico o maior disco circular possível nela contido.</p>
+      <p>a) Qual é o diâmetro e o raio do disco recortado?</p>
+      <p>b) Calcule a área do disco retirado e a área de sobra residual (sobras nos quatro cantos da chapa quadrada), adotando @\pi \approx 3{,}14@.</p>
+      <p>c) Demonstre que a porcentagem de material desperdiçado na sucata depende apenas de @\pi@ e independe da dimensão @L@ da chapa quadrada.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A fração de sobra é @\frac{L^2 - \pi (L/2)^2}{L^2} = 1 - \frac{\pi}{4}@. Observe o cancelamento do fator @L^2@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 21 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Lúnulas de Hipócrates</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Hipócrates de Quios (século V a.C.) descobriu que certas figuras delimitadas por arcos curvos (lúnulas) possuem área rigorosamente igual à de polígonos retilíneos. Considere um triângulo retângulo @\triangle ABC@ de catetos @b = 6\text{ cm}@, @c = 8\text{ cm}@ e hipotenusa @a = 10\text{ cm}@. Sobre cada um dos três lados constroem-se semicírculos voltados para o exterior do triângulo, e então o semicírculo da hipotenusa é rebatido sobre o triângulo.</p>
+      <p>a) Calcule a área do triângulo retângulo @\triangle ABC@.</p>
+      <p>b) Calcule as áreas dos dois semicírculos menores construídos sobre os catetos @b@ e @c@.</p>
+      <p>c) Mostre algebricamente que a soma das áreas das duas lúnulas formadas sobre os catetos é exatamente igual à área do triângulo retângulo original.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A área das duas lúnulas é dada por @(A_{\text{semi}, b} + A_{\text{semi}, c} + A_{\triangle}) - A_{\text{semi}, a}@. Pelo Teorema de Pitágoras, @b^2 + c^2 = a^2@, os semicírculos dos catetos somam exatamente a área do semicírculo da hipotenusa!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 22 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Pista oficial de atletismo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Uma pista oficial de atletismo possui um formato composto por duas retas paralelas de comprimento @L@ interligadas por duas curvas semicirculares de raio @R@. O perímetro da borda interna da raia 1 deve medir exatamente @400\text{ m}@. Sabe-se que o raio das curvas é @R = 36{,}5\text{ m}@ (adote @\pi \approx 3{,}1416@).</p>
+      <p>a) Calcule o comprimento das duas curvas semicirculares somadas (uma circunferência completa).</p>
+      <p>b) Determine o comprimento @L@ de cada uma das duas retas da pista.</p>
+      <p>c) Calcule a área total do campo interno gramado delimitado pela raia 1 (retângulo central mais dois semicírculos).</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> O perímetro total é @2L + 2\pi R = 400\text{ m}@. Isole @L@. A área do campo interno é @2R \cdot L + \pi R^2@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 23 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Escalas e áreas em plantas de arquitetura</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Em uma planta baixa de um apartamento residencial desenhada na escala de @1:50@, a suíte master é representada por um retângulo com dimensões de @12\text{ cm}@ por @8\text{ cm}@.</p>
+      <p>a) Determine as dimensões reais da suíte master em metros.</p>
+      <p>b) Calcule a área representada no desenho em @\text{cm}^2@ e a área real do cômodo em @\text{m}^2@.</p>
+      <p>c) Confirme a relação teórica: @\frac{A_{\text{real}}}{A_{\text{planta}}} = k^2 = 50^2 = 2.500@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Multiplique cada dimensão linear por @50@ para obter as medidas reais em centímetros e converta para metros dividindo por 100. A razão entre áreas é o quadrado da escala linear.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 24 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Isoperimetria e custo de cercamento de lotes</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Dois terrenos planos possuem rigorosamente a mesma área útil de @900\text{ m}^2@. O Terreno A possui formato perfeitamente quadrado. O Terreno B possui formato retangular com @15\text{ m}@ de frente por @60\text{ m}@ de profundidade.</p>
+      <p>a) Calcule o perímetro do Terreno A.</p>
+      <p>b) Calcule o perímetro do Terreno B.</p>
+      <p>c) Sabendo que o custo de instalação de cerca com mourões de concreto e arame é de @\text{R\$}~45{,}00@ por metro linear de cerca, qual é a economia em reais ao cercar o Terreno A em vez do Terreno B?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Para a mesma área, o quadrado é o quadrilátero que apresenta o menor perímetro possível (propriedade isoperimétrica).
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Desafios de vestibulares de excelência e olimpíadas de Matemática (ENEM, FUVEST, UNICAMP, OBMEP, ITA) explorando otimização quadrática isoperimétrica, tangência de círculos, semelhança de áreas e partições geométricas.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 25 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Otimização isoperimétrica com margem de rio</span>
+        <span class="fonte">ENEM</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Um fazendeiro deseja cercar um pasto retangular para confinamento de gado ao longo da margem reta de um rio. Como o rio funciona como barreira natural para o gado, não será necessária cerca no lado adjacente à água, de modo que os @120\text{ metros}@ de tela disponíveis serão utilizados exclusivamente para cercar os outros três lados do retângulo (dois lados de largura @x@ e um lado de comprimento paralelo ao rio @y@).</p>
+      <p>a) Escreva a equação do perímetro dos três lados e expresse o comprimento @y@ em função de @x@.</p>
+      <p>b) Escreva a função quadrática @A(x)@ que representa a área do pasto em função da largura @x@.</p>
+      <p>c) Determine as dimensões @x@ e @y@ que maximizam a área confinada e calcule o valor dessa área máxima em metros quadrados.</p>
+    </li>
+
+    <!-- PROBLEMA 26 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Dobradura de folha de papel (origami geométrico)</span>
+        <span class="fonte">OBMEP</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Uma folha retangular de papel @ABCD@ possui dimensões @AB = 16\text{ cm}@ e @BC = 12\text{ cm}@. A folha é dobrada ao longo de um vinco retilíneo de modo que o vértice @D@ coincida exatamente com o ponto médio @M@ do lado oposto @AB@.</p>
+      <p>a) Sendo @M@ o ponto médio de @AB@, qual é o comprimento do segmento @AM@?</p>
+      <p>b) Se o vinco intercepta o lado @AD@ no ponto @P@, faça @AP = x@ e expresse @DP = PM@ em função de @x@.</p>
+      <p>c) Utilizando o Teorema de Pitágoras no triângulo retângulo @\triangle AMP@, determine o valor de @x@ e calcule a área do triângulo @\triangle AMP@ formado pela dobra.</p>
+    </li>
+
+    <!-- PROBLEMA 27 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Região entre três círculos mutuamente tangentes</span>
+        <span class="fonte">FUVEST</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Três tubos cilíndricos idênticos de raio externo @R = 10\text{ cm}@ são amarrados juntos com uma cinta metálica, de modo que suas seções transversais circulares fiquem mutuamente tangentes duas a duas exteriormente.</p>
+      <p>a) Mostre que os centros dos três círculos formam os vértices de um triângulo equilátero de lado @2R@.</p>
+      <p>b) Calcule a área desse triângulo equilátero em função de @R@.</p>
+      <p>c) Calcule a área dos três setores circulares contidos no interior do triângulo e deduza a expressão da área da região curvilínea central delimitada entre os três tubos (forneça a fórmula literal e o valor numérico aproximado para @\sqrt{3} \approx 1{,}732@ e @\pi \approx 3{,}142@).</p>
+    </li>
+
+    <!-- PROBLEMA 28 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Método de exaustão de Arquimedes para aproximação de Pi</span>
+        <span class="fonte">UNICAMP</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>No tratado <em>Sobre a Medida do Círculo</em>, Arquimedes aproximou o valor de @\pi@ calculando as áreas de polígonos regulares inscritos e circunscritos a uma circunferência unitária (@R = 1@). Considere um dodecágono regular (12 lados) inscrito em um círculo de raio @R = 1@.</p>
+      <p>a) O dodecágono pode ser decomposto em 12 triângulos isósceles congruentes com vértice no centro do círculo. Determine o ângulo central de cada um desses triângulos.</p>
+      <p>b) Utilizando a fórmula trigonométrica da área de cada triângulo (@A_i = \frac{1}{2} R^2 \sin \theta@), determine a área total exata do dodecágono regular inscrito.</p>
+      <p>c) Como o dodecágono está inteiramente contido no círculo unitário cuja área é @\pi R^2 = \pi@, que cota inferior para o número @\pi@ Arquimedes obteve a partir desse polígono?</p>
+    </li>
+
+    <!-- PROBLEMA 29 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Partição de áreas pelas diagonais do trapézio</span>
+        <span class="fonte">FUVEST</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 11 min</span>
+      </div>
+      <p>Em um trapézio @ABCD@ de bases paralelas @AB@ e @CD@, as duas diagonais interceptam-se no ponto @P@, dividindo a área total do trapézio em quatro triângulos: @\triangle PAB@ (área @S_1@), @\triangle PCD@ (área @S_2@), @\triangle PAD@ (área @S_3@) e @\triangle PBC@ (área @S_4@).</p>
+      <p>a) Demonstre que as áreas dos triângulos laterais adjacentes aos lados oblíquos são estritamente iguais, ou seja, @S_3 = S_4@.</p>
+      <p>b) Demonstre que @S_3 = \sqrt{S_1 \cdot S_2}@.</p>
+      <p>c) Se a base maior do trapézio gera um triângulo de área @S_2 = 36\text{ cm}^2@ e a base menor gera um triângulo de área @S_1 = 16\text{ cm}^2@, determine a área total do trapézio @ABCD@.</p>
+    </li>
+
+    <!-- PROBLEMA 30 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Rosácea de quatro pétalas em quadrado</span>
+        <span class="fonte">OBMEP</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Dentro de um quadrado @ABCD@ de lado @L = 10\text{ cm}@, são traçados quatro semicírculos tendo como diâmetros cada um dos quatro lados do quadrado. A sobreposição desses semicírculos forma uma rosácea no formato de uma flor de quatro pétalas.</p>
+      <p>a) Calcule a soma das áreas dos quatro semicírculos desenhados sobre os lados do quadrado.</p>
+      <p>b) Observe que a união dos quatro semicírculos cobre todo o quadrado e as partes onde eles se sobrepõem formam precisamente as quatro pétalas. A partir dessa observação, determine a área total sombreada ocupada pelas 4 pétalas.</p>
+      <p>c) Calcule o valor numérico dessa área em @\text{cm}^2@ (adote @\pi \approx 3{,}14@).</p>
+    </li>
+
+    <!-- PROBLEMA 31 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Arranjo industrial de corte e taxa de perda</span>
+        <span class="fonte">ENEM</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Uma indústria metalúrgica estampa tampas circulares de latão com diâmetro @D = 10\text{ cm}@ a partir de grandes bobinas de chapas metálicas. O setor de engenharia de produção compara dois padrões de estampagem:</p>
+      <p>• Padrão A (Arranjo Ortogonal/Quadrado): os centros dos discos formam uma malha quadrada de lado @D@.</p>
+      <p>• Padrão B (Arranjo Hexagonal Compacto): os centros dos discos formam triângulos equiláteros de lado @D@.</p>
+      <p>a) Calcule o percentual de desperdício de material (aparas de metal) no arranjo ortogonal (Padrão A).</p>
+      <p>b) Mostre que no arranjo hexagonal compacto (Padrão B), a fração de área aproveitada é @\frac{\pi}{2\sqrt{3}} \approx 90{,}69\%@.</p>
+      <p>c) Se a indústria estampa @100.000@ tampas por mês, qual é a economia percentual de matéria-prima gerada pela adoção do arranjo hexagonal compacto?</p>
+    </li>
+
+    <!-- PROBLEMA 32 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tangência interna múltipla de círculos</span>
+        <span class="fonte">ITA</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Quatro discos circulares congruentes de raio @r@ são dispostos tangentes entre si dois a dois, de modo que seus centros formem os vértices de um quadrado de lado @2r@. Todo esse conjunto é envolvido por uma grande circunferência externa de raio @R@ tangente exteriormente aos quatro discos.</p>
+      <p>a) Utilizando a diagonal do quadrado dos centros, determine a relação exata entre o raio externo @R@ e o raio interno @r@ dos quatro discos.</p>
+      <p>b) Expresse o raio @r@ em função de @R@ racionalizando o denominador.</p>
+      <p>c) Calcule a razão entre a soma das áreas dos quatro discos menores e a área do círculo maior envolvente.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Desafios para consolidação autônoma de conteúdos: Teorema de Pick, geometria das medianas, octógonos truncados e problemas clássicos de cordas tangenciais.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 33 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Teorema de Pick em malha pontilhada</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>O Teorema de Pick permite calcular a área de qualquer polígono simples cujos vértices coincidem com pontos de uma malha quadrada de lado unitário através da fórmula: @A = I + \frac{B}{2} - 1@, onde @I@ é o número de pontos internos e @B@ é o número de pontos situados sobre a fronteira (borda) do polígono.</p>
+      <p>a) Um polígono desenhado nessa malha possui @8@ pontos na sua fronteira e @11@ pontos em seu interior. Calcule sua área.</p>
+      <p>b) Um triângulo desenhado na malha possui vértices em @(0,0)@, @(6,0)@ e @(0,4)@. Conte os pontos da borda e aplique a fórmula de Pick para confirmar a área obtida pela geometria elementar.</p>
+    </li>
+
+    <!-- PROBLEMA 34 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equivalência de áreas pelas medianas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Seja um triângulo @\triangle ABC@ de área total igual a @72\text{ cm}^2@. Traça-se a mediana @AM@ relativa ao lado @BC@.</p>
+      <p>a) Justifique por que a mediana @AM@ divide o triângulo @\triangle ABC@ em dois triângulos de mesma área (@A_{\triangle ABM} = A_{\triangle ACM}@).</p>
+      <p>b) As três medianas do triângulo concorrem no baricentro @G@. Em quantos triângulos menores o triângulo @\triangle ABC@ fica subdividido pelas três medianas e qual é a área de cada um deles?</p>
+    </li>
+
+    <!-- PROBLEMA 35 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área de octógono regular truncado</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Um octógono regular pode ser obtido a partir de um quadrado de lado @L@ cortando-se (truncando-se) seus quatro cantos por triângulos retângulos isósceles de cateto @x@.</p>
+      <p>a) Como os lados do octógono devem ser todos iguais, iguale o lado remanescente @L - 2x@ à hipotenusa @x\sqrt{2}@ dos triângulos dos cantos e determine @x@ em função de @L@.</p>
+      <p>b) Calcule a área de um octógono regular cujo lado mede @L - 2x = 10\text{ cm}@.</p>
+    </li>
+
+    <!-- PROBLEMA 36 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Coroa circular a partir de corda tangencial</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma corda @AB@ do círculo externo de uma coroa circular mede @24\text{ cm}@ e é tangente ao círculo interno.</p>
+      <p>a) Mostre que, aplicando o Teorema de Pitágoras no triângulo formado pelo raio interno @r@, pelo raio externo @R@ e por metade da corda (@c = 12\text{ cm}@), obtém-se @R^2 - r^2 = c^2@.</p>
+      <p>b) Calcule a área dessa coroa circular sem necessitar conhecer os valores individuais dos raios @R@ e @r@ (adote @\pi \approx 3{,}14@).</p>
+    </li>
+
+    <!-- PROBLEMA 37 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área de terreno em paralelogramo cortado</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um terreno em formato de paralelogramo possui lados medindo @50\text{ m}@ e @30\text{ m}@, e o menor ângulo interno formado entre eles mede @30^\circ@.</p>
+      <p>a) Calcule a altura do paralelogramo em relação à base de 50 m.</p>
+      <p>b) Calcule a área total do terreno em metros quadrados.</p>
+    </li>
+
+    <!-- PROBLEMA 38 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Triângulo em P.A. e raios das circunferências</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Considere um triângulo cujas medidas dos lados formam uma progressão aritmética de razão 1: @a = 7\text{ cm}@, @b = 8\text{ cm}@ e @c = 9\text{ cm}@.</p>
+      <p>a) Calcule a área desse triângulo utilizando a fórmula de Heron.</p>
+      <p>b) Determine o raio @r@ da circunferência inscrita e o raio @R@ da circunferência circunscrita.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     GABARITO E RESOLUÇÕES DETALHADAS
+     ============================================================================ -->
+<details class="gabarito-container">
+  <summary>📖 GABARITO E RESOLUÇÕES DETALHADAS (Clique para expandir)</summary>
+  <div class="gabarito-content">
+
+    <!-- SEÇÃO 1 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 1: Problemas Introdutórios</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) O perímetro de um retângulo é @2(a + b)@:<br>
+          @2 \times (8{,}5 + 4{,}2) = 2 \times 12{,}7 = 25{,}4\text{ m}@.<br>
+          b) A área é @A = a \cdot b@:<br>
+          @A = 8{,}5 \times 4{,}2 = 35{,}7\text{ m}^2@.<br>
+          <strong>Resposta:</strong> a) @25{,}4\text{ m}@; b) @35{,}7\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A diagonal do quadrado é @d = L\sqrt{2}@. Igualando a @10\sqrt{2}@:<br>
+          @L\sqrt{2} = 10\sqrt{2} \implies L = 10\text{ m}@.<br>
+          b) Perímetro: @4L = 4 \times 10 = 40\text{ m}@.<br>
+          Área: @A = L^2 = 10^2 = 100\text{ m}^2@.<br>
+          <strong>Resposta:</strong> a) @10\text{ m}@; b) Perímetro = @40\text{ m}@, Área = @100\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Área do paralelogramo: @A = b \cdot h = 14 \times 7{,}5 = 105\text{ cm}^2@.<br>
+          b) Perímetro: @2(14 + 9) = 2 \times 23 = 46\text{ cm}@.<br>
+          <strong>Resposta:</strong> a) @105\text{ cm}^2@; b) @46\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Área do triângulo retângulo: @A = \frac{c_1 \cdot c_2}{2} = \frac{9 \times 12}{2} = 54\text{ cm}^2@.<br>
+          b) Hipotenusa por Pitágoras: @a = \sqrt{9^2 + 12^2} = \sqrt{81 + 144} = \sqrt{225} = 15\text{ cm}@.<br>
+          Relação métrica @a \cdot h = c_1 \cdot c_2 \implies 15 \cdot h = 9 \times 12 = 108 \implies h = \frac{108}{15} = 7{,}2\text{ cm}@.<br>
+          <strong>Resposta:</strong> a) @54\text{ cm}^2@; b) Hipotenusa = @15\text{ cm}@ e altura = @7{,}2\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Altura do triângulo equilátero: @h = \frac{L\sqrt{3}}{2} = \frac{8\sqrt{3}}{2} = 4\sqrt{3}\text{ cm}@.<br>
+          b) Área: @A = \frac{L^2 \sqrt{3}}{4} = \frac{64\sqrt{3}}{4} = 16\sqrt{3}\text{ cm}^2 \approx 27{,}71\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) @4\sqrt{3}\text{ cm}@; b) @16\sqrt{3}\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Área do trapézio: @A = \frac{(B + b) \cdot h}{2} = \frac{(18 + 10) \times 6}{2} = \frac{28 \times 6}{2} = 84\text{ cm}^2@.<br>
+          b) A projeção do lado oblíquo na base é @B - b = 18 - 10 = 8\text{ cm}@.<br>
+          Lado oblíquo por Pitágoras: @l = \sqrt{8^2 + 6^2} = \sqrt{64 + 36} = \sqrt{100} = 10\text{ cm}@.<br>
+          Perímetro total: @18 + 10 + 6 + 10 = 44\text{ cm}@.<br>
+          <strong>Resposta:</strong> a) @84\text{ cm}^2@; b) Lado oblíquo = @10\text{ cm}@ e Perímetro = @44\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Área do losango: @A = \frac{D \cdot d}{2} = \frac{16 \times 12}{2} = 96\text{ cm}^2@.<br>
+          b) As semi-diagonais medem @\frac{16}{2} = 8\text{ cm}@ e @\frac{12}{2} = 6\text{ cm}@.<br>
+          Lado do losango: @L = \sqrt{8^2 + 6^2} = \sqrt{64 + 36} = 10\text{ cm}@.<br>
+          Perímetro: @4 \times 10 = 40\text{ cm}@.<br>
+          <strong>Resposta:</strong> a) @96\text{ cm}^2@; b) Lado = @10\text{ cm}@, Perímetro = @40\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Comprimento: @C = 2\pi R = 2 \times \frac{22}{7} \times 7 = 44\text{ m}@ (ou @2 \times 3{,}14 \times 7 \approx 43{,}96\text{ m}@).<br>
+          b) Área: @A = \pi R^2 = \frac{22}{7} \times 7^2 = 22 \times 7 = 154\text{ m}^2@.<br>
+          <strong>Resposta:</strong> a) @44\text{ m}@; b) @154\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) O hexágono regular é composto por 6 triângulos equiláteros congruentes de lado @L@. Logo, @A = 6 \times \left(\frac{L^2 \sqrt{3}}{4}\right) = \frac{3\sqrt{3}}{2} L^2@.<br>
+          b) Para @L = 6\text{ cm}@:<br>
+          @A = \frac{3\sqrt{3}}{2} \times 6^2 = \frac{3\sqrt{3}}{2} \times 36 = 54\sqrt{3}\text{ cm}^2 \approx 93{,}53\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) Demonstração apresentada; b) @54\sqrt{3}\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Área da garagem: @6 \times 4 = 24\text{ m}^2@.<br>
+          Com acréscimo de 10%: @24 \times 1{,}10 = 26{,}4\text{ m}^2@.<br>
+          b) Número de caixas necessárias: @\frac{26{,}4}{1{,}5} = 17{,}6@ caixas.<br>
+          Como só é possível comprar caixas inteiras, arredonda-se para cima: 18 caixas.<br>
+          <strong>Resposta:</strong> a) @24\text{ m}^2@ e @26{,}4\text{ m}^2@; b) 18 caixas.
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 2 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 2: Problemas de Fixação</h3>
+      <ol start="11">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Ângulo central: @\frac{360^\circ}{8} = 45^\circ@. Em radianos: @\frac{45\pi}{180} = \frac{\pi}{4}\text{ rad}@.<br>
+          b) Arco externo: @s = \frac{2\pi R}{8} = \frac{2\pi \times 20}{8} = 5\pi\text{ cm} \approx 15{,}7\text{ cm}@.<br>
+          c) Área da fatia: @A = \frac{\pi R^2}{8} = \frac{\pi \times 20^2}{8} = \frac{400\pi}{8} = 50\pi\text{ cm}^2 \approx 157\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) @45^\circ@ (@\pi/4\text{ rad}@); b) @5\pi \approx 15{,}7\text{ cm}@; c) @50\pi \approx 157\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @75^\circ = 75 \times \frac{\pi}{180} = \frac{5\pi}{12}\text{ rad}@.<br>
+          b) Comprimento do arco: @s = R \cdot \theta_{\text{rad}} = 300 \times \frac{5\pi}{12} = 25 \times 5\pi = 125\pi\text{ m}@.<br>
+          Com @\pi \approx 3{,}14@: @125 \times 3{,}14 = 392{,}5\text{ m}@.<br>
+          <strong>Resposta:</strong> a) @\frac{5\pi}{12}\text{ rad}@; b) @125\pi\text{ m} \approx 392{,}5\text{ m}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Raio interno @r = 20\text{ m}@; raio externo @R = 20 + 3 = 23\text{ m}@.<br>
+          b) Área da coroa circular: @A = \pi(R^2 - r^2) = \pi(23^2 - 20^2) = \pi(529 - 400) = 129\pi\text{ m}^2@.<br>
+          Com @\pi \approx 3{,}14@: @129 \times 3{,}14 \approx 405{,}06\text{ m}^2@.<br>
+          c) Custo total: @405{,}06 \times 80 = \text{R\$}~32.404{,}80@.<br>
+          <strong>Resposta:</strong> a) @r=20\text{ m}@ e @R=23\text{ m}@; b) @129\pi \approx 405{,}06\text{ m}^2@; c) R$ 32.404,80.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Setor de 90° (um quarto de círculo): @A_{\text{setor}} = \frac{\pi \times 10^2}{4} = 25\pi \approx 78{,}5\text{ cm}^2@.<br>
+          b) O triângulo retângulo isósceles tem catetos iguais a @R = 10\text{ cm}@:<br>
+          @A_{\triangle} = \frac{10 \times 10}{2} = 50\text{ cm}^2@.<br>
+          c) Área do segmento circular:<br>
+          @A_{\text{seg}} = A_{\text{setor}} - A_{\triangle} = 25\pi - 50 \approx 78{,}5 - 50 = 28{,}5\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) @25\pi \approx 78{,}5\text{ cm}^2@; b) @50\text{ cm}^2@; c) @25\pi - 50 \approx 28{,}5\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Semiperímetro: @s = \frac{13 + 14 + 15}{2} = \frac{42}{2} = 21\text{ m}@.<br>
+          b) Fatores de Heron: @(s - a) = 21 - 13 = 8@; @(s - b) = 21 - 14 = 7@; @(s - c) = 21 - 15 = 6@.<br>
+          Área: @A = \sqrt{21 \times 8 \times 7 \times 6} = \sqrt{(3 \times 7) \times (8) \times (7) \times (2 \times 3)} = \sqrt{7^2 \times 3^2 \times 16} = 7 \times 3 \times 4 = 84\text{ m}^2@.<br>
+          c) Altura em relação à base 14 m: @A = \frac{b \cdot h_b}{2} \implies 84 = \frac{14 \cdot h_b}{2} = 7 h_b \implies h_b = 12\text{ m}@.<br>
+          <strong>Resposta:</strong> a) @21\text{ m}@; b) @84\text{ m}^2@; c) @12\text{ m}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @A = \frac{1}{2} a b \sin(150^\circ) = \frac{1}{2} \times 40 \times 50 \times \frac{1}{2} = \frac{2.000}{4} = 500\text{ m}^2@.<br>
+          b) Se o ângulo fosse de 90° (@\sin 90^\circ = 1@):<br>
+          @A = \frac{1}{2} \times 40 \times 50 \times 1 = 1.000\text{ m}^2@.<br>
+          <strong>Resposta:</strong> a) @500\text{ m}^2@; b) @1.000\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Área do triângulo retângulo: @A = \frac{6 \times 8}{2} = 24\text{ cm}^2@.<br>
+          b) Semiperímetro: @s = \frac{6 + 8 + 10}{2} = 12\text{ cm}@.<br>
+          Raio inscrito: @r = \frac{A}{s} = \frac{24}{12} = 2\text{ cm}@.<br>
+          c) Pela fórmula específica para triângulo retângulo: @r = \frac{6 + 8 - 10}{2} = \frac{4}{2} = 2\text{ cm}@ (idêntico).<br>
+          <strong>Resposta:</strong> a) @24\text{ cm}^2@; b) @2\text{ cm}@; c) Verificação concluída com sucesso.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @R = \frac{a \cdot b \cdot c}{4A} = \frac{13 \times 14 \times 15}{4 \times 84}@.<br>
+          Como @14 \times 6 = 84@, simplifica: @\frac{13 \times 15}{4 \times 6} = \frac{13 \times 5}{4 \times 2} = \frac{65}{8} = 8{,}125\text{ cm}@.<br>
+          b) Área circunscrita: @A_c = \pi R^2 = \pi \times (8{,}125)^2 \approx 3{,}14 \times 66{,}016 \approx 207{,}3\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) @\frac{65}{8} = 8{,}125\text{ cm}@; b) @\approx 207{,}3\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Retângulo central: @A_1 = 15 \times 20 = 300\text{ m}^2@.<br>
+          b) Trapézio: @A_2 = \frac{(15 + 9) \times 8}{2} = \frac{24 \times 8}{2} = 96\text{ m}^2@.<br>
+          c) Semicírculo: raio @r = \frac{15}{2} = 7{,}5\text{ m}@.<br>
+          @A_3 = \frac{1}{2} \pi r^2 = \frac{1}{2} \times 3{,}14 \times 7{,}5^2 = \frac{1}{2} \times 3{,}14 \times 56{,}25 \approx 88{,}31\text{ m}^2@.<br>
+          d) Área total: @300 + 96 + 88{,}31 = 484{,}31\text{ m}^2@.<br>
+          <strong>Resposta:</strong> a) @300\text{ m}^2@; b) @96\text{ m}^2@; c) @\approx 88{,}31\text{ m}^2@; d) @\approx 484{,}31\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) O maior disco inscrito possui diâmetro igual ao lado do quadrado: @D = 30\text{ cm}@ e @R = 15\text{ cm}@.<br>
+          b) Área do disco: @A_{\text{disco}} = \pi \times 15^2 = 225\pi \approx 706{,}5\text{ cm}^2@.<br>
+          Área do quadrado: @A_{\text{quad}} = 30^2 = 900\text{ cm}^2@.<br>
+          Área de sobra residual: @900 - 706{,}5 = 193{,}5\text{ cm}^2@.<br>
+          c) Razão de perda: @\frac{A_{\text{quad}} - A_{\text{disco}}}{A_{\text{quad}}} = \frac{L^2 - \pi(L/2)^2}{L^2} = 1 - \frac{\pi}{4} \approx 1 - 0{,}7854 = 21{,}46\%@, independente de @L@.<br>
+          <strong>Resposta:</strong> a) @D=30\text{ cm}@ e @R=15\text{ cm}@; b) Disco = @706{,}5\text{ cm}^2@, Sobra = @193{,}5\text{ cm}^2@; c) @1 - \pi/4 \approx 21{,}46\%@ constante.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Área do triângulo: @A_{\triangle} = \frac{6 \times 8}{2} = 24\text{ cm}^2@.<br>
+          b) Semicírculo do cateto 6: raio 3 @\implies A_b = \frac{1}{2}\pi (3^2) = 4{,}5\pi\text{ cm}^2@.<br>
+          Semicírculo do cateto 8: raio 4 @\implies A_c = \frac{1}{2}\pi (4^2) = 8\pi\text{ cm}^2@.<br>
+          Semicírculo da hipotenusa 10: raio 5 @\implies A_a = \frac{1}{2}\pi (5^2) = 12{,}5\pi\text{ cm}^2@.<br>
+          c) Note que @A_b + A_c = 4{,}5\pi + 8\pi = 12{,}5\pi = A_a@.<br>
+          A área total da figura é @A_{\triangle} + A_b + A_c@. Retirando o semicírculo da hipotenusa (@A_a@), sobra a área das lúnulas:<br>
+          @A_{\text{lúnulas}} = A_{\triangle} + (A_b + A_c) - A_a = A_{\triangle} = 24\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) @24\text{ cm}^2@; b) @4{,}5\pi@ e @8\pi\text{ cm}^2@; c) Demonstração das lúnulas concluída (@A_{\text{lúnulas}} = 24\text{ cm}^2@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Circunferência formada pelas duas curvas: @C = 2\pi R = 2 \times 3{,}1416 \times 36{,}5 = 229{,}3368\text{ m}@.<br>
+          b) Perímetro total da raia 1: @2L + C = 400 \implies 2L = 400 - 229{,}3368 = 170{,}6632 \implies L = 85{,}3316\text{ m}@ (aproximadamente @85{,}33\text{ m}@).<br>
+          c) Área do campo interno: retângulo central (@2R \cdot L@) mais o círculo das curvas (@\pi R^2@):<br>
+          @A_{\text{ret}} = (2 \times 36{,}5) \times 85{,}3316 = 73 \times 85{,}3316 = 6.229{,}21\text{ m}^2@.<br>
+          @A_{\text{círculo}} = 3{,}1416 \times (36{,}5)^2 = 3{,}1416 \times 1.332{,}25 \approx 4.185{,}39\text{ m}^2@.<br>
+          Área total: @6.229{,}21 + 4.185{,}39 \approx 10.414{,}6\text{ m}^2@.<br>
+          <strong>Resposta:</strong> a) @229{,}34\text{ m}@; b) @L \approx 85{,}33\text{ m}@; c) @\approx 10.414{,}6\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Medidas reais: @12\text{ cm} \times 50 = 600\text{ cm} = 6\text{ m}@; @8\text{ cm} \times 50 = 400\text{ cm} = 4\text{ m}@.<br>
+          b) Área na planta: @12 \times 8 = 96\text{ cm}^2@.<br>
+          Área real: @6\text{ m} \times 4\text{ m} = 24\text{ m}^2@.<br>
+          c) Como @1\text{ m}^2 = 10.000\text{ cm}^2@, @24\text{ m}^2 = 240.000\text{ cm}^2@.<br>
+          Razão: @\frac{240.000}{96} = 2.500 = 50^2@, confirmando perfeitamente a razão quadrática.<br>
+          <strong>Resposta:</strong> a) @6\text{ m}@ por @4\text{ m}@; b) @96\text{ cm}^2@ na planta e @24\text{ m}^2@ real; c) Relação demonstrada.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Lado do Terreno A: @L = \sqrt{900} = 30\text{ m}@. Perímetro: @4 \times 30 = 120\text{ m}@.<br>
+          b) Terreno B (@15 \times 60@): perímetro @2(15 + 60) = 2 \times 75 = 150\text{ m}@.<br>
+          c) Diferença de perímetro: @150 - 120 = 30\text{ m}@ de cerca a menos.<br>
+          Economia financeira: @30\text{ m} \times \text{R\$}~45{,}00/\text{m} = \text{R\$}~1.350{,}00@.<br>
+          <strong>Resposta:</strong> a) @120\text{ m}@; b) @150\text{ m}@; c) R$ 1.350,00 de economia.
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 3 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 3: Problemas de Aprofundamento</h3>
+      <ol start="25">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Os três lados somam a tela disponível: @2x + y = 120 \implies y = 120 - 2x@.<br>
+          b) A área é o produto dos lados: @A(x) = x \cdot y = x(120 - 2x) = -2x^2 + 120x@.<br>
+          c) Trata-se de uma parábola com concavidade voltada para baixo. O ponto máximo ocorre no vértice:<br>
+          @x_v = -\frac{b}{2a} = -\frac{120}{2(-2)} = 30\text{ m}@.<br>
+          Comprimento @y = 120 - 2(30) = 60\text{ m}@.<br>
+          Área máxima: @A_{\text{máx}} = 30 \times 60 = 1.800\text{ m}^2@.<br>
+          <strong>Resposta:</strong> a) @y = 120 - 2x@; b) @A(x) = -2x^2 + 120x@; c) @x = 30\text{ m}@, @y = 60\text{ m}@ e Área máxima = @1.800\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @M@ é o ponto médio de @AB = 16@, logo @AM = 8\text{ cm}@.<br>
+          b) O lado @AD = 12\text{ cm}@. Sendo @AP = x@, o segmento @PD = 12 - x@. Como o vértice @D@ é dobrado sobre @M@, a dobra atua como mediatriz, logo @PM = PD = 12 - x@.<br>
+          c) No triângulo retângulo @\triangle AMP@:<br>
+          @AP^2 + AM^2 = PM^2 \implies x^2 + 8^2 = (12 - x)^2@.<br>
+          @x^2 + 64 = 144 - 24x + x^2 \implies 24x = 80 \implies x = \frac{80}{24} = \frac{10}{3}\text{ cm}@.<br>
+          Área do triângulo @\triangle AMP@:<br>
+          @A = \frac{AM \cdot AP}{2} = \frac{8 \times \frac{10}{3}}{2} = \frac{40}{3}\text{ cm}^2 \approx 13{,}33\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) @8\text{ cm}@; b) @PM = 12 - x@; c) @x = 10/3\text{ cm}@ e Área = @40/3\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A distância entre os centros de dois círculos tangentes de raio @R@ é @R + R = 2R@. Como são 3 círculos tangentes dois a dois, os três centros formam um triângulo equilátero de lado @2R@.<br>
+          b) Área do triângulo equilátero: @A_{\triangle} = \frac{(2R)^2 \sqrt{3}}{4} = \frac{4R^2 \sqrt{3}}{4} = R^2 \sqrt{3}@.<br>
+          c) Cada ângulo interno do triângulo equilátero mede @60^\circ@. Três setores de 60° somam @3 \times 60^\circ = 180^\circ@, que é exatamente a área de um semicírculo de raio @R@:<br>
+          @A_{\text{setores}} = \frac{1}{2} \pi R^2@.<br>
+          Área central compreendida: @A_{\text{central}} = A_{\triangle} - A_{\text{setores}} = R^2 \left(\sqrt{3} - \frac{\pi}{2}\right)@.<br>
+          Para @R = 10\text{ cm}@:<br>
+          @A = 100 \times (1{,}732 - 1{,}571) = 100 \times 0{,}161 = 16{,}1\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) Lado @2R@ demonstrado; b) @R^2 \sqrt{3}@; c) @R^2(\sqrt{3} - \pi/2) \approx 16{,}1\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) O dodecágono regular divide a circunferência em 12 partes congruentes: @\theta = \frac{360^\circ}{12} = 30^\circ@.<br>
+          b) Cada um dos 12 triângulos tem lados @R=1@ e ângulo @30^\circ@:<br>
+          @A_i = \frac{1}{2} \times 1 \times 1 \times \sin(30^\circ) = \frac{1}{2} \times \frac{1}{2} = \frac{1}{4}@.<br>
+          Área total do dodecágono: @A_{\text{dodec}} = 12 \times \frac{1}{4} = 3@.<br>
+          c) Como o polígono é estritamente interior ao círculo unitário (@A_{\text{dodec}} < A_{\text{círculo}}@):<br>
+          @3 < \pi@, estabelecendo a célebre cota inferior @\pi > 3@.<br>
+          <strong>Resposta:</strong> a) @30^\circ@; b) @3@; c) Cota inferior @\pi > 3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Os triângulos @\triangle ABD@ e @\triangle ABC@ têm a mesma base @AB@ e a mesma altura (distância entre as retas paralelas). Logo, @A_{\triangle ABD} = A_{\triangle ABC}@. Subtraindo a área comum @\triangle PAB@ (@S_1@) de ambos os lados: @S_3 = S_4@.<br>
+          b) Os triângulos @\triangle PAB@ e @\triangle PCD@ são semelhantes com razão @k = \frac{AB}{CD}@. A razão entre suas alturas é @\frac{h_1}{h_2} = k@, de modo que @\frac{S_1}{S_3} = \frac{S_3}{S_2} \implies S_3^2 = S_1 \cdot S_2 \implies S_3 = \sqrt{S_1 \cdot S_2}@.<br>
+          c) @S_3 = S_4 = \sqrt{16 \times 36} = \sqrt{576} = 24\text{ cm}^2@.<br>
+          Área total do trapézio: @S_{\text{total}} = S_1 + S_2 + S_3 + S_4 = 16 + 36 + 24 + 24 = 100\text{ cm}^2@.<br>
+          (Note que @S_{\text{total}} = (\sqrt{S_1} + \sqrt{S_2})^2 = (4 + 6)^2 = 100\text{ cm}^2@).<br>
+          <strong>Resposta:</strong> a) e b) Demonstrações apresentadas; c) @100\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) São 4 semicírculos de raio @r = \frac{L}{2} = 5\text{ cm}@:<br>
+          Área de cada semicírculo: @\frac{1}{2} \pi r^2 = \frac{1}{2} \pi (25) = 12{,}5\pi@.<br>
+          Soma dos quatro semicírculos: @4 \times 12{,}5\pi = 50\pi\text{ cm}^2@.<br>
+          b) Pelo Princípio da Inclusão-Exclusão, a soma dos 4 semicírculos cobre a área do quadrado (@L^2@) mais a área das 4 pétalas (onde há interseção dupla):<br>
+          @\sum A_{\text{semi}} = A_{\text{quad}} + A_{\text{pétalas}} \implies A_{\text{pétalas}} = 50\pi - L^2 = 50\pi - 100@.<br>
+          c) Com @\pi \approx 3{,}14@: @A_{\text{pétalas}} = 50(3{,}14) - 100 = 157 - 100 = 57\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) @50\pi\text{ cm}^2@; b) @50\pi - 100@; c) @57\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) No arranjo ortogonal, cada disco de diâmetro @D@ ocupa uma célula quadrada de área @D^2@. A área do disco é @\frac{\pi D^2}{4}@.<br>
+          Aproveitamento: @\frac{\pi}{4} \approx 78{,}54\%@; Desperdício: @1 - \frac{\pi}{4} \approx 21{,}46\%@.<br>
+          b) No arranjo hexagonal compacto, cada célula elementar é um triângulo equilátero de lado @D@, de área @A_{\triangle} = \frac{D^2 \sqrt{3}}{4}@, contendo 3 setores de 60° (área equivalente a meio disco: @\frac{\pi D^2}{8}@).<br>
+          Fração aproveitada: @\frac{\frac{\pi D^2}{8}}{\frac{D^2 \sqrt{3}}{4}} = \frac{\pi}{2\sqrt{3}} \approx \frac{3{,}1416}{3{,}4641} \approx 90{,}69\%@.<br>
+          c) Redução do desperdício de metal: cai de @21{,}46\%@ para @9{,}31\%@, representando um ganho direto de aproveitamento de mais de 12 pontos percentuais.<br>
+          <strong>Resposta:</strong> a) @21{,}46\%@; b) Demonstração de @\frac{\pi}{2\sqrt{3}} \approx 90{,}69\%@; c) Queda do desperdício de @21{,}46\%@ para @9{,}31\%@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Os centros dos discos formam um quadrado de lado @2r@. A diagonal desse quadrado mede @d = 2r\sqrt{2}@. O centro desse quadrado coincide com o centro da circunferência maior de raio @R@. A distância do centro até o ponto mais externo de um disco é metade da diagonal mais o raio do disco: @R = r\sqrt{2} + r = r(\sqrt{2} + 1)@.<br>
+          b) Racionalizando: @r = \frac{R}{\sqrt{2} + 1} = R(\sqrt{2} - 1)@.<br>
+          c) Soma das áreas dos quatro discos: @4 \times \pi r^2 = 4\pi [R(\sqrt{2}-1)]^2 = 4\pi R^2 (2 - 2\sqrt{2} + 1) = 4\pi R^2 (3 - 2\sqrt{2})@.<br>
+          Razão com a área do círculo maior (@\pi R^2@):<br>
+          @\frac{4\pi R^2 (3 - 2\sqrt{2})}{\pi R^2} = 4(3 - 2\sqrt{2}) = 12 - 8\sqrt{2} \approx 12 - 11{,}3137 = 0{,}6863@ (aproximadamente @68{,}6\%@).<br>
+          <strong>Resposta:</strong> a) @R = r(\sqrt{2} + 1)@; b) @r = R(\sqrt{2} - 1)@; c) @12 - 8\sqrt{2} \approx 68{,}6\%@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 4 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 4: Problemas Propostos</h3>
+      <ol start="33">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Pelo Teorema de Pick: @A = I + \frac{B}{2} - 1@.<br>
+          Substituindo @I = 11@ e @B = 8@: @A = 11 + \frac{8}{2} - 1 = 11 + 4 - 1 = 14\text{ unidades de área}@.<br>
+          b) No triângulo de vértices @(0,0)@, @(6,0)@ e @(0,4)@: os lados sobre os eixos têm 7 e 5 pontos. A hipotenusa liga @(0,4)@ a @(6,0)@; como @\text{mdc}(6,4) = 2@, há @2 + 1 = 3@ pontos sobre ela: @(0,4), (3,2), (6,0)@. Pontos na borda: @B = 6 + 4 + 2 = 12@. Pontos internos: aplicando Pick com @A = \frac{6 \times 4}{2} = 12@: @12 = I + 6 - 1 \implies I = 7@.<br>
+          <strong>Resposta:</strong> a) 14; b) Área 12 confirmada.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Os triângulos @\triangle ABM@ e @\triangle ACM@ possuem bases de mesma medida (@BM = MC@, pois @M@ é ponto médio) e compartilham a mesma altura descida do vértice @A@. Logo, suas áreas são iguais: @A = \frac{72}{2} = 36\text{ cm}^2@.<br>
+          b) As três medianas dividem qualquer triângulo em 6 triângulos menores de áreas estritamente equivalentes.<br>
+          Área de cada um: @\frac{72}{6} = 12\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) Justificativa apresentada; b) 6 triângulos de @12\text{ cm}^2@ cada.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Igualando o lado central à hipotenusa do canto: @L - 2x = x\sqrt{2} \implies x(2 + \sqrt{2}) = L \implies x = \frac{L}{2 + \sqrt{2}} = \frac{L(2 - \sqrt{2})}{2}@.<br>
+          b) Se o lado do octógono é @l = 10\text{ cm}@, sua área é dada por @A = 2(1 + \sqrt{2}) l^2 = 2(1 + \sqrt{2}) \times 100 = 200(1 + \sqrt{2}) \approx 482{,}84\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) @x = \frac{L(2 - \sqrt{2})}{2}@; b) @200(1 + \sqrt{2}) \approx 482{,}84\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) O raio do círculo menor traçado até o ponto de tangência é perpendicular à corda e a divide ao meio (@c = 12\text{ cm}@). Forma-se um triângulo retângulo de catetos @r@ e @c@ e hipotenusa @R@: @r^2 + c^2 = R^2 \implies R^2 - r^2 = c^2 = 12^2 = 144@.<br>
+          b) A área da coroa circular é @A = \pi(R^2 - r^2) = \pi c^2 = 144\pi \approx 452{,}16\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) @R^2 - r^2 = 144@; b) @144\pi \approx 452{,}16\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A altura em relação à base de 50 m é @h = 30 \cdot \sin(30^\circ) = 30 \times \frac{1}{2} = 15\text{ m}@.<br>
+          b) Área do paralelogramo: @A = b \cdot h = 50 \times 15 = 750\text{ m}^2@.<br>
+          <strong>Resposta:</strong> a) @15\text{ m}@; b) @750\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Semiperímetro: @s = \frac{7 + 8 + 9}{2} = 12\text{ cm}@.<br>
+          Heron: @A = \sqrt{12(12-7)(12-8)(12-9)} = \sqrt{12 \times 5 \times 4 \times 3} = \sqrt{720} = 12\sqrt{5}\text{ cm}^2 \approx 26{,}83\text{ cm}^2@.<br>
+          b) Raio inscrito: @r = \frac{A}{s} = \frac{12\sqrt{5}}{12} = \sqrt{5}\text{ cm} \approx 2{,}24\text{ cm}@.<br>
+          Raio circunscrito: @R = \frac{a \cdot b \cdot c}{4A} = \frac{7 \times 8 \times 9}{4 \times 12\sqrt{5}} = \frac{504}{48\sqrt{5}} = \frac{21}{2\sqrt{5}} = \frac{21\sqrt{5}}{10}\text{ cm} \approx 4{,}70\text{ cm}@.<br>
+          <strong>Resposta:</strong> a) @12\sqrt{5}\text{ cm}^2@; b) @r = \sqrt{5}\text{ cm}@ e @R = \frac{21\sqrt{5}}{10}\text{ cm}@.
+        </li>
+      </ol>
+    </div>
+
+  </div>
+</details>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Ângulos e Circunferência</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .orientacao-inicial { background-color: rgba(33, 150, 243, 0.2); border: 2px solid #2196f3; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .problema-meta { font-size: 0.75rem; color: var(--secondary-text-color); margin-bottom: 0.5rem; font-family: 'Fira Sans', sans-serif; }
+    .problema-meta .nivel-apoio { background-color: rgba(76, 175, 80, 0.3); padding: 2px 6px; border-radius: 3px; margin-right: 8px; font-weight: bold; }
+    .nivel-apoio.alto { background-color: rgba(76, 175, 80, 0.4); color: #4caf50; border: 1px solid #4caf50; }
+    .nivel-apoio.medio { background-color: rgba(255, 193, 7, 0.3); color: #ffb300; border: 1px solid #ffb300; }
+    .nivel-apoio.baixo { background-color: rgba(244, 67, 54, 0.2); color: #ef5350; border: 1px solid #ef5350; }
+    .dica { background-color: rgba(33, 150, 243, 0.15); border-left: 4px solid #2196f3; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 4px; }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo { background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo { margin: 1rem 0; padding-left: 1.5rem; border-left: 2px solid #4caf50; }
+    .lembrete { background-color: rgba(255, 152, 0, 0.15); border-left: 4px solid #ff9800; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 4px; }
+    .lembrete strong { color: #ff9800; }
+    .conceito-basico { background-color: rgba(156, 39, 176, 0.1); border: 2px solid #9c27b0; border-radius: 6px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .section-intro { font-style: italic; color: var(--secondary-text-color); margin-bottom: 1.5rem; padding-left: 1rem; border-left: 3px solid var(--link-color); }
+    .badge-nivel { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .ano-9 { background-color: rgba(76, 175, 80, 0.3); color: #2e7d32; border: 1px solid #4caf50; }
+    .estrelas { color: #ffd700; font-size: 1.2rem; margin-left: 0.5rem; }
+    .figura-geometrica { text-align: center; margin: 1.5rem 0; background: rgba(0, 0, 0, 0.25); padding: 1.2rem; border-radius: 8px; border: 1px dashed var(--container-border-color); }
+    .figura-geometrica svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    .legenda-figura { font-size: 0.85rem; color: var(--secondary-text-color); margin-top: 0.75rem; text-align: center; font-style: italic; }
+    .roteiro-guiado { background-color: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 0.8rem 1.2rem; margin: 0.8rem 0; }
+    .roteiro-guiado p { margin: 0.4rem 0; }
+    .roteiro-passo { color: var(--link-color); font-weight: bold; }
+    .checklist-metacognitivo ul { list-style: none; padding-left: 0; }
+    .checklist-metacognitivo li { margin: 0.8rem 0; padding-left: 1.8rem; position: relative; line-height: 1.5; }
+    .checklist-metacognitivo input[type="checkbox"] { position: absolute; left: 0; top: 3px; cursor: pointer; transform: scale(1.2); }
+    ol li { margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+<div class="container">
+<article>
+  <h1>Recuperação: Ângulos e Circunferência</h1>
+  <span class="badge-nivel ano-9">9º Ano</span>
+  <span class="estrelas">★★</span>
+
+  <!-- =========================================================================
+       ORIENTAÇÃO INICIAL (Neuroeducação & Calma Cognitiva)
+       ========================================================================= -->
+  <div class="orientacao-inicial">
+    <h3>🧠 Neuroeducação: Como seu cérebro aprende Geometria com Calma</h3>
+    <p>A Geometria combina raciocínio visual (lobo parietal) com linguagem analítica e equações (córtex pré-frontal). Para aprender sem sobrecarga cognitiva, adote estas estratégias fundamentadas na neurociência:</p>
+    <ul>
+      <li><strong>Codificação Dupla (Dual Coding):</strong> Nunca tente resolver apenas no plano abstrato. Sempre faça um esboço da figura no seu caderno e marque os ângulos correspondentes com a mesma cor ou símbolo (como arcos simples @\cap@ e duplos @\Cap@).</li>
+      <li><strong>Controle de Ansiedade e Calma Cognitiva:</strong> Diante de uma figura complexa com muitas retas, seu cérebro pode sentir excesso de estímulos. Pare por 10 segundos, respire fundo e isole apenas o par de retas e a transversal que você precisa analisar em cada instante (técnica de <em>Atenção Seletiva</em>).</li>
+      <li><strong>A Regra das Duas Medidas:</strong> Em retas paralelas cortadas por uma transversal, existem <em>apenas duas medidas de ângulos possíveis</em>: ou os ângulos são iguais (ambos agudos ou ambos obtusos), ou eles somam @180^\circ@ (um agudo e um obtuso). Saber disso simplifica drasticamente a tomada de decisão!</li>
+      <li><strong>Progressão em Scaffolding:</strong> Comece resolvendo os problemas de Alto Apoio com roteiro detalhado, avance para o Médio Apoio com dicas estratégicas e finalize testando sua autonomia no Baixo Apoio.</li>
+    </ul>
+  </div>
+
+  <!-- =========================================================================
+       REVISÃO DE CONCEITOS BÁSICOS (.conceito-basico)
+       ========================================================================= -->
+  <h2>Relembrando: Conceitos Básicos</h2>
+
+  <div class="conceito-basico">
+    <h4>Conceito 1: Ângulos Opostos pelo Vértice (OPV) e Suplementares</h4>
+    <p>Quando duas retas concorrentes se cruzam em um único ponto (o vértice):</p>
+    <ul>
+      <li><strong>Ângulos Opostos pelo Vértice (OPV):</strong> Estão em lados opostos ao vértice e são rigorosamente <strong>congruentes</strong> (possuem medidas iguais):
+        @@ \alpha = \beta @@
+      </li>
+      <li><strong>Ângulos Adjacentes Suplementares:</strong> Estão lado a lado sobre uma mesma reta e formam um ângulo raso, totalizando @180^\circ@:
+        @@ \alpha + \theta = 180^\circ @@
+      </li>
+    </ul>
+    <div class="lembrete">
+      <strong>Propriedade Crucial:</strong> Se você conhece a medida de apenas <em>um</em> ângulo entre duas retas concorrentes, você descobre automaticamente os outros três!
+    </div>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 2: Retas Paralelas Cortadas por uma Transversal (@r \parallel s@)</h4>
+    <p>Quando duas retas paralelas @r@ e @s@ são interceptadas por uma transversal @t@, são formados 8 ângulos classificados conforme suas posições:</p>
+    <ol>
+      <li><strong>Correspondentes:</strong> Ocupam a mesma posição relativa em cada reta (ex.: ambos no canto superior direito). São <strong>congruentes</strong>.</li>
+      <li><strong>Alternos Internos:</strong> Estão entre as paralelas (@\text{internos}@), mas em lados opostos da transversal (@\text{alternos}@). Formam o clássico formato em "Z". São <strong>congruentes</strong>.</li>
+      <li><strong>Alternos Externos:</strong> Estão fora da faixa entre as paralelas e em lados opostos da transversal. São <strong>congruentes</strong>.</li>
+      <li><strong>Colaterais Internos:</strong> Estão entre as paralelas e do mesmo lado da transversal (@\text{colaterais}@). Formam o formato em "C". São <strong>suplementares</strong> (soma @= 180^\circ@).</li>
+      <li><strong>Colaterais Externos:</strong> Estão fora das paralelas e do mesmo lado da transversal. São <strong>suplementares</strong> (soma @= 180^\circ@).</li>
+    </ol>
+    <div class="dica">
+      <strong>Síntese Prática:</strong>
+      <br>• Mesma abertura (ambos agudos ou ambos obtusos) @\implies@ <strong>IGUAIS</strong>.
+      <br>• Aberturas diferentes (um agudo e um obtuso) @\implies@ <strong>SOMAM @180^\circ@</strong>.
+    </div>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 3: Ângulo Central na Circunferência</h4>
+    <p>Um <strong>ângulo central</strong> é aquele cujo vértice coincide exatamente com o centro @O@ da circunferência. Seus lados contêm dois raios @OA@ e @OB@.</p>
+    @@
+    \text{Medida do Ângulo Central } (\alpha) = \text{Medida do Arco Subtendido } (\widehat{AB})
+    @@
+    <p>Se o arco @\widehat{AB}@ mede @70^\circ@, o ângulo central @\angle AOB@ também mede exatamente @70^\circ@.</p>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 4: Ângulo Inscrito na Circunferência</h4>
+    <p>Um <strong>ângulo inscrito</strong> possui seu vértice @V@ situado <em>sobre</em> a circunferência, e seus lados são semirretas secantes à circunferência.</p>
+    <p><strong>Teorema Fundamental do Ângulo Inscrito:</strong> A medida de um ângulo inscrito é sempre igual à <strong>metade</strong> da medida do arco correspondente (ou metade do ângulo central que enxerga o mesmo arco):</p>
+    @@
+    \beta = \frac{\text{med}(\widehat{AB})}{2} = \frac{\alpha}{2} \iff \alpha = 2 \cdot \beta
+    @@
+    <div class="lembrete">
+      <strong>Consequência de Ouro:</strong> Dois ou mais ângulos inscritos que interceptam o <em>mesmo arco</em> são sempre <strong>congruentes</strong> entre si!
+    </div>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 5: Ângulo Inscrito na Semicircunferência</h4>
+    <p>Quando o arco interceptado por um ângulo inscrito é uma semicircunferência (ou seja, quando a corda que une seus extremos é o <strong>diâmetro</strong> da circunferência):</p>
+    @@
+    \text{med}(\widehat{AB}) = 180^\circ \implies \beta = \frac{180^\circ}{2} = 90^\circ
+    @@
+    <p>Todo triângulo inscrito em uma semicircunferência tendo o diâmetro como um de seus lados é obrigatoriamente um <strong>triângulo retângulo</strong>, cuja hipotenusa é o próprio diâmetro!</p>
+  </div>
+
+  <!-- =========================================================================
+       EXEMPLOS RESOLVIDOS COM DIAGRAMAS (.exemplo-passo-a-passo)
+       ========================================================================= -->
+  <h2>Exemplos Resolvidos: Passo a Passo & Visualização Geométrica</h2>
+  <p class="section-intro">
+    Veja como o raciocínio geométrico se conecta às equações algébricas através de diagramas claros e etapas bem delimitadas.
+  </p>
+
+  <!-- EXEMPLO 1 -->
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo 1: Retas Paralelas Cortadas por Transversal e Equação de 1º Grau</h4>
+    <p><strong>Problema:</strong> Duas retas paralelas @r@ e @s@ são cortadas por uma reta transversal @t@. Dois ângulos alternos internos são expressos por @(3x + 10^\circ)@ e @(5x - 30^\circ)@. Determine o valor numérico da incógnita @x@ e a medida exata desses ângulos.</p>
+
+    <div class="figura-geometrica">
+      <svg viewBox="0 0 460 220" width="440" height="210" aria-label="Retas paralelas cortadas por transversal com ângulos alternos internos">
+        <!-- Reta r -->
+        <line x1="30" y1="60" x2="430" y2="60" stroke="#4DD0E1" stroke-width="3" />
+        <text x="438" y="65" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold">r</text>
+
+        <!-- Reta s -->
+        <line x1="30" y1="160" x2="430" y2="160" stroke="#4DD0E1" stroke-width="3" />
+        <text x="438" y="165" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold">s</text>
+
+        <!-- Reta transversal t -->
+        <line x1="120" y1="20" x2="320" y2="200" stroke="#FFD700" stroke-width="3" />
+        <text x="330" y="210" fill="#FFD700" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold">t</text>
+
+        <!-- Ponto superior de interseção (164.4, 60) aprox -->
+        <circle cx="164" cy="60" r="4" fill="#FFD700" />
+        <!-- Arco alterno interno superior esquerdo/inferior (na reta r, à direita da transversal) -->
+        <path d="M 194 60 A 30 30 0 0 1 180 74" fill="none" stroke="#4CAF50" stroke-width="3" />
+        <text x="210" y="85" fill="#81C784" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">3x + 10°</text>
+
+        <!-- Ponto inferior de interseção (275.5, 160) aprox -->
+        <circle cx="276" cy="160" r="4" fill="#FFD700" />
+        <!-- Arco alterno interno inferior (na reta s, à esquerda da transversal) -->
+        <path d="M 246 160 A 30 30 0 0 1 260 146" fill="none" stroke="#4CAF50" stroke-width="3" />
+        <text x="175" y="150" fill="#81C784" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">5x - 30°</text>
+      </svg>
+      <div class="legenda-figura">Figura 1: Ângulos alternos internos entre retas paralelas @r \parallel s@ formam um padrão em "Z" e possuem medidas iguais.</div>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 1: Identificar a relação geométrica entre os ângulos.</strong></p>
+      <p>Os dois ângulos estão localizados entre as retas paralelas (@\text{região interna}@) e em lados opostos da reta transversal @t@ (@\text{alternos}@). Portanto, são <strong>ângulos alternos internos</strong> e são <strong>congruentes</strong>.</p>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2: Montar a equação da congruência.</strong></p>
+      @@
+      5x - 30^\circ = 3x + 10^\circ
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 3: Resolver a equação de 1º grau isolando @x@.</strong></p>
+      @@
+      5x - 3x = 10^\circ + 30^\circ \implies 2x = 40^\circ \implies x = \frac{40^\circ}{2} = 20^\circ
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 4: Calcular a medida real do ângulo e fazer a prova real.</strong></p>
+      <p>Substituindo @x = 20^\circ@ em cada expressão:</p>
+      @@
+      3(20^\circ) + 10^\circ = 60^\circ + 10^\circ = 70^\circ
+      @@
+      @@
+      5(20^\circ) - 30^\circ = 100^\circ - 30^\circ = 70^\circ \quad \checkmark
+      @@
+      <p><strong>Conclusão:</strong> O valor de @x@ é @20^\circ@ e a medida de cada ângulo alterno interno é @70^\circ@ (um ângulo agudo, condizente com a figura!).</p>
+    </div>
+  </div>
+
+  <!-- EXEMPLO 2 -->
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo 2: Relação entre Ângulo Central e Ângulo Inscrito</h4>
+    <p><strong>Problema:</strong> Na circunferência de centro @O@ abaixo, o arco @\widehat{AB}@ mede @84^\circ@. Calcule o valor do ângulo central @\angle AOB@ e do ângulo inscrito @\angle APB@ apoiado no mesmo arco.</p>
+
+    <div class="figura-geometrica">
+      <svg viewBox="0 0 360 260" width="340" height="245" aria-label="Ângulo central e inscrito no mesmo arco de circunferência">
+        <!-- Círculo principal -->
+        <circle cx="180" cy="130" r="100" fill="none" stroke="#66DDAA" stroke-width="2.5" />
+        
+        <!-- Centro O -->
+        <circle cx="180" cy="130" r="4" fill="#FFD700" />
+        <text x="188" y="125" fill="#FFD700" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">O</text>
+
+        <!-- Pontos A e B no arco inferior -->
+        <!-- Ponto A: ~240 graus -> cx = 180 + 100*cos(125 deg) = 180 - 57.3 = 123, cy = 130 + 100*sin(125 deg) = 130 + 81.9 = 212 -->
+        <circle cx="123" cy="212" r="4" fill="#4DD0E1" />
+        <text x="110" y="232" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">A</text>
+
+        <!-- Ponto B: cx = 180 + 100*cos(55 deg) = 180 + 57.3 = 237, cy = 130 + 81.9 = 212 -->
+        <circle cx="237" cy="212" r="4" fill="#4DD0E1" />
+        <text x="245" y="232" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">B</text>
+
+        <!-- Arco AB em destaque verde brilhante -->
+        <path d="M 123 212 A 100 100 0 0 0 237 212" fill="none" stroke="#4CAF50" stroke-width="5" />
+        <text x="180" y="250" fill="#4CAF50" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Arco AB = 84°</text>
+
+        <!-- Raios OA e OB (Ângulo Central) -->
+        <line x1="180" y1="130" x2="123" y2="212" stroke="#FFD700" stroke-width="2" stroke-dasharray="3" />
+        <line x1="180" y1="130" x2="237" y2="212" stroke="#FFD700" stroke-width="2" stroke-dasharray="3" />
+        <text x="180" y="165" fill="#FFD700" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">α = 84°</text>
+
+        <!-- Ponto P no topo da circunferência (Vértice do ângulo inscrito) -->
+        <circle cx="180" cy="30" r="4" fill="#FF7043" />
+        <text x="180" y="20" fill="#FF7043" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">P</text>
+
+        <!-- Cordas PA e PB (Ângulo Inscrito) -->
+        <line x1="180" y1="30" x2="123" y2="212" stroke="#FF7043" stroke-width="2.5" />
+        <line x1="180" y1="30" x2="237" y2="212" stroke="#FF7043" stroke-width="2.5" />
+        <text x="180" y="70" fill="#FFAB91" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">β = 42°</text>
+      </svg>
+      <div class="legenda-figura">Figura 2: O ângulo central @\alpha = \angle AOB@ tem a mesma medida do arco (@84^\circ@), enquanto o ângulo inscrito @\beta = \angle APB@ mede exatamente a metade (@42^\circ@).</div>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 1: Determinar a medida do ângulo central @\angle AOB@.</strong></p>
+      <p>Pela definição de ângulo central, a medida de @\angle AOB@ é idêntica à medida do arco por ele delimitado:</p>
+      @@
+      \text{med}(\angle AOB) = \text{med}(\widehat{AB}) = 84^\circ
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2: Aplicar o Teorema do Ângulo Inscrito para achar @\angle APB@.</strong></p>
+      <p>Como o vértice @P@ pertence à circunferência e seus lados interceptam o mesmo arco @\widehat{AB}@:</p>
+      @@
+      \text{med}(\angle APB) = \frac{\text{med}(\widehat{AB})}{2} = \frac{84^\circ}{2} = 42^\circ
+      @@
+      <p><strong>Conclusão:</strong> O ângulo central mede @84^\circ@ e o ângulo inscrito mede @42^\circ@.</p>
+    </div>
+  </div>
+
+  <!-- EXEMPLO 3 -->
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo 3: Triângulo Inscrito na Semicircunferência</h4>
+    <p><strong>Problema:</strong> Na circunferência com diâmetro @AB@, o ponto @C@ pertence à circunferência. Sabendo que o ângulo @\angle CAB = 32^\circ@, determine a medida do ângulo @\angle ABC@ e do arco @\widehat{BC}@.</p>
+
+    <div class="figura-geometrica">
+      <svg viewBox="0 0 380 230" width="360" height="220" aria-label="Triângulo retângulo inscrito em semicircunferência">
+        <!-- Arco da circunferência -->
+        <path d="M 40 170 A 140 140 0 0 1 320 170" fill="none" stroke="#66DDAA" stroke-width="2.5" />
+        <line x1="40" y1="170" x2="320" y2="170" stroke="#4DD0E1" stroke-width="3" />
+
+        <!-- Centro O -->
+        <circle cx="180" cy="170" r="4" fill="#FFD700" />
+        <text x="180" y="195" fill="#FFD700" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">O (centro)</text>
+
+        <!-- Pontos A e B no diâmetro -->
+        <circle cx="40" cy="170" r="4" fill="#4DD0E1" />
+        <text x="25" y="175" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">A</text>
+        <circle cx="320" cy="170" r="4" fill="#4DD0E1" />
+        <text x="330" y="175" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">B</text>
+
+        <!-- Ponto C na semicircunferência (angulo reto) -->
+        <!-- R = 140, ponto a angulo ~ 65 graus do centro: cx = 180 + 140*cos(115 deg) = 180 - 59 = 121, cy = 170 - 140*sin(115 deg) = 170 - 127 = 43 -->
+        <circle cx="121" cy="43" r="4" fill="#FF7043" />
+        <text x="115" y="32" fill="#FF7043" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">C</text>
+
+        <!-- Lados AC e BC -->
+        <line x1="40" y1="170" x2="121" y2="43" stroke="#FF7043" stroke-width="2.5" />
+        <line x1="320" y1="170" x2="121" y2="43" stroke="#FF7043" stroke-width="2.5" />
+
+        <!-- Símbolo de ângulo reto no vértice C -->
+        <path d="M 112 57 L 126 66 L 135 52" fill="none" stroke="#FFD700" stroke-width="2" />
+        <circle cx="124" cy="58" r="2" fill="#FFD700" />
+        <text x="145" y="48" fill="#FFD700" font-family="'Fira Sans', sans-serif" font-size="12" font-weight="bold">90°</text>
+
+        <!-- Indicação do ângulo A = 32° -->
+        <text x="65" y="160" fill="#81C784" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">32°</text>
+        <!-- Indicação do ângulo B -->
+        <text x="270" y="160" fill="#E57373" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">?</text>
+      </svg>
+      <div class="legenda-figura">Figura 3: O diâmetro @AB@ subtende o arco de @180^\circ@. Logo, o ângulo oposto @\angle ACB@ é reto (@90^\circ@).</div>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 1: Reconhecer a propriedade do diâmetro.</strong></p>
+      <p>Como o segmento @AB@ é o diâmetro da circunferência, o arco @\widehat{AB}@ é uma semicircunferência de @180^\circ@. O ângulo inscrito @\angle ACB@ enxerga esse diâmetro, portanto:</p>
+      @@
+      \text{med}(\angle ACB) = \frac{180^\circ}{2} = 90^\circ
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2: Usar a soma dos ângulos internos do triângulo @ABC@.</strong></p>
+      <p>A soma dos ângulos internos de qualquer triângulo é sempre @180^\circ@:</p>
+      @@
+      \text{med}(\angle CAB) + \text{med}(\angle ACB) + \text{med}(\angle ABC) = 180^\circ
+      @@
+      @@
+      32^\circ + 90^\circ + \text{med}(\angle ABC) = 180^\circ \implies 122^\circ + \text{med}(\angle ABC) = 180^\circ
+      @@
+      @@
+      \text{med}(\angle ABC) = 180^\circ - 122^\circ = 58^\circ
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 3: Calcular a medida do arco @\widehat{BC}@.</strong></p>
+      <p>O ângulo @\angle CAB = 32^\circ@ é um ângulo inscrito que enxerga o arco @\widehat{BC}@. Logo, a medida do arco é o dobro da medida do ângulo inscrito:</p>
+      @@
+      \text{med}(\widehat{BC}) = 2 \cdot \text{med}(\angle CAB) = 2 \cdot 32^\circ = 64^\circ
+      @@
+      <p><strong>Conclusão:</strong> O ângulo @\angle ABC@ mede @58^\circ@ e o arco @\widehat{BC}@ mede @64^\circ@.</p>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PARTE 1: PRIMEIROS PASSOS (Alto Apoio - Problemas 1 a 5)
+       ========================================================================= -->
+  <h2>Parte 1: Primeiros Passos (Alto Apoio)</h2>
+  <p class="section-intro">
+    Problemas com roteiro passo a passo pré-estruturado. Siga as etapas indicadas para construir a solução no seu caderno com máxima segurança.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>Dois ângulos opostos pelo vértice (OPV) medem @(4x - 15^\circ)@ e @(2x + 25^\circ)@. Calcule o valor da incógnita @x@ e a medida exata desses dois ângulos.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Lembre-se da propriedade: ângulos opostos pelo vértice são congruentes (iguais). Escreva a equação igualando as duas expressões: @4x - 15^\circ = 2x + 25^\circ@.</p>
+        <p><strong>Etapa B:</strong> Transponha os termos com @x@ para o primeiro membro e os números para o segundo membro: @4x - 2x = 25^\circ + 15^\circ@.</p>
+        <p><strong>Etapa C:</strong> Reduza os termos semelhantes: @2x = \dots@ e calcule o valor de @x@ dividindo por 2.</p>
+        <p><strong>Etapa D:</strong> Substitua o valor encontrado em @4x - 15^\circ@ para achar a medida do ângulo.</p>
+        <p><strong>Etapa E:</strong> Faça a verificação substituindo em @2x + 25^\circ@ para conferir se ambos dão o mesmo resultado!</p>
+      </div>
+
+      <div class="dica">
+        <strong>Dica:</strong> Lembre que ao trocar de lado da igualdade, o sinal inverte: @-15^\circ@ passa como @+15^\circ@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>Duas retas paralelas @r@ e @s@ são cortadas por uma transversal @t@. Um par de ângulos correspondentes é expresso por @(5x - 18^\circ)@ e @(3x + 12^\circ)@. Determine o valor de @x@ e a medida desses ângulos.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Ângulos correspondentes em retas paralelas ocupam a mesma posição relativa e têm medidas <strong>iguais</strong>.</p>
+        <p><strong>Etapa B:</strong> Escreva a igualdade: @5x - 18^\circ = 3x + 12^\circ@.</p>
+        <p><strong>Etapa C:</strong> Subtraia @3x@ de ambos os lados e some @18^\circ@ aos dois lados: @5x - 3x = 12^\circ + 18^\circ@.</p>
+        <p><strong>Etapa D:</strong> Encontre @x = \frac{30^\circ}{2}@.</p>
+        <p><strong>Etapa E:</strong> Calcule a medida final do ângulo substituindo @x@ em @3x + 12^\circ@.</p>
+      </div>
+
+      <div class="lembrete">
+        <strong>Lembre-se:</strong> Por serem ângulos correspondentes de retas paralelas, o valor numérico final do ângulo tem que ser rigorosamente idêntico em ambas as expressões!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 5 min</div>
+      <p>Duas retas paralelas @r@ e @s@ são cortadas por uma transversal @t@. Dois ângulos colaterais internos medem @(2x + 10^\circ)@ e @(3x + 40^\circ)@. Calcule o valor de @x@ e a medida de cada um desses dois ângulos.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Ângulos colaterais internos estão do mesmo lado da transversal e formam um "C". Eles <strong>não são iguais</strong>; eles são <strong>suplementares</strong> (sua soma vale @180^\circ@!).</p>
+        <p><strong>Etapa B:</strong> Monte a equação somando os dois binômios e igualando a @180^\circ@: @(2x + 10^\circ) + (3x + 40^\circ) = 180^\circ@.</p>
+        <p><strong>Etapa C:</strong> Junte os termos com @x@ e os números: @(2x + 3x) + (10^\circ + 40^\circ) = 180^\circ \implies 5x + 50^\circ = 180^\circ@.</p>
+        <p><strong>Etapa D:</strong> Isole @5x@ subtraindo @50^\circ@ de @180^\circ@ e depois divida por 5 para achar @x@.</p>
+        <p><strong>Etapa E:</strong> Substitua o valor de @x@ em cada expressão para encontrar os dois ângulos e confira se a soma deles dá exatamente @180^\circ@.</p>
+      </div>
+
+      <div class="dica">
+        <strong>Dica Neurocognitiva:</strong> Cuidado com o impulso automático de igualar tudo! Quando um ângulo é agudo e o outro é obtuso, eles sempre <strong>somam @180^\circ@</strong>!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>Em uma circunferência, um arco @\widehat{AB}@ mede @76^\circ@. Um ângulo central @\angle AOB@ e um ângulo inscrito @\angle APB@ estão apoiados nesse mesmo arco. Calcule a medida do ângulo central e do ângulo inscrito.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Identifique a medida do arco: @\text{med}(\widehat{AB}) = 76^\circ@.</p>
+        <p><strong>Etapa B:</strong> Aplique a regra do ângulo central: ele é igual à medida do arco. Logo, @\text{med}(\angle AOB) = \dots@</p>
+        <p><strong>Etapa C:</strong> Aplique a regra do ângulo inscrito: ele é a metade do arco (ou a metade do ângulo central correspondente).</p>
+        <p><strong>Etapa D:</strong> Calcule @\frac{76^\circ}{2}@ para obter o ângulo inscrito @\angle APB@.</p>
+      </div>
+
+      <div class="lembrete">
+        <strong>Regra de ouro:</strong> Ângulo inscrito = @\frac{\text{Arco}}{2}@. Ângulo central = @\text{Arco}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 5 min</div>
+      <p>Um triângulo @MNP@ está inscrito em uma circunferência de centro @O@. O lado @MN@ passa pelo centro @O@ (ou seja, é um diâmetro). Sabendo que o ângulo @\angle PMN = 40^\circ@, determine a medida do ângulo @\angle MPN@ e a medida do ângulo @\angle MNP@.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> O lado @MN@ é o diâmetro da circunferência. Pelo Teorema do Triângulo Inscrito na Semicircunferência, o ângulo oposto a esse diâmetro é reto. Qual é esse ângulo oposto? É o vértice @P@, logo @\text{med}(\angle MPN) = 90^\circ@.</p>
+        <p><strong>Etapa B:</strong> Lembre-se que a soma dos três ângulos internos de qualquer triângulo é @180^\circ@:</p>
+        @@
+        \text{med}(\angle PMN) + \text{med}(\angle MPN) + \text{med}(\angle MNP) = 180^\circ
+        @@
+        <p><strong>Etapa C:</strong> Substitua os valores conhecidos: @40^\circ + 90^\circ + \text{med}(\angle MNP) = 180^\circ@.</p>
+        <p><strong>Etapa D:</strong> Some @40^\circ + 90^\circ = 130^\circ@ e subtraia de @180^\circ@ para achar @\text{med}(\angle MNP)@.</p>
+      </div>
+
+      <div class="dica">
+        <strong>Dica:</strong> Em qualquer triângulo retângulo, os dois ângulos agudos são sempre complementares (somam @90^\circ@). Bastava fazer @90^\circ - 40^\circ = 50^\circ@!
+      </div>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       PARTE 2: DESENVOLVENDO AUTONOMIA (Apoio Médio - Problemas 6 a 10)
+       ========================================================================= -->
+  <h2>Parte 2: Desenvolvendo Autonomia (Apoio Médio)</h2>
+  <p class="section-intro">
+    Aqui você já domina as definições centrais. Tente montar e resolver cada exercício de forma autônoma, consultando as caixas de dica caso sinta dúvida na estratégia.
+  </p>
+
+  <ol start="6">
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 5 min</div>
+      <p>Duas retas paralelas @r@ e @s@ são interceptadas por uma reta transversal. Dois ângulos alternos externos medem @(4x + 15^\circ)@ e @(6x - 25^\circ)@. Determine o valor de @x@ e o valor de cada um desses ângulos.</p>
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> Ângulos alternos externos são congruentes (@\text{medidas iguais}@). Monte a igualdade @6x - 25^\circ = 4x + 15^\circ@ e isole @x@. Depois calcule o ângulo e confirme se é um ângulo agudo ou obtuso.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 5 min</div>
+      <p>Em um feixe de retas paralelas cortadas por uma transversal, dois ângulos colaterais externos medem @(3x + 20^\circ)@ e @(2x + 10^\circ)@. Determine o valor de @x@ e a medida de cada ângulo.</p>
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> A palavra <em>colateral</em> significa "do mesmo lado". Ângulos colaterais (sejam internos ou externos) somam sempre @180^\circ@. Monte a soma: @(3x + 20^\circ) + (2x + 10^\circ) = 180^\circ@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 6 min</div>
+      <p>Na circunferência de centro @O@, um ângulo inscrito mede @(3x - 5^\circ)@ e o ângulo central correspondente (que intercepta exatamente o mesmo arco) mede @(4x + 30^\circ)@. Determine o valor numérico de @x@, a medida do ângulo central e a medida do arco correspondente.</p>
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> O ângulo central é sempre o <strong>dobro</strong> do ângulo inscrito. Escreva a equação:
+        @@ \text{Ângulo Central} = 2 \cdot (\text{Ângulo Inscrito}) \implies 4x + 30^\circ = 2 \cdot (3x - 5^\circ) @@
+        Aplique a distributiva no lado direito com cuidado (@2 \cdot 3x - 2 \cdot 5^\circ@) e isole @x@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 5 min</div>
+      <p>Dois ângulos inscritos @\angle APB@ e @\angle AQB@ em uma mesma circunferência interceptam exatamente o mesmo arco @\widehat{AB}@. As suas medidas em função de @y@ são dadas por @\angle APB = 2y + 14^\circ@ e @\angle AQB = 3y - 6^\circ@. Calcule o valor de @y@ e a medida do arco @\widehat{AB}@.</p>
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> Se dois ângulos inscritos interceptam o mesmo arco, eles são necessariamente congruentes! Portanto, iguale @2y + 14^\circ = 3y - 6^\circ@. Ao achar o valor do ângulo inscrito, lembre-se de que a medida do arco é o <strong>dobro</strong> do ângulo inscrito!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 6 min</div>
+      <p>Um quadrilátero convexo ABCD está <em>inscrito</em> em uma circunferência (quadrilátero inscritível). Dois de seus ângulos opostos medem @\angle A = 2x + 30^\circ@ e @\angle C = x + 60^\circ@. Determine o valor de @x@ e as medidas dos ângulos @\angle A@ e @\angle C@.</p>
+      <div class="dica">
+        <strong>Dica Estratégica (Teorema do Quadrilátero Inscrito):</strong> Em qualquer quadrilátero inscrito numa circunferência, os ângulos opostos somam @180^\circ@ (são suplementares), pois juntos eles enxergam a circunferência inteira (@360^\circ / 2 = 180^\circ@). Logo: @\angle A + \angle C = 180^\circ@.
+      </div>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       PARTE 3: CONSOLIDAÇÃO (Baixo Apoio - Problemas 11 a 15)
+       ========================================================================= -->
+  <h2>Parte 3: Consolidação (Baixo Apoio)</h2>
+  <p class="section-intro">
+    Desafios para consolidar sua autonomia completa. Leia os enunciados com atenção, faça o esboço geométrico no seu caderno e execute a estratégia resolutiva.
+  </p>
+
+  <ol start="11">
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 7 min</div>
+      <p>Considere duas retas paralelas horizontais @r@ e @s@. Entre elas, forma-se uma linha quebrada (em formato de bico ou zigue-zague) com vértice no ponto @V@ apontando para a direita. O ângulo superior agudo entre a reta @r@ e o segmento superior mede @35^\circ@, e o ângulo inferior agudo entre a reta @s@ e o segmento inferior mede @55^\circ@. Determine a medida do ângulo interno no vértice @V@.</p>
+      <div class="dica">
+        <strong>Pista de raciocínio:</strong> Trace mentalmente (ou no seu caderno) uma terceira reta paralela auxiliar passando pelo vértice @V@. Essa reta divide o ângulo do vértice em duas partes que são alternas internas aos ângulos dados.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 7 min</div>
+      <p>Um relógio de ponteiros circular tradicional marca exatamente <strong>3 horas e 30 minutos</strong>.</p>
+      <p>a) Qual é a medida do menor ângulo formado entre o ponteiro das horas e o ponteiro dos minutos?</p>
+      <p>b) Qual é a medida do arco de circunferência compreendido entre as pontas dos dois ponteiros?</p>
+      <div class="dica">
+        <strong>Atenção ao detalhe neurocognitivo:</strong> Às 3h30min, o ponteiro das horas não está exatamente sobre o número 3! Ele avançou metade do caminho entre o 3 e o 4 (cada intervalo de 1 hora no relógio corresponde a @360^\circ / 12 = 30^\circ@).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 8 min</div>
+      <p>Duas cordas @AB@ e @CD@ de uma circunferência interceptam-se em um ponto interior @P@ (não coincidente com o centro). Os arcos determinados por essas cordas na circunferência medem @\text{med}(\widehat{AC}) = 110^\circ@ e @\text{med}(\widehat{BD}) = 40^\circ@. Calcule a medida do ângulo excêntrico interno @\angle AP C@ formado pelo cruzamento das duas cordas.</p>
+      <div class="dica">
+        <strong>Pista de raciocínio:</strong> A medida de um ângulo excêntrico interior é dada pela média aritmética dos arcos que ele e seu oposto pelo vértice determinam: @\theta = \frac{\text{arco}_1 + \text{arco}_2}{2}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 8 min</div>
+      <p>A partir de um ponto externo @P@ traçam-se duas semirretas secantes a uma circunferência. As secantes interceptam a circunferência determinando dois arcos entre elas: o arco maior mede @125^\circ@ e o arco menor mede @35^\circ@. Determine a medida do ângulo excêntrico externo com vértice no ponto @P@.</p>
+      <div class="dica">
+        <strong>Pista de raciocínio:</strong> A medida de um ângulo excêntrico externo com vértice fora da circunferência é a semidiferença entre os arcos interceptados: @\alpha = \frac{\text{arco maior} - \text{arco menor}}{2}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 15 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 9 min</div>
+      <p>Em um anfiteatro circular ao ar livre, o palco ocupa o arco @\widehat{AB}@ da circunferência, medindo @100^\circ@. Um holofote de luz principal foi instalado no centro @O@ da arena, iluminando toda a extensão do palco com uma certa abertura angular @\alpha@. Um segundo holofote de apoio foi instalado na arquibancada superior, exatamente sobre a linha da circunferência externa em um ponto @P@, também iluminando o palco @\widehat{AB}@ com abertura angular @\beta@.</p>
+      <p>a) Calcule os valores das aberturas angulares @\alpha@ (holofote central) e @\beta@ (holofote periférico).</p>
+      <p>b) Se um espectador caminhar pela arquibancada circular mantendo-se entre as extremidades dos refletores e observando o palco @AB@, sua visão angular do palco aumentará, diminuirá ou permanecerá constante? Justifique geometricamente com base nas propriedades dos ângulos inscritos.</p>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       CHECKLIST DE AUTOAVALIAÇÃO METACOGNITIVA
+       ========================================================================= -->
+  <h2>Checklist de Autoavaliação Metacognitiva</h2>
+
+  <div class="conceito-basico checklist-metacognitivo">
+    <h4>Monitore sua Compreensão Geométrica e Consciência Espacial:</h4>
+    <p>Marque com honestidade as habilidades que você domina:</p>
+    <ul>
+      <li><input type="checkbox" id="chk-ang-1"> <label for="chk-ang-1">Compreendo por que ângulos opostos pelo vértice são sempre congruentes e sei resolver equações a partir dessa igualdade.</label></li>
+      <li><input type="checkbox" id="chk-ang-2"> <label for="chk-ang-2">Identifico rapidamente as posições relativas de ângulos em retas paralelas (correspondentes, alternos internos/externos e colaterais).</label></li>
+      <li><input type="checkbox" id="chk-ang-3"> <label for="chk-ang-3">Lembro com facilidade da regra: ângulos de mesma abertura são iguais; ângulos de aberturas diferentes (um agudo e um obtuso) somam @180^\circ@.</label></li>
+      <li><input type="checkbox" id="chk-ang-4"> <label for="chk-ang-4">Diferencio com segurança ângulo central (vértice no centro, igual ao arco) de ângulo inscrito (vértice na circunferência, metade do arco).</label></li>
+      <li><input type="checkbox" id="chk-ang-5"> <label for="chk-ang-5">Reconheço imediatamente que qualquer triângulo inscrito em uma semicircunferência é retângulo (ângulo de @90^\circ@ oposto ao diâmetro).</label></li>
+      <li><input type="checkbox" id="chk-ang-6"> <label for="chk-ang-6">Sei utilizar retas paralelas auxiliares para solucionar problemas de linhas quebradas ("regra do bico").</label></li>
+      <li><input type="checkbox" id="chk-ang-7"> <label for="chk-ang-7">Compreendo o Teorema do Quadrilátero Inscrito (ângulos opostos somam @180^\circ@).</label></li>
+      <li><input type="checkbox" id="chk-ang-8"> <label for="chk-ang-8">Consigo verificar a razoabilidade visual da minha resposta (se o ângulo é visualmente agudo, a resposta deve ser menor que @90^\circ@).</label></li>
+    </ul>
+
+    <p><strong>Reflexão Pedagógica:</strong> A Geometria premia a paciência e a observação de detalhes. Se você assinalou a maioria dos itens, suas estruturas cognitivas para ângulos e circunferências estão consolidadas. Caso algum ponto ainda gere hesitação, revise os exemplos passo a passo ou refaça os problemas guiados da Parte 1. Você é plenamente capaz de evoluir!</p>
+  </div>
+
+</article>
+
+<!-- =========================================================================
+     GABARITO COMENTADO (EM COMENTÁRIO HTML)
+     ========================================================================= -->
+<!--
+GABARITO DETALHADO - RECUPERAÇÃO: ÂNGULOS E CIRCUNFERÊNCIA (9º ANO)
+
+PARTE 1: PRIMEIROS PASSOS (ALTO APOIO)
+1. 4x - 15° = 2x + 25°
+   Etapas:
+   4x - 2x = 25° + 15°
+   2x = 40°
+   x = 20°
+   Medida dos ângulos: 4(20°) - 15° = 80° - 15° = 65° (e 2(20°) + 25° = 65°).
+   Resultado: x = 20°; medida do ângulo = 65°.
+
+2. 5x - 18° = 3x + 12°
+   Etapas:
+   5x - 3x = 12° + 18°
+   2x = 30°
+   x = 15°
+   Medida dos ângulos: 5(15°) - 18° = 75° - 18° = 57° (e 3(15°) + 12° = 57°).
+   Resultado: x = 15°; medida do ângulo = 57°.
+
+3. (2x + 10°) + (3x + 40°) = 180°
+   Etapas:
+   5x + 50° = 180°
+   5x = 180° - 50° = 130°
+   x = 130° / 5 = 26°
+   Primeiro ângulo: 2(26°) + 10° = 52° + 10° = 62°
+   Segundo ângulo: 3(26°) + 40° = 78° + 40° = 118°
+   Verificação: 62° + 118° = 180°.
+   Resultado: x = 26°; ângulos medem 62° e 118°.
+
+4. Arco AB = 76°
+   Etapas:
+   Ângulo central = Arco AB = 76°
+   Ângulo inscrito = (Arco AB) / 2 = 76° / 2 = 38°
+   Resultado: Ângulo central = 76°; Ângulo inscrito = 38°.
+
+5. Triângulo MNP com MN diâmetro e ângulo PMN = 40°
+   Etapas:
+   MN é diâmetro => ângulo MPN oposto ao diâmetro é reto = 90°.
+   No triângulo MNP: 40° + 90° + MNP = 180°
+   MNP = 180° - 130° = 50°.
+   Resultado: med(∠MPN) = 90°; med(∠MNP) = 50°.
+
+PARTE 2: DESENVOLVENDO AUTONOMIA (APOIO MÉDIO)
+6. Alternos externos: 6x - 25° = 4x + 15°
+   6x - 4x = 15° + 25°
+   2x = 40° => x = 20°
+   Medida do ângulo: 4(20°) + 15° = 80° + 15° = 95°.
+   Resultado: x = 20°; ângulo = 95°.
+
+7. Colaterais externos: (3x + 20°) + (2x + 10°) = 180°
+   5x + 30° = 180°
+   5x = 150° => x = 30°
+   Ângulo 1: 3(30°) + 20° = 90° + 20° = 110°
+   Ângulo 2: 2(30°) + 10° = 60° + 10° = 70°
+   Resultado: x = 30°; ângulos = 110° e 70°.
+
+8. Ângulo Central = 2 * (Ângulo Inscrito)
+   4x + 30° = 2 * (3x - 5°)
+   4x + 30° = 6x - 10°
+   30° + 10° = 6x - 4x
+   40° = 2x => x = 20°
+   Ângulo central = 4(20°) + 30° = 80° + 30° = 110°.
+   Ângulo inscrito = 3(20°) - 5° = 55° (metade de 110°).
+   Arco correspondente = 110°.
+   Resultado: x = 20°; Ângulo Central = 110°; Arco = 110°.
+
+9. Dois ângulos inscritos no mesmo arco:
+   2y + 14° = 3y - 6°
+   14° + 6° = 3y - 2y => y = 20°
+   Medida de cada ângulo inscrito: 2(20°) + 14° = 54°.
+   Medida do arco correspondente: 2 * 54° = 108°.
+   Resultado: y = 20°; Arco AB = 108°.
+
+10. Quadrilátero inscrito: ângulos opostos são suplementares:
+    (2x + 30°) + (x + 60°) = 180°
+    3x + 90° = 180°
+    3x = 90° => x = 30°
+    Ângulo A = 2(30°) + 30° = 90°
+    Ângulo C = 30° + 60° = 90°
+    Resultado: x = 30°; Ângulo A = 90°; Ângulo C = 90°.
+
+PARTE 3: CONSOLIDAÇÃO (BAIXO APOIO)
+11. Linha quebrada com bico entre paralelas:
+    Traçando uma reta paralela auxiliar pelo vértice V:
+    O ângulo superior formado em V é alterno interno ao ângulo de 35°, logo mede 35°.
+    O ângulo inferior formado em V é alterno interno ao ângulo de 55°, logo mede 55°.
+    Ângulo total no vértice V = 35° + 55° = 90°.
+    Resultado: A medida do ângulo interno no vértice V é 90°.
+
+12. Relógio às 3h30min:
+    a) A cada minuto, o ponteiro dos minutos anda 360°/60 = 6°/min.
+       Às 3h30, o ponteiro dos minutos aponta exatamente para o 6 (180° a partir do topo).
+       O ponteiro das horas anda 360°/12 = 30° a cada hora, ou 0,5° por minuto.
+       Às 3h00 ele estava no 3 (90°). Em 30 minutos, ele andou 30 * 0,5° = 15°.
+       Posição do ponteiro das horas = 90° + 15° = 105°.
+       Diferença angular = 180° - 105° = 75°.
+    b) Como o ângulo central formado pelos ponteiros mede 75°, o arco de circunferência compreendido entre as pontas também mede exatamente 75°.
+    Resultado: a) 75°; b) 75°.
+
+13. Ângulo excêntrico interno:
+    θ = (Arco AC + Arco BD) / 2
+    θ = (110° + 40°) / 2 = 150° / 2 = 75°.
+    Resultado: med(∠APC) = 75°.
+
+14. Ângulo excêntrico externo:
+    α = (Arco maior - Arco menor) / 2
+    α = (125° - 35°) / 2 = 90° / 2 = 45°.
+    Resultado: A medida do ângulo externo é 45°.
+
+15. Palco e iluminação no anfiteatro:
+    a) O holofote central está no centro O, logo forma um ângulo central:
+       α = Arco AB = 100°.
+       O holofote periférico está sobre a circunferência no ponto P, logo forma um ângulo inscrito:
+       β = (Arco AB) / 2 = 100° / 2 = 50°.
+    b) A visão angular permanecerá estritamente constante e igual a 50°.
+       Justificativa: Todo ângulo inscrito com extremidades fixadas nos pontos A e B e cujo vértice P se desloca ao longo do mesmo arco da circunferência possui sempre a mesma medida (metade do arco AB, ou seja, 50°). Esse é o clássico conceito do "Arco Capaz".
+    Resultado: a) α = 100° e β = 50°; b) Permanecerá constante em 50° pela propriedade do ângulo inscrito (arco capaz).
+-->
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

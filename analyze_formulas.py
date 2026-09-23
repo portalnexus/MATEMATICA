@@ -10,12 +10,10 @@ import sys
 from collections import Counter
 
 def analisar_formulas(arquivo_path):
-    """Analisa todas as fórmulas em um arquivo HTML"""
+    """Analisa todas as fórmulas em um arquivo HTML com alta precisão e sem falsos positivos"""
 
     with open(arquivo_path, 'r', encoding='utf-8') as f:
         conteudo = f.read()
-
-    linhas = conteudo.split('\n')
 
     # Contadores
     total_formulas_inline = 0
@@ -25,7 +23,7 @@ def analisar_formulas(arquivo_path):
 
     # Padrões de delimitadores
     pattern_display = r'@@([^@]+?)@@'
-    pattern_inline = r'(?<!@)@(?!@)([^@]+?)@(?!@)'
+    pattern_inline = r'(?<!@)@(?!@)([^@\n]+?)@(?!@)'
 
     # Extrair fórmulas display
     formulas_display = re.findall(pattern_display, conteudo)
@@ -39,14 +37,69 @@ def analisar_formulas(arquivo_path):
 
     # Analisar comandos usados
     for formula in todas_formulas:
-        # Comandos LaTeX começam com \
         comandos = re.findall(r'\\[a-zA-Z]+', formula)
         comandos_usados.update(comandos)
 
-    # Verificar delimitadores balanceados por linha
+    linhas = conteudo.split('\n')
+    inside_script = False
+    inside_comment = False
+
+    # Comandos LaTeX e palavras reservadas válidas em modo matemático
+    operadores_matematicos = {
+        'quad', 'qquad', 'align', 'matrix', 'pmatrix', 'bmatrix', 'vmatrix', 'Vmatrix',
+        'sin', 'cos', 'tan', 'cot', 'sec', 'csc', 'arcsin', 'arccos', 'arctan',
+        'sinh', 'cosh', 'tanh', 'log', 'ln', 'lim', 'max', 'min', 'sup', 'inf',
+        'det', 'gcd', 'deg', 'dim', 'ker', 'hom', 'bmod', 'pmod', 'cases', 'array'
+    }
+
+    inside_body = False
+
+    # Verificar linha por linha
     for i, linha in enumerate(linhas, 1):
-        # Contar @ (excluindo @@)
-        linha_sem_display = re.sub(r'@@', '', linha)
+        linha_strip = linha.strip()
+
+        # Rastrear <body> e </body>
+        if '<body' in linha:
+            inside_body = True
+        if '</body>' in linha:
+            inside_body = False
+            continue
+
+        if not inside_body:
+            continue
+
+        # Rastrear blocos <script>
+        if '<script' in linha:
+            inside_script = True
+        if '</script>' in linha:
+            inside_script = False
+            continue
+        if inside_script:
+            continue
+
+        # Ignorar tags <link>
+        if '<link' in linha:
+            continue
+
+        # Rastrear comentários HTML
+        if '<!--' in linha and '-->' not in linha:
+            inside_comment = True
+            continue
+        if '-->' in linha and inside_comment:
+            inside_comment = False
+            continue
+        if inside_comment:
+            continue
+
+        # Ignorar comentários na mesma linha
+        linha_limpa = re.sub(r'<!--.*?-->', '', linha)
+        # Ignorar URLs com @ (ex: npm/@version ou fonts/@weights)
+        linha_limpa = re.sub(r'https?://[^\s"\'>]+', '', linha_limpa)
+        # Ignorar emails (ex: joao.germano305@portalsesisp.org.br)
+        linha_limpa = re.sub(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', '', linha_limpa)
+
+        # Contar @ (excluindo blocos @@...@@)
+        linha_sem_display = re.sub(r'@@[^@]+?@@', '', linha_limpa)
         count_at = linha_sem_display.count('@')
 
         if count_at % 2 != 0:
@@ -57,8 +110,11 @@ def analisar_formulas(arquivo_path):
                 'conteudo': linha.strip()[:100]
             })
 
-        # Verificar chaves balanceadas em fórmulas
-        formulas_na_linha = re.findall(r'@([^@]+)@', linha)
+        # Extrair fórmulas na linha (display e inline separadamente)
+        formulas_display_na_linha = re.findall(r'@@([^@]+?)@@', linha_limpa)
+        formulas_inline_na_linha = re.findall(r'@([^@]+)@', linha_sem_display)
+        formulas_na_linha = formulas_display_na_linha + formulas_inline_na_linha
+
         for formula in formulas_na_linha:
             chaves_abertas = formula.count('{')
             chaves_fechadas = formula.count('}')
@@ -70,17 +126,17 @@ def analisar_formulas(arquivo_path):
                     'conteudo': formula[:100]
                 })
 
-        # Verificar comandos inválidos comuns
+        # Verificar comandos inválidos comuns (portuguesismos em LaTeX)
         comandos_invalidos = {
-            r'\\alfa': r'\\alpha',
-            r'\\teta': r'\\theta',
-            r'\\gama': r'\\gamma',
-            r'\\raiz': r'\\sqrt',
-            r'\\infinito': r'\\infty',
+            r'\\alfa\b': r'\\alpha',
+            r'\\teta\b': r'\\theta',
+            r'\\gama\b': r'\\gamma',
+            r'\\raiz\b': r'\\sqrt',
+            r'\\infinito\b': r'\\infty',
         }
 
         for invalido, correto in comandos_invalidos.items():
-            if re.search(invalido, linha):
+            if re.search(invalido, linha_limpa):
                 erros.append({
                     'linha': i,
                     'tipo': 'comando_invalido',
@@ -88,16 +144,23 @@ def analisar_formulas(arquivo_path):
                     'conteudo': linha.strip()[:100]
                 })
 
-        # Verificar texto sem \text{} em fórmulas
-        formulas_na_linha = re.findall(r'@([^@]+)@', linha)
+        # Verificar texto sem \text{} em fórmulas (limpando comandos e ambientes LaTeX)
         for formula in formulas_na_linha:
-            # Procurar palavras em português sem \text{}
-            palavras_pt = re.findall(r'(?<!\\text\{)[a-záàâãéèêíïóôõöúçñ]{4,}', formula, re.IGNORECASE)
-            if palavras_pt and not re.search(r'\\(sin|cos|tan|log|lim|max|min|sup|inf)', formula):
+            # Remover blocos \text{...} legítimos
+            f_limpa = re.sub(r'\\text\{[^}]*\}', '', formula)
+            # Remover ambientes \begin{...} e \end{...}
+            f_limpa = re.sub(r'\\(begin|end)\{[^}]*\}', '', f_limpa)
+            # Remover comandos LaTeX (\sqrt, \frac, \mathbb, etc.)
+            f_limpa = re.sub(r'\\[a-zA-Z]+', '', f_limpa)
+            # Buscar palavras com 4 ou mais letras
+            palavras = re.findall(r'[a-záàâãéèêíïóôõöúçñ]{4,}', f_limpa, re.IGNORECASE)
+            palavras_invalidas = [p for p in palavras if p.lower() not in operadores_matematicos]
+
+            if palavras_invalidas:
                 erros.append({
                     'linha': i,
                     'tipo': 'texto_sem_text',
-                    'descricao': f'Possível texto sem \\text{{}}: {palavras_pt}',
+                    'descricao': f'Possível texto sem \\text{{}}: {palavras_invalidas}',
                     'conteudo': formula[:100]
                 })
 
@@ -125,7 +188,6 @@ def analisar_formulas(arquivo_path):
         print("ERROS DETECTADOS")
         print("=" * 80)
 
-        # Agrupar por tipo
         erros_por_tipo = {}
         for erro in erros:
             tipo = erro['tipo']

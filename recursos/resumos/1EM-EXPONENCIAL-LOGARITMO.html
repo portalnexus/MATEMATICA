@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Funções Exponenciais e Logarítmicas</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: left;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-1em {
+      background-color: rgba(16, 185, 129, 0.25);
+      border: 2px solid #10b981;
+      color: #a7f3d0;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-1em">1º Ano EM</div>
+
+    <h1>Funções Exponenciais e Logarítmicas</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 3: Richter, Malthus, Moore, Hanói e Napier... Quais as funções?
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E CONTEXTO HISTÓRICO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para a plena compreensão deste compêndio teórico com rigor formal, o estudante deve mobilizar:</p>
+      <ul>
+        <li><strong>Aritmética e Conjuntos Numéricos:</strong> propriedades operatórias em @\mathbb{N}@, @\mathbb{Z}@, @\mathbb{Q}@ e o axioma do supremo em @\mathbb{R}@.</li>
+        <li><strong>Álgebra Elementar:</strong> fatoração algébrica, produtos notáveis e resolução de equações polinomiais do 1º e 2º graus.</li>
+        <li><strong>Teoria Geral de Funções:</strong> domínio, contradomínio, conjunto imagem, bijeção e o conceito formal de função inversa (@f^{-1}@).</li>
+        <li><strong>Desigualdades e Relações de Ordem:</strong> propriedades multiplicativas das inequações e manutenção/inversão de sinal.</li>
+      </ul>
+    </div>
+
+    <p>
+      Se as funções afins descrevem grandezas em ritmo uniforme e as quadráticas modelam acelerações constantes e trajetórias balísticas, as <strong>funções exponenciais e logarítmicas</strong> representam o salto ontológico para o estudo de fenômenos cuja taxa de crescimento é proporcional à própria magnitude acumulada. Trata-se da linguagem do crescimento viral, das reações em cadeia atômicas, da dissipação térmica e do acúmulo de juros contínuos.
+    </p>
+    <p>
+      Em contrapartida, quando a natureza expande grandezas em escalas incomensuráveis (da fragilidade de uma onda sonora inaudível à detonação de uma ogiva nuclear; do tremor imperceptível da crosta ao terremoto devastador), o cérebro humano e os instrumentos de medição recorrem ao <strong>logaritmo</strong>. Idealizado independentemente por <strong>John Napier</strong> (1550–1617) e <strong>Joost Bürgi</strong> (1552–1632) para simplificar a assombrosa carga de cálculos dos astrônomos renascentistas, o logaritmo converteu multiplicações extenuantes em somas elementares. Pierre-Simon Laplace declarou com precisão histórica: <em>"A invenção dos logaritmos, ao encurtar o trabalho dos astrônomos, duplicou suas vidas"</em>.
+    </p>
+
+    <!-- ===============================================================
+         PARTE 1: TEORIA DAS POTÊNCIAS E FUNÇÃO EXPONENCIAL
+         =============================================================== -->
+    <h2>1. A Construção Rigorosa da Potenciação (De @\mathbb{N}@ a @\mathbb{R}@)</h2>
+
+    <p>
+      Antes de formalizarmos a função exponencial @f(x) = a^x@, é indispensável estruturar o significado de @a^x@ conforme o expoente @x@ percorre os conjuntos @\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}@.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Expoente Natural)</h3>
+      <p>Sejam @a \in \mathbb{R}@ e @n \in \mathbb{N}^*@. Define-se a potência @a^n@ pelo produto de @n@ fatores idênticos a @a@:</p>
+      @@
+      a^1 = a \quad \text{e} \quad a^n = a^{n-1} \cdot a \quad (\forall n \ge 2)
+      @@
+      <p>Isto é, @a^n = \underbrace{a \cdot a \cdot \dots \cdot a}_{n \text{ fatores}}@.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Expoente Inteiro Nulo e Negativo)</h3>
+      <p>Para qualquer base real não nula @a \in \mathbb{R}^*@ (@a \neq 0@) e @n \in \mathbb{N}^*@, postula-se:</p>
+      @@
+      a^0 = 1 \quad \text{e} \quad a^{-n} = \frac{1}{a^n} = \left(\frac{1}{a}\right)^n
+      @@
+      <p><em>Justificativa:</em> Essa definição decorre da exigência de preservar a propriedade @\frac{a^m}{a^n} = a^{m-n}@. Fazendo @m = n@, @1 = \frac{a^n}{a^n} = a^{n-n} = a^0@. Para @m = 0@, @\frac{1}{a^n} = \frac{a^0}{a^n} = a^{0-n} = a^{-n}@.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Expoente Racional)</h3>
+      <p>
+        Seja @a \in \mathbb{R}@ com @a > 0@ e seja @r = \frac{p}{q} \in \mathbb{Q}@, onde @p \in \mathbb{Z}@ e @q \in \mathbb{Z}^*@ com @q > 0@. Define-se:
+      </p>
+      @@
+      a^{p/q} = \sqrt[q]{a^p} = (\sqrt[q]{a})^p
+      @@
+    </div>
+
+    <div class="erro-comum">
+      <h3>⚠️ Alerta de Rigor: Por que a base deve ser estritamente positiva (@a > 0@)?</h3>
+      <p>
+        No conjunto dos números reais, se admitíssemos bases negativas para expoentes racionais, cairíamos em contradições aritméticas insolúveis. Observe a seguinte falácia:
+      </p>
+      @@
+      -2 = \sqrt[3]{-8} = (-8)^{1/3} = (-8)^{2/6} = \sqrt[6]{(-8)^2} = \sqrt[6]{64} = +2 \quad (\text{Absurdo!})
+      @@
+      <p>
+        Para que a operação @a^r@ seja uma função unívoca e bem definida independente da representação fracionária do número racional @r \in \mathbb{Q}@, <strong>exige-se rigorosamente que @a > 0@</strong>.
+      </p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.4 (Expoente Real Arbitrário via Aproximações Racionais)</h3>
+      <p>
+        Sejam @a > 1@ e @\alpha \in \mathbb{R} \setminus \mathbb{Q}@ um número irracional. O número @a^\alpha@ é unicamente determinado como o supremo do conjunto das potências racionais inferiores ou o ínfimo das potências racionais superiores:
+      </p>
+      @@
+      a^\alpha = \sup \{ a^r \mid r \in \mathbb{Q} \text{ e } r < \alpha \} = \inf \{ a^s \mid s \in \mathbb{Q} \text{ e } s > \alpha \}
+      @@
+      <p>
+        Se @0 < a < 1@, define-se @a^\alpha = \left(\frac{1}{a}\right)^{-\alpha}@. Se @a = 1@, @1^\alpha = 1@ para todo @\alpha \in \mathbb{R}@.
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.1 (Propriedades Fundamentais da Potenciação)</h3>
+      <p>Para quaisquer bases @a, b \in \mathbb{R}^*_+@ e quaisquer expoentes reais @x, y \in \mathbb{R}@, vigoram as seguintes identidades:</p>
+      <ol>
+        <li><strong>Produto de mesma base:</strong> @a^x \cdot a^y = a^{x+y}@</li>
+        <li><strong>Quociente de mesma base:</strong> @\frac{a^x}{a^y} = a^{x-y}@</li>
+        <li><strong>Potência de potência:</strong> @(a^x)^y = a^{x \cdot y}@</li>
+        <li><strong>Potência de um produto:</strong> @(a \cdot b)^x = a^x \cdot b^x@</li>
+        <li><strong>Potência de um quociente:</strong> @\left(\frac{a}{b}\right)^x = \frac{a^x}{b^x}@</li>
+      </ol>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: A FUNÇÃO EXPONENCIAL
+         =============================================================== -->
+    <h2>2. A Função Exponencial: Definição, Imagem e Monotonicidade</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Função Exponencial)</h3>
+      <p>
+        Dado um número real fixo @a@ tal que @a > 0@ e @a \neq 1@, denomina-se <strong>função exponencial de base @a@</strong> a aplicação @f: \mathbb{R} \to \mathbb{R}@ cuja lei de correspondência é:
+      </p>
+      @@
+      f(x) = a^x
+      @@
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Por que exigir @a > 0@ e @a \neq 1@?</h3>
+      <ul>
+        <li><strong>Se @a \le 0@:</strong> a potência @a^x@ deixa de estar definida para infinitos valores reais (como @(-4)^{1/2} \notin \mathbb{R}@), impedindo que o domínio seja @\mathbb{R}@ contínuo.</li>
+        <li><strong>Se @a = 1@:</strong> teríamos @f(x) = 1^x = 1@ para todo @x \in \mathbb{R}@. Trata-se de uma função constante (uma reta horizontal), desprovida das propriedades essenciais de crescimento/decrescimento estrito e injetividade.</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Propriedades Estruturais da Função Exponencial)</h3>
+      <p>Seja @f(x) = a^x@ com @a > 0@ e @a \neq 1@. Então:</p>
+      <ul>
+        <li><strong>Domínio:</strong> @\text{Dom}(f) = \mathbb{R}@.</li>
+        <li><strong>Conjunto Imagem:</strong> @\text{Im}(f) = \mathbb{R}^*_+ = ]0, +\infty[@. Em palavras: @a^x > 0@ para todo @x \in \mathbb{R}@.</li>
+        <li><strong>Interseção com o eixo das ordenadas (@Oy@):</strong> O gráfico intercepta @Oy@ exatamente no par ordenado @(0, 1)@, pois @f(0) = a^0 = 1@.</li>
+        <li><strong>Ausência de raízes reais:</strong> Como @a^x > 0@ para todo @x@, o gráfico <em>nunca intercepta</em> o eixo das abscissas (@Ox@). Logo, @f(x) = 0@ não admite solução real.</li>
+        <li><strong>Assíntota Horizontal:</strong> A reta @y = 0@ (o próprio eixo @Ox@) é uma assíntota horizontal da curva:
+          <ul>
+            <li>Se @a > 1@: @\lim_{x \to -\infty} a^x = 0@.</li>
+            <li>Se @0 < a < 1@: @\lim_{x \to +\infty} a^x = 0@.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Crescimento e Decrescimento Estrito / Monotonicidade)</h3>
+      <p>A taxa de variação da função exponencial é regida exclusivamente pela sua base @a@:</p>
+      <ul>
+        <li>
+          <strong>Caso 1: Base Maior que 1 (@a > 1@) &mdash; Estritamente Crescente</strong>
+          @@
+          \forall x_1, x_2 \in \mathbb{R}: \quad x_1 < x_2 \iff a^{x_1} < a^{x_2}
+          @@
+        </li>
+        <li>
+          <strong>Caso 2: Base Entre 0 e 1 (@0 < a < 1@) &mdash; Estritamente Decrescente</strong>
+          @@
+          \forall x_1, x_2 \in \mathbb{R}: \quad x_1 < x_2 \iff a^{x_1} > a^{x_2}
+          @@
+        </li>
+      </ul>
+    </div>
+
+    <h4>Demonstração do Teorema 2.2:</h4>
+    <p>
+      Seja @x_1 < x_2@. Definindo @h = x_2 - x_1 > 0@, podemos escrever:
+    </p>
+    @@
+    a^{x_2} - a^{x_1} = a^{x_1 + h} - a^{x_1} = a^{x_1}(a^h - 1)
+    @@
+    <p>
+      Como @a > 0@, temos categoricamente @a^{x_1} > 0@. O sinal da diferença depende unicamente do fator @(a^h - 1)@:
+    </p>
+    <ol>
+      <li>Se @a > 1@: como @h > 0@, temos @a^h > 1@, logo @a^h - 1 > 0@. Assim, @a^{x_2} - a^{x_1} > 0 \implies a^{x_1} < a^{x_2}@. A função é estritamente crescente. @\blacksquare@</li>
+      <li>Se @0 < a < 1@: escrevemos @a = \frac{1}{b}@ com @b > 1@. Como @b^h > 1@, segue que @a^h = \frac{1}{b^h} < 1@, donde @a^h - 1 < 0@. Portanto, @a^{x_2} - a^{x_1} < 0 \implies a^{x_1} > a^{x_2}@. A função é estritamente decrescente. @\blacksquare@</li>
+    </ol>
+
+    <div class="destaque-box observacao">
+      <h3>⭐ A Base Natural e a Constante de Euler (@e@)</h3>
+      <p>
+        Dentre todas as bases exponenciais possíveis, destaca-se a <strong>base neperiana ou número de Euler</strong>, denotada pela letra @e@, definida pelo limite fundamental:
+      </p>
+      @@
+      e = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n = \sum_{k=0}^{\infty} \frac{1}{k!} = 1 + 1 + \frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \dots \approx 2{,}718281828459\dots
+      @@
+      <p>
+        O número @e@ é irracional e transcendente. A função @f(x) = e^x@ (denotada comumente por @\exp(x)@) é a única função exponencial cuja inclinação da reta tangente no ponto @(0, 1)@ é exatamente igual a 1 (ângulo de 45° com o eixo @Ox@), tornando-se a espinha dorsal do Cálculo Diferencial e Integral e dos modelos de dinâmica contínua.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: EQUAÇÕES E INEQUAÇÕES EXPONENCIAIS
+         =============================================================== -->
+    <h2>3. Equações e Inequações Exponenciais</h2>
+
+    <p>
+      Chama-se <strong>equação exponencial</strong> toda equação algébrica na qual a incógnita comparece no expoente de ao menos uma potência.
+    </p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Propriedade Injetiva da Exponencial)</h3>
+      <p>Como a função @f(x) = a^x@ (@a > 0, a \neq 1@) é estritamente monótona, ela é <strong>injetora</strong> em todo o seu domínio. Consequentemente:</p>
+      @@
+      a^{f(x)} = a^{g(x)} \iff f(x) = g(x)
+      @@
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 3.1 &mdash; Equação Exponencial por Mudança de Variável</h3>
+      <p>Resolva no conjunto dos números reais @\mathbb{R}@ a equação: @4^x - 10 \cdot 2^{x-1} + 4 = 0@.</p>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Passo 1:</strong> Escrever todas as potências na mesma base fundamental @2@:</p>
+      @@
+      4^x = (2^2)^x = (2^x)^2 \quad \text{e} \quad 2^{x-1} = \frac{2^x}{2^1} = \frac{2^x}{2}
+      @@
+      <p><strong>Passo 2:</strong> Substituir os termos na equação original:</p>
+      @@
+      (2^x)^2 - 10 \cdot \left(\frac{2^x}{2}\right) + 4 = 0 \implies (2^x)^2 - 5(2^x) + 4 = 0
+      @@
+      <p><strong>Passo 3:</strong> Introduzir a variável auxiliar @y = 2^x@ (com a restrição obrigatória @y > 0@):</p>
+      @@
+      y^2 - 5y + 4 = 0
+      @@
+      <p>Fatorando o trinômio do 2º grau por soma e produto: @(y - 1)(y - 4) = 0 \implies y_1 = 1 \quad \text{ou} \quad y_2 = 4@.</p>
+      <p><strong>Passo 4:</strong> Retornar à variável original @x@:</p>
+      <ul>
+        <li>Para @y_1 = 1@: @2^x = 1 \implies 2^x = 2^0 \iff x = 0@.</li>
+        <li>Para @y_2 = 4@: @2^x = 4 \implies 2^x = 2^2 \iff x = 2@.</li>
+      </ul>
+      <p>Ambas as raízes são compatíveis com @y > 0@. Logo, o conjunto solução é @S = \{0, 2\}@. @\blacksquare@</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.2 (Regras Operatórias para Inequações Exponenciais)</h3>
+      <p>A resolução de inequações exponenciais decorre imediatamente da monotonicidade comprovada no Teorema 2.2:</p>
+      @@
+      \begin{aligned}
+      \text{Para } a > 1: \quad & a^{f(x)} > a^{g(x)} \iff f(x) > g(x) \quad \text{(mantém o sinal da desigualdade)} \\
+      \text{Para } 0 < a < 1: \quad & a^{f(x)} > a^{g(x)} \iff f(x) < g(x) \quad \text{(inverte o sinal da desigualdade)}
+      \end{aligned}
+      @@
+    </div>
+
+    <!-- ===============================================================
+         PARTE 2: TEORIA DOS LOGARITMOS E FUNÇÃO LOGARÍTMICA
+         =============================================================== -->
+    <h2>4. Definição Formal de Logaritmo e Consequências</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.1 (Logaritmo)</h3>
+      <p>
+        Sejam @a, b \in \mathbb{R}@ tais que @a > 0@, @b > 0@ e @b \neq 1@. Denomina-se <strong>logaritmo de @a@ na base @b@</strong> o expoente real @c@ ao qual se deve elevar a base @b@ para reproduzir o número @a@:
+      </p>
+      @@
+      \log_b(a) = c \iff b^c = a
+      @@
+      <p>
+        <strong>Nomenclatura:</strong>
+        @a@ é o <em>logaritmando</em> (ou argumento);
+        @b@ é a <em>base</em> do logaritmo;
+        @c@ é o <em>logaritmo</em> propriamente dito.
+      </p>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Condições de Existência (C.E.) Rigorosas</h3>
+      <p>A expressão @\log_b(a)@ só existe no corpo dos reais @\mathbb{R}@ se, e somente se, forem atendidas cumulativamente as três condições:</p>
+      @@
+      \begin{cases}
+      a > 0 & \text{(o logaritmando deve ser estritamente positivo)} \\
+      b > 0 & \text{(a base deve ser estritamente positiva)} \\
+      b \neq 1 & \text{(a base não pode ser igual à unidade)}
+      \end{cases}
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Consequências Imediatas da Definição)</h3>
+      <p>Diretamente da equivalência @\log_b(a) = c \iff b^c = a@, deduzem-se as identidades elementares:</p>
+      <ol>
+        <li>@\log_b(1) = 0@, pois @b^0 = 1@.</li>
+        <li>@\log_b(b) = 1@, pois @b^1 = b@.</li>
+        <li>@\log_b(b^k) = k@, para qualquer @k \in \mathbb{R}@, pois @b^k = b^k@.</li>
+        <li><strong>Identidade Fundamental:</strong> @b^{\log_b(a)} = a@ (elevar a base ao seu próprio logaritmo desfaz a operação).</li>
+        <li><strong>Injetividade Logarítmica:</strong> @\log_b(x) = \log_b(y) \iff x = y@ (para @x, y > 0@).</li>
+      </ol>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: PROPRIEDADES OPERATÓRIAS E DEMONSTRAÇÕES
+         =============================================================== -->
+    <h2>5. Propriedades Operatórias Fundamentais e Demonstrações Formais</h2>
+
+    <p>
+      As propriedades operatórias dos logaritmos constituem a "máquina matemática" que converte operações de ordem superior (multiplicações, divisões e potenciações) em operações de ordem inferior (adições, subtrações e multiplicações simples).
+    </p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.1 (Logaritmo do Produto)</h3>
+      <p>Sejam @b > 0@ (@b \neq 1@) e @x, y \in \mathbb{R}@ com @x > 0@ e @y > 0@. Então:</p>
+      @@
+      \log_b(x \cdot y) = \log_b(x) + \log_b(y)
+      @@
+    </div>
+
+    <h4>Demonstração Formal do Teorema 5.1:</h4>
+    <p>Sejam @\alpha = \log_b(x)@ e @\beta = \log_b(y)@. Pela definição formal de logaritmo:</p>
+    @@
+    b^\alpha = x \quad \text{e} \quad b^\beta = y
+    @@
+    <p>Multiplicando membro a membro as duas igualdades e usando a propriedade de potências de mesma base:</p>
+    @@
+    x \cdot y = b^\alpha \cdot b^\beta = b^{\alpha + \beta}
+    @@
+    <p>Aplicando a definição de logaritmo na igualdade @x \cdot y = b^{\alpha + \beta}@:</p>
+    @@
+    \log_b(x \cdot y) = \alpha + \beta
+    @@
+    <p>Substituindo @\alpha@ e @\beta@ de volta pelos seus logaritmos originais:</p>
+    @@
+    \log_b(x \cdot y) = \log_b(x) + \log_b(y) \quad \blacksquare
+    @@
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.2 (Logaritmo do Quociente)</h3>
+      <p>Sejam @b > 0@ (@b \neq 1@) e @x, y > 0@. Então:</p>
+      @@
+      \log_b\left(\frac{x}{y}\right) = \log_b(x) - \log_b(y)
+      @@
+    </div>
+
+    <h4>Demonstração Formal do Teorema 5.2:</h4>
+    <p>Sejam novamente @\alpha = \log_b(x) \implies b^\alpha = x@ e @\beta = \log_b(y) \implies b^\beta = y@. Dividindo membro a membro:</p>
+    @@
+    \frac{x}{y} = \frac{b^\alpha}{b^\beta} = b^{\alpha - \beta}
+    @@
+    <p>Pela definição de logaritmo: @\log_b\left(\frac{x}{y}\right) = \alpha - \beta = \log_b(x) - \log_b(y)@. @\blacksquare@</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.3 (Logaritmo da Potência)</h3>
+      <p>Sejam @b > 0@ (@b \neq 1@), @x > 0@ e @k \in \mathbb{R}@. Então:</p>
+      @@
+      \log_b(x^k) = k \cdot \log_b(x)
+      @@
+    </div>
+
+    <h4>Demonstração Formal do Teorema 5.3:</h4>
+    <p>Seja @\alpha = \log_b(x) \implies b^\alpha = x@. Elevando ambos os membros da igualdade ao expoente real @k@:</p>
+    @@
+    (b^\alpha)^k = x^k \implies b^{k \cdot \alpha} = x^k
+    @@
+    <p>Aplicando a definição de logaritmo:</p>
+    @@
+    \log_b(x^k) = k \cdot \alpha = k \cdot \log_b(x) \quad \blacksquare
+    @@
+    <p><em>Corolário Imediato (Radiciação):</em> Como @\sqrt[n]{x} = x^{1/n}@ para @n \in \mathbb{N}^*@, temos @\log_b(\sqrt[n]{x}) = \frac{1}{n} \log_b(x)@.</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.4 (Fórmula de Mudança de Base)</h3>
+      <p>Sejam @a, b, c \in \mathbb{R}@ com @a > 0@, @b > 0@, @b \neq 1@, @c > 0@ e @c \neq 1@. O logaritmo de @a@ na base @b@ pode ser expresso em qualquer nova base conveniente @c@ mediante a relação:</p>
+      @@
+      \log_b(a) = \frac{\log_c(a)}{\log_c(b)}
+      @@
+    </div>
+
+    <h4>Demonstração Formal do Teorema 5.4:</h4>
+    <p>Seja @x = \log_b(a)@. Pela definição: @b^x = a@. Tomando o logaritmo em base @c@ em ambos os membros:</p>
+    @@
+    \log_c(b^x) = \log_c(a)
+    @@
+    <p>Pelo Teorema 5.3 (logaritmo da potência), @x \cdot \log_c(b) = \log_c(a)@. Como @b \neq 1@, @\log_c(b) \neq 0@, podemos isolar @x@ dividindo ambos os membros:</p>
+    @@
+    x = \frac{\log_c(a)}{\log_c(b)} \implies \log_b(a) = \frac{\log_c(a)}{\log_c(b)} \quad \blacksquare
+    @@
+
+    <div class="destaque-box observacao">
+      <h3>Corolários Notáveis da Mudança de Base</h3>
+      <ul>
+        <li><strong>Inversão de Base e Argumento:</strong> @\log_b(a) = \frac{1}{\log_a(b)}@.</li>
+        <li><strong>Expoente na Base:</strong> @\log_{b^k}(a) = \frac{1}{k} \log_b(a)@ (com @k \neq 0@).</li>
+        <li><strong>Forma Geral com Expoentes em Ambos os Termos:</strong> @\log_{b^q}(a^p) = \frac{p}{q} \log_b(a)@.</li>
+        <li><strong>Troca de Posição da Base e do Logaritmando:</strong> @a^{\log_b(c)} = c^{\log_b(a)}@.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: A FUNÇÃO LOGARÍTMICA E INVERSÃO
+         =============================================================== -->
+    <h2>6. A Função Logarítmica como Inversa da Exponencial</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 6.1 (Função Logarítmica)</h3>
+      <p>
+        Dado um número real @a@ (@a > 0@ e @a \neq 1@), denomina-se <strong>função logarítmica de base @a@</strong> a aplicação @g: \mathbb{R}^*_+ \to \mathbb{R}@ definida pela lei:
+      </p>
+      @@
+      g(x) = \log_a(x)
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 6.1 (Isomorfismo e Teorema da Inversão)</h3>
+      <p>
+        A função exponencial @f: \mathbb{R} \to \mathbb{R}^*_+@ com @f(x) = a^x@ é uma <strong>bijeção</strong>. Por conseguinte, ela admite uma função inversa única @f^{-1}: \mathbb{R}^*_+ \to \mathbb{R}@, que é precisamente a função logarítmica @f^{-1}(x) = \log_a(x)@.
+      </p>
+      @@
+      \begin{aligned}
+      (f \circ f^{-1})(x) &= f(f^{-1}(x)) = a^{\log_a(x)} = x, \quad \forall x \in ]0, +\infty[ \\
+      (f^{-1} \circ f)(x) &= f^{-1}(f(x)) = \log_a(a^x) = x, \quad \forall x \in \mathbb{R}
+      \end{aligned}
+      @@
+    </div>
+
+    <h4>Propriedades Geométricas e Gráficas Fundamentais:</h4>
+    <ul>
+      <li><strong>Simetria Axial:</strong> Por serem funções inversas entre si, as curvas de @y = a^x@ e @y = \log_a(x)@ são reflexões especulares perfeitas uma da outra em relação à bissetriz dos quadrantes ímpares: a reta @y = x@. O ponto @(u, v)@ pertence ao gráfico da exponencial se, e somente se, o ponto simétrico @(v, u)@ pertence ao gráfico do logaritmo.</li>
+      <li><strong>Interseção com o eixo @Ox@:</strong> A curva logarítmica intercepta o eixo horizontal no ponto @(1, 0)@, pois @\log_a(1) = 0@.</li>
+      <li><strong>Assíntota Vertical:</strong> O eixo das ordenadas (@x = 0@) é a assíntota vertical da curva. Conforme @x@ aproxima-se de zero pela direita (@x \to 0^+@):
+        <ul>
+          <li>Se @a > 1@: @\lim_{x \to 0^+} \log_a(x) = -\infty@.</li>
+          <li>Se @0 < a < 1@: @\lim_{x \to 0^+} \log_a(x) = +\infty@.</li>
+        </ul>
+      </li>
+      <li><strong>Monotonicidade:</strong>
+        <ul>
+          <li>Se @a > 1@: a função é <em>estritamente crescente</em> (@0 < x_1 < x_2 \iff \log_a(x_1) < \log_a(x_2)@).</li>
+          <li>Se @0 < a < 1@: a função é <em>estritamente decrescente</em> (@0 < x_1 < x_2 \iff \log_a(x_1) > \log_a(x_2)@).</li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- ===============================================================
+         SEÇÃO 7: TABELA COMPARATIVA E ARMADILHAS CONCEITUAIS
+         =============================================================== -->
+    <h2>7. Quadro Comparativo e Armadilhas Conceituais</h2>
+
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Característica Estrutural</th>
+            <th>Função Exponencial @f(x) = a^x@</th>
+            <th>Função Logarítmica @g(x) = \log_a(x)@</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Domínio (@\text{Dom}@)</strong></td>
+            <td>@\mathbb{R} = ]-\infty, +\infty[@</td>
+            <td>@\mathbb{R}^*_+ = ]0, +\infty[@</td>
+          </tr>
+          <tr>
+            <td><strong>Conjunto Imagem (@\text{Im}@)</strong></td>
+            <td>@\mathbb{R}^*_+ = ]0, +\infty[@</td>
+            <td>@\mathbb{R} = ]-\infty, +\infty[@</td>
+          </tr>
+          <tr>
+            <td><strong>Ponto Fixo / Interseção</strong></td>
+            <td>Intercepta @Oy@ em @(0, 1)@; não toca @Ox@</td>
+            <td>Intercepta @Ox@ em @(1, 0)@; não toca @Oy@</td>
+          </tr>
+          <tr>
+            <td><strong>Natureza da Assíntota</strong></td>
+            <td>Assíntota Horizontal: reta @y = 0@</td>
+            <td>Assíntota Vertical: reta @x = 0@</td>
+          </tr>
+          <tr>
+            <td><strong>Comportamento para @a > 1@</strong></td>
+            <td>Estritamente crescente; concavidade para cima</td>
+            <td>Estritamente crescente; concavidade para baixo</td>
+          </tr>
+          <tr>
+            <td><strong>Comportamento para @0 < a < 1@</strong></td>
+            <td>Estritamente decrescente; concavidade para cima</td>
+            <td>Estritamente decrescente; concavidade para cima</td>
+          </tr>
+          <tr>
+            <td><strong>Relação de Operador</strong></td>
+            <td>Operação Direta</td>
+            <td>Operação Inversa (@g = f^{-1}@)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="erro-comum">
+      <h3>🚫 As 5 Armadilhas Algébricas mais Frequentes (Erros Clássicos)</h3>
+      <ol>
+        <li>
+          <strong>O Falso Logaritmo da Soma:</strong><br>
+          <span style="color: #ef4444; font-weight: bold;">ERRADO:</span> @\log_b(x + y) = \log_b(x) + \log_b(y)@.<br>
+          <span style="color: #10b981; font-weight: bold;">CORRETO:</span> @\log_b(x \cdot y) = \log_b(x) + \log_b(y)@. O logaritmo da soma @\log_b(x + y)@ <em>não admite simplificação direta</em>!
+        </li>
+        <li>
+          <strong>O Falso Logaritmo da Diferença:</strong><br>
+          <span style="color: #ef4444; font-weight: bold;">ERRADO:</span> @\log_b(x - y) = \frac{\log_b(x)}{\log_b(y)}@.<br>
+          <span style="color: #10b981; font-weight: bold;">CORRETO:</span> @\log_b\left(\frac{x}{y}\right) = \log_b(x) - \log_b(y)@.
+        </li>
+        <li>
+          <strong>A Posição do Expoente:</strong><br>
+          <span style="color: #ef4444; font-weight: bold;">ERRADO:</span> @(\log_b x)^n = n \log_b x@.<br>
+          <span style="color: #10b981; font-weight: bold;">CORRETO:</span> Apenas a potência do argumento "tomba": @\log_b(x^n) = n \log_b x@. Já @(\log_b x)^n@ é a multiplicação do logaritmo por si mesmo @n@ vezes.
+        </li>
+        <li>
+          <strong>Omissão das Condições de Existência (C.E.) e Raízes Estranhas:</strong><br>
+          Ao resolver @\log_2(x) + \log_2(x - 2) = 3@, condensar em @\log_2(x^2 - 2x) = 3 \implies x^2 - 2x = 8@ fornece as raízes @x = 4@ e @x = -2@. Porém, para a equação original, @x = -2@ produz @\log_2(-2)@ que inexiste nos reais! O conjunto solução correto é unicamente @S = \{4\}@.
+        </li>
+        <li>
+          <strong>Inversão Esquecida do Sinal em Inequações com Base Fracionária:</strong><br>
+          Se @\log_{0{,}2}(x) < \log_{0{,}2}(5)@, conclui-se que @x > 5@ (e não @x < 5@), pois a base @0{,}2@ pertence ao intervalo @]0, 1[@, invertendo o sentido da desigualdade.
+        </li>
+      </ol>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 3: APLICAÇÕES INTERDISCIPLINARES E MODELAGEM
+         =============================================================== -->
+    <h2>8. Aplicações Interdisciplinares Contextualizadas</h2>
+
+    <p>
+      O poder real das funções exponenciais e logarítmicas se manifesta na modelagem de fenômenos naturais, biológicos, geológicos e tecnológicos. A seguir, apresentamos seis problemas paradigmáticos detalhadamente resolvidos.
+    </p>
+
+    <!-- EXEMPLO 1: RICHTER -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 8.1 &mdash; A Escala Richter e a Energia Sísmica (Sismologia)</h3>
+      <p>
+        Em 1935, Charles Richter e Beno Gutenberg estabeleceram que a magnitude @M@ de um abalo sísmico na escala Richter relaciona-se com a energia total liberada @E@ (medida em ergs ou Joules) por meio da equação logarítmica semi-empírica:
+      </p>
+      @@
+      \log_{10}(E) = 4{,}8 + 1{,}5 \cdot M \quad \text{ou} \quad M = \frac{2}{3}\log_{10}\left(\frac{E}{E_0}\right)
+      @@
+      <p>
+        onde @E_0 \approx 10^{4{,}8} \approx 6{,}3 \times 10^4 \, \text{J}@ é a energia de referência basal de um microssismo imperceptível.
+      </p>
+      <p>
+        <strong>Problema:</strong> Em 2011, o sismo de Tohoku (Japão) atingiu magnitude @M_1 = 9{,}0@, enquanto um abalo moderado em uma falha local atinge @M_2 = 6{,}0@. Quantas vezes a energia mecânica liberada pelo sismo de Tohoku foi superior à energia do abalo de magnitude 6,0?
+      </p>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Passo 1:</strong> Escrever a relação de energia para ambos os abalos sísmicos:</p>
+      @@
+      \log_{10}(E_1) = 4{,}8 + 1{,}5 \cdot M_1 \quad \text{e} \quad \log_{10}(E_2) = 4{,}8 + 1{,}5 \cdot M_2
+      @@
+      <p><strong>Passo 2:</strong> Subtrair a segunda equação da primeira:</p>
+      @@
+      \log_{10}(E_1) - \log_{10}(E_2) = (4{,}8 + 1{,}5 \cdot M_1) - (4{,}8 + 1{,}5 \cdot M_2) = 1{,}5(M_1 - M_2)
+      @@
+      <p><strong>Passo 3:</strong> Aplicar o Teorema 5.2 (logaritmo do quociente):</p>
+      @@
+      \log_{10}\left(\frac{E_1}{E_2}\right) = 1{,}5(M_1 - M_2)
+      @@
+      <p><strong>Passo 4:</strong> Inserir os valores @M_1 = 9{,}0@ e @M_2 = 6{,}0@:</p>
+      @@
+      \log_{10}\left(\frac{E_1}{E_2}\right) = 1{,}5 \cdot (9{,}0 - 6{,}0) = 1{,}5 \cdot 3 = 4{,}5
+      @@
+      <p><strong>Passo 5:</strong> Reconverter para a forma exponencial (Definição 4.1):</p>
+      @@
+      \frac{E_1}{E_2} = 10^{4{,}5} = 10^{4 + 0{,}5} = 10^4 \cdot 10^{1/2} = 10\,000 \cdot \sqrt{10} \approx 10\,000 \times 3{,}162 = 31\,622{,}77
+      @@
+      <p>
+        <strong>Conclusão Física:</strong> Embora a diferença de magnitude seja de "apenas" 3 unidades na escala (@9 - 6 = 3@), a energia destrutiva liberada é aproximadamente <strong>@31\,623@ vezes maior</strong>! Cada aumento de 1 unidade na escala Richter multiplica a energia liberada por @10^{1{,}5} \approx 31{,}62@ vezes. @\blacksquare@
+      </p>
+    </div>
+
+    <!-- EXEMPLO 2: MALTHUS -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 8.2 &mdash; O Modelo Demográfico Malthusiano (Dinâmica Populacional)</h3>
+      <p>
+        Em seu <em>"Ensaio sobre o Princípio da População"</em> (1798), Thomas Malthus postulou que uma população em condições ideais e sem limitação de recursos cresce a uma taxa proporcional ao seu tamanho instantâneo, governada pela equação diferencial cuja solução é:
+      </p>
+      @@
+      P(t) = P_0 \cdot e^{kt}
+      @@
+      <p>
+        onde @P_0@ é a população inicial no instante @t = 0@, @t@ é o tempo decorrido (em horas) e @k@ é a constante de crescimento intrínseco.
+      </p>
+      <p>
+        <strong>Problema:</strong> Uma colônia de bactérias possui inicialmente @P_0 = 4\,000@ microrganismos. Após @t = 2@ horas de observação em placa de Petri, a colônia atingiu @16\,000@ bactérias.
+      </p>
+      <ol>
+        <li>Determine a constante @k@ em função do logaritmo natural.</li>
+        <li>Calcule o tempo de duplicação (@T_d@) da população.</li>
+        <li>Em quanto tempo a colônia atingirá @256\,000@ indivíduos?</li>
+      </ol>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Item 1:</strong> Aplicando os dados @t = 2@ e @P(2) = 16\,000@ no modelo:</p>
+      @@
+      16\,000 = 4\,000 \cdot e^{k \cdot 2} \implies e^{2k} = \frac{16\,000}{4\,000} = 4
+      @@
+      <p>Tomando o logaritmo natural (@\ln@) em ambos os membros:</p>
+      @@
+      \ln(e^{2k}) = \ln(4) \implies 2k = \ln(2^2) = 2\ln(2) \implies k = \ln(2) \approx 0{,}69315 \, \text{h}^{-1}
+      @@
+      <p><strong>Item 2:</strong> O tempo de duplicação @T_d@ é o instante no qual @P(T_d) = 2P_0@:</p>
+      @@
+      2P_0 = P_0 \cdot e^{k \cdot T_d} \implies e^{k \cdot T_d} = 2 \implies k \cdot T_d = \ln(2)
+      @@
+      <p>Como @k = \ln(2)@, decorre imediatamente que:</p>
+      @@
+      T_d = \frac{\ln(2)}{k} = \frac{\ln(2)}{\ln(2)} = 1 \text{ hora}
+      @@
+      <p>A população dobra rigorosamente a cada 1 hora!</p>
+      <p><strong>Item 3:</strong> Para atingir @P(t) = 256\,000@ bactérias:</p>
+      @@
+      256\,000 = 4\,000 \cdot e^{kt} \implies e^{kt} = \frac{256\,000}{4\,000} = 64
+      @@
+      <p>Como @k = \ln(2)@ e @64 = 2^6@:</p>
+      @@
+      e^{(\ln 2) \cdot t} = (e^{\ln 2})^t = 2^t = 2^6 \iff t = 6 \text{ horas} \quad \blacksquare
+      @@
+    </div>
+
+    <!-- EXEMPLO 3: MOORE -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 8.3 &mdash; A Lei de Moore e o Poder Computacional</h3>
+      <p>
+        Formulada em 1965 por Gordon Moore (cofundador da Intel), a <strong>Lei de Moore</strong> é uma lei empírica da microeletrônica que prevê que o número de transistores integrados em um circuito integrado (chip) dobra aproximadamente a cada 24 meses (2 anos):
+      </p>
+      @@
+      N(t) = N_0 \cdot 2^{t/2}
+      @@
+      <p>onde @t@ é o tempo medido em anos e @N_0@ é o número basal de componentes.</p>
+      <p>
+        <strong>Problema:</strong> Considere que um microprocessador lançado no ano de 1974 contava com @N_0 = 4\,500@ transistores. Admitindo a validade ininterrupta da Lei de Moore, responda:
+      </p>
+      <ol>
+        <li>Qual era a quantidade esperada de transistores 30 anos após o lançamento (ano de 2004)?</li>
+        <li>Em quantos anos o número de transistores será multiplicado por um fator de @10^6@ (um milhão de vezes)? (Adote @\log_{10}(2) \approx 0{,}301@).</li>
+      </ol>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Item 1:</strong> Fazendo @t = 30@ anos:</p>
+      @@
+      N(30) = 4\,500 \cdot 2^{30/2} = 4\,500 \cdot 2^{15}
+      @@
+      <p>Sabendo que @2^{10} = 1\,024@ e @2^5 = 32@, temos @2^{15} = 1\,024 \times 32 = 32\,768@:</p>
+      @@
+      N(30) = 4\,500 \times 32\,768 = 147\,456\,000 \text{ transistores} \quad (\approx 147{,}5 \text{ milhões})
+      @@
+      <p><strong>Item 2:</strong> Buscamos o tempo @t@ tal que @\frac{N(t)}{N_0} = 10^6@:</p>
+      @@
+      2^{t/2} = 10^6
+      @@
+      <p>Aplicando o logaritmo decimal (@\log_{10}@) em ambos os membros:</p>
+      @@
+      \log_{10}\left(2^{t/2}\right) = \log_{10}(10^6) \implies \frac{t}{2} \cdot \log_{10}(2) = 6
+      @@
+      <p>Isolando @t@ e substituindo @\log_{10}(2) \approx 0{,}301@:</p>
+      @@
+      t = \frac{12}{\log_{10}(2)} \approx \frac{12}{0{,}301} \approx 39{,}87 \text{ anos}
+      @@
+      <p>Em aproximadamente <strong>40 anos</strong> a capacidade de transistores foi multiplicada por um milhão! @\blacksquare@</p>
+    </div>
+
+    <!-- EXEMPLO 4: CARBONO-14 -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 8.4 &mdash; Datação por Carbono-14 e Decaimento Radioativo (Arqueologia)</h3>
+      <p>
+        O isótopo radioativo Carbono-14 (@^{14}\text{C}@) é assimilado por seres vivos em equilíbrio com a atmosfera. Quando o organismo morre, a absorção cessa e a quantidade de @^{14}\text{C}@ decai exponencialmente com uma meia-vida de @T_{1/2} = 5\,730@ anos, conforme a lei:
+      </p>
+      @@
+      N(t) = N_0 \cdot \left(\frac{1}{2}\right)^{t / 5730}
+      @@
+      <p>onde @N_0@ é a quantidade presente no organismo vivo e @N(t)@ é a quantidade remanescente no fóssil após @t@ anos.</p>
+      <p>
+        <strong>Problema:</strong> Arqueólogos escavaram um fragmento de madeira fóssil em uma caverna. A espectrometria de massa revelou que a amostra possui apenas @12{,}5\%@ do @^{14}\text{C}@ de uma madeira viva comparável. Em seguida, encontraram um fragmento de osso com @20\%@ do @^{14}\text{C}@ original. Determine a idade de cada uma das amostras. (Dado: @\log_{10}(2) \approx 0{,}301@).
+      </p>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Parte A: Madeira fóssil (@12{,}5\%@):</strong></p>
+      @@
+      \frac{N(t)}{N_0} = 12{,}5\% = \frac{125}{1000} = \frac{1}{8} = \left(\frac{1}{2}\right)^3
+      @@
+      <p>Substituindo na lei do decaimento:</p>
+      @@
+      \left(\frac{1}{2}\right)^{t/5730} = \left(\frac{1}{2}\right)^3
+      @@
+      <p>Pela injetividade da função exponencial (mesma base @1/2@):</p>
+      @@
+      \frac{t}{5730} = 3 \implies t = 3 \times 5\,730 = 17\,190 \text{ anos}
+      @@
+      <p><strong>Parte B: Fragmento de osso (@20\% = 0{,}2@):</strong></p>
+      @@
+      \left(\frac{1}{2}\right)^{t/5730} = 0{,}2 = \frac{1}{5} \implies 2^{-t/5730} = 5^{-1} \implies 2^{t/5730} = 5
+      @@
+      <p>Tomando o logaritmo decimal em ambos os membros:</p>
+      @@
+      \frac{t}{5730} \cdot \log_{10}(2) = \log_{10}(5)
+      @@
+      <p>Lembrando que @5 = \frac{10}{2}@, temos @\log_{10}(5) = \log_{10}(10) - \log_{10}(2) = 1 - 0{,}301 = 0{,}699@:</p>
+      @@
+      t = 5730 \cdot \frac{\log_{10}(5)}{\log_{10}(2)} \approx 5730 \cdot \frac{0{,}699}{0{,}301} \approx 5730 \times 2{,}322 \approx 13\,306 \text{ anos} \quad \blacksquare
+      @@
+    </div>
+
+    <!-- EXEMPLO 5: PH E DECIBÉIS -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 8.5 &mdash; A Escala de Decibéis (Acústica) e o pH (Química Analítica)</h3>
+      <p>
+        <strong>1. Acústica:</strong> A intensidade fisiológica da sensação auditiva (nível sonoro @\beta@, medido em decibéis &mdash; dB) é dada pela lei de Weber-Fechner:
+      </p>
+      @@
+      \beta = 10 \cdot \log_{10}\left(\frac{I}{I_0}\right)
+      @@
+      <p>onde @I@ é a intensidade da onda sonora e @I_0 = 10^{-12} \, \text{W/m}^2@ é o limiar de audibilidade humano.</p>
+      <p>
+        <strong>2. Química:</strong> Em 1909, Søren Sørensen introduziu a medida de acidez por meio do potencial hidrogeniônico:
+      </p>
+      @@
+      \text{pH} = -\log_{10}[H^+] \iff [H^+] = 10^{-\text{pH}}
+      @@
+      <p>onde @[H^+]@ é a concentração de íons hidrogênio em mol/L.</p>
+      <p>
+        <strong>Problema 1 (O erro de somar decibéis):</strong> Uma britadeira em operação gera um nível de @80@ dB. Se uma segunda britadeira idêntica entrar em operação simultaneamente no mesmo canteiro de obras, qual será o novo nível sonoro percebido?
+      </p>
+      <p>
+        <strong>Problema 2:</strong> O suco de limão possui @\text{pH}_1 = 2@ e o café possui @\text{pH}_2 = 5@. Quantas vezes a concentração molar de íons @[H^+]@ no suco de limão é maior que no café?
+      </p>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Resolução do Problema 1:</strong></p>
+      <p>A intensidade de uma britadeira satisfaz @80 = 10 \log_{10}\left(\frac{I_1}{I_0}\right) \implies \log_{10}\left(\frac{I_1}{I_0}\right) = 8 \implies I_1 = 10^8 I_0@.</p>
+      <p>Como as intensidades de ondas sonoras de fontes incoerentes somam-se linearmente:</p>
+      @@
+      I_{\text{total}} = I_1 + I_2 = 2 I_1 = 2 \cdot 10^8 I_0
+      @@
+      <p>Calculando o novo nível @\beta_{\text{total}}@:</p>
+      @@
+      \beta_{\text{total}} = 10 \log_{10}\left(\frac{2 \cdot 10^8 I_0}{I_0}\right) = 10 \log_{10}(2 \cdot 10^8) = 10 \left(\log_{10} 2 + \log_{10} 10^8\right) = 10(0{,}301 + 8) = 83{,}01 \text{ dB}
+      @@
+      <p><em>Percepção essencial:</em> Dobrar a quantidade de fontes acústicas adiciona apenas <strong>@\approx 3@ dB</strong>, e não dobra o valor para 160 dB!</p>
+      <p><strong>Resolução do Problema 2:</strong></p>
+      @@
+      [H^+]_1 = 10^{-\text{pH}_1} = 10^{-2} \quad \text{e} \quad [H^+]_2 = 10^{-\text{pH}_2} = 10^{-5}
+      @@
+      <p>A razão entre as concentrações é:</p>
+      @@
+      \frac{[H^+]_1}{[H^+]_2} = \frac{10^{-2}}{10^{-5}} = 10^{-2 - (-5)} = 10^3 = 1\,000 \text{ vezes}
+      @@
+      <p>O suco de limão é <strong>1000 vezes mais ácido</strong> que o café! Uma redução de 3 unidades na escala logarítmica de pH corresponde a um aumento de 3 ordens de grandeza na concentração de íons hidrogênio. @\blacksquare@</p>
+    </div>
+
+    <!-- EXEMPLO 6: TORRE DE HANÓI -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 8.6 &mdash; A Lenda de Brahma e a Torre de Hanói (Combinatória e Recursão)</h3>
+      <p>
+        Inventado pelo matemático francês Édouard Lucas em 1883, o enigma da <strong>Torre de Hanói</strong> consiste em três pinos verticais e @n@ discos de diâmetros todos distintos. O objetivo é transferir toda a torre do pino inicial para outro pino obedecendo a duas regras:
+      </p>
+      <ol>
+        <li>Apenas um disco pode ser movido por vez.</li>
+        <li>Nenhum disco maior pode jamais ser assentado sobre um menor.</li>
+      </ol>
+      <p>
+        A lenda do Templo de Benares conta que os sacerdotes receberam de Brahma 64 discos de ouro maciço sobre agulhas de diamante. Quando o último movimento for executado com perfeição, o templo se converterá em pó e o Universo chegará ao fim.
+      </p>
+      <p>
+        <strong>Problema:</strong>
+      </p>
+      <ol>
+        <li>Deduza a relação recursiva e a fórmula fechada do número mínimo de movimentos @M(n)@ para @n@ discos.</li>
+        <li>Considerando os 64 discos e assumindo que os monges executem exatamente 1 movimento por segundo sem jamais errar, determine a ordem de grandeza da duração total da tarefa em anos. Compare com a idade estimada do Universo (@\approx 13{,}8@ bilhões de anos). (Dado: @\log_{10}(2) \approx 0{,}30103@).</li>
+      </ol>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Item 1 &mdash; Dedução da Fórmula Fechada:</strong></p>
+      <p>Para mover @n@ discos da estaca A para a estaca C utilizando a estaca B como auxiliar:</p>
+      <ul>
+        <li>Primeiro, deve-se mover a torre superior de @n-1@ discos da estaca A para a estaca B: exige @M(n-1)@ movimentos.</li>
+        <li>Em seguida, move-se o maior disco (o @n@-ésimo) de A para C: exige @1@ movimento.</li>
+        <li>Por fim, move-se a pilha de @n-1@ discos de B para C: exige novamente @M(n-1)@ movimentos.</li>
+      </ul>
+      <p>Portanto, a equação de recorrência é:</p>
+      @@
+      M(n) = 2 \cdot M(n-1) + 1 \quad \text{com} \quad M(1) = 1
+      @@
+      <p>Calculando os primeiros termos: @M(1) = 1 = 2^1 - 1@; @M(2) = 2(1) + 1 = 3 = 2^2 - 1@; @M(3) = 2(3) + 1 = 7 = 2^3 - 1@.</p>
+      <p>Somando 1 a ambos os membros da recorrência: @M(n) + 1 = 2[M(n-1) + 1]@. Definindo @X_n = M(n) + 1@, temos uma Progressão Geométrica de razão 2 com @X_1 = M(1) + 1 = 2@. Logo, @X_n = 2^n \implies M(n) = 2^n - 1@. @\blacksquare@</p>
+      <p><strong>Item 2 &mdash; Estimativa Temporal:</strong></p>
+      <p>Para @n = 64@ discos:</p>
+      @@
+      M(64) = 2^{64} - 1 \text{ segundos}
+      @@
+      <p>Calculemos @2^{64}@ em notação científica usando logaritmos decimais:</p>
+      @@
+      \log_{10}(2^{64}) = 64 \cdot \log_{10}(2) = 64 \cdot 0{,}30103 = 19{,}26592
+      @@
+      @@
+      2^{64} = 10^{19{,}26592} = 10^{0{,}26592} \cdot 10^{19} \approx 1{,}845 \times 10^{19} \text{ segundos}
+      @@
+      <p>Um ano comum possui: @1 \text{ ano} = 365 \times 24 \times 3\,600 = 31\,536\,000 \approx 3{,}1536 \times 10^7 \text{ segundos}@.</p>
+      <p>Dividindo os segundos pelo número de segundos por ano:</p>
+      @@
+      T_{\text{anos}} = \frac{1{,}845 \times 10^{19}}{3{,}1536 \times 10^7} \approx 5{,}85 \times 10^{11} \text{ anos} = 585 \text{ bilhões de anos!}
+      @@
+      <p>
+        <strong>Conclusão Cosmológica:</strong> O tempo necessário é de aproximadamente <strong>585 bilhões de anos</strong>, o que equivale a mais de <strong>42 vezes a idade atual de todo o Universo observável</strong> (@\approx 13{,}8 \times 10^9@ anos). A explosão combinatória da função exponencial @2^n@ transcende qualquer horizonte de tempo físico concebível. @\blacksquare@
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 4: EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO RÁPIDA
+         =============================================================== -->
+    <h2>9. Exercícios Conceituais de Fixação Rápida</h2>
+    <p>
+      Abaixo constam 12 problemas cuidadosamente formulados para consolidação de conceitos, propriedades formais e habilidades operatórias. Clique em <em>"Ver Gabarito e Solução Comentada"</em> para conferir a dedução completa.
+    </p>
+
+    <ol class="lista-exercicios">
+
+      <!-- EXERCÍCIO 1 -->
+      <li>
+        <strong>Simplificação e Propriedades de Potências:</strong><br>
+        Simplifique a expressão algébrica para @x > 0@ e @y > 0@:
+        @@
+        E = \frac{(x^2 y^{-3})^{-2} \cdot (x^{-1} y^2)^3}{(x^3 y^{-2})^{-1}}
+        @@
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Aplicar a propriedade de potência de potência @(a^p)^q = a^{pq}@ em cada termo do numerador:</p>
+            @@
+            (x^2 y^{-3})^{-2} = x^{2 \cdot (-2)} y^{(-3) \cdot (-2)} = x^{-4} y^6
+            @@
+            @@
+            (x^{-1} y^2)^3 = x^{(-1) \cdot 3} y^{2 \cdot 3} = x^{-3} y^6
+            @@
+            <p><strong>Passo 2:</strong> Multiplicar os termos do numerador somando os expoentes de mesma base:</p>
+            @@
+            \text{Numerador} = (x^{-4} y^6) \cdot (x^{-3} y^6) = x^{-4 + (-3)} y^{6 + 6} = x^{-7} y^{12}
+            @@
+            <p><strong>Passo 3:</strong> Desenvolver o denominador:</p>
+            @@
+            \text{Denominador} = (x^3 y^{-2})^{-1} = x^{3 \cdot (-1)} y^{(-2) \cdot (-1)} = x^{-3} y^2
+            @@
+            <p><strong>Passo 4:</strong> Dividir o numerador pelo denominador subtraindo os expoentes:</p>
+            @@
+            E = \frac{x^{-7} y^{12}}{x^{-3} y^2} = x^{-7 - (-3)} \cdot y^{12 - 2} = x^{-4} y^{10} = \frac{y^{10}}{x^4}
+            @@
+            <p><strong>Resposta:</strong> @E = x^{-4} y^{10} = \frac{y^{10}}{x^4}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 2 -->
+      <li>
+        <strong>Domínio de Função com Raiz e Logaritmo:</strong><br>
+        Determine o domínio no conjunto dos números reais @\mathbb{R}@ da função:
+        @@
+        f(x) = \sqrt{\log_{1/2}(2x - 6)}
+        @@
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Para que a expressão @f(x)@ seja real, duas condições devem ser satisfeitas simultaneamente:</p>
+            <ol>
+              <li><strong>Condição do Logaritmando:</strong> @2x - 6 > 0 \implies 2x > 6 \implies x > 3@.</li>
+              <li><strong>Condição do Radicando da Raiz Quadrada:</strong> @\log_{1/2}(2x - 6) \ge 0@.</li>
+            </ol>
+            <p>Resolvendo a inequação logarítmica: sabemos que @0 = \log_{1/2}(1)@. Logo:</p>
+            @@
+            \log_{1/2}(2x - 6) \ge \log_{1/2}(1)
+            @@
+            <p>Como a base @b = 1/2@ é menor que 1 (@0 < 1/2 < 1@), a função logarítmica é estritamente decrescente, o que <strong>inverte o sentido da desigualdade</strong>:</p>
+            @@
+            2x - 6 \le 1 \implies 2x \le 7 \implies x \le \frac{7}{2} = 3{,}5
+            @@
+            <p>Fazendo a interseção das duas condições:</p>
+            @@
+            (x > 3) \cap \left(x \le \frac{7}{2}\right) \iff 3 < x \le \frac{7}{2}
+            @@
+            <p><strong>Resposta:</strong> @\text{Dom}(f) = \left]3, \frac{7}{2}\right] = \{ x \in \mathbb{R} \mid 3 < x \le 3{,}5 \}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 3 -->
+      <li>
+        <strong>Equação Exponencial com Fatoração e Raízes:</strong><br>
+        Encontre o conjunto solução da equação exponencial:
+        @@
+        9^x - 4 \cdot 3^{x+1} + 27 = 0
+        @@
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Escrever todos os termos na base 3:</p>
+            @@
+            9^x = (3^2)^x = (3^x)^2 \quad \text{e} \quad 3^{x+1} = 3^x \cdot 3^1 = 3 \cdot 3^x
+            @@
+            <p><strong>Passo 2:</strong> Substituir na equação:</p>
+            @@
+            (3^x)^2 - 4 \cdot (3 \cdot 3^x) + 27 = 0 \implies (3^x)^2 - 12(3^x) + 27 = 0
+            @@
+            <p><strong>Passo 3:</strong> Fazendo a substituição de variável @y = 3^x@ com @y > 0@:</p>
+            @@
+            y^2 - 12y + 27 = 0
+            @@
+            <p>Fatorando por soma (@S = 12@) e produto (@P = 27@):</p>
+            @@
+            (y - 3)(y - 9) = 0 \implies y_1 = 3 \quad \text{ou} \quad y_2 = 9
+            @@
+            <p><strong>Passo 4:</strong> Retornando para @x@:</p>
+            <ul>
+              <li>@3^x = 3 \implies 3^x = 3^1 \iff x = 1@.</li>
+              <li>@3^x = 9 \implies 3^x = 3^2 \iff x = 2@.</li>
+            </ul>
+            <p><strong>Resposta:</strong> @S = \{1, 2\}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 4 -->
+      <li>
+        <strong>Inequação Exponencial de Base Fracionária:</strong><br>
+        Resolva no conjunto dos reais @\mathbb{R}@ a inequação:
+        @@
+        \left(\frac{1}{3}\right)^{x^2 - 2x} \ge \frac{1}{27}
+        @@
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Igualar as bases das potências. Notemos que @\frac{1}{27} = \left(\frac{1}{3}\right)^3@:</p>
+            @@
+            \left(\frac{1}{3}\right)^{x^2 - 2x} \ge \left(\frac{1}{3}\right)^3
+            @@
+            <p><strong>Passo 2:</strong> Como a base @a = \frac{1}{3}@ satisfaz @0 < a < 1@, invertemos o sentido da desigualdade entre os expoentes:</p>
+            @@
+            x^2 - 2x \le 3 \implies x^2 - 2x - 3 \le 0
+            @@
+            <p><strong>Passo 3:</strong> Encontrar as raízes da função quadrática associada @x^2 - 2x - 3 = 0@:</p>
+            @@
+            (x - 3)(x + 1) = 0 \implies x_1 = -1, \quad x_2 = 3
+            @@
+            <p>A parábola tem concavidade voltada para cima (@a = 1 > 0@). Portanto, o trinômio assume valores não positivos (@\le 0@) no intervalo fechado entre as raízes.</p>
+            <p><strong>Resposta:</strong> @S = [-1, 3] = \{ x \in \mathbb{R} \mid -1 \le x \le 3 \}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 5 -->
+      <li>
+        <strong>Composição Algébrica com Logaritmos Decimais:</strong><br>
+        Sabendo que @\log_{10}(2) = a@ e @\log_{10}(3) = b@, expresse @\log_{10}(72)@ e @\log_{10}(0{,}75)@ em termos de @a@ e @b@.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Cálculo 1 &mdash; @\log_{10}(72)@:</strong></p>
+            <p>Fatorando o número 72 em fatores primos: @72 = 8 \times 9 = 2^3 \cdot 3^2@. Aplicando as propriedades operatórias do produto e da potência:</p>
+            @@
+            \log_{10}(72) = \log_{10}(2^3 \cdot 3^2) = \log_{10}(2^3) + \log_{10}(3^2) = 3\log_{10}(2) + 2\log_{10}(3) = 3a + 2b
+            @@
+            <p><strong>Cálculo 2 &mdash; @\log_{10}(0{,}75)@:</strong></p>
+            <p>Convertendo o decimal em fração irredutível: @0{,}75 = \frac{75}{100} = \frac{3}{4} = \frac{3}{2^2}@. Aplicando as propriedades do quociente e da potência:</p>
+            @@
+            \log_{10}(0{,}75) = \log_{10}\left(\frac{3}{2^2}\right) = \log_{10}(3) - \log_{10}(2^2) = \log_{10}(3) - 2\log_{10}(2) = b - 2a
+            @@
+            <p><strong>Resposta:</strong> @\log_{10}(72) = 3a + 2b@ e @\log_{10}(0{,}75) = b - 2a@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 6 -->
+      <li>
+        <strong>Mudança de Base e Produto Telescópico:</strong><br>
+        Calcule o valor exato do produto de logaritmos:
+        @@
+        P = \log_2(3) \cdot \log_3(4) \cdot \log_4(5) \cdot \log_5(6) \cdots \log_{1023}(1024)
+        @@
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Aplicar o Teorema 5.4 da Mudança de Base para converter todos os fatores para uma base comum qualquer (por exemplo, base decimal ou neperiana @\ln@):</p>
+            @@
+            \log_b(a) = \frac{\ln(a)}{\ln(b)}
+            @@
+            <p><strong>Passo 2:</strong> Substituir na cadeia de produtos:</p>
+            @@
+            P = \frac{\ln 3}{\ln 2} \cdot \frac{\ln 4}{\ln 3} \cdot \frac{\ln 5}{\ln 4} \cdot \frac{\ln 6}{\ln 5} \cdots \frac{\ln 1024}{\ln 1023}
+            @@
+            <p><strong>Passo 3:</strong> Observar o cancelamento telescópico cruzado: cada numerador cancela o denominador da fração subsequente, restando unicamente o primeiro denominador e o último numerador:</p>
+            @@
+            P = \frac{\ln 1024}{\ln 2} = \log_2(1024)
+            @@
+            <p>Como @1024 = 2^{10}@, temos @\log_2(2^{10}) = 10@.</p>
+            <p><strong>Resposta:</strong> @P = 10@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 7 -->
+      <li>
+        <strong>Identidade Fundamental das Potências e Logaritmos:</strong><br>
+        Calcule o valor numérico da expressão:
+        @@
+        K = 4^{\log_2(5)} + 27^{\log_3(2)} - 100^{\log_{10}(\sqrt{7})}
+        @@
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Analisamos cada parcela individualmente utilizando a propriedade @(a^p)^q = (a^q)^p@ e a identidade fundamental @b^{\log_b(N)} = N@:</p>
+            <p><strong>Termo 1:</strong> @4^{\log_2(5)} = (2^2)^{\log_2(5)} = (2^{\log_2(5)})^2 = 5^2 = 25@.</p>
+            <p><strong>Termo 2:</strong> @27^{\log_3(2)} = (3^3)^{\log_3(2)} = (3^{\log_3(2)})^3 = 2^3 = 8@.</p>
+            <p><strong>Termo 3:</strong> @100^{\log_{10}(\sqrt{7})} = (10^2)^{\log_{10}(\sqrt{7})} = (10^{\log_{10}(\sqrt{7})})^2 = (\sqrt{7})^2 = 7@.</p>
+            <p>Somando os resultados parciais:</p>
+            @@
+            K = 25 + 8 - 7 = 26
+            @@
+            <p><strong>Resposta:</strong> @K = 26@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 8 -->
+      <li>
+        <strong>Equação Logarítmica com C.E. Estrita e Eliminação de Raiz Estranha:</strong><br>
+        Resolva no conjunto dos reais a equação:
+        @@
+        \log_2(x + 2) + \log_2(x - 2) = 5
+        @@
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1: Condição de Existência (C.E.) obrigatória:</strong></p>
+            @@
+            \begin{cases}
+            x + 2 > 0 \implies x > -2 \\
+            x - 2 > 0 \implies x > 2
+            \end{cases}
+            \implies x > 2 \quad \text{(C.E.)}
+            @@
+            <p><strong>Passo 2: Aplicar o Teorema 5.1 (logaritmo do produto):</strong></p>
+            @@
+            \log_2[(x + 2)(x - 2)] = 5 \implies \log_2(x^2 - 4) = 5
+            @@
+            <p><strong>Passo 3: Aplicar a definição de logaritmo:</strong></p>
+            @@
+            x^2 - 4 = 2^5 = 32 \implies x^2 = 36 \implies x = \pm 6
+            @@
+            <p><strong>Passo 4: Confrontar com a C.E. (@x > 2@):</strong></p>
+            <ul>
+              <li>@x = 6 > 2@: Válida!</li>
+              <li>@x = -6 < 2@: Rejeitada (raiz estranha introduzida pela multiplicação algébrica).</li>
+            </ul>
+            <p><strong>Resposta:</strong> @S = \{6\}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 9 -->
+      <li>
+        <strong>Inequação Logarítmica com Base Fracionária:</strong><br>
+        Determine o conjunto solução em @\mathbb{R}@ da inequação:
+        @@
+        \log_{1/3}(3x - 5) > -2
+        @@
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1: Condição de Existência (C.E.):</strong></p>
+            @@
+            3x - 5 > 0 \implies 3x > 5 \implies x > \frac{5}{3}
+            @@
+            <p><strong>Passo 2: Escrever o número @-2@ como logaritmo na base @1/3@:</strong></p>
+            @@
+            -2 = \log_{1/3}\left[\left(\frac{1}{3}\right)^{-2}\right] = \log_{1/3}(3^2) = \log_{1/3}(9)
+            @@
+            <p>Substituindo na inequação:</p>
+            @@
+            \log_{1/3}(3x - 5) > \log_{1/3}(9)
+            @@
+            <p><strong>Passo 3: Resolver atentando para a base decrescente (@0 < 1/3 < 1@):</strong></p>
+            <p>Inverte-se o sinal da desigualdade:</p>
+            @@
+            3x - 5 < 9 \implies 3x < 14 \implies x < \frac{14}{3}
+            @@
+            <p><strong>Passo 4: Interseção com a C.E.:</strong></p>
+            @@
+            \frac{5}{3} < x < \frac{14}{3}
+            @@
+            <p><strong>Resposta:</strong> @S = \left]\frac{5}{3}, \frac{14}{3}\right[ = \left\{ x \in \mathbb{R} \;\middle|\; \frac{5}{3} < x < \frac{14}{3} \right\}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 10 -->
+      <li>
+        <strong>Modelagem com Escala Richter:</strong><br>
+        Dois terremotos ocorreram na costa do Oceano Pacífico. O primeiro teve magnitude @M_1 = 8{,}2@ e o segundo liberou exatamente @100@ vezes menos energia mecânica que o primeiro (@E_2 = \frac{E_1}{100}@). Qual foi a magnitude @M_2@ do segundo sismo?
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Pela relação de energia sísmica da escala Richter deduzida na Seção 8.1:</p>
+            @@
+            \log_{10}\left(\frac{E_1}{E_2}\right) = 1{,}5(M_1 - M_2)
+            @@
+            <p>Como @\frac{E_1}{E_2} = 100@:</p>
+            @@
+            \log_{10}(100) = 1{,}5(8{,}2 - M_2)
+            @@
+            <p>Como @\log_{10}(100) = 2@:</p>
+            @@
+            2 = 1{,}5(8{,}2 - M_2) \implies 8{,}2 - M_2 = \frac{2}{1{,}5} = \frac{4}{3} \approx 1{,}333\dots
+            @@
+            <p>Isolando @M_2@:</p>
+            @@
+            M_2 = 8{,}2 - \frac{4}{3} = \frac{41}{5} - \frac{4}{3} = \frac{123 - 20}{15} = \frac{103}{15} \approx 6{,}87
+            @@
+            <p><strong>Resposta:</strong> A magnitude do segundo abalo sísmico foi de aproximadamente @M_2 \approx 6{,}87@ (ou exatamente @\frac{103}{15}@).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 11 -->
+      <li>
+        <strong>Problema de Meia-Vida com Decaimento Contínuo:</strong><br>
+        Uma amostra de @80@ gramas de uma substância radioativa hospitalar possui meia-vida de @12@ dias. Quanto tempo será necessário para que a massa residual da substância seja reduzida a exatamente @2{,}5@ gramas?
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>A massa restante @m(t)@ após @t@ dias é modelada por:</p>
+            @@
+            m(t) = m_0 \cdot \left(\frac{1}{2}\right)^{t / 12}
+            @@
+            <p>Substituindo os dados @m_0 = 80@ g e @m(t) = 2{,}5@ g:</p>
+            @@
+            2{,}5 = 80 \cdot \left(\frac{1}{2}\right)^{t/12} \implies \left(\frac{1}{2}\right)^{t/12} = \frac{2{,}5}{80} = \frac{25}{800} = \frac{1}{32}
+            @@
+            <p>Expressando @\frac{1}{32}@ como potência de base @\frac{1}{2}@:</p>
+            @@
+            \frac{1}{32} = \left(\frac{1}{2}\right)^5
+            @@
+            <p>Igualando os expoentes:</p>
+            @@
+            \frac{t}{12} = 5 \implies t = 12 \times 5 = 60 \text{ dias}
+            @@
+            <p><strong>Resposta:</strong> Serão necessários exatamente <strong>60 dias</strong> (ou 5 meias-vidas completas).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 12 -->
+      <li>
+        <strong>Química e Logaritmos &mdash; Cálculo de Variação de Acidez:</strong><br>
+        Uma amostra de efluente industrial possui @\text{pH} = 3{,}0@. Por exigência ambiental, esse efluente deve ser tratado e neutralizado até atingir @\text{pH} = 7{,}0@. Quantas vezes a concentração inicial de íons hidrogênio @[H^+]@ deve ser reduzida para que a água atinja o nível neutro?
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Pela definição de @\text{pH}@ (Sørensen):</p>
+            @@
+            \text{pH} = -\log_{10}[H^+] \iff [H^+] = 10^{-\text{pH}}
+            @@
+            <p>Para o efluente inicial (@\text{pH}_1 = 3{,}0@):</p>
+            @@
+            [H^+]_1 = 10^{-3} \, \text{mol/L}
+            @@
+            <p>Para a água neutralizada (@\text{pH}_2 = 7{,}0@):</p>
+            @@
+            [H^+]_2 = 10^{-7} \, \text{mol/L}
+            @@
+            <p>Calculando o fator de redução:</p>
+            @@
+            \frac{[H^+]_1}{[H^+]_2} = \frac{10^{-3}}{10^{-7}} = 10^{-3 - (-7)} = 10^4 = 10\,000
+            @@
+            <p><strong>Resposta:</strong> A concentração de íons hidrogênio @[H^+]@ deve ser reduzida <strong>@10\,000@ vezes</strong> (um fator de dez mil).</p>
+          </div>
+        </details>
+      </li>
+
+    </ol>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 35px; margin-bottom: 25px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

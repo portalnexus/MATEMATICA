@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - Guia de Estudos: [CAPÍTULO]" -->
+  <title>NEXUS - Guia de Estudos: Produtos Notáveis e Fatoração</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA GUIAS DE ESTUDOS - NEXUS RETRO-FUTURISTA
+       ========================================================================== */
+
+    /* Cabeçalho do guia */
+    .guia-header {
+      background-color: rgba(0, 0, 0, 0.25);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 5px solid var(--link-color);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .guia-header h1 {
+      margin-top: 0.5rem;
+      color: var(--heading-text-color);
+      font-size: 1.8rem;
+    }
+
+    .guia-meta-panel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+
+    .guia-meta-card {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .guia-meta-card strong {
+      display: block;
+      color: var(--heading-text-color);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.3rem;
+    }
+
+    .guia-meta-card span {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--main-text-color);
+    }
+
+    /* Grid de objetivos/habilidades BNCC */
+    .objetivos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .objetivo-item {
+      background-color: rgba(0, 0, 0, 0.22);
+      padding: 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--link-color);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .objetivo-item:hover {
+      transform: translateY(-2px);
+      border-left-color: var(--link-hover-color);
+    }
+
+    .objetivo-item strong {
+      color: var(--link-color);
+      display: block;
+      margin-bottom: 0.6rem;
+      font-family: 'Fira Sans', sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .objetivo-item p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       MAPA CONCEITUAL HIERÁRQUICO
+       ========================================================================== */
+    .mapa-conceitual {
+      background-color: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--container-border-color);
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+    }
+
+    .mapa-conceito-raiz {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .mapa-raiz-badge {
+      background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+      border: 2px solid var(--link-color);
+      color: var(--heading-text-color);
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.85rem;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+    }
+
+    .mapa-relacao-dual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 1rem 0 2rem 0;
+      font-weight: bold;
+      color: var(--secondary-text-color);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .mapa-grid-dual {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .mapa-coluna {
+      background-color: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .mapa-coluna-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--link-color);
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .mapa-coluna-header h4 {
+      margin: 0;
+      color: var(--heading-text-color);
+      font-size: 1.1rem;
+    }
+
+    .mapa-coluna-tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: var(--link-color);
+      border: 1px solid var(--link-color);
+    }
+
+    .mapa-item-card {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--secondary-text-color);
+    }
+
+    .mapa-item-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .mapa-item-card h5 {
+      margin: 0 0 0.5rem 0;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mapa-item-card .formula-box {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin: 0.5rem 0;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .mapa-item-card p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--main-text-color);
+      opacity: 0.9;
+    }
+
+    .mapa-item-card .ponte-inversa {
+      font-size: 0.78rem;
+      color: var(--heading-text-color);
+      margin-top: 0.5rem;
+      display: block;
+      font-style: italic;
+    }
+
+    /* ==========================================================================
+       ROTEIRO DE ESTUDOS EM ETAPAS (MISSÕES)
+       ========================================================================== */
+    .etapa-estudo {
+      background-color: rgba(0, 0, 0, 0.22);
+      padding: 1.8rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      border-left: 5px solid var(--link-color);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .etapa-estudo h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .etapa-numero {
+      background-color: var(--link-color);
+      color: var(--primary-bg-color);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+    }
+
+    .etapa-xp-badge {
+      margin-left: auto;
+      background-color: rgba(255, 215, 0, 0.15);
+      border: 1px solid #ffd700;
+      color: #ffd700;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-family: 'Press Start 2P', monospace;
+    }
+
+    .etapa-bloco-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0;
+    }
+
+    .etapa-subcard {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1rem;
+      border-radius: 6px;
+      border-top: 2px solid var(--secondary-text-color);
+    }
+
+    .etapa-subcard strong {
+      color: var(--heading-text-color);
+      display: block;
+      font-size: 0.88rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .etapa-subcard p, .etapa-subcard ul {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .etapa-subcard ul {
+      padding-left: 1.2rem;
+    }
+
+    .etapa-subcard li {
+      margin-bottom: 0.4rem;
+    }
+
+    .etapa-estudo a {
+      color: var(--link-color);
+      font-weight: bold;
+    }
+
+    .etapa-estudo a:hover {
+      color: var(--link-hover-color);
+      text-decoration: underline;
+    }
+
+    .etapa-tarefas-box {
+      background-color: rgba(0, 0, 0, 0.35);
+      border: 1px dashed var(--link-color);
+      padding: 1.2rem;
+      border-radius: 6px;
+      margin-top: 1.2rem;
+    }
+
+    .etapa-tarefas-box h4 {
+      margin: 0 0 0.8rem 0;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ==========================================================================
+       ESTRATÉGIAS DE ESTUDO & VISUALIZAÇÃO GEOMÉTRICA
+       ========================================================================== */
+    .estrategia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .estrategia-card {
+      background-color: rgba(0, 0, 0, 0.22);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-left: 4px solid var(--heading-text-color);
+    }
+
+    .estrategia-card h3 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .diagrama-geometrico {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--secondary-text-color);
+      border-radius: 6px;
+      padding: 1.2rem;
+      margin: 1rem 0;
+      font-family: monospace;
+      color: var(--main-text-color);
+      line-height: 1.35;
+      overflow-x: auto;
+    }
+
+    /* ==========================================================================
+       CONEXÕES INTERDISCIPLINARES
+       ========================================================================== */
+    .interdisciplinar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .interdisciplinar-card {
+      background-color: rgba(0, 0, 0, 0.22);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-top: 4px solid var(--link-color);
+    }
+
+    .interdisciplinar-card h3 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .interdisciplinar-card strong {
+      color: var(--link-color);
+    }
+
+    /* ==========================================================================
+       CHECKLIST E GAMIFICAÇÃO (DASHBOARD NEXUS)
+       ========================================================================== */
+    .checklist-container {
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .checklist-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 1rem 0;
+    }
+
+    .checklist-item {
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.7rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      border-left: 3px solid var(--secondary-text-color);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .checklist-item:hover {
+      background-color: rgba(0, 0, 0, 0.35);
+    }
+
+    .checklist-checkbox {
+      margin-top: 0.25rem;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: var(--link-color);
+    }
+
+    .checklist-content {
+      flex: 1;
+    }
+
+    .checklist-content strong {
+      display: block;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .checklist-content p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--main-text-color);
+    }
+
+    .trofeus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .trofeu-card {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(0, 0, 0, 0.3));
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      padding: 1.2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .trofeu-icone {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .trofeu-titulo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.72rem;
+      color: #ffd700;
+      margin-bottom: 0.5rem;
+    }
+
+    .trofeu-desc {
+      font-size: 0.82rem;
+      margin: 0;
+      color: var(--main-text-color);
+      opacity: 0.9;
+    }
+
+    .cronograma-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .cronograma-table th, .cronograma-table td {
+      padding: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: left;
+    }
+
+    .cronograma-table th {
+      background-color: rgba(0, 0, 0, 0.4);
+      color: var(--heading-text-color);
+      font-weight: bold;
+    }
+
+    .cronograma-table tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      .guia-header {
+        padding: 1.2rem;
+      }
+      .etapa-estudo {
+        padding: 1.2rem;
+      }
+      .etapa-numero {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+      .mapa-conceitual {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <!-- ===============================================================
+         CABEÇALHO DO GUIA
+         =============================================================== -->
+    <div class="guia-header">
+      <span class="badge-nivel ano-9">9º Ano</span>
+      <h1>📚 NEXUS - Guia de Estudos: Produtos Notáveis e Fatoração</h1>
+      <p style="margin-bottom: 0.5rem; font-size: 1.05rem;">
+        <strong>Capítulo 3:</strong> <em>Produtos notáveis e fatoração em ação!</em>
+      </p>
+      <p style="margin-bottom: 0; color: var(--secondary-text-color);">
+        Roteiro metacognitivo completo com visualização geométrica, mapa conceitual hierárquico, missões progressivas e desafios integradores alinhados à BNCC.
+      </p>
+
+      <div class="guia-meta-panel">
+        <div class="guia-meta-card">
+          <strong>Tempo Sugerido</strong>
+          <span>⏱️ 3 Semanas (~18h)</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>Etapas de Missão</strong>
+          <span>🚀 5 Etapas Práticas</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>EXP Total Disponível</strong>
+          <span>⚡ +300 EXP Nexus</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>Troféus Desbloqueáveis</strong>
+          <span>🏆 3 Insígnias</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 1: OBJETIVOS E COMPETÊNCIAS BNCC
+         =============================================================== -->
+    <h2>1. Objetivos de Aprendizagem e Habilidades BNCC</h2>
+    <p>
+      Este guia foi estruturado para desenvolver competências algébricas fundamentais no 9º Ano, capacitando você a transitar com segurança entre a multiplicação de polinômios e a sua decomposição em fatores irredutíveis:
+    </p>
+
+    <div class="objetivos-grid">
+      <div class="objetivo-item">
+        <strong>(EF09MAT06)</strong>
+        <p>Desenvolver produtos notáveis (quadrado da soma, quadrado da diferença, produto da soma pela diferença e cubos) e associá-los a representações geométricas de áreas e volumes.</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT08)</strong>
+        <p>Reconhecer e aplicar técnicas de fatoração algébrica (fator comum, agrupamento, trinômio quadrado perfeito, diferença de quadrados e regra de Stevin) na simplificação de frações algébricas.</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT09)</strong>
+        <p>Compreender os processos de fatoração de expressões algébricas, com base em suas relações com os produtos notáveis, para resolver problemas modelados por equações do 2º grau.</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT13)</strong>
+        <p>Modelar situações do cotidiano e de ciências exatas por meio de expressões algébricas equivalentes, utilizando a fatoração como ferramenta analítica e computacional.</p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: MAPA CONCEITUAL HIERÁRQUICO
+         =============================================================== -->
+    <h2>2. Mapa Conceitual Hierárquico</h2>
+    <p>
+      A álgebra polinomial funciona através de um princípio de dualidade recíproca: a <strong>Expansão</strong> (produtos notáveis) multiplica binômios e gera polinômios expandidos; a <strong>Fatoração</strong> desfaz esse processo, transformando somas e subtrações em produtos de fatores primos.
+    </p>
+
+    <div class="mapa-conceitual">
+      <div class="mapa-conceito-raiz">
+        <span class="mapa-raiz-badge">ÁLGEBRA POLINOMIAL E IDENTIDADES NOTÁVEIS</span>
+        <div class="mapa-relacao-dual">
+          <span>[Multiplicação / Expansão] ➔</span>
+          <span style="color: var(--link-color); font-size: 1.3rem;">⇌</span>
+          <span>➔ [Decomposição em Fatores]</span>
+        </div>
+      </div>
+
+      <div class="mapa-grid-dual">
+        <!-- COLUNA 1: PRODUTOS NOTÁVEIS -->
+        <div class="mapa-coluna">
+          <div class="mapa-coluna-header">
+            <h4>1. Produtos Notáveis (Expansão)</h4>
+            <span class="mapa-coluna-tag">FORMA PRODUTO ➔ SOMA</span>
+          </div>
+
+          <!-- Quadrado da Soma -->
+          <div class="mapa-item-card">
+            <h5>Quadrado da Soma</h5>
+            <div class="formula-box">@@(a + b)^2 = a^2 + 2ab + b^2@@</div>
+            <p>O quadrado do 1º, mais duas vezes o 1º pelo 2º, mais o quadrado do 2º.</p>
+            <span class="ponte-inversa">↳ Operação inversa: Trinômio Quadrado Perfeito (TQP)</span>
+          </div>
+
+          <!-- Quadrado da Diferença -->
+          <div class="mapa-item-card">
+            <h5>Quadrado da Diferença</h5>
+            <div class="formula-box">@@(a - b)^2 = a^2 - 2ab + b^2@@</div>
+            <p>O quadrado do 1º, menos duas vezes o 1º pelo 2º, mais o quadrado do 2º.</p>
+            <span class="ponte-inversa">↳ Operação inversa: Trinômio Quadrado Perfeito com termo central negativo</span>
+          </div>
+
+          <!-- Produto da Soma pela Diferença -->
+          <div class="mapa-item-card">
+            <h5>Produto da Soma pela Diferença</h5>
+            <div class="formula-box">@@(a + b)(a - b) = a^2 - b^2@@</div>
+            <p>Multiplicação de conjugados: os termos centrais se anulam, restando a diferença dos quadrados.</p>
+            <span class="ponte-inversa">↳ Operação inversa: Diferença de Dois Quadrados</span>
+          </div>
+
+          <!-- Cubo da Soma e Diferença -->
+          <div class="mapa-item-card">
+            <h5>Cubo da Soma / Diferença</h5>
+            <div class="formula-box">@@(a \pm b)^3 = a^3 \pm 3a^2b + 3ab^2 \pm b^3@@</div>
+            <p>Expansão tridimensional de volumes de cubos e prismas compostos.</p>
+            <span class="ponte-inversa">↳ Decomposição cúbica geométrica e polinomial</span>
+          </div>
+        </div>
+
+        <!-- COLUNA 2: FATORAÇÃO ALGÉBRICA -->
+        <div class="mapa-coluna">
+          <div class="mapa-coluna-header">
+            <h4>2. Fatoração Algébrica (Decomposição)</h4>
+            <span class="mapa-coluna-tag">FORMA SOMA ➔ PRODUTO</span>
+          </div>
+
+          <!-- Fator Comum -->
+          <div class="mapa-item-card">
+            <h5>Fator Comum em Evidência</h5>
+            <div class="formula-box">@@ax + ay = a(x + y)@@</div>
+            <p>Aplicação da propriedade distributiva no sentido inverso com o MDC dos termos.</p>
+            <span class="ponte-inversa">↳ Base universal para simplificações e agrupamentos</span>
+          </div>
+
+          <!-- Agrupamento -->
+          <div class="mapa-item-card">
+            <h5>Agrupamento (4 ou mais termos)</h5>
+            <div class="formula-box">@@ax + bx + ay + by = (a + b)(x + y)@@</div>
+            <p>Fatoração em duas etapas consecutivas agrupando termos com fatores parciais comuns.</p>
+            <span class="ponte-inversa">↳ Ponte entre fator comum e produtos de binômios</span>
+          </div>
+
+          <!-- TQP -->
+          <div class="mapa-item-card">
+            <h5>Trinômio Quadrado Perfeito</h5>
+            <div class="formula-box">@@a^2 \pm 2ab + b^2 = (a \pm b)^2@@</div>
+            <p>Reconhecimento do padrão: dois quadrados perfeitos e o termo central igual a @2\sqrt{T_1}\sqrt{T_3}@.</p>
+            <span class="ponte-inversa">↳ Inverso do Quadrado da Soma / Diferença</span>
+          </div>
+
+          <!-- Diferença de Quadrados -->
+          <div class="mapa-item-card">
+            <h5>Diferença de Dois Quadrados</h5>
+            <div class="formula-box">@@a^2 - b^2 = (a + b)(a - b)@@</div>
+            <p>Dois monômios quadráticos separados por subtração fatorados em produto conjugado.</p>
+            <span class="ponte-inversa">↳ Inverso do Produto da Soma pela Diferença</span>
+          </div>
+
+          <!-- Trinômio do 2º Grau (Stevin) -->
+          <div class="mapa-item-card">
+            <h5>Trinômio do 2º Grau (Regra de Stevin)</h5>
+            <div class="formula-box">@@x^2 + Sx + P = (x + a)(x + b)@@</div>
+            <p>Encontra-se dois números @a@ e @b@ tais que a soma seja @S = a + b@ e o produto seja @P = a \cdot b@.</p>
+            <span class="ponte-inversa">↳ Fatoração rápida de equações quadráticas sem Bhaskara</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: ROTEIRO DE ESTUDOS EM 5 ETAPAS
+         =============================================================== -->
+    <h2>3. Roteiro de Estudos em 5 Etapas (Missões Nexus)</h2>
+    <p>
+      Percorra as etapas na ordem indicada. Cada missão conclui uma competência indispensável e acumula pontos de experiência (EXP) para o seu perfil no <strong>Dashboard Nexus</strong>.
+    </p>
+
+    <!-- ETAPA 1 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">1</span>
+        Missão: O Quadrado Perfeito e a Geometria das Áreas
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT06) Desenvolver o quadrado da soma e da diferença associando-os à geometria plana.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Dominar o desenvolvimento algébrico de @(a + b)^2@ e @(a - b)^2@.</li>
+            <li>Eliminar o erro clássico de esquecer o termo misto @2ab@ (ou seja, entender por que @(a+b)^2 \neq a^2 + b^2@).</li>
+            <li>Interpretar geometricamente a partição da área de um quadrado de lado @(a + b)@.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Quadrado da soma: @@(a + b)^2 = a^2 + 2ab + b^2@@</p>
+          <p>Quadrado da diferença: @@(a - b)^2 = a^2 - 2ab + b^2@@</p>
+          <p><em>Exemplo numérico:</em> @(x + 7)^2 = x^2 + 14x + 49@; @(2x - 3)^2 = 4x^2 - 12x + 9@.</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Estude a <strong>Seção 1 (Produtos Notáveis - P1 e P2)</strong> e o <strong>Exemplo 1</strong> do <a href="../../recursos/resumos/9ANO-PRODUTOS-NOTAVEIS-FATORACAO.html">Resumo Teórico</a>.</p>
+        <p>2. Desenhe no seu caderno a representação geométrica de @(x + 4)^2@ dividida em 4 regiões (1 quadrado @x^2@, 2 retângulos @4x@ e 1 quadrado @16@).</p>
+        <p>3. Resolva os <strong>Problemas 1, 2, 3, 4 e 5</strong> da seção <em>Problemas Introdutórios</em> da <a href="../../recursos/listas/9ANO-LISTA-PRODUTOS-NOTAVEIS.html">Lista de Exercícios</a>.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 2 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">2</span>
+        Missão: O Produto da Soma pela Diferença e os Cubos Notáveis
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT06) Aplicar produtos conjugados e expansões cúbicas tridimensionais.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Compreender o cancelamento dos termos intermediários em @(a + b)(a - b)@.</li>
+            <li>Utilizar o produto notável para simplificar cálculos aritméticos mentais rápidos (ex: @31 \times 29 = (30+1)(30-1) = 900 - 1 = 899@).</li>
+            <li>Conhecer as fórmulas do cubo da soma e da diferença de dois termos.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Produto de conjugados: @@(a + b)(a - b) = a^2 - b^2@@</p>
+          <p>Cubos notáveis: @@(a \pm b)^3 = a^3 \pm 3a^2b + 3ab^2 \pm b^3@@</p>
+          <p><em>Exemplo:</em> @(3x + 5)(3x - 5) = 9x^2 - 25@; @(x + 2)^3 = x^3 + 6x^2 + 12x + 8@.</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Revise a <strong>Seção 1 (P3)</strong> do <a href="../../recursos/resumos/9ANO-PRODUTOS-NOTAVEIS-FATORACAO.html">Resumo Teórico</a>.</p>
+        <p>2. Aplique a técnica para calcular mentalmente: @52 \times 48 = (50+2)(50-2)@ e @103 \times 97@.</p>
+        <p>3. Resolva os <strong>Problemas 6, 7, 8, 9 e 10</strong> da seção <em>Problemas Introdutórios</em> da <a href="../../recursos/listas/9ANO-LISTA-PRODUTOS-NOTAVEIS.html">Lista de Exercícios</a>.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 3 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">3</span>
+        Missão: A Arte de Fatorar por Evidência e Agrupamento
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT08) Identificar fatores comuns e realizar fatoração por agrupamento estruturado.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Encontrar o Máximo Divisor Comum (MDC) de coeficientes e partes literais de um polinômio.</li>
+            <li>Colocar monômios em evidência aplicando a propriedade distributiva reversa.</li>
+            <li>Fatorar expressões com 4 ou mais termos organizando-as em grupos estratégicos.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Fator comum: @@6x^3 + 9x^2 = 3x^2(2x + 3)@@</p>
+          <p>Agrupamento: @@mx + my + nx + ny = m(x + y) + n(x + y) = (m + n)(x + y)@@</p>
+          <p><em>Dica de ouro:</em> No agrupamento, o binômio resultante dentro dos parênteses deve ser idêntico em ambos os blocos!</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Estude a <strong>Seção 2 (Fator Comum em Evidência)</strong> no <a href="../../recursos/resumos/9ANO-PRODUTOS-NOTAVEIS-FATORACAO.html">Resumo Teórico</a>.</p>
+        <p>2. Fatore no caderno a expressão @x^3 + 3x^2 + 2x + 6@ separando em dois grupos: @x^2(x + 3) + 2(x + 3) = (x^2 + 2)(x + 3)@.</p>
+        <p>3. Resolva os <strong>Problemas 1, 2, 3, 4 e 5</strong> da seção <em>Problemas de Fixação</em> da <a href="../../recursos/listas/9ANO-LISTA-PRODUTOS-NOTAVEIS.html">Lista de Exercícios</a>.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 4 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">4</span>
+        Missão: Reconhecendo Padrões: TQP e Diferença de Quadrados
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT08 e EF09MAT09) Testar e fatorar trinômios quadrados perfeitos e diferenças de dois quadrados.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Testar se um trinômio é quadrado perfeito através do termo central @2 \cdot \sqrt{T_1} \cdot \sqrt{T_3}@.</li>
+            <li>Reconhecer e fatorar instantaneamente diferenças de quadrados @a^2 - b^2@.</li>
+            <li>Utilizar a diferença de quadrados para simplificar frações numéricas e expressões com raízes.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Diferença de quadrados: @@4x^2 - 49 = (2x + 7)(2x - 7)@@</p>
+          <p>Teste do TQP para @x^2 - 10x + 25@:</p>
+          <p>@\sqrt{x^2} = x@, @\sqrt{25} = 5@ e @2 \cdot x \cdot 5 = 10x@ (confere!) ➔ @@(x - 5)^2@@</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Estude o <strong>Exemplo 2 (Fatorando)</strong> do <a href="../../recursos/resumos/9ANO-PRODUTOS-NOTAVEIS-FATORACAO.html">Resumo Teórico</a>.</p>
+        <p>2. Mostre por que @x^2 + 6x + 16@ NÃO é um TQP, calculando o dobro do produto das raízes dos extremos.</p>
+        <p>3. Resolva os <strong>Problemas 6, 7, 8, 9 e 10</strong> da seção <em>Problemas de Fixação</em> da <a href="../../recursos/listas/9ANO-LISTA-PRODUTOS-NOTAVEIS.html">Lista de Exercícios</a>.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 5 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">5</span>
+        Missão Integradora: A Regra de Stevin e a Simplificação de Frações
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT08 e EF09MAT13) Decompor trinômios do 2º grau por soma e produto e simplificar frações algébricas.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Dominar a Regra de Stevin para trinômios mônicos: encontrar @a@ e @b@ tais que @a + b = S@ e @a \cdot b = P@.</li>
+            <li>Fatorar simultaneamente o numerador e o denominador de frações algébricas.</li>
+            <li>Simplificar cancelando fatores comuns não nulos, declarando as condições de existência (@\text{denominador} \neq 0@).</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Regra de Stevin: @@x^2 + 5x + 6 = (x + 2)(x + 3) \quad (\text{pois } 2+3=5 \text{ e } 2 \cdot 3=6)@@</p>
+          <p>Simplificação de fração algébrica:</p>
+          <p>@@\frac{x^2 - 9}{x^2 + 5x + 6} = \frac{(x - 3)(x + 3)}{(x + 2)(x + 3)} = \frac{x - 3}{x + 2} \quad (\text{para } x \neq -2, -3)@@</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Fatore os trinômios por Stevin: @x^2 - 7x + 12@ e @x^2 + 2x - 15@.</p>
+        <p>2. Simplifique a fração algébrica: @\frac{2x^2 - 8}{x^2 - 4x + 4}@ combinando fator comum e produtos notáveis.</p>
+        <p>3. Resolva os <strong>Problemas 1, 2, 3, 4 e 5</strong> da seção <em>Problemas de Aprofundamento</em> da <a href="../../recursos/listas/9ANO-LISTA-PRODUTOS-NOTAVEIS.html">Lista de Exercícios</a>.</p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: ESTRATÉGIAS E TÉCNICAS DE ESTUDO
+         =============================================================== -->
+    <h2>4. Estratégias e Técnicas de Estudo</h2>
+    <p>
+      Aprender álgebra exige transitar da memorização cega para o <strong>reconhecimento visual de padrões</strong>. Utilize as técnicas metacognitivas abaixo para consolidar seu aprendizado:
+    </p>
+
+    <div class="estrategia-grid">
+      <!-- VISUALIZAÇÃO GEOMÉTRICA -->
+      <div class="estrategia-card">
+        <h3>📐 Visualização Geométrica de Áreas</h3>
+        <p>
+          Geometrizar a álgebra é o método histórico de Euclides e Al-Khwarizmi. Veja como @(a + b)^2@ se decompõe na soma de 4 áreas em um grande quadrado:
+        </p>
+        <div class="diagrama-geometrico">
++------------+--------+
+|            |        |
+|    a²      |   ab   |  &lt;-- altura a
+|            |        |
++------------+--------+
+|    ab      |   b²   |  &lt;-- altura b
++------------+--------+
+  largura a   larg. b
+
+Área Total = a² + ab + ab + b² = a² + 2ab + b²
+        </div>
+        <p style="font-size: 0.88rem; margin: 0;">
+          Para a <strong>Diferença de Quadrados</strong> @a^2 - b^2@: imagine remover um quadrado @b \times b@ de um quadrado maior @a \times a@. A região restante em "L" pode ser recortada e reorganizada em um único retângulo de base @(a + b)@ e altura @(a - b)@!
+        </p>
+      </div>
+
+      <!-- FLUXOGRAMA DE DECISÃO -->
+      <div class="estrategia-card">
+        <h3>🌳 Árvore de Decisão: "Como Fatorar?"</h3>
+        <p>Ao se deparar com qualquer expressão algébrica, siga este roteiro de perguntas:</p>
+        <ol style="padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+          <li><strong>Existe algum termo comum a TODOS os elementos?</strong>
+            <br>➔ <em>Sim:</em> Aplique <strong>Fator Comum em Evidência</strong> primeiro!</li>
+          <li><strong>A expressão tem 2 termos (binômio)?</strong>
+            <br>➔ Verifique se é <strong>Diferença de Quadrados</strong> (@a^2 - b^2@) ou soma/diferença de cubos.</li>
+          <li><strong>A expressão tem 3 termos (trinômio)?</strong>
+            <br>➔ Teste se é <strong>TQP</strong> (@a^2 \pm 2ab + b^2@).
+            <br>➔ Se não for TQP, teste a <strong>Regra de Stevin</strong> (soma e produto @x^2 + Sx + P@).</li>
+          <li><strong>A expressão tem 4 ou mais termos?</strong>
+            <br>➔ Agrupe de dois em dois (ou três em três) para <strong>Fatoração por Agrupamento</strong>.</li>
+        </ol>
+      </div>
+
+      <!-- TÉCNICA POMODORO E FLASHCARDS -->
+      <div class="estrategia-card">
+        <h3>⏱️ Pomodoro Algébrico & Flashcards</h3>
+        <p><strong>Ciclo Pomodoro 25/5:</strong></p>
+        <ul style="padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6;">
+          <li><strong>25 minutos focados:</strong> Resolva 4 a 5 problemas sem consultar o gabarito. Deixe o lápis trabalhar no papel.</li>
+          <li><strong>5 minutos de pausa:</strong> Levante-se, beba água e descanse a vista das telas.</li>
+          <li>Após 4 blocos, faça uma pausa longa de 20 minutos.</li>
+        </ul>
+        <p><strong>Flashcards Ativos (Frente / Verso):</strong></p>
+        <p style="font-size: 0.88rem; margin: 0;">
+          Escreva a forma expandida na frente (ex: @x^2 - 169@) e a forma fatorada no verso (@(x - 13)(x + 13)@). Treine 10 cartões diariamente até que a conversão seja instantânea.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: CONEXÕES INTERDISCIPLINARES
+         =============================================================== -->
+    <h2>5. Conexões Interdisciplinares</h2>
+    <p>
+      Os produtos notáveis e a fatoração não são meros artifícios teóricos; são ferramentas que sustentam avanços na engenharia, na física clássica e na segurança computacional mundial:
+    </p>
+
+    <div class="interdisciplinar-grid">
+      <!-- FÍSICA -->
+      <div class="interdisciplinar-card">
+        <h3>🚀 Física: Cinemática & Energia</h3>
+        <p>
+          A famosa <strong>Equação de Torricelli</strong> para o movimento uniformemente variado decorre diretamente da diferença de quadrados de velocidades:
+        </p>
+        <p>@@v^2 - v_0^2 = 2a\Delta s \iff (v - v_0)(v + v_0) = 2a\Delta s@@</p>
+        <p style="font-size: 0.88rem;">
+          Na mecânica, a variação de energia cinética @\Delta E_c = \frac{1}{2}m(v^2 - v_0^2)@ é fatorada como @\frac{1}{2}m(v - v_0)(v + v_0)@ para analisar colisões e conservação do momento linear. Em sistemas elásticos, a expansão de @\frac{1}{2}k(x_0 + \Delta x)^2@ expressa o trabalho mecânico adicional.
+        </p>
+      </div>
+
+      <!-- ARQUITETURA -->
+      <div class="interdisciplinar-card">
+        <h3>🏛️ Arquitetura & Engenharia</h3>
+        <p>
+          No dimensionamento de edificações e loteamentos, a ampliação modular de um terreno retangular ou praça quadrada de lado @L@ em @x@ metros em cada direção gera um aumento de área governado por produtos notáveis:
+        </p>
+        <p>@@\text{Nova Área} = (L + x)^2 = L^2 + 2Lx + x^2@@</p>
+        <p style="font-size: 0.88rem;">
+          Na engenharia estrutural, o cálculo do <strong>momento de inércia</strong> de perfis tubulares ocos de aço (utilizados em pontes e arranha-céus) calcula-se pela diferença de quadrados de seções @I \propto (D^4 - d^4) = (D^2 + d^2)(D + d)(D - d)@.
+        </p>
+      </div>
+
+      <!-- COMPUTAÇÃO -->
+      <div class="interdisciplinar-card">
+        <h3>💻 Computação & Criptografia</h3>
+        <p>
+          A segurança bancária global e o protocolo de criptografia <strong>RSA</strong> baseiam-se na impossibilidade prática de fatorar números inteiros gigantes @N = p \cdot q@ em tempo hábil.
+        </p>
+        <p>@@N = a^2 - b^2 = (a - b)(a + b)@@</p>
+        <p style="font-size: 0.88rem;">
+          O método de fatoração de <strong>Fermat</strong> busca exatamente representar @N@ como uma diferença de quadrados para quebrá-lo! Além disso, o algoritmo de <strong>Karatsuba</strong> para multiplicação rápida em computadores reduz operações complexas multiplicando polinômios com identidades notáveis.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: CRONOGRAMA DE ESTUDOS
+         =============================================================== -->
+    <h2>6. Cronograma Sugerido de 3 Semanas</h2>
+    <p>Distribua sua dedicação em blocos regulares para garantir retenção de longo prazo:</p>
+
+    <table class="cronograma-table">
+      <thead>
+        <tr>
+          <th>Período</th>
+          <th>Foco de Estudo</th>
+          <th>Metas & Entregáveis</th>
+          <th>Tempo Estimado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Semana 1 (Dias 1 a 7)</strong></td>
+          <td>Produtos Notáveis: Quadrados e Cubos (Etapas 1 e 2)</td>
+          <td>Ler Seção 1 do Resumo; desenhar diagramas de áreas; resolver problemas 1 a 10 (Introdutórios).</td>
+          <td>6 horas</td>
+        </tr>
+        <tr>
+          <td><strong>Semana 2 (Dias 8 a 14)</strong></td>
+          <td>Fatoração Básica e Reconhecimento de TQP (Etapas 3 e 4)</td>
+          <td>Ler Seção 2 do Resumo; treinar fator comum, agrupamento e diferença de quadrados; resolver problemas 1 a 10 (Fixação).</td>
+          <td>6 horas</td>
+        </tr>
+        <tr>
+          <td><strong>Semana 3 (Dias 15 a 21)</strong></td>
+          <td>Stevin, Frações Algébricas e Desafios (Etapa 5)</td>
+          <td>Resolver problemas 1 a 5 (Aprofundamento); completar checklist de autoavaliação; registrar XP no Dashboard.</td>
+          <td>6 horas</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ===============================================================
+         SEÇÃO 7: CHECKLIST DE AUTOAVALIAÇÃO & DASHBOARD NEXUS
+         =============================================================== -->
+    <h2>7. Checklist de Autoavaliação e Metas Nexus</h2>
+    <p>
+      Avalie seu nível de domínio antes de avançar para o próximo capítulo. Marque as habilidades que você já consegue executar com confiança:
+    </p>
+
+    <div class="checklist-container">
+      <h3 style="margin-top: 0; color: var(--heading-text-color);">📋 Checklist de Competências</h3>
+      <ul class="checklist-list">
+        <li class="checklist-item">
+          <input type="checkbox" id="chk1" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk1">
+              <strong>1. Desenvolvimento de Quadrados Perfeitos</strong>
+              <p>Consigo expandir @(a \pm b)^2@ sem esquecer o termo @2ab@ e explicar seu significado geométrico.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk2" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk2">
+              <strong>2. Produto de Conjugados</strong>
+              <p>Reconheço @(a + b)(a - b) = a^2 - b^2@ instantaneamente e aplico em cálculos mentais aritméticos.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk3" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk3">
+              <strong>3. Fator Comum e Agrupamento</strong>
+              <p>Identifico o MDC de coeficientes e expoentes literais para colocar monômios em evidência e agrupar termos.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk4" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk4">
+              <strong>4. Identificação e Fatoração de TQP</strong>
+              <p>Realizo o teste do termo central para confirmar se um trinômio é quadrado perfeito antes de fatorá-lo.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk5" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk5">
+              <strong>5. Regra de Stevin (Soma e Produto)</strong>
+              <p>Decomponho trinômios do tipo @x^2 + Sx + P@ encontrando pares de números inteiros com soma @S@ e produto @P@.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk6" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk6">
+              <strong>6. Simplificação de Frações Algébricas</strong>
+              <p>Fatoro simultaneamente numerador e denominador, indicando as restrições de existência (@\text{denominador} \neq 0@).</p>
+            </label>
+          </div>
+        </li>
+      </ul>
+
+      <h3 style="margin-top: 2rem; color: var(--heading-text-color);">🏆 Insígnias e Troféus do Dashboard Nexus</h3>
+      <p style="font-size: 0.9rem;">
+        Ao concluir os estudos deste guia e registrar suas resoluções, você desbloqueará as seguintes conquistas no seu perfil do <a href="../../dashboard.html">Dashboard Nexus</a>:
+      </p>
+
+      <div class="trofeus-grid">
+        <div class="trofeu-card">
+          <div class="trofeu-icone">⚡</div>
+          <div class="trofeu-titulo">MESTRE DA DISTRIBUTIVA</div>
+          <p class="trofeu-desc">Conclua as Etapas 1 e 2 dominando todas as formas de expansão e visualização geométrica (+100 EXP).</p>
+        </div>
+
+        <div class="trofeu-card">
+          <div class="trofeu-icone">🧩</div>
+          <div class="trofeu-titulo">CIRURGIÃO DE POLINÔMIOS</div>
+          <p class="trofeu-desc">Conclua as Etapas 3 e 4 dominando fator comum, agrupamento e fatoração de TQP (+100 EXP).</p>
+        </div>
+
+        <div class="trofeu-card">
+          <div class="trofeu-icone">👑</div>
+          <div class="trofeu-titulo">ARQUITETO DA FATORAÇÃO</div>
+          <p class="trofeu-desc">Complete todo o guia, domine a Regra de Stevin e resolva os problemas de aprofundamento (+100 EXP).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO DE RECURSOS COMPLEMENTARES -->
+    <h2>8. Materiais e Recursos Vinculados</h2>
+    <div class="objetivos-grid">
+      <div class="objetivo-item">
+        <strong>📄 Resumo Teórico Completo</strong>
+        <p>Definições, propriedades de produtos notáveis, métodos de fatoração e exemplos resolvidos passo a passo.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../recursos/resumos/9ANO-PRODUTOS-NOTAVEIS-FATORACAO.html">Acessar Resumo</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>📝 Lista de Problemas</strong>
+        <p>Mais de 30 exercícios classificados por nível de dificuldade com gabarito e dicas metodológicas.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../recursos/listas/9ANO-LISTA-PRODUTOS-NOTAVEIS.html">Acessar Lista de Exercícios</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>📊 Dashboard do Aluno</strong>
+        <p>Acompanhe seu progresso em tempo real, registre suas missões concluídas e confira seu total de EXP acumulado.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../dashboard.html">Ir para o Dashboard</a></p>
+      </div>
+    </div>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

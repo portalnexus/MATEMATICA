@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Teorema de Tales e Semelhança</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .orientacao-inicial { background-color: rgba(33, 150, 243, 0.2); border: 2px solid #2196f3; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .problema-meta { font-size: 0.75rem; color: var(--secondary-text-color); margin-bottom: 0.5rem; font-family: 'Fira Sans', sans-serif; }
+    .problema-meta .nivel-apoio { background-color: rgba(76, 175, 80, 0.3); padding: 2px 6px; border-radius: 3px; margin-right: 8px; font-weight: bold; }
+    .nivel-apoio.alto { background-color: rgba(76, 175, 80, 0.4); color: #4caf50; border: 1px solid #4caf50; }
+    .nivel-apoio.medio { background-color: rgba(255, 193, 7, 0.3); color: #ffb300; border: 1px solid #ffb300; }
+    .nivel-apoio.baixo { background-color: rgba(244, 67, 54, 0.2); color: #ef5350; border: 1px solid #ef5350; }
+    .dica { background-color: rgba(33, 150, 243, 0.15); border-left: 4px solid #2196f3; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 4px; }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo { background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo { margin: 1rem 0; padding-left: 1.5rem; border-left: 2px solid #4caf50; }
+    .lembrete { background-color: rgba(255, 152, 0, 0.15); border-left: 4px solid #ff9800; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 4px; }
+    .lembrete strong { color: #ff9800; }
+    .conceito-basico { background-color: rgba(156, 39, 176, 0.1); border: 2px solid #9c27b0; border-radius: 6px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .section-intro { font-style: italic; color: var(--secondary-text-color); margin-bottom: 1.5rem; padding-left: 1rem; border-left: 3px solid var(--link-color); }
+    .badge-nivel { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .ano-9 { background-color: rgba(76, 175, 80, 0.3); color: #2e7d32; border: 1px solid #4caf50; }
+    .estrelas { color: #ffd700; font-size: 1.2rem; margin-left: 0.5rem; }
+    .figura-geometrica { text-align: center; margin: 1.5rem 0; background: rgba(0, 0, 0, 0.25); padding: 1.2rem; border-radius: 8px; border: 1px dashed var(--container-border-color); }
+    .figura-geometrica svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    .legenda-figura { font-size: 0.85rem; color: var(--secondary-text-color); margin-top: 0.75rem; text-align: center; font-style: italic; }
+    .roteiro-guiado { background-color: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 0.8rem 1.2rem; margin: 0.8rem 0; }
+    .roteiro-guiado p { margin: 0.4rem 0; }
+    .roteiro-passo { color: var(--link-color); font-weight: bold; }
+    .checklist-metacognitivo ul { list-style: none; padding-left: 0; }
+    .checklist-metacognitivo li { margin: 0.8rem 0; padding-left: 1.8rem; position: relative; line-height: 1.5; }
+    .checklist-metacognitivo input[type="checkbox"] { position: absolute; left: 0; top: 3px; cursor: pointer; transform: scale(1.2); }
+    ol li { margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+<div class="container">
+<article>
+  <h1>Recuperação: Teorema de Tales e Semelhança</h1>
+  <span class="badge-nivel ano-9">9º Ano</span>
+  <span class="estrelas">★★</span>
+
+  <!-- =========================================================================
+       ORIENTAÇÃO INICIAL (Neuroeducação & Calma Cognitiva)
+       ========================================================================= -->
+  <div class="orientacao-inicial">
+    <h3>🧠 Neuroeducação: Dominando Proporções e Escalas sem Sobrecarga</h3>
+    <p>O cérebro humano possui uma capacidade nata para perceber proporções (como ao reconhecer um rosto em uma foto reduzida ou ampliada). No entanto, transformar essa intuição em equações pode gerar sobrecarga na memória de trabalho se você não organizar as informações. Pratique estas técnicas neurocognitivas:</p>
+    <ul>
+      <li><strong>Técnica de Desacoplamento Visual:</strong> Quando dois triângulos estiverem sobrepostos (um menor "dentro" do maior), não tente resolver tudo na mesma figura. Redesenhe os dois triângulos separadamente no seu caderno, um ao lado do outro. Isso reduz a carga cognitiva visual e elimina 80% dos erros de troca de medidas!</li>
+      <li><strong>Identificação de Lados Homólogos por Ângulos:</strong> Nunca emparelhe lados apenas pela posição aparente. Identifique os ângulos congruentes e localize os lados que estão <em>opostos aos mesmos ângulos</em>. São esses os lados homólogos que formam as frações da proporção!</li>
+      <li><strong>Cuidado com o "Lado Total":</strong> No Teorema de Tales aplicado a triângulos, distinga claramente quando a proporção relaciona os pedaços parciais (@\frac{AD}{DB} = \frac{AE}{EC}@) e quando relaciona a base paralela com o lado total do triângulo (@\frac{AD}{AB} = \frac{DE}{BC}@).</li>
+      <li><strong>Progressão em Scaffolding:</strong> Os exercícios avançam do Nível Alto (roteiros passo a passo guiados) para o Médio (dicas estratégicas pontuais) e culminam no Nível Baixo (problemas contextualizados autônomos).</li>
+    </ul>
+  </div>
+
+  <!-- =========================================================================
+       REVISÃO DE CONCEITOS BÁSICOS (.conceito-basico)
+       ========================================================================= -->
+  <h2>Relembrando: Conceitos Básicos</h2>
+
+  <div class="conceito-basico">
+    <h4>Conceito 1: O Feixe de Retas Paralelas e o Teorema de Tales</h4>
+    <p>Se três ou mais retas paralelas (@r \parallel s \parallel t@) são cortadas por duas retas transversais (@u@ e @v@), as medidas dos segmentos determinados na primeira transversal são diretamente proporcionais às medidas dos segmentos correspondentes determinados na segunda transversal:</p>
+    @@
+    \frac{a}{b} = \frac{c}{d} \iff a \cdot d = b \cdot c
+    @@
+    <p>Também vale a relação com o segmento total formado pela união dos pedaços:</p>
+    @@
+    \frac{a}{a + b} = \frac{c}{c + d} \quad \text{ou} \quad \frac{a}{c} = \frac{b}{d}
+    @@
+    <div class="lembrete">
+      <strong>Propriedade Fundamental das Proporções:</strong> O produto dos extremos é igual ao produto dos meios ("multiplicação cruzada").
+    </div>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 2: Teorema de Tales Aplicado ao Triângulo</h4>
+    <p>Toda reta paralela a um dos lados de um triângulo que intercepta os outros dois lados em pontos distintos determina sobre esses lados segmentos correspondentes proporcionais:</p>
+    @@
+    \text{Se } DE \parallel BC \implies \frac{AD}{DB} = \frac{AE}{EC}
+    @@
+    <p>Essa relação decorre diretamente do Teorema de Tales, bastando imaginar uma terceira reta paralela passando pelo vértice superior @A@.</p>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 3: Semelhança de Triângulos e Razão @k@</h4>
+    <p>Dois triângulos @\triangle ABC@ e @\triangle A'B'C'@ são denominados <strong>semelhantes</strong> (notação: @\triangle ABC \sim \triangle A'B'C'@) quando cumprem simultaneamente duas condições:</p>
+    <ol>
+      <li>Seus três ângulos correspondentes são congruentes:
+        @@ \hat{A} = \hat{A}', \quad \hat{B} = \hat{B}', \quad \hat{C} = \hat{C}' @@
+      </li>
+      <li>Seus lados correspondentes (homólogos) são proporcionais:
+        @@ \frac{a}{a'} = \frac{b}{b'} = \frac{c}{c'} = k @@
+      </li>
+    </ol>
+    <p>O número real positivo @k@ é denominado <strong>razão de semelhança</strong>.</p>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 4: Critérios (Casos) de Semelhança</h4>
+    <p>Para garantir que dois triângulos são semelhantes, não é necessário verificar todos os ângulos e lados. Basta satisfazer um dos três critérios fundamentais:</p>
+    <ul>
+      <li><strong>Caso AA (Ângulo-Ângulo):</strong> Se dois triângulos possuem dois pares de ângulos correspondentes congruentes, então eles são semelhantes. (O terceiro par de ângulos será automaticamente congruente, pois a soma dos ângulos internos é sempre @180^\circ@).</li>
+      <li><strong>Caso LAL (Lado-Ângulo-Lado):</strong> Se dois pares de lados homólogos são proporcionais e os ângulos compreendidos entre eles são congruentes.</li>
+      <li><strong>Caso LLL (Lado-Lado-Lado):</strong> Se as medidas dos três pares de lados homólogos são proporcionais.</li>
+    </ul>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 5: Razão entre Perímetros e entre Áreas</h4>
+    <p>Se a razão de semelhança linear entre dois triângulos semelhantes é @k@:</p>
+    <ul>
+      <li><strong>Razão entre Perímetros:</strong> A razão entre os perímetros é igual à razão linear @k@:
+        @@ \frac{P_1}{P_2} = k @@
+      </li>
+      <li><strong>Razão entre Áreas:</strong> Como a área depende do produto de duas dimensões (base @\times@ altura), a razão entre as áreas é igual ao <strong>quadrado</strong> da razão de semelhança:
+        @@ \frac{\text{Área}_1}{\text{Área}_2} = k^2 @@
+      </li>
+    </ul>
+    <div class="dica">
+      <strong>Intuição Neurocognitiva:</strong> Se você amplia os lados de um triângulo para o dobro (@k = 2@), o perímetro dobra, mas a sua área interna se torna <strong>quatro vezes maior</strong> (@2^2 = 4@)!
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       EXEMPLOS RESOLVIDOS COM DIAGRAMAS (.exemplo-passo-a-passo)
+       ========================================================================= -->
+  <h2>Exemplos Resolvidos: Passo a Passo & Visualização Geométrica</h2>
+  <p class="section-intro">
+    Acompanhe o desenvolvimento detalhado de cada modelo clássico com apoio visual dos diagramas.
+  </p>
+
+  <!-- EXEMPLO 1 -->
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo 1: Teorema de Tales em Feixe de Retas Paralelas</h4>
+    <p><strong>Problema:</strong> Na figura abaixo, as retas @r, s, t@ são paralelas (@r \parallel s \parallel t@). Os segmentos determinados na transversal @u@ medem 12 cm e 18 cm. Na transversal @v@, os segmentos correspondentes medem @x@ e 24 cm. Determine o valor de @x@.</p>
+
+    <div class="figura-geometrica">
+      <svg viewBox="0 0 460 230" width="440" height="220" aria-label="Teorema de Tales com retas paralelas e transversais">
+        <!-- Três retas horizontais paralelas r, s, t -->
+        <line x1="20" y1="40" x2="430" y2="40" stroke="#4DD0E1" stroke-width="2.5" />
+        <text x="438" y="45" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">r</text>
+
+        <line x1="20" y1="110" x2="430" y2="110" stroke="#4DD0E1" stroke-width="2.5" />
+        <text x="438" y="115" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">s</text>
+
+        <line x1="20" y1="190" x2="430" y2="190" stroke="#4DD0E1" stroke-width="2.5" />
+        <text x="438" y="195" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">t</text>
+
+        <!-- Transversal u (inclinada para a direita) -->
+        <line x1="80" y1="15" x2="200" y2="215" stroke="#FFD700" stroke-width="3" />
+        <text x="75" y="15" fill="#FFD700" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">u</text>
+
+        <!-- Transversal v (inclinada em outro ângulo) -->
+        <line x1="380" y1="15" x2="280" y2="215" stroke="#FF7043" stroke-width="3" />
+        <text x="385" y="15" fill="#FF7043" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">v</text>
+
+        <!-- Pontos de interseção na reta u -->
+        <circle cx="95" cy="40" r="4" fill="#FFD700" />
+        <circle cx="137" cy="110" r="4" fill="#FFD700" />
+        <circle cx="185" cy="190" r="4" fill="#FFD700" />
+
+        <!-- Cotas na transversal u -->
+        <text x="95" y="80" fill="#E0F7FA" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">12 cm</text>
+        <text x="140" y="155" fill="#E0F7FA" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">18 cm</text>
+
+        <!-- Pontos de interseção na reta v -->
+        <circle cx="367.5" cy="40" r="4" fill="#FF7043" />
+        <circle cx="332.5" cy="110" r="4" fill="#FF7043" />
+        <circle cx="292.5" cy="190" r="4" fill="#FF7043" />
+
+        <!-- Cotas na transversal v -->
+        <text x="365" y="80" fill="#FFCCBC" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">x</text>
+        <text x="325" y="155" fill="#FFCCBC" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">24 cm</text>
+      </svg>
+      <div class="legenda-figura">Figura 1: O feixe de paralelas @r \parallel s \parallel t@ determina segmentos proporcionais nas transversais @u@ e @v@.</div>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 1: Escrever a proporção direta de Tales.</strong></p>
+      <p>Os segmentos correspondentes guardam a mesma razão:</p>
+      @@
+      \frac{12}{18} = \frac{x}{24}
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2: Simplificar a fração da esquerda (dica neurodidática!).</strong></p>
+      <p>Simplificando @\frac{12}{18}@ por 6, obtemos @\frac{2}{3}@. Isso reduz as contas e evita erros de aritmética:</p>
+      @@
+      \frac{2}{3} = \frac{x}{24}
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 3: Aplicar a multiplicação cruzada.</strong></p>
+      @@
+      3 \cdot x = 2 \cdot 24 \implies 3x = 48 \implies x = \frac{48}{3} = 16 \text{ cm}
+      @@
+      <p><strong>Conclusão:</strong> O segmento desconhecido mede @x = 16\text{ cm}@.</p>
+    </div>
+  </div>
+
+  <!-- EXEMPLO 2 -->
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo 2: Tales no Triângulo e Cálculo do Lado Total</h4>
+    <p><strong>Problema:</strong> No triângulo @ABC@, o segmento @DE@ é paralelo ao lado @BC@. Sabe-se que @AD = 6\text{ cm}@, @DB = 9\text{ cm}@ e @AE = 8\text{ cm}@. Calcule o comprimento do segmento @EC@ e a medida do lado inteiro @AC@.</p>
+
+    <div class="figura-geometrica">
+      <svg viewBox="0 0 380 250" width="360" height="235" aria-label="Teorema de Tales aplicado ao triângulo">
+        <!-- Triângulo ABC -->
+        <polygon points="190,30 40,210 340,210" fill="rgba(76, 175, 80, 0.15)" stroke="#4caf50" stroke-width="2.5" />
+
+        <!-- Segmento DE paralelo a BC -->
+        <line x1="100" y1="138" x2="280" y2="138" stroke="#FFD700" stroke-width="3" />
+
+        <!-- Vértices -->
+        <text x="190" y="20" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold" text-anchor="middle">A</text>
+        <text x="25" y="220" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold">B</text>
+        <text x="345" y="220" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold">C</text>
+
+        <circle cx="100" cy="138" r="4" fill="#FFD700" />
+        <text x="80" y="142" fill="#FFD700" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">D</text>
+
+        <circle cx="280" cy="138" r="4" fill="#FFD700" />
+        <text x="290" y="142" fill="#FFD700" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">E</text>
+
+        <!-- Medidas -->
+        <text x="120" y="85" fill="#FFF9C4" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">AD = 6</text>
+        <text x="50" y="180" fill="#FFF9C4" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">DB = 9</text>
+        <text x="250" y="85" fill="#FFCCBC" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">AE = 8</text>
+        <text x="315" y="180" fill="#FFCCBC" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">EC = y</text>
+      </svg>
+      <div class="legenda-figura">Figura 2: A reta que contém @DE@ é paralela à base @BC@, dividindo os lados @AB@ e @AC@ em partes proporcionais.</div>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 1: Estabelecer a proporção de Tales no triângulo.</strong></p>
+      @@
+      \frac{AD}{DB} = \frac{AE}{EC} \implies \frac{6}{9} = \frac{8}{EC}
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2: Resolver a proporção.</strong></p>
+      <p>Multiplicando cruzado:</p>
+      @@
+      6 \cdot EC = 9 \cdot 8 \implies 6 \cdot EC = 72 \implies EC = \frac{72}{6} = 12 \text{ cm}
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 3: Determinar o lado completo @AC@.</strong></p>
+      <p>O lado @AC@ é a soma dos dois segmentos colineares @AE@ e @EC@:</p>
+      @@
+      AC = AE + EC = 8 + 12 = 20 \text{ cm}
+      @@
+      <p><strong>Conclusão:</strong> O segmento @EC@ mede @12\text{ cm}@ e o lado total @AC@ mede @20\text{ cm}@.</p>
+    </div>
+  </div>
+
+  <!-- EXEMPLO 3 -->
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo 3: Semelhança de Triângulos (Caso AA) e Altura por Sombra</h4>
+    <p><strong>Problema:</strong> Em um dia ensolarado, uma pessoa de @1{,}70\text{ m}@ de altura projeta no chão plano uma sombra de @1{,}20\text{ m}@. No mesmo instante e local, a sombra de um poste de iluminação mede @6{,}00\text{ m}@. Determine a altura @h@ do poste.</p>
+
+    <div class="figura-geometrica">
+      <svg viewBox="0 0 500 230" width="480" height="220" aria-label="Semelhança de triângulos aplicada ao cálculo de alturas por sombras">
+        <!-- Chão horizontal comum -->
+        <line x1="20" y1="200" x2="480" y2="200" stroke="#78909C" stroke-width="3" />
+
+        <!-- Triângulo Maior (Poste) -->
+        <!-- Poste vertical: x = 120, y de 200 até 40 (altura = 160 px -> representa h) -->
+        <line x1="120" y1="200" x2="120" y2="40" stroke="#4DD0E1" stroke-width="4" />
+        <text x="75" y="120" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">Poste (h)</text>
+        <!-- Sombra do poste: de 120 a 280 (160 px -> 6.00 m) -->
+        <line x1="120" y1="200" x2="280" y2="200" stroke="#FFD700" stroke-width="4" />
+        <text x="180" y="218" fill="#FFD700" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">Sombra = 6,00 m</text>
+        <!-- Raio solar do poste (hipotenusa) -->
+        <line x1="120" y1="40" x2="280" y2="200" stroke="#FFA726" stroke-width="2" stroke-dasharray="4" />
+        <polygon points="120,200 120,185 135,185 135,200" fill="none" stroke="#FFD700" stroke-width="1.5" />
+
+        <!-- Triângulo Menor (Pessoa) -->
+        <!-- Pessoa vertical: x = 380, y de 200 até 155 (altura = 45 px -> 1.70 m) -->
+        <line x1="380" y1="200" x2="380" y2="155" stroke="#81C784" stroke-width="3.5" />
+        <text x="325" y="175" fill="#81C784" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">1,70 m</text>
+        <!-- Sombra da pessoa: de 380 a 425 (45 px -> 1.20 m) -->
+        <line x1="380" y1="200" x2="425" y2="200" stroke="#FFD700" stroke-width="4" />
+        <text x="385" y="218" fill="#FFD700" font-family="'Fira Sans', sans-serif" font-size="12" font-weight="bold">1,20 m</text>
+        <!-- Raio solar da pessoa (hipotenusa paralela) -->
+        <line x1="380" y1="155" x2="425" y2="200" stroke="#FFA726" stroke-width="2" stroke-dasharray="4" />
+        <polygon points="380,200 380,190 390,190 390,200" fill="none" stroke="#FFD700" stroke-width="1.5" />
+
+        <!-- Sol -->
+        <circle cx="40" cy="30" r="14" fill="#FFD700" />
+        <line x1="40" y1="5" x2="40" y2="0" stroke="#FFD700" stroke-width="2" />
+        <line x1="40" y1="55" x2="40" y2="60" stroke="#FFD700" stroke-width="2" />
+        <line x1="15" y1="30" x2="10" y2="30" stroke="#FFD700" stroke-width="2" />
+        <line x1="65" y1="30" x2="70" y2="30" stroke="#FFD700" stroke-width="2" />
+      </svg>
+      <div class="legenda-figura">Figura 3: Como os raios solares chegam paralelos, os triângulos retângulos formados pelo poste e pela pessoa são semelhantes (Caso AA).</div>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 1: Justificar a semelhança pelo Caso AA.</strong></p>
+      <ul>
+        <li>Tanto o poste quanto a pessoa formam ângulos retos (@90^\circ@) com o solo horizontal.</li>
+        <li>No mesmo instante e local, os raios solares incidem com a mesma inclinação angular em relação ao chão.</li>
+      </ul>
+      <p>Com dois ângulos congruentes, os triângulos retângulos são semelhantes pelo <strong>Caso AA</strong>.</p>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2: Montar a proporção entre os lados homólogos.</strong></p>
+      @@
+      \frac{\text{Altura do Poste}}{\text{Altura da Pessoa}} = \frac{\text{Sombra do Poste}}{\text{Sombra da Pessoa}} \implies \frac{h}{1{,}70} = \frac{6{,}00}{1{,}20}
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 3: Simplificar e resolver a proporção.</strong></p>
+      <p>Note que @\frac{6{,}00}{1{,}20} = 5@ (a sombra do poste é exatamente 5 vezes maior que a da pessoa):</p>
+      @@
+      \frac{h}{1{,}70} = 5 \implies h = 5 \times 1{,}70 = 8{,}50 \text{ m}
+      @@
+      <p><strong>Conclusão:</strong> A altura do poste é de @8{,}50\text{ m}@.</p>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PARTE 1: PRIMEIROS PASSOS (Alto Apoio - Problemas 1 a 5)
+       ========================================================================= -->
+  <h2>Parte 1: Primeiros Passos (Alto Apoio)</h2>
+  <p class="section-intro">
+    Problemas estruturados com roteiro passo a passo. Siga as etapas indicadas para construir a solução com confiança no seu caderno.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>Três retas paralelas @r, s, t@ são cortadas por duas transversais. Na primeira transversal, os segmentos medem 6 cm e 9 cm. Na segunda transversal, os segmentos correspondentes medem 10 cm e @x\text{ cm}@. Determine a medida @x@.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Pelo Teorema de Tales, segmentos correspondentes em retas paralelas são proporcionais. Monte a igualdade de frações mantendo a ordem: @\frac{6}{9} = \frac{10}{x}@.</p>
+        <p><strong>Etapa B:</strong> Simplifique a fração @\frac{6}{9}@ dividindo numerador e denominador por 3: @\frac{2}{3} = \frac{10}{x}@.</p>
+        <p><strong>Etapa C:</strong> Multiplique cruzado: @2 \cdot x = 3 \cdot 10@.</p>
+        <p><strong>Etapa D:</strong> Isole @x@ dividindo o resultado por 2.</p>
+      </div>
+
+      <div class="dica">
+        <strong>Dica:</strong> Se 9 é @1{,}5@ vezes maior que 6, então @x@ terá que ser @1{,}5@ vezes maior que 10!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>No triângulo @ABC@, uma reta paralela ao lado @BC@ corta o lado @AB@ no ponto @D@ e o lado @AC@ no ponto @E@. Sabendo que @AD = 4\text{ cm}@, @DB = 8\text{ cm}@ e @AE = 5\text{ cm}@, determine:</p>
+      <p>a) O comprimento do segmento @EC@.</p>
+      <p>b) O comprimento do lado inteiro @AC@.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Aplique Tales no triângulo: @\frac{AD}{DB} = \frac{AE}{EC}@.</p>
+        <p><strong>Etapa B:</strong> Substitua os números: @\frac{4}{8} = \frac{5}{EC}@.</p>
+        <p><strong>Etapa C:</strong> Note que @\frac{4}{8} = \frac{1}{2}@. Logo, @\frac{1}{2} = \frac{5}{EC}@. Multiplique cruzado para encontrar @EC@.</p>
+        <p><strong>Etapa D:</strong> Calcule o lado total somando @AC = AE + EC = 5 + EC@.</p>
+      </div>
+
+      <div class="lembrete">
+        <strong>Atenção:</strong> Sempre verifique se o problema pede apenas o pedaço @EC@ ou o lado inteiro @AC@!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 5 min</div>
+      <p>Em um feixe de retas paralelas de Tales, os segmentos de uma transversal medem @x@ e 5. Os segmentos correspondentes da outra transversal medem @(x + 6)@ e 8. Calcule o valor da incógnita @x@.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Monte a proporção entre os segmentos homólogos: @\frac{x}{5} = \frac{x + 6}{8}@.</p>
+        <p><strong>Etapa B:</strong> Multiplique cruzado: @8 \cdot (x) = 5 \cdot (x + 6)@.</p>
+        <p><strong>Etapa C:</strong> Aplique com muito cuidado a propriedade distributiva no lado direito: @5 \cdot x + 5 \cdot 6@.</p>
+        <p><strong>Etapa D:</strong> Obtenha a equação @8x = 5x + 30@, transponha @5x@ para a esquerda (@8x - 5x = 30@) e calcule @x@.</p>
+      </div>
+
+      <div class="dica">
+        <strong>Dica:</strong> Não esqueça de multiplicar o 5 pelo 6 na distributiva (@5 \times 6 = 30@).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>Dois triângulos @\triangle ABC@ e @\triangle DEF@ são semelhantes (@\triangle ABC \sim \triangle DEF@). Os lados de @\triangle ABC@ medem 12 cm, 16 cm e 20 cm. O menor lado do triângulo @\triangle DEF@ mede 6 cm. Determine:</p>
+      <p>a) A razão de semelhança @k@ do triângulo maior para o menor.</p>
+      <p>b) As medidas dos outros dois lados de @\triangle DEF@.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> O menor lado de @\triangle ABC@ é 12 cm, e o menor lado de @\triangle DEF@ é 6 cm. Esses dois lados são homólogos.</p>
+        <p><strong>Etapa B:</strong> Calcule a razão de semelhança dividindo os lados homólogos: @k = \frac{12}{6} = \dots@</p>
+        <p><strong>Etapa C:</strong> Para achar os outros lados de @\triangle DEF@, divida cada um dos lados correspondentes de @\triangle ABC@ pela razão @k@ encontrada.</p>
+        <p><strong>Etapa D:</strong> Calcule @\frac{16}{k}@ e @\frac{20}{k}@.</p>
+      </div>
+
+      <div class="lembrete">
+        <strong>Lembre-se:</strong> Como o triângulo menor foi reduzido proporcionalmente, todos os seus lados são divididos pelo mesmo fator!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 5 min</div>
+      <p>Para determinar a altura de uma árvore sem subir nela, um estudante fincou verticalmente no chão uma estaca de @1{,}50\text{ m}@ de altura, que projetou uma sombra de @0{,}90\text{ m}@. No mesmo momento, a sombra da árvore media @6{,}00\text{ m}@. Qual é a altura real da árvore?</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Identifique os lados homólogos dos dois triângulos retângulos semelhantes:</p>
+        <ul>
+          <li>Alturas: @H_{\text{árvore}}@ e @1{,}50\text{ m}@.</li>
+          <li>Sombras: @6{,}00\text{ m}@ e @0{,}90\text{ m}@.</li>
+        </ul>
+        <p><strong>Etapa B:</strong> Monte a equação de proporção: @\frac{H}{1{,}50} = \frac{6{,}00}{0{,}90}@.</p>
+        <p><strong>Etapa C:</strong> Multiplique em cruz: @0{,}90 \cdot H = 1{,}50 \cdot 6{,}00@.</p>
+        <p><strong>Etapa D:</strong> Efetue a multiplicação: @1{,}50 \times 6{,}00 = 9{,}00@.</p>
+        <p><strong>Etapa E:</strong> Divida @9{,}00@ por @0{,}90@ para encontrar a altura @H@ em metros.</p>
+      </div>
+
+      <div class="dica">
+        <strong>Dica Prática:</strong> @\frac{9{,}00}{0{,}90} = \frac{90}{9} = 10@. Contas com decimais ficam fáceis multiplicando numerador e denominador por 10!
+      </div>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       PARTE 2: DESENVOLVENDO AUTONOMIA (Apoio Médio - Problemas 6 a 10)
+       ========================================================================= -->
+  <h2>Parte 2: Desenvolvendo Autonomia (Apoio Médio)</h2>
+  <p class="section-intro">
+    Problemas para consolidar sua análise estratégica. Desenhe as figuras no seu caderno, separe os triângulos sobrepostos e use as dicas quando necessário.
+  </p>
+
+  <ol start="6">
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 5 min</div>
+      <p>Em um triângulo @ABC@, traça-se um segmento @DE@ paralelo à base @BC@ (com @D@ sobre @AB@ e @E@ sobre @AC@). Sabe-se que @AD = 6\text{ cm}@, o lado inteiro @AB = 15\text{ cm}@ e a base @BC = 18\text{ cm}@. Calcule o comprimento do segmento paralelo @DE@.</p>
+      <div class="dica">
+        <strong>Dica Estratégica Fundamental:</strong> Cuidado! O segmento @DE@ é a base do triângulo menor @\triangle ADE@. Para relacionar as bases @DE@ e @BC@, você precisa comparar o triângulo pequeno @\triangle ADE@ com o triângulo inteiro @\triangle ABC@:
+        @@ \frac{AD}{AB} = \frac{DE}{BC} \implies \frac{6}{15} = \frac{DE}{18} @@
+        Não use o segmento @DB@ nessa proporção de bases!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 5 min</div>
+      <p>Duas retas secantes cruzam-se no ponto @O@ formando dois triângulos opostos pelo vértice no formato de ampulheta (@\triangle OAB@ e @\triangle OCD@). Os segmentos @AB@ e @CD@ são paralelos. Sabe-se que @OA = 9\text{ cm}@, @OC = 15\text{ cm}@, @OB = 6\text{ cm}@ e @OD = y@. Calcule o comprimento @y@ do segmento @OD@.</p>
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> Por serem retas paralelas cortadas pelas transversais, os ângulos alternos internos são congruentes (@\hat{A} = \hat{C}@ e @\hat{B} = \hat{D}@) e os ângulos em @O@ são OPV. Logo, @\triangle OAB \sim \triangle OCD@. Monte a proporção entre os segmentos alinhados na mesma reta: @\frac{OA}{OC} = \frac{OB}{OD}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 6 min</div>
+      <p>Um triângulo retângulo possui catetos medindo 6 cm e 8 cm, e sua hipotenusa mede 10 cm. A altura relativa à hipotenusa divide o triângulo original em dois triângulos retângulos menores que são semelhantes ao original. Calcule o valor exato dessa altura @h@ relativa à hipotenusa.</p>
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> Por semelhança de triângulos, a razão entre cateto e hipotenusa é a mesma em triângulos semelhantes. Isso gera a famosa relação métrica: @\text{hipotenusa} \cdot \text{altura} = \text{cateto}_1 \cdot \text{cateto}_2 \implies 10 \cdot h = 6 \cdot 8@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 5 min</div>
+      <p>Dois triângulos @\triangle T_1@ e @\triangle T_2@ possuem um ângulo comum que mede @45^\circ@. No triângulo @T_1@, os lados que formam esse ângulo medem 8 cm e 12 cm. No triângulo @T_2@, os lados que formam o ângulo de @45^\circ@ medem 12 cm e 18 cm.</p>
+      <p>a) Os dois triângulos são semelhantes? Justifique indicando qual critério de semelhança foi satisfeito.</p>
+      <p>b) Qual é a razão de semelhança @k@ de @T_2@ para @T_1@?</p>
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> Verifique se a divisão dos lados correspondentes é constante: compare @\frac{12}{8}@ e @\frac{18}{12}@. Se der o mesmo valor e o ângulo compreendido for idêntico (@45^\circ@), o critério é o <strong>Caso LAL</strong>.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 6 min</div>
+      <p>Dois triângulos semelhantes possuem razão de semelhança linear @k = \frac{4}{3}@ (do maior para o menor). Sabe-se que a área da superfície do triângulo menor é de @45\text{ cm}^2@. Calcule a área da superfície do triângulo maior.</p>
+      <div class="dica">
+        <strong>Dica Estratégica (Áreas e Escalas):</strong> Lembre-se do Conceito 5: a razão entre as áreas de figuras semelhantes é igual ao <strong>quadrado</strong> da razão linear:
+        @@ \frac{\text{Área}_{\text{maior}}}{\text{Área}_{\text{menor}}} = k^2 = \left(\frac{4}{3}\right)^2 = \frac{16}{9} @@
+        Substitua @\text{Área}_{\text{menor}} = 45@ e calcule a área maior.
+      </div>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       PARTE 3: CONSOLIDAÇÃO (Baixo Apoio - Problemas 11 a 15)
+       ========================================================================= -->
+  <h2>Parte 3: Consolidação (Baixo Apoio)</h2>
+  <p class="section-intro">
+    Desafios para consolidação autônoma e aplicações práticas no mundo real. Mobilize todas as ferramentas aprendidas para resolver cada situação.
+  </p>
+
+  <ol start="11">
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 7 min</div>
+      <p>Um topógrafo precisa medir a largura @L@ de um rio reto sem atravessá-lo. Na margem onde se encontra, ele fixa estacas alinhadas formando dois triângulos retângulos semelhantes pelo Teorema de Tales. As medições de campo revelaram que um triângulo de referência menor possui base de 4 metros e profundidade de 3 metros, enquanto a linha correspondente ao outro triângulo ao longo da margem mede 20 metros. Determine a largura @L@ do rio.</p>
+      <div class="dica">
+        <strong>Pista de raciocínio:</strong> Monte a igualdade entre a razão das larguras/profundidades e a razão das bases medidas ao longo da margem.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 8 min</div>
+      <p><strong>Teorema da Bissetriz Interna:</strong> Em qualquer triângulo @ABC@, a bissetriz de um ângulo interno divide o lado oposto em dois segmentos que são diretamente proporcionais aos lados adjacentes àquele ângulo: @\frac{BD}{DC} = \frac{AB}{AC}@.</p>
+      <p>Em um triângulo @ABC@, os lados medem @AB = 15\text{ cm}@ e @AC = 25\text{ cm}@. O lado oposto mede @BC = 32\text{ cm}@. O segmento @AD@ é a bissetriz interna relativa ao vértice @A@ (com @D@ sobre @BC@). Determine as medidas dos segmentos @BD@ e @DC@.</p>
+      <div class="dica">
+        <strong>Pista de raciocínio:</strong> Chame @BD = x@ e @DC = 32 - x@. Monte a proporção @\frac{x}{32 - x} = \frac{15}{25}@, simplifique a fração por 5 e resolva a equação.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 8 min</div>
+      <p>Em um trapézio ABCD de bases paralelas @AB@ e @CD@, as medidas das bases são @AB = 12\text{ cm}@ e @CD = 20\text{ cm}@. As diagonais @AC@ e @BD@ interceptam-se no ponto @O@. Sabendo que o comprimento total da diagonal @BD@ mede 32 cm, determine os comprimentos individuais dos segmentos @BO@ e @OD@.</p>
+      <div class="dica">
+        <strong>Pista de raciocínio:</strong> Os triângulos @\triangle AOB@ e @\triangle COD@ são semelhantes. A razão de semelhança entre eles é @\frac{AB}{CD} = \frac{12}{20} = \frac{3}{5}@. Logo, a diagonal é dividida na mesma proporção: @\frac{BO}{OD} = \frac{3}{5}@ com @BO + OD = 32@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 9 min</div>
+      <p>Um engenheiro deseja inscrever uma placa retangular dentro de uma empena triangular de um telhado. O triângulo do telhado possui base de 20 metros e altura de 15 metros. A base do retângulo repousa sobre a base do triângulo. Por exigências arquitetônicas, a largura da placa retangular deve ser exatamente o <strong>dobro da sua altura</strong> (ou seja, @\text{base} = 2 \cdot \text{altura}@). Utilizando a semelhança entre o triângulo superior restante e o triângulo todo, calcule as dimensões (largura e altura) dessa placa retangular.</p>
+      <div class="dica">
+        <strong>Pista de raciocínio:</strong> Seja @y@ a altura do retângulo e @x = 2y@ sua largura. O triângulo que sobra acima do retângulo tem base @2y@ e altura @(15 - y)@. Monte a proporção: @\frac{15 - y}{15} = \frac{2y}{20}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 15 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 8 min</div>
+      <p>Uma estudante quer calcular a altura de uma torre de transmissão de celular. Para isso, ela coloca um pequeno espelho plano horizontalmente sobre o chão a uma distância de @1{,}50\text{ m}@ de seus pés e a @18\text{ m}@ da base da torre. Afastando-se até ver o topo da torre refletido no centro do espelho, seus olhos ficam a uma altura de @1{,}65\text{ m}@ do solo. Sabendo que, pelas leis da óptica, o ângulo com que o raio de luz incide no espelho é igual ao ângulo com que ele reflete (@\text{ângulo de incidência} = \text{ângulo de reflexão}@), determine a altura da torre.</p>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       CHECKLIST DE AUTOAVALIAÇÃO METACOGNITIVA
+       ========================================================================= -->
+  <h2>Checklist de Autoavaliação Metacognitiva</h2>
+
+  <div class="conceito-basico checklist-metacognitivo">
+    <h4>Monitore sua Compreensão de Proporcionalidade e Semelhança:</h4>
+    <p>Assinale as afirmações que você consegue defender com segurança:</p>
+    <ul>
+      <li><input type="checkbox" id="chk-tal-1"> <label for="chk-tal-1">Sei enunciar e aplicar o Teorema de Tales em feixes de retas paralelas com transversais (@\frac{a}{b} = \frac{c}{d}@).</label></li>
+      <li><input type="checkbox" id="chk-tal-2"> <label for="chk-tal-2">Diferencio claramente quando usar partes parciais (@\frac{AD}{DB}@) e quando usar o lado total do triângulo (@\frac{AD}{AB} = \frac{DE}{BC}@).</label></li>
+      <li><input type="checkbox" id="chk-tal-3"> <label for="chk-tal-3">Compreendo que dois triângulos são semelhantes quando têm os mesmos ângulos e lados homólogos proporcionais.</label></li>
+      <li><input type="checkbox" id="chk-tal-4"> <label for="chk-tal-4">Reconheço e sei aplicar os casos de semelhança AA, LAL e LLL para demonstrar que dois triângulos são semelhantes.</label></li>
+      <li><input type="checkbox" id="chk-tal-5"> <label for="chk-tal-5">Sei calcular alturas inacessíveis no mundo real (árvores, prédios, torres) usando o método das sombras ou espelhos.</label></li>
+      <li><input type="checkbox" id="chk-tal-6"> <label for="chk-tal-6">Compreendo por que a razão entre as áreas de figuras semelhantes é @k^2@ (quadrado da razão linear).</label></li>
+      <li><input type="checkbox" id="chk-tal-7"> <label for="chk-tal-7">Sei resolver problemas de semelhança em trapézios e triângulos em formato de ampulheta (retas concorrentes).</label></li>
+      <li><input type="checkbox" id="chk-tal-8"> <label for="chk-tal-8">Aplico o Teorema da Bissetriz Interna para repartir lados opostos proporcionalmente.</label></li>
+    </ul>
+
+    <p><strong>Reflexão Pedagógica:</strong> A proporcionalidade geométrica é a base de toda a trigonometria, física vetorial e desenho técnico que você verá no Ensino Médio. Se assinalou a maioria dos itens, você construiu alicerces sólidos! Continue praticando para que o reconhecimento dos padrões fique cada vez mais natural e intuitivo.</p>
+  </div>
+
+</article>
+
+<!-- =========================================================================
+     GABARITO COMENTADO (EM COMENTÁRIO HTML)
+     ========================================================================= -->
+<!--
+GABARITO DETALHADO - RECUPERAÇÃO: TEOREMA DE TALES E SEMELHANÇA (9º ANO)
+
+PARTE 1: PRIMEIROS PASSOS (ALTO APOIO)
+1. 6/9 = 10/x
+   Etapas:
+   Simplificando 6/9 por 3: 2/3
+   2/3 = 10/x
+   2x = 3 * 10 = 30
+   x = 30 / 2 = 15 cm
+   Resultado: x = 15 cm.
+
+2. AD/DB = AE/EC => 4/8 = 5/EC
+   Etapas:
+   4/8 = 1/2
+   1/2 = 5/EC => EC = 2 * 5 = 10 cm.
+   Lado total AC = AE + EC = 5 + 10 = 15 cm.
+   Resultado: a) EC = 10 cm; b) AC = 15 cm.
+
+3. x/5 = (x + 6)/8
+   Etapas:
+   8x = 5(x + 6)
+   8x = 5x + 30
+   8x - 5x = 30
+   3x = 30 => x = 10.
+   Resultado: x = 10.
+
+4. Triângulos semelhantes ABC e DEF:
+   Lados de ABC: 12, 16, 20. Menor lado de DEF: 6.
+   a) Razão de semelhança k = 12 / 6 = 2 (ou 1/2 do menor para o maior).
+   b) Lados correspondentes de DEF:
+      Segundo lado = 16 / 2 = 8 cm.
+      Terceiro lado (hipotenusa) = 20 / 2 = 10 cm.
+   Resultado: a) k = 2; b) Os outros lados medem 8 cm e 10 cm.
+
+5. Altura da árvore por sombra:
+   H / 1,50 = 6,00 / 0,90
+   0,90 * H = 1,50 * 6,00 = 9,00
+   H = 9,00 / 0,90 = 10 m.
+   Resultado: A árvore mede 10 metros de altura.
+
+PARTE 2: DESENVOLVENDO AUTONOMIA (APOIO MÉDIO)
+6. Triângulos sobrepostos ADE e ABC:
+   AD / AB = DE / BC
+   6 / 15 = DE / 18
+   Simplificando 6/15 por 3: 2/5
+   2/5 = DE / 18
+   5 * DE = 2 * 18 = 36
+   DE = 36 / 5 = 7,2 cm.
+   Resultado: DE = 7,2 cm.
+
+7. Triângulos em ampulheta OAB ~ OCD:
+   OA / OC = OB / OD
+   9 / 15 = 6 / y
+   Simplificando 9/15 por 3: 3/5
+   3/5 = 6 / y
+   3y = 5 * 6 = 30 => y = 10 cm.
+   Resultado: OD = 10 cm.
+
+8. Altura relativa à hipotenusa no triângulo retângulo:
+   a * h = b * c
+   10 * h = 6 * 8 = 48
+   h = 48 / 10 = 4,8 cm.
+   Resultado: A altura mede 4,8 cm.
+
+9. Critério LAL:
+   a) Comparando os lados homólogos adjacentes ao ângulo de 45°:
+      12 / 8 = 1,5
+      18 / 12 = 1,5
+      Como os pares de lados guardam a mesma proporção (1,5) e o ângulo compreendido entre eles é congruente (45°), os triângulos são semelhantes pelo Caso LAL.
+   b) A razão de semelhança k = 1,5 (ou 3/2).
+   Resultado: a) Sim, pelo caso LAL; b) k = 1,5 (ou 3/2).
+
+10. Razão de áreas de triângulos semelhantes:
+    Área_maior / Área_menor = k² = (4/3)² = 16/9
+    Área_maior / 45 = 16/9
+    Área_maior = 45 * (16/9) = 5 * 16 = 80 cm².
+    Resultado: A área do triângulo maior é 80 cm².
+
+PARTE 3: CONSOLIDAÇÃO (BAIXO APOIO)
+11. Largura do rio:
+    Triângulos semelhantes formados pelo topógrafo:
+    L / 3 = 20 / 4
+    L / 3 = 5 => L = 3 * 5 = 15 metros.
+    Resultado: A largura do rio é de 15 metros.
+
+12. Teorema da Bissetriz Interna:
+    BD / DC = AB / AC = 15 / 25 = 3/5
+    Seja BD = 3k e DC = 5k.
+    BD + DC = BC = 32 => 3k + 5k = 32 => 8k = 32 => k = 4.
+    BD = 3 * 4 = 12 cm.
+    DC = 5 * 4 = 20 cm.
+    Resultado: BD = 12 cm e DC = 20 cm.
+
+13. Diagonais do trapézio ABCD:
+    Triângulos AOB e COD são semelhantes (ângulos alternos internos congruentes).
+    Razão AB / CD = 12 / 20 = 3/5.
+    Logo, BO / OD = 3/5.
+    Sendo BD = BO + OD = 32:
+    3k + 5k = 32 => 8k = 32 => k = 4.
+    BO = 3 * 4 = 12 cm.
+    OD = 5 * 4 = 20 cm.
+    Resultado: BO = 12 cm e OD = 20 cm.
+
+14. Retângulo no telhado triangular:
+    Triângulo de base 20 e altura 15.
+    Retângulo de altura y e largura x = 2y.
+    O triângulo superior tem base 2y e altura 15 - y.
+    Por semelhança com o triângulo todo:
+    (15 - y) / 15 = 2y / 20
+    Simplificando 2y / 20 por 2: y / 10
+    (15 - y) / 15 = y / 10
+    Multiplicando cruzado:
+    10(15 - y) = 15y
+    150 - 10y = 15y
+    25y = 150 => y = 150 / 25 = 6 metros.
+    Largura x = 2y = 2 * 6 = 12 metros.
+    Resultado: A placa retangular mede 12 metros de largura por 6 metros de altura.
+
+15. Torre por reflexão no espelho:
+    Triângulos retângulos formados pela estudante e pela torre são semelhantes pelo Caso AA (ambos retos e ângulos de incidência/reflexão congruentes).
+    H_torre / H_olhos = Distância_torre / Distância_estudante
+    H / 1,65 = 18 / 1,50
+    Como 18 / 1,50 = 12:
+    H = 1,65 * 12 = 19,80 metros.
+    Resultado: A altura da torre é de 19,80 metros.
+-->
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

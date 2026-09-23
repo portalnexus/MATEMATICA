@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Lista de Problemas: Notação Científica e Ordens de Grandeza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-secao ol {
+      padding-left: 1.5rem;
+    }
+
+    .gabarito-secao li {
+      margin-bottom: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: 600;
+      color: var(--secondary-text-color);
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<!-- ============================================================================
+     TÍTULO PRINCIPAL DA LISTA
+     ============================================================================ -->
+<h1>LISTA DE PROBLEMAS: NOTAÇÃO CIENTÍFICA E ORDENS DE GRANDEZA</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Exercícios fundamentais para fixação e aplicação direta das regras de representação em notação científica padrão (@a \times 10^k@ com @1 \le a < 10@), determinação rigorosa da ordem de grandeza pelo critério geométrico (@\sqrt{10} \approx 3{,}162@) e contagem de algarismos significativos.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Escrita científica de macro-grandezas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>A distância média da Terra ao Sol é de aproximadamente @149.600.000\text{ km}@.</p>
+      <p>a) Escreva essa distância em notação científica mantendo a unidade em quilômetros (@\text{km}@).</p>
+      <p>b) Converta essa distância para metros (@\text{m}@) e escreva o resultado em notação científica.</p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Escrita científica de micro-grandezas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Na biologia celular, as dimensões são comumente microscópicas:</p>
+      <p>• A espessura média de uma membrana celular fosfolipídica é de @0{,}000000008\text{ m}@.</p>
+      <p>• O diâmetro aproximado de um vírus influenza é de @0{,}00012\text{ mm}@.</p>
+      <p>a) Expresse a espessura da membrana em notação científica em metros.</p>
+      <p>b) Expresse o diâmetro do vírus em notação científica em metros.</p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conversão de notação científica para decimal</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Converta os números a seguir da notação científica para a sua escrita posicional decimal convencional:</p>
+      <p>a) @3{,}844 \times 10^5@ (distância Terra-Lua em km)</p>
+      <p>b) @6{,}25 \times 10^{-4}@</p>
+      <p>c) @1{,}05 \times 10^7@</p>
+      <p>d) @9{,}1 \times 10^{-6}@</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Critério da média geométrica para Ordem de Grandeza</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Para determinar a ordem de grandeza de um número expresso na forma @a \times 10^k@ (com @1 \le a < 10@), adota-se como divisor de águas a média geométrica entre @1@ e @10@, dada por @\sqrt{1 \times 10} = \sqrt{10} \approx 3{,}162@. Se @a < \sqrt{10}@, a ordem de grandeza é @10^k@; se @a \ge \sqrt{10}@, a ordem de grandeza é @10^{k+1}@.</p>
+      <p>Determine a ordem de grandeza de cada uma das grandezas:</p>
+      <p>a) @N_1 = 2{,}80 \times 10^6@</p>
+      <p>b) @N_2 = 7{,}40 \times 10^6@</p>
+      <p>c) @N_3 = 1{,}50 \times 10^{-8}@</p>
+      <p>d) @N_4 = 4{,}25 \times 10^{-8}@</p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Ordem de grandeza de massas cósmicas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Em astrofísica, registram-se as seguintes massas planetárias e estelares:</p>
+      <p>• Massa da Terra: @M_{\text{Terra}} = 5{,}97 \times 10^{24}\text{ kg}@</p>
+      <p>• Massa da Lua: @M_{\text{Lua}} = 7{,}35 \times 10^{22}\text{ kg}@</p>
+      <p>• Massa do Sol: @M_{\text{Sol}} = 1{,}99 \times 10^{30}\text{ kg}@</p>
+      <p>a) Determine a ordem de grandeza da massa da Terra e da massa da Lua.</p>
+      <p>b) Determine a ordem de grandeza da massa do Sol.</p>
+      <p>c) Em termos de ordem de grandeza, quantas ordens de magnitude o Sol é mais massivo que a Terra?</p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Ordem de grandeza no microcosmo atômico</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>A física quântica lida com partículas de massas subatômicas ínfimas:</p>
+      <p>• Massa de repouso do próton: @m_p \approx 1{,}67 \times 10^{-27}\text{ kg}@</p>
+      <p>• Massa de repouso do elétron: @m_e \approx 9{,}11 \times 10^{-31}\text{ kg}@</p>
+      <p>a) Determine a ordem de grandeza da massa do próton e da massa do elétron.</p>
+      <p>b) Quantas ordens de grandeza o próton supera a massa do elétron?</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Comparação e ordenação em notação científica</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Considere as seguintes grandezas expressas em notação científica:</p>
+      <p>@A = 5{,}4 \times 10^{-4}@, @B = 1{,}2 \times 10^{-3}@, @C = 8{,}9 \times 10^{-5}@, @D = 3{,}1 \times 10^{-4}@</p>
+      <p>a) Escreva todas as quatro grandezas com o mesmo expoente @10^{-4}@.</p>
+      <p>b) Disponha os valores em ordem estritamente crescente (@<@).</p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Contagem de algarismos significativos</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Indique a quantidade de algarismos significativos presentes em cada uma das medidas experimentais abaixo:</p>
+      <p>a) @0{,}00504\text{ m}@</p>
+      <p>b) @120{,}00\text{ s}@</p>
+      <p>c) @4{,}050 \times 10^8\text{ kg}@</p>
+      <p>d) @0{,}070\text{ A}@</p>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Arredondamento para algarismos significativos</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Arredonde cada um dos seguintes números para exatamente três (3) algarismos significativos e expresse a resposta final em notação científica:</p>
+      <p>a) @45.682@</p>
+      <p>b) @0{,}0034217@</p>
+      <p>c) @899.600@</p>
+      <p>d) @0{,}000056749@</p>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Prefixos do SI e potências de dez</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Escreva as seguintes medidas físicas em notação científica padronizada na unidade base do SI indicada:</p>
+      <p>a) @840\text{ nm}@ (nanômetros em metros)</p>
+      <p>b) @45\text{ }\mu\text{m}@ (micrômetros em metros)</p>
+      <p>c) @16\text{ GW}@ (gigawatts em watts)</p>
+      <p>d) @350\text{ pF}@ (picofarads em farads, sabendo que @1\text{ pF} = 10^{-12}\text{ F}@)</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas contextualizados integrando operações algébricas em notação científica, regras operatórias de algarismos significativos, nanotecnologia, astrofísica, biologia molecular e estimativas de Fermi.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Adição e subtração com equalização de expoentes</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Em um laboratório de biologia molecular, misturam-se duas amostras celulares purificadas. A amostra A possui massa de @4{,}35 \times 10^{-3}\text{ g}@ e a amostra B possui massa de @8{,}2 \times 10^{-4}\text{ g}@.</p>
+      <p>a) Equalize os expoentes das duas potências de 10 e determine a massa total combinada da mistura, expressando o resultado em notação científica.</p>
+      <p>b) Calcule a diferença de massa entre a amostra A e a amostra B, mantendo a resposta em notação científica.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Para somar ou subtrair, transforme os números para a mesma potência de 10. Note que @8{,}2 \times 10^{-4} = 0{,}82 \times 10^{-3}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Multiplicação e divisão com algarismos significativos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma sonda espacial em trajetória de cruzeiro interplanetário viaja à velocidade média constante de @v = 4{,}20 \times 10^4\text{ m/s}@ durante um intervalo de tempo contínuo de @\Delta t = 2{,}5 \times 10^6\text{ s}@.</p>
+      <p>a) Calcule a distância total percorrida pela sonda em metros (@\Delta s = v \cdot \Delta t@), expressando o resultado em notação científica e com o número correto de algarismos significativos.</p>
+      <p>b) Expresse essa mesma distância em quilômetros (@\text{km}@) e determine a sua ordem de grandeza.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Multiplique as mantissas (@4{,}20 \times 2{,}5@) e some os expoentes das potências de 10. Como o menor número de algarismos significativos entre os fatores é 2 (em 2,5), a resposta final deve conter 2 algarismos significativos.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Potenciação e volume celular esférico</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um linfócito típico (célula de defesa do sistema imunitário) pode ser modelado com boa aproximação por uma esfera microscópica de raio @r = 4{,}0 \times 10^{-6}\text{ m}@. O volume da esfera é dado por @V = \frac{4}{3}\pi r^3@ (adote @\pi \approx 3{,}14@).</p>
+      <p>a) Calcule o volume individual do linfócito em metros cúbicos (@\text{m}^3@) em notação científica.</p>
+      <p>b) Converta esse volume para litros (@\text{L}@), sabendo que @1\text{ m}^3 = 10^3\text{ L}@.</p>
+      <p>c) Determine a ordem de grandeza do volume do linfócito em metros cúbicos.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> @r^3 = (4{,}0 \times 10^{-6})^3 = 4{,}0^3 \times 10^{-18} = 64 \times 10^{-18} = 6{,}4 \times 10^{-17}\text{ m}^3@. Em seguida multiplique por @\frac{4}{3}\pi \approx 4{,}187@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Nanotecnologia: lâminas de grafeno</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>O grafeno é um nanomaterial bidimensional de carbono com espessura monomolecular de apenas @3{,}35 \times 10^{-10}\text{ m}@. Um engenheiro de materiais sobrepõe folhas ideais de grafeno para compor uma película sólida com espessura total de @1{,}0\text{ mm}@.</p>
+      <p>a) Converta a espessura de @1{,}0\text{ mm}@ para metros em notação científica.</p>
+      <p>b) Quantas camadas monomoleculares de grafeno são necessárias para formar essa película de 1 mm?</p>
+      <p>c) Qual é a ordem de grandeza do número de camadas de grafeno?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Divida a espessura total (@1{,}0 \times 10^{-3}\text{ m}@) pela espessura de uma única camada (@3{,}35 \times 10^{-10}\text{ m}@).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 15 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Astrofísica: distância a Proxima Centauri</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>A estrela mais próxima do nosso Sistema Solar é Proxima Centauri, situada a uma distância de aproximadamente @4{,}24\text{ anos-luz}@. Sabe-se que a velocidade da luz no vácuo é @c \approx 3{,}00 \times 10^8\text{ m/s}@ e que @1\text{ ano} \approx 3{,}156 \times 10^7\text{ s}@.</p>
+      <p>a) Calcule a distância de @1\text{ ano-luz}@ em metros em notação científica.</p>
+      <p>b) Calcule a distância até Proxima Centauri em metros e em quilômetros em notação científica.</p>
+      <p>c) Determine a ordem de grandeza da distância até Proxima Centauri em quilômetros.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Multiplique a distância de 1 ano-luz por 4,24. Na ordem de grandeza, verifique se a mantissa é maior ou menor que @\sqrt{10} \approx 3{,}162@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 16 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Biologia celular e extensão do DNA humano</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Estima-se que o corpo humano adulto seja constituído por cerca de @3{,}7 \times 10^{13}@ células. O filamento de DNA empacotado no núcleo de cada uma dessas células, se totalmente desenrolado e esticado, atinge aproximadamente @2{,}0\text{ metros}@ de comprimento.</p>
+      <p>a) Calcule o comprimento total (em metros) que todos os filamentos de DNA de uma pessoa teriam se fossem colocados em linha contínua ponta a ponta.</p>
+      <p>b) Sabendo que a distância média da Terra à Lua é de @3{,}84 \times 10^8\text{ m}@, quantas viagens de ida e volta da Terra à Lua seriam possíveis cobrir com a extensão total desse DNA esticado?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Uma viagem de ida e volta equivale ao dobro da distância Terra-Lua: @2 \times (3{,}84 \times 10^8\text{ m}) = 7{,}68 \times 10^8\text{ m}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 17 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Química: massa de uma molécula individual</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>A constante de Avogadro estabelece que @1\text{ mol}@ de qualquer substância contém exatamente @N_A \approx 6{,}02 \times 10^{23}@ entidades elementares (moléculas). A massa molar da água pura (@\text{H}_2\text{O}@) é de @18{,}0\text{ g/mol}@.</p>
+      <p>a) Calcule a massa de uma única molécula de água em gramas (@\text{g}@), em notação científica.</p>
+      <p>b) Converta essa massa para quilogramas (@\text{kg}@) no Sistema Internacional.</p>
+      <p>c) Determine a ordem de grandeza da massa de uma molécula de água em quilogramas.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Massa individual = @\frac{\text{Massa molar}}{N_A} = \frac{18{,}0}{6{,}02 \times 10^{23}}@. Para passar de g para kg, multiplique por @10^{-3}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 18 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Física elétrica: carga elementar e elétrons</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>A carga elétrica fundamental de um elétron é @e \approx 1{,}60 \times 10^{-19}\text{ C}@ (Coulombs). Um fio de cobre condutor é percorrido por uma corrente elétrica de @2{,}0\text{ A}@ (onde @1\text{ A} = 1\text{ C/s}@) durante @1\text{ minuto}@.</p>
+      <p>a) Calcule a quantidade de carga elétrica total @Q@ (em Coulombs) que atravessa a seção transversal do fio em 1 minuto.</p>
+      <p>b) Determine o número total @n@ de elétrons livres que atravessaram o condutor nesse intervalo (@Q = n \cdot e@).</p>
+      <p>c) Qual é a ordem de grandeza da quantidade de elétrons?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> @Q = I \cdot \Delta t = 2{,}0 \times 60 = 120\text{ C}@. Em seguida, @n = \frac{Q}{e} = \frac{120}{1{,}60 \times 10^{-19}}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 19 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Microeletrônica: densidade de transistores</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um processador gráfico moderno de tecnologia de ponta (nó de 3 nanômetros) possui cerca de @50\text{ bilhões}@ (@5{,}0 \times 10^{10}@) de transistores integrados em uma pastilha de silício retangular com área de @125\text{ mm}^2@.</p>
+      <p>a) Converta a área do chip de @\text{mm}^2@ para @\text{m}^2@ em notação científica.</p>
+      <p>b) Calcule a densidade de transistores por metro quadrado (@\text{transistores/m}^2@) da pastilha em notação científica.</p>
+      <p>c) Em média, qual é a área microscópica disponível para cada transistor individual em @\text{m}^2@?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> @1\text{ mm} = 10^{-3}\text{ m} \implies 1\text{ mm}^2 = 10^{-6}\text{ m}^2@. A área média por transistor é o inverso da densidade (@\frac{\text{Área}}{\text{Nº de transistores}}@).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 20 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Estimativa de Fermi: batimentos cardíacos na vida</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>O coração de um ser humano em repouso pulsa a uma frequência média de @72\text{ batimentos por minuto (bpm)}@. Considere uma pessoa com expectativa de vida de @80\text{ anos}@ (adote @1\text{ ano} \approx 365\text{ dias}@).</p>
+      <p>a) Quantos minutos há em 80 anos de vida?</p>
+      <p>b) Calcule a estimativa do número total de batimentos cardíacos efetuados pelo coração dessa pessoa ao longo de sua vida, expressando em notação científica.</p>
+      <p>c) Determine a ordem de grandeza desse número de batimentos.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> @80 \times 365 \times 24 \times 60\text{ min}@. Multiplique pelo ritmo de 72 batimentos/minuto.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 21 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Estimativa de Fermi: consumo global de água para beber</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>A população humana do planeta Terra atingiu recentemente a marca aproximada de @8{,}0 \times 10^9@ habitantes. Cada pessoa consome, para ingestão direta e hidratação básica, uma média de @2{,}0\text{ litros}@ de água por dia.</p>
+      <p>a) Calcule o volume total diário de água para beber consumido pela humanidade, em litros e em metros cúbicos (@\text{m}^3@).</p>
+      <p>b) Calcule o volume consumido ao longo de 1 ano completo (365 dias) em metros cúbicos em notação científica.</p>
+      <p>c) Determine a ordem de grandeza desse volume anual em @\text{m}^3@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Volume diário = @(8{,}0 \times 10^9) \times 2{,}0 = 1{,}6 \times 10^{10}\text{ L}@. Para passar para @\text{m}^3@, divida por @1.000 = 10^3@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 22 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Dispersão de aerossóis e concentração viral</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um único espirro de uma pessoa gripada expele para o ambiente cerca de @1{,}5 \times 10^6@ partículas virais suspensas em microgotículas de saliva. Suponha que esse espirro ocorra no interior de uma sala de aula fechada de @8{,}0\text{ m}@ de comprimento, @6{,}0\text{ m}@ de largura e @3{,}0\text{ m}@ de altura de pé-direito.</p>
+      <p>a) Calcule o volume de ar da sala de aula em metros cúbicos (@\text{m}^3@).</p>
+      <p>b) Admitindo dispersão uniforme instantânea pelo ar, calcule a concentração de partículas virais por metro cúbico (@\text{vírus/m}^3@) em notação científica.</p>
+      <p>c) Qual é a ordem de grandeza dessa concentração viral?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Volume = @8 \times 6 \times 3 = 144\text{ m}^3@. Concentração = @\frac{1{,}5 \times 10^6}{144}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 23 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Razão entre grandezas extremas da natureza</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Compare as duas escalas extremas de massa da Física:</p>
+      <p>• Massa do Sol: @M_{\text{Sol}} \approx 2{,}0 \times 10^{30}\text{ kg}@</p>
+      <p>• Massa do elétron: @m_e \approx 9{,}1 \times 10^{-31}\text{ kg}@</p>
+      <p>a) Calcule a razão adimensional @\frac{M_{\text{Sol}}}{m_e}@ em notação científica.</p>
+      <p>b) Quantas ordens de grandeza separam a massa da estrela da massa da partícula elementar?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Divida as mantissas e subtraia os expoentes: @10^{30 - (-31)} = 10^{61}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 24 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Supercomputação e escala ExaFLOPS</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Os supercomputadores exaescalares modernos alcançam capacidades de processamento da ordem de @1{,}2 \times 10^{18}\text{ FLOPS}@ (operações de ponto flutuante por segundo). Uma simulação astrofísica de fusão de galáxias requer a execução de @3{,}6 \times 10^{22}@ operações aritméticas.</p>
+      <p>a) Calcule o tempo total necessário (em segundos) para que esse supercomputador conclua a simulação.</p>
+      <p>b) Expresse esse tempo em horas (com arredondamento para minutos inteiros).</p>
+      <p>c) Se um computador doméstico comum consegue realizar @1{,}0 \times 10^9\text{ FLOPS}@ (1 GigaFLOP), quantos anos ele levaria para rodar a mesma simulação?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> @\Delta t = \frac{\text{Total de operações}}{\text{FLOPS}}@. Para converter segundos para horas, divida por 3.600; para anos, divida por @3{,}156 \times 10^7@.
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Questões de exames vestibulares nacionais e olimpíadas de ciências (ENEM, FUVEST, UNICAMP, ITA, OBA) explorando problemas ambientais, física espacial, astrofísica e gravitação em grande escala.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 25 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Espalhamento de mancha de petróleo no oceano</span>
+        <span class="fonte">ENEM</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Em um acidente ambiental com uma plataforma marítima de petróleo, vazaram @40\text{ m}^3@ de óleo cru no mar. Devido à tensão superficial e à baixa densidade do óleo em relação à água salgada, a mancha espalha-se livremente formando uma película fina uniforme sobre a superfície do oceano com espessura média de apenas @0{,}20\text{ }\mu\text{m}@ (@0{,}20 \times 10^{-6}\text{ m}@).</p>
+      <p>a) Sabendo que o volume é dado por @V = A \cdot e@ (área multiplicada pela espessura), calcule a área da superfície marinha recoberta pela mancha de óleo em metros quadrados (@\text{m}^2@) em notação científica.</p>
+      <p>b) Converta essa área para quilômetros quadrados (@\text{km}^2@).</p>
+      <p>c) Determine a ordem de grandeza da área da mancha em @\text{km}^2@.</p>
+    </li>
+
+    <!-- PROBLEMA 26 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Comunicação no espaço profundo: New Horizons</span>
+        <span class="fonte">FUVEST</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Quando a sonda espacial <em>New Horizons</em> sobrevoou o planeta-anão Plutão, ela se encontrava a uma distância de aproximadamente @5{,}0 \times 10^9\text{ km}@ da Terra. As transmissões de dados científicos são realizadas por ondas de rádio (ondas eletromagnéticas), que se propagam no vácuo com velocidade @c = 3{,}0 \times 10^8\text{ m/s}@.</p>
+      <p>a) Converta a distância da sonda à Terra para metros (@\text{m}@) em notação científica.</p>
+      <p>b) Calcule o tempo que um sinal de rádio emitido pela sonda leva para atingir as antenas da Rede de Espaço Profundo (DSN) na Terra, expressando o resultado em segundos em notação científica.</p>
+      <p>c) Converta esse tempo para horas e minutos e determine a ordem de grandeza do tempo de transmissão em horas.</p>
+    </li>
+
+    <!-- PROBLEMA 27 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">O Contador de Areia de Arquimedes</span>
+        <span class="fonte">Olimpíada de Física / OBM</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Em seu célebre tratado <em>O Contador de Areia</em> (século III a.C.), o matemático grego Arquimedes propôs calcular uma cota superior para o número de grãos de areia necessários para preencher todo o Universo conhecido. Vamos estimar modernamente o número de grãos de areia existentes em todas as praias do planeta Terra:</p>
+      <p>• Comprimento total somado das praias arenosas do globo: @4{,}0 \times 10^5\text{ km}@.</p>
+      <p>• Largura média da faixa de areia: @50\text{ m}@; profundidade média da camada de areia: @2{,}0\text{ m}@.</p>
+      <p>• Cada grão de areia é modelado como um cubo com aresta de @0{,}50\text{ mm}@.</p>
+      <p>a) Calcule o volume total de areia das praias da Terra em metros cúbicos (@\text{m}^3@) em notação científica.</p>
+      <p>b) Calcule o volume de um único grão de areia em metros cúbicos (@\text{m}^3@) em notação científica.</p>
+      <p>c) Determine o número total estimado de grãos de areia nas praias terrestres e a sua ordem de grandeza.</p>
+    </li>
+
+    <!-- PROBLEMA 28 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Produção global de polímeros plásticos</span>
+        <span class="fonte">ENEM</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Dados de relatórios socioambientais internacionais apontam que a humanidade produz anualmente cerca de @4{,}0 \times 10^8\text{ toneladas}@ de plástico de uso único. Considere que uma sacola plástica média de supermercado possui massa de @5{,}0\text{ g}@ e é composta por polietileno.</p>
+      <p>a) Converta a produção anual total de plástico para gramas (@\text{g}@) em notação científica.</p>
+      <p>b) Se toda essa massa de plástico anual fosse convertida no peso equivalente de sacolas de supermercado, quantas unidades seriam produzidas?</p>
+      <p>c) Determine a ordem de grandeza desse número de sacolas plásticas.</p>
+    </li>
+
+    <!-- PROBLEMA 29 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Atenuação de potência luminosa em fibra óptica</span>
+        <span class="fonte">UNICAMP</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Na transmissão de dados por cabos submarinos de fibra óptica de sílica pura, o sinal luminoso de laser sofre atenuação contínua por espalhamento e absorção. A cada trecho de @20\text{ km}@ de cabo, a potência luminosa @P@ transmitida é reduzida para @\frac{1}{10}@ da potência incidente inicial (atenuação de @10\text{ dB}@ por trecho de 20 km).</p>
+      <p>a) Se um feixe injetado na entrada possui potência inicial de @P_0 = 100\text{ mW} = 1{,}0 \times 10^{-1}\text{ W}@, qual é a potência do sinal luminoso após percorrer uma distância de @100\text{ km}@ sem repetidores intermediários?</p>
+      <p>b) Se a sensibilidade mínima detectável pelo fotodiodo receptor na extremidade é de @1{,}0 \times 10^{-9}\text{ W}@, qual é a distância máxima teórica que o cabo pode ter antes que o sinal se torne indecifrável pelo ruído?</p>
+    </li>
+
+    <!-- PROBLEMA 30 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Força gravitacional Terra-Lua e significativos</span>
+        <span class="fonte">ITA</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 11 min</span>
+      </div>
+      <p>Calcule o módulo da força de atração gravitacional entre a Terra e a Lua segundo a Lei da Gravitação Universal de Newton: @F = G \frac{M_T \cdot M_L}{d^2}@. Dados científicos com três algarismos significativos:</p>
+      <p>• Constante gravitacional: @G = 6{,}67 \times 10^{-11}\text{ N}\cdot\text{m}^2/\text{kg}^2@</p>
+      <p>• Massa da Terra: @M_T = 5{,}97 \times 10^{24}\text{ kg}@</p>
+      <p>• Massa da Lua: @M_L = 7{,}35 \times 10^{22}\text{ kg}@</p>
+      <p>• Distância média centro a centro: @d = 3{,}84 \times 10^8\text{ m}@</p>
+      <p>a) Calcule o produto @G \cdot M_T \cdot M_L@ em notação científica.</p>
+      <p>b) Calcule o valor da força @F@ em Newtons (@\text{N}@), expressando o resultado com três algarismos significativos em notação científica.</p>
+      <p>c) Determine a ordem de grandeza da força gravitacional que a Terra exerce sobre a Lua.</p>
+    </li>
+
+    <!-- PROBLEMA 31 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Idade e dimensões do Universo Observável</span>
+        <span class="fonte">OBA - Olimpíada Brasileira de Astronomia</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Medições da radiação cósmica de fundo pela sonda espacial Planck indicam que a idade do Universo desde o Big Bang é de aproximadamente @13{,}8\text{ bilhões de anos}@ (@1{,}38 \times 10^{10}\text{ anos}@). Considere @1\text{ ano} \approx 3{,}156 \times 10^7\text{ s}@.</p>
+      <p>a) Calcule a idade do Universo expressa em segundos em notação científica.</p>
+      <p>b) Devido à expansão acelerada do espaço-tempo cósmico, o raio atual do Universo observável é de aproximadamente @46{,}5\text{ bilhões de anos-luz}@ (@4{,}4 \times 10^{26}\text{ m}@). Calcule o volume aproximado do Universo observável (@V = \frac{4}{3}\pi R^3@) em metros cúbicos em notação científica (adote @\pi \approx 3{,}14@).</p>
+      <p>c) Determine as ordens de grandeza da idade do Universo em segundos e de seu volume em @\text{m}^3@.</p>
+    </li>
+
+    <!-- PROBLEMA 32 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Matriz energética nacional em Terawatts-hora</span>
+        <span class="fonte">ENEM</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>O consumo total de energia elétrica no Brasil em um ano foi de aproximadamente @600\text{ TWh}@ (Terawatts-hora). Sabe-se que @1\text{ TWh} = 10^{12}\text{ Wh}@ e que @1\text{ Wh} = 3.600\text{ J}@.</p>
+      <p>a) Converta a energia de @600\text{ TWh}@ para Joules (@\text{J}@) em notação científica.</p>
+      <p>b) Se a combustão de um barril de petróleo cru libera aproximadamente @6{,}0 \times 10^9\text{ J}@ de energia térmica, quantos barris de petróleo seriam teoricamente equivalentes à energia elétrica total consumida no país?</p>
+      <p>c) Determine a ordem de grandeza do número de barris equivalentes.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Desafios adicionais para exercitar cálculos em ordens de magnitude extremas, estimativas científicas e consolidação definitiva da escrita numérica padronizada.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 33 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Contagem de segundos em um milênio</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um milênio compreende exatamente @1.000\text{ anos}@. Considerando um ano médio juliano com @365{,}25\text{ dias}@ e cada dia com @86.400\text{ segundos}@:</p>
+      <p>a) Calcule o número de segundos contidos em um milênio, em notação científica.</p>
+      <p>b) Determine a ordem de grandeza desse número de segundos.</p>
+    </li>
+
+    <!-- PROBLEMA 34 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Número de moléculas em uma gota de água</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma gota de água tem massa aproximada de @0{,}050\text{ g}@. Sabe-se que a massa molar da água (@\text{H}_2\text{O}@) é de @18\text{ g/mol}@ e a constante de Avogadro é @6{,}0 \times 10^{23}\text{ moléculas/mol}@.</p>
+      <p>a) Calcule a quantidade de mols de água contidos nessa gota em notação científica.</p>
+      <p>b) Determine o número de moléculas de água contidas nessa única gota e indique sua ordem de grandeza.</p>
+    </li>
+
+    <!-- PROBLEMA 35 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Razão volumétrica átomo versus núcleo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>O modelo atômico de Rutherford estabelece que praticamente toda a massa do átomo concentra-se em um núcleo central minúsculo. O raio típico de um átomo é de @R_{\text{átomo}} \approx 1{,}0 \times 10^{-10}\text{ m}@, enquanto o raio do seu núcleo é de apenas @r_{\text{núcleo}} \approx 1{,}0 \times 10^{-15}\text{ m}@.</p>
+      <p>a) Calcule a razão entre o raio do átomo e o raio do núcleo (@\frac{R}{r}@).</p>
+      <p>b) Sabendo que o volume de uma esfera é proporcional ao cubo de seu raio (@V \propto R^3@), quantas vezes o volume do átomo é maior que o volume do seu núcleo?</p>
+    </li>
+
+    <!-- PROBLEMA 36 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Expressão combinada e algarismos significativos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Efetue a operação combinada a seguir respeitando as regras de algarismos significativos:</p>
+      <p>@@X = \frac{(6{,}40 \times 10^5) \times (3{,}0 \times 10^{-2})}{1{,}2 \times 10^4}@@</p>
+      <p>a) Forneça o valor numérico exato da mantissa e do expoente de 10.</p>
+      <p>b) Apresente o resultado final com a quantidade correta de algarismos significativos e informe sua ordem de grandeza.</p>
+    </li>
+
+    <!-- PROBLEMA 37 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Estimativa de gotas em tempestade</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma forte tempestade de verão atinge uma cidade com área de @100\text{ km}^2@, provocando uma precipitação acumulada de @40\text{ mm}@ de chuva.</p>
+      <p>a) Calcule o volume total de água precipitado sobre a cidade em metros cúbicos (@\text{m}^3@) em notação científica.</p>
+      <p>b) Sabendo que cada gota de chuva tem volume médio de @0{,}05\text{ mL} = 5 \times 10^{-8}\text{ m}^3@, estime o número total de gotas de chuva precipitadas e indique a ordem de grandeza.</p>
+    </li>
+
+    <!-- PROBLEMA 38 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Velocidade orbital e translação da Terra</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>A Terra descreve sua órbita em torno do Sol a uma velocidade média aproximada de @29{,}8\text{ km/s}@.</p>
+      <p>a) Converta essa velocidade para metros por segundo (@\text{m/s}@) em notação científica.</p>
+      <p>b) Calcule a distância total percorrida pela Terra no espaço sideral ao completar uma volta inteira ao redor do Sol durante um ano sideral (@3{,}156 \times 10^7\text{ s}@), em metros e em quilômetros, expressando os resultados em notação científica.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     GABARITO E RESOLUÇÕES DETALHADAS
+     ============================================================================ -->
+<details class="gabarito-container">
+  <summary>📖 GABARITO E RESOLUÇÕES DETALHADAS (Clique para expandir)</summary>
+  <div class="gabarito-content">
+
+    <!-- SEÇÃO 1 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 1: Problemas Introdutórios</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Deslocando a vírgula 8 casas decimais para a esquerda: @149.600.000\text{ km} = 1{,}496 \times 10^8\text{ km}@.<br>
+          b) Como @1\text{ km} = 10^3\text{ m}@: @(1{,}496 \times 10^8) \times 10^3 = 1{,}496 \times 10^{11}\text{ m}@.<br>
+          <strong>Resposta:</strong> a) @1{,}496 \times 10^8\text{ km}@; b) @1{,}496 \times 10^{11}\text{ m}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A vírgula desloca 9 casas decimais para a direita: @0{,}000000008\text{ m} = 8 \times 10^{-9}\text{ m}@.<br>
+          b) Primeiro em mm: @0{,}00012\text{ mm} = 1{,}2 \times 10^{-4}\text{ mm}@. Em metros (@\times 10^{-3}@): @1{,}2 \times 10^{-7}\text{ m}@.<br>
+          <strong>Resposta:</strong> a) @8 \times 10^{-9}\text{ m}@; b) @1{,}2 \times 10^{-7}\text{ m}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Desloca 5 casas para a direita: @3{,}844 \times 10^5 = 384.400@.<br>
+          b) Desloca 4 casas para a esquerda: @6{,}25 \times 10^{-4} = 0{,}000625@.<br>
+          c) Desloca 7 casas para a direita: @1{,}05 \times 10^7 = 10.500.000@.<br>
+          d) Desloca 6 casas para a esquerda: @9{,}1 \times 10^{-6} = 0{,}0000091@.<br>
+          <strong>Resposta:</strong> a) 384.400; b) 0,000625; c) 10.500.000; d) 0,0000091.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Critério: comparar @a@ com @\sqrt{10} \approx 3{,}162@.<br>
+          a) @a = 2{,}80 < 3{,}162 \implies \text{OG} = 10^6@.<br>
+          b) @a = 7{,}40 \ge 3{,}162 \implies \text{OG} = 10^{6+1} = 10^7@.<br>
+          c) @a = 1{,}50 < 3{,}162 \implies \text{OG} = 10^{-8}@.<br>
+          d) @a = 4{,}25 \ge 3{,}162 \implies \text{OG} = 10^{-8+1} = 10^{-7}@.<br>
+          <strong>Resposta:</strong> a) @10^6@; b) @10^7@; c) @10^{-8}@; d) @10^{-7}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Terra: @a = 5{,}97 \ge 3{,}162 \implies \text{OG} = 10^{24+1} = 10^{25}\text{ kg}@.<br>
+          Lua: @a = 7{,}35 \ge 3{,}162 \implies \text{OG} = 10^{22+1} = 10^{23}\text{ kg}@.<br>
+          b) Sol: @a = 1{,}99 < 3{,}162 \implies \text{OG} = 10^{30}\text{ kg}@.<br>
+          c) Comparando o Sol (@10^{30}@) com a Terra (@10^{25}@): @30 - 25 = 5@ ordens de grandeza.<br>
+          <strong>Resposta:</strong> a) Terra: @10^{25}\text{ kg}@; Lua: @10^{23}\text{ kg}@; b) Sol: @10^{30}\text{ kg}@; c) 5 ordens de grandeza.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Próton: @a = 1{,}67 < 3{,}162 \implies \text{OG} = 10^{-27}\text{ kg}@.<br>
+          Elétron: @a = 9{,}11 \ge 3{,}162 \implies \text{OG} = 10^{-31+1} = 10^{-30}\text{ kg}@.<br>
+          b) Diferença de expoentes: @-27 - (-30) = 3@ ordens de grandeza (o próton é aproximadamente @1.836@ vezes mais massivo que o elétron).<br>
+          <strong>Resposta:</strong> a) Próton: @10^{-27}\text{ kg}@; Elétron: @10^{-30}\text{ kg}@; b) 3 ordens de grandeza.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Com expoente @10^{-4}@:<br>
+          • @A = 5{,}4 \times 10^{-4}@<br>
+          • @B = 1{,}2 \times 10^{-3} = 12{,}0 \times 10^{-4}@<br>
+          • @C = 8{,}9 \times 10^{-5} = 0{,}89 \times 10^{-4}@<br>
+          • @D = 3{,}1 \times 10^{-4}@<br>
+          b) Ordem crescente: @0{,}89 \times 10^{-4} < 3{,}1 \times 10^{-4} < 5{,}4 \times 10^{-4} < 12{,}0 \times 10^{-4}@, ou seja, @C < D < A < B@.<br>
+          <strong>Resposta:</strong> a) @A = 5{,}4 \times 10^{-4}@, @B = 12 \times 10^{-4}@, @C = 0{,}89 \times 10^{-4}@, @D = 3{,}1 \times 10^{-4}@; b) @C < D < A < B@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @0{,}00504@: zeros à esquerda não contam @\implies@ 3 algarismos significativos (5, 0, 4).<br>
+          b) @120{,}00@: zeros após a vírgula em número decimal contam @\implies@ 5 algarismos significativos (1, 2, 0, 0, 0).<br>
+          c) @4{,}050 \times 10^8@: todos os dígitos da mantissa contam @\implies@ 4 algarismos significativos (4, 0, 5, 0).<br>
+          d) @0{,}070@: zeros à esquerda não contam, mas o zero final conta @\implies@ 2 algarismos significativos (7, 0).<br>
+          <strong>Resposta:</strong> a) 3; b) 5; c) 4; d) 2 algarismos significativos.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @45.682 \implies 45.700 = 4{,}57 \times 10^4@.<br>
+          b) @0{,}0034217 \implies 0{,}00342 = 3{,}42 \times 10^{-3}@.<br>
+          c) @899.600 \implies 900.000 = 9{,}00 \times 10^5@.<br>
+          d) @0{,}000056749 \implies 0{,}0000567 = 5{,}67 \times 10^{-5}@.<br>
+          <strong>Resposta:</strong> a) @4{,}57 \times 10^4@; b) @3{,}42 \times 10^{-3}@; c) @9{,}00 \times 10^5@; d) @5{,}67 \times 10^{-5}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @840\text{ nm} = 840 \times 10^{-9}\text{ m} = 8{,}4 \times 10^{-7}\text{ m}@.<br>
+          b) @45\text{ }\mu\text{m} = 45 \times 10^{-6}\text{ m} = 4{,}5 \times 10^{-5}\text{ m}@.<br>
+          c) @16\text{ GW} = 16 \times 10^9\text{ W} = 1{,}6 \times 10^{10}\text{ W}@.<br>
+          d) @350\text{ pF} = 350 \times 10^{-12}\text{ F} = 3{,}5 \times 10^{-10}\text{ F}@.<br>
+          <strong>Resposta:</strong> a) @8{,}4 \times 10^{-7}\text{ m}@; b) @4{,}5 \times 10^{-5}\text{ m}@; c) @1{,}6 \times 10^{10}\text{ W}@; d) @3{,}5 \times 10^{-10}\text{ F}@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 2 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 2: Problemas de Fixação</h3>
+      <ol start="11">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @8{,}2 \times 10^{-4}\text{ g} = 0{,}82 \times 10^{-3}\text{ g}@.<br>
+          Massa total: @(4{,}35 + 0{,}82) \times 10^{-3} = 5{,}17 \times 10^{-3}\text{ g}@.<br>
+          b) Diferença de massa: @(4{,}35 - 0{,}82) \times 10^{-3} = 3{,}53 \times 10^{-3}\text{ g}@.<br>
+          <strong>Resposta:</strong> a) @5{,}17 \times 10^{-3}\text{ g}@; b) @3{,}53 \times 10^{-3}\text{ g}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @\Delta s = (4{,}20 \times 10^4) \times (2{,}5 \times 10^6) = (4{,}20 \times 2{,}5) \times 10^{10} = 10{,}5 \times 10^{10} = 1{,}05 \times 10^{11}\text{ m}@.<br>
+          Como @2{,}5@ possui apenas 2 algarismos significativos, arredonda-se para 2 algarismos: @1{,}1 \times 10^{11}\text{ m}@.<br>
+          b) Em quilômetros: @\frac{1{,}1 \times 10^{11}}{10^3} = 1{,}1 \times 10^8\text{ km}@.<br>
+          Como @1{,}1 < 3{,}162@, a ordem de grandeza é @10^8\text{ km}@.<br>
+          <strong>Resposta:</strong> a) @1{,}1 \times 10^{11}\text{ m}@; b) @1{,}1 \times 10^8\text{ km}@ (Ordem de grandeza: @10^8\text{ km}@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @r^3 = (4{,}0 \times 10^{-6})^3 = 64 \times 10^{-18} = 6{,}4 \times 10^{-17}\text{ m}^3@.<br>
+          Volume: @V = \frac{4}{3} \times 3{,}14 \times (6{,}4 \times 10^{-17}) \approx 4{,}187 \times 6{,}4 \times 10^{-17} \approx 2{,}68 \times 10^{-16}\text{ m}^3@.<br>
+          b) Em litros (@\times 10^3@): @(2{,}68 \times 10^{-16}) \times 10^3 = 2{,}68 \times 10^{-13}\text{ L}@.<br>
+          c) Como @2{,}68 < 3{,}162@, a ordem de grandeza em @\text{m}^3@ é @10^{-16}\text{ m}^3@.<br>
+          <strong>Resposta:</strong> a) @\approx 2{,}68 \times 10^{-16}\text{ m}^3@; b) @2{,}68 \times 10^{-13}\text{ L}@; c) @10^{-16}\text{ m}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @1{,}0\text{ mm} = 1{,}0 \times 10^{-3}\text{ m}@.<br>
+          b) Número de camadas: @N = \frac{1{,}0 \times 10^{-3}}{3{,}35 \times 10^{-10}} = \frac{1{,}0}{3{,}35} \times 10^7 \approx 0{,}2985 \times 10^7 = 2{,}99 \times 10^6@ camadas.<br>
+          c) Como @a \approx 2{,}99 < 3{,}162@, a ordem de grandeza é @10^6@ (cerca de 1 milhão de camadas).<br>
+          <strong>Resposta:</strong> a) @1{,}0 \times 10^{-3}\text{ m}@; b) @\approx 2{,}99 \times 10^6@ camadas; c) @10^6@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @1\text{ ano-luz} = c \cdot \Delta t = (3{,}00 \times 10^8\text{ m/s}) \times (3{,}156 \times 10^7\text{ s}) = 9{,}468 \times 10^{15}\text{ m}@.<br>
+          b) Distância a Proxima Centauri:<br>
+          @d = 4{,}24 \times (9{,}468 \times 10^{15}\text{ m}) \approx 40{,}14 \times 10^{15} = 4{,}01 \times 10^{16}\text{ m}@.<br>
+          Em quilômetros: @4{,}01 \times 10^{13}\text{ km}@.<br>
+          c) Como @4{,}01 \ge 3{,}162@, a ordem de grandeza em km é @10^{13+1} = 10^{14}\text{ km}@.<br>
+          <strong>Resposta:</strong> a) @9{,}468 \times 10^{15}\text{ m}@; b) @4{,}01 \times 10^{16}\text{ m}@ (@4{,}01 \times 10^{13}\text{ km}@); c) @10^{14}\text{ km}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Extensão total: @(3{,}7 \times 10^{13}) \times 2{,}0\text{ m} = 7{,}4 \times 10^{13}\text{ m}@.<br>
+          b) Distância de ida e volta à Lua: @2 \times (3{,}84 \times 10^8) = 7{,}68 \times 10^8\text{ m}@.<br>
+          Número de viagens completas de ida e volta:<br>
+          @\frac{7{,}4 \times 10^{13}}{7{,}68 \times 10^8} \approx 0{,}9635 \times 10^5 \approx 96.350@ viagens completas de ida e volta!<br>
+          <strong>Resposta:</strong> a) @7{,}4 \times 10^{13}\text{ m}@; b) Aproximadamente @96.350@ viagens completas.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Massa em gramas: @m = \frac{18{,}0\text{ g}}{6{,}02 \times 10^{23}} \approx 2{,}99 \times 10^{-23}\text{ g}@.<br>
+          b) Em quilogramas: @(2{,}99 \times 10^{-23}) \times 10^{-3} = 2{,}99 \times 10^{-26}\text{ kg}@.<br>
+          c) Como @2{,}99 < 3{,}162@, a ordem de grandeza é @10^{-26}\text{ kg}@.<br>
+          <strong>Resposta:</strong> a) @2{,}99 \times 10^{-23}\text{ g}@; b) @2{,}99 \times 10^{-26}\text{ kg}@; c) @10^{-26}\text{ kg}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @Q = I \cdot \Delta t = 2{,}0\text{ A} \times 60\text{ s} = 120\text{ C} = 1{,}2 \times 10^2\text{ C}@.<br>
+          b) Número de elétrons: @n = \frac{120}{1{,}60 \times 10^{-19}} = 75 \times 10^{19} = 7{,}5 \times 10^{20}@ elétrons.<br>
+          c) Como @7{,}5 \ge 3{,}162@, a ordem de grandeza é @10^{20+1} = 10^{21}@ elétrons.<br>
+          <strong>Resposta:</strong> a) @120\text{ C}@; b) @7{,}5 \times 10^{20}@ elétrons; c) @10^{21}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @125\text{ mm}^2 = 125 \times 10^{-6}\text{ m}^2 = 1{,}25 \times 10^{-4}\text{ m}^2@.<br>
+          b) Densidade: @\frac{5{,}0 \times 10^{10}\text{ transistores}}{1{,}25 \times 10^{-4}\text{ m}^2} = 4{,}0 \times 10^{14}\text{ transistores/m}^2@.<br>
+          c) Área média por transistor: @\frac{1}{4{,}0 \times 10^{14}} = 2{,}5 \times 10^{-15}\text{ m}^2@.<br>
+          <strong>Resposta:</strong> a) @1{,}25 \times 10^{-4}\text{ m}^2@; b) @4{,}0 \times 10^{14}\text{ transistores/m}^2@; c) @2{,}5 \times 10^{-15}\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Minutos em 80 anos: @80 \times 365 \times 24 \times 60 = 42.048.000\text{ minutos} \approx 4{,}20 \times 10^7\text{ min}@.<br>
+          b) Total de batimentos: @42.048.000 \times 72 \approx 3.027.456.000 \approx 3{,}0 \times 10^9@ batimentos.<br>
+          c) Como @3{,}0 < 3{,}162@, a ordem de grandeza é @10^9@ (cerca de 3 bilhões de batimentos).<br>
+          <strong>Resposta:</strong> a) @\approx 4{,}20 \times 10^7\text{ min}@; b) @\approx 3{,}0 \times 10^9@ batimentos; c) @10^9@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Volume diário: @(8{,}0 \times 10^9) \times 2{,}0 = 1{,}6 \times 10^{10}\text{ L}@.<br>
+          Em metros cúbicos: @\frac{1{,}6 \times 10^{10}}{10^3} = 1{,}6 \times 10^7\text{ m}^3/\text{dia}@.<br>
+          b) Volume anual: @(1{,}6 \times 10^7\text{ m}^3) \times 365 = 5{,}84 \times 10^9\text{ m}^3@.<br>
+          c) Como @5{,}84 \ge 3{,}162@, a ordem de grandeza é @10^{9+1} = 10^{10}\text{ m}^3@.<br>
+          <strong>Resposta:</strong> a) @1{,}6 \times 10^{10}\text{ L}@ e @1{,}6 \times 10^7\text{ m}^3@; b) @5{,}84 \times 10^9\text{ m}^3@; c) @10^{10}\text{ m}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Volume da sala: @V = 8{,}0 \times 6{,}0 \times 3{,}0 = 144\text{ m}^3 = 1{,}44 \times 10^2\text{ m}^3@.<br>
+          b) Concentração: @\frac{1{,}5 \times 10^6}{1{,}44 \times 10^2} \approx 1{,}04 \times 10^4\text{ partículas/m}^3@.<br>
+          c) Como @1{,}04 < 3{,}162@, a ordem de grandeza é @10^4\text{ vírus/m}^3@.<br>
+          <strong>Resposta:</strong> a) @144\text{ m}^3@; b) @\approx 1{,}04 \times 10^4\text{ vírus/m}^3@; c) @10^4\text{ vírus/m}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Razão: @\frac{2{,}0 \times 10^{30}}{9{,}1 \times 10^{-31}} \approx 0{,}22 \times 10^{61} = 2{,}2 \times 10^{60}@.<br>
+          b) Como @2{,}2 < 3{,}162@, a ordem de grandeza da razão é @10^{60}@. Portanto, 60 ordens de magnitude separam a massa do Sol da massa do elétron.<br>
+          <strong>Resposta:</strong> a) @\approx 2{,}2 \times 10^{60}@; b) 60 ordens de grandeza.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Tempo de execução: @\Delta t = \frac{3{,}6 \times 10^{22}}{1{,}2 \times 10^{18}} = 3{,}0 \times 10^4\text{ s} = 30.000\text{ s}@.<br>
+          b) Em horas: @\frac{30.000}{3.600} \approx 8{,}33\text{ h} = 8\text{ h e } 20\text{ min}@.<br>
+          c) No computador comum: @\Delta t_c = \frac{3{,}6 \times 10^{22}}{1{,}0 \times 10^9} = 3{,}6 \times 10^{13}\text{ s}@.<br>
+          Em anos: @\frac{3{,}6 \times 10^{13}}{3{,}156 \times 10^7} \approx 1{,}14 \times 10^6\text{ anos}@ (mais de 1 milhão de anos!).<br>
+          <strong>Resposta:</strong> a) @3{,}0 \times 10^4\text{ s}@; b) @8\text{ h e } 20\text{ min}@; c) @\approx 1{,}14 \times 10^6\text{ anos}@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 3 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 3: Problemas de Aprofundamento</h3>
+      <ol start="25">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Espessura: @e = 0{,}20 \times 10^{-6}\text{ m} = 2{,}0 \times 10^{-7}\text{ m}@.<br>
+          Área: @A = \frac{V}{e} = \frac{40\text{ m}^3}{2{,}0 \times 10^{-7}\text{ m}} = 20 \times 10^7 = 2{,}0 \times 10^8\text{ m}^2@.<br>
+          b) Como @1\text{ km} = 10^3\text{ m} \implies 1\text{ km}^2 = 10^6\text{ m}^2@:<br>
+          @A = \frac{2{,}0 \times 10^8}{10^6} = 200\text{ km}^2 = 2{,}0 \times 10^2\text{ km}^2@.<br>
+          c) Como @2{,}0 < 3{,}162@, a ordem de grandeza é @10^2\text{ km}^2@ (centenas de quilômetros quadrados).<br>
+          <strong>Resposta:</strong> a) @2{,}0 \times 10^8\text{ m}^2@; b) @200\text{ km}^2@; c) @10^2\text{ km}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Distância em metros: @(5{,}0 \times 10^9\text{ km}) \times 10^3 = 5{,}0 \times 10^{12}\text{ m}@.<br>
+          b) Tempo em segundos: @\Delta t = \frac{5{,}0 \times 10^{12}\text{ m}}{3{,}0 \times 10^8\text{ m/s}} \approx 1{,}67 \times 10^4\text{ s} = 16.667\text{ s}@.<br>
+          c) Em horas: @\frac{16.667}{3.600} \approx 4{,}63\text{ h} = 4\text{ h } 38\text{ min}@.<br>
+          Ordem de grandeza em horas: como @4{,}63 \ge 3{,}162@, a OG é @10^{0+1} = 10^1\text{ h}@ (dezenas de horas).<br>
+          <strong>Resposta:</strong> a) @5{,}0 \times 10^{12}\text{ m}@; b) @\approx 1{,}67 \times 10^4\text{ s}@; c) @4\text{ h e } 38\text{ min}@ (Ordem de grandeza: @10^1\text{ h}@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Comprimento das praias: @L = 4{,}0 \times 10^5\text{ km} = 4{,}0 \times 10^8\text{ m}@.<br>
+          Volume total de areia: @V_{\text{total}} = (4{,}0 \times 10^8\text{ m}) \times 50\text{ m} \times 2{,}0\text{ m} = 4{,}0 \times 10^{10}\text{ m}^3@.<br>
+          b) Lado do grão: @0{,}50\text{ mm} = 5{,}0 \times 10^{-4}\text{ m}@.<br>
+          Volume de 1 grão: @v_{\text{grão}} = (5{,}0 \times 10^{-4})^3 = 125 \times 10^{-12} = 1{,}25 \times 10^{-10}\text{ m}^3@.<br>
+          c) Número de grãos: @N = \frac{4{,}0 \times 10^{10}}{1{,}25 \times 10^{-10}} = 3{,}2 \times 10^{20}@ grãos.<br>
+          Como @3{,}2 \ge 3{,}162@, a ordem de grandeza é @10^{20+1} = 10^{21}@ grãos de areia.<br>
+          <strong>Resposta:</strong> a) @4{,}0 \times 10^{10}\text{ m}^3@; b) @1{,}25 \times 10^{-10}\text{ m}^3@; c) @3{,}2 \times 10^{20}@ grãos (Ordem de grandeza: @10^{21}@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @1\text{ t} = 10^3\text{ kg} = 10^6\text{ g}@.<br>
+          Massa total: @(4{,}0 \times 10^8) \times 10^6 = 4{,}0 \times 10^{14}\text{ g}@.<br>
+          b) Quantidade de sacolas: @N = \frac{4{,}0 \times 10^{14}\text{ g}}{5{,}0\text{ g}} = 0{,}80 \times 10^{14} = 8{,}0 \times 10^{13}@ sacolas.<br>
+          c) Como @8{,}0 \ge 3{,}162@, a ordem de grandeza é @10^{13+1} = 10^{14}@ sacolas plásticas anuais.<br>
+          <strong>Resposta:</strong> a) @4{,}0 \times 10^{14}\text{ g}@; b) @8{,}0 \times 10^{13}@ sacolas; c) @10^{14}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @100\text{ km}@ equivalem a @\frac{100}{20} = 5@ trechos sucessivos de 20 km.<br>
+          Em cada trecho a potência cai por um fator de 10. Em 5 trechos, a fração residual é @10^{-5}@:<br>
+          @P = P_0 \times 10^{-5} = (1{,}0 \times 10^{-1}\text{ W}) \times 10^{-5} = 1{,}0 \times 10^{-6}\text{ W}@.<br>
+          b) Atenuação total permitida: de @1{,}0 \times 10^{-1}\text{ W}@ para @1{,}0 \times 10^{-9}\text{ W}@, ou seja, uma redução de @\frac{1{,}0 \times 10^{-1}}{1{,}0 \times 10^{-9}} = 10^8@ (8 fatores de 10).<br>
+          Número de trechos: 8 trechos de 20 km @\implies d_{\text{máx}} = 8 \times 20 = 160\text{ km}@.<br>
+          <strong>Resposta:</strong> a) @1{,}0 \times 10^{-6}\text{ W}@; b) @160\text{ km}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @G \cdot M_T \cdot M_L = (6{,}67 \times 10^{-11}) \times (5{,}97 \times 10^{24}) \times (7{,}35 \times 10^{22})@.<br>
+          Produto das mantissas: @6{,}67 \times 5{,}97 \times 7{,}35 \approx 292{,}67@.<br>
+          Soma dos expoentes: @-11 + 24 + 22 = 35@.<br>
+          Produto: @292{,}67 \times 10^{35} = 2{,}927 \times 10^{37}\text{ N}\cdot\text{m}^2@.<br>
+          b) Quadrado da distância: @d^2 = (3{,}84 \times 10^8)^2 = 14{,}7456 \times 10^{16} = 1{,}475 \times 10^{17}\text{ m}^2@.<br>
+          Força: @F = \frac{2{,}927 \times 10^{37}}{1{,}475 \times 10^{17}} \approx 1{,}98 \times 10^{20}\text{ N}@.<br>
+          c) Como @1{,}98 < 3{,}162@, a ordem de grandeza é @10^{20}\text{ N}@.<br>
+          <strong>Resposta:</strong> a) @\approx 2{,}93 \times 10^{37}\text{ N}\cdot\text{m}^2@; b) @1{,}98 \times 10^{20}\text{ N}@; c) @10^{20}\text{ N}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @(1{,}38 \times 10^{10}\text{ anos}) \times (3{,}156 \times 10^7\text{ s/ano}) \approx 4{,}36 \times 10^{17}\text{ s}@.<br>
+          b) Volume esférico: @V = \frac{4}{3} \times 3{,}14 \times (4{,}4 \times 10^{26})^3 \approx 4{,}187 \times 85{,}184 \times 10^{78} \approx 3{,}57 \times 10^{80}\text{ m}^3@.<br>
+          c) Idade: @4{,}36 \ge 3{,}162 \implies 10^{18}\text{ s}@.<br>
+          Volume: @3{,}57 \ge 3{,}162 \implies 10^{81}\text{ m}^3@.<br>
+          <strong>Resposta:</strong> a) @\approx 4{,}36 \times 10^{17}\text{ s}@; b) @\approx 3{,}57 \times 10^{80}\text{ m}^3@; c) Idade: @10^{18}\text{ s}@; Volume: @10^{81}\text{ m}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @600\text{ TWh} = 600 \times 10^{12}\text{ Wh} = 6 \times 10^{14}\text{ Wh}@.<br>
+          Em Joules: @(6 \times 10^{14}) \times 3.600 = 2{,}16 \times 10^{18}\text{ J}@.<br>
+          b) Quantidade de barris equivalentes: @N = \frac{2{,}16 \times 10^{18}}{6{,}0 \times 10^9} = 0{,}36 \times 10^9 = 3{,}6 \times 10^8@ barris.<br>
+          c) Como @3{,}6 \ge 3{,}162@, a ordem de grandeza é @10^{8+1} = 10^9@ barris de petróleo.<br>
+          <strong>Resposta:</strong> a) @2{,}16 \times 10^{18}\text{ J}@; b) @3{,}6 \times 10^8@ barris; c) @10^9@ barris.
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 4 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 4: Problemas Propostos</h3>
+      <ol start="33">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Em 1 milênio: @1.000 \times 365{,}25 \times 86.400 = 31.557.600.000\text{ s} \approx 3{,}156 \times 10^{10}\text{ s}@.<br>
+          b) Como @3{,}156 < 3{,}162@ (por uma margem ínfima!), a ordem de grandeza rigorosa é @10^{10}\text{ s}@.<br>
+          <strong>Resposta:</strong> a) @3{,}156 \times 10^{10}\text{ s}@; b) @10^{10}\text{ s}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Mols: @n = \frac{0{,}050\text{ g}}{18\text{ g/mol}} \approx 2{,}78 \times 10^{-3}\text{ mol}@.<br>
+          b) Moléculas: @N = (2{,}78 \times 10^{-3}) \times (6{,}0 \times 10^{23}) \approx 1{,}67 \times 10^{21}@ moléculas.<br>
+          Ordem de grandeza: @1{,}67 < 3{,}162 \implies 10^{21}@ moléculas.<br>
+          <strong>Resposta:</strong> a) @2{,}78 \times 10^{-3}\text{ mol}@; b) @1{,}67 \times 10^{21}@ moléculas (OG: @10^{21}@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Razão dos raios: @\frac{1{,}0 \times 10^{-10}}{1{,}0 \times 10^{-15}} = 1{,}0 \times 10^5@ (o átomo é 100 mil vezes maior em diâmetro).<br>
+          b) Razão volumétrica: @\left(\frac{R}{r}\right)^3 = (10^5)^3 = 10^{15}@ vezes.<br>
+          <strong>Resposta:</strong> a) @10^5@; b) @10^{15}@ vezes maior.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Numerador: @(6{,}40 \times 3{,}0) \times 10^{5 - 2} = 19{,}2 \times 10^3@.<br>
+          Divisão: @\frac{19{,}2 \times 10^3}{1{,}2 \times 10^4} = 16 \times 10^{-1} = 1{,}6@.<br>
+          b) Fatores possuem 2 algarismos significativos (3,0 e 1,2), logo a resposta com 2 algarismos é @1{,}6@ (ou @1{,}6 \times 10^0@).<br>
+          Como @1{,}6 < 3{,}162@, a ordem de grandeza é @10^0 = 1@.<br>
+          <strong>Resposta:</strong> a) Mantissa = 1,6 e expoente = 0; b) @1{,}6@ (OG: @10^0@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Área: @100\text{ km}^2 = 100 \times 10^6\text{ m}^2 = 1{,}0 \times 10^8\text{ m}^2@.<br>
+          Lâmina: @40\text{ mm} = 0{,}040\text{ m} = 4{,}0 \times 10^{-2}\text{ m}@.<br>
+          Volume: @(1{,}0 \times 10^8) \times (4{,}0 \times 10^{-2}) = 4{,}0 \times 10^6\text{ m}^3@.<br>
+          b) Número de gotas: @N = \frac{4{,}0 \times 10^6}{5{,}0 \times 10^{-8}} = 0{,}80 \times 10^{14} = 8{,}0 \times 10^{13}@ gotas.<br>
+          Ordem de grandeza: @8{,}0 \ge 3{,}162 \implies 10^{14}@ gotas.<br>
+          <strong>Resposta:</strong> a) @4{,}0 \times 10^6\text{ m}^3@; b) @8{,}0 \times 10^{13}@ gotas (OG: @10^{14}@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @29{,}8\text{ km/s} = 29.800\text{ m/s} = 2{,}98 \times 10^4\text{ m/s}@.<br>
+          b) Distância em 1 ano: @d = (2{,}98 \times 10^4\text{ m/s}) \times (3{,}156 \times 10^7\text{ s}) \approx 9{,}40 \times 10^{11}\text{ m}@.<br>
+          Em quilômetros: @9{,}40 \times 10^8\text{ km}@.<br>
+          <strong>Resposta:</strong> a) @2{,}98 \times 10^4\text{ m/s}@; b) @9{,}40 \times 10^{11}\text{ m}@ (@9{,}40 \times 10^8\text{ km}@).
+        </li>
+      </ol>
+    </div>
+
+  </div>
+</details>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

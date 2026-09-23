@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - Guia de Estudos: [CAPÍTULO]" -->
+  <title>NEXUS - Guia de Estudos: Geometria Espacial (Prismas e Cilindros)</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA GUIAS DE ESTUDOS - NEXUS RETRO-FUTURISTA
+       ========================================================================== */
+
+    /* Cabeçalho do guia */
+    .guia-header {
+      background-color: rgba(0, 0, 0, 0.25);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 5px solid var(--link-color);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .guia-header h1 {
+      margin-top: 0.5rem;
+      color: var(--heading-text-color);
+      font-size: 1.8rem;
+    }
+
+    .guia-meta-panel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+
+    .guia-meta-card {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .guia-meta-card strong {
+      display: block;
+      color: var(--heading-text-color);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.3rem;
+    }
+
+    .guia-meta-card span {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--main-text-color);
+    }
+
+    /* Grid de objetivos/habilidades BNCC */
+    .objetivos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .objetivo-item {
+      background-color: rgba(0, 0, 0, 0.22);
+      padding: 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--link-color);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .objetivo-item:hover {
+      transform: translateY(-2px);
+      border-left-color: var(--link-hover-color);
+    }
+
+    .objetivo-item strong {
+      color: var(--link-color);
+      display: block;
+      margin-bottom: 0.6rem;
+      font-family: 'Fira Sans', sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .objetivo-item p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       MAPA CONCEITUAL HIERÁRQUICO
+       ========================================================================== */
+    .mapa-conceitual {
+      background-color: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--container-border-color);
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+    }
+
+    .mapa-conceito-raiz {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .mapa-raiz-badge {
+      background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+      border: 2px solid var(--link-color);
+      color: var(--heading-text-color);
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.82rem;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+      line-height: 1.4;
+    }
+
+    .mapa-relacao-dual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 1rem 0 2rem 0;
+      font-weight: bold;
+      color: var(--secondary-text-color);
+      font-size: 0.95rem;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+
+    .mapa-grid-dual {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .mapa-coluna {
+      background-color: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .mapa-coluna-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--link-color);
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.2rem;
+      gap: 0.5rem;
+    }
+
+    .mapa-coluna-header h4 {
+      margin: 0;
+      color: var(--heading-text-color);
+      font-size: 1.1rem;
+    }
+
+    .mapa-coluna-tag {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: var(--link-color);
+      border: 1px solid var(--link-color);
+      white-space: nowrap;
+    }
+
+    .mapa-item-card {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--secondary-text-color);
+    }
+
+    .mapa-item-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .mapa-item-card h5 {
+      margin: 0 0 0.5rem 0;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mapa-item-card .formula-box {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin: 0.5rem 0;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .mapa-item-card p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--main-text-color);
+      opacity: 0.9;
+    }
+
+    .mapa-item-card .ponte-inversa {
+      font-size: 0.78rem;
+      color: var(--heading-text-color);
+      margin-top: 0.5rem;
+      display: block;
+      font-style: italic;
+    }
+
+    /* Bloco de transição de capacidade */
+    .ponte-capacidade {
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 1px dashed var(--link-color);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .ponte-capacidade strong {
+      color: var(--heading-text-color);
+      font-size: 0.95rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .ponte-capacidade span {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.8rem;
+      color: #ffd700;
+    }
+
+    /* ==========================================================================
+       ROTEIRO DE ESTUDOS EM ETAPAS (MISSÕES)
+       ========================================================================== */
+    .etapa-estudo {
+      background-color: rgba(0, 0, 0, 0.22);
+      padding: 1.8rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      border-left: 5px solid var(--link-color);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .etapa-estudo h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .etapa-numero {
+      background-color: var(--link-color);
+      color: var(--primary-bg-color);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+    }
+
+    .etapa-xp-badge {
+      margin-left: auto;
+      background-color: rgba(255, 215, 0, 0.15);
+      border: 1px solid #ffd700;
+      color: #ffd700;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-family: 'Press Start 2P', monospace;
+    }
+
+    .etapa-bloco-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0;
+    }
+
+    .etapa-subcard {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1rem;
+      border-radius: 6px;
+      border-top: 2px solid var(--secondary-text-color);
+    }
+
+    .etapa-subcard strong {
+      color: var(--heading-text-color);
+      display: block;
+      font-size: 0.88rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .etapa-subcard p, .etapa-subcard ul {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .etapa-subcard ul {
+      padding-left: 1.2rem;
+    }
+
+    .etapa-subcard li {
+      margin-bottom: 0.4rem;
+    }
+
+    .etapa-estudo a {
+      color: var(--link-color);
+      font-weight: bold;
+    }
+
+    .etapa-estudo a:hover {
+      color: var(--link-hover-color);
+      text-decoration: underline;
+    }
+
+    .etapa-tarefas-box {
+      background-color: rgba(0, 0, 0, 0.35);
+      border: 1px dashed var(--link-color);
+      padding: 1.2rem;
+      border-radius: 6px;
+      margin-top: 1.2rem;
+    }
+
+    .etapa-tarefas-box h4 {
+      margin: 0 0 0.8rem 0;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ==========================================================================
+       ESTRATÉGIAS DE ESTUDO & VISUALIZAÇÃO GEOMÉTRICA
+       ========================================================================== */
+    .estrategia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .estrategia-card {
+      background-color: rgba(0, 0, 0, 0.22);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-left: 4px solid var(--heading-text-color);
+    }
+
+    .estrategia-card h3 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .diagrama-geometrico {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--secondary-text-color);
+      border-radius: 6px;
+      padding: 1.2rem;
+      margin: 1rem 0;
+      font-family: monospace;
+      color: var(--main-text-color);
+      line-height: 1.35;
+      overflow-x: auto;
+      font-size: 0.85rem;
+    }
+
+    /* ==========================================================================
+       CONEXÕES INTERDISCIPLINARES
+       ========================================================================== */
+    .interdisciplinar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .interdisciplinar-card {
+      background-color: rgba(0, 0, 0, 0.22);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-top: 4px solid var(--link-color);
+    }
+
+    .interdisciplinar-card h3 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .interdisciplinar-card strong {
+      color: var(--link-color);
+    }
+
+    /* ==========================================================================
+       CHECKLIST E GAMIFICAÇÃO (DASHBOARD NEXUS)
+       ========================================================================== */
+    .checklist-container {
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .checklist-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 1rem 0;
+    }
+
+    .checklist-item {
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.7rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      border-left: 3px solid var(--secondary-text-color);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .checklist-item:hover {
+      background-color: rgba(0, 0, 0, 0.35);
+    }
+
+    .checklist-checkbox {
+      margin-top: 0.25rem;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: var(--link-color);
+    }
+
+    .checklist-content {
+      flex: 1;
+    }
+
+    .checklist-content strong {
+      display: block;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .checklist-content p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--main-text-color);
+    }
+
+    .trofeus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .trofeu-card {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(0, 0, 0, 0.3));
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      padding: 1.2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .trofeu-icone {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .trofeu-titulo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.72rem;
+      color: #ffd700;
+      margin-bottom: 0.5rem;
+    }
+
+    .trofeu-desc {
+      font-size: 0.82rem;
+      margin: 0;
+      color: var(--main-text-color);
+      opacity: 0.9;
+    }
+
+    .cronograma-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .cronograma-table th, .cronograma-table td {
+      padding: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: left;
+    }
+
+    .cronograma-table th {
+      background-color: rgba(0, 0, 0, 0.4);
+      color: var(--heading-text-color);
+      font-weight: bold;
+    }
+
+    .cronograma-table tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      .guia-header {
+        padding: 1.2rem;
+      }
+      .etapa-estudo {
+        padding: 1.2rem;
+      }
+      .etapa-numero {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+      .mapa-conceitual {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <!-- ===============================================================
+         CABEÇALHO DO GUIA
+         =============================================================== -->
+    <div class="guia-header">
+      <span class="badge-nivel ano-9">9º Ano</span>
+      <h1>📦 NEXUS - Guia de Estudos: Geometria Espacial (Prismas e Cilindros)</h1>
+      <p style="margin-bottom: 0.5rem; font-size: 1.05rem;">
+        <strong>Capítulo 9:</strong> <em>Explorando os objetos que nos cercam</em>
+      </p>
+      <p style="margin-bottom: 0; color: var(--secondary-text-color);">
+        Transite do universo bidimensional para o espaço tridimensional: domine vistas ortogonais, planificações geométricas, cálculo rigoroso de áreas totais, volumes pelo Princípio de Cavalieri e a engenharia de embalagens e logística.
+      </p>
+
+      <div class="guia-meta-panel">
+        <div class="guia-meta-card">
+          <strong>Tempo Sugerido</strong>
+          <span>⏱️ 3 Semanas (~18h)</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>Etapas de Missão</strong>
+          <span>🚀 5 Etapas Práticas</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>EXP Total Disponível</strong>
+          <span>⚡ +300 EXP Nexus</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>Troféus Desbloqueáveis</strong>
+          <span>🏆 3 Insígnias</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 1: OBJETIVOS E COMPETÊNCIAS BNCC
+         =============================================================== -->
+    <h2>1. Objetivos de Aprendizagem e Habilidades BNCC</h2>
+    <p>
+      A geometria tridimensional traduz as formas do mundo físico para a linguagem matemática da precisão métrica. Este guia desenvolve de forma integrada as competências da BNCC para o 9º Ano:
+    </p>
+
+    <div class="objetivos-grid">
+      <div class="objetivo-item">
+        <strong>(EF09MAT17)</strong>
+        <p>Reconhecer e desenhar vistas ortogonais (frontal, superior e lateral) de figuras espaciais tridimensionais, aplicando esse conhecimento em representações técnicas, maquetes e perspectivas.</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT18)</strong>
+        <p>Reconhecer e empregar unidades usuais de medida de volume e de capacidade, estabelecendo com fluidez a equivalência fundamental @1\text{ dm}^3 = 1\text{ L}@ e suas conversões métricas decimais.</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT19)</strong>
+        <p>Resolver e elaborar problemas que envolvam o cálculo de área lateral, área total e volume de prismas retos e cilindros retos em contextos industriais, cotidianos e de outras ciências.</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT14)</strong>
+        <p>Aplicar o Teorema de Pitágoras no contexto espacial para calcular a diagonal de blocos retangulares e determinar comprimentos internos desconhecidos.</p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: MAPA CONCEITUAL HIERÁRQUICO
+         =============================================================== -->
+    <h2>2. Mapa Conceitual Hierárquico</h2>
+    <p>
+      O estudo dos sólidos tridimensionais com seções paralelas congruentes divide-se em <strong>Poliedros (Prismas Retos)</strong> e <strong>Corpos Redondos (Cilindros Retos)</strong>, ambos unidos pelo <strong>Princípio de Cavalieri</strong> e pela ponte entre volume geométrico e capacidade hídrica:
+    </p>
+
+    <div class="mapa-conceitual">
+      <div class="mapa-conceito-raiz">
+        <span class="mapa-raiz-badge">GEOMETRIA ESPACIAL: SÓLIDOS DE SEÇÃO TRANSVERSAL CONSTANTE</span>
+        <div class="mapa-relacao-dual">
+          <span>[Projeções 2D & Planificação da Casca] ➔</span>
+          <span style="color: var(--link-color); font-size: 1.3rem;">⇌</span>
+          <span>➔ [Métricas 3D: Área Total & Volume]</span>
+        </div>
+      </div>
+
+      <div class="mapa-grid-dual">
+        <!-- COLUNA 1: PRISMAS RETOS -->
+        <div class="mapa-coluna">
+          <div class="mapa-coluna-header">
+            <h4>1. Prismas Retos (Poliedros)</h4>
+            <span class="mapa-coluna-tag">BASES POLIGONAIS</span>
+          </div>
+
+          <!-- Definição e Vistas -->
+          <div class="mapa-item-card">
+            <h5>Propriedades Estruturais & Vistas</h5>
+            <div class="formula-box">@@V - A + F = 2 \quad (V=2n, \, F=n+2, \, A=3n)@@</div>
+            <p>Duas bases paralelas poligonais idênticas; faces laterais retangulares perpendiculares às bases.</p>
+            <span class="ponte-inversa">↳ Vistas: Projeções frontal, superior e lateral sem deformação oblíqua</span>
+          </div>
+
+          <!-- Áreas do Prisma -->
+          <div class="mapa-item-card">
+            <h5>Área Lateral e Área Total</h5>
+            <div class="formula-box">@@A_L = 2p_{\text{base}} \cdot h \quad \implies \quad A_T = 2A_B + A_L@@</div>
+            <p>A área lateral é o produto do perímetro da base pela altura @h@. A área total inclui as duas tampas.</p>
+            <span class="ponte-inversa">↳ Planificação: Faixa retangular articulada às bases poligonais</span>
+          </div>
+
+          <!-- Volume do Prisma -->
+          <div class="mapa-item-card">
+            <h5>Volume do Prisma Geral</h5>
+            <div class="formula-box">@@V = A_B \cdot h@@</div>
+            <p>Produto direto da área da base pela altura. Para paralelepípedo reto: @V = a \cdot b \cdot c@.</p>
+            <span class="ponte-inversa">↳ Válido para bases triangulares, quadradas, hexagonais, etc.</span>
+          </div>
+
+          <!-- Diagonal Espacial -->
+          <div class="mapa-item-card">
+            <h5>Diagonal Espacial (Pitágoras 3D)</h5>
+            <div class="formula-box">@@D = \sqrt{a^2 + b^2 + c^2}@@</div>
+            <p>Comprimento do maior segmento reto que une dois vértices opostos no paralelepípedo.</p>
+            <span class="ponte-inversa">↳ No cubo de aresta @a@: @D = a\sqrt{3}@</span>
+          </div>
+        </div>
+
+        <!-- COLUNA 2: CILINDROS RETOS -->
+        <div class="mapa-coluna">
+          <div class="mapa-coluna-header">
+            <h4>2. Cilindros Retos (Revolução)</h4>
+            <span class="mapa-coluna-tag">BASES CIRCULARES</span>
+          </div>
+
+          <!-- Definição e Planificação -->
+          <div class="mapa-item-card">
+            <h5>Propriedades & Planificação da Casca</h5>
+            <div class="formula-box">@@C = 2\pi r \quad \text{e} \quad g = h@@</div>
+            <p>Duas bases circulares de raio @r@. A face lateral planificada é um retângulo de dimensões @2\pi r \times h@.</p>
+            <span class="ponte-inversa">↳ Vistas: Frontal e lateral retangulares; superior circular</span>
+          </div>
+
+          <!-- Áreas do Cilindro -->
+          <div class="mapa-item-card">
+            <h5>Área Lateral e Área Total</h5>
+            <div class="formula-box">@@A_L = 2\pi r h \quad \implies \quad A_T = 2\pi r^2 + 2\pi r h = 2\pi r(r + h)@@</div>
+            <p>Soma das áreas dos dois discos basais (@2 \times \pi r^2@) com a área do manto lateral.</p>
+            <span class="ponte-inversa">↳ Cilindro equilátero (@h = 2r@): @A_T = 6\pi r^2@</span>
+          </div>
+
+          <!-- Volume do Cilindro -->
+          <div class="mapa-item-card">
+            <h5>Volume do Cilindro</h5>
+            <div class="formula-box">@@V = \pi r^2 \cdot h@@</div>
+            <p>Analogia direta ao prisma pelo Princípio de Cavalieri: área do círculo vezes altura.</p>
+            <span class="ponte-inversa">↳ Cilindro equilátero (@h = 2r@): @V = 2\pi r^3@</span>
+          </div>
+
+          <!-- Transição para Capacidade -->
+          <div class="mapa-item-card">
+            <h5>Cavalieri: Seções Homólogas Iguais</h5>
+            <div class="formula-box">@@A_1(z) = A_2(z) \implies V_1 = V_2@@</div>
+            <p>Se dois sólidos têm mesma altura e áreas transversais iguais em cada nível, têm o mesmo volume.</p>
+            <span class="ponte-inversa">↳ Explica por que a fórmula @V = A_B \cdot h@ é universal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PONTE TRANSVERSAL DE CAPACIDADE -->
+      <div class="ponte-capacidade">
+        <strong>TRANSFORMAÇÃO DE UNIDADES DE VOLUME EM CAPACIDADE</strong>
+        <span>1 m³ = 1.000 L &nbsp;|&nbsp; 1 dm³ = 1 L &nbsp;|&nbsp; 1 cm³ = 1 mL</span>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: ROTEIRO DE ESTUDOS EM 5 ETAPAS
+         =============================================================== -->
+    <h2>3. Roteiro de Estudos em 5 Etapas (Missões Nexus)</h2>
+    <p>
+      Avance cumprindo cada missão metodologicamente. Você construirá sólidos no plano, calculará áreas e capacidades reais e conquistará EXP para o seu perfil no <strong>Dashboard Nexus</strong>:
+    </p>
+
+    <!-- ETAPA 1 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">1</span>
+        Missão: Vistas Ortogonais e a Desconstrução Tridimensional (2D ➔ 3D)
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT17) Identificar e desenhar as projeções ortogonais (vista frontal, superior e lateral) de prismas e cilindros.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Compreender o conceito de projeção ortogonal: raios de luz paralelos que incidem perpendicularmente a planos de projeção.</li>
+            <li>Identificar o triedro de desenho técnico: <strong>Vista Frontal</strong> (elevação), <strong>Vista Superior</strong> (planta) e <strong>Vista Lateral Esquerda</strong> (perfil).</li>
+            <li>Reconhecer que um cilindro reto possui vistas frontal e lateral retangulares, enquanto a superior é circular.</li>
+            <li>Distinguir arestas visíveis (traço contínuo) de arestas ocultas (traço tracejado).</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Alinhamento de projeção:</p>
+          <p>Largura da Frontal = Largura da Superior</p>
+          <p>Altura da Frontal = Altura da Lateral</p>
+          <p>Profundidade da Superior = Largura da Lateral</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. No seu caderno quadriculado, desenhe as 3 vistas ortogonais (frontal, superior e lateral) de um prisma reto de base triangular apoiado sobre uma de suas bases.</p>
+        <p>2. Desenhe as 3 vistas ortogonais de um cilindro reto com diâmetro @4\text{ cm}@ e altura @6\text{ cm}@.</p>
+        <p>3. <strong>Desafio Visual:</strong> Dado um sólido em forma de "L" construído com 4 cubinhos unitários de aresta @1\text{ cm}@, rascunhe suas três vistas ortogonais respeitando as convenções de traço.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 2 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">2</span>
+        Missão: A Planificação dos Sólidos e Redes Geométricas
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT17 e EF09MAT19) Desdobrar a casca bidimensional (rede geométrica) de prismas e cilindros retos.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Compreender a planificação como o mapeamento contínuo das faces de um sólido em um único plano sem sobreposições.</li>
+            <li>Reconhecer que a planificação de um prisma reto com base de @n@ lados forma uma faixa contínua de @n@ retângulos laterais acoplada a duas bases poligonais idênticas.</li>
+            <li>Deduzir que o comprimento do retângulo lateral do cilindro reto planificado deve ser exatamente igual ao comprimento da circunferência da base: @C = 2\pi r@.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Comprimento da casca cilíndrica: @@C = 2\pi r \approx 6,28 \cdot r@@</p>
+          <p>Perímetro da base do prisma: @@2p_{\text{base}} = \sum_{i=1}^n L_i@@</p>
+          <p><em>Atenção:</em> Se o comprimento do retângulo não for exatamente @2\pi r@, a lata não fecha perfeitamente!</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Pegue uma folha de papel ou cartolina e desenhe o molde da planificação de um cilindro com raio @r = 3\text{ cm}@ e altura @h = 8\text{ cm}@. Calcule o comprimento do retângulo (@C = 2 \cdot 3,14 \cdot 3 \approx 18,84\text{ cm}@), recorte e monte o cilindro tridimensional.</p>
+        <p>2. Desenhe a planificação de uma caixa de fósforos (paralelepípedo reto-retângulo com dimensões @5\text{ cm} \times 3,5\text{ cm} \times 1,5\text{ cm}@).</p>
+        <p>3. Investigue: Por que existem exatamente 11 planificações distintas possíveis para um cubo? Desenhe pelo menos 4 delas no caderno.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 3 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">3</span>
+        Missão: Cálculo de Áreas: Base, Lateral e Total em Prismas e Cilindros
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT19) Calcular a área lateral e a área total de superfícies poliédricas e cilíndricas.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Dominar o cálculo das áreas das bases poligonais mais comuns:
+              <ul>
+                <li>Quadrado: @A_B = L^2@</li>
+                <li>Retângulo: @A_B = a \cdot b@</li>
+                <li>Triângulo equilátero: @A_B = \frac{L^2\sqrt{3}}{4}@</li>
+                <li>Hexágono regular: @A_B = 6 \cdot \frac{L^2\sqrt{3}}{4} = \frac{3L^2\sqrt{3}}{2}@</li>
+                <li>Círculo da base cilíndrica: @A_B = \pi r^2@</li>
+              </ul>
+            </li>
+            <li>Calcular a área lateral (@A_L@) e somar as duas bases para obter a área total (@A_T = 2A_B + A_L@).</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Fórmulas Centrais</strong>
+          <p>Prisma Reto:</p>
+          <p>@@A_L = 2p_{\text{base}} \cdot h, \quad A_T = 2A_B + A_L@@</p>
+          <p>Cilindro Reto:</p>
+          <p>@@A_L = 2\pi r h, \quad A_T = 2\pi r(r + h)@@</p>
+          <p>Cilindro Equilátero (@h = 2r@): @@A_L = 4\pi r^2, \quad A_T = 6\pi r^2@@</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Estude os conceitos de superfície no <a href="../../recursos/resumos/9ANO-GEOMETRIA-ESPACIAL.html">Resumo de Geometria Espacial</a>.</p>
+        <p>2. <strong>Problema da Lata de Tinta:</strong> Uma lata cilíndrica de tinta possui raio da base @10\text{ cm}@ e altura @25\text{ cm}@. Calcule a área total de folha de flandres necessária para fabricá-la (adote @\pi \approx 3,14@).</p>
+        <p><em>(Solução: @A_B = 3,14 \cdot 10^2 = 314\text{ cm}^2@; @A_L = 2 \cdot 3,14 \cdot 10 \cdot 25 = 1570\text{ cm}^2@; @A_T = 2(314) + 1570 = 2198\text{ cm}^2@).</em></p>
+        <p>3. <strong>Prisma Hexagonal:</strong> Calcule a área total de um prisma hexagonal regular reto cuja aresta da base mede @4\text{ cm}@ e a altura mede @10\text{ cm}@ (use @\sqrt{3} \approx 1,73@).</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 4 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">4</span>
+        Missão: O Princípio de Cavalieri e o Cálculo de Volumes
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT19) Demonstrar e aplicar a fórmula universal de volume @V = A_B \cdot h@ e calcular diagonais espaciais.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Compreender o <strong>Princípio de Cavalieri</strong> com o modelo mental da pilha de moedas ou baralho: inclinar ou empilhar cartas de maneiras diferentes não altera o volume total se a altura e as seções transversais forem idênticas.</li>
+            <li>Calcular o volume de paralelepípedos (@V = a \cdot b \cdot c@), cubos (@V = a^3@) e prismas de qualquer base (@V = A_B \cdot h@).</li>
+            <li>Calcular o volume do cilindro (@V = \pi r^2 \cdot h@).</li>
+            <li>Aplicar o Teorema de Pitágoras em 3D para deduzir e calcular a diagonal espacial: @D = \sqrt{a^2 + b^2 + c^2}@.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Fórmulas de Volume</strong>
+          <p>Fórmula Geral: @@V = A_B \cdot h@@</p>
+          <p>Cilindro: @@V = \pi r^2 \cdot h@@</p>
+          <p>Cilindro Equilátero (@h = 2r@): @@V = \pi r^2 (2r) = 2\pi r^3@@</p>
+          <p>Diagonal do Bloco: @@D = \sqrt{a^2 + b^2 + c^2}@@</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Utilize a <a href="../../recursos/ferramentas/calculadora-areas-volumes.html">Calculadora de Áreas e Volumes</a> do Nexus para conferir o volume de sólidos com diferentes geometrias de base.</p>
+        <p>2. <strong>Desafio da Viga de Concreto:</strong> Uma viga de concreto tem a forma de um prisma reto de base trapezoidal com bases medindo @30\text{ cm}@ e @20\text{ cm}@, altura do trapézio de @40\text{ cm}@ e comprimento longitudinal da viga de @5\text{ m}@ (@500\text{ cm}@). Calcule o volume de concreto em @\text{m}^3@.</p>
+        <p>3. <strong>Desafio da Diagonal:</strong> Determine o comprimento da haste metálica mais longa que pode ser guardada totalmente reta dentro de uma caixa cúbica de aresta @10\text{ cm}@ (@D = 10\sqrt{3} \approx 17,32\text{ cm}@).</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 5 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">5</span>
+        Missão Integradora: A Ponte Volume-Capacidade, Vazão e Embalagens
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT18 e EF09MAT19) Converter medidas cúbicas em unidades de capacidade (litros e mililitros), calcular vazão e otimizar embalagens industriais.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Dominar a equivalência do litro: um cubo de @1\text{ dm} \times 1\text{ dm} \times 1\text{ dm} = 1\text{ dm}^3 = 1\text{ litro}@.</li>
+            <li>Converter instantaneamente:
+              <ul>
+                <li>@1\text{ m}^3 = 1.000\text{ dm}^3 = 1.000\text{ L}@</li>
+                <li>@1\text{ cm}^3 = 1\text{ mL} = 0,001\text{ L}@</li>
+              </ul>
+            </li>
+            <li>Resolver problemas de vazão temporal: @\text{Vazão } Q = \frac{\text{Volume}}{\Delta t} \implies \Delta t = \frac{V}{Q}@.</li>
+            <li>Analisar problemas reais de cisternas, caixas d'água residenciais e aproveitamento de espaço em pallets de logística.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Tabela de Conversão Rápida</strong>
+          <p>@1\text{ m}^3 = 1.000\text{ L} = 1.000.000\text{ mL}@</p>
+          <p>@1\text{ dm}^3 = 1\text{ L} = 1.000\text{ mL}@</p>
+          <p>@1\text{ cm}^3 = 0,001\text{ L} = 1\text{ mL}@</p>
+          <p><em>Fator de escala métrica cúbica: cada degrau decimal multiplica ou divide por 1.000!</em></p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. <strong>Problema da Caixa d'Água:</strong> Um condomínio precisa instalar uma caixa d'água cilíndrica com capacidade para @15.700\text{ litros}@. Sabendo que o raio da base deve ser de @1\text{ metro}@, qual deve ser a altura mínima desse cilindro? (Adote @\pi \approx 3,14@).</p>
+        <p><em>(Dica: @15.700\text{ L} = 15,7\text{ m}^3@. @V = \pi r^2 h \implies 15,7 = 3,14 \cdot 1^2 \cdot h \implies h = \frac{15,7}{3,14} = 5\text{ metros}@).</em></p>
+        <p>2. <strong>Problema da Torneira e Vazão:</strong> Uma piscina retangular com dimensões @6\text{ m} \times 3\text{ m} \times 1,5\text{ m}@ está vazia. Uma mangueira com vazão constante de @30\text{ litros por minuto}@ é ligada para enchê-la. Quantas horas serão necessárias para encher a piscina até o topo?</p>
+        <p>3. Resolva os problemas da <a href="../../recursos/listas/9ANO-LISTA-GEOMETRIA-ESPACIAL.html">Lista de Exercícios de Geometria Espacial</a> para consolidar sua preparação para provas e olimpíadas.</p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: ESTRATÉGIAS E TÉCNICAS DE ESTUDO
+         =============================================================== -->
+    <h2>4. Estratégias e Técnicas de Estudo</h2>
+    <p>
+      A geometria espacial demanda transitar continuamente entre representações bidimensionais planas (desenhos em papel e telas) e objetos tridimensionais do espaço físico. Use as técnicas abaixo para acelerar sua cognição espacial:
+    </p>
+
+    <div class="estrategia-grid">
+      <!-- VISTAS ORTOGONAIS E REGRAS DE ALINHAMENTO -->
+      <div class="estrategia-card">
+        <h3>📐 As 3 Vistas Ortogonais do Cilindro</h3>
+        <p>
+          Observe como um objeto cilíndrico tridimensional projeta sombras planas de formatos totalmente distintos dependendo do ângulo de visada:
+        </p>
+        <div class="diagrama-geometrico">
+   VISTA SUPERIOR (Planta)          VISTA FRONTAL (Elevação)
+          .-""""-.                        +--------------+
+        .'        '.                      |              |
+       /            \                     |              |
+      |   Raio r     |                    |   Altura h   |
+       \            /                     |              |
+        '.        .'                      |              |
+          '-....-'                        +--------------+
+      (Círculo: Área πr²)               (Retângulo: 2r x h)
+
+                     VISTA LATERAL (Perfil)
+                         +--------------+
+                         |              |
+                         |   Altura h   |
+                         |              |
+                         +--------------+
+                       (Retângulo: 2r x h)
+        </div>
+        <p style="font-size: 0.88rem; margin: 0;">
+          <strong>Regra de Ouro:</strong> Nunca confunda a projeção de perfil com a planificação! A vista projeta a largura aparente (o diâmetro @2r@); já a planificação desdobra o perímetro real todo (@2\pi r \approx 6,28r@), que é mais de três vezes maior que o diâmetro!
+        </p>
+      </div>
+
+      <!-- ESCALA CÚBICA E VOLUME -->
+      <div class="estrategia-card">
+        <h3>🧊 A Armadilha da Escala Cúbica: @k^3@</h3>
+        <p>
+          Se você dobrar todas as dimensões lineares de uma caixa (fator de escala @k = 2@), o que acontece com sua área e com seu volume?
+        </p>
+        <ul style="padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6; margin-bottom: 0.8rem;">
+          <li><strong>Comprimentos lineares:</strong> multiplicam-se por @k^1 = 2@ (dobram).</li>
+          <li><strong>Áreas de superfície:</strong> multiplicam-se por @k^2 = 2^2 = 4@ (quadruplicam de papelão!).</li>
+          <li><strong>Volumes e capacidades:</strong> multiplicam-se por @k^3 = 2^3 = 8@ (cabem 8 vezes mais líquido!).</li>
+        </ul>
+        <p style="font-size: 0.85rem; margin: 0; background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 4px;">
+          <em>Esse princípio explica por que animais gigantes precisam de ossos muito mais grossos (peso cresce com o cubo, resistência com a área) e por que tanques industriais gigantes são termicamente mais eficientes!</em>
+        </p>
+      </div>
+
+      <!-- POMODORO E FLASHCARDS DE CAPACIDADE -->
+      <div class="estrategia-card">
+        <h3>⏱️ Pomodoro Espacial & Flashcards</h3>
+        <p><strong>Flashcards Ativos (Conversões & Fórmulas):</strong></p>
+        <ul style="padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6;">
+          <li><strong>Cartão 1:</strong> Frente: "Quantos litros há em @3,5\text{ m}^3@?" ➔ Verso: "@3.500\text{ L}@ (multiplique por 1.000)".</li>
+          <li><strong>Cartão 2:</strong> Frente: "Quantos mililitros há em @250\text{ cm}^3@?" ➔ Verso: "@250\text{ mL}@ (@1\text{ cm}^3 = 1\text{ mL}@)".</li>
+          <li><strong>Cartão 3:</strong> Frente: "Área total do cilindro equilátero de raio @r@" ➔ Verso: "@A_T = 6\pi r^2@ (@h=2r@)".</li>
+          <li><strong>Cartão 4:</strong> Frente: "Diagonal espacial do cubo de aresta @a@" ➔ Verso: "@D = a\sqrt{3}@".</li>
+        </ul>
+        <p style="font-size: 0.85rem; margin: 0;">
+          <strong>Bloco de 25 min:</strong> Construa e monte planificações ou desenhe vistas de peças complexas sem olhar o gabarito. Nos 5 min de intervalo, caminhe e observe objetos reais ao seu redor (garrafas, caixas, tubulações).
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: CONEXÕES INTERDISCIPLINARES
+         =============================================================== -->
+    <h2>5. Conexões Interdisciplinares</h2>
+    <p>
+      A geometria espacial não é apenas desenho técnico: ela determina a economia global de recursos, a sustentabilidade da cadeia de suprimentos e o transporte marítimo internacional:
+    </p>
+
+    <div class="interdisciplinar-grid">
+      <!-- DESIGN DE EMBALAGENS -->
+      <div class="interdisciplinar-card">
+        <h3>📦 Design de Embalagens: Latas vs Caixas Tetra Pak</h3>
+        <p>
+          Por que a lata de refrigerante é cilíndrica enquanto a caixa de leite é um prisma retangular (paralelepípedo)?
+        </p>
+        <p>@@\frac{\text{Área}}{\text{Volume}} \quad \text{e resistência à pressão interna}@@</p>
+        <p style="font-size: 0.88rem;">
+          Bebidas com gás exigem paredes sem cantos vivos para distribuir uniformemente a pressão do @CO_2@ (o cilindro suporta altas pressões sem estufar). Por outro lado, para líquidos sem gás (como leite e suco), o <strong>prisma retangular Tetra Pak</strong> é imbatível: caixas retangulares empilham-se lado a lado ocupando @100\%@ do volume útil, enquanto cilindros empacotados deixam cerca de @21,5\%@ de ar vazio entre si, encarecendo o frete!
+        </p>
+      </div>
+
+      <!-- LOGÍSTICA E PALETIZAÇÃO -->
+      <div class="interdisciplinar-card">
+        <h3>🚛 Logística, Paletização PBR e Containers ISO</h3>
+        <p>
+          O transporte moderno depende do encaixe perfeito de prismas retos dentro de outros prismas maiores:
+        </p>
+        <p>@@N_{\text{máx}} = \left\lfloor\frac{C_{\text{container}}}{c_{\text{caixa}}}\right\rfloor \times \left\lfloor\frac{L_{\text{container}}}{l_{\text{caixa}}}\right\rfloor \times \left\lfloor\frac{A_{\text{container}}}{a_{\text{caixa}}}\right\rfloor@@</p>
+        <p style="font-size: 0.88rem;">
+          No Brasil, o palete padrão PBR tem dimensões padronizadas de @1.000\text{ mm} \times 1.200\text{ mm}@. O frete aéreo e rodoviário calcula a <strong>cubagem</strong> (@\text{Peso Cubado} = V \times 300\text{ kg/m}^3@ no modal rodoviário). Nos navios cargueiros, containers internacionais de 20 pés (@\approx 33\text{ m}^3@) e 40 pés (@\approx 67\text{ m}^3@) operam sob limites rigorosos de peso e volume geométrico.
+        </p>
+      </div>
+
+      <!-- ENGENHARIA HÍDRICA E AMBIENTAL -->
+      <div class="interdisciplinar-card">
+        <h3>💧 Engenharia Hídrica & Cisternas Pluviais</h3>
+        <p>
+          Como dimensionar uma cisterna de captação de água da chuva para garantir segurança hídrica em períodos de seca?
+        </p>
+        <p>@@V_{\text{chuva}} = P_{\text{índice}} \times A_{\text{telhado}} \times C_{\text{escoamento}}@@</p>
+        <p style="font-size: 0.88rem;">
+          A cada @1\text{ mm}@ de precipitação de chuva sobre @1\text{ m}^2@ de telhado, capta-se exatamente @1\text{ litro}@ de água (@1\text{ mm} \times 1\text{ m}^2 = 10^{-3}\text{ m} \times 1\text{ m}^2 = 10^{-3}\text{ m}^3 = 1\text{ dm}^3 = 1\text{ L}@). Engenheiros calculam o diâmetro e a profundidade de reservatórios cilíndricos ou prismáticos enterrados para atender à demanda de famílias e indústrias sustentáveis.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: CRONOGRAMA DE ESTUDOS
+         =============================================================== -->
+    <h2>6. Cronograma Sugerido de 3 Semanas</h2>
+    <p>Distribua sua dedicação com equilíbrio entre imaginação visual, construções manuais e cálculos algébricos:</p>
+
+    <table class="cronograma-table">
+      <thead>
+        <tr>
+          <th>Período</th>
+          <th>Foco de Estudo</th>
+          <th>Metas & Entregáveis</th>
+          <th>Tempo Estimado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Semana 1 (Dias 1 a 7)</strong></td>
+          <td>Vistas Ortogonais e Planificações (Etapas 1 e 2)</td>
+          <td>Desenhar as 3 vistas de blocos, prismas e cilindros; construir moldes de cartolina de um cilindro e de uma caixa cúbica; compreender arestas ocultas.</td>
+          <td>6 horas</td>
+        </tr>
+        <tr>
+          <td><strong>Semana 2 (Dias 8 a 14)</strong></td>
+          <td>Cálculo de Áreas e Volumes pelo Princípio de Cavalieri (Etapas 3 e 4)</td>
+          <td>Calcular @A_B@, @A_L@ e @A_T@ de prismas e cilindros; deduzir @V = A_B \cdot h@ com a pilha de moedas de Cavalieri; calcular diagonais 3D.</td>
+          <td>6 horas</td>
+        </tr>
+        <tr>
+          <td><strong>Semana 3 (Dias 15 a 21)</strong></td>
+          <td>Capacidade, Vazão, Logística e Autoavaliação (Etapa 5)</td>
+          <td>Converter unidades de @\text{m}^3@, @\text{dm}^3@, @\text{cm}^3@ em litros e mililitros; resolver problemas de caixas d'água e embalagens; preencher checklist.</td>
+          <td>6 horas</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ===============================================================
+         SEÇÃO 7: CHECKLIST DE AUTOAVALIAÇÃO & DASHBOARD NEXUS
+         =============================================================== -->
+    <h2>7. Checklist de Autoavaliação e Metas Nexus</h2>
+    <p>
+      Avalie sua maturidade nos conteúdos antes de concluir a trilha. Marque as habilidades que você domina com segurança:
+    </p>
+
+    <div class="checklist-container">
+      <h3 style="margin-top: 0; color: var(--heading-text-color);">📋 Checklist de Competências</h3>
+      <ul class="checklist-list">
+        <li class="checklist-item">
+          <input type="checkbox" id="chk1" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk1">
+              <strong>1. Leitura e Desenho de Vistas Ortogonais</strong>
+              <p>Consigo projetar e reconhecer a vista frontal, superior e lateral de prismas retos e de cilindros, aplicando linhas cheias e tracejadas.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk2" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk2">
+              <strong>2. Planificação e Redes Bidimensionais</strong>
+              <p>Sei desenhar a casca planificada de prismas e cilindros, identificando que a base retangular do manto do cilindro mede @2\pi r@.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk3" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk3">
+              <strong>3. Área da Base, Lateral e Total de Prismas</strong>
+              <p>Calculo a área de bases triangulares, quadradas e hexagonais e somo as faces para obter a área total do prisma.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk4" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk4">
+              <strong>4. Métricas do Cilindro Reto e Equilátero</strong>
+              <p>Aplico com precisão @A_L = 2\pi rh@, @A_T = 2\pi r(r + h)@ e @V = \pi r^2 h@, identificando as propriedades do cilindro equilátero (@h = 2r@).</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk5" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk5">
+              <strong>5. Conversão Fluida de Volume em Capacidade</strong>
+              <p>Converto instantaneamente @1\text{ dm}^3 = 1\text{ L}@, @1\text{ m}^3 = 1.000\text{ L}@ e @1\text{ cm}^3 = 1\text{ mL}@ sem errar ordens de grandeza decimais.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk6" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk6">
+              <strong>6. Diagonal Espacial e Otimização Logística</strong>
+              <p>Calculo a diagonal @D = \sqrt{a^2+b^2+c^2}@ e resolvo problemas de tempo de enchimento por vazão e empacotamento em pallets.</p>
+            </label>
+          </div>
+        </li>
+      </ul>
+
+      <h3 style="margin-top: 2rem; color: var(--heading-text-color);">🏆 Insígnias e Troféus do Dashboard Nexus</h3>
+      <p style="font-size: 0.9rem;">
+        Ao concluir os estudos deste guia e registrar suas resoluções, você desbloqueará as seguintes conquistas no seu perfil do <a href="../../dashboard.html">Dashboard Nexus</a>:
+      </p>
+
+      <div class="trofeus-grid">
+        <div class="trofeu-card">
+          <div class="trofeu-icone">📐</div>
+          <div class="trofeu-titulo">ARQUITETO DAS VISTAS</div>
+          <p class="trofeu-desc">Conclua as Etapas 1 e 2 dominando vistas ortogonais no triedro de Monge e a planificação de sólidos (+100 EXP).</p>
+        </div>
+
+        <div class="trofeu-card">
+          <div class="trofeu-icone">🛢️</div>
+          <div class="trofeu-titulo">MESTRE DOS VOLUMES</div>
+          <p class="trofeu-desc">Conclua as Etapas 3 e 4 calculando áreas e volumes de prismas e cilindros pelo Princípio de Cavalieri (+100 EXP).</p>
+        </div>
+
+        <div class="trofeu-card">
+          <div class="trofeu-icone">📦</div>
+          <div class="trofeu-titulo">ENGENHEIRO DE LOGÍSTICA</div>
+          <p class="trofeu-desc">Conclua a Etapa 5 dominando conversão de capacidades, cálculos de vazão, dimensionamento de cisternas e paletização (+100 EXP).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 8: MATERIAIS E RECURSOS VINCULADOS
+         =============================================================== -->
+    <h2>8. Materiais e Recursos Vinculados</h2>
+    <div class="objetivos-grid">
+      <div class="objetivo-item">
+        <strong>📄 Resumo Teórico: Geometria Espacial</strong>
+        <p>Definições de prismas e cilindros, projeções ortogonais e exemplos resolvidos passo a passo com fórmulas essenciais.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../recursos/resumos/9ANO-GEOMETRIA-ESPACIAL.html">Acessar Resumo de Geometria Espacial</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>📝 Lista de Problemas de Geometria Espacial</strong>
+        <p>Mais de 30 problemas selecionados de vistas ortogonais, áreas, volumes e capacidades para fixação e aprofundamento.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../recursos/listas/9ANO-LISTA-GEOMETRIA-ESPACIAL.html">Acessar Lista de Exercícios</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>🧮 Calculadora de Áreas e Volumes</strong>
+        <p>Simulador interativo do Nexus para calcular instantaneamente áreas da base, laterais e volumes de figuras espaciais.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../recursos/ferramentas/calculadora-areas-volumes.html">Abrir Calculadora Interativa</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>📊 Dashboard do Aluno</strong>
+        <p>Acompanhe seu avanço em tempo real, registre suas missões concluídas e acumule pontos de EXP rumo ao topo do ranking.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../dashboard.html">Ir para o Dashboard</a></p>
+      </div>
+    </div>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

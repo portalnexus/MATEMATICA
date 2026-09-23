@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Lista de Problemas: Estatística Descritiva e Decisões</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    /* Container de metadados (fonte, dificuldade, tempo estimado) */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    /* Tag de tópico matemático */
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    /* Tag de fonte do problema */
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Tag de dificuldade com cores diferentes */
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Cores por nível de dificuldade */
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }    /* Verde */
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }    /* Amarelo */
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }  /* Vermelho */
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); } /* Roxo */
+
+    /* Introdução de cada seção */
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    /* Caixas de dica para os estudantes */
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    /* Gabarito expansível */
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-secao ol {
+      padding-left: 1.5rem;
+    }
+
+    .gabarito-secao li {
+      margin-bottom: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: 600;
+      color: var(--secondary-text-color);
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<!-- ============================================================================
+     TÍTULO PRINCIPAL DA LISTA
+     ============================================================================ -->
+<h1>LISTA DE PROBLEMAS: ESTATÍSTICA DESCRITIVA E DECISÕES</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas fundamentais para aplicação direta de conceitos: cálculo direto de medidas de tendência central (média aritmética simples e ponderada, mediana e moda), frequências absoluta e relativa, amplitude total e introdução ao desvio padrão.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Média aritmética simples</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um estudante obteve as seguintes notas em cinco avaliações de Matemática ao longo do semestre: 6,5; 7,0; 8,5; 9,0 e 8,0. Calcule a média aritmética simples dessas notas.</p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Mediana com número ímpar de dados</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>O número de livros lidos por 7 estudantes de um clube de leitura em determinado ano foi: @\{4, 12, 3, 8, 5, 2, 7\}@. Organize os dados em rol e determine a mediana desse conjunto.</p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Mediana com número par de dados</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>As temperaturas máximas diárias registradas em uma estação meteorológica durante seis dias consecutivos foram (em °C): 22, 28, 25, 21, 30 e 26. Calcule a temperatura mediana desse período.</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Identificação e classificação modal</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Identifique a moda de cada um dos conjuntos de dados a seguir e classifique-os em amodal, unimodal ou bimodal:</p>
+      <p>a) @A = \{3, 5, 7, 5, 9, 5, 2\}@</p>
+      <p>b) @B = \{12, 15, 12, 18, 19, 15, 20\}@</p>
+      <p>c) @C = \{4, 7, 10, 13, 16\}@</p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Média aritmética ponderada</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Em um concurso acadêmico, a nota final é computada pela média ponderada com os seguintes pesos: Prova Teórica (peso 2), Prova Prática (peso 3) e Redação (peso 1). Se uma candidata obteve notas 7,0 na teórica, 8,0 na prática e 9,0 na redação, qual foi sua nota final?</p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Frequências absoluta e relativa percentual</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Em uma turma com 40 estudantes, realizou-se uma pesquisa sobre a modalidade esportiva preferida: 14 alunos escolheram voleibol, 18 escolheram futebol e 8 optaram por basquete. Calcule a frequência relativa (em porcentagem) correspondente a cada uma das modalidades.</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Gráfico de setores e ângulo central</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Em uma pesquisa de opinião pública, 35% dos entrevistados responderam "Favorável", 45% responderam "Desfavorável" e 20% "Não souberam opinar". Determine a medida do ângulo central (em graus) de cada setor correspondente em um gráfico de pizza.</p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Amplitude total de uma série de dados</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>As alturas (em metros) dos cinco titulares de uma equipe de basquetebol são: 1,88; 1,92; 2,05; 1,84 e 2,01. Determine a amplitude total dessas alturas.</p>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Propriedade dos desvios em relação à média</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Dado o conjunto de dados @\{4, 6, 10, 12\}@, calcule a média aritmética simples @\bar{x}@ e comprove numericamente que a soma de todos os desvios @d_i = x_i - \bar{x}@ é identicamente nula (@\sum d_i = 0@).</p>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Variância e desvio padrão básico</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Três pesagens de controle de um pacote de farinha na linha de produção registraram: 98 g, 100 g e 102 g. Calcule a média, a variância populacional e o desvio padrão populacional dessas três medidas.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas contextualizados que desenvolvem raciocínio analítico: dispersão e regularidade no esporte, leitura de tabelas de frequência, dados agrupados em classes (histograma), vieses visuais na mídia, impacto de transformações lineares e tomada de decisões empresariais.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Desvio padrão e consistência em esportes</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Dois atiradores desportivos, Lucas e Mateus, realizaram 5 disparos cada em uma prova de precisão, obtendo as seguintes pontuações:</p>
+      <p>Lucas: @\{8, 9, 8, 9, 8\}@</p>
+      <p>Mateus: @\{6, 10, 6, 10, 10\}@</p>
+      <p>a) Calcule a pontuação média obtida por cada um dos atiradores.</p>
+      <p>b) Calcule o desvio padrão de cada atleta e justifique, com base na dispersão dos dados, qual atirador demonstrou desempenho mais homogêneo e regular.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Embora ambos possam apresentar a mesma média, o atirador mais regular é aquele que apresenta o menor desvio padrão (@\sigma = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n}}@).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Média e mediana em tabela de frequências</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>A administração de um edifício residencial realizou um censo com os 50 apartamentos do condomínio para levantar o número de moradores por unidade habitacional:</p>
+      <table style="width: 100%; max-width: 450px; margin: 10px auto; border-collapse: collapse; text-align: center;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--link-color, #00ffcc);">
+            <th>Nº de Moradores (@x_i@)</th>
+            <th>Nº de Apartamentos (@f_i@)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>0</td><td>4</td></tr>
+          <tr><td>1</td><td>10</td></tr>
+          <tr><td>2</td><td>18</td></tr>
+          <tr><td>3</td><td>12</td></tr>
+          <tr><td>4</td><td>6</td></tr>
+        </tbody>
+      </table>
+      <p>a) Calcule o número médio de moradores por apartamento no condomínio.</p>
+      <p>b) Determine a mediana e a moda dessa distribuição de dados.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Para a média ponderada, multiplique cada valor @x_i@ pela sua frequência @f_i@ e divida pelo total de 50 apartamentos. Para a mediana, identifique os valores nas posições 25ª e 26ª acumuladas.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Histograma e dados agrupados em classes</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Uma central de atendimento ao cliente registrou o tempo de espera (em minutos) de 50 usuários até o início do atendimento, agrupando os dados em intervalos de classe com amplitude de 5 minutos:</p>
+      <table style="width: 100%; max-width: 500px; margin: 10px auto; border-collapse: collapse; text-align: center;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--link-color, #00ffcc);">
+            <th>Tempo de Espera (min)</th>
+            <th>Ponto Médio (@x_i@)</th>
+            <th>Frequência (@f_i@)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>[0, 5)</td><td>2,5</td><td>8</td></tr>
+          <tr><td>[5, 10)</td><td>7,5</td><td>16</td></tr>
+          <tr><td>[10, 15)</td><td>12,5</td><td>18</td></tr>
+          <tr><td>[15, 20)</td><td>17,5</td><td>8</td></tr>
+        </tbody>
+      </table>
+      <p>Calcule a estimativa do tempo médio de espera desses usuários utilizando os pontos médios das classes.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Em dados contínuos agrupados em intervalos @[a, b)@, representamos cada classe pelo seu ponto médio @x_i = \frac{a + b}{2}@ e aplicamos a média ponderada pelas frequências.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Análise crítica de gráficos e distorção de escala</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um telejornal exibiu um gráfico de barras verticais para comparar o faturamento anual da Empresa Alfa (R$ 100 milhões) e da Empresa Beta (R$ 105 milhões). O produtor do gráfico iniciou o eixo vertical em R$ 95 milhões em vez de começar no marco zero.</p>
+      <p>a) Qual é o comprimento visual relativo da barra da Empresa Beta em relação à da Empresa Alfa exibida na tela?</p>
+      <p>b) Qual é a razão percentual real de aumento no faturamento da Empresa Beta em relação à Empresa Alfa?</p>
+      <p>c) Explique por que gráficos com eixos truncados sem sinalização adequada podem induzir os telespectadores a conclusões equivocadas.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A altura visual da barra é proporcional à distância até o valor base da escala. Com base em 95, Alfa aparenta ter altura @100 - 95 = 5@ e Beta tem altura @105 - 95 = 10@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 15 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Efeito da adição de constante na média e na dispersão</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Os salários mensais de 5 analistas de um setor de suporte são: R$ 2.000,00; R$ 2.200,00; R$ 2.400,00; R$ 2.600,00 e R$ 2.800,00. A diretoria da empresa concede um reajuste fixo de abono de R$ 300,00 para todos os funcionários desse setor.</p>
+      <p>a) Demonstre numericamente o que ocorre com a média salarial do grupo após o reajuste.</p>
+      <p>b) Demonstre o que ocorre com o desvio padrão dos salários após a soma dessa constante.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Ao somar uma constante @c@ a cada elemento de uma série, a média se desloca em @c@ (@\bar{X}_{\text{novo}} = \bar{X} + c@), mas os desvios em relação à nova média permanecem inalterados, logo o desvio padrão não muda!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 16 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Efeito da multiplicação por constante (reajuste percentual)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Considere os mesmos 5 salários originais do problema anterior (média original de R$ 2.400,00 e desvio padrão populacional @\sigma \approx 282{,}84@ reais). Suponha que, em vez de um abono fixo, a empresa conceda um reajuste de 10% sobre o salário de cada um dos 5 analistas.</p>
+      <p>a) Qual será o novo salário médio do setor?</p>
+      <p>b) O que ocorrerá com o desvio padrão dos salários?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Um aumento de 10% equivale a multiplicar cada valor por @k = 1{,}10@. A nova média é @k \cdot \bar{x}@ e o novo desvio padrão é @k \cdot \sigma@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 17 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tomada de decisão acadêmica e cálculo de meta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Em um curso universitário com quatro avaliações bimestrais de pesos iguais, a média mínima de aprovação sem exame final é 7,0. Um estudante obteve notas 5,2; 6,4 e 7,0 nas três primeiras provas.</p>
+      <p>a) Qual é a nota mínima que o estudante precisa obter na 4ª prova para atingir exatamente a média 7,0?</p>
+      <p>b) Sabendo que a nota máxima de qualquer avaliação é 10,0, verifique se ainda é matematicamente possível para o estudante alcançar uma média final de 7,5.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Se a média de 4 provas deve ser @M@, a soma total das notas deve satisfazer @N_1 + N_2 + N_3 + N_4 = 4 \times M@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 18 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Mediana em distribuição com frequência acumulada</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>A tabela de frequência acumulada das idades de 120 participantes de um simpósio de inovação tecnológica é fornecida a seguir:</p>
+      <table style="width: 100%; max-width: 500px; margin: 10px auto; border-collapse: collapse; text-align: center;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--link-color, #00ffcc);">
+            <th>Faixa Etária (anos)</th>
+            <th>Frequência Simples (@f_i@)</th>
+            <th>Frequência Acumulada (@F_i@)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>[20, 30)</td><td>24</td><td>24</td></tr>
+          <tr><td>[30, 40)</td><td>42</td><td>66</td></tr>
+          <tr><td>[40, 50)</td><td>36</td><td>102</td></tr>
+          <tr><td>[50, 60)</td><td>18</td><td>120</td></tr>
+        </tbody>
+      </table>
+      <p>a) Identifique qual intervalo de classe contém a mediana da distribuição.</p>
+      <p>b) Estime o valor da idade mediana através de interpolação linear na classe mediana.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Para 120 participantes, a posição central é a 60ª. Use a fórmula de interpolação @\text{Md} = L_i + \frac{\frac{N}{2} - F_{ant}}{f_{med}} \cdot h@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 19 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Controle estatístico de qualidade e limites de tolerância</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Uma indústria alimentícia empacota café solúvel com peso nominal declarado na embalagem de 500 g. Em uma amostragem de 100 pacotes recém-saídos da máquina seladora, obteve-se média @\bar{x} = 500\text{ g}@ e desvio padrão @\sigma = 4\text{ g}@. Pelo controle estatístico de processos, espera-se que 95% dos pacotes situem-se no intervalo de confiança @[\bar{x} - 2\sigma, \bar{x} + 2\sigma]@.</p>
+      <p>a) Determine os limites inferior e superior de peso para 95% da produção dessa máquina.</p>
+      <p>b) Se a legislação metrológica tolera que no máximo 2,5% dos pacotes fiquem abaixo de 490 g, a máquina atende às exigências legais?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Calcule @500 - 2 \cdot 4@ e @500 + 2 \cdot 4@ e compare o limite inferior com a tolerância de 490 g estipulada pelas normas.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 20 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Classificação de variáveis estatísticas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Em um estudo clínico hospitalar para monitoramento de pacientes internados, coletaram-se as informações listadas abaixo. Classifique cada variável em: Qualitativa Nominal, Qualitativa Ordinal, Quantitativa Discreta ou Quantitativa Contínua:</p>
+      <p>a) Tipo sanguíneo do paciente (A, B, AB ou O).</p>
+      <p>b) Intensidade da dor relatada (Leve, Moderada, Intensa).</p>
+      <p>c) Número de cirurgias prévias realizadas pelo paciente.</p>
+      <p>d) Temperatura corporal aferida com termômetro digital em °C.</p>
+      <p>e) Tempo total de internação no hospital (em horas).</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Qualitativas expressam atributos (ordinais têm hierarquia natural; nominais não têm). Quantitativas expressam números (discretas resultam de contagem de números inteiros; contínuas resultam de medição em escala real).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 21 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Coeficiente de variação e dispersão relativa</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Em um hospital universitário, registrou-se o peso de dois grupos de indivíduos:</p>
+      <p>Grupo 1 (Recém-nascidos): Média = 3,2 kg, Desvio Padrão = 0,4 kg.</p>
+      <p>Grupo 2 (Adultos saudáveis): Média = 70,0 kg, Desvio Padrão = 5,6 kg.</p>
+      <p>a) Calcule o Coeficiente de Variação (@CV = \frac{\sigma}{\bar{x}} \times 100\%@) de cada um dos grupos.</p>
+      <p>b) Qual dos dois grupos apresenta maior dispersão relativa em relação à sua própria média?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> O desvio padrão absoluto é sensível à magnitude das grandezas medidas. O Coeficiente de Variação (adimensional) permite comparar a variabilidade relativa entre populações com médias muito distintas.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 22 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Censo demográfico versus amostragem probabilística</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>O Instituto Brasileiro de Geografia e Estatística (IBGE) realiza tanto o Censo Demográfico decenal quanto pesquisas contínuas por amostragem, como a PNAD Contínua (Pesquisa Nacional por Amostra de Domicílios).</p>
+      <p>a) Defina a diferença conceitual entre uma pesquisa censitária e uma pesquisa amostral.</p>
+      <p>b) Cite duas vantagens da realização de pesquisas amostrais em relação a um censo completo no planejamento de políticas públicas emergenciais.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Pense em parâmetros fundamentais como custo financeiro, velocidade de coleta/divulgação e necessidade de atualização periódica mensal ou trimestral.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 23 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Impacto de valores discrepantes (outliers)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Em uma pequena empresa de consultoria de tecnologia, os salários mensais dos seis colaboradores são: R$ 1.500,00; R$ 1.600,00; R$ 1.700,00; R$ 1.800,00; R$ 2.000,00 e o salário do sócio-fundador, que é de R$ 25.000,00.</p>
+      <p>a) Calcule o salário médio e o salário mediano dessa equipe.</p>
+      <p>b) Justifique por que a mediana representa de forma muito mais fidedigna o salário típico de um colaborador nessa empresa do que a média aritmética simples.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A média aritmética é uma medida sensível a valores extremos discrepantes (outliers), enquanto a mediana é uma medida robusta e resistente à influência de pontuações excepcionais.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 24 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Média combinada de dois grupos de tamanhos desiguais</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Em uma escola, a turma A do 1º ano possui 30 alunos e obteve nota média de 7,2 na prova unificada de Matemática. A turma B possui 20 alunos e alcançou média 8,2 na mesma prova.</p>
+      <p>a) Calcule a soma total de pontos obtidos pela turma A e pela turma B.</p>
+      <p>b) Calcule a média combinada de todos os 50 alunos das duas turmas reunidas.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Não calcule a média simples entre 7,2 e 8,2! A média global deve ser ponderada pelo número de alunos de cada turma: @\bar{x}_{\text{global}} = \frac{n_A \bar{x}_A + n_B \bar{x}_B}{n_A + n_B}@.
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Desafios de alto nível e questões no estilo de vestibulares concorridos (ENEM, UNICAMP, FUVEST, OBMEP e IBGE): análise de desempate por variância, inflação setorial e orçamento, propriedades minimizantes da mediana e dedução formal da variância.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 25 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ENEM</span>
+        <span class="topico">Critério de regularidade e desempate por variância</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Três candidatos (A, B e C) disputam uma vaga de coordenação em uma empresa multinacional. O edital prevê que a seleção seja feita pela média das notas em 4 provas (Lógica, Gestão, Inglês e Informática). Em caso de empate na média, a vaga será atribuída ao candidato com desempenho mais regular (menor variância populacional). As notas obtidas foram:</p>
+      <p>Candidato A: @\{8, 8, 8, 8\}@</p>
+      <p>Candidato B: @\{7, 8, 9, 8\}@</p>
+      <p>Candidato C: @\{6, 10, 6, 10\}@</p>
+      <p>a) Demonstre que os três candidatos empataram com a mesma nota média.</p>
+      <p>b) Calcule a variância populacional das notas de cada candidato e aponte quem deve ficar com a vaga segundo o edital.</p>
+    </li>
+
+    <!-- PROBLEMA 26 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ENEM</span>
+        <span class="topico">Inflação ponderada e impacto no orçamento familiar</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>O orçamento mensal de uma família de R$ 4.000,00 é distribuído entre cinco categorias de gastos:</p>
+      <p>• Alimentação: 30% do orçamento (R$ 1.200,00)</p>
+      <p>• Habitação: 40% do orçamento (R$ 1.600,00)</p>
+      <p>• Transporte: 15% do orçamento (R$ 600,00)</p>
+      <p>• Saúde: 10% do orçamento (R$ 400,00)</p>
+      <p>• Lazer: 5% do orçamento (R$ 200,00)</p>
+      <p>Durante o ano, os itens de Alimentação sofreram um reajuste inflacionário acumulado de 10% e os de Habitação subiram 5%, enquanto os demais custos permaneceram estáveis (0% de inflação).</p>
+      <p>a) Calcule o acréscimo financeiro total (em reais) que a família terá para manter o mesmo padrão de consumo.</p>
+      <p>b) Calcule a taxa de inflação ponderada sentida por essa família em relação ao orçamento total inicial.</p>
+    </li>
+
+    <!-- PROBLEMA 27 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">UNICAMP</span>
+        <span class="topico">Amostra ordenada com incógnita: média igual à mediana</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Um conjunto de 5 números inteiros positivos está disposto em ordem crescente: @\{2, 5, x, 11, 14\}@. Sabe-se que a média aritmética simples desse conjunto é igual à sua mediana.</p>
+      <p>a) Identifique a mediana da amostra em termos de @x@.</p>
+      <p>b) Monte a equação correspondente e determine o valor exato do número inteiro @x@.</p>
+      <p>c) Verifique se o valor encontrado satisfaz a condição de ordenação crescente inicial @5 \leq x \leq 11@.</p>
+    </li>
+
+    <!-- PROBLEMA 28 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">IBGE / ENEM</span>
+        <span class="topico">Razão de dependência demográfica e transição etária</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Em um município com 90.000 habitantes, o levantamento demográfico aponta a seguinte distribuição por faixas etárias:</p>
+      <p>• Jovens (0 a 14 anos): 20.000 pessoas</p>
+      <p>• População em Idade Ativa - PIA (15 a 64 anos): 60.000 pessoas</p>
+      <p>• Idosos (65 anos ou mais): 10.000 pessoas</p>
+      <p>A Razão de Dependência Demográfica (@RD@) é definida pelo IBGE como a razão entre a população dependente (jovens + idosos) e a população em idade produtiva, expressa em porcentagem: @@RD = \frac{\text{Jovens} + \text{Idosos}}{\text{PIA}} \times 100\%@@</p>
+      <p>a) Calcule o valor da razão de dependência desse município e interprete o significado pedagógico desse indicador.</p>
+      <p>b) Se nas próximas décadas a população de idosos dobrar para 20.000 e a de jovens cair para 10.000, mantendo a PIA constante em 60.000, como a razão de dependência se comportará?</p>
+    </li>
+
+    <!-- PROBLEMA 29 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST / ENEM</span>
+        <span class="topico">Atualização dinâmica de média e inclusão de dados</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Uma turma escolar composta por 24 alunos realizou um simulado e obteve média geral de 6,0 pontos. No dia seguinte, um aluno que havia faltado realizou a avaliação de segunda chamada e obteve a nota 8,5.</p>
+      <p>a) Qual era a soma de todos os pontos obtidos pelos 24 alunos iniciais?</p>
+      <p>b) Qual passou a ser a nova média geral da turma inteira agora com 25 alunos?</p>
+      <p>c) De quanto foi a variação absoluta na média da turma decorrente dessa inclusão?</p>
+    </li>
+
+    <!-- PROBLEMA 30 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">OBMEP / VESTIBULAR</span>
+        <span class="topico">Propriedade extremal da mediana e soma de desvios absolutos</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 15 min</span>
+      </div>
+      <p>Considere os três pontos na reta real: @x_1 = 2@, @x_2 = 4@ e @x_3 = 9@. Deseja-se encontrar um número real @c@ que minimize a função da soma das distâncias absolutas: @@f(c) = |c - 2| + |c - 4| + |c - 9|@@</p>
+      <p>a) Analisando o comportamento da função @f(c)@ nos intervalos delimitados pelos pontos, determine o valor de @c@ que minimiza @f(c)@.</p>
+      <p>b) Calcule o valor mínimo assumido por @f(c)@.</p>
+      <p>c) Conclua por que esse resultado prova formalmente que a mediana é o número que minimiza a soma dos desvios absolutos em um conjunto de dados.</p>
+    </li>
+
+    <!-- PROBLEMA 31 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ENEM</span>
+        <span class="topico">Histograma de emissão veicular e decisão ambiental</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Um órgão ambiental inspecionou 100 caminhões de transporte de carga para medir a emissão de partículas de monóxido de carbono (em partes por milhão - ppm). Os dados foram organizados nas seguintes faixas:</p>
+      <p>• @[100, 150)@ ppm: 30 caminhões (ponto médio 125 ppm)</p>
+      <p>• @[150, 200)@ ppm: 45 caminhões (ponto médio 175 ppm)</p>
+      <p>• @[200, 250)@ ppm: 15 caminhões (ponto médio 225 ppm)</p>
+      <p>• @[250, 300)@ ppm: 10 caminhões (ponto médio 275 ppm)</p>
+      <p>A legislação ambiental municipal estipula que veículos com emissão igual ou superior a 200 ppm devem ser imediatamente autuados e retirados de circulação até passarem por regulagem mecânica.</p>
+      <p>a) Quantos caminhões da amostra foram autuados por exceder o limite legal e qual a porcentagem correspondente?</p>
+      <p>b) Estime o valor médio de emissão de poluentes dessa frota de 100 caminhões.</p>
+    </li>
+
+    <!-- PROBLEMA 32 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">UNICAMP</span>
+        <span class="topico">Fórmula simplificada da variância: média dos quadrados</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 14 min</span>
+      </div>
+      <p>A variância de um conjunto com @n@ dados pode ser calculada pela fórmula padrão @\sigma^2 = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2@.</p>
+      <p>a) Desenvolva algebricamente o quadrado @(x_i - \bar{x})^2@ e demonstre a fórmula alternativa simplificada: @@\sigma^2 = \overline{x^2} - (\bar{x})^2@@ onde @\overline{x^2} = \frac{1}{n}\sum_{i=1}^n x_i^2@ é a média dos quadrados dos valores e @(\bar{x})^2@ é o quadrado da média aritmética.</p>
+      <p>b) Aplique essa identidade para calcular rapidamente a variância e o desvio padrão populacional do conjunto de dados @\{2, 4, 6, 8, 10\}@ sem precisar subtrair a média de cada elemento individualmente.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para prática individual. Resolva-os e confira as resoluções completas no gabarito expansível logo abaixo!
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 33 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Média, mediana e moda de remunerações</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Em um departamento de uma startup, 4 estagiários recebem uma bolsa mensal de R$ 1.200,00 cada e 2 estagiários recebem R$ 1.500,00 cada. Calcule a média aritmética, a mediana e a moda das remunerações desses 6 estagiários.</p>
+    </li>
+
+    <!-- PROBLEMA 34 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Leitura de série temporal de temperaturas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>As temperaturas registradas em uma estação meteorológica a cada 4 horas ao longo de um dia foram: 0h (14°C), 4h (12°C), 8h (18°C), 12h (26°C), 16h (24°C) e 20h (17°C). Calcule a temperatura média aritmética registrada no dia.</p>
+    </li>
+
+    <!-- PROBLEMA 35 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Determinação de valor individual a partir da média</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Cinco amigos foram jantar em um restaurante e a conta total dividida em partes iguais resultou em uma média exata de R$ 48,00 por pessoa. Quatro amigos colocaram sobre a mesa, respectivamente, R$ 42,00; R$ 50,00; R$ 45,00 e R$ 55,00. Quanto o quinto amigo precisou pagar para quitar o total da conta?</p>
+    </li>
+
+    <!-- PROBLEMA 36 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Amostragem estratificada proporcional</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um colégio possui 1.000 alunos matriculados, dos quais 600 cursam o Ensino Fundamental II e 400 cursam o Ensino Médio. A direção deseja aplicar um questionário a uma amostra representativa de 100 alunos selecionados por amostragem estratificada proporcional. Quantos alunos do Ensino Fundamental II e quantos do Ensino Médio deverão compor a amostra?</p>
+    </li>
+
+    <!-- PROBLEMA 37 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Dispersão em progressão aritmética</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Considere os cinco primeiros números ímpares positivos que formam a progressão aritmética @\{1, 3, 5, 7, 9\}@. Calcule a média aritmética simples, a variância populacional e o desvio padrão populacional dessa progressão.</p>
+    </li>
+
+    <!-- PROBLEMA 38 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Descarte de pior nota e impacto percentual</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um professor estabelece como critério pedagógico descartar a menor nota de cada aluno entre as cinco avaliações aplicadas no semestre. Um estudante obteve as seguintes notas: 3,0; 7,0; 8,0; 8,5 e 9,5.</p>
+      <p>a) Calcule a média aritmética original considerando as 5 notas.</p>
+      <p>b) Calcule a nova média final após o descarte da menor avaliação e determine o ganho absoluto na nota do estudante.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     GABARITO E RESOLUÇÕES DETALHADAS (EXPANSÍVEL)
+     ============================================================================ -->
+<details class="gabarito-container">
+  <summary>GABARITO E RESOLUÇÕES DETALHADAS (Clique para expandir)</summary>
+  <div class="gabarito-content">
+
+    <!-- SEÇÃO 1 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 1: Problemas Introdutórios</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          A média aritmética simples é a soma de todos os valores dividida pela quantidade @n = 5@:<br>
+          @\bar{x} = \frac{6{,}5 + 7{,}0 + 8{,}5 + 9{,}0 + 8{,}0}{5} = \frac{39{,}0}{5} = 7{,}8@.<br>
+          <strong>Resposta:</strong> A média aritmética é 7,8.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Organizando os dados em ordem crescente (rol):<br>
+          Rol: @2, 3, 4, 5, 7, 8, 12@.<br>
+          Como temos um número ímpar de dados (@n = 7@), a mediana é o elemento que ocupa a posição central @\frac{n + 1}{2} = \frac{7 + 1}{2} = 4@ª posição:<br>
+          O 4º elemento do rol é 5.<br>
+          <strong>Resposta:</strong> A mediana é 5 livros.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Ordenando os valores em ordem crescente (rol):<br>
+          Rol: @21, 22, 25, 26, 28, 30@.<br>
+          Como @n = 6@ (par), a mediana é a média aritmética simples dos dois termos centrais (3º e 4º termos):<br>
+          @\text{Md} = \frac{25 + 26}{2} = \frac{51}{2} = 25{,}5^\circ\text{C}@.<br>
+          <strong>Resposta:</strong> @25{,}5^\circ\text{C}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) No conjunto @A = \{3, 5, 7, 5, 9, 5, 2\}@, o número 5 aparece com frequência 3 (maior frequência). Conjunto unimodal, com @\text{Moda} = 5@.<br>
+          b) No conjunto @B = \{12, 15, 12, 18, 19, 15, 20\}@, os números 12 e 15 aparecem duas vezes cada, empatados na maior frequência. Conjunto bimodal, com @\text{Modas} = 12 \text{ e } 15@.<br>
+          c) No conjunto @C = \{4, 7, 10, 13, 16\}@, todos os valores aparecem com a mesma frequência (uma única vez). Conjunto amodal (não possui moda).<br>
+          <strong>Resposta:</strong> a) Unimodal, Moda = 5; b) Bimodal, Modas = 12 e 15; c) Amodal (sem moda).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          A média ponderada @\bar{x}_p@ é calculada multiplicando cada nota pelo seu respectivo peso e dividindo pela soma dos pesos:<br>
+          @\bar{x}_p = \frac{7{,}0 \cdot 2 + 8{,}0 \cdot 3 + 9{,}0 \cdot 1}{2 + 3 + 1} = \frac{14{,}0 + 24{,}0 + 9{,}0}{6} = \frac{47{,}0}{6} \approx 7{,}83@.<br>
+          <strong>Resposta:</strong> A nota final é @\approx 7{,}83@ (ou @\frac{47}{6}@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Total de estudantes: @N = 40@.<br>
+          • Voleibol: @f_r = \frac{14}{40} = 0{,}35 = 35\%@.<br>
+          • Futebol: @f_r = \frac{18}{40} = 0{,}45 = 45\%@.<br>
+          • Basquete: @f_r = \frac{8}{40} = 0{,}20 = 20\%@.<br>
+          Soma de verificação: @35\% + 45\% + 20\% = 100\%@.<br>
+          <strong>Resposta:</strong> Voleibol: 35%; Futebol: 45%; Basquete: 20%.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Uma circunferência completa corresponde a 360° (100%):<br>
+          • Favorável (35%): @\theta_1 = 360^\circ \times 0{,}35 = 126^\circ@.<br>
+          • Desfavorável (45%): @\theta_2 = 360^\circ \times 0{,}45 = 162^\circ@.<br>
+          • Não souberam (20%): @\theta_3 = 360^\circ \times 0{,}20 = 72^\circ@.<br>
+          Soma: @126^\circ + 162^\circ + 72^\circ = 360^\circ@.<br>
+          <strong>Resposta:</strong> Favorável: 126°; Desfavorável: 162°; Não souberam: 72°.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          A amplitude total @A@ é a diferença entre o maior e o menor valor do conjunto de dados:<br>
+          @x_{\max} = 2{,}05\text{ m}@ e @x_{\min} = 1{,}84\text{ m}@.<br>
+          @A = x_{\max} - x_{\min} = 2{,}05 - 1{,}84 = 0{,}21\text{ m}@ (ou 21 cm).<br>
+          <strong>Resposta:</strong> 0,21 m (21 cm).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Média: @\bar{x} = \frac{4 + 6 + 10 + 12}{4} = \frac{32}{4} = 8@.<br>
+          Desvios em relação à média (@d_i = x_i - \bar{x}@):<br>
+          @d_1 = 4 - 8 = -4@<br>
+          @d_2 = 6 - 8 = -2@<br>
+          @d_3 = 10 - 8 = +2@<br>
+          @d_4 = 12 - 8 = +4@<br>
+          Soma dos desvios: @\sum d_i = (-4) + (-2) + (+2) + (+4) = 0@.<br>
+          <strong>Resposta:</strong> @\bar{x} = 8@ e @\sum d_i = 0@ (comprovada a propriedade fundamental).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Média: @\bar{x} = \frac{98 + 100 + 102}{3} = \frac{300}{3} = 100\text{ g}@.<br>
+          Desvios: @(98 - 100) = -2@; @(100 - 100) = 0@; @(102 - 100) = +2@.<br>
+          Quadrados dos desvios: @(-2)^2 = 4@; @0^2 = 0@; @(+2)^2 = 4@.<br>
+          Variância populacional: @\sigma^2 = \frac{4 + 0 + 4}{3} = \frac{8}{3} \approx 2{,}67\text{ g}^2@.<br>
+          Desvio padrão populacional: @\sigma = \sqrt{\frac{8}{3}} \approx 1{,}63\text{ g}@.<br>
+          (Caso calculada a variância amostral com @n - 1 = 2@: @s^2 = \frac{8}{2} = 4\text{ g}^2@ e @s = 2\text{ g}@).<br>
+          <strong>Resposta:</strong> Média = 100 g; Variância = @\frac{8}{3} \approx 2{,}67\text{ g}^2@; Desvio padrão = @\approx 1{,}63\text{ g}@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 2 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 2: Problemas de Fixação</h3>
+      <ol start="11">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Médias dos atiradores:<br>
+          @\bar{x}_{\text{Lucas}} = \frac{8 + 9 + 8 + 9 + 8}{5} = \frac{42}{5} = 8{,}4@ pontos.<br>
+          @\bar{x}_{\text{Mateus}} = \frac{6 + 10 + 6 + 10 + 10}{5} = \frac{42}{5} = 8{,}4@ pontos.<br>
+          Ambos possuem exatamente a mesma média de 8,4 pontos.<br>
+          b) Desvios e variâncias:<br>
+          Para Lucas: desvios = @-0{,}4; +0{,}6; -0{,}4; +0{,}6; -0{,}4@.<br>
+          Soma dos quadrados dos desvios: @3(0{,}16) + 2(0{,}36) = 0{,}48 + 0{,}72 = 1{,}20@.<br>
+          Variância de Lucas: @\sigma^2 = \frac{1{,}20}{5} = 0{,}24 \implies \sigma_{\text{Lucas}} = \sqrt{0{,}24} \approx 0{,}49@ ponto.<br>
+          Para Mateus: desvios = @-2{,}4; +1{,}6; -2{,}4; +1{,}6; +1{,}6@.<br>
+          Soma dos quadrados: @2(5{,}76) + 3(2{,}56) = 11{,}52 + 7{,}68 = 19{,}20@.<br>
+          Variância de Mateus: @\sigma^2 = \frac{19{,}20}{5} = 3{,}84 \implies \sigma_{\text{Mateus}} = \sqrt{3{,}84} \approx 1{,}96@ ponto.<br>
+          Como @\sigma_{\text{Lucas}} < \sigma_{\text{Mateus}}@, Lucas é o atirador mais regular e homogêneo.<br>
+          <strong>Resposta:</strong> a) Ambos possuem média 8,4; b) @\sigma_{\text{Lucas}} \approx 0{,}49@ e @\sigma_{\text{Mateus}} \approx 1{,}96@. Lucas é mais regular por ter menor desvio padrão.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Média ponderada de moradores:<br>
+          Total de moradores: @(0 \times 4) + (1 \times 10) + (2 \times 18) + (3 \times 12) + (4 \times 6) = 0 + 10 + 36 + 36 + 24 = 106@ moradores.<br>
+          Média: @\bar{x} = \frac{106}{50} = 2{,}12@ moradores por apartamento.<br>
+          b) Mediana: com @n = 50@, a mediana é a média das posições 25ª e 26ª na frequência acumulada:<br>
+          • Até 0 moradores: 4 apartamentos.<br>
+          • Até 1 morador: @4 + 10 = 14@ apartamentos.<br>
+          • Até 2 moradores: @14 + 18 = 32@ apartamentos (cobre as posições de 15ª a 32ª).<br>
+          Como tanto a 25ª quanto a 26ª posições têm o valor 2, a mediana é @\text{Md} = 2@ moradores.<br>
+          Moda: o valor com maior frequência é 2 moradores (18 apartamentos), logo @\text{Mo} = 2@ moradores.<br>
+          <strong>Resposta:</strong> a) Média = 2,12 moradores/apto; b) Mediana = 2 e Moda = 2.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Multiplicando cada ponto médio @x_i@ pela respectiva frequência @f_i@:<br>
+          • @2{,}5 \times 8 = 20@<br>
+          • @7{,}5 \times 16 = 120@<br>
+          • @12{,}5 \times 18 = 225@<br>
+          • @17{,}5 \times 8 = 140@<br>
+          Soma ponderada dos tempos: @20 + 120 + 225 + 140 = 505@ minutos.<br>
+          Média estimada: @\bar{x} = \frac{505}{50} = 10{,}1@ minutos.<br>
+          <strong>Resposta:</strong> O tempo médio estimado de espera é 10,1 minutos.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A barra da Empresa Alfa tem comprimento correspondente a @100 - 95 = 5@ unidades visuais. A barra da Empresa Beta tem comprimento @105 - 95 = 10@ unidades visuais. Visualmente, a barra de Beta tem o dobro (@\frac{10}{5} = 2@) do tamanho de Alfa.<br>
+          b) A razão real entre os faturamentos é: @\frac{105 - 100}{100} = \frac{5}{100} = 5\%@.<br>
+          c) Truncar a origem do eixo vertical sem indicar uma quebra de escala distorce as proporções visuais, fazendo uma diferença modesta de 5% parecer uma diferença colossal de 100% (o dobro), o que fere a ética da comunicação estatística.<br>
+          <strong>Resposta:</strong> a) O dobro (2 vezes maior); b) Aumento real de 5%; c) O truncamento cria viés visual desproporcional.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Média original: @\bar{x} = \frac{2000 + 2200 + 2400 + 2600 + 2800}{5} = \frac{12000}{5} = 2400@ reais.<br>
+          Com o abono de R$ 300,00, os novos salários são: 2300, 2500, 2700, 2900, 3100.<br>
+          Nova média: @\bar{x}' = \frac{13500}{5} = 2700@ reais (aumentou exatamente R$ 300,00).<br>
+          b) Desvios originais: @-400, -200, 0, +200, +400@.<br>
+          Novos desvios em relação à nova média 2700: @(2300 - 2700) = -400@, @(2500 - 2700) = -200@, etc. Como todos os desvios permaneceram idênticos, a variância e o desvio padrão não sofreram alteração alguma.<br>
+          <strong>Resposta:</strong> a) A média aumentou em R$ 300,00 (passou para R$ 2.700,00); b) O desvio padrão permaneceu inalterado.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Um aumento uniforme de 10% multiplica todos os dados por @k = 1{,}10@.<br>
+          Nova média: @\bar{x}' = 1{,}10 \times 2.400 = \text{R\$}~2.640{,}00@.<br>
+          b) Na multiplicação por uma constante positiva @k@, o desvio padrão é multiplicado pela mesma constante @k@:<br>
+          Novo desvio padrão: @\sigma' = 1{,}10 \times \sigma \approx 1{,}10 \times 282{,}84 \approx 311{,}12@ reais (aumento de 10%).<br>
+          (A variância é multiplicada por @k^2 = 1{,}10^2 = 1{,}21@, aumentando 21%).<br>
+          <strong>Resposta:</strong> a) R$ 2.640,00; b) O desvio padrão também aumentou 10% (passou para @\approx 311{,}12@ reais).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Para média 7,0 com 4 avaliações, a soma exigida é: @4 \times 7{,}0 = 28{,}0@.<br>
+          Soma das 3 primeiras provas: @5{,}2 + 6{,}4 + 7{,}0 = 18{,}6@.<br>
+          Nota necessária na 4ª prova: @N_4 = 28{,}0 - 18{,}6 = 9{,}4@.<br>
+          b) Para obter média 7,5, a soma necessária seria: @4 \times 7{,}5 = 30{,}0@.<br>
+          A nota necessária seria: @N_4 = 30{,}0 - 18{,}6 = 11{,}4@.<br>
+          Como a nota máxima do teste é 10,0, é matematicamente impossível atingir a média 7,5.<br>
+          <strong>Resposta:</strong> a) 9,4; b) Impossível, pois exigiria nota 11,4 (superior ao teto de 10,0).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Para @N = 120@ participantes, o termo mediano fica na posição @\frac{120}{2} = 60@ª. Consultando a frequência acumulada, a classe que contém da 25ª até a 66ª posição é a faixa de @[30, 40)@ anos. Logo, a classe mediana é @[30, 40)@.<br>
+          b) Aplicando a interpolação linear:<br>
+          @\text{Md} = L_i + \frac{\frac{N}{2} - F_{\text{ant}}}{f_{\text{med}}} \cdot h@<br>
+          onde @L_i = 30@, @N/2 = 60@, @F_{\text{ant}} = 24@, @f_{\text{med}} = 42@ e amplitude @h = 10@:<br>
+          @\text{Md} = 30 + \frac{60 - 24}{42} \cdot 10 = 30 + \frac{36}{42} \cdot 10 = 30 + \frac{6}{7} \cdot 10 = 30 + 8{,}57 = 38{,}57@ anos.<br>
+          <strong>Resposta:</strong> a) Faixa de [30, 40) anos; b) @\approx 38{,}57@ anos.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Limite inferior: @\bar{x} - 2\sigma = 500 - 2(4) = 500 - 8 = 492\text{ g}@.<br>
+          Limite superior: @\bar{x} + 2\sigma = 500 + 2(4) = 500 + 8 = 508\text{ g}@.<br>
+          b) Sim, atende com segurança, pois em uma distribuição normal cerca de 97,5% dos pacotes pesam mais que 492 g (apenas 2,5% pesam menos que 492 g), o que é estritamente superior ao patamar mínimo tolerado de 490 g.<br>
+          <strong>Resposta:</strong> a) [492 g, 508 g]; b) Sim, a máquina opera plenamente em conformidade legal.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Tipo sanguíneo: Qualitativa Nominal (categorias sem relação de ordem).<br>
+          b) Intensidade da dor (Leve, Moderada, Intensa): Qualitativa Ordinal (categorias ordenáveis em escala de severidade).<br>
+          c) Número de cirurgias prévias: Quantitativa Discreta (contagem em números inteiros não negativos).<br>
+          d) Temperatura corporal em °C: Quantitativa Contínua (mensuração em escala contínua com casas decimais).<br>
+          e) Tempo total de internação (horas): Quantitativa Contínua (mensuração contínua do tempo).<br>
+          <strong>Resposta:</strong> a) Qualitativa Nominal; b) Qualitativa Ordinal; c) Quantitativa Discreta; d) Quantitativa Contínua; e) Quantitativa Contínua.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Coeficientes de variação:<br>
+          Recém-nascidos: @CV_1 = \frac{0{,}4}{3{,}2} \times 100\% = 12{,}5\%@.<br>
+          Adultos: @CV_2 = \frac{5{,}6}{70{,}0} \times 100\% = 8{,}0\%@.<br>
+          b) O grupo dos recém-nascidos apresenta maior dispersão relativa (12,5% contra 8,0%), embora seu desvio padrão absoluto seja bem menor.<br>
+          <strong>Resposta:</strong> a) Bebês: 12,5%; Adultos: 8,0%; b) Os recém-nascidos possuem maior variabilidade relativa.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Uma pesquisa censitária investiga todos os indivíduos da população-alvo (100% de cobertura). A pesquisa amostral analisa um subconjunto selecionado representativo da população.<br>
+          b) Duas vantagens fundamentais da amostragem em relação ao censo: custo financeiro significativamente menor e rapidez na coleta, processamento e disponibilização dos resultados (permitindo acompanhamento contínuo mês a mês).<br>
+          <strong>Resposta:</strong> a) Censo abrange a totalidade; amostragem investiga uma fração representativa; b) Menor custo financeiro e agilidade temporal de divulgação.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Média: @\bar{x} = \frac{1500 + 1600 + 1700 + 1800 + 2000 + 25000}{6} = \frac{33600}{6} = \text{R\$}~5.600{,}00@.<br>
+          Mediana: média do 3º (1.700) e 4º (1.800) valores: @\text{Md} = \frac{1700 + 1800}{2} = \text{R\$}~1.750{,}00@.<br>
+          b) A média de R$ 5.600,00 é completamente irreal e enganosa para a rotina da empresa, pois 5 dos 6 funcionários ganham R$ 2.000,00 ou menos. A presença de um valor extremo discrepante (outlier de R$ 25.000,00) puxa a média para cima. A mediana de R$ 1.750,00 é uma medida resistente e reflete fielmente a remuneração típica da equipe.<br>
+          <strong>Resposta:</strong> a) Média = R$ 5.600,00; Mediana = R$ 1.750,00; b) A mediana é insensível a outliers e retrata a realidade da maioria.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Soma da Turma A: @30 \times 7{,}2 = 216@ pontos.<br>
+          Soma da Turma B: @20 \times 8{,}2 = 164@ pontos.<br>
+          b) Soma combinada: @216 + 164 = 380@ pontos.<br>
+          Total de estudantes: @30 + 20 = 50@ alunos.<br>
+          Média combinada: @\bar{x} = \frac{380}{50} = 7{,}6@.<br>
+          (Note que a média simples @\frac{7{,}2 + 8{,}2}{2} = 7{,}7@ estaria incorreta por desconsiderar que a turma A tem 10 alunos a mais).<br>
+          <strong>Resposta:</strong> a) Turma A: 216 pontos; Turma B: 164 pontos; b) 7,6.
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 3 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 3: Problemas de Aprofundamento</h3>
+      <ol start="25">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Médias dos candidatos:<br>
+          @\bar{x}_A = \frac{8 + 8 + 8 + 8}{4} = 8{,}0@.<br>
+          @\bar{x}_B = \frac{7 + 8 + 9 + 8}{4} = \frac{32}{4} = 8{,}0@.<br>
+          @\bar{x}_C = \frac{6 + 10 + 6 + 10}{4} = \frac{32}{4} = 8{,}0@.<br>
+          Demonstrado que todos possuem média 8,0.<br>
+          b) Variâncias populacionais:<br>
+          • Candidato A: todos os desvios são 0: @\sigma_A^2 = 0@.<br>
+          • Candidato B: desvios = @-1, 0, +1, 0@. Soma dos quadrados = @1 + 0 + 1 + 0 = 2@. Variância @\sigma_B^2 = \frac{2}{4} = 0{,}5@.<br>
+          • Candidato C: desvios = @-2, +2, -2, +2@. Soma dos quadrados = @4 + 4 + 4 + 4 = 16@. Variância @\sigma_C^2 = \frac{16}{4} = 4{,}0@.<br>
+          Como o Candidato A tem a menor variância (@\sigma_A^2 = 0@), ele apresentou regularidade perfeita e deve ficar com a vaga.<br>
+          <strong>Resposta:</strong> a) Empate com média 8,0; b) @\sigma_A^2 = 0@, @\sigma_B^2 = 0{,}5@, @\sigma_C^2 = 4{,}0@. A vaga pertence ao Candidato A.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Cálculo dos acréscimos nominais:<br>
+          • Alimentação: @1.200 \times 0{,}10 = \text{R\$}~120{,}00@.<br>
+          • Habitação: @1.600 \times 0{,}05 = \text{R\$}~80{,}00@.<br>
+          • Outros itens: R$ 0,00 de acréscimo.<br>
+          Acréscimo financeiro total: @120 + 80 = \text{R\$}~200{,}00@.<br>
+          b) Taxa de inflação ponderada sentida pela família:<br>
+          @I = \frac{\Delta \text{Orçamento}}{\text{Orçamento Inicial}} = \frac{200}{4.000} = 0{,}05 = 5{,}0\%@.<br>
+          (Ou pela média ponderada das taxas: @0{,}30 \times 10\% + 0{,}40 \times 5\% = 3\% + 2\% = 5\%@).<br>
+          <strong>Resposta:</strong> a) R$ 200,00; b) 5,0%.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Como os 5 termos estão ordenados de forma crescente, a mediana é exatamente o elemento central (3º termo): @\text{Md} = x@.<br>
+          b) A média aritmética simples é dada por:<br>
+          @\bar{x} = \frac{2 + 5 + x + 11 + 14}{5} = \frac{32 + x}{5}@.<br>
+          Igualando média e mediana: @\frac{32 + x}{5} = x \implies 32 + x = 5x \implies 4x = 32 \implies x = 8@.<br>
+          c) Substituindo @x = 8@ na lista: @\{2, 5, 8, 11, 14\}@. A ordenação @5 \leq 8 \leq 11@ é plenamente satisfeita. A média é @\frac{40}{5} = 8@ e a mediana é 8.<br>
+          <strong>Resposta:</strong> a) @\text{Md} = x@; b) @x = 8@; c) Satisfaz a ordenação @2 < 5 < 8 < 11 < 14@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) População dependente: @20.000 + 10.000 = 30.000@ pessoas.<br>
+          População produtiva (PIA): @60.000@ pessoas.<br>
+          @RD = \frac{30.000}{60.000} \times 100\% = 50\%@.<br>
+          Significado: existem 50 pessoas economicamente dependentes para cada grupo de 100 pessoas em idade ativa sustentando a arrecadação e os serviços públicos.<br>
+          b) Nova população dependente: @10.000 \text{ (jovens)} + 20.000 \text{ (idosos)} = 30.000@.<br>
+          A razão de dependência continua em @\frac{30.000}{60.000} \times 100\% = 50\%@, mas com uma inversão de demanda estrutural: saem as demandas por creches e escolas e entram as demandas por previdência social, geriatria e saúde especializada.<br>
+          <strong>Resposta:</strong> a) 50% (50 dependentes para cada 100 ativos); b) A taxa permanece em 50%, mas muda seu perfil de jovens para idosos.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A soma inicial dos pontos é: @S_{24} = 24 \times 6{,}0 = 144{,}0@ pontos.<br>
+          b) Com a nota de segunda chamada (8,5), a nova soma passa a ser:<br>
+          @S_{25} = 144{,}0 + 8{,}5 = 152{,}5@ pontos.<br>
+          Nova média geral: @\bar{x}_{25} = \frac{152{,}5}{25} = 6{,}10@ pontos.<br>
+          c) A variação absoluta na média da turma foi de: @6{,}10 - 6{,}00 = +0{,}10@ ponto.<br>
+          <strong>Resposta:</strong> a) 144 pontos; b) 6,10 pontos; c) Aumento de 0,10 ponto.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Analisando por intervalos na reta real:<br>
+          • Para @c \leq 2@: @f(c) = (2 - c) + (4 - c) + (9 - c) = 15 - 3c@ (função estritamente decrescente).<br>
+          • Para @2 \leq c \leq 4@: @f(c) = (c - 2) + (4 - c) + (9 - c) = 11 - c@ (decrescente; atinge o valor mínimo em @c = 4@).<br>
+          • Para @4 \leq c \leq 9@: @f(c) = (c - 2) + (c - 4) + (9 - c) = c + 3@ (estritamente crescente a partir de @c = 4@).<br>
+          • Para @c \geq 9@: @f(c) = (c - 2) + (c - 4) + (c - 9) = 3c - 15@ (crescente).<br>
+          Logo, o valor mínimo absoluto ocorre exatamente em @c = 4@.<br>
+          b) Em @c = 4@: @f(4) = |4 - 2| + |4 - 4| + |4 - 9| = 2 + 0 + 5 = 7@.<br>
+          c) Como 4 é precisamente a mediana do rol @\{2, 4, 9\}@, fica demonstrado o teorema clássico de que a mediana é o ponto que minimiza a soma dos desvios absolutos (@L_1@ norm).<br>
+          <strong>Resposta:</strong> a) @c = 4@; b) O valor mínimo é 7; c) 4 é a mediana do conjunto, minimizando a soma das distâncias.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Os caminhões com emissão @\geq 200@ ppm pertencem às duas últimas classes: @15 + 10 = 25@ caminhões. Como o total da frota é 100, temos @\frac{25}{100} = 25\%@ autuados.<br>
+          b) Estimativa da média pelo ponto médio das classes:<br>
+          • @30 \times 125 = 3.750@<br>
+          • @45 \times 175 = 7.875@<br>
+          • @15 \times 225 = 3.375@<br>
+          • @10 \times 275 = 2.750@<br>
+          Soma ponderada: @3.750 + 7.875 + 3.375 + 2.750 = 17.750@ ppm.<br>
+          Média estimada: @\bar{x} = \frac{17.750}{100} = 177{,}5@ ppm.<br>
+          <strong>Resposta:</strong> a) 25 caminhões (25%); b) 177,5 ppm.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Expandindo o quadrado da diferença:<br>
+          @\sigma^2 = \frac{1}{n} \sum_{i=1}^n (x_i^2 - 2x_i\bar{x} + \bar{x}^2) = \frac{1}{n}\sum_{i=1}^n x_i^2 - 2\bar{x}\left(\frac{1}{n}\sum_{i=1}^n x_i\right) + \frac{1}{n}(n\bar{x}^2)@.<br>
+          Como @\frac{1}{n}\sum x_i = \bar{x}@, a expressão simplifica-se para:<br>
+          @\sigma^2 = \overline{x^2} - 2\bar{x}^2 + \bar{x}^2 = \overline{x^2} - (\bar{x})^2@.<br>
+          b) Aplicando ao conjunto @\{2, 4, 6, 8, 10\}@:<br>
+          Média: @\bar{x} = \frac{30}{5} = 6 \implies (\bar{x})^2 = 36@.<br>
+          Soma dos quadrados: @2^2 + 4^2 + 6^2 + 8^2 + 10^2 = 4 + 16 + 36 + 64 + 100 = 220@.<br>
+          Média dos quadrados: @\overline{x^2} = \frac{220}{5} = 44@.<br>
+          Variância: @\sigma^2 = 44 - 36 = 8@.<br>
+          Desvio padrão: @\sigma = \sqrt{8} = 2\sqrt{2} \approx 2{,}83@.<br>
+          <strong>Resposta:</strong> a) Demonstração concluída; b) @\sigma^2 = 8@ e @\sigma = 2\sqrt{2} \approx 2{,}83@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 4 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 4: Problemas Propostos</h3>
+      <ol start="33">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Rol dos 6 salários: 1200, 1200, 1200, 1200, 1500, 1500.<br>
+          Soma: @4(1200) + 2(1500) = 4800 + 3000 = 7800@ reais.<br>
+          Média: @\bar{x} = \frac{7800}{6} = \text{R\$}~1.300{,}00@.<br>
+          Mediana: média da 3ª e 4ª posições: @\frac{1200 + 1200}{2} = \text{R\$}~1.200{,}00@.<br>
+          Moda: valor mais frequente (4 ocorrências) = R$ 1.200,00.<br>
+          <strong>Resposta:</strong> Média = R$ 1.300,00; Mediana = R$ 1.200,00; Moda = R$ 1.200,00.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Soma das temperaturas registradas:<br>
+          @14 + 12 + 18 + 26 + 24 + 17 = 111^\circ\text{C}@.<br>
+          Média diária: @\bar{x} = \frac{111}{6} = 18{,}5^\circ\text{C}@.<br>
+          <strong>Resposta:</strong> @18{,}5^\circ\text{C}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Conta total para 5 pessoas com média de R$ 48,00: @5 \times 48 = \text{R\$}~240{,}00@.<br>
+          Soma dos 4 amigos: @42 + 50 + 45 + 55 = \text{R\$}~192{,}00@.<br>
+          Valor a ser pago pelo 5º amigo: @240 - 192 = \text{R\$}~48{,}00@.<br>
+          <strong>Resposta:</strong> R$ 48,00.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Proporção do Ensino Fundamental II: @\frac{600}{1000} = 60\%@.<br>
+          Proporção do Ensino Médio: @\frac{400}{1000} = 40\%@.<br>
+          Na amostra de 100 alunos:<br>
+          • Ensino Fundamental II: @100 \times 0{,}60 = 60@ alunos.<br>
+          • Ensino Médio: @100 \times 0{,}40 = 40@ alunos.<br>
+          <strong>Resposta:</strong> 60 alunos do Fundamental II e 40 alunos do Médio.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Média da P.A.: @\bar{x} = \frac{1 + 3 + 5 + 7 + 9}{5} = \frac{25}{5} = 5@.<br>
+          Desvios: @-4, -2, 0, +2, +4@.<br>
+          Quadrados dos desvios: @16 + 4 + 0 + 4 + 16 = 40@.<br>
+          Variância populacional: @\sigma^2 = \frac{40}{5} = 8@.<br>
+          Desvio padrão populacional: @\sigma = \sqrt{8} = 2\sqrt{2} \approx 2{,}83@.<br>
+          <strong>Resposta:</strong> Média = 5; Variância = 8; Desvio padrão = @2\sqrt{2} \approx 2{,}83@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Média com as 5 notas:<br>
+          @\bar{x}_5 = \frac{3{,}0 + 7{,}0 + 8{,}0 + 8{,}5 + 9{,}5}{5} = \frac{36{,}0}{5} = 7{,}20@.<br>
+          b) Descartando a menor nota (3,0), restam 4 avaliações com soma @36{,}0 - 3{,}0 = 33{,}0@:<br>
+          @\bar{x}_4 = \frac{33{,}0}{4} = 8{,}25@.<br>
+          Ganho absoluto na média: @8{,}25 - 7{,}20 = +1{,}05@ ponto.<br>
+          <strong>Resposta:</strong> a) Média original = 7,20; b) Nova média = 8,25 (ganho de 1,05 ponto).
+        </li>
+      </ol>
+    </div>
+
+  </div>
+</details>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

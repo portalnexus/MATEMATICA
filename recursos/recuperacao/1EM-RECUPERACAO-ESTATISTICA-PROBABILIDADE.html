@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Estatística e Probabilidade</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .orientacao-inicial { background-color: rgba(33, 150, 243, 0.2); border: 2px solid #2196f3; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .dica { background-color: rgba(33, 150, 243, 0.15); border-left: 4px solid #2196f3; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 4px; }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo { background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo { margin: 1rem 0; padding-left: 1.5rem; border-left: 2px solid #4caf50; }
+    .lembrete { background-color: rgba(255, 152, 0, 0.15); border-left: 4px solid #ff9800; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 4px; }
+    .lembrete strong { color: #ff9800; }
+    .conceito-basico { background-color: rgba(156, 39, 176, 0.1); border: 2px solid #9c27b0; border-radius: 6px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .badge-nivel { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .ano-1em { background-color: rgba(33, 150, 243, 0.3); color: #64b5f6; border: 1px solid #2196f3; }
+    .estrelas { color: #ffd700; font-size: 1.2rem; margin-left: 0.5rem; }
+    .destaque-box { background-color: rgba(0, 0, 0, 0.2); border-left: 4px solid var(--link-color); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 6px; }
+    .destaque-box h3 { margin-top: 0; color: var(--heading-text-color); }
+    .tabela-dados { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem; }
+    .tabela-dados th, .tabela-dados td { border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.65rem 0.85rem; text-align: center; }
+    .tabela-dados th { background-color: rgba(0, 0, 0, 0.45); color: var(--heading-text-color); }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <span class="badge-nivel ano-1em">1º Ano EM</span>
+      <span class="estrelas">★★★</span>
+      <h1>Atividade de Recuperação: Estatística e Probabilidade</h1>
+      <p style="font-style: italic; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.5rem;">
+        Capítulo 7: "Será que é sorte?"
+      </p>
+
+      <div class="orientacao-inicial">
+        <h3>📚 Roteiro Pedagógico de Recuperação</h3>
+        <p>Vivemos em uma era saturada de dados e decisões sob incerteza. Compreender a diferença entre acaso e causalidade, calcular parâmetros descritivos e quantificar a probabilidade de eventos aleatórios são habilidades cruciais para a cidadania e a ciência moderna.</p>
+        <ul>
+          <li><strong>Etapa 1:</strong> Revise as medidas de tendência central (média, mediana, moda), dispersão básica (amplitude) e as regras clássicas de probabilidade.</li>
+          <li><strong>Etapa 2:</strong> Estude os exemplos resolvidos passo a passo sobre análise de dados e jogos de azar.</li>
+          <li><strong>Etapa 3:</strong> Execute as atividades com scaffolding pedagógico (Nível 1, Nível 2 e Nível 3).</li>
+        </ul>
+      </div>
+
+      <h2>Revisão Conceitual Estruturada</h2>
+
+      <div class="conceito-basico">
+        <h4>1. Medidas de Tendência Central e Dispersão Básica</h4>
+        <ul>
+          <li><strong>Média Aritmética Simples (@\bar{x}@):</strong> Razão entre a soma de todos os valores e a quantidade total de observações:
+            <p>@@ \bar{x} = \frac{\sum_{i=1}^n x_i}{n} = \frac{x_1 + x_2 + \dots + x_n}{n} @@</p>
+          </li>
+          <li><strong>Média Aritmética Ponderada (@\bar{x}_p@):</strong> Quando cada elemento possui um peso ou frequência @p_i@:
+            <p>@@ \bar{x}_p = \frac{\sum_{i=1}^k (x_i \cdot p_i)}{\sum_{i=1}^k p_i} @@</p>
+          </li>
+          <li><strong>Mediana (@Me@):</strong> É o elemento central que divide o rol ordenado em duas metades com 50% dos dados cada.
+            <br>• Se o número de termos @n@ for ímpar: é o termo de posição @\frac{n+1}{2}@.
+            <br>• Se @n@ for par: é a média aritmética dos dois termos centrais nas posições @\frac{n}{2}@ e @\frac{n}{2} + 1@.
+          </li>
+          <li><strong>Moda (@Mo@):</strong> É o valor (ou valores) de maior frequência absoluta no conjunto. Pode ser amodal (nenhum valor repete mais que os outros), unimodal, bimodal ou multimodal.</li>
+          <li><strong>Amplitude Total (@A@):</strong> Diferença entre o valor máximo e o valor mínimo do conjunto: @A = x_{\max} - x_{\min}@.</li>
+        </ul>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>2. Teoria Elementar da Probabilidade</h4>
+        <p>Em um experimento aleatório com espaço amostral equiprovável finito @\Omega@ (onde todos os eventos elementares têm a mesma chance de ocorrer), a probabilidade clássica (Laplace) do evento @A \subseteq \Omega@ é:</p>
+        <p>@@ P(A) = \frac{n(A)}{n(\Omega)} = \frac{\text{Número de Casos Favoráveis}}{\text{Número de Casos Possíveis}} @@</p>
+        <p><strong>Propriedades Fundamentais:</strong></p>
+        <ul>
+          <li>@0 \le P(A) \le 1@ (ou em percentual, @0\% \le P(A) \le 100\%@).</li>
+          <li><strong>Evento Complementar:</strong> @P(A^c) = 1 - P(A)@.</li>
+          <li><strong>União de Dois Eventos:</strong> @P(A \cup B) = P(A) + P(B) - P(A \cap B)@.
+            <br>Se @A@ e @B@ forem <em>mutuamente exclusivos</em> (@A \cap B = \emptyset@), então @P(A \cup B) = P(A) + P(B)@.
+          </li>
+        </ul>
+      </div>
+
+      <h2>Exemplos Resolvidos Passo a Passo</h2>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo 1: Medidas de Desempenho Escolar com Frequências</h4>
+        <p>As notas de 20 alunos em uma avaliação foram organizadas na seguinte tabela:</p>
+        <table class="tabela-dados">
+          <thead>
+            <tr>
+              <th>Nota (@x_i@)</th>
+              <th>4,0</th>
+              <th>6,0</th>
+              <th>7,0</th>
+              <th>8,0</th>
+              <th>10,0</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Frequência (@f_i@)</td>
+              <td>2</td>
+              <td>5</td>
+              <td>7</td>
+              <td>4</td>
+              <td>2</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Determine a média aritmética ponderada, a moda, a mediana e a amplitude das notas.</p>
+        <div class="passo">
+          <strong>Passo 1 (Cálculo da Média Ponderada):</strong>
+          <p>@@ \bar{x} = \frac{(4 \cdot 2) + (6 \cdot 5) + (7 \cdot 7) + (8 \cdot 4) + (10 \cdot 2)}{2 + 5 + 7 + 4 + 2} = \frac{8 + 30 + 49 + 32 + 20}{20} = \frac{139}{20} = 6{,}95 @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Determinação da Moda):</strong>
+          <p>A maior frequência é @f = 7@, correspondente à nota <strong>7,0</strong>. Logo, @Mo = 7{,}0@.</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 3 (Determinação da Mediana):</strong>
+          <p>Como @n = 20@ (par), a mediana é a média dos termos de ordem 10º e 11º no rol ordenado:</p>
+          <p>• Posições 1 a 2: nota 4,0.</p>
+          <p>• Posições 3 a 7: nota 6,0.</p>
+          <p>• Posições 8 a 14: nota 7,0.</p>
+          <p>Logo, o 10º termo é 7,0 e o 11º termo é 7,0. Portanto: @@ Me = \frac{7{,}0 + 7{,}0}{2} = 7{,}0 @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 4 (Amplitude):</strong>
+          <p>@@ A = x_{\max} - x_{\min} = 10{,}0 - 4{,}0 = 6{,}0 @@</p>
+        </div>
+      </div>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo 2: Probabilidade com Baralho Padrão</h4>
+        <p>De um baralho convencional de 52 cartas bem embaralhado, extrai-se uma carta ao acaso. Qual é a probabilidade de a carta ser um Rei <strong>OU</strong> uma carta de Copas?</p>
+        <div class="passo">
+          <strong>Passo 1 (Definição dos eventos):</strong>
+          <p>Espaço amostral: @n(\Omega) = 52@.</p>
+          <p>Evento @R@ (sair Rei): @n(R) = 4@ (Reis de ouros, espadas, copas e paus).</p>
+          <p>Evento @C@ (sair Copas): @n(C) = 13@ (as 13 cartas do naipe de copas).</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Identificação da interseção):</strong>
+          <p>Evento @R \cap C@ (sair o Rei de Copas): @n(R \cap C) = 1@.</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 3 (Aplicação da regra da adição):</strong>
+          <p>@@ P(R \cup C) = P(R) + P(C) - P(R \cap C) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52} = \frac{16}{52} = \frac{4}{13} \approx 30{,}77\% @@</p>
+        </div>
+      </div>
+
+      <h2>Bateria Progressiva de Recuperação (Scaffolding)</h2>
+
+      <div class="destaque-box">
+        <h3>Nível 1: Apoio Alto (Organização em Rol e Probabilidade Imediata)</h3>
+        <ol>
+          <li>Um grupo de 9 amigos registrou suas idades: @16, 15, 17, 15, 16, 18, 15, 16, 17@.
+            <br>a) Organize as idades em ordem crescente (construa o rol).
+            <br>b) Calcule a média aritmética simples das idades.
+            <br>c) Determine a moda e a mediana desse grupo.
+            <br>d) Calcule a amplitude das idades.
+            <div class="dica"><strong>Dica:</strong> Como são 9 termos (ímpar), a mediana é exatamente o 5º termo após ordenar o rol!</div>
+          </li>
+          <li>No lançamento de um dado honesto de 6 faces numeradas de 1 a 6:
+            <br>a) Qual é a probabilidade de se obter um número par?
+            <br>b) Qual é a probabilidade de se obter um número primo?
+            <br>c) Qual é a probabilidade de se obter um número maior que 4?
+            <div class="dica"><strong>Dica:</strong> O espaço amostral é @\Omega = \{1, 2, 3, 4, 5, 6\}@. Lembre-se que o número 2 é o único primo par!</div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box">
+        <h3>Nível 2: Apoio Médio (Média Ponderada e União de Eventos)</h3>
+        <ol start="3">
+          <li>Em um processo seletivo, a nota final é a média ponderada de três provas: Redação (peso 3), Matemática (peso 5) e Conhecimentos Gerais (peso 2). Uma candidata obteve 8,0 em Redação, 7,0 em Matemática e 6,5 em Conhecimentos Gerais.
+            <br>a) Calcule a nota final da candidata.
+            <br>b) Se a nota mínima para aprovação direta for 7,5, a candidata foi aprovada?
+            <div class="dica"><strong>Dica:</strong> Multiplique cada nota pelo seu respectivo peso, some os produtos e divida pela soma total dos pesos (@3 + 5 + 2 = 10@).</div>
+          </li>
+          <li>Uma urna contém 30 bolas idênticas numeradas de 1 a 30. Retira-se uma bola ao acaso.
+            <br>a) Qual é a probabilidade de o número sorteado ser múltiplo de 4?
+            <br>b) Qual é a probabilidade de o número sorteado ser múltiplo de 5?
+            <br>c) Qual é a probabilidade de o número ser múltiplo de 4 <strong>OU</strong> múltiplo de 5?
+            <div class="dica"><strong>Dica:</strong> Liste os múltiplos de 4 e de 5 até 30. Não se esqueça de subtrair a interseção (múltiplos de 20: apenas o 20) usando @P(A \cup B) = P(A) + P(B) - P(A \cap B)@.</div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box">
+        <h3>Nível 3: Autonomia Plena (Análise Crítica de Dispersão e Decisão Estratégica)</h3>
+        <ol start="5">
+          <li>Os salários dos 10 funcionários de uma pequena startup de tecnologia são: R$ 2.000, R$ 2.000, R$ 2.200, R$ 2.500, R$ 2.500, R$ 2.800, R$ 3.000, R$ 3.000, R$ 4.000 e R$ 36.000 (o sócio-fundador).
+            <br>a) Calcule a média aritmética dos salários da empresa.
+            <br>b) Calcule a mediana salarial da empresa.
+            <br>c) Um candidato a estágio leu em um anúncio que o "salário médio da empresa é de R$ 6.000". Explique criticamente por que a mediana reflete a realidade remuneratória da empresa com muito mais precisão que a média.
+          </li>
+          <li>Em um teste de qualidade de componentes de informática, sabe-se que a probabilidade de um chip sair de fábrica com algum defeito é de apenas 2% (@0{,}02@). Um cliente compra um lote com 3 chips independentes.
+            <br>a) Qual é a probabilidade de que os 3 chips funcionem perfeitamente sem defeito?
+            <br>b) Utilizando a probabilidade complementar, determine a probabilidade de que <strong>ao menos um</strong> dos 3 chips comprados apresente defeito.
+          </li>
+        </ol>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

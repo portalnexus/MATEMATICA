@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Guia de Estudos: Geometria Analítica & Cálculo de Áreas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .guia-header {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 5px solid var(--link-color);
+    }
+    .guia-header h1 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+    }
+    .objetivos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .objetivo-item {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: 5px;
+      border-left: 3px solid var(--link-color);
+    }
+    .objetivo-item strong {
+      color: var(--link-color);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .etapa-estudo {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 6px;
+      border-left: 5px solid var(--link-color);
+    }
+    .etapa-estudo h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .etapa-numero {
+      background-color: var(--link-color);
+      color: #000;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: 'Press Start 2P', monospace;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin: 0.75rem 0;
+    }
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .ano-3em {
+      background-color: rgba(244, 67, 54, 0.3);
+      color: #ef9a9a;
+      border: 1px solid #f44336;
+    }
+    .dica-box {
+      background-color: rgba(33, 150, 243, 0.12);
+      border-left: 4px solid #2196f3;
+      padding: 0.8rem 1.2rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+      font-size: 0.92rem;
+    }
+    .dica-box strong {
+      color: #2196f3;
+    }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <div class="guia-header">
+        <span class="badge-nivel ano-3em">3º Ano EM</span>
+        <h1>Guia de Estudos: Geometria Analítica & Composição de Áreas</h1>
+        <p>
+          Roteiro estruturado por missões para dominar as ferramentas cartesianas de René Descartes: pontos, retas, circunferências, distâncias e cálculo de áreas de polígonos via determinantes no 3º Ano do Ensino Médio.
+        </p>
+      </div>
+
+      <section>
+        <h2>Metas de Aprendizagem do Capítulo</h2>
+        <div class="objetivos-grid">
+          <div class="objetivo-item">
+            <strong>Habilidade 1</strong>
+            Calcular distâncias euclidianas no plano cartesiano, identificar pontos médios e coordenadas de baricentros de triângulos.
+          </div>
+          <div class="objetivo-item">
+            <strong>Habilidade 2</strong>
+            Determinar equações de retas (fundamental, reduzida e geral), analisando condições de paralelismo (@m_1 = m_2@) e perpendicularismo (@m_1 \cdot m_2 = -1@).
+          </div>
+          <div class="objetivo-item">
+            <strong>Habilidade 3</strong>
+            Completar quadrados para identificar centro @C(a, b)@ e raio @R@ de circunferências e analisar suas posições relativas com retas.
+          </div>
+          <div class="objetivo-item">
+            <strong>Habilidade 4</strong>
+            Calcular áreas de triângulos e polígonos irregulares através de matrizes e determinantes (Algoritmo de Gauss / Fórmula do Cadarço).
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Trilha de Missões de Aprendizagem</h2>
+
+        <!-- ETAPA 1 -->
+        <div class="etapa-estudo">
+          <h3><span class="etapa-numero">01</span> Missão 1: Ponto, Distância e Baricentro</h3>
+          <p>
+            O plano cartesiano @\mathbb{R}^2@ traduz a geometria pura para a álgebra. Qualquer par ordenado @P(x, y)@ fixa uma coordenada unívoca.
+          </p>
+          <ul>
+            <li><strong>Distância Euclidiana:</strong> @d(A, B) = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}@ (aplicação direta do Teorema de Pitágoras).</li>
+            <li><strong>Ponto Médio:</strong> @M = \left( \frac{x_A + x_B}{2}, \, \frac{y_A + y_B}{2} \right)@.</li>
+            <li><strong>Baricentro (@G@):</strong> Ponto de encontro das medianas de @\triangle ABC@: @G = \left( \frac{x_A + x_B + x_C}{3}, \, \frac{y_A + y_B + y_C}{3} \right)@.</li>
+          </ul>
+          <div class="checklist-item">
+            <input type="checkbox" id="m1-1">
+            <label for="m1-1">Estudar os fundamentos no <a href="../resumos/3EM-GEOMETRIA-ANALITICA.html" style="color: var(--link-color);">Resumo de Geometria Analítica</a>.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="m1-2">
+            <label for="m1-2">Resolver os exercícios introdutórios 1 a 5 da <a href="../listas/3EM-GEOMETRIA-ANALITICA.html" style="color: var(--link-color);">Lista de Problemas</a>.</label>
+          </div>
+        </div>
+
+        <!-- ETAPA 2 -->
+        <div class="etapa-estudo">
+          <h3><span class="etapa-numero">02</span> Missão 2: A Reta e suas Posições Relativas</h3>
+          <p>
+            Uma reta é caracterizada pela sua taxa de inclinação constante (coeficiente angular @m@) e por seu coeficiente linear @q@:
+          </p>
+          <ul>
+            <li><strong>Coeficiente Angular:</strong> @m = \tan\theta = \frac{y_B - y_A}{x_B - x_A}@.</li>
+            <li><strong>Equação Fundamental Ponto-Inclinação:</strong> @y - y_0 = m(x - x_0)@.</li>
+            <li><strong>Equação Reduzida:</strong> @y = mx + q@, onde @q@ é o intercepto no eixo @y@.</li>
+            <li><strong>Equação Geral:</strong> @Ax + By + C = 0@, com @m = -\frac{A}{B}@.</li>
+            <li><strong>Critérios de Paralelismo e Perpendicularismo:</strong>
+              <br>• Retas paralelas: @m_r = m_s@.
+              <br>• Retas perpendiculares: @m_r \cdot m_s = -1 \iff m_s = -\frac{1}{m_r}@.
+            </li>
+            <li><strong>Distância de Ponto @P(x_0, y_0)@ a Reta @r: Ax + By + C = 0@:</strong>
+              @@ d(P, r) = \frac{|Ax_0 + By_0 + C|}{\sqrt{A^2 + B^2}} @@
+            </li>
+          </ul>
+          <div class="dica-box">
+            <strong>Dica de Ouro:</strong> Quando uma reta é vertical (@x = c@), ela não possui coeficiente angular definido (@\tan 90^\circ@ inexiste). Sua perpendicular é uma reta horizontal (@y = k@).
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="m2-1">
+            <label for="m2-1">Deduzir a equação da mediatriz de um segmento (reta perpendicular que passa pelo ponto médio).</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="m2-2">
+            <label for="m2-2">Praticar o cálculo de distâncias ponto-reta na <a href="../listas/3EM-GEOMETRIA-ANALITICA.html" style="color: var(--link-color);">Lista de Problemas</a>.</label>
+          </div>
+        </div>
+
+        <!-- ETAPA 3 -->
+        <div class="etapa-estudo">
+          <h3><span class="etapa-numero">03</span> Missão 3: Circunferências e Tangência</h3>
+          <p>
+            A circunferência é o lugar geométrico dos pontos @P(x, y)@ que distam @R@ do centro @C(a, b)@:
+          </p>
+          <ul>
+            <li><strong>Equação Reduzida:</strong> @(x - a)^2 + (y - b)^2 = R^2@.</li>
+            <li><strong>Equação Geral:</strong> @x^2 + y^2 - 2ax - 2by + (a^2 + b^2 - R^2) = 0@.</li>
+            <li><strong>Técnica de Completamento de Quadrados:</strong> Para retornar da forma geral para a reduzida, agrupe os termos em @x@ e em @y@ e adicione @\left(\frac{\text{coeficiente}}{2}\right)^2@ em ambos os lados.</li>
+            <li><strong>Posição Relativa entre Reta e Circunferência:</strong>
+              <br>Calcule a distância @d = d(C, r)@ do centro à reta:
+              <br>• Se @d < R@: Reta <strong>secante</strong> (2 pontos de interseção).
+              <br>• Se @d = R@: Reta <strong>tangente</strong> (1 único ponto de contato).
+              <br>• Se @d > R@: Reta <strong>exterior</strong> (nenhum ponto comum).
+            </li>
+          </ul>
+          <div class="checklist-item">
+            <input type="checkbox" id="m3-1">
+            <label for="m3-1">Dominar a técnica de completamento de quadrados em equações com coeficientes arbitrários.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="m3-2">
+            <label for="m3-2">Resolver problemas de retas tangentes à circunferência.</label>
+          </div>
+        </div>
+
+        <!-- ETAPA 4 -->
+        <div class="etapa-estudo">
+          <h3><span class="etapa-numero">04</span> Missão 4: Áreas de Polígonos via Determinantes</h3>
+          <p>
+            O cálculo de áreas no plano cartesiano atinge sua máxima elegância através da representação matricial de vértices (Capítulo 7: "Áreas: compondo e decompondo"):
+          </p>
+          <ul>
+            <li><strong>Área do Triângulo @\triangle ABC@:</strong>
+              @@ \text{Área} = \frac{1}{2} |D| \quad \text{onde} \quad D = \begin{vmatrix} x_A & y_A & 1 \\ x_B & y_B & 1 \\ x_C & y_C & 1 \end{vmatrix} @@
+            </li>
+            <li><strong>Condição de Alinhamento de Três Pontos:</strong> Três pontos @A, B, C@ são colineares se, e somente se, @D = 0@ (o triângulo formado tem área nula).</li>
+            <li><strong>Fórmula do Cadarço de Gauss (Shoelace Formula) para Polígonos de @n@ Vértices:</strong>
+              Organizando os vértices em ordem anti-horária @(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n), (x_1, y_1)@:
+              @@ \text{Área} = \frac{1}{2} \left| \sum_{i=1}^n (x_i y_{i+1} - x_{i+1} y_i) \right| @@
+            </li>
+            <li><strong>Aplicações Modernas:</strong> Georreferenciamento cadastral de propriedades rurais pelo INCRA, cálculo automático de áreas de lotes em softwares GIS (QGIS, ArcGIS) e computação gráfica.</li>
+          </ul>
+          <div class="checklist-item">
+            <input type="checkbox" id="m4-1">
+            <label for="m4-1">Calcular a área de um quadrilátero irregular decompondo-o em dois triângulos cartesianos.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="m4-2">
+            <label for="m4-2">Aplicar a fórmula do cadarço para um polígono de 5 vértices e conferir o resultado.</label>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Checklist de Autoavaliação Metacognitiva</h2>
+        <div class="destaque-box definicao">
+          <h3>Avalie o seu grau de domínio conceitual:</h3>
+          <div class="checklist-item">
+            <input type="checkbox" id="chk-1">
+            <label for="chk-1">Compreendo o significado geométrico do coeficiente angular @m@ como a tangente do ângulo de inclinação da reta com o semieixo positivo @x@.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="chk-2">
+            <label for="chk-2">Sei deduzir e aplicar imediatamente a condição de ortogonalidade de duas retas concorrentes (@m_1 \cdot m_2 = -1@).</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="chk-3">
+            <label for="chk-3">Consigo aplicar completamento de quadrados para encontrar o centro @(a,b)@ e raio @R@ a partir da equação geral de uma circunferência.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="chk-4">
+            <label for="chk-4">Sei calcular a distância de um ponto a uma reta e usá-la para classificar a reta como tangente, secante ou exterior a uma circunferência.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="chk-5">
+            <label for="chk-5">Domino o cálculo de áreas de triângulos e polígonos por determinantes e compreendo por que @D = 0@ indica pontos colineares.</label>
+          </div>
+        </div>
+      </section>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+  <h3>Escolha um Tema:</h3>
+  <button data-theme="theme-default" title="Tema Padrão">Default</button>
+  <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+  <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+  <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+  <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+  <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+  <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+  <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+  <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+  <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+  <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+  <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+  <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+  <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+
+</body>
+</html>

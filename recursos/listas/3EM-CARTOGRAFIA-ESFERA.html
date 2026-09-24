@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lista de Problemas: Da Esfera para o Plano - Cartografia e Geometria Esférica</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .ano-3em {
+      background-color: rgba(244, 67, 54, 0.3);
+      color: #ef9a9a;
+      border: 1px solid #f44336;
+    }
+
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-item {
+      margin-bottom: 1.4rem;
+      padding-left: 0.5rem;
+      border-left: 2px solid rgba(0, 255, 204, 0.3);
+    }
+
+    .gabarito-item-titulo {
+      font-weight: bold;
+      color: #00ffcc;
+      margin-bottom: 0.3rem;
+    }
+
+    ol li {
+      margin-bottom: 1.8rem;
+    }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <span class="badge-nivel ano-3em">3º Ano EM</span>
+    <h1>DA ESFERA PARA O PLANO: CARTOGRAFIA E GEOMETRIA ESFÉRICA</h1>
+    <p class="section-intro">
+      Capítulo 6 (3º Ano EM) — Da quebra dos axiomas euclidianos à navegação em grandes círculos: coordenadas geográficas, geodésicas ortodrômicas versus loxodrômicas, excesso esférico de Girard, o Theorema Egregium de Gauss e o rigor analítico das projeções de Mercator, Gall-Peters e Lambert.
+    </p>
+
+    <!-- ============================================================================
+         SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS (10 Problemas)
+         ============================================================================ -->
+    <article>
+      <h2>Seção 1: Problemas Introdutórios</h2>
+      <p class="section-intro">
+        Conceitos fundamentais de latitude e longitude, raios de círculos menores, arcos de meridianos, antípodas e fusos horários.
+        Considere o raio médio da Terra como @R = 6\,371\text{ km}@ e @\pi \approx 3{,}1416@, exceto quando especificado.
+      </p>
+
+      <ol>
+        <!-- Problema 1 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Raio de um Paralelo</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 3 min</span>
+          </div>
+          <p>
+            Sabendo que o raio de um paralelo terrestre em função da latitude @\varphi@ é dado por @r(\varphi) = R \cos\varphi@, determine o raio do paralelo correspondente à latitude de @60^\circ@ Norte. Compare esse valor com o raio do Equador.
+          </p>
+        </li>
+
+        <!-- Problema 2 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Comprimento de Arco de Meridiano</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 3 min</span>
+          </div>
+          <p>
+            Como todos os meridianos da Terra são semicírculos de grandes círculos de raio @R = 6\,371\text{ km}@, calcule a distância métrica na superfície terrestre correspondente a um deslocamento meridional de exatamente @1^\circ@ de latitude (em km).
+          </p>
+        </li>
+
+        <!-- Problema 3 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Pontos Antípodas</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 3 min</span>
+          </div>
+          <p>
+            A capital federal do Brasil, Brasília, situa-se aproximadamente nas coordenadas geográficas @15^\circ48'\text{S}@ de latitude e @47^\circ52'\text{W}@ de longitude. Determine as coordenadas geográficas exatas do ponto antípoda de Brasília sobre o globo terrestre.
+          </p>
+        </li>
+
+        <!-- Problema 4 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Fusos Horários e Rotação Angular</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 3 min</span>
+          </div>
+          <p>
+            A Terra completa uma rotação de @360^\circ@ em aproximadamente @24\text{ horas}@.
+          </p>
+          <p>a) Qual é a velocidade angular média de rotação da Terra expressa em graus por hora (@^\circ/\text{h}@)?</p>
+          <p>b) Se a cidade de Londres situa-se na longitude @0^\circ@ e a cidade de São Paulo situa-se aproximadamente no meridiano @45^\circ\text{W}@, qual é a diferença teórica de tempo solar entre as duas cidades?</p>
+        </li>
+
+        <!-- Problema 5 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Comprimento da Linha do Equador e Trópicos</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            Calcule o perímetro total da circunferência do Equador (@\varphi = 0^\circ@) e o perímetro total do Trópico de Capricórnio (@\varphi = 23{,}5^\circ\text{ S}@, com @\cos(23{,}5^\circ) \approx 0{,}917@).
+          </p>
+        </li>
+
+        <!-- Problema 6 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Distância ao Longo do Mesmo Meridiano</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 3 min</span>
+          </div>
+          <p>
+            Dois postos científicos @A@ e @B@ estão situados rigorosamente no meridiano de Greenwich (@\lambda = 0^\circ@). O posto @A@ está na latitude @20^\circ\text{N}@ e o posto @B@ está na latitude @50^\circ\text{N}@. Qual é a distância ortodrômica entre eles sobre a superfície terrestre?
+          </p>
+        </li>
+
+        <!-- Problema 7 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Fator de Escala Linear de Mercator</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 3 min</span>
+          </div>
+          <p>
+            Na projeção cilíndrica de Mercator, o fator de escala linear é dado por @k(\varphi) = \sec\varphi = \frac{1}{\cos\varphi}@. Calcule o fator de escala @k@ para:
+          </p>
+          <p>a) O Equador (@\varphi = 0^\circ@).</p>
+          <p>b) A latitude de @30^\circ@ (@\cos 30^\circ = \frac{\sqrt{3}}{2} \approx 0{,}866@).</p>
+          <p>c) A latitude de @60^\circ@.</p>
+        </li>
+
+        <!-- Problema 8 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Círculos Máximos vs Círculos Menores</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 2 min</span>
+          </div>
+          <p>
+            Classifique geometricamente cada uma das seguintes linhas sobre a esfera terrestre em <strong>Círculo Máximo</strong> ou <strong>Círculo Menor</strong>:
+          </p>
+          <p>a) O Paralelo do Equador.</p>
+          <p>b) O Círculo Polar Ártico (@66{,}5^\circ\text{N}@).</p>
+          <p>c) O Meridiano de Greenwich associado ao seu antimeridiano (@180^\circ@).</p>
+          <p>d) A linha imaginária que separa o Hemisfério Iluminado pelo Sol do Hemisfério Noturno (terminador solar).</p>
+        </li>
+
+        <!-- Problema 9 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Excesso Esférico Tri-Retângulo</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 3 min</span>
+          </div>
+          <p>
+            Considere um triângulo esférico formado pelo Polo Norte e dois pontos situados no Equador que distam @90^\circ@ de longitude entre si.
+          </p>
+          <p>a) Quais são as medidas dos três ângulos internos desse triângulo esférico?</p>
+          <p>b) Calcule o excesso esférico @E = A + B + C - 180^\circ@ em graus e em radianos.</p>
+        </li>
+
+        <!-- Problema 10 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Fuso Esférico e Área</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            A área total da superfície esférica terrestre é @A_{\text{total}} = 4\pi R^2@. Um fuso esférico de ângulo diedro @\alpha = 15^\circ@ corresponde a uma faixa de 1 fuso horário. Que fração da área total da Terra esse fuso representa?
+          </p>
+        </li>
+      </ol>
+    </article>
+
+    <!-- ============================================================================
+         SEÇÃO 2: PROBLEMAS DE FIXAÇÃO (12 Problemas)
+         ============================================================================ -->
+    <article>
+      <h2>Seção 2: Problemas de Fixação</h2>
+      <p class="section-intro">
+        Distâncias sobre paralelos vs ortodrômicas, Teorema de Girard para áreas de triângulos esféricos, velocidade tangencial de rotação e distorções comparativas entre Mercator e Gall-Peters.
+      </p>
+
+      <ol start="11">
+        <!-- Problema 11 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Distância ao Longo do Paralelo vs Arco de Círculo Máximo</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            Duas cidades, @P_1@ e @P_2@, estão situadas na mesma latitude @\varphi = 60^\circ\text{N}@, separadas por uma diferença de longitude @\Delta\lambda = 90^\circ@ (@\frac{\pi}{2}\text{ rad}@).
+          </p>
+          <p>a) Calcule a distância @d_{\text{paralelo}}@ percorrida por um navio que navega estritamente ao longo do paralelo @60^\circ\text{N}@ de @P_1@ até @P_2@.</p>
+          <p>b) Calcule a distância ortodrômica @d_{\text{orto}}@ (pelo grande círculo) entre essas duas cidades, sabendo que @\cos\sigma = \sin^2(60^\circ) + \cos^2(60^\circ)\cos(90^\circ) = \left(\frac{\sqrt{3}}{2}\right)^2 + 0 = \frac{3}{4} = 0{,}75@ (onde @\sigma = \arccos(0{,}75) \approx 0{,}7227\text{ rad}@).</p>
+          <p>c) Quantos quilômetros são economizados ao optar pela rota ortodrômica?</p>
+        </li>
+
+        <!-- Problema 12 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Fórmula de Girard para Área de Triângulo Esférico</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            Um triângulo esférico @\triangle ABC@ desenhado sobre a superfície terrestre possui ângulos internos medindo @A = 80^\circ@, @B = 85^\circ@ e @C = 75^\circ@.
+          </p>
+          <p>a) Calcule o excesso esférico @E@ em radianos.</p>
+          <p>b) Utilizando a fórmula de Girard @\text{Área} = E \cdot R^2@, calcule a área desse triângulo sobre a Terra em milhões de quilômetros quadrados (@\text{milhões de km}^2@).</p>
+        </li>
+
+        <!-- Problema 13 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Distorção de Área na Projeção de Mercator</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            Na projeção de Mercator, o fator de ampliação de área é dado por @k_{\text{área}}(\varphi) = \sec^2\varphi@.
+          </p>
+          <p>a) Calcule o fator de deformação de área para a cidade de Oslo (@\varphi \approx 60^\circ\text{N}@).</p>
+          <p>b) Calcule o fator de deformação para o norte da Groenlândia (@\varphi \approx 80^\circ\text{N}@, com @\cos(80^\circ) \approx 0{,}1736@).</p>
+          <p>c) Explique por que a projeção de Mercator distorce violentamente a percepção geopolítica do tamanho das regiões polares em relação aos países tropicais.</p>
+        </li>
+
+        <!-- Problema 14 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Projeção Cilíndrica Equivalente de Gall-Peters</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            Na projeção de Gall-Peters, as coordenadas cartesianas no mapa são dadas por:
+          </p>
+          <p>@@ x = \frac{R}{\sqrt{2}} \lambda, \quad y = R\sqrt{2} \sin\varphi @@</p>
+          <p>a) Demonstre que a distância vertical entre o Equador (@\varphi = 0^\circ@) e o paralelo de @30^\circ@ é maior do que a distância vertical entre o paralelo de @60^\circ@ e o Polo (@90^\circ@).</p>
+          <p>b) Qual é o efeito visual dessa projeção sobre as formas dos continentes equatoriais (como a África e a América do Sul)?</p>
+        </li>
+
+        <!-- Problema 15 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Velocidade Linear de Rotação Terrestre</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            A velocidade tangencial de rotação da superfície da Terra em função da latitude é @v(\varphi) = \omega \cdot r(\varphi) = \omega R \cos\varphi@, onde @\omega = \frac{2\pi}{24\text{ h}} \approx 0{,}2618\text{ rad/h}@.
+          </p>
+          <p>a) Calcule a velocidade tangencial de um habitante sobre a linha do Equador em @\text{km/h}@.</p>
+          <p>b) Calcule a velocidade tangencial na cidade de Londres (@\varphi \approx 51^\circ30'\text{N}@, @\cos(51{,}5^\circ) \approx 0{,}6225@).</p>
+          <p>c) Por que o Centro de Lançamento de Foguetes de Alcântara, no Maranhão (@\varphi \approx 2^\circ18'\text{S}@), possui imensa vantagem econômica internacional para lançamento de satélites em relação a bases na Europa ou no norte dos EUA?</p>
+        </li>
+
+        <!-- Problema 16 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">A Trajetória Ortodrômica de Paris a Tóquio</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            Um piloto de avião traça uma rota direta de Paris (@48^\circ51'\text{N}, 2^\circ21'\text{E}@) para Tóquio (@35^\circ41'\text{N}, 139^\circ46'\text{E}@).
+          </p>
+          <p>Ao observar a rota em um mapa plano de Mercator, a linha parece subir dramaticamente em direção ao Círculo Polar Ártico antes de descer para o Japão. Um passageiro desavisado afirma que o piloto está fazendo um desvio desnecessário. Justifique matematicamente por que a rota visualmente curva no mapa plano é, na verdade, a rota mais curta possível sobre o globo.</p>
+        </li>
+
+        <!-- Problema 17 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">O Theorema Egregium de Gauss e Superfícies Desenvolvíveis</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            Segundo Carl Friedrich Gauss, uma superfície só pode ser planificada sobre uma folha sem estiramento ou contração se sua curvatura gaussiana @K@ for idêntica à do plano (@K = 0@).
+          </p>
+          <p>a) Um cilindro circular reto e um cone são superfícies desenvolvíveis sobre o plano? Justifique calculando suas curvaturas principais @\kappa_1@ e @\kappa_2@.</p>
+          <p>b) Por que a esfera não é uma superfície desenvolvível?</p>
+        </li>
+
+        <!-- Problema 18 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Triângulo Esférico com 1/8 da Superfície Terrestre</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            O triângulo esférico clássico limitado pelo Meridiano de Greenwich (@0^\circ@), pelo meridiano @90^\circ\text{W}@ e pelo Equador cobre exatamente um octante da esfera.
+          </p>
+          <p>a) Determine os três ângulos internos desse triângulo.</p>
+          <p>b) Verifique a fórmula de Girard calculando a área desse octante e comparando com @\frac{4\pi R^2}{8}@.</p>
+        </li>
+
+        <!-- Problema 19 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Navegação Loxodrômica</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            Uma rota loxodrômica corta todos os meridianos sob um ângulo azimutal constante @\beta@.
+          </p>
+          <p>a) Se uma embarcação parte de um porto a @30^\circ\text{S}@ e navega perpetuamente rumo ao Nordeste verdadeiro (azimute fixo @45^\circ@), qual será o comportamento geométrico da sua trajetória ao longo do tempo?</p>
+          <p>b) A embarcação chegará ao Polo Norte? Justifique mencionando a espiral loxodrômica.</p>
+        </li>
+
+        <!-- Problema 20 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Projeção Cônica Conforme de Lambert</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            A projeção cônica de Lambert projeta a esfera sobre um cone secante a dois paralelos padrão, @\varphi_1 = 30^\circ@ e @\varphi_2 = 60^\circ@.
+          </p>
+          <p>a) Qual é o valor do fator de escala @k@ exatamente sobre os dois paralelos padrão?</p>
+          <p>b) O fator de escala entre @\varphi_1@ e @\varphi_2@ é ligeiramente maior ou menor que 1? O que ocorre fora desse intervalo?</p>
+        </li>
+
+        <!-- Problema 21 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Comparação Geográfica: Groenlândia vs Brasil</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            A área real da Groenlândia é de aproximadamente @2{,}16\text{ milhões de km}^2@, situada na latitude média @72^\circ\text{N}@. A área real do território brasileiro é de aproximadamente @8{,}51\text{ milhões de km}^2@, situado na latitude média de @12^\circ\text{S}@.
+          </p>
+          <p>a) Quantas vezes o Brasil é maior que a Groenlândia na realidade física do planeta?</p>
+          <p>b) Calcule a razão aparente entre as áreas da Groenlândia e do Brasil em um mapa de Mercator utilizando os fatores de distorção @\sec^2(72^\circ) \approx 10{,}47@ e @\sec^2(12^\circ) \approx 1{,}045@.</p>
+        </li>
+
+        <!-- Problema 22 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Horizonte de Radar Náutico</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            Devido à curvatura da Terra, a distância geométrica @d@ até a linha do horizonte visível a partir de um observador ou antena a uma altitude @h@ acima do nível do mar é dada por @d \approx \sqrt{2Rh}@ (para @h \ll R@).
+          </p>
+          <p>Calcule o alcance do horizonte visual para:</p>
+          <p>a) Uma pessoa em pé na praia com os olhos a @h = 1{,}8\text{ metros}@ do chão.</p>
+          <p>b) Um farol marítimo construído no topo de uma falésia com lanterna a @h = 72\text{ metros}@ de altitude.</p>
+        </li>
+      </ol>
+    </article>
+
+    <!-- ============================================================================
+         SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO (8 Problemas)
+         ============================================================================ -->
+    <article>
+      <h2>Seção 3: Problemas de Aprofundamento</h2>
+      <p class="section-intro">
+        Dedução analítica de fórmulas fundamentais da trigonometria esférica, cálculo de rotas ortodrômicas intercontinentais e propriedades conformes de Mercator.
+      </p>
+
+      <ol start="23">
+        <!-- Problema 23 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Dedução Vetorial da Lei dos Cossenos Esférica</span>
+            <span class="dificuldade dificil">Difícil</span>
+            <span>⏱️ 9 min</span>
+          </div>
+          <p>
+            Sejam @P_1(\varphi_1, \lambda_1)@ e @P_2(\varphi_2, \lambda_2)@ dois pontos na superfície da esfera unitária. Em coordenadas cartesianas tridimensionais, os vetores unitários de posição são:
+          </p>
+          <p>@@ \mathbf{u}_1 = (\cos\varphi_1 \cos\lambda_1, \, \cos\varphi_1 \sin\lambda_1, \, \sin\varphi_1) @@</p>
+          <p>@@ \mathbf{u}_2 = (\cos\varphi_2 \cos\lambda_2, \, \cos\varphi_2 \sin\lambda_2, \, \sin\varphi_2) @@</p>
+          <p>a) Utilizando a definição de produto escalar @\mathbf{u}_1 \cdot \mathbf{u}_2 = \cos\sigma@ (onde @\sigma@ é o ângulo central subtendido entre os dois pontos), efetue a multiplicação componente a componente.</p>
+          <p>b) Mostre detalhadamente que o resultado simplifica-se na célebre relação da Geodésia:</p>
+          <p>@@ \cos\sigma = \sin\varphi_1 \sin\varphi_2 + \cos\varphi_1 \cos\varphi_2 \cos(\lambda_2 - \lambda_1) @@</p>
+        </li>
+
+        <!-- Problema 24 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Cálculo da Rota Ortodrômica São Paulo - Joanesburgo</span>
+            <span class="dificuldade dificil">Difícil</span>
+            <span>⏱️ 8 min</span>
+          </div>
+          <p>
+            Considere as coordenadas aproximadas de São Paulo (@\varphi_1 = -23{,}5^\circ, \lambda_1 = -46{,}6^\circ@) e Joanesburgo (@\varphi_2 = -26{,}2^\circ, \lambda_2 = +28{,}0^\circ@).
+          </p>
+          <p>Dados trigonométricos:
+            <br>• @\sin(-23{,}5^\circ) \approx -0{,}3987@, @\cos(-23{,}5^\circ) \approx 0{,}9171@
+            <br>• @\sin(-26{,}2^\circ) \approx -0{,}4415@, @\cos(-26{,}2^\circ) \approx 0{,}8973@
+            <br>• @\Delta\lambda = 28{,}0^\circ - (-46{,}6^\circ) = 74{,}6^\circ@, com @\cos(74{,}6^\circ) \approx 0{,}2656@.
+          </p>
+          <p>a) Calcule a distância angular central @\sigma@ em radianos.</p>
+          <p>b) Determine a distância ortodrômica real entre São Paulo e Joanesburgo em quilômetros.</p>
+        </li>
+
+        <!-- Problema 25 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Dedução da Equação Conforme de Mercator</span>
+            <span class="dificuldade dificil">Difícil</span>
+            <span>⏱️ 10 min</span>
+          </div>
+          <p>
+            Para que uma projeção cilíndrica com meridianos verticais paralelos (@x = R\lambda@) seja <strong>conforme</strong> (preserve ângulos localmente), o fator de escala na direção vertical @k_y = \frac{1}{R\cos\varphi} \frac{dy}{d\varphi}@ deve ser idêntico ao fator de escala horizontal @k_x = \sec\varphi = \frac{1}{\cos\varphi}@.
+          </p>
+          <p>a) Igualando @k_x = k_y@, monte a equação diferencial para @\frac{dy}{d\varphi}@.</p>
+          <p>b) Resolva a integral @y = R \int \sec\varphi \, d\varphi@ e prove que:</p>
+          <p>@@ y = R \ln\left| \sec\varphi + \tan\varphi \right| = R \ln\left[ \tan\left( \frac{\pi}{4} + \frac{\varphi}{2} \right) \right] @@</p>
+        </li>
+
+        <!-- Problema 26 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Fórmula de Girard para Polígonos Esféricos</span>
+            <span class="dificuldade dificil">Difícil</span>
+            <span>⏱️ 8 min</span>
+          </div>
+          <p>
+            Demonstre que a área de um polígono esférico convexo de @n@ lados cujos ângulos internos somam @\sum_{i=1}^n \alpha_i@ é dada pela generalização de Girard-Gauss:
+          </p>
+          <p>@@ \text{Área} = \left( \sum_{i=1}^n \alpha_i - (n - 2)\pi \right) R^2 @@</p>
+          <div class="dica">
+            <strong>Dica:</strong> Divida o polígono de @n@ lados em @n - 2@ triângulos esféricos a partir de um vértice comum e aplique o teorema de Girard a cada um deles.
+          </div>
+        </li>
+
+        <!-- Problema 27 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Projeção Estereográfica e Invariância de Círculos</span>
+            <span class="dificuldade dificil">Difícil</span>
+            <span>⏱️ 8 min</span>
+          </div>
+          <p>
+            Na projeção estereográfica azimutal, os pontos da esfera são projetados a partir do Polo Sul @S(0, 0, -R)@ sobre o plano tangente ao Polo Norte @N(0, 0, R)@.
+          </p>
+          <p>a) Mostre que o Equador (@\varphi = 0^\circ@) é projetado sobre uma circunferência centrada na origem de raio @\rho = 2R@.</p>
+          <p>b) Explique por que essa projeção foi fundamental para a construção de astrolábios na Antiguidade clássica e no mundo islâmico medieval.</p>
+        </li>
+
+        <!-- Problema 28 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Achatamento Elipsoidal Terrestre (WGS-84)</span>
+            <span class="dificuldade dificil">Difícil</span>
+            <span>⏱️ 8 min</span>
+          </div>
+          <p>
+            No modelo elipsoidal WGS-84 utilizado pelo sistema GPS, o semi-eixo equatorial é @a = 6\,378\,137\text{ m}@ e o achatamento polar é @f = \frac{a - b}{a} = \frac{1}{298{,}257223563}@.
+          </p>
+          <p>a) Calcule o semi-eixo polar @b@ em metros.</p>
+          <p>b) Qual é a diferença métrica @a - b@ entre o raio equatorial e o raio polar da Terra?</p>
+          <p>c) Por que um satélite em órbita baixa sobre os polos sofre uma atração gravitacional ligeiramente superior à de uma órbita sobre o equador na mesma altitude?</p>
+        </li>
+
+        <!-- Problema 29 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Curvatura Gaussiana e Teorema de Gauss-Bonnet</span>
+            <span class="dificuldade desafio">Desafio</span>
+            <span>⏱️ 10 min</span>
+          </div>
+          <p>
+            O Teorema de Gauss-Bonnet estabelece que, para qualquer superfície compacta fechada bidimensional sem borda @M@ de característica de Euler @\chi(M)@:
+          </p>
+          <p>@@ \iint_M K \, dA = 2\pi \chi(M) @@</p>
+          <p>a) Para a esfera @S^2@, a característica de Euler é @\chi(S^2) = 2@. Sendo a curvatura gaussiana da esfera constante @K = \frac{1}{R^2}@, resolva a integral e verifique que @\text{Área}(S^2) = 4\pi R^2@.</p>
+          <p>b) Para a superfície de um toro (formato de rosca), sabe-se que @\chi(\mathbb{T}^2) = 0@. O que o Teorema de Gauss-Bonnet afirma sobre a integral da curvatura sobre o toro?</p>
+        </li>
+
+        <!-- Problema 30 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Web Mercator e a Singularidade nos Polos</span>
+            <span class="dificuldade dificil">Difícil</span>
+            <span>⏱️ 7 min</span>
+          </div>
+          <p>
+            A projeção oficial utilizada em mapas digitais na web (Google Maps, OpenStreetMap, Bing Maps) é a <em>Web Mercator</em> (EPSG:3857). Como a projeção de Mercator diverge para o infinito nos polos (@y \to \infty@ quando @\varphi \to \pm 90^\circ@), o mapa mundial é recortado de modo a formar um quadrado perfeito @256 \times 256@ pixels na resolução base @z=0@.
+          </p>
+          <p>Determine a latitude máxima de corte @\varphi_{\text{max}}@ para a qual a coordenada @y@ é exatamente igual à largura total @x_{\text{max}} = R\pi@, resolvendo @\ln[\tan(\frac{\pi}{4} + \frac{\varphi}{2})] = \pi@.</p>
+        </li>
+      </ol>
+    </article>
+
+    <!-- ============================================================================
+         SEÇÃO 4: PROBLEMAS PROPOSTOS E APLICAÇÕES REAIS (8 Problemas)
+         ============================================================================ -->
+    <article>
+      <h2>Seção 4: Problemas Propostos e Aplicações Reais</h2>
+      <p class="section-intro">
+        Problemas interdisciplinares de cartografia digital, voos intercontinentais, geodésia espacial e telecomunicações por satélite.
+      </p>
+
+      <ol start="31">
+        <!-- Problema 31 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Constelação GPS e Triangulação Esférica</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            O sistema GPS requer um mínimo de 4 satélites visíveis para determinar a posição tridimensional @(x, y, z)@ de um receptor e o erro do relógio @\Delta t@. Cada satélite transmite seu sinal à velocidade da luz @c \approx 300\,000\text{ km/s}@. Se o tempo medido de propagação do sinal do satélite 1 é de @0{,}068\text{ segundos}@, qual é a distância da pseudo-alcance entre o satélite e o receptor?
+          </p>
+        </li>
+
+        <!-- Problema 32 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Voo Intercontinental Polar: Nova York a Pequim</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            Voos diretos entre Nova York (@40^\circ42'\text{N}, 74^\circ00'\text{W}@) e Pequim (@39^\circ54'\text{N}, 116^\circ24'\text{E}@) cruzam as proximidades do Oceano Ártico e da Sibéria.
+          </p>
+          <p>A soma das longitudes é @74^\circ + 116{,}4^\circ = 190{,}4^\circ \approx 180^\circ@, o que indica que as duas metrópoles estão quase em lados opostos do Hemisfério Norte. Explique por que passar pelo Polo Norte resulta na menor rota possível entre essas cidades.</p>
+        </li>
+
+        <!-- Problema 33 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Coriolis e Rotação da Terra</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            A aceleração aparente de Coriolis é dada por @a_c = 2 (\mathbf{v} \times \mathbf{\omega})@, com módulo horizontal @a_c = 2 v \omega \sin\varphi@.
+          </p>
+          <p>a) Em que latitude terrestre a força de Coriolis tem seu valor máximo?</p>
+          <p>b) Por que tufões e furacões tropicais nunca se formam sobre a faixa estrita do Equador (@\varphi = 0^\circ@)?</p>
+        </li>
+
+        <!-- Problema 34 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Órbitas Geoestacionárias</span>
+            <span class="dificuldade dificil">Difícil</span>
+            <span>⏱️ 7 min</span>
+          </div>
+          <p>
+            Satélites geoestacionários de telecomunicações permanecem fixos em relação a um observador na Terra. Por que todas as órbitas geoestacionárias devem ser necessariamente circulares e estar situadas <strong>rigorosamente no plano do Equador</strong> (@\varphi = 0^\circ@)?
+          </p>
+        </li>
+
+        <!-- Problema 35 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Cabos Submarinos e Rotas Marítimas</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            O tráfego de dados da internet global viaja em mais de @98\%@ por cabos de fibra óptica depositados no fundo dos oceanos. Ao planejar o traçado de um cabo de Fortaleza (Brasil) até Lisboa (Portugal), os engenheiros adotam arcos de grande círculo corrigidos pelo relevo batimétrico dorsal atlântico. Qual conceito matemático garante o menor consumo de metros de cabo de fibra óptica?
+          </p>
+        </li>
+
+        <!-- Problema 36 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Área de um Fuso Horário Polar</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            Na Antártida, todos os 24 meridianos que definem os fusos horários do mundo convergem no Polo Sul geográfico. Como as bases de pesquisa científicas operam seus relógios na prática, sabendo que cruzando poucos metros a pé um pesquisador poderia cruzar dezenas de fusos horários?
+          </p>
+        </li>
+
+        <!-- Problema 37 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Ortofoto e Rebatimento com Drones</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            Em aerofotogrametria moderna com drones, as fotos aéreas de perspectiva cônica sofrem distorções de relevo. Para gerar uma "ortofoto" equivalente a uma projeção ortogonal perfeitamente plana, cada ponto da imagem é corrigido através de um Modelo Digital de Elevação (MDE). Qual é a principal diferença entre uma foto aérea bruta e uma imagem ortorretificada?
+          </p>
+        </li>
+
+        <!-- Problema 38 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">O Fenômeno do Sol da Meia-Noite</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            Devido à inclinação de @\varepsilon \approx 23{,}5^\circ@ do eixo de rotação da Terra em relação ao plano da eclíptica, no solstício de verão do Hemisfério Norte todo o território acima da latitude @90^\circ - 23{,}5^\circ = 66{,}5^\circ\text{N}@ (Círculo Polar Ártico) permanece iluminado pelo Sol durante 24 horas contínuas. Explique geometricamente por que a latitude de corte do círculo polar é exatamente o complemento da inclinação do eixo terrestre.
+          </p>
+        </li>
+      </ol>
+    </article>
+
+    <!-- ============================================================================
+         GABARITO E SOLUÇÕES COMENTADAS (RETRÁTIL)
+         ============================================================================ -->
+    <details class="gabarito-container">
+      <summary>👉 Clique aqui para ver o Gabarito e as Soluções Passo a Passo de Todos os Problemas</summary>
+      <div class="gabarito-content">
+
+        <!-- Gabarito Seção 1 -->
+        <div class="gabarito-secao">
+          <h3>Seção 1: Problemas Introdutórios</h3>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 1</div>
+            <p>@r(60^\circ) = R \cos(60^\circ) = 6\,371 \times 0{,}5 = 3\,185{,}5\text{ km}@. Ele tem exatamente a metade do raio equatorial da Terra.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 2</div>
+            <p>@\Delta s = R \Delta\varphi_{\text{rad}} = 6\,371 \times \frac{\pi}{180} \approx \frac{6\,371 \times 3{,}14159}{180} \approx 111{,}19\text{ km}@. Cada grau de latitude equivale a cerca de @111{,}2\text{ km}@.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 3</div>
+            <p>Para o antípoda de @(\varphi, \lambda)@:</p>
+            <p>• @\varphi_{\text{ant}} = -\varphi = -(-15^\circ48') = 15^\circ48'\text{N}@.</p>
+            <p>• @\lambda_{\text{ant}} = 180^\circ - 47^\circ52' = 132^\circ08'\text{E}@.</p>
+            <p>Portanto, as coordenadas antípodas são @(15^\circ48'\text{N}, 132^\circ08'\text{E})@ (localizado no Mar das Filipinas).</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 4</div>
+            <p>a) @\omega = \frac{360^\circ}{24\text{ h}} = 15^\circ/\text{h}@.</p>
+            <p>b) Diferença angular: @45^\circ - 0^\circ = 45^\circ@. Diferença horária: @\frac{45^\circ}{15^\circ/\text{h}} = 3\text{ horas}@ (Londres está 3 horas à frente de São Paulo).</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 5</div>
+            <p>• Equador: @C = 2\pi R \approx 2 \times 3{,}1416 \times 6\,371 \approx 40\,030\text{ km}@.</p>
+            <p>• Capricórnio: @C_{23{,}5^\circ} = 2\pi R \cos(23{,}5^\circ) \approx 40\,030 \times 0{,}917 \approx 36\,707\text{ km}@.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 6</div>
+            <p>A diferença de latitude é @\Delta\varphi = 50^\circ - 20^\circ = 30^\circ@.</p>
+            <p>@d = R \cdot \frac{30\pi}{180} = 6\,371 \cdot \frac{\pi}{6} \approx 6\,371 \cdot 0{,}5236 \approx 3\,336\text{ km}@.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 7</div>
+            <p>a) Para @\varphi = 0^\circ@: @k = \sec(0^\circ) = 1{,}00@ (escala verdadeira).</p>
+            <p>b) Para @\varphi = 30^\circ@: @k = \sec(30^\circ) = \frac{2}{\sqrt{3}} \approx 1{,}155@ (ampliação de 15,5%).</p>
+            <p>c) Para @\varphi = 60^\circ@: @k = \sec(60^\circ) = 2{,}00@ (distâncias lineares aparecem dobradas!).</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 8</div>
+            <p>a) Círculo Máximo (o plano passa pelo centro da Terra).</p>
+            <p>b) Círculo Menor (o plano não passa pelo centro).</p>
+            <p>c) Círculo Máximo (dois meridianos opostos formam um círculo máximo completo).</p>
+            <p>d) Círculo Máximo (o plano iluminador divide a esfera exatamente em dois hemisférios de mesma área).</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 9</div>
+            <p>a) Os meridianos descem do Polo Norte perpendiculares ao Equador (@90^\circ@ em cada interseção equatorial), e encontram-se no Polo formando um ângulo de @90^\circ@. Logo, @A = 90^\circ, B = 90^\circ, C = 90^\circ@.</p>
+            <p>b) @E = 90^\circ + 90^\circ + 90^\circ - 180^\circ = 90^\circ = \frac{\pi}{2}\text{ rad}@.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 10</div>
+            <p>Como a esfera completa tem @360^\circ@, a fração da área é @\frac{15^\circ}{360^\circ} = \frac{1}{24}@ da área total da Terra.</p>
+          </div>
+        </div>
+
+        <!-- Gabarito Seção 2 -->
+        <div class="gabarito-secao">
+          <h3>Seção 2: Problemas de Fixação</h3>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 11</div>
+            <p>a) @d_{\text{paralelo}} = (R \cos 60^\circ) \Delta\lambda = (6\,371 \times 0{,}5) \times \frac{\pi}{2} = 3\,185{,}5 \times 1{,}5708 \approx 5\,004\text{ km}@.</p>
+            <p>b) Pela ortodrômica: @d_{\text{orto}} = R \sigma = 6\,371 \times 0{,}7227 \approx 4\,604\text{ km}@.</p>
+            <p>c) Economia: @5\,004 - 4\,604 = 400\text{ km}@ economizados na rota de grande círculo!</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 12</div>
+            <p>a) @E^\circ = 80^\circ + 85^\circ + 75^\circ - 180^\circ = 240^\circ - 180^\circ = 60^\circ@.</p>
+            <p>Em radianos: @E = 60^\circ \times \frac{\pi}{180^\circ} = \frac{\pi}{3} \approx 1{,}0472\text{ rad}@.</p>
+            <p>b) @\text{Área} = E \cdot R^2 = \frac{\pi}{3} \times (6\,371)^2 \approx 1{,}0472 \times 40\,589\,641 \approx 42{,}5\text{ milhões de km}^2@.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 13</div>
+            <p>a) @k_{\text{área}}(60^\circ) = \sec^2(60^\circ) = 2^2 = 4@ (área 4 vezes maior).</p>
+            <p>b) @k_{\text{área}}(80^\circ) = \frac{1}{\cos^2(80^\circ)} \approx \frac{1}{(0{,}1736)^2} \approx 33{,}18@ (área mais de 33 vezes maior!).</p>
+            <p>c) Essa supervalorização de áreas em altas latitudes faz nações do hemisfério norte (Europa, América do Norte, Rússia) parecerem geograficamente dominantes em tamanho quando comparadas à América do Sul e África.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 14</div>
+            <p>a) @y(30^\circ) - y(0^\circ) = R\sqrt{2}(\sin 30^\circ - 0) = R\sqrt{2}(0{,}5) \approx 0{,}707 R@.</p>
+            <p>@y(90^\circ) - y(60^\circ) = R\sqrt{2}(\sin 90^\circ - \sin 60^\circ) = R\sqrt{2}(1 - 0{,}866) = R\sqrt{2}(0{,}134) \approx 0{,}189 R@.</p>
+            <p>A faixa tropical ocupa quase 4 vezes mais altura no mapa que a faixa polar correspondente.</p>
+            <p>b) Os continentes equatoriais aparecem bastante alongados verticalmente (estirados no sentido norte-sul).</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 15</div>
+            <p>a) No Equador: @v = \frac{2\pi \times 6\,371}{24} \approx 1\,668\text{ km/h}@.</p>
+            <p>b) Em Londres: @v = 1\,668 \times 0{,}6225 \approx 1\,038\text{ km/h}@.</p>
+            <p>c) Próxima ao Equador, a base aproveita a velocidade máxima tangencial da Terra (~1.668 km/h), que funciona como um "impulso natural gratuito", economizando enorme quantidade de combustível propulsor para atingir a velocidade orbital.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 16</div>
+            <p>O mapa de Mercator preserva ângulos, mas estica excessivamente as altas latitudes. O grande círculo (menor distância real) passa mais perto do Polo Norte. Quando essa geodésica é projetada no plano deformado de Mercator, sua representação é uma linha curva côncava para baixo, dando a ilusão ótica de desvio.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 17</div>
+            <p>a) No cilindro e no cone, uma das curvaturas principais é zero ao longo da geratriz (@\kappa_1 = 0@), logo @K = \kappa_1 \kappa_2 = 0@. Ambos são plenamente desenroláveis sem estiramento.</p>
+            <p>b) Na esfera, @\kappa_1 = \kappa_2 = 1/R@, portanto @K = 1/R^2 > 0@. Pelo Theorema Egregium, uma superfície com @K \neq 0@ jamais pode ser mapeada isometricamente sobre uma com @K = 0@.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 18</div>
+            <p>a) Três ângulos retos: @A = B = C = 90^\circ = \pi/2\text{ rad}@.</p>
+            <p>b) @\text{Área} = (3 \cdot \frac{\pi}{2} - \pi) R^2 = \frac{\pi}{2} R^2 = \frac{4\pi R^2}{8}@. Exatamente @1/8@ da esfera!</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 19</div>
+            <p>a) A rota descreve uma espiral esférica (curva loxodrômica) que se enrola indefinidamente em torno do eixo dos polos.</p>
+            <p>b) Em comprimento finito de arco, a espiral atinge o Polo Norte assintoticamente, mas sem rumo definido ao final, pois no polo todos os meridianos convergem.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 20</div>
+            <p>a) Nos dois paralelos secantes, @k = 1@ rigorosamente (sem distorção de escala).</p>
+            <p>b) Entre os paralelos, @k < 1@ (leve compressão); fora deles, @k > 1@ (ampliação progressiva).</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 21</div>
+            <p>a) Razão real: @\frac{8{,}51}{2{,}16} \approx 3{,}94@ vezes maior (o Brasil é quase 4 vezes maior que a Groenlândia).</p>
+            <p>b) Razão aparente em Mercator: @\frac{2{,}16 \times 10{,}47}{8{,}51 \times 1{,}045} = \frac{22{,}62}{8{,}89} \approx 2{,}54@. Em Mercator, a Groenlândia parece ser duas vezes e meia MAIOR que o Brasil!</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 22</div>
+            <p>a) @d \approx \sqrt{2 \times 6\,371\,000 \times 1{,}8} = \sqrt{22\,935\,600} \approx 4\,789\text{ m} \approx 4{,}79\text{ km}@.</p>
+            <p>b) @d \approx \sqrt{2 \times 6\,371\,000 \times 72} = \sqrt{917\,424\,000} \approx 30\,289\text{ m} \approx 30{,}3\text{ km}@.</p>
+          </div>
+        </div>
+
+        <!-- Gabarito Seção 3 -->
+        <div class="gabarito-secao">
+          <h3>Seção 3: Problemas de Aprofundamento</h3>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 23</div>
+            <p>a) @\mathbf{u}_1 \cdot \mathbf{u}_2 = \cos\varphi_1\cos\varphi_2(\cos\lambda_1\cos\lambda_2 + \sin\lambda_1\sin\lambda_2) + \sin\varphi_1\sin\varphi_2@.</p>
+            <p>b) Pela identidade da diferença de cossenos: @\cos\lambda_1\cos\lambda_2 + \sin\lambda_1\sin\lambda_2 = \cos(\lambda_2 - \lambda_1)@.</p>
+            <p>Logo: @\cos\sigma = \sin\varphi_1\sin\varphi_2 + \cos\varphi_1\cos\varphi_2\cos(\lambda_2 - \lambda_1)@. Q.E.D.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 24</div>
+            <p>a) @\cos\sigma = (-0{,}3987)(-0{,}4415) + (0{,}9171)(0{,}8973)(0{,}2656) = 0{,}1760 + 0{,}2186 = 0{,}3946@.</p>
+            <p>@\sigma = \arccos(0{,}3946) \approx 1{,}165\text{ rad} \approx 66{,}76^\circ@.</p>
+            <p>b) @d_{\text{orto}} = R \sigma = 6\,371 \times 1{,}165 \approx 7\,422\text{ km}@.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 25</div>
+            <p>a) @\frac{dy}{d\varphi} = R\sec\varphi \implies dy = R\sec\varphi \, d\varphi@.</p>
+            <p>b) A integral de @\sec\varphi@ é @\ln|\sec\varphi + \tan\varphi|@. Como @\sec\varphi + \tan\varphi = \frac{1 + \sin\varphi}{\cos\varphi} = \frac{1 - \cos(\pi/2 + \varphi)}{\sin(\pi/2 + \varphi)} = \tan\left(\frac{\pi}{4} + \frac{\varphi}{2}\right)@, segue a fórmula fechada de Mercator.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 26</div>
+            <p>A soma dos excessos dos @n-2@ triângulos que particionam o polígono é @\sum_{j=1}^{n-2} E_j = \sum_{j=1}^{n-2} (\text{ângulos}_j - \pi) = \sum_{i=1}^n \alpha_i - (n-2)\pi@. Multiplicando por @R^2@ obtém-se a área total do polígono.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 27</div>
+            <p>a) O raio vetor projetado é @\rho = 2R \tan\left(\frac{\pi/2 - \varphi}{2}\right)@. Para @\varphi = 0@, @\rho = 2R \tan(45^\circ) = 2R@.</p>
+            <p>b) Ela preserva circunferências e ângulos, permitindo desenhar a trajetória aparente dos astros com compasso diretamente sobre placas de latão do astrolábio.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 28</div>
+            <p>a) @b = a(1 - f) = 6\,378\,137 \times \left(1 - \frac{1}{298{,}25722}\right) \approx 6\,356\,752\text{ m}@.</p>
+            <p>b) @a - b \approx 21\,385\text{ m} \approx 21{,}4\text{ km}@.</p>
+            <p>c) Por estar mais próximo do centro de massa da Terra nos polos (@r = b < a@), o campo gravitacional é ligeiramente maior (@g \propto 1/r^2@).</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 29</div>
+            <p>a) @\iint_{S^2} \frac{1}{R^2} dA = \frac{1}{R^2} \text{Área}(S^2) = 2\pi(2) = 4\pi \implies \text{Área}(S^2) = 4\pi R^2@.</p>
+            <p>b) Como @\chi(\mathbb{T}^2) = 0@, a integral da curvatura sobre o toro é nula: as regiões de curvatura positiva externa cancelam perfeitamente as regiões de curvatura negativa (sela) interna.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 30</div>
+            <p>@\ln[\tan(\frac{\pi}{4} + \frac{\varphi}{2})] = \pi \implies \frac{\pi}{4} + \frac{\varphi}{2} = \arctan(e^\pi) = \arctan(23{,}14) \approx 1{,}5276\text{ rad} \approx 87{,}52^\circ@.</p>
+            <p>Logo: @\frac{\varphi}{2} \approx 87{,}52^\circ - 45^\circ = 42{,}52^\circ \implies \varphi_{\text{max}} \approx 85{,}051^\circ@ (o corte clássico de @\approx \pm 85{,}05^\circ@ do Web Mercator).</p>
+          </div>
+        </div>
+
+        <!-- Gabarito Seção 4 -->
+        <div class="gabarito-secao">
+          <h3>Seção 4: Problemas Propostos</h3>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 31</div>
+            <p>@d = c \cdot \Delta t = 300\,000\text{ km/s} \times 0{,}068\text{ s} = 20\,400\text{ km}@.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 32</div>
+            <p>Como as longitudes são quase opostas (@180^\circ@), a rota de grande círculo passa pelo Polo Norte, transformando uma viagem que pareceria transversal em um simples arco meridional de menor comprimento métrico.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 33</div>
+            <p>a) Nos Polos (@\varphi = \pm 90^\circ@, onde @\sin\varphi = 1@).</p>
+            <p>b) No Equador, @\sin(0^\circ) = 0@, logo a força de Coriolis é nula. Sem ela, o ar flui diretamente para o centro de baixa pressão sem conseguir gerar a rotação ciclônica em espiral necessária para formar furacões.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 34</div>
+            <p>O centro de gravidade da Terra deve estar no plano da órbita. Se a órbita fosse inclinada em relação ao equador, o satélite oscilaria entre os hemisférios norte e sul ao longo do dia, não permanecendo estático no céu do observador terrestre.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 35</div>
+            <p>A ortodrômica (caminho geodésico de grande círculo), minimizando a distância física e o custo dos cabos de fibra óptica.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 36</div>
+            <p>As bases antárticas adotam convencionalmente o fuso horário de seu país mantenedor ou do porto de abastecimento de suporte logístico (por exemplo, a base neozelandesa de Scott e a americana de McMurdo usam o horário da Nova Zelândia).</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 37</div>
+            <p>A foto aérea bruta apresenta distorções de perspectiva e inclinação do relevo (montanhas parecem deslocadas para fora do centro). A ortofoto remove todas as distorções geométricas e de altitude, possuindo escala métrica uniforme e permitindo medições diretas de distâncias e áreas como em um mapa.</p>
+          </div>
+
+          <div class="gabarito-item">
+            <div class="gabarito-item-titulo">Problema 38</div>
+            <p>No solstício, os raios solares incidem perpendiculares ao Trópico (@23{,}5^\circ@). O plano que divide dia e noite é perpendicular aos raios solares e, portanto, inclinado de @23{,}5^\circ@ em relação ao eixo dos polos, tangenciando a superfície exatamente na latitude @90^\circ - 23{,}5^\circ = 66{,}5^\circ@.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </details>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+    </div>
+
+  </div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+  <h3>Escolha um Tema:</h3>
+  <button data-theme="theme-default" title="Tema Padrão">Default</button>
+  <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+  <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+  <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+  <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+  <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+  <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+  <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+  <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+  <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+  <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+  <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+  <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+  <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+
+</body>
+</html>

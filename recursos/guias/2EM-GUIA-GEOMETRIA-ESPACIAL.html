@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Guia de Estudos: Geometria Espacial (Prismas & Pirâmides)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .guia-header {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 5px solid var(--link-color);
+    }
+
+    .guia-header h1 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+    }
+
+    .objetivos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .objetivo-item {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: 5px;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .objetivo-item strong {
+      color: var(--link-color);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .etapa-estudo {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 6px;
+      border-left: 5px solid var(--link-color);
+    }
+
+    .etapa-estudo h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .etapa-numero {
+      background-color: var(--link-color);
+      color: #000;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: 'Press Start 2P', monospace;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin: 0.75rem 0;
+    }
+
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .ano-2em {
+      background-color: rgba(156, 39, 176, 0.3);
+      color: #ce93d8;
+      border: 1px solid #ab47bc;
+    }
+
+    .destaque-box.definicao {
+      border-left: 4px solid #3b82f6;
+      background-color: rgba(59, 130, 246, 0.08);
+      padding: 1.2rem 1.5rem;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <div class="guia-header">
+        <span class="badge-nivel ano-2em">2º Ano EM</span>
+        <h1>Guia de Estudos: Geometria Espacial (Prismas & Pirâmides)</h1>
+        <p>
+          Capítulo 2 — "Todo mundo tem medo do tempo, mas o tempo tem medo das pirâmides."<br>
+          Roteiro imersivo estruturado por missões para dominar a visualização tridimensional, as relações pitagóricas de apótemas, a partição espacial e a volumetria de poliedros regulares no 2º Ano do Ensino Médio.
+        </p>
+      </div>
+
+      <!-- METAS DE APRENDIZAGEM -->
+      <section>
+        <h2>Metas de Aprendizagem do Capítulo</h2>
+        <div class="objetivos-grid">
+          <div class="objetivo-item">
+            <strong>Habilidade 1: Prismas e Planificações</strong>
+            Distinguir prismas retos e oblíquos, calcular áreas de bases poligonais (triângulos, hexágonos) e volumes (@V = A_b \cdot h@).
+          </div>
+          <div class="objetivo-item">
+            <strong>Habilidade 2: Pirâmides e Apótemas</strong>
+            Dominar as relações métricas pitagóricas entre altura (@h@), apótema da base (@m@), apótema da pirâmide (@g@) e aresta lateral (@a_l@).
+          </div>
+          <div class="objetivo-item">
+            <strong>Habilidade 3: Secções e Semelhança</strong>
+            Compreender secções transversais paralelas à base e calcular volumes de troncos e pirâmides semelhantes com a razão cúbica @k^3@.
+          </div>
+          <div class="objetivo-item">
+            <strong>Habilidade 4: Modelagem e Otimização</strong>
+            Aplicar os princípios geométricos na resolução de problemas de engenharia, arquitetura, design de embalagens e equivalência de sólidos.
+          </div>
+        </div>
+      </section>
+
+      <!-- TRILHA DE MISSÕES -->
+      <section>
+        <h2>Trilha de Missões Operacionais</h2>
+
+        <!-- MISSÃO 1 -->
+        <div class="etapa-estudo">
+          <h3><span class="etapa-numero">01</span> Missão 1: Os Pilares da Tridimensionalidade — Prismas</h3>
+          <p>
+            Explore o universo dos prismas retos e regulares. Entenda como a translação de polígonos no espaço gera sólidos prismáticos e como calcular superfícies totais e capacidades volumétricas.
+          </p>
+          <div class="checklist-item">
+            <input type="checkbox" id="m1-1">
+            <label for="m1-1">Ler a fundamentação teórica de prismas no <a href="../resumos/2EM-GEOMETRIA-ESPACIAL.html" style="color: var(--link-color);">Resumo de Geometria Espacial</a>.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="m1-2">
+            <label for="m1-2">Revisar o cálculo de área de polígonos regulares na base (triângulo equilátero @\frac{L^2\sqrt{3}}{4}@ e hexágono regular @6 \cdot \frac{L^2\sqrt{3}}{4}@).</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="m1-3">
+            <label for="m1-3">Resolver os exercícios introdutórios da <a href="../listas/2EM-GEOMETRIA-ESPACIAL.html" style="color: var(--link-color);">Lista de Problemas de Geometria Espacial</a>.</label>
+          </div>
+        </div>
+
+        <!-- MISSÃO 2 -->
+        <div class="etapa-estudo">
+          <h3><span class="etapa-numero">02</span> Missão 2: O Enigma dos Faraós — Pirâmides e a Relação Pitagórica</h3>
+          <p>
+            Mergulhe no interior das pirâmides regulares. Identifique o triângulo retângulo fundamental que conecta o apótema da pirâmide (@g@), a altura vertical (@h@) e o apótema da base (@m@), garantindo a aplicação correta da relação @g^2 = h^2 + m^2@.
+          </p>
+          <div class="checklist-item">
+            <input type="checkbox" id="m2-1">
+            <label for="m2-1">Desenhar e identificar visualmente o triângulo retângulo interior formado por @h@, @m@ e @g@.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="m2-2">
+            <label for="m2-2">Compreender por que o volume da pirâmide é rigorosamente um terço do prisma (@V = \frac{1}{3} A_b \cdot h@) através do Princípio de Cavalieri.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="m2-3">
+            <label for="m2-3">Calcular a área total somando a base regular às @n@ faces laterais triangulares isósceles.</label>
+          </div>
+        </div>
+
+        <!-- MISSÃO 3 -->
+        <div class="etapa-estudo">
+          <h3><span class="etapa-numero">03</span> Missão 3: Secções Transversais e a Razão de Volumes</h3>
+          <p>
+            Compreenda o impacto de seccionar uma pirâmide por um plano paralelo à base. Ao fazer isso, geramos uma pirâmide menor semelhante e um tronco de pirâmide.
+          </p>
+          <div class="checklist-item">
+            <input type="checkbox" id="m3-1">
+            <label for="m3-1">Dominar as proporções dimensionais: razão linear @k = \frac{h}{H}@, razão de áreas @k^2 = \frac{A'}{A}@ e razão de volumes @k^3 = \frac{V'}{V}@.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="m3-2">
+            <label for="m3-2">Calcular o volume do tronco de pirâmide pela diferença de volumes (@V_{\text{tronco}} = V_{\text{original}} - V_{\text{menor}}@).</label>
+          </div>
+        </div>
+
+        <!-- MISSÃO 4 -->
+        <div class="etapa-estudo">
+          <h3><span class="etapa-numero">04</span> Missão 4: Consolidação e Recuperação com Scaffolding</h3>
+          <p>
+            Valide e consolide seu aprendizado através de desafios práticos com suporte pedagógico gradual por níveis.
+          </p>
+          <div class="checklist-item">
+            <input type="checkbox" id="m4-1">
+            <label for="m4-1">Realizar a <a href="../recuperacao/2EM-RECUPERACAO-GEOMETRIA-ESPACIAL.html" style="color: var(--link-color);">Atividade de Recuperação de Geometria Espacial</a>, percorrendo os Níveis 1, 2 e 3.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="m4-2">
+            <label for="m4-2">Resolver pelo menos 2 problemas de aprofundamento com conversão de unidades (litros para @\text{m}^3@ e densidade de sólidos).</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHECKLIST DE AUTOAVALIAÇÃO -->
+      <section>
+        <h2>Checklist de Autoavaliação Metacognitiva</h2>
+        <div class="destaque-box definicao">
+          <h3>Autoexame de Competências (Marque os itens que você domina com segurança):</h3>
+          
+          <div class="checklist-item">
+            <input type="checkbox" id="chk-1">
+            <label for="chk-1">Sei a diferença exata entre apótema da pirâmide (altura da face lateral) e altura da pirâmide (distância do vértice ao plano da base).</label>
+          </div>
+
+          <div class="checklist-item">
+            <input type="checkbox" id="chk-2">
+            <label for="chk-2">Sei aplicar o Teorema de Pitágoras (@g^2 = h^2 + m^2@) em bases quadradas e hexagonais sem hesitação.</label>
+          </div>
+
+          <div class="checklist-item">
+            <input type="checkbox" id="chk-3">
+            <label for="chk-3">Lembro-me de que o volume do prisma é @A_b \cdot h@ e o da pirâmide é dividido por 3 (@\frac{1}{3} A_b \cdot h@).</label>
+          </div>
+
+          <div class="checklist-item">
+            <input type="checkbox" id="chk-4">
+            <label for="chk-4">Compreendo que quando as dimensões de um sólido são multiplicadas por @k@, sua área é multiplicada por @k^2@ e seu volume é multiplicado por @k^3@.</label>
+          </div>
+
+          <div class="checklist-item">
+            <input type="checkbox" id="chk-5">
+            <label for="chk-5">Consigo converter com facilidade @1\text{ m}^3 = 1.000\text{ litros}@ e @1\text{ dm}^3 = 1\text{ litro}@ em problemas de reservatórios.</label>
+          </div>
+        </div>
+      </section>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+  <h3>Escolha um Tema:</h3>
+  <button data-theme="theme-default" title="Tema Padrão">Default</button>
+  <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+  <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+  <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+  <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+  <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+  <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+  <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+  <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+  <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+  <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+  <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+  <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+  <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  <button data-theme="theme-high-contrast" title="Tema High Contrast">High Contrast</button>
+</div>
+
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Princípio de Cavalieri & Volumes da Esfera</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .orientacao-inicial {
+      background-color: rgba(33, 150, 243, 0.2);
+      border: 2px solid #2196f3;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo {
+      background-color: rgba(76, 175, 80, 0.1);
+      border-left: 4px solid #4caf50;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+      border-left: 2px solid #4caf50;
+    }
+    .conceito-basico {
+      background-color: rgba(156, 39, 176, 0.1);
+      border: 2px solid #9c27b0;
+      border-radius: 6px;
+      padding: 1.2rem 1.6rem;
+      margin: 1.5rem 0;
+    }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .ano-3em {
+      background-color: rgba(244, 67, 54, 0.3);
+      color: #ef9a9a;
+      border: 1px solid #f44336;
+    }
+    .estrelas {
+      color: #ffd700;
+      font-size: 1.2rem;
+      margin-left: 0.5rem;
+    }
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+    .gabarito-content { padding: 1.5rem; }
+    .gabarito-secao { margin-bottom: 1.8rem; }
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+    }
+    ol li { margin-bottom: 1.6rem; }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <span class="badge-nivel ano-3em">3º Ano EM</span>
+      <span class="estrelas">★★★</span>
+      <h1>Atividade de Recuperação: Princípio de Cavalieri & Volumes da Esfera</h1>
+
+      <div class="orientacao-inicial">
+        <h3>📚 Roteiro Pedagógico de Recuperação</h3>
+        <p>
+          O <strong>Capítulo 5</strong> ("Arquimedes e Cavalieri: uma dupla de muita capacidade!") homenageia dois dos maiores gênios da história da geometria. Muito antes do cálculo integral de Newton e Leibniz, o matemático italiano <strong>Bonaventura Cavalieri (1635)</strong> formalizou o método dos indivisíveis, permitindo demonstrar com elegância insuperável a fórmula do volume da esfera criada pioneiramente por <strong>Arquimedes de Siracusa (c. 250 a.C.)</strong>.
+        </p>
+        <p>
+          Este roteiro guiará você pela compreensão do Princípio de Cavalieri em fatias transversais, pela célebre montagem da <strong>Anticlepsidra</strong> e pela proporção canônica @1 : 2 : 3@ entre cone, esfera e cilindro.
+        </p>
+      </div>
+
+      <h2>Revisão Conceitual</h2>
+
+      <div class="conceito-basico">
+        <h4>1. O Princípio de Cavalieri</h4>
+        <p>
+          Considere dois sólidos tridimensionais @S_1@ e @S_2@ apoiados sobre um mesmo plano horizontal de referência.
+        </p>
+        <p style="border-left: 3px solid #9c27b0; padding-left: 1rem; font-style: italic;">
+          "Se qualquer plano horizontal paralelo à base corta ambos os sólidos segundo seções planas de mesma área (@A_1(z) = A_2(z)@ para toda altura @z \in [0, H]@), então os dois sólidos possuem exatamente o mesmo volume (@V_1 = V_2@)."
+        </p>
+        <ul>
+          <li><strong>Analogia do Baralho de Cartas:</strong> Um maço de cartas reto e o mesmo maço de cartas deslizado obliquamente têm alturas iguais e em cada nível a área de cada carta é idêntica; logo, o volume total ocupado é rigorosamente o mesmo.</li>
+          <li><strong>Consequência Direta:</strong> Prismas e cilindros oblíquos possuem o mesmo volume que os retos correspondentes: @V = A_{\text{base}} \cdot H@. Da mesma forma, pirâmides e cones oblíquos possuem volume @V = \frac{1}{3} A_{\text{base}} \cdot H@.</li>
+        </ul>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>2. A Anticlepsidra e o Volume da Esfera</h4>
+        <p>
+          Para demonstrar o volume de um <strong>hemisfério</strong> de raio @R@ apoiado pela base plana sobre uma mesa, Arquimedes e Cavalieri construíram um sólido auxiliar chamado <strong>Anticlepsidra</strong>: um cilindro reto de raio da base @R@ e altura @H = R@, do qual se escava e remove um cone reto invertido (cujo vértice está no centro da base inferior e cuja base circular de raio @R@ coincide com o topo do cilindro).
+        </p>
+        <p>Vamos cortar ambos os sólidos por um plano horizontal à altura @z@ (@0 \le z \le R@):</p>
+        <ul>
+          <li><strong>No Hemisfério:</strong> A seção é um círculo cujo raio @r(z)@ satisfaz o Teorema de Pitágoras: @r^2 + z^2 = R^2 \implies r^2 = R^2 - z^2@.
+            <br>Área da seção esférica:
+            @@ A_{\text{hemisfério}}(z) = \pi r^2 = \pi(R^2 - z^2) = \pi R^2 - \pi z^2 @@
+          </li>
+          <li><strong>Na Anticlepsidra:</strong> A seção do cilindro é um círculo de raio @R@, e a seção do cone é um círculo de raio @z@ (por semelhança @r_{\text{cone}}/z = R/R = 1 \implies r_{\text{cone}} = z@). O sólido que resta é uma coroa circular de raio externo @R@ e raio interno @z@:
+            <br>Área da seção da anticlepsidra:
+            @@ A_{\text{anticlepsidra}}(z) = \pi R^2 - \pi z^2 @@
+          </li>
+        </ul>
+        <p style="font-weight: bold; color: #4caf50;">
+          Como @A_{\text{hemisfério}}(z) = A_{\text{anticlepsidra}}(z)@ para QUALQUER cota @z \in [0, R]@, pelo Princípio de Cavalieri:
+        </p>
+        <p>@@ V_{\text{hemisfério}} = V_{\text{anticlepsidra}} = V_{\text{cilindro}} - V_{\text{cone}} = \pi R^2 \cdot R - \frac{1}{3} \pi R^2 \cdot R = \frac{2}{3} \pi R^3 @@</p>
+        <p>Como a esfera completa é composta por dois hemisférios idênticos:</p>
+        <p>@@ V_{\text{esfera}} = 2 \times \left(\frac{2}{3}\pi R^3\right) = \frac{4}{3}\pi R^3 @@</p>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>3. A Proporção Canônica de Arquimedes: Cone, Esfera e Cilindro</h4>
+        <p>
+          Considere um cone equilátero e uma esfera ambos perfeitamente circunscritos por um cilindro de raio @R@ e altura @H = 2R@:
+        </p>
+        <p>@@ V_{\text{cone}} = \frac{1}{3} \pi R^2 (2R) = \frac{2}{3}\pi R^3 @@</p>
+        <p>@@ V_{\text{esfera}} = \frac{4}{3}\pi R^3 @@</p>
+        <p>@@ V_{\text{cilindro}} = \pi R^2 (2R) = 2\pi R^3 = \frac{6}{3}\pi R^3 @@</p>
+        <p>Dividindo os três volumes por @\frac{2}{3}\pi R^3@:</p>
+        <p style="font-size: 1.15rem; color: #00ffcc; text-align: center; font-weight: bold;">
+          @@ V_{\text{cone}} : V_{\text{esfera}} : V_{\text{cilindro}} = 1 : 2 : 3 @@
+        </p>
+        <p>Essa magnífica harmonia aritmética foi considerada por Arquimedes a maior descoberta de sua vida, a ponto de ele pedir que uma esfera circunscrita por um cilindro fosse esculpida em sua lápide em Siracusa.</p>
+      </div>
+
+      <h2>Exemplos Passo a Passo</h2>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo Resolvido 1: Igualdade Numérica de Fatias de Cavalieri</h4>
+        <p>
+          Considere um hemisfério de raio @R = 10\text{ cm}@ e uma anticlepsidra correspondente (cilindro de raio 10 cm e altura 10 cm sem o cone interno). Calcule e compare a área da seção transversal de ambos os sólidos a uma altura de @z = 6\text{ cm}@ do plano de apoio.
+        </p>
+        <div class="passo">
+          <strong>Passo 1 (Cálculo da área da seção do hemisfério):</strong>
+          <p>O raio da seção circular a @z = 6\text{ cm}@ é obtido por Pitágoras:</p>
+          <p>@@ r = \sqrt{R^2 - z^2} = \sqrt{10^2 - 6^2} = \sqrt{100 - 36} = \sqrt{64} = 8\text{ cm} @@</p>
+          <p>Área do círculo da seção: @A_1 = \pi r^2 = \pi (8)^2 = 64\pi\text{ cm}^2@.</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Cálculo da área da seção da anticlepsidra):</strong>
+          <p>A seção é uma coroa circular com raio externo @R = 10\text{ cm}@ e raio interno do furo cônico @r_{\text{cone}} = z = 6\text{ cm}@:</p>
+          <p>@@ A_2 = \pi R^2 - \pi r_{\text{cone}}^2 = \pi (10^2 - 6^2) = \pi (100 - 36) = 64\pi\text{ cm}^2 @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 3 (Conclusão):</strong>
+          <p>Como @A_1 = A_2 = 64\pi\text{ cm}^2@ para essa e para qualquer outra altura @z@, as fatias infinitesimais são idênticas em volume, comprovando a validade física e geométrica do Princípio de Cavalieri.</p>
+        </div>
+      </div>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo Resolvido 2: Derivação do Volume de uma Calota Esférica</h4>
+        <p>
+          Uma calota esférica de altura @h@ é obtida cortando uma esfera de raio @R@ por um plano a uma distância @z_0 = R - h@ do centro. Utilizando a anticlepsidra, deduza o volume da calota esférica.
+        </p>
+        <div class="passo">
+          <strong>Passo 1 (Relacionar com a anticlepsidra):</strong>
+          <p>Na anticlepsidra, a região entre a altura @z_0 = R - h@ e o topo @z = R@ corresponde a um cilindro de altura @h@ do qual se remove um tronco de cone.</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Calcular o volume do cilindro correspondente):</strong>
+          <p>@@ V_{\text{cil}} = \pi R^2 \cdot h @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 3 (Calcular o volume do tronco de cone entre @z = R-h@ e @z = R@):</strong>
+          <p>O cone total tem volume @\frac{1}{3}\pi R^3@ e o cone menor inferior tem volume @\frac{1}{3}\pi (R-h)^3@. O tronco de cone tem volume:</p>
+          <p>@@ V_{\text{tronco}} = \frac{1}{3}\pi R^3 - \frac{1}{3}\pi (R-h)^3 @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 4 (Subtrair para obter a calota):</strong>
+          <p>@@ V_{\text{calota}} = \pi R^2 h - \left[ \frac{1}{3}\pi R^3 - \frac{1}{3}\pi (R^3 - 3R^2 h + 3Rh^2 - h^3) \right] @@</p>
+          <p>@@ V_{\text{calota}} = \pi R^2 h - \left[ \pi R^2 h - \pi R h^2 + \frac{1}{3}\pi h^3 \right] = \pi R h^2 - \frac{1}{3}\pi h^3 = \frac{\pi h^2}{3}(3R - h) @@</p>
+          <p>Para @h = R@ (hemisfério completo), obtemos @\frac{\pi R^2}{3}(2R) = \frac{2}{3}\pi R^3@, exatamente como esperado!</p>
+        </div>
+      </div>
+
+      <h2>Exercícios com Scaffolding Progressivo</h2>
+
+      <!-- NÍVEL 1: APOIO ALTO -->
+      <div class="destaque-box">
+        <h3>Nível 1: Apoio Alto (Exercícios Estruturados com Roteiro)</h3>
+
+        <ol>
+          <li>
+            Um hemisfério maciço de raio @R = 5\text{ cm}@ e uma anticlepsidra de mesma altura e raio de base estão apoiados sobre um mesmo plano horizontal.
+            <br>a) Calcule a área da seção circular do hemisfério a uma altura de @z = 3\text{ cm}@.
+            <br>b) Calcule a área da coroa circular da anticlepsidra à mesma altura de @z = 3\text{ cm}@.
+            <br>c) Calcule o volume total do hemisfério utilizando a fórmula @V = \frac{2}{3}\pi R^3@ (adote @\pi \approx 3{,}14@).
+            <div class="dica"><strong>Dica:</strong> Em (a), use @r = \sqrt{5^2 - 3^2} = 4\text{ cm}@. Em (b), use @A = \pi(5^2 - 3^2)@.</div>
+          </li>
+
+          <li>
+            Considere um cone, uma esfera e um cilindro circunscrito, todos de raio @R = 6\text{ cm}@ e com o cone e o cilindro tendo altura @H = 12\text{ cm}@.
+            <br>a) Calcule o volume do cone (@V_1 = \frac{1}{3}\pi R^2 H@).
+            <br>b) Calcule o volume da esfera (@V_2 = \frac{4}{3}\pi R^3@).
+            <br>c) Calcule o volume do cilindro (@V_3 = \pi R^2 H@).
+            <br>d) Verifique numericamente que @V_1 : V_2 : V_3 = 1 : 2 : 3@.
+          </li>
+
+          <li>
+            Dois prismas retos e oblíquos têm a mesma altura @H = 15\text{ cm}@ e suas bases são triângulos retângulos idênticos de catetos @6\text{ cm}@ e @8\text{ cm}@.
+            <br>a) Calcule a área da base comum aos dois prismas.
+            <br>b) Pelo Princípio de Cavalieri, qual é a relação entre os volumes desses dois prismas?
+            <br>c) Calcule o volume compartilhado de ambos em @\text{cm}^3@.
+          </li>
+        </ol>
+      </div>
+
+      <!-- NÍVEL 2: APOIO MÉDIO -->
+      <div class="destaque-box">
+        <h3>Nível 2: Apoio Médio (Exercícios Semi-Guiados)</h3>
+
+        <ol start="4">
+          <li>
+            Um tanque industrial de armazenamento de produtos químicos tem o formato de um cilindro reto de altura @H = 4\text{ metros}@ e diâmetro de base @D = 2\text{ metros}@, encimado por uma cúpula semiesférica de mesmo diâmetro.
+            <br>a) Calcule o volume da parte cilíndrica inferior em função de @\pi@.
+            <br>b) Calcule o volume da cúpula semiesférica em função de @\pi@.
+            <br>c) Determine a capacidade total desse tanque em litros, adotando @\pi \approx 3{,}14@.
+            <div class="dica"><strong>Dica:</strong> O raio é @R = 1\text{ metro}@. Lembre-se de que @1\text{ m}^3 = 1\,000\text{ litros}@.</div>
+          </li>
+
+          <li>
+            Um artesão funde @27@ pequenas esferas maciças de chumbo, cada uma com raio de @2\text{ cm}@, para moldar uma única grande esfera maciça de chumbo sem nenhuma perda de material.
+            <br>a) Qual é o volume total de chumbo fundido das 27 pequenas esferas?
+            <br>b) Determine o raio @R_{\text{grande}}@ da nova esfera resultante.
+            <div class="dica"><strong>Dica:</strong> Como o volume varia com o cubo do raio (@V \propto R^3@), monte a equação @R_{\text{grande}}^3 = 27 \cdot r^3@ e extraia a raiz cúbica.</div>
+          </li>
+
+          <li>
+            Uma calota esférica de altura @h = 3\text{ cm}@ é retirada de uma esfera de vidro de raio @R = 9\text{ cm}@. Utilizando a fórmula deduzida no Exemplo Resolvido 2 (@V = \frac{\pi h^2}{3}(3R - h)@), calcule o volume dessa calota esférica em @\text{cm}^3@, expressando o resultado em função de @\pi@.
+          </li>
+        </ol>
+      </div>
+
+      <!-- NÍVEL 3: AUTONOMIA -->
+      <div class="destaque-box">
+        <h3>Nível 3: Autonomia (Problemas Aprofundados e Teoremas Avançados)</h3>
+
+        <ol start="7">
+          <li>
+            <strong>O Famoso "Problema do Anel de Guardanapo" (Napkin Ring Problem):</strong>
+            <br>Perfura-se uma esfera de raio @R@ com uma broca cilíndrica de raio @r@ ao longo de um eixo diametral que passa pelo centro da esfera, restando uma peça em formato de anel de guardanapo com altura vertical exatamente igual a @h = 6\text{ cm}@.
+            <br>a) Utilizando o Teorema de Pitágoras entre a altura @h@, o raio da broca @r@ e o raio da esfera @R@, prove que o raio da esfera satisfaz @R^2 - r^2 = \left(\frac{h}{2}\right)^2@.
+            <br>b) Aplique o Princípio de Cavalieri para demonstrar que o volume desse anel é idêntico ao volume de uma esfera completa de diâmetro @h@:
+            <p>@@ V_{\text{anel}} = \frac{\pi h^3}{6} @@</p>
+            <p>c) Calcule o volume numérico do anel para @h = 6\text{ cm}@ e observe por que esse volume é completamente independente do raio @R@ original da esfera!</p>
+          </li>
+
+          <li>
+            Considere um <strong>elipsoide tridimensional</strong> dado pela equação @\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1@.
+            <br>a) Mostre que o corte do elipsoide por um plano horizontal à cota @z@ (@-c \le z \le c@) é uma elipse com semi-eixos @\alpha(z) = a\sqrt{1 - \frac{z^2}{c^2}}@ e @\beta(z) = b\sqrt{1 - \frac{z^2}{c^2}}@.
+            <br>b) Sabendo que a área de uma elipse de semi-eixos @\alpha@ e @\beta@ é @A = \pi \alpha \beta@, compare essa área com a seção transversal correspondente de uma esfera de raio @c@ e deduza pelo Princípio de Cavalieri a fórmula do volume do elipsoide:
+            <p>@@ V_{\text{elipsoide}} = \frac{4}{3}\pi a b c @@</p>
+          </li>
+
+          <li>
+            <strong>O Primeiro Teorema de Pappus-Guldin:</strong>
+            <br>O volume de um sólido de revolução gerado pela rotação de uma região plana de área @A@ em torno de um eixo coplanar que não cruza a região é dado por @V = 2\pi \bar{y} A@, onde @\bar{y}@ é a distância do centroide (centro de gravidade) da figura ao eixo de rotação.
+            <br>Sabendo que a rotação de um semicírculo de raio @R@ e área @A = \frac{\pi R^2}{2}@ em torno do seu diâmetro gera a esfera de volume @V = \frac{4}{3}\pi R^3@, determine a distância exata @\bar{y}@ do centroide do semicírculo ao seu diâmetro de base.
+          </li>
+        </ol>
+      </div>
+
+      <!-- GABARITO RETRÁTIL -->
+      <details class="gabarito-container">
+        <summary>👉 Clique aqui para conferir as Resoluções Detalhadas</summary>
+        <div class="gabarito-content">
+          <div class="gabarito-secao">
+            <h3>Soluções - Nível 1: Apoio Alto</h3>
+            <p><strong>Exercício 1:</strong>
+              <br>a) @r = \sqrt{5^2 - 3^2} = \sqrt{25 - 9} = \sqrt{16} = 4\text{ cm}@. @A_1 = \pi(4)^2 = 16\pi\text{ cm}^2@.
+              <br>b) @A_2 = \pi(5^2 - 3^2) = \pi(25 - 9) = 16\pi\text{ cm}^2@.
+              <br>c) @V = \frac{2}{3}\pi (5)^3 = \frac{2}{3}\pi (125) = \frac{250\pi}{3} \approx \frac{250 \times 3{,}14}{3} \approx 261{,}67\text{ cm}^3@.
+            </p>
+            <p><strong>Exercício 2:</strong>
+              <br>a) @V_1 = \frac{1}{3}\pi (6)^2 (12) = \frac{1}{3}\pi (36)(12) = 144\pi\text{ cm}^3@.
+              <br>b) @V_2 = \frac{4}{3}\pi (6)^3 = \frac{4}{3}\pi (216) = 288\pi\text{ cm}^3@.
+              <br>c) @V_3 = \pi (6)^2 (12) = \pi (36)(12) = 432\pi\text{ cm}^3@.
+              <br>d) @\frac{V_1}{144\pi} = 1@, @\frac{V_2}{144\pi} = 2@, @\frac{V_3}{144\pi} = 3@. A razão é rigorosamente @1 : 2 : 3@.
+            </p>
+            <p><strong>Exercício 3:</strong>
+              <br>a) @A_{\text{base}} = \frac{6 \times 8}{2} = 24\text{ cm}^2@.
+              <br>b) Pelo Princípio de Cavalieri, ambos os prismas possuem exatamente o mesmo volume, pois têm a mesma altura e seções horizontais de mesma área transversal.
+              <br>c) @V = A_{\text{base}} \cdot H = 24 \times 15 = 360\text{ cm}^3@.
+            </p>
+          </div>
+
+          <div class="gabarito-secao">
+            <h3>Soluções - Nível 2: Apoio Médio</h3>
+            <p><strong>Exercício 4:</strong>
+              <br>a) Raio @R = D/2 = 1\text{ m}@. @V_{\text{cil}} = \pi (1)^2 (4) = 4\pi\text{ m}^3@.
+              <br>b) Cúpula semiesférica: @V_{\text{hemi}} = \frac{2}{3}\pi (1)^3 = \frac{2}{3}\pi\text{ m}^3@.
+              <br>c) @V_{\text{total}} = 4\pi + \frac{2}{3}\pi = \frac{14\pi}{3}\text{ m}^3 \approx \frac{14 \times 3{,}14}{3} \approx 14{,}653\text{ m}^3@.
+              <br>Capacidade em litros: @14{,}653 \times 1\,000 \approx 14\,653\text{ litros}@.
+            </p>
+            <p><strong>Exercício 5:</strong>
+              <br>a) Volume de uma pequena esfera: @v = \frac{4}{3}\pi (2)^3 = \frac{32\pi}{3}\text{ cm}^3@.
+              <br>Volume das 27 esferas: @V_{\text{total}} = 27 \times \frac{32\pi}{3} = 288\pi\text{ cm}^3@.
+              <br>b) @\frac{4}{3}\pi R_{\text{grande}}^3 = 288\pi \implies R_{\text{grande}}^3 = 288 \times \frac{3}{4} = 216 \implies R_{\text{grande}} = \sqrt[3]{216} = 6\text{ cm}@.
+            </p>
+            <p><strong>Exercício 6:</strong>
+              <br>@V = \frac{\pi (3)^2}{3}[3(9) - 3] = \frac{9\pi}{3}[27 - 3] = 3\pi(24) = 72\pi\text{ cm}^3 \approx 226{,}19\text{ cm}^3@.
+            </p>
+          </div>
+
+          <div class="gabarito-secao">
+            <h3>Soluções - Nível 3: Autonomia</h3>
+            <p><strong>Exercício 7:</strong>
+              <br>a) O orifício perfura de @z = -h/2@ até @z = +h/2@. No topo do anel (@z = h/2@), a borda do orifício está sobre a esfera: @r^2 + (h/2)^2 = R^2 \implies R^2 - r^2 = \frac{h^2}{4}@.
+              <br>b) A uma altura @z@ (@-h/2 \le z \le h/2@), a seção do anel é uma coroa circular de raio externo @\sqrt{R^2 - z^2}@ e raio interno @r@.
+              <br>Área: @A(z) = \pi[(\sqrt{R^2 - z^2})^2 - r^2] = \pi(R^2 - z^2 - r^2) = \pi[(R^2 - r^2) - z^2] = \pi\left[\left(\frac{h}{2}\right)^2 - z^2\right]@.
+              <br>Essa é exatamente a fórmula da área da seção de uma esfera de raio @R' = h/2@ à cota @z@!
+              <br>Portanto, pelo Princípio de Cavalieri, @V_{\text{anel}} = V_{\text{esfera}}(R' = h/2) = \frac{4}{3}\pi \left(\frac{h}{2}\right)^3 = \frac{\pi h^3}{6}@.
+              <br>c) Para @h = 6\text{ cm}@: @V_{\text{anel}} = \frac{\pi (6)^3}{6} = 36\pi\text{ cm}^3 \approx 113{,}1\text{ cm}^3@. Quer a esfera original fosse do tamanho de uma bola de tênis ou do tamanho do planeta Júpiter, se o anel resultante tiver altura de 6 cm, seu volume é rigorosamente o mesmo!
+            </p>
+            <p><strong>Exercício 8:</strong>
+              <br>a) Na cota @z@: @\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 - \frac{z^2}{c^2} \implies \frac{x^2}{[a\sqrt{1 - z^2/c^2}]^2} + \frac{y^2}{[b\sqrt{1 - z^2/c^2}]^2} = 1@.
+              <br>b) Área da elipse: @A_{\text{elipse}}(z) = \pi \alpha(z) \beta(z) = \pi ab \left(1 - \frac{z^2}{c^2}\right) = \frac{ab}{c^2} \left[ \pi(c^2 - z^2) \right]@.
+              <br>Note que @\pi(c^2 - z^2)@ é a área da seção de uma esfera de raio @c@ à mesma cota @z@.
+              <br>Pelo Princípio de Cavalieri com razão de proporcionalidade linear constante @\frac{ab}{c^2}@:
+              <br>@V_{\text{elipsoide}} = \frac{ab}{c^2} \cdot V_{\text{esfera}}(c) = \frac{ab}{c^2} \cdot \left(\frac{4}{3}\pi c^3\right) = \frac{4}{3}\pi abc@. Q.E.D.
+            </p>
+            <p><strong>Exercício 9:</strong>
+              <br>Pelo Teorema de Pappus-Guldin: @V = 2\pi \bar{y} A@.
+              <br>Substituindo @V = \frac{4}{3}\pi R^3@ e @A = \frac{\pi R^2}{2}@:
+              <br>@@ \frac{4}{3}\pi R^3 = 2\pi \bar{y} \left(\frac{\pi R^2}{2}\right) = \pi^2 R^2 \bar{y} @@
+              <br>@@ \bar{y} = \frac{\frac{4}{3}\pi R^3}{\pi^2 R^2} = \frac{4R}{3\pi} @@
+              <br>Portanto, o centroide de um semicírculo de raio @R@ situa-se a uma distância de @\bar{y} = \frac{4R}{3\pi} \approx 0{,}4244 R@ da sua base retilínea.
+            </p>
+          </div>
+        </div>
+      </details>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+  <h3>Escolha um Tema:</h3>
+  <button data-theme="theme-default" title="Tema Padrão">Default</button>
+  <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+  <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+  <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+  <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+  <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+  <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+  <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+  <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+  <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+  <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+  <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+  <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+  <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+
+</body>
+</html>

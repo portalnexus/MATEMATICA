@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Funções Exponenciais e Logarítmicas</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .orientacao-inicial { background-color: rgba(33, 150, 243, 0.2); border: 2px solid #2196f3; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .dica { background-color: rgba(33, 150, 243, 0.15); border-left: 4px solid #2196f3; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 4px; }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo { background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo { margin: 1rem 0; padding-left: 1.5rem; border-left: 2px solid #4caf50; }
+    .lembrete { background-color: rgba(255, 152, 0, 0.15); border-left: 4px solid #ff9800; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 4px; }
+    .lembrete strong { color: #ff9800; }
+    .conceito-basico { background-color: rgba(156, 39, 176, 0.1); border: 2px solid #9c27b0; border-radius: 6px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .badge-nivel { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .ano-1em { background-color: rgba(33, 150, 243, 0.3); color: #64b5f6; border: 1px solid #2196f3; }
+    .estrelas { color: #ffd700; font-size: 1.2rem; margin-left: 0.5rem; }
+    .destaque-box { background-color: rgba(0, 0, 0, 0.2); border-left: 4px solid var(--link-color); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 6px; }
+    .destaque-box h3 { margin-top: 0; color: var(--heading-text-color); }
+    .tabela-propriedades { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem; }
+    .tabela-propriedades th, .tabela-propriedades td { border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.6rem 0.8rem; text-align: left; }
+    .tabela-propriedades th { background-color: rgba(0, 0, 0, 0.4); color: var(--heading-text-color); }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <span class="badge-nivel ano-1em">1º Ano EM</span>
+      <span class="estrelas">★★★</span>
+      <h1>Atividade de Recuperação: Exponenciais e Logaritmos</h1>
+      <p style="font-style: italic; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.5rem;">
+        Capítulo 3: Richter, Malthus, Moore, Hanói e Napier... Quais as funções?
+      </p>
+
+      <div class="orientacao-inicial">
+        <h3>📚 Roteiro Pedagógico de Recuperação</h3>
+        <p>Esta atividade tem como objetivo recompor as habilidades essenciais na manipulação de potências, resolução de equações exponenciais elementares, aplicação das propriedades operatórias dos logaritmos e modelagem de fenômenos naturais e financeiros (terremotos, decaimento radioativo e juros compostos).</p>
+        <ul>
+          <li><strong>Etapa 1:</strong> Revise as propriedades operatórias e o conceito de função inversa entre exponencial e logaritmo.</li>
+          <li><strong>Etapa 2:</strong> Examine detalhadamente a resolução guiada dos exemplos passo a passo.</li>
+          <li><strong>Etapa 3:</strong> Resolva a trilha progressiva com Scaffolding (Nível 1: Apoio Alto; Nível 2: Apoio Médio; Nível 3: Autonomia Plena).</li>
+        </ul>
+      </div>
+
+      <h2>Revisão Conceitual Estruturada</h2>
+
+      <div class="conceito-basico">
+        <h4>1. Equações Exponenciais Elementares</h4>
+        <p>Uma equação é exponencial quando a incógnita figura no expoente de pelo menos uma potência. A estratégia central é a <strong>redução à mesma base</strong>:</p>
+        <p>@@ a^{f(x)} = a^{g(x)} \iff f(x) = g(x) \quad (a > 0 \text{ e } a \neq 1) @@</p>
+        <p>Quando a equação apresenta termos somados com expoentes múltiplos, utiliza-se a técnica de <em>mudança de variável</em> (ex.: @y = a^x@), recaindo em equações polinomiais do 1º ou 2º grau.</p>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>2. Logaritmos: Definição e Propriedades Operatórias</h4>
+        <p>O logaritmo é a operação inversa da exponenciação. Para @a > 0@, @b > 0@ e @b \neq 1@:</p>
+        <p>@@ \log_b(a) = c \iff b^c = a @@</p>
+        <p>Onde @b@ é a base, @a@ é o logaritmando e @c@ é o logaritmo.</p>
+
+        <table class="tabela-propriedades">
+          <thead>
+            <tr>
+              <th>Propriedade</th>
+              <th>Expressão Algébrica</th>
+              <th>Restrições</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Logaritmo do Produto</strong></td>
+              <td>@\log_b(u \cdot v) = \log_b(u) + \log_b(v)@</td>
+              <td>@u > 0, v > 0@</td>
+            </tr>
+            <tr>
+              <td><strong>Logaritmo do Quociente</strong></td>
+              <td>@\log_b\left(\frac{u}{v}\right) = \log_b(u) - \log_b(v)@</td>
+              <td>@u > 0, v > 0@</td>
+            </tr>
+            <tr>
+              <td><strong>Logaritmo da Potência</strong></td>
+              <td>@\log_b(u^k) = k \cdot \log_b(u)@</td>
+              <td>@u > 0, k \in \mathbb{R}@</td>
+            </tr>
+            <tr>
+              <td><strong>Mudança de Base</strong></td>
+              <td>@\log_b(a) = \frac{\log_c(a)}{\log_c(b)}@</td>
+              <td>@a, b, c > 0@ e @b, c \neq 1@</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="lembrete">
+          <strong>Lembrete Fundamental:</strong> Quando a base não é explicitada, convenciona-se a base decimal: @\log(x) = \log_{10}(x)@. O logaritmo natural possui base @e \approx 2{,}71828@ e é grafado como @\ln(x) = \log_e(x)@.
+        </div>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>3. Modelos Matemáticos Reais</h4>
+        <ul>
+          <li><strong>Escala Richter (Sismologia):</strong> A magnitude @M@ de um abalo sísmico é dada por @M = \frac{2}{3} \log_{10}\left(\frac{E}{E_0}\right)@, indicando que a cada aumento de 1 ponto na escala, a energia @E@ liberada é multiplicada por aproximadamente @10^{1{,}5} \approx 31{,}6@ vezes.</li>
+          <li><strong>Decaimento Radioativo:</strong> A massa restante @M(t)@ de um isótopo com meia-vida @T@ obedece a @M(t) = M_0 \cdot \left(\frac{1}{2}\right)^{\frac{t}{T}}@.</li>
+          <li><strong>Juros Compostos e Crescimento Malthusiano:</strong> O montante financeiro evolui segundo @M(t) = C_0 \cdot (1 + i)^t@.</li>
+        </ul>
+      </div>
+
+      <h2>Exemplos Resolvidos Passo a Passo</h2>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo 1: Resolução de Equação Exponencial via Mudança de Variável</h4>
+        <p>Resolva em @\mathbb{R}@ a equação exponencial: @4^x - 6 \cdot 2^x + 8 = 0@.</p>
+        <div class="passo">
+          <strong>Passo 1 (Redução à mesma base das potências):</strong>
+          <p>Note que @4^x = (2^2)^x = (2^x)^2@. Assim reescrevemos a equação:</p>
+          <p>@@ (2^x)^2 - 6 \cdot (2^x) + 8 = 0 @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Substituição de variável):</strong>
+          <p>Seja @y = 2^x@ (com a condição obrigatória @y > 0@). Substituindo:</p>
+          <p>@@ y^2 - 6y + 8 = 0 @@</p>
+          <p>Por soma e produto: @y_1 + y_2 = 6@ e @y_1 \cdot y_2 = 8 \implies y_1 = 2 \text{ e } y_2 = 4@. Ambas as raízes são positivas!</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 3 (Retorno à variável original @x@):</strong>
+          <p>Para @y = 2@: @2^x = 2^1 \implies x = 1@.</p>
+          <p>Para @y = 4@: @2^x = 2^2 \implies x = 2@.</p>
+          <p><strong>Conjunto Solução:</strong> @S = \{1, 2\}@.</p>
+        </div>
+      </div>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo 2: Aplicação de Logaritmos em Decaimento Radioativo</h4>
+        <p>Uma substância radioativa possui massa inicial de 80 g e se desintegra segundo a função @M(t) = 80 \cdot 2^{-0{,}05 t}@, com @t@ dado em anos. Em quanto tempo a massa será reduzida a 10 g? (Adote @\log_{10}(2) \approx 0{,}30@).</p>
+        <div class="passo">
+          <strong>Passo 1 (Montagem da igualdade):</strong>
+          <p>@@ 80 \cdot 2^{-0{,}05 t} = 10 \implies 2^{-0{,}05 t} = \frac{10}{80} = \frac{1}{8} @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Fatoração da fração em potências de 2):</strong>
+          <p>Sabemos que @\frac{1}{8} = \frac{1}{2^3} = 2^{-3}@. Logo:</p>
+          <p>@@ 2^{-0{,}05 t} = 2^{-3} @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 3 (Igualação dos expoentes e cálculo final):</strong>
+          <p>@@ -0{,}05 t = -3 \implies t = \frac{3}{0{,}05} = \frac{3}{\frac{5}{100}} = \frac{300}{5} = 60 \text{ anos} @@</p>
+        </div>
+      </div>
+
+      <h2>Bateria Progressiva de Recuperação (Scaffolding)</h2>
+
+      <div class="destaque-box">
+        <h3>Nível 1: Apoio Alto (Fixação Estruturada e Identificação Direta)</h3>
+        <ol>
+          <li>Resolva as equações exponenciais elementares igualando as bases:
+            <br>a) @3^{x+2} = 81@
+            <br>b) @2^{3x - 1} = \frac{1}{32}@
+            <div class="dica"><strong>Dica:</strong> Fatore os números 81 e 32 na base correspondente: @81 = 3^4@ e @\frac{1}{32} = 2^{-5}@. Em seguida iguale os expoentes.</div>
+          </li>
+          <li>Calcule o valor numérico dos seguintes logaritmos imediatos pela definição:
+            <br>a) @\log_2(64)@
+            <br>b) @\log_3\left(\frac{1}{27}\right)@
+            <br>c) @\log_{10}(0{,}001)@
+            <div class="dica"><strong>Dica:</strong> Pergunte-se: "A qual expoente devo elevar a base para obter o logaritmando?" Ou seja, @\log_b(a) = x \iff b^x = a@.</div>
+          </li>
+          <li>Sabendo que @\log(2) \approx 0{,}30@ e @\log(3) \approx 0{,}48@, utilize as propriedades operatórias para calcular:
+            <br>a) @\log(6)@
+            <br>b) @\log(1{,}5)@
+            <br>c) @\log(8)@
+            <div class="dica"><strong>Dica:</strong> Decomponha: @6 = 2 \cdot 3@, @1{,}5 = \frac{3}{2}@ e @8 = 2^3@. Aplique as regras da soma, subtração e multiplicação por expoente.</div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box">
+        <h3>Nível 2: Apoio Médio (Manipulação Algébrica e Modelagem Intermediária)</h3>
+        <ol start="4">
+          <li>Resolva a equação exponencial com mudança de variável:
+            <p>@@ 9^x - 4 \cdot 3^x + 3 = 0 @@</p>
+            <div class="dica"><strong>Dica:</strong> Faça @9^x = (3^x)^2@ e chame @y = 3^x@. Encontre as raízes de @y^2 - 4y + 3 = 0@ e retorne a @x@.</div>
+          </li>
+          <li>Utilizando a propriedade de mudança de base, calcule o valor de @\log_4(32)@.
+            <div class="dica"><strong>Dica:</strong> Mude para a base 2: @\log_4(32) = \frac{\log_2(32)}{\log_2(4)}@.</div>
+          </li>
+          <li>Uma aplicação financeira de R$ 5.000,00 rende juros compostos a uma taxa de 10% ao ano, segundo a lei @M(t) = 5000 \cdot (1{,}1)^t@.
+            <br>a) Qual será o montante acumulado após 3 anos?
+            <br>b) Em quantos anos esse investimento dobrará de valor (atingirá R$ 10.000,00)? (Dados: adote @\log_{10}(2) \approx 0{,}301@ e @\log_{10}(1{,}1) \approx 0{,}041@).
+            <div class="dica"><strong>Dica:</strong> Na letra (b), iguale @5000 \cdot (1{,}1)^t = 10000 \implies (1{,}1)^t = 2@. Aplique logaritmo decimal em ambos os membros: @t \cdot \log(1{,}1) = \log(2)@.</div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box">
+        <h3>Nível 3: Autonomia Plena (Modelagem Crítica e Situações Complexas)</h3>
+        <ol start="7">
+          <li>Dois terremotos atingiram regiões distintas do globo: o abalo A registrou magnitude @M_A = 7{,}0@ na escala Richter, enquanto o abalo B registrou @M_B = 5{,}0@. A magnitude obedece à equação @M = \frac{2}{3} \log_{10}\left(\frac{E}{E_0}\right)@.
+            <br>a) Determine a razão entre a energia liberada pelo terremoto A (@E_A@) e a liberada pelo terremoto B (@E_B@).
+            <br>b) Explique, com base no cálculo, por que um aumento de apenas 2 pontos na escala Richter não significa que o terremoto foi apenas "duas vezes mais forte".
+          </li>
+          <li>Em um laboratório biológico, uma colônia de bactérias cresce conforme o modelo malthusiano @P(t) = P_0 \cdot 3^{k \cdot t}@, onde @t@ é medido em horas. No início (@t = 0@), havia 200 bactérias. Após 4 horas, o número de bactérias passou para 1.800.
+            <br>a) Determine o valor da constante de taxa @k@.
+            <br>b) Em quanto tempo a população de bactérias atingirá 16.200 indivíduos?
+          </li>
+        </ol>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

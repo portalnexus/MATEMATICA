@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Áreas e Perímetros de Figuras Planas</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .orientacao-inicial { background-color: rgba(33, 150, 243, 0.2); border: 2px solid #2196f3; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .dica { background-color: rgba(33, 150, 243, 0.15); border-left: 4px solid #2196f3; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 4px; }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo { background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo { margin: 1rem 0; padding-left: 1.5rem; border-left: 2px solid #4caf50; }
+    .lembrete { background-color: rgba(255, 152, 0, 0.15); border-left: 4px solid #ff9800; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 4px; }
+    .lembrete strong { color: #ff9800; }
+    .conceito-basico { background-color: rgba(156, 39, 176, 0.1); border: 2px solid #9c27b0; border-radius: 6px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .badge-nivel { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .ano-1em { background-color: rgba(33, 150, 243, 0.3); color: #64b5f6; border: 1px solid #2196f3; }
+    .estrelas { color: #ffd700; font-size: 1.2rem; margin-left: 0.5rem; }
+    .destaque-box { background-color: rgba(0, 0, 0, 0.2); border-left: 4px solid var(--link-color); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 6px; }
+    .destaque-box h3 { margin-top: 0; color: var(--heading-text-color); }
+    .tabela-formulas { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem; }
+    .tabela-formulas th, .tabela-formulas td { border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.65rem 0.85rem; text-align: left; }
+    .tabela-formulas th { background-color: rgba(0, 0, 0, 0.45); color: var(--heading-text-color); }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <span class="badge-nivel ano-1em">1º Ano EM</span>
+      <span class="estrelas">★★★</span>
+      <h1>Atividade de Recuperação: Áreas e Perímetros de Figuras Planas</h1>
+      <p style="font-style: italic; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.5rem;">
+        Capítulo 9: "Superfícies e contornos"
+      </p>
+
+      <div class="orientacao-inicial">
+        <h3>📚 Roteiro Pedagógico de Recuperação</h3>
+        <p>A geometria euclidiana plana quantifica o espaço em duas dimensões fundamentais: o contorno unidimensional (perímetro) e a extensão bidimensional (área da superfície). Esta atividade de recuperação reforça o cálculo exato e as relações de decomposição em triângulos, quadriláteros notáveis, polígonos regulares e regiões circulares.</p>
+        <ul>
+          <li><strong>Etapa 1:</strong> Revise as fórmulas canônicas e as técnicas de decomposição geométrica.</li>
+          <li><strong>Etapa 2:</strong> Estude a resolução detalhada dos exemplos de áreas compostas e setores circulares.</li>
+          <li><strong>Etapa 3:</strong> Resolva a trilha com scaffolding pedagógico (Nível 1: Apoio Alto; Nível 2: Apoio Médio; Nível 3: Autonomia Plena).</li>
+        </ul>
+      </div>
+
+      <h2>Revisão Conceitual Estruturada</h2>
+
+      <div class="conceito-basico">
+        <h4>1. Tabela Fundamental de Áreas e Perímetros</h4>
+        <table class="tabela-formulas">
+          <thead>
+            <tr>
+              <th>Figura Plana</th>
+              <th>Perímetro (@2p@)</th>
+              <th>Área da Superfície (@A@)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Triângulo Qualquer</strong></td>
+              <td>@a + b + c@</td>
+              <td>@A = \frac{b \cdot h}{2} = \frac{a \cdot b \cdot \sin(\theta)}{2} = \sqrt{p(p-a)(p-b)(p-c)}@</td>
+            </tr>
+            <tr>
+              <td><strong>Triângulo Equilátero</strong> (lado @\ell@)</td>
+              <td>@3\ell@</td>
+              <td>@A = \frac{\ell^2 \sqrt{3}}{4}@ \quad (altura: @h = \frac{\ell \sqrt{3}}{2}@)</td>
+            </tr>
+            <tr>
+              <td><strong>Trapézio</strong> (bases @B@ e @b@, altura @h@)</td>
+              <td>Soma dos 4 lados</td>
+              <td>@A = \frac{(B + b) \cdot h}{2}@</td>
+            </tr>
+            <tr>
+              <td><strong>Losango</strong> (diagonais @D@ e @d@)</td>
+              <td>@4\ell@</td>
+              <td>@A = \frac{D \cdot d}{2}@</td>
+            </tr>
+            <tr>
+              <td><strong>Polígono Regular de @n@ lados</strong></td>
+              <td>@n \cdot \ell = 2p@</td>
+              <td>@A = p \cdot a@ (semiperímetro @p@ vezes o apótema @a@)</td>
+            </tr>
+            <tr>
+              <td><strong>Círculo</strong> (raio @R@)</td>
+              <td>@C = 2\pi R@</td>
+              <td>@A = \pi R^2@</td>
+            </tr>
+            <tr>
+              <td><strong>Setor Circular</strong> (ângulo central @\theta^\circ@)</td>
+              <td>@2R + L@</td>
+              <td>@A = \frac{\theta}{360^\circ} \pi R^2 = \frac{L \cdot R}{2}@ (@L@ = comprimento do arco)</td>
+            </tr>
+            <tr>
+              <td><strong>Coroa Circular</strong> (raios @R@ e @r@)</td>
+              <td>@2\pi R + 2\pi r@</td>
+              <td>@A = \pi (R^2 - r^2)@</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="lembrete">
+        <strong>Princípio de Decomposição (Axioma da Aditividade de Áreas):</strong> A área de uma superfície complexa ou irregular é igual à soma das áreas de suas partes disjuntas. Em figuras com recortes, a área líquida é a área da figura envolvente menos a área da parte removida.
+      </div>
+
+      <h2>Exemplos Resolvidos Passo a Passo</h2>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo 1: Área de uma Fachada Arquitetônica com Recorte Circular</h4>
+        <p>A fachada de uma residência tem o formato de um trapézio isósceles com base maior de 10 m, base menor de 6 m e altura de 4 m. No centro, há uma janela circular com diâmetro de 2 m (raio @R = 1@ m). Calcule a área útil de alvenaria a ser pintada. (Adote @\pi \approx 3{,}14@).</p>
+        <div class="passo">
+          <strong>Passo 1 (Cálculo da área total do trapézio):</strong>
+          <p>@@ A_{\text{trapézio}} = \frac{(B + b) \cdot h}{2} = \frac{(10 + 6) \cdot 4}{2} = \frac{16 \cdot 4}{2} = 32 \text{ m}^2 @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Cálculo da área da janela circular):</strong>
+          <p>O raio da janela é @R = \frac{2}{2} = 1@ m. Portanto:</p>
+          <p>@@ A_{\text{janela}} = \pi R^2 = 3{,}14 \cdot (1)^2 = 3{,}14 \text{ m}^2 @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 3 (Cálculo da área líquida de pintura):</strong>
+          <p>@@ A_{\text{útil}} = A_{\text{trapézio}} - A_{\text{janela}} = 32 - 3{,}14 = 28{,}86 \text{ m}^2 @@</p>
+        </div>
+      </div>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo 2: Setor Circular de Irrigação</h4>
+        <p>Um aspersor de irrigação giratório cobre uma área em formato de setor circular com raio de alcance @R = 12@ metros e ângulo de abertura de 60°. Determine o comprimento do arco molhado e a área irrigada total. (Adote @\pi \approx 3{,}14@).</p>
+        <div class="passo">
+          <strong>Passo 1 (Cálculo do comprimento do arco @L@):</strong>
+          <p>A circunferência completa possui @C = 2\pi R = 2 \cdot 3{,}14 \cdot 12 = 75{,}36@ m. Como o setor é de 60°:</p>
+          <p>@@ L = \frac{60^\circ}{360^\circ} \cdot (2\pi R) = \frac{1}{6} \cdot 75{,}36 = 12{,}56 \text{ m} @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Cálculo da área irrigada):</strong>
+          <p>@@ A_{\text{setor}} = \frac{60^\circ}{360^\circ} \cdot \pi R^2 = \frac{1}{6} \cdot 3{,}14 \cdot (12)^2 = \frac{1}{6} \cdot 3{,}14 \cdot 144 = 24 \cdot 3{,}14 = 75{,}36 \text{ m}^2 @@</p>
+        </div>
+      </div>
+
+      <h2>Bateria Progressiva de Recuperação (Scaffolding)</h2>
+
+      <div class="destaque-box">
+        <h3>Nível 1: Apoio Alto (Cálculo Direto e Figuras Básicas)</h3>
+        <ol>
+          <li>Um terreno retangular tem 25 metros de comprimento por 12 metros de largura.
+            <br>a) Calcule o perímetro total do terreno.
+            <br>b) Calcule a área superficial desse lote.
+            <div class="dica"><strong>Dica:</strong> O perímetro é a soma de todos os lados (@2P = 2b + 2h@) e a área é o produto da base pela altura (@A = b \cdot h@).</div>
+          </li>
+          <li>Calcule a área e o perímetro de uma praça perfeitamente circular que possui raio de 8 metros. (Adote @\pi \approx 3{,}14@).
+            <div class="dica"><strong>Dica:</strong> Use @C = 2\pi R@ para o perímetro (comprimento) e @A = \pi R^2@ para a área.</div>
+          </li>
+          <li>Um canteiro de flores tem a forma de um triângulo equilátero de lado 6 metros.
+            <br>a) Calcule o perímetro do canteiro.
+            <br>b) Calcule a sua área exata em função de @\sqrt{3}@ e o valor aproximado considerando @\sqrt{3} \approx 1{,}73@.
+            <div class="dica"><strong>Dica:</strong> A fórmula da área do triângulo equilátero é @A = \frac{\ell^2 \sqrt{3}}{4}@.</div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box">
+        <h3>Nível 2: Apoio Médio (Trapézios, Polígonos Regulares e Setores)</h3>
+        <ol start="4">
+          <li>Um telhado colonial tem o formato de um trapézio com bases medindo 14 metros e 8 metros, e distância perpendicular entre elas (altura) de 5 metros.
+            <br>a) Calcule a área total desse telhado.
+            <br>b) Se cada metro quadrado exige 16 telhas cerâmicas, quantas telhas serão necessárias para cobri-lo totalmente?
+            <div class="dica"><strong>Dica:</strong> Calcule @A = \frac{(B+b)h}{2}@ e multiplique a área encontrada por 16.</div>
+          </li>
+          <li>Uma praça pública tem o formato de um hexágono regular com 10 metros de lado.
+            <br>a) Sabendo que o hexágono regular pode ser decomposto em 6 triângulos equiláteros idênticos, calcule a área total da praça. (Use @\sqrt{3} \approx 1{,}73@).
+            <br>b) Calcule a medida do apótema desse hexágono (altura de um dos triângulos equiláteros).
+            <div class="dica"><strong>Dica:</strong> A área é @6 \cdot \frac{\ell^2 \sqrt{3}}{4}@ e o apótema é @a = \frac{\ell \sqrt{3}}{2}@.</div>
+          </li>
+          <li>Uma pista de atletismo circular possui raio interno @r = 30@ metros e raio externo @R = 34@ metros, formando uma coroa circular. Calcule a área total da pista de corrida. (Adote @\pi \approx 3{,}14@).
+            <div class="dica"><strong>Dica:</strong> A área da coroa circular é @A = \pi (R^2 - r^2)@. Lembre-se: calcule primeiro os quadrados dos raios antes de subtrair!</div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box">
+        <h3>Nível 3: Autonomia Plena (Decomposição Geométrica e Decisão Real)</h3>
+        <ol start="7">
+          <li>Um arquiteto projetou uma sala de estar com o piso no formato de um quadrado de 8 m de lado, com um semicírculo anexado a um dos lados (área de leitura envidraçada).
+            <br>a) Faça um esboço mental da decomposição e escreva a expressão da área total do piso.
+            <br>b) Calcule a área total do piso em metros quadrados. (Adote @\pi \approx 3{,}14@).
+            <br>c) Se o piso vinílico custa R$ 65,00 por metro quadrado colocado, qual será o custo total da reforma do revestimento?
+          </li>
+          <li>Um terreno triangular possui lados medindo 7 metros, 8 metros e 9 metros.
+            <br>a) Calcule o semiperímetro @p@ do terreno.
+            <br>b) Utilizando a <strong>Fórmula de Heron</strong> (@A = \sqrt{p(p-a)(p-b)(p-c)}@), calcule a área exata do terreno em metros quadrados.
+          </li>
+        </ol>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

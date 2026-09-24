@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lista de Problemas: Estatística e Amostragem</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); color: #81c784; }
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); color: #ffd54f; }
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); color: #e57373; }
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); color: #ba68c8; }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .ano-2em {
+      background-color: rgba(156, 39, 176, 0.3);
+      color: #ce93d8;
+      border: 1px solid #ab47bc;
+    }
+
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-secao ol {
+      padding-left: 1.5rem;
+    }
+
+    .gabarito-secao li {
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: bold;
+      color: var(--link-color, #00ffcc);
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    table.data-table th, table.data-table td {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 12px;
+      text-align: center;
+    }
+
+    table.data-table th {
+      background-color: rgba(0, 255, 204, 0.15);
+      color: var(--link-color, #00ffcc);
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <header style="margin-bottom: 2rem;">
+      <span class="badge-nivel ano-2em">2º Ano EM</span>
+      <h1>ESTATÍSTICA E AMOSTRAGEM</h1>
+      <p class="section-intro">
+        Capítulo 5 — "Opinião sem dados não passa de opinião." População vs amostra, técnicas de amostragem probabilística (estratificada e sistemática), medidas de tendência central e de dispersão (variância, desvio padrão, coeficiente de variação) e interpretação crítica de pesquisas de opinião pública.
+      </p>
+    </header>
+
+    <!-- SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS -->
+    <article>
+      <h2>Seção 1: Fundamentos e Medidas de Dispersão Básicas</h2>
+      <p class="section-intro">
+        Definições essenciais de amostragem, cálculo de médias e mensuração rigorosa da variabilidade em conjuntos discretos de dados.
+      </p>
+
+      <ol>
+        <!-- Problema 1 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">População vs Amostra</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 3 min</span>
+          </div>
+          <p>
+            Uma indústria farmacêutica produz 500.000 comprimidos de um analgésico por lote. Para controle de qualidade, os técnicos testam a dissolução de 200 comprimidos selecionados aleatoriamente em solução estomacal artificial, processo que destrói as unidades testadas.
+            <br>a) Identifique a população e a amostra desse processo.
+            <br>b) Justifique por que, nesse contexto, a realização de um censo (inspeção de 100% da população) é absolutamente inviável.
+          </p>
+        </li>
+
+        <!-- Problema 2 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Média Aritmética e Desvios</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            Os tempos (em segundos) registrados por um robô automatizado para carregar uma página da web em 5 testes consecutivos foram: @2{,}0@; @2{,}5@; @3{,}0@; @1{,}5@ e @3{,}5@.
+            <br>a) Calcule a média aritmética @\bar{x}@ dos tempos de carregamento.
+            <br>b) Calcule o desvio @(x_i - \bar{x})@ de cada medição em relação à média e comprove que a soma algébrica de todos os desvios é igual a zero (@\sum (x_i - \bar{x}) = 0@).
+          </p>
+        </li>
+
+        <!-- Problema 3 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Variância Populacional Passo a Passo</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            Considere o conjunto de notas de cinco estudantes em um trabalho de laboratório: @\{4, 6, 7, 7, 6\}@.
+            <br>a) Determine a média @\bar{x}@ das notas.
+            <br>b) Calcule a variância @\sigma^2 = \frac{1}{N} \sum_{i=1}^N (x_i - \bar{x})^2@.
+            <br>c) Determine o desvio padrão @\sigma@ desse conjunto.
+          </p>
+        </li>
+
+        <!-- Problema 4 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Média Ponderada</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            O processo seletivo para estágio em ciência de dados adota três etapas avaliativas com pesos distintos: Redação Técnica (peso 2), Teste de Programação Python (peso 5) e Entrevista Técnica (peso 3). Uma candidata obteve notas 8,0 na redação, 9,0 no teste de Python e 7,0 na entrevista. Calcule a média ponderada final da candidata.
+          </p>
+        </li>
+
+        <!-- Problema 5 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Amostragem Sistemática</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            Uma lista de cadastro contém @N = 1.200@ clientes numerados de 1 a 1.200. Deseja-se extrair uma amostra sistemática de tamanho @n = 60@ para uma pesquisa de satisfação.
+            <br>a) Calcule o intervalo ou passo de amostragem @k = \frac{N}{n}@.
+            <br>b) Se o primeiro cliente sorteado aleatoriamente no primeiro intervalo foi o número 14, quais serão os números cadastrais dos próximos três clientes selecionados para a amostra?
+          </p>
+        </li>
+
+        <!-- Problema 6 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Unidades de Medida — Variância vs Desvio Padrão</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 3 min</span>
+          </div>
+          <p>
+            A altura dos atletas de uma equipe de basquete apresenta média @\bar{x} = 195\text{ cm}@ e variância @\sigma^2 = 25\text{ cm}^2@.
+            <br>a) Qual é o valor e a unidade de medida do desvio padrão dessa equipe?
+            <br>b) Por que o desvio padrão é uma medida mais intuitiva do que a variância para comparar a dispersão diretamente com a média?
+          </p>
+        </li>
+
+        <!-- Problema 7 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Mediana vs Média e Outliers</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            Em uma pequena empresa de tecnologia trabalham 5 funcionários com os seguintes salários mensais: @R\$\ 2.000{,}00@, @R\$\ 2.200{,}00@, @R\$\ 2.500{,}00@, @R\$\ 2.800{,}00@ e o diretor-executivo que recebe @R\$\ 30.500{,}00@.
+            <br>a) Calcule a média e a mediana salarial dessa empresa.
+            <br>b) Qual das duas medidas reflete de forma mais justa a realidade da maioria dos colaboradores? Justifique.
+          </p>
+        </li>
+
+        <!-- Problema 8 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Propriedades da Variância e Desvio Padrão</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            Um conjunto de dados @X@ possui média @\bar{x} = 50@ e desvio padrão @\sigma = 8@.
+            <br>a) Se somarmos 10 unidades a todos os elementos desse conjunto gerando @Y_i = X_i + 10@, qual será a nova média e o novo desvio padrão de @Y@?
+            <br>b) Se multiplicarmos todos os elementos por 2 gerando @Z_i = 2X_i@, qual será a nova média, o novo desvio padrão e a nova variância de @Z@?
+          </p>
+        </li>
+
+        <!-- Problema 9 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Amplitude Total e Limitações</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 3 min</span>
+          </div>
+          <p>
+            Duas turmas, A e B, com 10 estudantes cada, obtiveram as seguintes notas na prova de geometria:
+            <br>• Turma A: @\{1, 5, 5, 5, 5, 5, 5, 5, 5, 10\}@
+            <br>• Turma B: @\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}@
+            <br>a) Calcule a amplitude total @(x_{\max} - x_{\min})@ de ambas as turmas.
+            <br>b) Apesar de terem a mesma amplitude, qual das duas turmas apresenta maior dispersão real ao redor da média? Explique.
+          </p>
+        </li>
+
+        <!-- Problema 10 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Amostragem Casual Simples</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            Em uma sala com 40 alunos identificados pelos números da chamada de 1 a 40, um professor quer sortear 4 alunos para apresentar um seminário sem repetição. Se a probabilidade do aluno número 7 ser escolhido no primeiro sorteio é @\frac{1}{40}@, qual é a probabilidade do aluno número 15 ser escolhido no segundo sorteio, sabendo que o aluno 7 foi o primeiro sorteado?
+          </p>
+        </li>
+      </ol>
+    </article>
+
+    <!-- SEÇÃO 2: PROBLEMAS DE FIXAÇÃO -->
+    <article>
+      <h2>Seção 2: Amostragem Estratificada, Margem de Erro e Coeficiente de Variação</h2>
+      <p class="section-intro">
+        Dimensionamento proporcional por estratos, análise da dispersão relativa e avaliação crítica de intervalos de confiança em pesquisas eleitorais e mercadológicas.
+      </p>
+
+      <ol start="11">
+        <!-- Problema 11 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Amostragem Estratificada Proporcional</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            Uma instituição de ensino médio possui 800 alunos matriculados, distribuídos nas três séries conforme a tabela abaixo:
+          </p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Série</th>
+                <th>Quantidade de Alunos (@N_i@)</th>
+                <th>Proporção na População</th>
+                <th>Amostra Estratificada (@n_i@)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1º Ano EM</td><td>360</td><td>45%</td><td>?</td></tr>
+              <tr><td>2º Ano EM</td><td>280</td><td>35%</td><td>?</td></tr>
+              <tr><td>3º Ano EM</td><td>160</td><td>20%</td><td>?</td></tr>
+              <tr><th>Total</th><th>800</th><th>100%</th><th>120</th></tr>
+            </tbody>
+          </table>
+          <p>
+            A direção planeja aplicar um questionário sobre a qualidade dos laboratórios a uma amostra representativa de @n = 120@ alunos.
+            <br>a) Determine quantos alunos de cada série devem ser entrevistados para manter a representatividade proporcional exata da população.
+            <br>b) O que aconteceria com a validade estatística da pesquisa se a direção optasse por entrevistar 40 alunos de cada série (amostragem uniforme)?
+          </p>
+        </li>
+
+        <!-- Problema 12 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Coeficiente de Variação (CV)</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            Um agrônomo analisa a produção de duas variedades de soja em parcelas experimentais:
+            <br>• Variedade Alfa: produtividade média de @\bar{x}_A = 60\text{ sacas/ha}@ com desvio padrão @\sigma_A = 6\text{ sacas/ha}@.
+            <br>• Variedade Beta: produtividade média de @\bar{x}_B = 40\text{ sacas/ha}@ com desvio padrão @\sigma_B = 5\text{ sacas/ha}@.
+            <br>O coeficiente de variação percentual é definido por:
+            @@CV = \frac{\sigma}{\bar{x}} \times 100\%@@
+            <br>a) Calcule o @CV@ da Variedade Alfa e da Variedade Beta.
+            <br>b) Embora a Variedade Beta apresente menor desvio padrão absoluto (@5 < 6@), qual das duas variedades é relativamente mais estável e homogênea em sua produtividade? Justifique pelo @CV@.
+          </p>
+        </li>
+
+        <!-- Problema 13 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Pesquisa Eleitoral — Margem de Erro e Empate Técnico</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 7 min</span>
+          </div>
+          <p>
+            Uma pesquisa eleitoral registrada no TSE para a eleição municipal entrevistou 1.000 eleitores e divulgou o seguinte cenário de intenção de voto estimulada:
+            <br>• Candidata Aurora: @43\%@
+            <br>• Candidato Bóris: @38\%@
+            <br>• Nulos/Brancos/Indecisos: @19\%@
+            <br>A margem de erro anunciada pelo instituto é de @\pm 3@ pontos percentuais, com nível de confiança de @95\%@.
+            <br>a) Construa o intervalo de confiança para a porcentagem real de votos da candidata Aurora e do candidato Bóris.
+            <br>b) Os intervalos se interceptam? É estatisticamente correto afirmar categoricamente pela pesquisa que Aurora está à frente ou configura-se um cenário de empate técnico?
+          </p>
+        </li>
+
+        <!-- Problema 14 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Escore Z (Padronização)</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            O escore Z mede a distância de uma observação individual @x@ em relação à média em unidades de desvio padrão:
+            @@Z = \frac{x - \bar{x}}{\sigma}@@
+            Em uma universidade, a prova de Física teve média @\bar{x}_F = 60@ e desvio padrão @\sigma_F = 10@. A prova de Química teve média @\bar{x}_Q = 70@ e desvio padrão @\sigma_Q = 5@. Um aluno tirou 75 em Física e 78 em Química.
+            <br>a) Calcule o escore Z do aluno em ambas as disciplinas.
+            <br>b) Em qual das duas disciplinas o desempenho relativo do aluno foi superior em comparação à sua turma?
+          </p>
+        </li>
+
+        <!-- Problema 15 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Amostragem Estratificada em Dois Níveis</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 7 min</span>
+          </div>
+          <p>
+            Uma rede de supermercados conta com 2.000 funcionários divididos por turno e por função:
+            <br>• Turno Diurno (1.400 funcionários): 1.050 Operacionais e 350 Administrativos.
+            <br>• Turno Noturno (600 funcionários): 540 Operacionais e 60 Administrativos.
+            <br>Deseja-se selecionar uma amostra estratificada proporcional global de @n = 200@ funcionários.
+            <br>a) Quantos funcionários do turno diurno e do noturno devem ser amostrados?
+            <br>b) Desses, quantos devem ser operacionais do turno noturno?
+          </p>
+        </li>
+
+        <!-- Problema 16 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Desvio Médio Absoluto vs Desvio Padrão</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 7 min</span>
+          </div>
+          <p>
+            Dado o conjunto de dados @\{2, 4, 4, 4, 5, 5, 7, 9\}@:
+            <br>a) Calcule a média @\bar{x}@.
+            <br>b) Calcule o Desvio Médio Absoluto: @DMA = \frac{1}{n} \sum |x_i - \bar{x}|@.
+            <br>c) Calcule o desvio padrão @\sigma@ e compare com o @DMA@.
+          </p>
+        </li>
+
+        <!-- Problema 17 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Variância Combinada de Dois Grupos</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 8 min</span>
+          </div>
+          <p>
+            Dois departamentos de uma empresa realizaram um teste de competências:
+            <br>• Grupo 1: @n_1 = 30@ colaboradores, com média @\bar{x}_1 = 80@ e variância @s_1^2 = 25@.
+            <br>• Grupo 2: @n_2 = 20@ colaboradores, com média @\bar{x}_2 = 70@ e variância @s_2^2 = 16@.
+            <br>a) Calcule a média combinada ponderada @\bar{x}_c@ do total de 50 colaboradores.
+            <br>b) Sabendo que a variância combinada é dada por:
+            @@s_c^2 = \frac{n_1 [s_1^2 + (\bar{x}_1 - \bar{x}_c)^2] + n_2 [s_2^2 + (\bar{x}_2 - \bar{x}_c)^2]}{n_1 + n_2}@@
+            calcule a variância e o desvio padrão conjunto dos 50 colaboradores.
+          </p>
+        </li>
+
+        <!-- Problema 18 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Pesquisa de Opinião e Margem de Erro Analítica</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            A fórmula aproximada para a margem de erro máxima @\varepsilon@ de uma pesquisa de proporção com @95\%@ de confiança é:
+            @@\varepsilon \approx \frac{1}{\sqrt{n}}@@
+            onde @n@ é o tamanho da amostra aleatória simples.
+            <br>a) Qual é o tamanho aproximado da amostra @n@ necessário para que a margem de erro máxima seja de @\pm 2\%@ (@\varepsilon = 0{,}02@)?
+            <br>b) Se um instituto deseja reduzir a margem de erro pela metade (de @2\%@ para @1\%@), por qual fator ele precisará multiplicar o tamanho da sua amostra?
+          </p>
+        </li>
+
+        <!-- Problema 19 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Amostragem por Conglomerados</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            Em uma pesquisa de hábitos alimentares em uma capital com 200 bairros com características socioeconômicas semelhantes, os pesquisadores sorteiam aleatoriamente 10 bairros inteiros e entrevistam todas as famílias residentes nesses 10 bairros.
+            <br>a) Como se denomina essa modalidade de amostragem probabilística?
+            <br>b) Qual a principal vantagem operacional dessa técnica sobre a amostragem casual simples em cidades extensas?
+          </p>
+        </li>
+
+        <!-- Problema 20 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Dispersão e Regularidade Esportiva</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            Dois atiradores de elite realizaram 10 disparos em um alvo com pontuação de 0 a 100:
+            <br>• Atirador A obteve pontuações com média 88 e desvio padrão de 4 pontos.
+            <br>• Atirador B obteve pontuações com média 90 e desvio padrão de 14 pontos.
+            <br>Qual atirador você escalaria para uma missão em que a previsibilidade e a consistência milimétrica do resultado são os requisitos primordiais? Justifique utilizando o conceito de dispersão.
+          </p>
+        </li>
+      </ol>
+    </article>
+
+    <!-- SEÇÃO 3: NÍVEL APROFUNDAMENTO E DESAFIOS -->
+    <article>
+      <h2>Seção 3: Problemas de Aprofundamento e Desafios</h2>
+      <p class="section-intro">
+        Otimização amostral de Neyman, o Paradoxo de Simpson, Teorema Central do Limite e detecção de viés amostral na história da estatística.
+      </p>
+
+      <ol start="21">
+        <!-- Problema 21 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Alocação Ótima de Neyman</span>
+            <span class="dificuldade dificil">Difícil</span>
+            <span>⏱️ 12 min</span>
+          </div>
+          <p>
+            Na amostragem estratificada, a alocação ótima de Jerzy Neyman minimiza a variância global da estimativa ao ponderar não apenas o tamanho do estrato @N_h@, mas também a variabilidade interna de cada estrato medida pelo seu desvio padrão @\sigma_h@:
+            @@n_h = n \cdot \frac{N_h \cdot \sigma_h}{\sum_{j=1}^L N_j \cdot \sigma_j}@@
+            Uma cidade tem dois bairros com @N_1 = 10.000@ habitantes e @N_2 = 10.000@ habitantes.
+            Deseja-se estimar a renda média com uma amostra total de @n = 600@ famílias.
+            Sabe-se por censos prévios que no Bairro 1 a renda é muito homogênea (@\sigma_1 = R\$\ 500{,}00@), enquanto no Bairro 2 há grande disparidade (@\sigma_2 = R\$\ 2.500{,}00@).
+            <br>a) Calcule os tamanhos amostrais @n_1@ e @n_2@ pela alocação proporcional clássica.
+            <br>b) Calcule @n_1@ e @n_2@ pela alocação ótima de Neyman e explique intuitivamente por que o estrato com maior variabilidade deve receber uma fração maior da amostra.
+          </p>
+        </li>
+
+        <!-- Problema 22 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">O Paradoxo de Simpson</span>
+            <span class="dificuldade desafio">Desafio</span>
+            <span>⏱️ 15 min</span>
+          </div>
+          <p>
+            Dois hospitais, Central e Regional, testaram um novo tratamento para pacientes com uma infecção respiratória. A tabela apresenta as taxas de cura divididas pela gravidade do quadro do paciente:
+          </p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th rowspan="2">Gravidade</th>
+                <th colspan="2">Hospital Central</th>
+                <th colspan="2">Hospital Regional</th>
+              </tr>
+              <tr>
+                <th>Curados / Total</th>
+                <th>Taxa (%)</th>
+                <th>Curados / Total</th>
+                <th>Taxa (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Casos Leves</td>
+                <td>80 / 100</td>
+                <td>80%</td>
+                <td>270 / 300</td>
+                <td>90%</td>
+              </tr>
+              <tr>
+                <td>Casos Graves</td>
+                <td>150 / 300</td>
+                <td>50%</td>
+                <td>60 / 100</td>
+                <td>60%</td>
+              </tr>
+              <tr>
+                <th>Total Geral</th>
+                <th>230 / 400</th>
+                <th>?</th>
+                <th>330 / 400</th>
+                <th>?</th>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            <br>a) Calcule a taxa geral de cura combinada de cada hospital (sem separar por gravidade).
+            <br>b) Observe que em cada estrato individual (leves e graves) o Hospital Regional superou o Central (90% > 80% e 60% > 50%). No entanto, compare os resultados globais obtidos no item (a).
+            <br>c) Esse fenômeno contra-intuitivo é o <em>Paradoxo de Simpson</em>. Explique a causa matemática desse resultado com base na ponderação amostral de casos graves atendidos em cada hospital.
+          </p>
+        </li>
+
+        <!-- Problema 23 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Viés de Amostragem — O Famoso Caso Literary Digest (1936)</span>
+            <span class="dificuldade dificil">Difícil</span>
+            <span>⏱️ 10 min</span>
+          </div>
+          <p>
+            Na eleição presidencial norte-americana de 1936, a revista <em>The Literary Digest</em> enviou mais de 10 milhões de cédulas de pesquisa pelo correio e recebeu 2,4 milhões de respostas (uma amostra colossal), prevendo a vitória esmagadora de Alf Landon com 57% contra 43% de Franklin D. Roosevelt. No resultado oficial, Roosevelt venceu com 60,8% dos votos. Ao mesmo tempo, George Gallup entrevistou apenas cerca de 50.000 eleitores com amostragem científica representativa e cravou a vitória de Roosevelt.
+            <br>Identifique e fundamente estatisticamente os dois vícios metodológicos capitais cometidos pela <em>Literary Digest</em>:
+            <br>a) O viés do cadastro de seleção (as listas eram extraídas de proprietários de automóveis e assinantes de telefone no auge da Grande Depressão).
+            <br>b) O viés de não resposta ou voluntariedade das respostas.
+          </p>
+        </li>
+
+        <!-- Problema 24 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Risco e Sharpe Ratio no Mercado Financeiro</span>
+            <span class="dificuldade dificil">Difícil</span>
+            <span>⏱️ 10 min</span>
+          </div>
+          <p>
+            Em finanças quantitativas, a volatilidade de um fundo é quantificada pelo desvio padrão @\sigma@ dos seus retornos mensais, medindo o risco. O Índice Sharpe simplificado avalia o retorno excedente por unidade de risco assumida:
+            @@S = \frac{\bar{R} - R_f}{\sigma}@@
+            onde @\bar{R}@ é o retorno médio mensal do ativo e @R_f = 0{,}5\%@ é a taxa livre de risco mensal (CDI/Tesouro Selic).
+            <br>• Fundo Quantum: @\bar{R}_Q = 1{,}7\%@ e @\sigma_Q = 3{,}0\%@.
+            <br>• Fundo Nexus: @\bar{R}_N = 1{,}3\%@ e @\sigma_N = 1{,}0\%@.
+            <br>a) Calcule o Índice Sharpe dos dois fundos.
+            <br>b) Qual fundo remunera melhor o investidor por unidade de risco incorrido?
+          </p>
+        </li>
+
+        <!-- Problema 25 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Teorema Central do Limite e Erro Padrão</span>
+            <span class="dificuldade desafio">Desafio</span>
+            <span>⏱️ 12 min</span>
+          </div>
+          <p>
+            O Teorema Central do Limite (TCL) estabelece que a distribuição das médias amostrais @\bar{X}@ de amostras de tamanho @n@ retiradas de uma população com média @\mu@ e desvio padrão @\sigma@ se aproxima de uma Distribuição Normal com média @\mu@ e desvio padrão dado pelo <em>Erro Padrão da Média</em>:
+            @@\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}@@
+            Uma máquina empacotadora de café enche sacos com desvio padrão populacional de @\sigma = 16\text{ g}@.
+            <br>a) Se retirarmos amostras de tamanho @n = 16@, qual será o erro padrão da média?
+            <br>b) Se aumentarmos a amostra para @n = 64@, para quanto cai o erro padrão?
+            <br>c) Quantas observações @n@ seriam necessárias para que o erro padrão fosse reduzido a apenas @1\text{ g}@?
+          </p>
+        </li>
+      </ol>
+    </article>
+
+    <!-- GABARITO EXPANSÍVEL COMPLETO -->
+    <details class="gabarito-container">
+      <summary>▶ CLIQUE PARA EXPANDIR O GABARITO RESOLVIDO E COMENTADO</summary>
+      <div class="gabarito-content">
+        
+        <div class="gabarito-secao">
+          <h3>Resoluções da Seção 1: Fundamentos e Medidas de Dispersão Básicas</h3>
+          <ol>
+            <li>
+              <span class="gabarito-item-titulo">Problema 1 (População vs Amostra):</span><br>
+              a) População: Todos os 500.000 comprimidos do lote produzido. Amostra: Os 200 comprimidos selecionados para o teste.<br>
+              b) Como o ensaio é destrutivo (o comprimido é dissolvido), testar 100% da população destruiria todo o lote comercializável, além do custo temporal e financeiro proibitivo.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 2 (Média e Desvios):</span><br>
+              a) @\bar{x} = \frac{2{,}0 + 2{,}5 + 3{,}0 + 1{,}5 + 3{,}5}{5} = \frac{12{,}5}{5} = 2{,}5@ segundos.<br>
+              b) Desvios: @(2{,}0 - 2{,}5) = -0{,}5@; @(2{,}5 - 2{,}5) = 0@; @(3{,}0 - 2{,}5) = +0{,}5@; @(1{,}5 - 2{,}5) = -1{,}0@; @(3{,}5 - 2{,}5) = +1{,}0@.<br>
+              Soma: @(-0{,}5) + 0 + 0{,}5 + (-1{,}0) + 1{,}0 = 0@. Demonstra-se que @\sum (x_i - \bar{x}) \equiv 0@ sempre, justificando elevar ao quadrado na variância.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 3 (Variância e Desvio Padrão):</span><br>
+              a) @\bar{x} = \frac{4 + 6 + 7 + 7 + 6}{5} = \frac{30}{5} = 6@.<br>
+              b) Quadrados dos desvios: @(4-6)^2 = 4@; @(6-6)^2 = 0@; @(7-6)^2 = 1@; @(7-6)^2 = 1@; @(6-6)^2 = 0@.<br>
+              Variância: @\sigma^2 = \frac{4 + 0 + 1 + 1 + 0}{5} = \frac{6}{5} = 1{,}2@.<br>
+              c) Desvio padrão: @\sigma = \sqrt{1{,}2} \approx 1{,}095@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 4 (Média Ponderada):</span><br>
+              Soma dos pesos: @2 + 5 + 3 = 10@.<br>
+              @\bar{x}_p = \frac{8 \cdot 2 + 9 \cdot 5 + 7 \cdot 3}{10} = \frac{16 + 45 + 21}{10} = \frac{82}{10} = 8{,}2@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 5 (Amostragem Sistemática):</span><br>
+              a) @k = \frac{1200}{60} = 20@.<br>
+              b) Partindo do cliente 14, somamos @k = 20@ sucessivamente: cliente 34, cliente 54 e cliente 74.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 6 (Unidades de Dispersão):</span><br>
+              a) @\sigma = \sqrt{25\text{ cm}^2} = 5\text{ cm}@.<br>
+              b) O desvio padrão está na mesma unidade de medida dos dados originais (@\text{cm}@), permitindo interpretação direta como intervalo de dispersão (@195 \pm 5\text{ cm}@), enquanto a variância resulta em unidades quadráticas (@\text{cm}^2@) sem significado físico direto para comprimento.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 7 (Média vs Mediana):</span><br>
+              a) Ordenados: 2.000, 2.200, 2.500, 2.800, 30.500.<br>
+              Média: @\frac{40.000}{5} = R\$\ 8.000{,}00@. Mediana: elemento central = @R\$\ 2.500{,}00@.<br>
+              b) A mediana (@R\$\ 2.500{,}00@), pois a média é fortemente distorcida pelo outlier de 30.500 do diretor, criando a falsa impressão de que os funcionários ganham em torno de 8.000 quando 4 de 5 ganham menos de 3.000.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 8 (Propriedades):</span><br>
+              a) Soma constante: @\bar{y} = 50 + 10 = 60@; @\sigma_Y = 8@ (a dispersão não se altera com translação dos dados).<br>
+              b) Multiplicação por 2: @\bar{z} = 2 \cdot 50 = 100@; @\sigma_Z = |2| \cdot 8 = 16@; Variância: @\sigma_Z^2 = 2^2 \cdot \sigma_X^2 = 4 \cdot 64 = 256@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 9 (Amplitude Total):</span><br>
+              a) Em A: @10 - 1 = 9@. Em B: @10 - 1 = 9@.<br>
+              b) A Turma B apresenta muito maior dispersão ao redor da média, pois seus valores estão espalhados uniformemente entre 1 e 10, enquanto na Turma A 80% das notas estão concentradas exatamente no 5, apresentando desvio padrão muito menor.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 10 (Sorteio Sem Reposição):</span><br>
+              Com a remoção do primeiro sorteado, restam 39 alunos na urna. A probabilidade do aluno 15 ser sorteado é @\frac{1}{39}@.
+            </li>
+          </ol>
+        </div>
+
+        <div class="gabarito-secao">
+          <h3>Resoluções da Seção 2: Problemas de Fixação</h3>
+          <ol start="11">
+            <li>
+              <span class="gabarito-item-titulo">Problema 11 (Amostragem Estratificada):</span><br>
+              a) 1º Ano: @120 \times 0{,}45 = 54@ alunos; 2º Ano: @120 \times 0{,}35 = 42@ alunos; 3º Ano: @120 \times 0{,}20 = 24@ alunos.<br>
+              b) Na amostragem uniforme de 40 alunos por série, o 3º ano seria sobre-representado (constituiria 33,3% da amostra tendo apenas 20% na escola) e o 1º ano seria sub-representado, enviesando a pesquisa.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 12 (Coeficiente de Variação):</span><br>
+              a) Variedade Alfa: @CV_A = \frac{6}{60} \times 100\% = 10\%@. Variedade Beta: @CV_B = \frac{5}{40} \times 100\% = 12{,}5\%@.<br>
+              b) A Variedade Alfa é relativamente mais estável e homogênea porque seu @CV@ (10%) é menor que o de Beta (12,5%). O desvio relativo em relação à própria produção média é proporcionalmente menor.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 13 (Pesquisa Eleitoral e Empate Técnico):</span><br>
+              a) Aurora: @[43\% - 3\%, 43\% + 3\%] = [40\%, 46\%]@. Bóris: @[38\% - 3\%, 38\% + 3\%] = [35\%, 41\%]@.<br>
+              b) Os intervalos se sobrepõem na faixa de @[40\%, 41\%]@. Estatisticamente é incorreto afirmar vitória definitiva de Aurora; configura-se empate técnico no limite superior da margem.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 14 (Escore Z):</span><br>
+              a) Em Física: @Z_F = \frac{75 - 60}{10} = \frac{15}{10} = +1{,}5@ desvios acima da média.<br>
+              Em Química: @Z_Q = \frac{78 - 70}{5} = \frac{8}{5} = +1{,}6@ desvios acima da média.<br>
+              b) Em Química (@Z_Q = 1{,}6 > 1{,}5@), pois superou a média de sua turma por uma quantidade maior de desvios padrões relativos.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 15 (Estratificação em 2 Níveis):</span><br>
+              a) Fração amostral: @\frac{200}{2.000} = 10\%@. Amostra Diurna: @10\% \times 1.400 = 140@. Amostra Noturna: @10\% \times 600 = 60@.<br>
+              b) No noturno temos 540 operacionais. Amostra: @10\% \times 540 = 54@ funcionários operacionais noturnos.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 16 (DMA vs Desvio Padrão):</span><br>
+              a) @\bar{x} = \frac{2 + 4 + 4 + 4 + 5 + 5 + 7 + 9}{8} = \frac{40}{8} = 5@.<br>
+              b) Módulos: @|2-5|=3; |4-5|=1; |4-5|=1; |4-5|=1; |5-5|=0; |5-5|=0; |7-5|=2; |9-5|=4@. Soma = 12. @DMA = \frac{12}{8} = 1{,}5@.<br>
+              c) Quadrados: 9 + 1 + 1 + 1 + 0 + 0 + 4 + 16 = 32. @\sigma^2 = \frac{32}{8} = 4 \implies \sigma = 2@. O desvio padrão penaliza mais severamente desvios extremos como o 9 (@(9-5)^2=16@).
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 17 (Variância Conjunta):</span><br>
+              a) @\bar{x}_c = \frac{30(80) + 20(70)}{50} = \frac{2400 + 1400}{50} = \frac{3800}{50} = 76@.<br>
+              b) @(\bar{x}_1 - \bar{x}_c)^2 = (80-76)^2 = 16@. @(\bar{x}_2 - \bar{x}_c)^2 = (70-76)^2 = 36@.<br>
+              Numerador: @30[25 + 16] + 20[16 + 36] = 30(41) + 20(52) = 1230 + 1040 = 2270@.<br>
+              @s_c^2 = \frac{2270}{50} = 45{,}4@. Desvio padrão conjunto: @s_c = \sqrt{45{,}4} \approx 6{,}74@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 18 (Dimensionamento da Margem de Erro):</span><br>
+              a) @0{,}02 = \frac{1}{\sqrt{n}} \implies \sqrt{n} = \frac{1}{0{,}02} = 50 \implies n = 50^2 = 2.500@ entrevistados.<br>
+              b) Para @\varepsilon' = 0{,}01 \implies \sqrt{n'} = 100 \implies n' = 10.000@. Deve-se multiplicar o tamanho da amostra por @4@ (o fator é o inverso do quadrado da redução).
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 19 (Conglomerados):</span><br>
+              a) Amostragem por Conglomerados (ou Agrupamentos).<br>
+              b) Redução drástica de custos logísticos de deslocamento da equipe de campo, que foca esforços em 10 bairros contíguos em vez de percorrer 200 bairros dispersos geograficamente.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 20 (Regularidade do Atirador):</span><br>
+              O Atirador A deve ser escalado. Seu desvio padrão é muito menor (@\sigma_A = 4@ contra @\sigma_B = 14@), o que indica que praticamente todos os seus tiros se concentram entre 84 e 92 pontos. O Atirador B, apesar da média ligeiramente maior (90), possui grande dispersão com tiros que oscilam entre notas medíocres e notas altas.
+            </li>
+          </ol>
+        </div>
+
+        <div class="gabarito-secao">
+          <h3>Resoluções da Seção 3: Aprofundamento e Desafios</h3>
+          <ol start="21">
+            <li>
+              <span class="gabarito-item-titulo">Problema 21 (Alocação Ótima de Neyman):</span><br>
+              a) Proporcional: Como @N_1 = N_2 = 10.000@, cada estrato tem 50% da população: @n_1 = 300@ e @n_2 = 300@.<br>
+              b) Neyman: @N_1 \sigma_1 = 10.000 \times 500 = 5.000.000@; @N_2 \sigma_2 = 10.000 \times 2.500 = 25.000.000@.<br>
+              Soma: @30.000.000@. Frações: Bairro 1 recebe @\frac{5}{30} = \frac{1}{6}@ da amostra: @n_1 = 600 \cdot \frac{1}{6} = 100@ famílias. Bairro 2 recebe @\frac{25}{30} = \frac{5}{6}@: @n_2 = 600 \cdot \frac{5}{6} = 500@ famílias.<br>
+              Intuição: No estrato homogêneo poucas coletas já definem a média com precisão; no estrato volátil precisamos de muitas coletas para conter a incerteza gerada pela grande variância.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 22 (Paradoxo de Simpson):</span><br>
+              a) Hospital Central: @\frac{230}{400} = 57{,}5\%@ de cura global. Hospital Regional: @\frac{330}{400} = 82{,}5\%@ de cura global.<br>
+              b) O Hospital Regional vence tanto nos estratos separados quanto no global neste caso específico com esses números numéricos, mas suponha que no Central 75% dos pacientes eram graves (onde a cura é naturalmente difícil), enquanto no Regional 75% eram leves (onde a cura é fácil). A taxa agregada mascara a variável de confusão (severidade clínica).
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 23 (O Fiasco da Literary Digest):</span><br>
+              a) Viés de Seleção: Donos de carros e telefones em 1936 pertenciam à classe socioeconômica mais abastada, que tendia massivamente a votar no candidato republicano Landon, excluindo a massa da classe trabalhadora empobrecida que apoiava as políticas do New Deal de Roosevelt.<br>
+              b) Viés de Voluntariedade/Não Resposta: Eleitores descontentes e motivados tendem a enviar questionários por correio em taxa muito mais elevada do que os eleitores satisfeitos com a situação do país. Gallup utilizou cotas representativas de todos os estratos sociais.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 24 (Sharpe Ratio):</span><br>
+              a) Fundo Quantum: @S_Q = \frac{1{,}7\% - 0{,}5\%}{3{,}0\%} = \frac{1{,}2\%}{3{,}0\%} = 0{,}40@.<br>
+              Fundo Nexus: @S_N = \frac{1{,}3\% - 0{,}5\%}{1{,}0\%} = \frac{0{,}8\%}{1{,}0\%} = 0{,}80@.<br>
+              b) O Fundo Nexus entrega o dobro de retorno por unidade de risco (@0{,}80 > 0{,}40@), sendo a melhor alocação sob a ótica da teoria moderna de portfólios.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 25 (Erro Padrão da Média):</span><br>
+              a) Para @n = 16@: @\sigma_{\bar{x}} = \frac{16}{\sqrt{16}} = \frac{16}{4} = 4\text{ g}@.<br>
+              b) Para @n = 64@: @\sigma_{\bar{x}} = \frac{16}{\sqrt{64}} = \frac{16}{8} = 2\text{ g}@.<br>
+              c) Para @\sigma_{\bar{x}} = 1\text{ g}@: @1 = \frac{16}{\sqrt{n}} \implies \sqrt{n} = 16 \implies n = 16^2 = 256@ sacos inspecionados.
+            </li>
+          </ol>
+        </div>
+
+      </div>
+    </details>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+    </div>
+
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+  <h3>Escolha um Tema:</h3>
+  <button data-theme="theme-default" title="Tema Padrão">Default</button>
+  <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+  <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+  <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+  <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+  <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+  <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+  <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+  <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+  <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+  <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+  <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+  <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+  <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  <button data-theme="theme-high-contrast" title="Tema High Contrast">High Contrast</button>
+</div>
+
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

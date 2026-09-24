@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Trigonometria e Relações Métricas</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .orientacao-inicial { background-color: rgba(33, 150, 243, 0.2); border: 2px solid #2196f3; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .dica { background-color: rgba(33, 150, 243, 0.15); border-left: 4px solid #2196f3; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 4px; }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo { background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo { margin: 1rem 0; padding-left: 1.5rem; border-left: 2px solid #4caf50; }
+    .lembrete { background-color: rgba(255, 152, 0, 0.15); border-left: 4px solid #ff9800; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 4px; }
+    .lembrete strong { color: #ff9800; }
+    .conceito-basico { background-color: rgba(156, 39, 176, 0.1); border: 2px solid #9c27b0; border-radius: 6px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .badge-nivel { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .ano-1em { background-color: rgba(33, 150, 243, 0.3); color: #64b5f6; border: 1px solid #2196f3; }
+    .estrelas { color: #ffd700; font-size: 1.2rem; margin-left: 0.5rem; }
+    .destaque-box { background-color: rgba(0, 0, 0, 0.2); border-left: 4px solid var(--link-color); padding: 1.2rem 1.5rem; margin: 1.5rem 0; border-radius: 6px; }
+    .destaque-box h3 { margin-top: 0; color: var(--heading-text-color); }
+    .tabela-trig { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem; }
+    .tabela-trig th, .tabela-trig td { border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.65rem 0.85rem; text-align: center; }
+    .tabela-trig th { background-color: rgba(0, 0, 0, 0.45); color: var(--heading-text-color); }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <span class="badge-nivel ano-1em">1º Ano EM</span>
+      <span class="estrelas">★★★</span>
+      <h1>Atividade de Recuperação: Trigonometria no Triângulo Retângulo</h1>
+      <p style="font-style: italic; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.5rem;">
+        Capítulo 5: "Simetrizando e trigonometrizando"
+      </p>
+
+      <div class="orientacao-inicial">
+        <h3>📚 Roteiro Pedagógico de Recuperação</h3>
+        <p>A trigonometria nasceu da necessidade de medir distâncias inalcançáveis — montanhas, rios e corpos celestes — através de ângulos e proporções invariantes. Esta atividade de recuperação reforça o domínio do triângulo retângulo, das razões trigonométricas fundamentais, dos valores dos ângulos notáveis e das relações métricas derivadas da semelhança.</p>
+        <ul>
+          <li><strong>Etapa 1:</strong> Revise as definições das razões (seno, cosseno e tangente) e as relações métricas.</li>
+          <li><strong>Etapa 2:</strong> Analise as resoluções passo a passo dos problemas de topografia e engenharia.</li>
+          <li><strong>Etapa 3:</strong> Desenvolva os exercícios progressivos com scaffolding estruturado.</li>
+        </ul>
+      </div>
+
+      <h2>Revisão Conceitual Estruturada</h2>
+
+      <div class="conceito-basico">
+        <h4>1. As Razões Trigonométricas no Triângulo Retângulo</h4>
+        <p>Dado um triângulo retângulo com hipotenusa @a@ e catetos @b@ e @c@, definem-se para qualquer ângulo agudo @\theta@:</p>
+        <ul>
+          <li><strong>Seno:</strong> @\sin(\theta) = \frac{\text{Cateto Oposto}}{\text{Hipotenusa}}@</li>
+          <li><strong>Cosseno:</strong> @\cos(\theta) = \frac{\text{Cateto Adjacente}}{\text{Hipotenusa}}@</li>
+          <li><strong>Tangente:</strong> @\tan(\theta) = \frac{\text{Cateto Oposto}}{\text{Cateto Adjacente}} = \frac{\sin(\theta)}{\cos(\theta)}@</li>
+        </ul>
+        <p><strong>Identidade Fundamental da Trigonometria:</strong> @@ \sin^2(\theta) + \cos^2(\theta) = 1 @@</p>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>2. Tabela dos Ângulos Notáveis</h4>
+        <table class="tabela-trig">
+          <thead>
+            <tr>
+              <th>Razão \ Ângulo</th>
+              <th>30° (@\frac{\pi}{6}@ rad)</th>
+              <th>45° (@\frac{\pi}{4}@ rad)</th>
+              <th>60° (@\frac{\pi}{3}@ rad)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>@\sin(\theta)@</strong></td>
+              <td>@\frac{1}{2}@</td>
+              <td>@\frac{\sqrt{2}}{2}@</td>
+              <td>@\frac{\sqrt{3}}{2}@</td>
+            </tr>
+            <tr>
+              <td><strong>@\cos(\theta)@</strong></td>
+              <td>@\frac{\sqrt{3}}{2}@</td>
+              <td>@\frac{\sqrt{2}}{2}@</td>
+              <td>@\frac{1}{2}@</td>
+            </tr>
+            <tr>
+              <td><strong>@\tan(\theta)@</strong></td>
+              <td>@\frac{\sqrt{3}}{3}@</td>
+              <td>@1@</td>
+              <td>@\sqrt{3}@</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="lembrete">
+          <strong>Atenção aos Ângulos Complementares:</strong> Se @\alpha + \beta = 90^\circ@, então @\sin(\alpha) = \cos(\beta)@ e @\cos(\alpha) = \sin(\beta)@.
+        </div>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>3. Relações Métricas no Triângulo Retângulo</h4>
+        <p>Considere o triângulo retângulo @ABC@ com ângulo reto em @A@, hipotenusa @a@, catetos @b@ e @c@, altura relativa à hipotenusa @h@ e projeções ortogonais dos catetos sobre a hipotenusa @m@ (projeção de @c@) e @n@ (projeção de @b@), com @a = m + n@:</p>
+        <ul>
+          <li><strong>Teorema de Pitágoras:</strong> @a^2 = b^2 + c^2@</li>
+          <li><strong>Quadrado do Cateto:</strong> @b^2 = a \cdot n \quad \text{e} \quad c^2 = a \cdot m@</li>
+          <li><strong>Quadrado da Altura:</strong> @h^2 = m \cdot n@</li>
+          <li><strong>Produto das Dimensões:</strong> @a \cdot h = b \cdot c@</li>
+        </ul>
+      </div>
+
+      <h2>Exemplos Resolvidos Passo a Passo</h2>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo 1: Medição Topográfica de uma Torre de Transmissão</h4>
+        <p>Um topógrafo posiciona um teodolito a 40 metros da base de uma torre de transmissão. A luneta do aparelho mira o topo da torre sob um ângulo de elevação de 30°. Sabendo que o teodolito está sobre um tripé de 1,60 m de altura, determine a altura total da torre. (Adote @\sqrt{3} \approx 1{,}73@).</p>
+        <div class="passo">
+          <strong>Passo 1 (Identificação da razão adequada):</strong>
+          <p>Desejamos calcular o cateto oposto @y@ ao ângulo de 30°, conhecendo o cateto adjacente (@40@ m). A razão direta é a <strong>tangente</strong>:</p>
+          <p>@@ \tan(30^\circ) = \frac{y}{40} @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Substituição do valor notável e cálculo de @y@):</strong>
+          <p>@@ \frac{\sqrt{3}}{3} = \frac{y}{40} \implies 3y = 40\sqrt{3} \implies y = \frac{40 \cdot 1{,}73}{3} = \frac{69{,}2}{3} \approx 23{,}07 \text{ metros} @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 3 (Adição da altura do teodolito):</strong>
+          <p>@@ H_{\text{total}} = y + h_{\text{tripé}} = 23{,}07 + 1{,}60 = 24{,}67 \text{ metros} @@</p>
+        </div>
+      </div>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo 2: Aplicação das Relações Métricas</h4>
+        <p>Em um triângulo retângulo, a hipotenusa mede @a = 25@ cm e a projeção de um dos catetos mede @m = 9@ cm. Determine a outra projeção @n@, a altura relativa @h@ e as medidas dos dois catetos @b@ e @c@.</p>
+        <div class="passo">
+          <strong>Passo 1 (Cálculo da projeção @n@):</strong>
+          <p>Como @a = m + n@, temos @25 = 9 + n \implies n = 16 \text{ cm}@.</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Cálculo da altura @h@):</strong>
+          <p>@@ h^2 = m \cdot n = 9 \cdot 16 = 144 \implies h = \sqrt{144} = 12 \text{ cm} @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 3 (Cálculo dos catetos @b@ e @c@):</strong>
+          <p>@@ c^2 = a \cdot m = 25 \cdot 9 = 225 \implies c = \sqrt{225} = 15 \text{ cm} @@</p>
+          <p>@@ b^2 = a \cdot n = 25 \cdot 16 = 400 \implies b = \sqrt{400} = 20 \text{ cm} @@</p>
+          <p><em>Verificação de Pitágoras:</em> @15^2 + 20^2 = 225 + 400 = 625 = 25^2@ (confirmado!).</p>
+        </div>
+      </div>
+
+      <h2>Bateria Progressiva de Recuperação (Scaffolding)</h2>
+
+      <div class="destaque-box">
+        <h3>Nível 1: Apoio Alto (Identificação e Aplicação Direta)</h3>
+        <ol>
+          <li>Em um triângulo retângulo @ABC@, a hipotenusa mede 10 cm e o cateto oposto ao ângulo @\theta@ mede 6 cm.
+            <br>a) Calcule a medida do cateto adjacente a @\theta@ usando o Teorema de Pitágoras.
+            <br>b) Calcule @\sin(\theta)@, @\cos(\theta)@ e @\tan(\theta)@ em frações simplificadas.
+            <div class="dica"><strong>Dica:</strong> Lembre-se que @a^2 = b^2 + c^2@: @10^2 = 6^2 + c^2 \implies c^2 = 100 - 36 = 64@.</div>
+          </li>
+          <li>Uma rampa retilínea de skate tem 12 metros de comprimento e inclinação constante de 30° em relação ao solo plano.
+            <br>a) Qual é a altura vertical que a rampa alcança em sua extremidade mais alta?
+            <br>b) Qual é o comprimento horizontal projetado no solo?
+            <div class="dica"><strong>Dica:</strong> A altura é o cateto oposto (@\sin(30^\circ) = \frac{h}{12}@) e o piso é o cateto adjacente (@\cos(30^\circ) = \frac{x}{12}@).</div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box">
+        <h3>Nível 2: Apoio Médio (Resolução de Triângulos e Relações Métricas)</h3>
+        <ol start="3">
+          <li>Uma escada de bombeiros medindo 20 metros está apoiada na fachada de um edifício, formando um ângulo de 60° com o solo horizontal.
+            <br>a) A que altura da parede a ponta da escada se apoia? (Adote @\sqrt{3} \approx 1{,}73@).
+            <br>b) A que distância da parede a base da escada está apoiada?
+            <div class="dica"><strong>Dica:</strong> Use @\sin(60^\circ) = \frac{\sqrt{3}}{2}@ para a altura na parede e @\cos(60^\circ) = \frac{1}{2}@ para a distância da base.</div>
+          </li>
+          <li>Em um triângulo retângulo, as projeções dos catetos sobre a hipotenusa medem 4 cm e 9 cm.
+            <br>a) Calcule a medida da hipotenusa.
+            <br>b) Calcule a altura relativa à hipotenusa.
+            <br>c) Calcule as medidas dos dois catetos.
+            <div class="dica"><strong>Dica:</strong> Aplique as fórmulas métricas: @a = m + n@, @h = \sqrt{m \cdot n}@, @b = \sqrt{a \cdot n}@ e @c = \sqrt{a \cdot m}@.</div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box">
+        <h3>Nível 3: Autonomia Plena (Problemas em Dois Estágios e Aplicação Crítica)</h3>
+        <ol start="5">
+          <li>Um observador avista o pico de uma montanha sob um ângulo de elevação visual de 45°. Recuando exatamente 100 metros em linha reta sobre o mesmo plano horizontal, ele passa a avistar o mesmo pico sob um ângulo de 30°.
+            <br>a) Modele a situação formulando duas equações trigonométricas com a altura @H@ da montanha e a distância inicial @x@.
+            <br>b) Determine a altura @H@ da montanha. (Dado: utilize @\sqrt{3} \approx 1{,}73@).
+          </li>
+          <li>Uma tirolesa liga o topo de um penhasco vertical à margem de um lago plano. A fita de ancoragem esticada forma um ângulo de 30° com o solo e possui 80 metros de extensão.
+            <br>a) Calcule a altura do penhasco.
+            <br>b) Se os engenheiros precisarem reduzir a inclinação para 20° para aumentar a segurança, mantendo a mesma altura calculada, qual deverá ser o novo comprimento do cabo? (Dado: @\sin(20^\circ) \approx 0{,}34@).
+          </li>
+        </ol>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

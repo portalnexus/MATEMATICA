@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Análise Combinatória</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .orientacao-inicial {
+      background-color: rgba(33, 150, 243, 0.2);
+      border: 2px solid #2196f3;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .orientacao-inicial h3 {
+      color: #2196f3;
+      margin-top: 0;
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    .exemplo-passo-a-passo {
+      background-color: rgba(76, 175, 80, 0.1);
+      border-left: 4px solid #4caf50;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .exemplo-passo-a-passo h4 {
+      color: #4caf50;
+      margin-top: 0;
+    }
+
+    .passo {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+      border-left: 2px solid #4caf50;
+    }
+
+    .conceito-basico {
+      background-color: rgba(156, 39, 176, 0.1);
+      border: 2px solid #9c27b0;
+      border-radius: 6px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .conceito-basico h4 {
+      color: #ba68c8;
+      margin-top: 0;
+    }
+
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .ano-2em {
+      background-color: rgba(156, 39, 176, 0.3);
+      color: #ce93d8;
+      border: 1px solid #ab47bc;
+    }
+
+    .estrelas {
+      color: #ffd700;
+      font-size: 1.2rem;
+      margin-left: 0.5rem;
+    }
+
+    .decision-box {
+      border: 1px dashed var(--link-color);
+      background-color: rgba(0, 0, 0, 0.25);
+      padding: 1rem;
+      border-radius: 6px;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <span class="badge-nivel ano-2em">2º Ano EM</span>
+      <span class="estrelas">★★★</span>
+      <h1>Atividade de Recuperação: Análise Combinatória</h1>
+
+      <div class="orientacao-inicial">
+        <h3>🧭 Roteiro Pedagógico de Recuperação</h3>
+        <p>
+          Capítulo 6 — "Assim como na sociedade, os elementos devem ser permutados, combinados e arranjados."<br>
+          Esta atividade foca na habilidade mais crucial da contagem: discernir quando a ordem dos elementos gera uma nova configuração e quando deve ser desconsiderada, aplicando corretamente o PFC, permutações, arranjos e combinações.
+        </p>
+      </div>
+
+      <!-- REVISÃO TEÓRICA -->
+      <h2>Revisão Conceitual</h2>
+
+      <div class="decision-box">
+        <h4 style="color: var(--link-color); margin-top: 0;">⚡ Algoritmo Mental de Decisão</h4>
+        <p>Ao se deparar com qualquer problema de contagem, faça a <em>Pergunta de Ouro</em>:</p>
+        <p style="text-align: center; font-size: 1.1rem; font-weight: bold; color: #ffeb3b;">
+          "Se eu alterar a ordem dos elementos escolhidos, o resultado final muda?"
+        </p>
+        <ul>
+          <li><strong>SIM (A ordem importa):</strong> Pódios, senhas, placas, cargos com funções distintas (Presidente e Vice). Trata-se de <strong>Arranjo</strong> ou <strong>Permutação</strong>.</li>
+          <li><strong>NÃO (A ordem NÃO importa):</strong> Comissões, grupos de estudo, mãos de cartas, sorteio de prêmios iguais, sabores de suco. Trata-se de <strong>Combinação</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>1. Princípio Fundamental da Contagem (PFC)</h4>
+        <p>Se uma decisão @D_1@ pode ser tomada de @m@ maneiras e, em seguida, uma decisão independente @D_2@ pode ser tomada de @n@ maneiras, o total de pares de decisões é @m \times n@.</p>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>2. O Arsenal de Fórmulas da Combinatória</h4>
+        <ul>
+          <li><strong>Permutação Simples:</strong> Reorganização de todos os @n@ elementos distintos:
+            @@P_n = n! = n \times (n-1) \times \dots \times 1@@
+          </li>
+          <li><strong>Permutação com Repetição:</strong> Quando existem elementos repetidos em quantidades @\alpha, \beta, \dots@:
+            @@P_n^{\alpha, \beta, \dots} = \frac{n!}{\alpha! \, \beta! \dots}@@
+          </li>
+          <li><strong>Arranjos Simples (@A_{n, p}@):</strong> Escolha de @p@ elementos entre @n@ disponíveis, onde a ordem importa (@p \le n@):
+            @@A(n, p) = \frac{n!}{(n-p)!} = \underbrace{n \times (n-1) \times \dots \times (n-p+1)}_{p \text{ fatores}}@@
+          </li>
+          <li><strong>Combinações Simples (@C_{n, p}@):</strong> Escolha de subconjuntos de @p@ elementos entre @n@ disponíveis, onde a ordem não importa:
+            @@C(n, p) = \binom{n}{p} = \frac{n!}{p! \, (n-p)!} = \frac{A(n, p)}{p!}@@
+            O @p!@ no denominador cancela a redundância das permutações internas do grupo.
+          </li>
+        </ul>
+      </div>
+
+      <!-- EXEMPLO PASSO A PASSO -->
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo Resolvido: O Confronto Direto (Arranjo vs Combinação)</h4>
+        <p>Uma turma do 2º Ano tem 10 estudantes destacados. Vamos analisar duas situações de escolha:</p>
+        
+        <div class="passo">
+          <strong>Situação A: Escolha de 1 Líder e 1 Vice-Líder de Turma</strong>
+          <p>• Teste da ordem: Escolher (Ana para Líder, Bruno para Vice) é diferente de escolher (Bruno para Líder, Ana para Vice)?</p>
+          <p>• Resposta: <strong>SIM</strong>, os cargos possuem atribuições distintas. A ordem importa!</p>
+          <p>• Cálculo (Arranjo):
+            @@A(10, 2) = 10 \times 9 = 90 \text{ possibilidades}@@
+          </p>
+        </div>
+
+        <div class="passo">
+          <strong>Situação B: Escolha de uma delegação de 2 representantes iguais</strong>
+          <p>• Teste da ordem: O grupo {Ana, Bruno} é diferente do grupo {Bruno, Ana}?</p>
+          <p>• Resposta: <strong>NÃO</strong>, ambos os membros têm exatamente o mesmo status e função.</p>
+          <p>• Cálculo (Combinação):
+            @@C(10, 2) = \frac{10 \times 9}{2!} = \frac{90}{2} = 45 \text{ comissões distintas}@@
+          </p>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIOS SCAFFOLDING -->
+      <h2>Exercícios com Scaffolding Pedagógico</h2>
+
+      <!-- NÍVEL 1: APOIO ALTO -->
+      <div class="destaque-box">
+        <h3>Nível 1: Apoio Alto (Identificação da Ordem e Operações Básicas)</h3>
+        <ol>
+          <li>
+            Para cada uma das situações a seguir, classifique em <strong>Arranjo</strong>, <strong>Combinação</strong> ou <strong>Permutação</strong>:
+            <br>a) Criar uma senha bancária de 4 algarismos distintos com os dígitos de 1 a 9.
+            <br>b) Escolher 3 livros de uma estante com 10 títulos diferentes para levar na viagem de férias.
+            <br>c) Organizar 6 amigos lado a lado em uma fila para comprar ingressos de cinema.
+            <div class="dica">
+              <strong>Dica:</strong> Em senhas, a ordem dos dígitos muda a senha (1234 é diferente de 4321). Em livros na mala, a ordem não importa. Em fila, todos os amigos participam trocando de lugar.
+            </div>
+          </li>
+          <li>
+            Quantos anagramas possui a palavra <strong>NEXUS</strong>?
+            <br>a) Calcule o número total de anagramas (@P_5 = 5!@).
+            <br>b) Quantos desses anagramas começam obrigatoriamente pela letra <strong>N</strong>?
+            <div class="dica">
+              <strong>Dica:</strong> A palavra NEXUS possui 5 letras distintas. Fixando a primeira posição com a letra N, restam 4 posições livres para permutar as 4 letras restantes (@P_4 = 4!@).
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- NÍVEL 2: APOIO MÉDIO -->
+      <div class="destaque-box">
+        <h3>Nível 2: Apoio Médio (Repetição, Blocos Unidos e Comissões)</h3>
+        <ol start="3">
+          <li>
+            A palavra <strong>ARARAQUARA</strong> possui 10 letras, com várias repetições (a letra A aparece 5 vezes e a letra R aparece 3 vezes).
+            <br>a) Identifique as quantidades de cada letra repetida.
+            <br>b) Calcule a quantidade de anagramas distintos utilizando a fórmula de permutação com repetição:
+            @@P_{10}^{5, 3} = \frac{10!}{5! \, 3!}@@
+            <div class="dica">
+              <strong>Dica:</strong> Abra o @10!@ até o @5!@ para simplificar: @\frac{10 \times 9 \times 8 \times 7 \times 6 \times 5!}{5! \times 6}@.
+            </div>
+          </li>
+          <li>
+            Um grupo de 5 amigos (incluindo Caio e Diana) vai ao teatro e senta-se em uma fileira com 5 cadeiras consecutivas.
+            <br>a) De quantas maneiras distintas eles podem se sentar se Caio e Diana <strong>devem ficar sempre juntos</strong> lado a lado?
+            <br>b) De quantas maneiras eles podem se sentar se Caio e Diana <strong>não podem</strong> ficar juntos de jeito nenhum?
+            <div class="dica">
+              <strong>Dica:</strong> Para o item (a), amarre Caio e Diana como se fossem um "super-bloco" único, permutando 4 elementos, e depois multiplique por @2!@ (a troca de lugar interna entre eles). Para o item (b), subtraia do total geral (@5!@).
+            </div>
+          </li>
+          <li>
+            Um comitê de sustentabilidade escolar será formado por 4 membros escolhidos entre 7 estudantes e 5 professores voluntários. De quantas maneiras podemos formar uma comissão contendo <strong>exatamente 2 estudantes e 2 professores</strong>?
+            <div class="dica">
+              <strong>Dica:</strong> A comissão é formada por duas decisões independentes: escolher 2 estudantes de 7 (@C(7,2)@) E escolher 2 professores de 5 (@C(5,2)@). Aplique a regra do produto do PFC.
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- NÍVEL 3: AUTONOMIA -->
+      <div class="destaque-box">
+        <h3>Nível 3: Autonomia & Problemas Mistos</h3>
+        <ol start="6">
+          <li>
+            Em um laboratório de robótica, há 8 sensores de proximidade e 6 câmeras ópticas disponíveis para equipar um robô autônomo. O robô deve ser montado com um conjunto de 5 dispositivos de visão, sendo exigido por questões de segurança que haja <strong>pelo menos 1 câmera óptica</strong> no conjunto. De quantas maneiras diferentes esse conjunto de 5 dispositivos pode ser selecionado?
+            <div class="dica">
+              <strong>Dica de especialista (Método do Complementar):</strong> Calcule o total irrestrito de escolhas de 5 peças entre as 14 disponíveis e subtraia os casos indesejados (aqueles em que nenhuma câmera é escolhida, ou seja, todos os 5 são sensores).
+            </div>
+          </li>
+          <li>
+            Um robô em uma grade bidimensional de um armazém automatizado precisa se deslocar do ponto de coordenadas @A(0,0)@ até o ponto @B(5,3)@, movendo-se exclusivamente um passo para a Direita (@D@) ou um passo para Cima (@C@) em cada movimento.
+            <br>a) Quantos passos para a Direita e quantos passos para Cima são rigorosamente necessários para cumprir o trajeto?
+            <br>b) Demonstre como essa contagem de caminhos se traduz em uma permutação com repetição da sequência de passos e determine o total de trajetos possíveis entre A e B.
+          </li>
+        </ol>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+  <h3>Escolha um Tema:</h3>
+  <button data-theme="theme-default" title="Tema Padrão">Default</button>
+  <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+  <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+  <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+  <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+  <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+  <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+  <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+  <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+  <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+  <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+  <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+  <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+  <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  <button data-theme="theme-high-contrast" title="Tema High Contrast">High Contrast</button>
+</div>
+
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

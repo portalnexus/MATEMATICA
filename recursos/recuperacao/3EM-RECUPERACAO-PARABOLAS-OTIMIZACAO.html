@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Parábolas, Propriedades Ópticas & Otimização</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .orientacao-inicial {
+      background-color: rgba(33, 150, 243, 0.2);
+      border: 2px solid #2196f3;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo {
+      background-color: rgba(76, 175, 80, 0.1);
+      border-left: 4px solid #4caf50;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+      border-left: 2px solid #4caf50;
+    }
+    .conceito-basico {
+      background-color: rgba(156, 39, 176, 0.1);
+      border: 2px solid #9c27b0;
+      border-radius: 6px;
+      padding: 1.2rem 1.6rem;
+      margin: 1.5rem 0;
+    }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .ano-3em {
+      background-color: rgba(244, 67, 54, 0.3);
+      color: #ef9a9a;
+      border: 1px solid #f44336;
+    }
+    .estrelas {
+      color: #ffd700;
+      font-size: 1.2rem;
+      margin-left: 0.5rem;
+    }
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+    .gabarito-content { padding: 1.5rem; }
+    .gabarito-secao { margin-bottom: 1.8rem; }
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+    }
+    ol li { margin-bottom: 1.6rem; }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <span class="badge-nivel ano-3em">3º Ano EM</span>
+      <span class="estrelas">★★★</span>
+      <h1>Atividade de Recuperação: Parábolas, Propriedades Ópticas & Otimização</h1>
+
+      <div class="orientacao-inicial">
+        <h3>📚 Roteiro Pedagógico de Recuperação</h3>
+        <p>
+          O <strong>Capítulo 2</strong> ("Ponte Farol Espelho Forno Montanha-Russa") investiga as profundas conexões entre a definição cônica clássica da parábola (lugar geométrico de equidistância entre foco e diretriz), a física de reflexão de ondas eletromagnéticas em antenas e refletores parabólicos e as técnicas de <strong>otimização extrema quadrática</strong> (pontos de máximo e mínimo).
+        </p>
+        <p>
+          Este roteiro foi estruturado para sanar dúvidas fundamentais na conversão entre a forma analítica @y = ax^2 + bx + c@ e a forma geométrica focal @x^2 = 4py@, garantindo total autonomia na resolução de problemas de engenharia e economia.
+        </p>
+      </div>
+
+      <h2>Revisão Conceitual</h2>
+
+      <div class="conceito-basico">
+        <h4>1. Definição Geométrica da Parábola como Lugar Geométrico</h4>
+        <p>
+          Uma parábola é o lugar geométrico de todos os pontos @P(x, y)@ de um plano que são <strong>equidistantes</strong> de um ponto fixo @F@ (chamado <strong>foco</strong>) e de uma reta fixa @d@ (chamada <strong>diretriz</strong>) que não contém @F@:
+        </p>
+        <p>@@ d(P, F) = d(P, d) @@</p>
+        <ul>
+          <li><strong>Vértice (@V@):</strong> Ponto médio do segmento que liga o foco @F@ à reta diretriz @d@. O vértice pertence à parábola.</li>
+          <li><strong>Parâmetro Focal (@p@):</strong> Distância orientada do vértice ao foco. A distância total entre o foco e a diretriz é @2|p|@.</li>
+          <li><strong>Equação Canônica com Vértice na Origem @(0,0)@ e Eixo Vertical:</strong>
+            @@ x^2 = 4py \iff y = \frac{1}{4p} x^2 @@
+            Neste caso, as coordenadas do foco são @F(0, p)@ e a reta diretriz é a reta horizontal @y = -p@.
+          </li>
+          <li>Comparando com @y = ax^2@, temos a relação direta: @a = \frac{1}{4p} \iff p = \frac{1}{4a}@.</li>
+        </ul>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>2. A Propriedade Óptica / Refletora da Parábola</h4>
+        <p>
+          Qualquer raio ou onda eletromagnética (luz, sinal de rádio, som, calor solar) que incida na superfície parabólica paralelamente ao seu eixo de simetria reflete-se convergindo <strong>rigorosamente para o foco @F@</strong>.
+        </p>
+        <ul>
+          <li><strong>Dispositivos Concentradores (Receptores):</strong> Antenas parabólicas (Starlink, telecomunicações), radiotelescópios astronômicos e fornos solares captam ondas paralelas vindas do infinito e as concentram no receptor posicionado exatamente no foco @F@.</li>
+          <li><strong>Dispositivos Projetores (Emissores):</strong> Faróis automotivos, lanternas táticas e holofotes posicionam uma fonte de luz pontual no foco @F@; os raios emitidos colidem com o espelho parabólico e emergem como um feixe paralelo perfeitamente colimado.</li>
+        </ul>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>3. Otimização Quadrática: Vértice e Valores Extremos</h4>
+        <p>
+          Para uma função quadrática real @f(x) = ax^2 + bx + c@ com @a \neq 0@:
+        </p>
+        <ul>
+          <li>Se @a < 0@: A parábola tem concavidade voltada para baixo e atinge um <strong>ponto de máximo global</strong>.</li>
+          <li>Se @a > 0@: A parábola tem concavidade voltada para cima e atinge um <strong>ponto de mínimo global</strong>.</li>
+          <li><strong>Abscissa do vértice (onde ocorre o extremo):</strong>
+            @@ x_v = -\frac{b}{2a} @@
+          </li>
+          <li><strong>Ordenada do vértice (valor extremo atingido):</strong>
+            @@ y_v = -\frac{\Delta}{4a} = f(x_v) = -\frac{b^2 - 4ac}{4a} @@
+          </li>
+        </ul>
+      </div>
+
+      <h2>Exemplos Passo a Passo</h2>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo Resolvido 1: Posicionamento Focal de Antena Parabólica</h4>
+        <p>
+          Um técnico precisa posicionar o sensor receptor (LNB) de uma antena parabólica de satélite. O prato parabólico possui diâmetro de abertura @D = 120\text{ cm}@ e profundidade central @h = 20\text{ cm}@. A que distância do vértice (fundo da antena) o sensor receptor deve ser fixado ao longo do eixo central?
+        </p>
+        <div class="passo">
+          <strong>Passo 1 (Adotar o sistema cartesiano):</strong>
+          <p>Posicionamos o vértice da antena na origem @V(0,0)@ e o eixo de simetria sobre o eixo vertical @y@. A equação da parábola é @x^2 = 4py@.</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Identificar as coordenadas da borda):</strong>
+          <p>O raio da borda é @r = \frac{D}{2} = \frac{120}{2} = 60\text{ cm}@ e a profundidade é @y = 20\text{ cm}@. Portanto, a borda passa pelo ponto @(60, 20)@.</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 3 (Calcular o parâmetro focal @p@):</strong>
+          <p>Substituindo as coordenadas na equação @x^2 = 4py@:</p>
+          <p>@@ (60)^2 = 4p(20) \implies 3\,600 = 80p \implies p = \frac{3\,600}{80} = 45\text{ cm} @@</p>
+          <p><strong>Conclusão:</strong> O receptor LNB deve ser posicionado no foco @F(0, 45)@, ou seja, a exatamente @45\text{ cm}@ de distância do fundo da antena.</p>
+        </div>
+      </div>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo Resolvido 2: Problema Clássico de Cercamento com Área Máxima</h4>
+        <p>
+          Um fazendeiro possui @160\text{ metros}@ de tela de arame e deseja cercar uma horta retangular aproveitando um muro reto já existente como um dos lados (não necessitando de cerca nesse lado). Determine as dimensões do retângulo que maximizam a área da horta e a área máxima obtida.
+        </p>
+        <div class="passo">
+          <strong>Passo 1 (Definir variáveis e vínculo de perímetro):</strong>
+          <p>Seja @x@ o comprimento dos dois lados perpendiculares ao muro e @y@ o lado paralelo ao muro. A tela total consumida é:</p>
+          <p>@@ 2x + y = 160 \implies y = 160 - 2x @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Expressar a função área em função de @x@):</strong>
+          <p>@@ A(x) = x \cdot y = x(160 - 2x) = -2x^2 + 160x @@</p>
+          <p>Trata-se de uma função quadrática com @a = -2 < 0@ (possui máximo).</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 3 (Calcular o vértice):</strong>
+          <p>@@ x_v = -\frac{b}{2a} = -\frac{160}{2(-2)} = \frac{160}{4} = 40\text{ metros} @@</p>
+          <p>Para @x = 40\text{ m}@: @y = 160 - 2(40) = 80\text{ metros}@.</p>
+          <p>Área máxima: @A_{\text{max}} = 40 \times 80 = 3\,200\text{ m}^2@ (ou @-\frac{\Delta}{4a} = -\frac{160^2}{4(-2)} = \frac{25\,600}{8} = 3\,200\text{ m}^2@).</p>
+        </div>
+      </div>
+
+      <h2>Exercícios com Scaffolding Progressivo</h2>
+
+      <!-- NÍVEL 1: APOIO ALTO -->
+      <div class="destaque-box">
+        <h3>Nível 1: Apoio Alto (Exercícios Estruturados com Roteiro)</h3>
+
+        <ol>
+          <li>
+            Dada a parábola de equação @y = \frac{1}{12} x^2@:
+            <br>a) Identifique a forma canônica @x^2 = 4py@ determinando o valor de @p@.
+            <br>b) Quais são as coordenadas do foco @F@?
+            <br>c) Qual é a equação da reta diretriz @d@?
+            <div class="dica"><strong>Dica:</strong> Multiplique ambos os membros por 12 para isolar @x^2@: @x^2 = 12y@. Igualando @4p = 12@, ache @p@.</div>
+          </li>
+
+          <li>
+            Uma empresa modelou o seu lucro mensal @L(x)@ (em milhares de reais) na produção e venda de @x@ centenas de componentes eletrônicos pela função quadrática:
+            <p>@@ L(x) = -x^2 + 14x - 24 @@</p>
+            <br>a) O lucro atinge um valor máximo ou mínimo? Justifique pelo sinal do coeficiente @a@.
+            <br>b) Calcule a quantidade @x_v@ de centenas de componentes que deve ser vendida para maximizar o lucro.
+            <br>c) Qual é o lucro máximo obtido em reais?
+            <div class="dica"><strong>Dica:</strong> Utilize @x_v = -\frac{b}{2a}@ e depois substitua @x_v@ na expressão de @L(x)@.</div>
+          </li>
+
+          <li>
+            O refletor de uma lanterna de emergência tem a forma de uma parábola com vértice na origem e foco situado no ponto @F(0, 2)@ (medidas em centímetros).
+            <br>a) Escreva a equação reduzida dessa parábola na forma @x^2 = 4py@.
+            <br>b) Se a abertura circular frontal da lanterna tem raio @r = 6\text{ cm}@, qual é a profundidade @h@ desse refletor?
+          </li>
+        </ol>
+      </div>
+
+      <!-- NÍVEL 2: APOIO MÉDIO -->
+      <div class="destaque-box">
+        <h3>Nível 2: Apoio Médio (Exercícios Semi-Guiados)</h3>
+
+        <ol start="4">
+          <li>
+            Os cabos principais de sustentação de uma ponte pênsil formam parábolas com vértice no tabuleiro central da pista. A distância entre as duas torres é de @200\text{ metros}@ e cada torre atinge @50\text{ metros}@ de altura acima do tabuleiro da pista.
+            <br>a) Adotando o vértice do cabo no ponto @(0,0)@, determine a lei matemática da parábola que descreve a curva do cabo.
+            <br>b) Calcule a altura de uma haste vertical de sustentação do cabo localizada a @60\text{ metros}@ de distância do centro da ponte.
+            <div class="dica"><strong>Dica:</strong> As torres estão nos pontos @(-100, 50)@ e @(100, 50)@. Substitua um desses pontos em @y = ax^2@ para encontrar @a@.</div>
+          </li>
+
+          <li>
+            Um produtor teatral constatou que, cobrando @\text{R\$\ } 60{,}00@ por ingresso, o público médio é de @400@ espectadores por noite. Para cada redução de @\text{R\$\ } 2{,}00@ no preço do ingresso, o público aumenta em @40@ pessoas.
+            <br>a) Seja @x@ o número de descontos de @\text{R\$\ } 2{,}00@ concedidos. Escreva as funções que expressam o novo preço @P(x)@ e o novo público @Q(x)@.
+            <br>b) Obtenha a função da receita @R(x) = P(x) \cdot Q(x)@ e determine o preço do ingresso que maximiza a arrecadação da bilheteria.
+            <div class="dica"><strong>Dica:</strong> @P(x) = 60 - 2x@ e @Q(x) = 400 + 40x@. Expanda o produto para obter uma equação quadrática da receita.</div>
+          </li>
+
+          <li>
+            Um fogão solar parabólico ecológico destina-se a concentrar radiação infravermelha para cozinhar alimentos sem uso de gás ou eletricidade. O prato parabólico tem @100\text{ cm}@ de diâmetro de abertura e o suporte para a panela deve ficar no foco, situado a @25\text{ cm}@ do vértice. Calcule a profundidade @h@ da parábola no seu centro.
+            <div class="dica"><strong>Dica:</strong> Você já possui @p = 25\text{ cm}@. O raio de borda é @x = 50\text{ cm}@. Isole @y = h@ na equação @x^2 = 4py@.</div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- NÍVEL 3: AUTONOMIA -->
+      <div class="destaque-box">
+        <h3>Nível 3: Autonomia (Problemas Aprofundados e Demonstrações)</h3>
+
+        <ol start="7">
+          <li>
+            Um canhão dispara um projétil cuja trajetória balística obedece à equação @y = -0{,}01 x^2 + 1{,}2 x@, onde @x@ e @y@ são medidos em metros.
+            <br>a) Determine o alcance horizontal total do disparo (ponto em que o projétil atinge novamente o solo @y = 0@).
+            <br>b) Determine a altitude máxima atingida pelo projétil.
+            <br>c) Um drone de monitoramento voa horizontalmente a uma altitude constante de @32\text{ metros}@. Em que posições horizontais @x@ o projétil intercepta a linha de voo do drone?
+          </li>
+
+          <li>
+            Uma calha metálica para escoamento pluvial será construída a partir de uma chapa de alumínio retangular de @60\text{ cm}@ de largura, dobrando-se para cima as duas laterais em ângulo reto de modo a formar uma calha de seção retangular.
+            <br>Determine qual deve ser a altura das duas dobras laterais para que a seção transversal da calha tenha área máxima (permitindo a máxima vazão volumétrica de água da chuva).
+          </li>
+
+          <li>
+            Demonstre analiticamente que, para a parábola @y = ax^2@ (@a > 0@), a reta tangente traçada no ponto @P(x_0, y_0)@ com @x_0 \neq 0@ intercepta o eixo vertical @y@ exatamente no ponto @Q(0, -y_0)@, e utilize essa propriedade para demonstrar por que qualquer raio vertical incidente reflete-se na direção do foco @F(0, \frac{1}{4a})@.
+          </li>
+        </ol>
+      </div>
+
+      <!-- GABARITO RETRÁTIL -->
+      <details class="gabarito-container">
+        <summary>👉 Clique aqui para conferir as Resoluções Detalhadas</summary>
+        <div class="gabarito-content">
+          <div class="gabarito-secao">
+            <h3>Soluções - Nível 1: Apoio Alto</h3>
+            <p><strong>Exercício 1:</strong>
+              <br>a) @y = \frac{1}{12}x^2 \implies x^2 = 12y@. Como @4p = 12@, temos @p = 3@.
+              <br>b) Coordenadas do foco: @F(0, p) = (0, 3)@.
+              <br>c) Reta diretriz: @y = -p \implies y = -3@.
+            </p>
+            <p><strong>Exercício 2:</strong>
+              <br>a) Como @a = -1 < 0@, a parábola tem concavidade para baixo e o lucro possui ponto de <strong>máximo</strong>.
+              <br>b) @x_v = -\frac{b}{2a} = -\frac{14}{2(-1)} = 7@ centenas de componentes (@700@ unidades).
+              <br>c) @L(7) = -(7)^2 + 14(7) - 24 = -49 + 98 - 24 = 25@ milhares de reais = @\text{R\$\ } 25\,000{,}00@.
+            </p>
+            <p><strong>Exercício 3:</strong>
+              <br>a) Sendo @F(0, 2)@, temos @p = 2@. Logo, @x^2 = 4(2)y \implies x^2 = 8y@ (ou @y = \frac{1}{8}x^2@).
+              <br>b) Substituindo @x = 6@: @(6)^2 = 8h \implies 36 = 8h \implies h = \frac{36}{8} = 4{,}5\text{ cm}@.
+            </p>
+          </div>
+
+          <div class="gabarito-secao">
+            <h3>Soluções - Nível 2: Apoio Médio</h3>
+            <p><strong>Exercício 4:</strong>
+              <br>a) Vértice em @(0,0)@ e torre em @(100, 50)@. @50 = a(100)^2 \implies 50 = 10\,000a \implies a = \frac{50}{10\,000} = \frac{1}{200} = 0{,}005@.
+              <br>Equação do cabo: @y = \frac{1}{200} x^2@ (ou @x^2 = 200y@).
+              <br>b) Para @x = 60\text{ m}@: @y = \frac{1}{200} (60)^2 = \frac{3\,600}{200} = 18\text{ metros}@ de altura.
+            </p>
+            <p><strong>Exercício 5:</strong>
+              <br>a) Preço: @P(x) = 60 - 2x@. Público: @Q(x) = 400 + 40x@.
+              <br>b) Receita: @R(x) = (60 - 2x)(400 + 40x) = 24\,000 + 2\,400x - 800x - 80x^2 = -80x^2 + 1\,600x + 24\,000@.
+              <br>Vértice: @x_v = -\frac{1\,600}{2(-80)} = \frac{1\,600}{160} = 10@ descontos de R$ 2,00.
+              <br>Preço ótimo do ingresso: @P(10) = 60 - 2(10) = \text{R\$\ } 40{,}00@.
+              <br>(Receita máxima: @R(10) = 40 \times 800 = \text{R\$\ } 32\,000{,}00@, bem superior aos R$ 24.000,00 iniciais).
+            </p>
+            <p><strong>Exercício 6:</strong>
+              <br>Com @p = 25\text{ cm}@, a equação é @x^2 = 4(25)y = 100y@.
+              <br>O raio de borda é @x = \frac{100}{2} = 50\text{ cm}@.
+              <br>Substituindo @x = 50@: @(50)^2 = 100h \implies 2\,500 = 100h \implies h = 25\text{ cm}@.
+              <br>A profundidade central é exatamente @25\text{ cm}@.
+            </p>
+          </div>
+
+          <div class="gabarito-secao">
+            <h3>Soluções - Nível 3: Autonomia</h3>
+            <p><strong>Exercício 7:</strong>
+              <br>a) @-0{,}01x^2 + 1{,}2x = 0 \implies x(-0{,}01x + 1{,}2) = 0 \implies x = 0@ ou @x = \frac{1{,}2}{0{,}01} = 120\text{ metros}@ de alcance horizontal.
+              <br>b) Vértice em @x_v = \frac{0 + 120}{2} = 60\text{ m}@.
+              <br>Altitude máxima: @y(60) = -0{,}01(3600) + 1{,}2(60) = -36 + 72 = 36\text{ metros}@.
+              <br>c) @-0{,}01x^2 + 1{,}2x = 32 \implies 0{,}01x^2 - 1{,}2x + 32 = 0 \implies x^2 - 120x + 3200 = 0@.
+              <br>Fatorando: @(x - 40)(x - 80) = 0@. O projétil cruza a altitude do drone em @x = 40\text{ m}@ (na subida) e em @x = 80\text{ m}@ (na descida).
+            </p>
+            <p><strong>Exercício 8:</strong>
+              <br>Seja @x@ a altura das duas dobras laterais. O fundo da calha medirá @60 - 2x@.
+              <br>Área da seção retangular: @A(x) = x(60 - 2x) = -2x^2 + 60x@.
+              <br>Ponto de máximo: @x_v = -\frac{60}{2(-2)} = \frac{60}{4} = 15\text{ cm}@.
+              <br>As abas devem ser dobradas a @15\text{ cm}@ de cada lado, resultando em um fundo de @30\text{ cm}@ e uma área máxima de @15 \times 30 = 450\text{ cm}^2@.
+            </p>
+            <p><strong>Exercício 9:</strong>
+              <br>A derivada de @y = ax^2@ é @y' = 2ax@. A inclinação da reta tangente em @P(x_0, ax_0^2)@ é @m = 2ax_0@.
+              <br>Equação da tangente: @y - ax_0^2 = 2ax_0(x - x_0) \implies y = 2ax_0 x - 2ax_0^2 + ax_0^2 = 2ax_0 x - ax_0^2@.
+              <br>Fazendo @x = 0@, obtemos o intercepto @y = -ax_0^2 = -y_0@. Logo, @Q(0, -y_0)@.
+              <br>Como @F = (0, p) = (0, \frac{1}{4a})@, a distância @FP@ é igual à distância @FQ@: @d(F, Q) = y_0 + p@. Pela definição geométrica da parábola, @d(P, d) = y_0 + p = d(P, F)@.
+              <br>Portanto, o triângulo @\triangle FPQ@ é isósceles com @FP = FQ@, o que implica que a reta tangente bissecta o ângulo entre o raio que vem do foco e a reta vertical paralela ao eixo. Pela lei da reflexão óptica (ângulo de incidência igual ao de reflexão), qualquer raio vertical reflete-se diretamente passando pelo foco @F@. Q.E.D.
+            </p>
+          </div>
+        </div>
+      </details>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+  <h3>Escolha um Tema:</h3>
+  <button data-theme="theme-default" title="Tema Padrão">Default</button>
+  <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+  <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+  <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+  <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+  <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+  <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+  <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+  <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+  <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+  <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+  <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+  <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+  <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+
+</body>
+</html>

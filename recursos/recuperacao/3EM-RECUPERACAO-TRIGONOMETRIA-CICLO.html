@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Trigonometria no Ciclo & Medição da Terra</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .orientacao-inicial {
+      background-color: rgba(33, 150, 243, 0.2);
+      border: 2px solid #2196f3;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo {
+      background-color: rgba(76, 175, 80, 0.1);
+      border-left: 4px solid #4caf50;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+      border-left: 2px solid #4caf50;
+    }
+    .conceito-basico {
+      background-color: rgba(156, 39, 176, 0.1);
+      border: 2px solid #9c27b0;
+      border-radius: 6px;
+      padding: 1.2rem 1.6rem;
+      margin: 1.5rem 0;
+    }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .ano-3em {
+      background-color: rgba(244, 67, 54, 0.3);
+      color: #ef9a9a;
+      border: 1px solid #f44336;
+    }
+    .estrelas {
+      color: #ffd700;
+      font-size: 1.2rem;
+      margin-left: 0.5rem;
+    }
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+    .gabarito-content { padding: 1.5rem; }
+    .gabarito-secao { margin-bottom: 1.8rem; }
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+    }
+    ol li { margin-bottom: 1.6rem; }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <span class="badge-nivel ano-3em">3º Ano EM</span>
+      <span class="estrelas">★★★</span>
+      <h1>Atividade de Recuperação: Trigonometria no Ciclo & Medição da Terra</h1>
+
+      <div class="orientacao-inicial">
+        <h3>📚 Roteiro Pedagógico de Recuperação</h3>
+        <p>
+          Bem-vindo ao módulo de recuperação do <strong>Capítulo 1</strong>. Nosso objetivo é consolidar o domínio do <strong>ciclo trigonométrico unitário</strong>, a determinação de <strong>arcos côngruos</strong>, a <strong>redução de quadrantes por simetria</strong> e o estudo das <strong>funções periódicas</strong> (seno e cosseno), conectando esses saberes à genialidade histórica de <strong>Eratóstenes de Cirene</strong> na medição do raio do nosso planeta.
+        </p>
+        <p>
+          Siga com atenção a <strong>Revisão Conceitual</strong>, analise minuciosamente os <strong>Exemplos Passo a Passo</strong> e resolva os exercícios organizados em <strong>três níveis de scaffolding progressivo</strong> (Apoio Alto, Apoio Médio e Autonomia).
+        </p>
+      </div>
+
+      <h2>Revisão Conceitual</h2>
+
+      <div class="conceito-basico">
+        <h4>1. O Experimento Geodésico de Eratóstenes (c. 240 a.C.)</h4>
+        <p>
+          Ao observar que no solstício de verão ao meio-dia o Sol iluminava o fundo de um poço profundo em Siena (Assuã) sem projetar sombra alguma, e que no mesmo instante em Alexandria uma haste vertical (gnômon) projetava uma sombra correspondente a um ângulo zenital de @\theta = 7{,}2^\circ = \frac{1}{50}\text{ de } 360^\circ@, Eratóstenes concluiu pela geometria euclidiana (ângulos alternos internos entre retas paralelas de raios solares cortadas por uma secante que passa pelo centro da Terra) que o ângulo central subtendido entre as duas cidades é exatamente @\theta@:
+        </p>
+        <p>@@ \frac{\text{Distância Siena-Alexandria } (s)}{\text{Circunferência da Terra } (C)} = \frac{\theta}{360^\circ} = \frac{7{,}2^\circ}{360^\circ} = \frac{1}{50} @@</p>
+        <p>Sendo @s \approx 5\,000\text{ estádios} \approx 800\text{ km}@, temos @C \approx 50 \times 800 = 40\,000\text{ km}@ e o raio da Terra @R = \frac{C}{2\pi} \approx 6\,366\text{ km}@, incrivelmente próximo do valor moderno médio (@6\,371\text{ km}@)!</p>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>2. O Ciclo Trigonométrico Unitário</h4>
+        <p>
+          O ciclo trigonométrico é uma circunferência orientada de raio @R = 1@, centrada na origem @O(0,0)@ do plano cartesiano, com sentido anti-horário positivo.
+        </p>
+        <ul>
+          <li>O <strong>eixo das abscissas (horizontal)</strong> é o eixo dos cossenos: @x = \cos\theta@.</li>
+          <li>O <strong>eixo das ordenadas (vertical)</strong> é o eixo dos senos: @y = \sin\theta@.</li>
+          <li>A <strong>reta tangente vertical @x = 1@</strong> é o eixo das tangentes: @\tan\theta = \frac{\sin\theta}{\cos\theta}@.</li>
+        </ul>
+        <p>Sinais nos quadrantes:</p>
+        <ul>
+          <li><strong>1º Q (@0 < \theta < 90^\circ@):</strong> @\sin > 0@, @\cos > 0@, @\tan > 0@.</li>
+          <li><strong>2º Q (@90^\circ < \theta < 180^\circ@):</strong> @\sin > 0@, @\cos < 0@, @\tan < 0@.</li>
+          <li><strong>3º Q (@180^\circ < \theta < 270^\circ@):</strong> @\sin < 0@, @\cos < 0@, @\tan > 0@.</li>
+          <li><strong>4º Q (@270^\circ < \theta < 360^\circ@):</strong> @\sin < 0@, @\cos > 0@, @\tan < 0@.</li>
+        </ul>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>3. Arcos Côngruos e Redução ao 1º Quadrante</h4>
+        <p>
+          Dois arcos são côngruos quando possuem a mesma extremidade final no ciclo trigonométrico, diferindo por um número inteiro @k \in \mathbb{Z}@ de voltas completas:
+        </p>
+        <p>@@ \theta = \alpha + k \cdot 360^\circ \quad \text{ou} \quad \theta = \alpha + 2k\pi \quad (\text{com } 0 \le \alpha < 360^\circ) @@</p>
+        <p>Para reduzir um arco @\alpha@ ao primeiro quadrante por simetria:</p>
+        <ul>
+          <li>Se @\alpha \in \text{2º Q}@: utilize @180^\circ - \alpha@ (ou @\pi - \alpha@).</li>
+          <li>Se @\alpha \in \text{3º Q}@: utilize @\alpha - 180^\circ@ (ou @\alpha - \pi@).</li>
+          <li>Se @\alpha \in \text{4º Q}@: utilize @360^\circ - \alpha@ (ou @2\pi - \alpha@).</li>
+        </ul>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>4. Funções Harmônicas e Período</h4>
+        <p>
+          Para uma função do tipo @f(x) = a + b \sin(cx + d)@ ou @f(x) = a + b \cos(cx + d)@:
+        </p>
+        <ul>
+          <li><strong>Período Fundamental (@T@):</strong> @T = \frac{2\pi}{|c|}@.</li>
+          <li><strong>Amplitude (@A@):</strong> @A = |b|@.</li>
+          <li><strong>Conjunto Imagem:</strong> @\operatorname{Im}(f) = [a - |b|, a + |b|]@.</li>
+          <li><strong>Eixo médio de oscilação:</strong> @y = a@.</li>
+        </ul>
+      </div>
+
+      <h2>Exemplos Passo a Passo</h2>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo Resolvido 1: Medição da Terra com Dados Reais</h4>
+        <p>
+          Duas cidades @A@ e @B@ estão no mesmo meridiano terrestre. Quando o Sol atinge o zênite em @A@ (ângulo de sombra zero), uma haste vertical em @B@ projeta uma sombra que revela um ângulo zenital de @\theta = 4{,}5^\circ@. Sabendo que a distância geodésica medida entre as duas cidades é de @500\text{ km}@, calcule o comprimento total da circunferência da Terra e o raio do planeta. Adote @\pi \approx 3{,}1416@.
+        </p>
+        <div class="passo">
+          <strong>Passo 1 (Proporção com o arco total de 360°):</strong>
+          <p>A fração da circunferência correspondente ao ângulo @\theta = 4{,}5^\circ@ é:</p>
+          <p>@@ \frac{\theta}{360^\circ} = \frac{4{,}5^\circ}{360^\circ} = \frac{1}{80} @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Cálculo da circunferência total @C@):</strong>
+          <p>@@ C = 80 \times s = 80 \times 500\text{ km} = 40\,000\text{ km} @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 3 (Cálculo do raio terrestre @R@):</strong>
+          <p>@@ R = \frac{C}{2\pi} = \frac{40\,000}{2 \times 3{,}1416} = \frac{40\,000}{6{,}2832} \approx 6\,366{,}2\text{ km} @@</p>
+          <p><strong>Conclusão:</strong> O raio estimado da Terra é de aproximadamente @6\,366\text{ km}@.</p>
+        </div>
+      </div>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo Resolvido 2: Arcos Côngruos e Redução Trigonométrica</h4>
+        <p>Calcule o valor exato de @\sin(1470^\circ)@ e @\cos\left(\frac{25\pi}{3}\right)@.</p>
+        <div class="passo">
+          <strong>Passo 1 (Para @1470^\circ@):</strong>
+          <p>Dividimos @1470^\circ@ por @360^\circ@:</p>
+          <p>@@ 1470 = 4 \times 360 + 30 @@</p>
+          <p>Logo, @1470^\circ@ dá 4 voltas completas e para no arco de @30^\circ@ (1º quadrante).</p>
+          <p>@@ \sin(1470^\circ) = \sin(30^\circ) = \frac{1}{2} @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Para @\frac{25\pi}{3}@):</strong>
+          <p>Como uma volta completa é @2\pi = \frac{6\pi}{3}@, dividimos @25@ por @6@: @25 = 4 \times 6 + 1@.</p>
+          <p>@@ \frac{25\pi}{3} = 4(2\pi) + \frac{\pi}{3} @@</p>
+          <p>Logo, a primeira determinação positiva é @\frac{\pi}{3} = 60^\circ@.</p>
+          <p>@@ \cos\left(\frac{25\pi}{3}\right) = \cos\left(\frac{\pi}{3}\right) = \frac{1}{2} @@</p>
+        </div>
+      </div>
+
+      <h2>Exercícios com Scaffolding Progressivo</h2>
+
+      <!-- NÍVEL 1: APOIO ALTO -->
+      <div class="destaque-box">
+        <h3>Nível 1: Apoio Alto (Exercícios Estruturados com Roteiro)</h3>
+
+        <ol>
+          <li>
+            Um estudante reproduz o experimento de Eratóstenes medindo uma sombra em Macapá (no Equador) e em uma cidade situada a @666\text{ km}@ ao norte sobre o mesmo meridiano. O ângulo de inclinação medido foi de @6^\circ@.
+            <br>a) Complete a proporção: @\frac{s}{C} = \frac{6^\circ}{360^\circ} = \frac{1}{\Box}@.
+            <br>b) Calcule a circunferência @C@ da Terra.
+            <br>c) Calcule o raio @R@ correspondente (@R = C / 2\pi@, com @\pi \approx 3{,}14@).
+            <div class="dica"><strong>Dica:</strong> Divida @360@ por @6@ para descobrir por quanto você deve multiplicar a distância @666\text{ km}@.</div>
+          </li>
+
+          <li>
+            Determine a primeira determinação positiva (@0^\circ \le \alpha < 360^\circ@) e o quadrante dos seguintes arcos:
+            <br>a) @\theta = 840^\circ@ (Siga os passos: divida 840 por 360, encontre o quociente e o resto).
+            <br>b) @\theta = 1500^\circ@
+            <br>c) @\theta = -120^\circ@ (Soma de uma volta: @-120^\circ + 360^\circ = \dots@).
+            <div class="dica"><strong>Dica:</strong> Para arcos negativos, adicione @360^\circ@ tantas vezes quantas forem necessárias até obter um valor positivo no intervalo @[0^\circ, 360^\circ[@.</div>
+          </li>
+
+          <li>
+            Calcule o valor exato utilizando a simetria de redução ao primeiro quadrante:
+            <br>a) @\sin(150^\circ)@ (2º quadrante: @\sin(180^\circ - 150^\circ)@)
+            <br>b) @\cos(210^\circ)@ (3º quadrante: @-\cos(210^\circ - 180^\circ)@)
+            <br>c) @\sin(315^\circ)@ (4º quadrante: @-\sin(360^\circ - 315^\circ)@)
+          </li>
+        </ol>
+      </div>
+
+      <!-- NÍVEL 2: APOIO MÉDIO -->
+      <div class="destaque-box">
+        <h3>Nível 2: Apoio Médio (Exercícios Semi-Guiados)</h3>
+
+        <ol start="4">
+          <li>
+            Determine a primeira determinação positiva em radianos e calcule o valor trigonométrico solicitado:
+            <br>a) @\sin\left(\frac{17\pi}{4}\right)@
+            <br>b) @\cos\left(\frac{14\pi}{3}\right)@
+            <br>c) @\tan\left(-\frac{7\pi}{4}\right)@
+            <div class="dica"><strong>Dica:</strong> Extraia os múltiplos inteiros de @2\pi@ (uma volta completa). Lembre-se de verificar o sinal da função trigonométrica no quadrante correspondente.</div>
+          </li>
+
+          <li>
+            A altura @h@ (em metros) da lâmina d'água no canal de um porto varia periodicamente em função do tempo @t@ (em horas após a meia-noite) de acordo com o modelo harmônico:
+            <p>@@ h(t) = 8 + 3 \cos\left(\frac{\pi t}{6}\right) @@</p>
+            <p>a) Qual é o período @T@ do ciclo de marés desse porto?</p>
+            <p>b) Quais são as alturas máxima (preamar) e mínima (baixa-mar) atingidas pela água?</p>
+            <p>c) Em que momento do dia, entre @t = 0@ e @t = 12\text{ h}@, a maré atinge seu valor mínimo?</p>
+            <div class="dica"><strong>Dica:</strong> O período é @T = \frac{2\pi}{|c|}@. O cosseno atinge o valor mínimo @-1@ quando o argumento vale @\pi@.</div>
+          </li>
+
+          <li>
+            Resolva as seguintes equações trigonométricas elementares para o intervalo @x \in [0, 2\pi[@:
+            <br>a) @\sin x = \frac{\sqrt{3}}{2}@
+            <br>b) @\cos x = -\frac{1}{2}@
+            <div class="dica"><strong>Dica:</strong> Lembre-se de que a função seno é positiva nos 1º e 2º quadrantes, enquanto o cosseno é negativo nos 2º e 3º quadrantes. Cada equação possui duas soluções no ciclo.</div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- NÍVEL 3: AUTONOMIA -->
+      <div class="destaque-box">
+        <h3>Nível 3: Autonomia (Problemas de Aplicação e Rigor)</h3>
+
+        <ol start="7">
+          <li>
+            Uma sonda orbital em torno do planeta Marte mede a distância entre duas crateras situadas sobre o mesmo meridiano marciano como sendo @s = 593\text{ km}@. Ao mesmo tempo, sensores astronômicos determinam que os raios solares incidem com uma diferença angular de @10^\circ@ entre essas duas crateras.
+            <br>a) Determine o raio de Marte a partir desses dados.
+            <br>b) Compare o raio de Marte calculado com o raio terrestre (@R_{\text{Terra}} \approx 6\,371\text{ km}@).
+          </li>
+
+          <li>
+            Considere a função real dada por @f(x) = 4 - 6 \sin\left(3x - \frac{\pi}{2}\right)@.
+            <br>a) Determine o domínio e o conjunto imagem de @f@.
+            <br>b) Calcule o período fundamental de oscilação de @f@.
+            <br>c) Determine o valor máximo de @f(x)@ e encontre o menor valor não negativo de @x@ no qual esse máximo ocorre.
+          </li>
+
+          <li>
+            Resolva analiticamente a equação trigonométrica com argumento composto no ciclo:
+            <p>@@ \sin(2x) = -\frac{\sqrt{2}}{2}, \quad \text{para } x \in [0, 2\pi[ @@</p>
+            <p>Determine todas as soluções no intervalo fundamental e represente-as no ciclo trigonométrico.</p>
+          </li>
+        </ol>
+      </div>
+
+      <!-- GABARITO RETRÁTIL -->
+      <details class="gabarito-container">
+        <summary>👉 Clique aqui para conferir as Resoluções Detalhadas</summary>
+        <div class="gabarito-content">
+          <div class="gabarito-secao">
+            <h3>Soluções - Nível 1: Apoio Alto</h3>
+            <p><strong>Exercício 1:</strong>
+              <br>a) @\frac{6}{360} = \frac{1}{60}@.
+              <br>b) @C = 60 \times 666 = 39\,960\text{ km}@.
+              <br>c) @R = \frac{39\,960}{2 \times 3{,}14} = \frac{39\,960}{6{,}28} \approx 6\,363\text{ km}@.
+            </p>
+            <p><strong>Exercício 2:</strong>
+              <br>a) @840 = 2 \times 360 + 120@. 1ª determinação: @120^\circ@ (2º quadrante).
+              <br>b) @1500 = 4 \times 360 + 60@. 1ª determinação: @60^\circ@ (1º quadrante).
+              <br>c) @-120^\circ + 360^\circ = 240^\circ@ (3º quadrante).
+            </p>
+            <p><strong>Exercício 3:</strong>
+              <br>a) @\sin(150^\circ) = \sin(180^\circ - 150^\circ) = \sin(30^\circ) = \frac{1}{2}@.
+              <br>b) @\cos(210^\circ) = -\cos(210^\circ - 180^\circ) = -\cos(30^\circ) = -\frac{\sqrt{3}}{2}@.
+              <br>c) @\sin(315^\circ) = -\sin(360^\circ - 315^\circ) = -\sin(45^\circ) = -\frac{\sqrt{2}}{2}@.
+            </p>
+          </div>
+
+          <div class="gabarito-secao">
+            <h3>Soluções - Nível 2: Apoio Médio</h3>
+            <p><strong>Exercício 4:</strong>
+              <br>a) @\frac{17\pi}{4} = 2(2\pi) + \frac{\pi}{4}@. Logo @\sin\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2}@.
+              <br>b) @\frac{14\pi}{3} = 2(2\pi) + \frac{2\pi}{3}@ (2º quadrante). @\cos\left(\frac{2\pi}{3}\right) = -\cos\left(\frac{\pi}{3}\right) = -\frac{1}{2}@.
+              <br>c) @-\frac{7\pi}{4} + 2\pi = \frac{\pi}{4}@. @\tan\left(\frac{\pi}{4}\right) = 1@.
+            </p>
+            <p><strong>Exercício 5:</strong>
+              <br>a) @T = \frac{2\pi}{\pi/6} = 2\pi \cdot \frac{6}{\pi} = 12\text{ horas}@.
+              <br>b) @h_{\text{max}} = 8 + 3(1) = 11\text{ metros}@; @h_{\text{min}} = 8 + 3(-1) = 5\text{ metros}@.
+              <br>c) O mínimo ocorre quando @\cos\left(\frac{\pi t}{6}\right) = -1 \implies \frac{\pi t}{6} = \pi \implies t = 6\text{ h}@ (às 06h da manhã).
+            </p>
+            <p><strong>Exercício 6:</strong>
+              <br>a) @\sin x = \frac{\sqrt{3}}{2} \implies x_1 = \frac{\pi}{3}@ (1º Q) e @x_2 = \pi - \frac{\pi}{3} = \frac{2\pi}{3}@ (2º Q). @S = \{\frac{\pi}{3}, \frac{2\pi}{3}\}@.
+              <br>b) @\cos x = -\frac{1}{2} \implies x_1 = \pi - \frac{\pi}{3} = \frac{2\pi}{3}@ (2º Q) e @x_2 = \pi + \frac{\pi}{3} = \frac{4\pi}{3}@ (3º Q). @S = \{\frac{2\pi}{3}, \frac{4\pi}{3}\}@.
+            </p>
+          </div>
+
+          <div class="gabarito-secao">
+            <h3>Soluções - Nível 3: Autonomia</h3>
+            <p><strong>Exercício 7:</strong>
+              <br>a) @\frac{10^\circ}{360^\circ} = \frac{1}{36}@. Circunferência de Marte: @C_{\text{Marte}} = 36 \times 593 = 21\,348\text{ km}@.
+              <br>Raio: @R_{\text{Marte}} = \frac{21\,348}{2\pi} \approx \frac{21\,348}{6{,}2832} \approx 3\,397\text{ km}@.
+              <br>b) @\frac{R_{\text{Marte}}}{R_{\text{Terra}}} = \frac{3\,397}{6\,371} \approx 0{,}533@. Marte tem aproximadamente metade do raio da Terra (53%).
+            </p>
+            <p><strong>Exercício 8:</strong>
+              <br>a) Domínio: @\mathbb{R}@. Imagem: Como @\sin \in [-1, 1]@, @f_{\text{max}} = 4 - 6(-1) = 10@ e @f_{\text{min}} = 4 - 6(1) = -2@. @\operatorname{Im}(f) = [-2, 10]@.
+              <br>b) Período: @T = \frac{2\pi}{3}@.
+              <br>c) @f(x) = 10 \implies \sin\left(3x - \frac{\pi}{2}\right) = -1 \implies 3x - \frac{\pi}{2} = \frac{3\pi}{2} \implies 3x = 2\pi \implies x = \frac{2\pi}{3}@.
+            </p>
+            <p><strong>Exercício 9:</strong>
+              <br>Fazendo @\theta = 2x@: @\sin\theta = -\frac{\sqrt{2}}{2}@. Como @x \in [0, 2\pi[@, @\theta \in [0, 4\pi[@ (duas voltas).
+              <br>Na 1ª volta: @\theta = \frac{5\pi}{4}@ ou @\theta = \frac{7\pi}{4}@.
+              <br>Na 2ª volta: @\theta = \frac{5\pi}{4} + 2\pi = \frac{13\pi}{4}@ ou @\theta = \frac{7\pi}{4} + 2\pi = \frac{15\pi}{4}@.
+              <br>Dividindo por 2: @x \in \{\frac{5\pi}{8}, \frac{7\pi}{8}, \frac{13\pi}{8}, \frac{15\pi}{8}\}@.
+            </p>
+          </div>
+        </div>
+      </details>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+  <h3>Escolha um Tema:</h3>
+  <button data-theme="theme-default" title="Tema Padrão">Default</button>
+  <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+  <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+  <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+  <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+  <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+  <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+  <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+  <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+  <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+  <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+  <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+  <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+  <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+
+</body>
+</html>

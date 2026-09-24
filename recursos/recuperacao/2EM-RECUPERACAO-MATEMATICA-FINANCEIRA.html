@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Matemática Financeira</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .orientacao-inicial {
+      background-color: rgba(33, 150, 243, 0.2);
+      border: 2px solid #2196f3;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .orientacao-inicial h3 {
+      color: #2196f3;
+      margin-top: 0;
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    .exemplo-passo-a-passo {
+      background-color: rgba(76, 175, 80, 0.1);
+      border-left: 4px solid #4caf50;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .exemplo-passo-a-passo h4 {
+      color: #4caf50;
+      margin-top: 0;
+    }
+
+    .passo {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+      border-left: 2px solid #4caf50;
+    }
+
+    .conceito-basico {
+      background-color: rgba(156, 39, 176, 0.1);
+      border: 2px solid #9c27b0;
+      border-radius: 6px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .conceito-basico h4 {
+      color: #ba68c8;
+      margin-top: 0;
+    }
+
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .ano-2em {
+      background-color: rgba(156, 39, 176, 0.3);
+      color: #ce93d8;
+      border: 1px solid #ab47bc;
+    }
+
+    .estrelas {
+      color: #ffd700;
+      font-size: 1.2rem;
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <span class="badge-nivel ano-2em">2º Ano EM</span>
+      <span class="estrelas">★★★</span>
+      <h1>Atividade de Recuperação: Matemática Financeira</h1>
+
+      <div class="orientacao-inicial">
+        <h3>🧭 Roteiro Pedagógico de Recuperação</h3>
+        <p>
+          Capítulo 4 — "Variou o preço, estou presente. Quem sou eu?"<br>
+          Esta atividade revisa os mecanismos matemáticos que regem o poder de compra e o capital: fatores multiplicadores de variações sucessivas, regimes de juros simples e compostos, desconto comercial e a Equação de Fisher para determinação do rendimento real frente à inflação.
+        </p>
+      </div>
+
+      <!-- REVISÃO TEÓRICA -->
+      <h2>Revisão Conceitual</h2>
+
+      <div class="conceito-basico">
+        <h4>1. Fatores Multiplicadores e Variações Sucessivas</h4>
+        <ul>
+          <li><strong>Acréscimo percentual de @i@:</strong> o novo valor é @V = V_0 \cdot (1 + i)@. Exemplo: aumento de @15\% \implies F = 1 + 0{,}15 = 1{,}15@.</li>
+          <li><strong>Desconto percentual de @i@:</strong> o novo valor é @V = V_0 \cdot (1 - i)@. Exemplo: desconto de @20\% \implies F = 1 - 0{,}20 = 0{,}80@.</li>
+          <li><strong>Variações Sucessivas:</strong> multiplica-se a cadeia de fatores: @F_{\text{acum}} = F_1 \cdot F_2 \dots F_k@. <em>Nunca some as porcentagens!</em></li>
+        </ul>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>2. Inflação e a Equação de Fisher (Taxa Real vs Aparente)</h4>
+        <p>A taxa aparente (ou nominal) @i_a@ é a porcentagem informada pelo banco. A inflação @i_f@ corrói o poder de compra. A taxa real @i_r@ expressa o ganho efetivo em bens e serviços:</p>
+        @@(1 + i_a) = (1 + i_r) \cdot (1 + i_f) \iff (1 + i_r) = \frac{1 + i_a}{1 + i_f}@@
+      </div>
+
+      <div class="conceito-basico">
+        <h4>3. Regimes de Capitalização e Desconto</h4>
+        <ul>
+          <li><strong>Juros Simples:</strong> os juros incidem unicamente sobre o capital inicial:
+            @@J = C \cdot i \cdot t \quad \implies \quad M = C \cdot (1 + i \cdot t)@@
+          </li>
+          <li><strong>Juros Compostos:</strong> os juros do período integram a base de cálculo do período seguinte (juros sobre juros):
+            @@M = C \cdot (1 + i)^t@@
+          </li>
+          <li><strong>Desconto Comercial Simples ("por fora"):</strong> incide sobre o valor nominal futuro @N@ do título:
+            @@D_c = N \cdot d \cdot t \quad \implies \quad V_{\text{atual}} = N \cdot (1 - d \cdot t)@@
+          </li>
+          <li><strong>Equivalência de Capitais:</strong> para comparar opções de pagamento, todos os fluxos de caixa devem ser descontados ou capitalizados para a mesma data focal (@t = 0@).</li>
+        </ul>
+      </div>
+
+      <!-- EXEMPLO PASSO A PASSO -->
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo Resolvido: A Ilusão das Porcentagens e a Taxa Real</h4>
+        <p>Um investimento rendeu @21\%@ de taxa aparente no ano (@i_a = 0{,}21@). No mesmo período, a inflação oficial acumulou @10\%@ (@i_f = 0{,}10@). Calcule a taxa real de ganho do investidor.</p>
+
+        <div class="passo">
+          <strong>Passo 1: Identificar a armadilha comum</strong>
+          <p>O erro comum é subtrair diretamente: @21\% - 10\% = 11\%@. Isso está matematicamente incorreto porque a inflação corrói tanto o capital quanto os juros gerados.</p>
+        </div>
+
+        <div class="passo">
+          <strong>Passo 2: Aplicar a Equação de Fisher</strong>
+          <p>@@1 + i_r = \frac{1 + i_a}{1 + i_f} = \frac{1 + 0{,}21}{1 + 0{,}10} = \frac{1{,}21}{1{,}10}@@</p>
+        </div>
+
+        <div class="passo">
+          <strong>Passo 3: Efetuar a divisão e isolar a taxa real</strong>
+          <p>@@1 + i_r = 1{,}10 \implies i_r = 1{,}10 - 1 = 0{,}10 = 10\%@@</p>
+          <p>O ganho real de poder aquisitivo foi de exatamente @10\%@ (e não @11\%@!).</p>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIOS SCAFFOLDING -->
+      <h2>Exercícios com Scaffolding Pedagógico</h2>
+
+      <!-- NÍVEL 1: APOIO ALTO -->
+      <div class="destaque-box">
+        <h3>Nível 1: Apoio Alto (Operações Diretas e Fatores de Correção)</h3>
+        <ol>
+          <li>
+            Um produto de informática custava @R\$\ 800{,}00@. No mês de outubro, sofreu um reajuste de @+15\%@. Em novembro, em uma liquidação relâmpago, o comerciante anunciou desconto de @-15\%@ sobre o preço reajustado.
+            <br>a) Determine os fatores multiplicadores do acréscimo e do desconto.
+            <br>b) Calcule o preço do produto após o aumento e após o desconto final.
+            <br>c) O preço voltou ao valor original de 800 reais? Qual foi a variação percentual acumulada?
+            <div class="dica">
+              <strong>Dica:</strong> Fator de aumento = @1 + 0{,}15 = 1{,}15@. Fator de desconto = @1 - 0{,}15 = 0{,}85@. Multiplique @800 \times 1{,}15 \times 0{,}85@.
+            </div>
+          </li>
+          <li>
+            Uma quantia de @C = R\$\ 3.000{,}00@ foi aplicada durante 4 meses à taxa de juros de @2\%@ ao mês (@i = 0{,}02@).
+            <br>a) Calcule o montante final se a aplicação operar no regime de <strong>Juros Simples</strong>: @M = C(1 + it)@.
+            <br>b) Calcule o montante final se a aplicação operar no regime de <strong>Juros Compostos</strong>: @M = C(1 + i)^t@. (Considere @(1{,}02)^4 \approx 1{,}0824@).
+            <div class="dica">
+              <strong>Dica:</strong> Em juros simples: @M = 3000(1 + 0{,}02 \times 4) = 3000(1{,}08) = 3240@. Em juros compostos: @3000 \times 1{,}0824@.
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- NÍVEL 2: APOIO MÉDIO -->
+      <div class="destaque-box">
+        <h3>Nível 2: Apoio Médio (Desconto Comercial e Taxa Real)</h3>
+        <ol start="3">
+          <li>
+            Uma empresa possui uma duplicata com valor nominal de @N = R\$\ 15.000{,}00@ com vencimento para daqui a 3 meses. Precisando de liquidez imediata, a empresa negocia o título em um banco à taxa de desconto comercial simples de @3\%@ ao mês (@d = 0{,}03@).
+            <br>a) Calcule o valor do desconto comercial retido pela instituição bancária (@D_c = N \cdot d \cdot t@).
+            <br>b) Calcule o valor líquido atual efetivamente recebido pela empresa.
+            <div class="dica">
+              <strong>Dica:</strong> O desconto comercial incide diretamente sobre o valor futuro do título: @D_c = 15.000 \times 0{,}03 \times 3@.
+            </div>
+          </li>
+          <li>
+            Em determinado ano, um fundo imobiliário proporcionou aos cotistas uma rentabilidade aparente de @15{,}5\%@ (@i_a = 0{,}155@). O índice de inflação (IPCA) registrado no mesmo período foi de @5\%@ (@i_f = 0{,}05@).
+            <br>a) Monte a Equação de Fisher e determine a taxa real líquida de rendimento da aplicação.
+            <br>b) Se o investidor tivesse aplicado @R\$\ 20.000{,}00@ no início do ano, qual seria o ganho real de capital (em poder de compra do início do ano)?
+            <div class="dica">
+              <strong>Dica:</strong> Divida @1{,}155@ por @1{,}05@ para encontrar @(1 + i_r)@.
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- NÍVEL 3: AUTONOMIA -->
+      <div class="destaque-box">
+        <h3>Nível 3: Autonomia & Tomada de Decisão Financeira</h3>
+        <ol start="5">
+          <li>
+            Um estudante deseja adquirir um computador para estudos de programação. A loja oferece duas opções:
+            <br>• <strong>Opção A (À vista):</strong> @R\$\ 3.600{,}00@ no ato da compra.
+            <br>• <strong>Opção B (A prazo):</strong> Entrada de @R\$\ 1.800{,}00@ e uma única parcela de @R\$\ 2.000{,}00@ a ser paga exatamente 30 dias (1 mês) após a compra.
+            <br>a) Qual é o saldo que ficou financiado após o pagamento da entrada na Opção B?
+            <br>b) Calcule a taxa mensal efetiva de juros cobrada pela loja na parcela restante.
+            <br>c) Se o estudante tem o dinheiro aplicado em um CDB que rende @1\%@ ao mês líquido, qual opção de pagamento é financeiramente mais inteligente?
+          </li>
+          <li>
+            Dois títulos de crédito devem ser resgatados: um de @R\$\ 5.000{,}00@ para daqui a 1 mês e outro de @R\$\ 5.500{,}00@ para daqui a 2 meses. O devedor propõe substituir os dois títulos por um pagamento único a ser realizado no dia de hoje (data focal @t = 0@), sob uma taxa de juros compostos de @2\%@ ao mês (@i = 0{,}02@).
+            <br>Calcule o valor justo equivalente do pagamento único à vista. (Use @(1{,}02)^{-1} \approx 0{,}9804@ e @(1{,}02)^{-2} \approx 0{,}9612@).
+          </li>
+        </ol>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+  <h3>Escolha um Tema:</h3>
+  <button data-theme="theme-default" title="Tema Padrão">Default</button>
+  <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+  <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+  <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+  <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+  <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+  <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+  <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+  <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+  <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+  <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+  <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+  <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+  <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  <button data-theme="theme-high-contrast" title="Tema High Contrast">High Contrast</button>
+</div>
+
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

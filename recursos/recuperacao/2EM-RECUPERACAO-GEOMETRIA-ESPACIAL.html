@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Geometria Espacial (Prismas e Pirâmides)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .orientacao-inicial {
+      background-color: rgba(33, 150, 243, 0.2);
+      border: 2px solid #2196f3;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .orientacao-inicial h3 {
+      color: #2196f3;
+      margin-top: 0;
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    .exemplo-passo-a-passo {
+      background-color: rgba(76, 175, 80, 0.1);
+      border-left: 4px solid #4caf50;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .exemplo-passo-a-passo h4 {
+      color: #4caf50;
+      margin-top: 0;
+    }
+
+    .passo {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+      border-left: 2px solid #4caf50;
+    }
+
+    .conceito-basico {
+      background-color: rgba(156, 39, 176, 0.1);
+      border: 2px solid #9c27b0;
+      border-radius: 6px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .conceito-basico h4 {
+      color: #ba68c8;
+      margin-top: 0;
+    }
+
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .ano-2em {
+      background-color: rgba(156, 39, 176, 0.3);
+      color: #ce93d8;
+      border: 1px solid #ab47bc;
+    }
+
+    .estrelas {
+      color: #ffd700;
+      font-size: 1.2rem;
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <span class="badge-nivel ano-2em">2º Ano EM</span>
+      <span class="estrelas">★★★</span>
+      <h1>Atividade de Recuperação: Prismas e Pirâmides</h1>
+
+      <div class="orientacao-inicial">
+        <h3>🧭 Roteiro Pedagógico de Recuperação</h3>
+        <p>
+          Capítulo 2 — "Todo mundo tem medo do tempo, mas o tempo tem medo das pirâmides."<br>
+          Esta atividade foi planejada para consolidar a visualização tridimensional, a distinção entre arestas, apótemas e alturas, o uso do Teorema de Pitágoras no interior dos sólidos e o cálculo rigoroso de áreas totais e volumes.
+        </p>
+      </div>
+
+      <!-- REVISÃO TEÓRICA ESSENCIAL -->
+      <h2>Revisão Conceitual</h2>
+
+      <div class="conceito-basico">
+        <h4>1. Prismas Retos e Regulares</h4>
+        <p>Prismas são poliedros com duas bases paralelas congruentes e faces laterais retangulares.</p>
+        <ul>
+          <li><strong>Área Lateral (@A_l@):</strong> soma das áreas das faces laterais retangulares: @A_l = 2p_b \cdot h@, onde @2p_b@ é o perímetro da base e @h@ é a altura do prisma.</li>
+          <li><strong>Área Total (@A_t@):</strong> soma das duas bases com a superfície lateral:
+            @@A_t = 2A_b + A_l@@
+          </li>
+          <li><strong>Volume (@V@):</strong> produto da área da base pela altura:
+            @@V = A_b \cdot h@@
+          </li>
+        </ul>
+      </div>
+
+      <div class="conceito-basico">
+        <h4>2. Pirâmides Regulares e o Triângulo Retângulo Notável</h4>
+        <p>Uma pirâmide é regular quando sua base é um polígono regular e sua projeção ortogonal do vértice coincide exatamente com o centro da base.</p>
+        <ul>
+          <li><strong>Apótema da pirâmide (@g@):</strong> altura de qualquer uma de suas faces laterais triangulares isósceles.</li>
+          <li><strong>Apótema da base (@m@):</strong> distância do centro da base ao ponto médio de qualquer aresta da base. Em base quadrada de lado @L@, @m = \frac{L}{2}@. Em base hexagonal de lado @L@, @m = \frac{L\sqrt{3}}{2}@.</li>
+          <li><strong>Relação Fundamental de Pitágoras:</strong>
+            @@g^2 = h^2 + m^2@@
+          </li>
+          <li><strong>Relação da Aresta Lateral (@a_l@) com o Raio da Base (@R@):</strong>
+            @@a_l^2 = h^2 + R^2 \quad \text{e} \quad a_l^2 = g^2 + \left(\frac{L}{2}\right)^2@@
+          </li>
+          <li><strong>Área Total da Pirâmide:</strong>
+            @@A_t = A_b + A_l = A_b + n \cdot \left(\frac{L \cdot g}{2}\right)@@
+          </li>
+          <li><strong>Volume da Pirâmide:</strong> corresponde a um terço do prisma de mesma base e altura:
+            @@V = \frac{1}{3} A_b \cdot h@@
+          </li>
+        </ul>
+      </div>
+
+      <!-- EXEMPLO PASSO A PASSO -->
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo Passo a Passo: Análise Completa de uma Pirâmide Quadrangular</h4>
+        <p>Uma pirâmide regular de base quadrada possui aresta da base medindo @L = 12\text{ cm}@ e altura vertical @h = 8\text{ cm}@. Calcule o apótema da pirâmide, a área lateral, a área total e o volume.</p>
+        
+        <div class="passo">
+          <strong>Passo 1: Determinar o apótema da base (@m@)</strong>
+          <p>Como a base é um quadrado de lado 12 cm, o apótema da base é a metade do lado:
+            @@m = \frac{L}{2} = \frac{12}{2} = 6\text{ cm}@@
+          </p>
+        </div>
+
+        <div class="passo">
+          <strong>Passo 2: Calcular o apótema da pirâmide (@g@) pelo Teorema de Pitágoras</strong>
+          <p>No triângulo formado pela altura @h@, apótema da base @m@ e apótema lateral @g@:
+            @@g^2 = h^2 + m^2 \implies g^2 = 8^2 + 6^2 = 64 + 36 = 100 \implies g = \sqrt{100} = 10\text{ cm}@@
+          </p>
+        </div>
+
+        <div class="passo">
+          <strong>Passo 3: Calcular as áreas (@A_b@, @A_l@ e @A_t@)</strong>
+          <p>• Área da base: @A_b = L^2 = 12^2 = 144\text{ cm}^2@</p>
+          <p>• Área lateral (4 triângulos de base 12 cm e altura 10 cm):
+            @@A_l = 4 \cdot \left(\frac{12 \cdot 10}{2}\right) = 4 \cdot 60 = 240\text{ cm}^2@@
+          </p>
+          <p>• Área total: @A_t = A_b + A_l = 144 + 240 = 384\text{ cm}^2@</p>
+        </div>
+
+        <div class="passo">
+          <strong>Passo 4: Calcular o volume (@V@)</strong>
+          <p>@@V = \frac{1}{3} A_b \cdot h = \frac{1}{3} \cdot 144 \cdot 8 = 48 \cdot 8 = 384\text{ cm}^3@@</p>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIOS SCAFFOLDING -->
+      <h2>Exercícios com Scaffolding Pedagógico</h2>
+
+      <!-- NÍVEL 1: APOIO ALTO -->
+      <div class="destaque-box">
+        <h3>Nível 1: Apoio Alto (Cálculo Estruturado e Direto)</h3>
+        <ol>
+          <li>
+            Um prisma reto possui base triangular com área @A_b = 25\text{ cm}^2@ e altura @h = 14\text{ cm}@.
+            <br>a) Calcule o volume desse prisma.
+            <br>b) Se uma pirâmide possuir exatamente essa mesma área de base e a mesma altura, qual será o seu volume?
+            <div class="dica">
+              <strong>Dica:</strong> Lembre-se de que o volume do prisma é @V = A_b \cdot h@ e o da pirâmide é @V = \frac{1}{3} A_b \cdot h@.
+            </div>
+          </li>
+          <li>
+            Uma pirâmide regular de base quadrada tem lado da base @L = 10\text{ cm}@ e altura @h = 12\text{ cm}@.
+            <br>a) Encontre o apótema da base @m@.
+            <br>b) Aplique a relação @g^2 = h^2 + m^2@ para determinar o apótema da pirâmide @g@. (Considere @12^2 + 5^2@).
+            <br>c) Calcule a área total (@A_t@) e o volume (@V@) dessa pirâmide.
+            <div class="dica">
+              <strong>Dica:</strong> Em base quadrada, @m = L/2 = 5\text{ cm}@. O triângulo retângulo clássico possui catetos 5 e 12; a hipotenusa será 13 cm.
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- NÍVEL 2: APOIO MÉDIO -->
+      <div class="destaque-box">
+        <h3>Nível 2: Apoio Médio (Relações Métricas e Geometria Hexagonal)</h3>
+        <ol start="3">
+          <li>
+            Uma embalagem metálica tem o formato de um prisma hexagonal regular reto. A aresta da base mede @a = 4\text{ cm}@ e a altura do prisma mede @h = 15\text{ cm}@.
+            <br>a) Calcule a área da base hexagonal regular (@A_b = 6 \cdot \frac{a^2\sqrt{3}}{4}@).
+            <br>b) Calcule a área lateral e a área total da embalagem (adote @\sqrt{3} \approx 1{,}73@).
+            <br>c) Determine o volume de produto que essa embalagem comporta em @\text{cm}^3@.
+            <div class="dica">
+              <strong>Dica:</strong> Um hexágono regular é decomposto em 6 triângulos equiláteros congruentes de lado @a@.
+            </div>
+          </li>
+          <li>
+            A Grande Pirâmide de um monumento comemorativo é regular, de base quadrada com aresta de 16 metros e apótema lateral medindo @g = 17\text{ metros}@.
+            <br>a) Determine a altura vertical @h@ do monumento.
+            <br>b) Calcule a quantidade de metros quadrados de placas de vidro necessários para cobrir todas as quatro faces laterais da pirâmide.
+            <br>c) Determine o volume de ar contido no interior da pirâmide.
+            <div class="dica">
+              <strong>Dica:</strong> O apótema da base mede @m = 8\text{ m}@. Isole a altura: @h = \sqrt{g^2 - m^2}@.
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- NÍVEL 3: AUTONOMIA -->
+      <div class="destaque-box">
+        <h3>Nível 3: Autonomia & Modelagem Crítica</h3>
+        <ol start="5">
+          <li>
+            Um bloco maciço de ferro em formato de paralelepípedo reto-retângulo tem dimensões @10\text{ cm} \times 12\text{ cm} \times 15\text{ cm}@. Esse bloco será totalmente fundido e remodelado no formato de uma pirâmide regular de base quadrada com altura de @20\text{ cm}@.
+            <br>a) Calcule o volume do paralelepípedo inicial.
+            <br>b) Supondo que não houve perda de material durante a fundição, determine o comprimento da aresta da base da pirâmide gerada.
+          </li>
+          <li>
+            Uma pirâmide regular de base quadrada tem altura @H = 24\text{ cm}@ e volume @V = 1.200\text{ cm}^3@. Ela é seccionada por um plano paralelo à base a uma distância de @8\text{ cm}@ do vértice, formando uma pequena pirâmide superior e um tronco de pirâmide inferior.
+            <br>a) Determine a razão de semelhança linear @k = \frac{h}{H}@ entre a pirâmide menor e a pirâmide original.
+            <br>b) Sabendo que a razão entre volumes é o cubo da razão de semelhança linear (@\frac{V_{menor}}{V} = k^3@), calcule o volume da pirâmide menor.
+            <br>c) Qual é o volume do tronco de pirâmide resultante?
+          </li>
+        </ol>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+  <h3>Escolha um Tema:</h3>
+  <button data-theme="theme-default" title="Tema Padrão">Default</button>
+  <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+  <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+  <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+  <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+  <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+  <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+  <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+  <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+  <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+  <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+  <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+  <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+  <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  <button data-theme="theme-high-contrast" title="Tema High Contrast">High Contrast</button>
+</div>
+
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

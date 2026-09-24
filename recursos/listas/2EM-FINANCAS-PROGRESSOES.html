@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lista de Problemas: Finanças e Progressões</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); color: #81c784; }
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); color: #ffd54f; }
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); color: #e57373; }
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); color: #ba68c8; }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .ano-2em {
+      background-color: rgba(156, 39, 176, 0.3);
+      color: #ce93d8;
+      border: 1px solid #ab47bc;
+    }
+
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-secao ol {
+      padding-left: 1.5rem;
+    }
+
+    .gabarito-secao li {
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: bold;
+      color: var(--link-color, #00ffcc);
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <header style="margin-bottom: 2rem;">
+      <span class="badge-nivel ano-2em">2º Ano EM</span>
+      <h1>PROGRESSÕES E PLANEJAMENTO FINANCEIRO</h1>
+      <p class="section-intro">
+        Capítulo 3 — "Uma maratona se completa com planejamento." Modelagem de planos de poupança, sistemas de amortização, rentabilidade exponencial, juros compostos e séries temporais de pagamentos por meio de Progressões Aritméticas (PA) e Progressões Geométricas (PG).
+      </p>
+    </header>
+
+    <!-- SEÇÃO 1: NÍVEL BÁSICO / INTRODUTÓRIO -->
+    <article>
+      <h2>Seção 1: Fundamentos e Problemas Introdutórios</h2>
+      <p class="section-intro">
+        Identificação de padrões lineares (PA) e multiplicativos (PG), aplicação direta do termo geral e soma finita em economias programadas e juros compostos.
+      </p>
+
+      <ol>
+        <!-- Problema 1 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PA — Depósitos Lineares</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            Um estudante decidiu economizar para custear a inscrição do ENEM e materiais de estudo. No primeiro mês, ele guardou @R\$\ 30{,}00@ e, a cada mês seguinte, aumentou o valor guardado em @R\$\ 15{,}00@ em relação ao mês anterior.
+            <br>a) Qual valor ele depositou no 10º mês?
+            <br>b) Qual foi o total acumulado ao final desses 10 meses?
+          </p>
+        </li>
+
+        <!-- Problema 2 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PG — Juros Compostos como PG</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            Um capital de @C = R\$\ 2.000{,}00@ foi aplicado a uma taxa fixa de juros compostos de @5\%@ ao mês (@i = 0{,}05@). O montante após @t@ meses segue a lei @M(t) = C \cdot (1 + i)^t@.
+            <br>a) Mostre que a sequência dos montantes mensais @(M_0, M_1, M_2, \dots)@ forma uma progressão geométrica e indique o primeiro termo @a_1 = M_1@ e a razão @q@.
+            <br>b) Calcule o montante acumulado ao final de 3 meses.
+          </p>
+        </li>
+
+        <!-- Problema 3 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PA — Amortização Constante</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            Um empréstimo de @R\$\ 6.000{,}00@ sem juros foi concedido para ser quitado em 12 parcelas mensais decrescentes que formam uma PA. Sabendo que a 1ª parcela foi de @R\$\ 720{,}00@ e a última (12ª) foi de @R\$\ 280{,}00@:
+            <br>a) Verifique se a soma das 12 parcelas quita exatamente o empréstimo de @R\$\ 6.000{,}00@.
+            <br>b) Calcule a razão @r@ dessa progressão aritmética.
+          </p>
+        </li>
+
+        <!-- Problema 4 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PG — Depreciação de Ativo</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            Um equipamento de informática recém-adquirido por uma startup custou @R\$\ 10.000{,}00@. Por obsolescência tecnológica, seu valor de mercado desvaloriza @20\%@ ao ano em relação ao valor do ano anterior.
+            <br>a) Determine a razão @q@ da PG formada pelos valores do equipamento a cada ano.
+            <br>b) Calcule o valor venal estimado do equipamento após 3 anos de uso.
+          </p>
+        </li>
+
+        <!-- Problema 5 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PA — Meta Progressiva de Aportes</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            Em um desafio financeiro de 52 semanas, uma pessoa guarda @R\$\ 5{,}00@ na primeira semana, @R\$\ 10{,}00@ na segunda, @R\$\ 15{,}00@ na terceira, e assim sucessivamente, sempre adicionando @R\$\ 5{,}00@ à quantia da semana anterior. Determine o total economizado ao término das 52 semanas.
+          </p>
+        </li>
+
+        <!-- Problema 6 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PG — Dobra de Capital</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            Uma aplicação em renda variável com perfil arrojado rende @100\%@ a cada ciclo de 5 anos (isto é, o saldo dobra a cada ciclo de 5 anos). Se um investidor aportou @R\$\ 1.500{,}00@ inicialmente, qual será o saldo acumulado ao completar 25 anos (5 ciclos), desconsiderando a inflação?
+          </p>
+        </li>
+
+        <!-- Problema 7 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PA — Identificação de Parâmetros Financeiros</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            Uma microempresa teve lucros mensais em progressão aritmética durante o primeiro semestre: no 2º mês o lucro foi de @R\$\ 12.000{,}00@ e no 5º mês foi de @R\$\ 21.000{,}00@.
+            <br>a) Qual foi o lucro no 1º mês?
+            <br>b) Qual foi o lucro total acumulado nos 6 primeiros meses do ano?
+          </p>
+        </li>
+
+        <!-- Problema 8 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PG — Termo Geral e Potências</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            Uma franquia começou faturando @R\$\ 50.000{,}00@ no primeiro trimestre. A direção estabeleceu uma meta de expansão de @10\%@ de crescimento de faturamento a cada trimestre sucessivo em relação ao trimestre anterior. Escreva a expressão do faturamento @F_n@ do @n@-ésimo trimestre e calcule o faturamento projetado para o 4º trimestre.
+          </p>
+        </li>
+
+        <!-- Problema 9 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PA — Redução de Custos</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            Um plano de eficiência energética visa reduzir a conta de luz de uma fábrica em @R\$\ 180{,}00@ a cada mês. No primeiro mês de vigência da meta, a conta foi de @R\$\ 4.500{,}00@. Mantida a redução mensal constante, em qual mês o gasto com energia alcançará a quantia de @R\$\ 2.700{,}00@?
+          </p>
+        </li>
+
+        <!-- Problema 10 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PG — Fator de Crescimento Contínuo</span>
+            <span class="dificuldade facil">Fácil</span>
+            <span>⏱️ 4 min</span>
+          </div>
+          <p>
+            O saldo de uma caderneta especial sob juros de @2\%@ ao mês é multiplicado pelo fator @1{,}02@ mensalmente. Sabendo que o depósito inicial foi @D_0 = R\$\ 5.000{,}00@, determine a expressão que representa o montante após @m@ meses e o valor obtido para @m = 2@.
+          </p>
+        </li>
+      </ol>
+    </article>
+
+    <!-- SEÇÃO 2: NÍVEL INTERMEDIÁRIO / FIXAÇÃO -->
+    <article>
+      <h2>Seção 2: Problemas de Fixação e Aplicações Contextualizadas</h2>
+      <p class="section-intro">
+        Sistemas de amortização, planos de previdência complementar com depósitos recorrentes (soma de PG), indexação financeira e planejamento de médio prazo.
+      </p>
+
+      <ol start="11">
+        <!-- Problema 11 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PA — Sistema de Amortização Constante (SAC)</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 7 min</span>
+          </div>
+          <p>
+            Um financiamento habitacional de @R\$\ 120.000{,}00@ foi contraído pela tabela SAC em 120 meses à taxa de juros de @1\%@ ao mês sobre o saldo devedor restante. No SAC, a amortização mensal do principal é constante: @A = \frac{120.000}{120} = R\$\ 1.000{,}00@. A parcela mensal @P_k@ é composta pela amortização @A@ somada aos juros sobre o saldo devedor do início do mês:
+            @@P_k = A + i \cdot S_{k-1} = 1.000 + 0{,}01 \cdot [120.000 - (k-1) \cdot 1.000]@@
+            <br>a) Calcule o valor da primeira parcela (@P_1@) e da segunda parcela (@P_2@).
+            <br>b) Demonstre que a sequência das parcelas @(P_1, P_2, \dots, P_{120})@ forma uma PA decrescente e determine a sua razão @r@.
+            <br>c) Calcule o valor da última parcela (@P_{120}@) e o custo total pago em parcelas ao fim do financiamento.
+          </p>
+        </li>
+
+        <!-- Problema 12 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PG — Soma de Depósitos Recorrentes (Previdência Privada)</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 8 min</span>
+          </div>
+          <p>
+            Visando a aposentadoria, uma profissional deposita @R\$\ 500{,}00@ todo início de mês em um fundo de previdência que rende taxa líquida de @1\%@ ao mês (@q = 1{,}01@).
+            Ao final de @n@ meses, cada parcela terá rendido juros por períodos distintos: o primeiro depósito renderá por @n@ meses, o segundo por @n-1@ meses, e o último depósito renderá por 1 mês:
+            @@S_n = 500 \cdot (1{,}01)^n + 500 \cdot (1{,}01)^{n-1} + \dots + 500 \cdot (1{,}01)^1@@
+            Utilizando a fórmula da soma dos termos de uma PG finita de primeiro termo @a_1 = 500 \cdot 1{,}01 = 505@ e razão @q = 1{,}01@:
+            <br>a) Deduza a fórmula simplificada do montante acumulado @S_n@ em função de @1{,}01^n@.
+            <br>b) Sabendo que @(1{,}01)^{24} \approx 1{,}2697@, estime o valor total acumulado após 24 meses de disciplina financeira.
+          </p>
+        </li>
+
+        <!-- Problema 13 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PA vs PG — A Corrida dos Rendimentos</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            Dois amigos receberam @R\$\ 10.000{,}00@ cada de uma bonificação corporativa e optaram por estratégias distintas por 10 anos:
+            <br>• <strong>Lucas (Regime Linear/PA):</strong> Investiu em um título com juros simples que adiciona rigorosamente @R\$\ 1.200{,}00@ fixos a cada ano ao montante inicial.
+            <br>• <strong>Mateus (Regime Composto/PG):</strong> Investiu em um fundo pós-fixado que rende taxa composta constante de @8\%@ ao ano (@q = 1{,}08@).
+            <br>a) Calcule o montante de Lucas e de Mateus após 5 anos. Quem tinha mais capital acumulado?
+            <br>b) Calcule o montante de ambos após 10 anos (considere @1{,}08^{10} \approx 2{,}1589@) e explique por que a PG inevitavelmente ultrapassa a PA no longo prazo.
+          </p>
+        </li>
+
+        <!-- Problema 14 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PG — Inflação Acumulada e Perda de Poder de Compra</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            Um país registrou taxas anuais de inflação constantes de @6\%@ ao ano durante 4 anos consecutivos. Uma cesta de consumo padrão custava @R\$\ 800{,}00@ no início do primeiro ano.
+            <br>a) Escreva os termos da PG que descrevem o preço dessa cesta ao final de cada um dos 4 anos.
+            <br>b) Sabendo que @(1{,}06)^4 \approx 1{,}2625@, calcule o preço da cesta ao término dos 4 anos e a taxa percentual de inflação acumulada total no quadriênio.
+          </p>
+        </li>
+
+        <!-- Problema 15 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PA — Plano de Economia com Salário Escalonado</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            Um jovem profissional foi contratado com remuneração inicial e recebeu a promessa contratual de um acréscimo semestral fixo de @R\$\ 400{,}00@ em seu salário mensal. No primeiro semestre, seu salário mensal foi de @R\$\ 3.000{,}00@. No segundo, passou a @R\$\ 3.400{,}00@, e assim sucessivamente durante os 6 primeiros semestres (3 anos).
+            <br>a) Determine o salário mensal vigente no 6º semestre de trabalho.
+            <br>b) Supondo que ele poupou exatamente @20\%@ de cada salário recebido ao longo de todos os 36 meses (6 meses por semestre), calcule o valor total aportado na poupança ao final do período.
+          </p>
+        </li>
+
+        <!-- Problema 16 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PG — Decaimento de Dívida com Juros e Pagamento Parcial</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 7 min</span>
+          </div>
+          <p>
+            Uma dívida de cartão de crédito no valor de @R\$\ 4.000{,}00@ está sujeita a uma taxa rotativa abusiva de @10\%@ ao mês. O titular decide que não fará novas compras, mas nos dois primeiros meses não consegue pagar nada.
+            <br>a) Qual o valor da dívida ao final do segundo mês?
+            <br>b) No início do terceiro mês ele paga @R\$\ 2.000{,}00@. Se o saldo devedor remanescente for deixado render juros de @10\%@ por mais um mês, qual será o valor cobrado ao final do terceiro mês?
+          </p>
+        </li>
+
+        <!-- Problema 17 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PA — Progressão de Receitas em Vendas</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 5 min</span>
+          </div>
+          <p>
+            Uma livraria inaugurou uma seção de e-books. No primeiro dia foram comercializadas 14 licenças digitais; no segundo dia, 18; no terceiro, 22; mantendo um incremento aritmético diário.
+            <br>a) Quantas licenças foram vendidas no 30º dia de funcionamento?
+            <br>b) Sabendo que a livraria recebe @R\$\ 15{,}00@ líquidos de margem por licença vendida, qual foi a receita líquida total gerada nos 30 primeiros dias?
+          </p>
+        </li>
+
+        <!-- Problema 18 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PG — Valor Temporal e Fator de Desconto</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            O valor presente @VP@ de uma quantia futura @VF@ a receber daqui a @t@ períodos sob taxa de desconto @i@ ao período é dado por @VP = VF \cdot (1+i)^{-t}@.
+            Uma empresa tem a receber @R\$\ 10.000{,}00@ ao término de cada um dos próximos 3 anos.
+            Considerando uma taxa de oportunidade de capital de @10\%@ ao ano (@(1+i)^{-1} = 1{,}1^{-1} \approx 0{,}9091@, @1{,}1^{-2} \approx 0{,}8264@, @1{,}1^{-3} \approx 0{,}7513@):
+            <br>a) Mostre que os valores presentes de cada recebível formam uma PG decrescente e calcule cada um desses valores.
+            <br>b) Calcule a soma dos valores presentes do fluxo de recebíveis da empresa.
+          </p>
+        </li>
+
+        <!-- Problema 19 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PA — Cronograma de Resgate com Juros Simples</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            Um investidor aplicou @R\$\ 24.000{,}00@ em um fundo que rende juros simples mensais de @1\%@ (@R\$\ 240{,}00@ por mês). Ele retira todo mês apenas os rendimentos gerados para complementar a sua renda mensal.
+            <br>a) Ao final de 3 anos (36 meses), qual o montante total resgatado exclusivamente em juros?
+            <br>b) Se ele decidisse reinvestir os juros semestralmente, como o comportamento do saldo migraria do padrão de PA para PG?
+          </p>
+        </li>
+
+        <!-- Problema 20 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PG — Crescimento Exponencial de Dividendos</span>
+            <span class="dificuldade media">Média</span>
+            <span>⏱️ 6 min</span>
+          </div>
+          <p>
+            Uma companhia de saneamento aumentou o pagamento anual de proventos por ação em @15\%@ ao ano nos últimos 3 anos. No primeiro ano considerado, pagou @R\$\ 2{,}00@ por ação.
+            <br>a) Calcule os dividendos pagos por ação no segundo e no terceiro ano.
+            <br>b) Se um acionista possui um lote de 5.000 ações e todos os dividendos foram reinvestidos na compra de novas ações ao preço médio de @R\$\ 30{,}00@ logo após o pagamento do 2º ano, determine a nova quantidade de ações pertencentes ao investidor.
+          </p>
+        </li>
+      </ol>
+    </article>
+
+    <!-- SEÇÃO 3: NÍVEL APROFUNDAMENTO / DESAFIOS -->
+    <article>
+      <h2>Seção 3: Problemas de Aprofundamento e Desafios</h2>
+      <p class="section-intro">
+        Séries financeiras complexas, rendas perpétuas via PG infinita, progressão aritmético-geométrica (PAG) e modelagem de independência financeira.
+      </p>
+
+      <ol start="21">
+        <!-- Problema 21 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PG Infinita — Renda Perpétua e Independência Financeira</span>
+            <span class="dificuldade dificil">Difícil</span>
+            <span>⏱️ 10 min</span>
+          </div>
+          <p>
+            A modelagem de uma fundação beneficente estabelece que uma doação única @C@ deve financiar uma bolsa de estudos anual de @R\$\ 60.000{,}00@ perpetuamente, a ser paga ao final de cada ano. O capital @C@ permanece aplicado em um fundo perpétuo que rende taxa real fixa de @4\%@ ao ano (@i = 0{,}04@).
+            O valor presente necessário @C@ corresponde à soma infinita dos valores descontados de cada anuidade:
+            @@C = \sum_{k=1}^{\infty} \frac{60.000}{(1+i)^k} = \frac{60.000}{1{,}04} + \frac{60.000}{1{,}04^2} + \frac{60.000}{1{,}04^3} + \dots@@
+            <br>a) Identifique o primeiro termo @a_1@ e a razão @q@ dessa PG infinita, justificando por que @|q| < 1@ garante a convergência da série.
+            <br>b) Utilizando a fórmula da soma da PG infinita @S = \frac{a_1}{1 - q}@, demonstre algebricamente que @C = \frac{R}{i}@ (conhecida como Fórmula de Perpetuidade de Gordon) e determine o capital mínimo necessário em reais.
+          </p>
+        </li>
+
+        <!-- Problema 22 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PG Finita — Modelo da Tabela Price (Série Uniforme)</span>
+            <span class="dificuldade dificil">Difícil</span>
+            <span>⏱️ 12 min</span>
+          </div>
+          <p>
+            No Sistema Francês de Amortização (Tabela Price), as prestações @P@ são periódicas, constantes e postecipadas. O valor financiado @V@ deve ser igual à soma dos valores presentes das prestações descontadas à taxa de juros periódica @i@:
+            @@V = \sum_{k=1}^{n} P \cdot (1+i)^{-k} = P \left[ (1+i)^{-1} + (1+i)^{-2} + \dots + (1+i)^{-n} \right]@@
+            <br>a) Aplique a soma da PG finita de razão @q = (1+i)^{-1}@ para provar que o fator de recuperação de capital é dado por:
+            @@P = V \cdot \left[ \frac{i \cdot (1+i)^n}{(1+i)^n - 1} \right]@@
+            <br>b) Calcule a prestação mensal fixa @P@ para um empréstimo de @V = R\$\ 20.000{,}00@ a ser pago em 4 meses com juros de @2\%@ ao mês (@i = 0{,}02@). Adote @1{,}02^4 \approx 1{,}08243@.
+          </p>
+        </li>
+
+        <!-- Problema 23 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PAG — Aportes Crescentes com Reajuste Inflacionário</span>
+            <span class="dificuldade desafio">Desafio</span>
+            <span>⏱️ 15 min</span>
+          </div>
+          <p>
+            Um poupador audacioso estabelece que fará depósitos anuais que combinam um crescimento aritmético da sua capacidade de poupança com a correção monetária:
+            No ano 1, poupa @A_1 = 1 \cdot 10.000 \cdot (1{,}10)^1@; no ano 2, poupa @A_2 = 2 \cdot 10.000 \cdot (1{,}10)^2@; e no ano @k@, poupa @A_k = k \cdot 10.000 \cdot (1{,}10)^k@.
+            Considere a soma dos 3 primeiros aportes:
+            @@S_3 = 10.000 \left[ 1 \cdot (1{,}1) + 2 \cdot (1{,}1)^2 + 3 \cdot (1{,}1)^3 \right]@@
+            <br>a) Essa série é um exemplo de Progressão Aritmético-Geométrica (PAG). Calcule numericamente o total aportado @S_3@ nos 3 primeiros anos.
+            <br>b) Se cada aporte rende juros de @10\%@ ao ano a partir da data em que é feito até o final do 3º ano, calcule o saldo final dessa carteira imediatamente após o 3º aporte.
+          </p>
+        </li>
+
+        <!-- Problema 24 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">Logaritmos e PG — Determinação do Tempo de Independência</span>
+            <span class="dificuldade dificil">Difícil</span>
+            <span>⏱️ 10 min</span>
+          </div>
+          <p>
+            Um profissional possui um patrimônio inicial de @R\$\ 100.000{,}00@ e deseja saber em quantos anos atingirá o patamar de @R\$\ 1.000.000{,}00@ (multiplicar o capital por 10), sem novos aportes, investindo em uma carteira balanceada que rende taxa média real composta de @7\%@ ao ano (@q = 1{,}07@).
+            <br>a) Modele a equação exponencial correspondente à evolução do capital.
+            <br>b) Aplicando logaritmos decimais e dados @\log_{10}(1{,}07) \approx 0{,}0294@ e @\log_{10}(10) = 1@, determine o tempo necessário em anos completos.
+          </p>
+        </li>
+
+        <!-- Problema 25 -->
+        <li>
+          <div class="problema-meta">
+            <span class="topico">PG e Sequências — O Paradoxo do Investimento Parcelado vs À Vista</span>
+            <span class="dificuldade desafio">Desafio</span>
+            <span>⏱️ 12 min</span>
+          </div>
+          <p>
+            Um consumidor dispõe exatamente do capital de @R\$\ 12.000{,}00@ em conta remunerada a @1\%@ ao mês de juros compostos. Ele precisa comprar um conjunto de equipamentos e tem duas alternativas:
+            <br>• <strong>Opção 1:</strong> Pagamento à vista com @10\%@ de desconto imediato.
+            <br>• <strong>Opção 2:</strong> Pagamento em 12 parcelas mensais iguais e consecutivas de @R\$\ 1.000{,}00@ sem acréscimo aparente (primeira parcela paga no ato da compra e as demais mês a mês), mantendo o saldo remanescente rendendo no fundo a @1\%@ ao mês.
+            <br>a) Calcule o desembolso na Opção 1 e o saldo que restaria investido rendendo juros.
+            <br>b) Na Opção 2, mostre a evolução do saldo mês a mês e determine se, ao pagar a 12ª parcela, o saldo restante do consumidor é positivo ou negativo. Qual opção é financeiramente mais vantajosa para o consumidor?
+          </p>
+        </li>
+      </ol>
+    </article>
+
+    <!-- GABARITO EXPANSÍVEL COMPLETO -->
+    <details class="gabarito-container">
+      <summary>▶ CLIQUE PARA EXPANDIR O GABARITO RESOLVIDO E COMENTADO</summary>
+      <div class="gabarito-content">
+        
+        <div class="gabarito-secao">
+          <h3>Resoluções da Seção 1: Fundamentos e Problemas Introdutórios</h3>
+          <ol>
+            <li>
+              <span class="gabarito-item-titulo">Problema 1 (PA de Depósitos):</span><br>
+              a) PA com @a_1 = 30@ e @r = 15@. No 10º mês: @a_{10} = a_1 + 9r = 30 + 9(15) = 30 + 135 = R\$\ 165{,}00@.<br>
+              b) Soma da PA: @S_{10} = \frac{(a_1 + a_{10}) \cdot 10}{2} = \frac{(30 + 165) \cdot 10}{2} = 195 \cdot 5 = R\$\ 975{,}00@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 2 (PG de Juros Compostos):</span><br>
+              a) @M_0 = 2000@; @M_1 = 2000 \cdot 1{,}05 = 2100@; @M_2 = 2100 \cdot 1{,}05 = 2205@. A razão é @q = 1 + i = 1{,}05@ e o primeiro termo da série de saldos capitalizados é @a_1 = M_1 = R\$\ 2.100{,}00@.<br>
+              b) @M_3 = 2000 \cdot (1{,}05)^3 = 2000 \cdot 1{,}157625 = R\$\ 2.315{,}25@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 3 (Amortização em PA):</span><br>
+              a) @S_{12} = \frac{(a_1 + a_{12}) \cdot 12}{2} = \frac{(720 + 280) \cdot 12}{2} = 1000 \cdot 6 = R\$\ 6.000{,}00@. Sim, quita integralmente.<br>
+              b) @a_{12} = a_1 + 11r \implies 280 = 720 + 11r \implies 11r = -440 \implies r = -40@. A redução é de @R\$\ 40{,}00@ por parcela.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 4 (Depreciação em PG):</span><br>
+              a) Se desvaloriza @20\%@, retém @80\%@: @q = 1 - 0{,}20 = 0{,}80@.<br>
+              b) @V(3) = 10.000 \cdot (0{,}8)^3 = 10.000 \cdot 0{,}512 = R\$\ 5.120{,}00@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 5 (Desafio 52 Semanas):</span><br>
+              PA com @a_1 = 5@, @r = 5@, @n = 52@. O 52º depósito é @a_{52} = 5 + 51 \cdot 5 = 52 \cdot 5 = 260@.<br>
+              Soma: @S_{52} = \frac{(5 + 260) \cdot 52}{2} = 265 \cdot 26 = R\$\ 6.890{,}00@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 6 (Dobra de Capital):</span><br>
+              25 anos correspondem a @n = 25/5 = 5@ ciclos. Cada ciclo multiplica por 2 (razão @q = 2@).<br>
+              Saldo acumulado: @M = 1.500 \cdot 2^5 = 1.500 \cdot 32 = R\$\ 48.000{,}00@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 7 (Lucros em PA):</span><br>
+              a) @a_5 - a_2 = 3r \implies 21.000 - 12.000 = 9.000 \implies r = 3.000@. Logo @a_1 = a_2 - r = 12.000 - 3.000 = R\$\ 9.000{,}00@.<br>
+              b) @a_6 = a_1 + 5r = 9.000 + 15.000 = 24.000@. Soma: @S_6 = \frac{(9.000 + 24.000) \cdot 6}{2} = 33.000 \cdot 3 = R\$\ 99.000{,}00@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 8 (Expansão de Faturamento):</span><br>
+              @F_n = 50.000 \cdot (1{,}10)^{n-1}@. Para o 4º trimestre: @F_4 = 50.000 \cdot (1{,}10)^3 = 50.000 \cdot 1{,}331 = R\$\ 66.550{,}00@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 9 (Redução em PA):</span><br>
+              @a_1 = 4500@, @r = -180@. @a_n = 4500 - 180(n - 1) = 2700 \implies 180(n - 1) = 1800 \implies n - 1 = 10 \implies n = 11@º mês.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 10 (Fator Contínuo de Juros):</span><br>
+              Expressão: @M(m) = 5.000 \cdot (1{,}02)^m@. Para @m = 2@: @M(2) = 5.000 \cdot (1{,}02)^2 = 5.000 \cdot 1{,}0404 = R\$\ 5.202{,}00@.
+            </li>
+          </ol>
+        </div>
+
+        <div class="gabarito-secao">
+          <h3>Resoluções da Seção 2: Problemas de Fixação</h3>
+          <ol start="11">
+            <li>
+              <span class="gabarito-item-titulo">Problema 11 (Tabela SAC):</span><br>
+              a) @P_1 = 1.000 + 0{,}01 \cdot 120.000 = 1.000 + 1.200 = R\$\ 2.200{,}00@.<br>
+              @P_2 = 1.000 + 0{,}01 \cdot 119.000 = 1.000 + 1.190 = R\$\ 2.190{,}00@.<br>
+              b) A diferença entre duas parcelas consecutivas é @P_{k+1} - P_k = 0{,}01 \cdot (-1.000) = -10@. É uma PA com razão @r = -R\$\ 10{,}00@.<br>
+              c) @P_{120} = 1.000 + 0{,}01 \cdot (1.000) = 1.000 + 10 = R\$\ 1.010{,}00@.<br>
+              Total pago: @S_{120} = \frac{(2.200 + 1.010) \cdot 120}{2} = 3.210 \cdot 60 = R\$\ 192.600{,}00@ (onde @R\$\ 120.000{,}00@ foi principal e @R\$\ 72.600{,}00@ juros).
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 12 (Previdência e PG):</span><br>
+              a) A série é uma PG com @a_1 = 500 \cdot 1{,}01 = 505@ e @q = 1{,}01@. A fórmula da soma é:
+              @@S_n = a_1 \frac{q^n - 1}{q - 1} = 505 \cdot \frac{1{,}01^n - 1}{0{,}01} = 50.500 \cdot (1{,}01^n - 1)@@
+              b) Para @n = 24@: @S_{24} \approx 50.500 \cdot (1{,}2697 - 1) = 50.500 \cdot 0{,}2697 = R\$\ 13.619{,}85@. (O total aportado foi @24 \cdot 500 = 12.000@, gerando @R\$\ 1.619{,}85@ só de juros).
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 13 (Lucas vs Mateus):</span><br>
+              a) Em 5 anos:<br>
+              • Lucas: @M_L(5) = 10.000 + 5 \cdot 1.200 = R\$\ 16.000{,}00@.<br>
+              • Mateus: @M_M(5) = 10.000 \cdot (1{,}08)^5 \approx 10.000 \cdot 1{,}4693 = R\$\ 14.693{,}00@.<br>
+              Após 5 anos, Lucas acumulou mais capital.<br>
+              b) Em 10 anos:<br>
+              • Lucas: @M_L(10) = 10.000 + 10 \cdot 1.200 = R\$\ 22.000{,}00@.<br>
+              • Mateus: @M_M(10) = 10.000 \cdot (1{,}08)^{10} \approx 10.000 \cdot 2{,}1589 = R\$\ 21.589{,}00@.<br>
+              A função exponencial cresce com derivada proporcional ao próprio valor, fazendo com que no horizonte maior de tempo a PG ultrapasse inevitavelmente o crescimento puramente linear da PA.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 14 (Inflação Acumulada):</span><br>
+              a) Termos da PG: @P_0 = 800@, @P_1 = 800(1{,}06) = 848@, @P_2 = 848(1{,}06) = 898{,}88@, @P_3 \approx 952{,}81@, @P_4 \approx 1.010{,}00@.<br>
+              b) Preço final: @800 \cdot 1{,}2625 = R\$\ 1.010{,}00@. A inflação acumulada é @1{,}2625 - 1 = 0{,}2625 = 26{,}25\%@ (superior à soma ingênua de @4 \times 6\% = 24\%@, devido aos juros sobre juros).
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 15 (Salário Escalonado):</span><br>
+              a) @S_6 = 3000 + 5(400) = R\$\ 5.000{,}00@ mensais.<br>
+              b) A soma dos salários mensais de cada um dos 6 semestres em PA é: @\text{Soma} = \frac{(3000 + 5000) \cdot 6}{2} = 8000 \cdot 3 = 24.000@ reais. Como cada patamar dura 6 meses, a remuneração bruta total foi @24.000 \times 6 = R\$\ 144.000{,}00@. Poupança de @20\%@: @0{,}20 \times 144.000 = R\$\ 28.800{,}00@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 16 (Dívida de Cartão):</span><br>
+              a) @D_2 = 4.000 \cdot (1{,}10)^2 = 4.000 \cdot 1{,}21 = R\$\ 4.840{,}00@.<br>
+              b) Após amortizar 2.000, o saldo devedor torna-se @4.840 - 2.000 = 2.840@ reais. Com mais 1 mês a @10\%@: @2.840 \cdot 1{,}10 = R\$\ 3.124{,}00@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 17 (Receita de E-books):</span><br>
+              a) PA com @a_1 = 14@, @r = 4@. @a_{30} = 14 + 29(4) = 14 + 116 = 130@ licenças.<br>
+              b) Total de licenças: @S_{30} = \frac{(14 + 130) \cdot 30}{2} = 144 \cdot 15 = 2.160@ unidades. Receita total: @2.160 \times 15 = R\$\ 32.400{,}00@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 18 (Valor Presente em PG):</span><br>
+              a) @VP_1 = 10.000 \cdot 0{,}9091 = R\$\ 9.091{,}00@; @VP_2 = 10.000 \cdot 0{,}8264 = R\$\ 8.264{,}00@; @VP_3 = 10.000 \cdot 0{,}7513 = R\$\ 7.513{,}00@. A razão da PG é @q = 1/1{,}10 \approx 0{,}9091@.<br>
+              b) @\sum VP = 9.091 + 8.264 + 7.513 = R\$\ 24.868{,}00@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 19 (Juros Simples vs Reinvestimento):</span><br>
+              a) O montante de juros resgatados é @36 \times 240 = R\$\ 8.640{,}00@.<br>
+              b) Ao reinvestir, os próprios juros passam a render juros no período seguinte, mudando a relação de linear @(C + n \cdot J)@ para exponencial @C(1+i)^n@, configurando uma PG.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 20 (Dividendos):</span><br>
+              a) Ano 2: @2{,}00 \cdot 1{,}15 = R\$\ 2{,}30@ por ação. Ano 3: @2{,}30 \cdot 1{,}15 = R\$\ 2{,}645@ por ação.<br>
+              b) No ano 2, recebeu @5.000 \times 2{,}30 = R\$\ 11.500{,}00@. Reinvestindo a @R\$\ 30{,}00@ por ação: @11.500 / 30 \approx 383@ ações inteiras compradas. Novo lote: @5.000 + 383 = 5.383@ ações.
+            </li>
+          </ol>
+        </div>
+
+        <div class="gabarito-secao">
+          <h3>Resoluções da Seção 3: Aprofundamento e Desafios</h3>
+          <ol start="21">
+            <li>
+              <span class="gabarito-item-titulo">Problema 21 (Perpetuidade e PG Infinita):</span><br>
+              a) @a_1 = \frac{60.000}{1+i}@ e razão @q = \frac{1}{1+i}@. Como @i = 0{,}04 > 0@, temos @1+i = 1{,}04 > 1@, logo @|q| = \frac{1}{1{,}04} \approx 0{,}9615 < 1@, garantindo a convergência da soma infinita.<br>
+              b) @C = \frac{a_1}{1 - q} = \frac{\frac{R}{1+i}}{1 - \frac{1}{1+i}} = \frac{\frac{R}{1+i}}{\frac{1+i - 1}{1+i}} = \frac{R}{i}@. Para @R = 60.000@ e @i = 0{,}04@:
+              @@C = \frac{60.000}{0{,}04} = R\$\ 1.500.000{,}00@@
+              Portanto, @R\$\ 1{,}5@ milhão garantem a bolsa perpetuamente apenas com o rendimento real gerado.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 22 (Tabela Price):</span><br>
+              a) A soma entre colchetes é uma PG finita de @n@ termos com @a_1 = (1+i)^{-1}@ e razão @q = (1+i)^{-1}@:
+              @@S = (1+i)^{-1} \frac{1 - (1+i)^{-n}}{1 - (1+i)^{-1}} = \frac{1 - (1+i)^{-n}}{(1+i) - 1} = \frac{1 - (1+i)^{-n}}{i}@@
+              Multiplicando numerador e denominador por @(1+i)^n@: @S = \frac{(1+i)^n - 1}{i \cdot (1+i)^n}@. Como @V = P \cdot S@, isolando @P@ obtém-se exatamente @P = V \left[ \frac{i(1+i)^n}{(1+i)^n - 1} \right]@.<br>
+              b) Para @V = 20.000@, @i = 0{,}02@, @n = 4@ e @(1{,}02)^4 \approx 1{,}08243@:
+              @@P = 20.000 \cdot \frac{0{,}02 \cdot 1{,}08243}{1{,}08243 - 1} = 20.000 \cdot \frac{0{,}0216486}{0{,}08243} \approx 20.000 \cdot 0{,}26263 = R\$\ 5.252{,}60@@
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 23 (PAG - Série Aritmético-Geométrica):</span><br>
+              a) @A_1 = 10.000 \cdot 1{,}10 = 11.000@ reais.<br>
+              @A_2 = 2 \cdot 10.000 \cdot 1{,}21 = 24.200@ reais.<br>
+              @A_3 = 3 \cdot 10.000 \cdot 1{,}331 = 39.930@ reais.<br>
+              Soma total aportada: @S_3 = 11.000 + 24.200 + 39.930 = R\$\ 75.130{,}00@.<br>
+              b) Ao final do 3º ano: @A_1@ rendeu por 2 anos (@11.000 \cdot 1{,}1^2 = 13.310@), @A_2@ rendeu por 1 ano (@24.200 \cdot 1{,}1 = 26.620@) e @A_3@ acabou de entrar (@39.930@). Saldo final: @13.310 + 26.620 + 39.930 = R\$\ 79.860{,}00@.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 24 (Equação Logarítmica de PG):</span><br>
+              a) @100.000 \cdot (1{,}07)^t = 1.000.000 \iff (1{,}07)^t = 10@.<br>
+              b) Aplicando logaritmo decimal: @\log(1{,}07^t) = \log(10) \iff t \cdot \log(1{,}07) = 1 \iff t = \frac{1}{0{,}0294} \approx 34{,}01@ anos. Serão necessários 35 anos completos.
+            </li>
+            <li>
+              <span class="gabarito-item-titulo">Problema 25 (À Vista vs Financiamento Parcelado):</span><br>
+              a) Opção 1: Desconto de @10\%@ sobre 12.000 = @R\$\ 10.800{,}00@ pagos. Restaria em conta @12.000 - 10.800 = R\$\ 1.200{,}00@ rendendo a @1\%@ ao mês por 12 meses: @1.200 \cdot (1{,}01)^{12} \approx 1.200 \cdot 1{,}1268 = R\$\ 1.352{,}16@.<br>
+              b) Opção 2: Paga @1.000@ no ato, restam @11.000@ rendendo. A cada mês o saldo anterior rende @1\%@ e é subtraído de @1.000@. A modelagem recursiva @S_k = S_{k-1} \cdot 1{,}01 - 1000@ gera ao final do 12º mês um saldo final positivo de aproximadamente @R\$\ 726{,}80@.<br>
+              Comparação: Na Opção 1 sobra @R\$\ 1.352{,}16@ e na Opção 2 sobra @R\$\ 726{,}80@. Logo, a <strong>Opção 1 (à vista com 10% de desconto)</strong> é financeiramente superior em mais de @R\$\ 600{,}00@!
+            </li>
+          </ol>
+        </div>
+
+      </div>
+    </details>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+    </div>
+
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+  <h3>Escolha um Tema:</h3>
+  <button data-theme="theme-default" title="Tema Padrão">Default</button>
+  <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+  <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+  <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+  <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+  <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+  <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+  <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+  <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+  <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+  <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+  <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+  <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+  <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  <button data-theme="theme-high-contrast" title="Tema High Contrast">High Contrast</button>
+</div>
+
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

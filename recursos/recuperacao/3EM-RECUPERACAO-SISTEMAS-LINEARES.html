@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Sistemas Lineares & Escalonamento</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .orientacao-inicial { background-color: rgba(33, 150, 243, 0.2); border: 2px solid #2196f3; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .dica { background-color: rgba(33, 150, 243, 0.15); border-left: 4px solid #2196f3; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 4px; }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo { background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo { margin: 1rem 0; padding-left: 1.5rem; border-left: 2px solid #4caf50; }
+    .conceito-basico { background-color: rgba(156, 39, 176, 0.1); border: 2px solid #9c27b0; border-radius: 6px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .badge-nivel { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .ano-3em { background-color: rgba(244, 67, 54, 0.3); color: #ef9a9a; border: 1px solid #f44336; }
+    .estrelas { color: #ffd700; font-size: 1.2rem; margin-left: 0.5rem; }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <span class="badge-nivel ano-3em">3º Ano EM</span>
+      <span class="estrelas">★★★</span>
+      <h1>Atividade de Recuperação: Sistemas Lineares & Escalonamento</h1>
+
+      <div class="orientacao-inicial">
+        <h3>📚 Roteiro Pedagógico de Recuperação</h3>
+        <p>Sistemas lineares modelam redes de trânsito, circuitos elétricos e equilíbrios econômicos. Esta atividade foca na classificação rigorosa (SPD, SPI e SI) e na técnica de escalonamento gaussiano.</p>
+      </div>
+
+      <h2>Revisão Conceitual</h2>
+      <div class="conceito-basico">
+        <h4>1. Classificação de um Sistema Linear</h4>
+        <ul>
+          <li><strong>Sistema Possível e Determinado (SPD):</strong> Possui uma única solução @(x_0, y_0, z_0)@. O determinante da matriz dos coeficientes @D \neq 0@.</li>
+          <li><strong>Sistema Possível e Indeterminado (SPI):</strong> Possui infinitas soluções. Ocorre quando linhas se anulam de forma coerente (@0z = 0@), restando variáveis livres.</li>
+          <li><strong>Sistema Impossível (SI):</strong> Não possui nenhuma solução (conjunto vazio @S = \emptyset@). Surge quando encontramos uma contradição do tipo @0x + 0y + 0z = k@ com @k \neq 0@ (ex: @0 = 7@).</li>
+        </ul>
+      </div>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo Resolvido: Escalonamento de um Sistema 3x3</h4>
+        <p>Resolva o sistema linear:</p>
+        <p>@@ \begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + 2y - z = 2 \end{cases} @@</p>
+        <div class="passo">
+          <strong>Passo 1 (Eliminar @x@ das linhas 2 e 3):</strong>
+          <p>• @L_2 \leftarrow L_2 - 2L_1@: @(2 - 2)x + (-1 - 2)y + (1 - 2)z = 3 - 12 \implies -3y - z = -9@</p>
+          <p>• @L_3 \leftarrow L_3 - L_1@: @(1 - 1)x + (2 - 1)y + (-1 - 1)z = 2 - 6 \implies y - 2z = -4@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 2 (Eliminar @y@ na terceira linha):</strong>
+          <p>Multiplicando a nova linha 3 por 3 e somando à nova linha 2:</p>
+          <p>@@ 3(y - 2z) + (-3y - z) = 3(-4) + (-9) \implies -7z = -21 \implies z = 3 @@</p>
+        </div>
+        <div class="passo">
+          <strong>Passo 3 (Substituição regressiva):</strong>
+          <p>• Em @y - 2z = -4 \implies y - 2(3) = -4 \implies y - 6 = -4 \implies y = 2@</p>
+          <p>• Em @x + y + z = 6 \implies x + 2 + 3 = 6 \implies x = 1@</p>
+          <p><strong>Solução Única (SPD):</strong> @S = \{(1, 2, 3)\}@.</p>
+        </div>
+      </div>
+
+      <h2>Exercícios com Scaffolding Progressivo</h2>
+
+      <div class="destaque-box">
+        <h3>Nível 1: Apoio Alto (Sistemas 2x2 e Classificação Direta)</h3>
+        <ol>
+          <li>Classifique e resolva os seguintes sistemas @2 \times 2@:
+            <br>a) @\begin{cases} 2x + y = 7 \\ x - y = 2 \end{cases}@
+            <br>b) @\begin{cases} x + 2y = 4 \\ 2x + 4y = 8 \end{cases}@
+            <br>c) @\begin{cases} 3x - y = 5 \\ 3x - y = 9 \end{cases}@
+            <div class="dica"><strong>Dica:</strong> Em (b), observe se uma equação é múltipla da outra. Em (c), observe a contradição entre os termos independentes.</div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box">
+        <h3>Nível 2: Apoio Médio (Escalonamento 3x3)</h3>
+        <ol start="2">
+          <li>Resolva por escalonamento gaussiano:
+            <p>@@ \begin{cases} x - y + 2z = 5 \\ 2x + y - z = 1 \\ x + 3y - 4z = -7 \end{cases} @@</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box">
+        <h3>Nível 3: Autonomia (Discussão com Parâmetro)</h3>
+        <ol start="3">
+          <li>Determine para qual valor do parâmetro real @k@ o sistema linear é impossível:
+            <p>@@ \begin{cases} 2x + ky = 6 \\ 4x + 6y = 10 \end{cases} @@</p>
+          </li>
+        </ol>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

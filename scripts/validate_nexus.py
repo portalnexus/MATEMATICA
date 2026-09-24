@@ -69,7 +69,7 @@ def test_link_integrity(base_dir):
     # Verificar arquivos órfãos (arquivos em recursos/ que não estão linkados)
     recursos_dir = os.path.join(base_dir, 'recursos')
     disk_files = []
-    for cat in ['resumos', 'listas', 'guias', 'recuperacao', 'ferramentas']:
+    for cat in ['resumos', 'listas', 'guias', 'recuperacao', 'ferramentas', 'python']:
         cat_dir = os.path.join(recursos_dir, cat)
         if os.path.exists(cat_dir):
             for h in glob.glob(os.path.join(cat_dir, '*.html')):

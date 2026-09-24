@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Função Quadrática (2º Grau)</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .orientacao-inicial { background-color: rgba(33, 150, 243, 0.2); border: 2px solid #2196f3; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .dica { background-color: rgba(33, 150, 243, 0.15); border-left: 4px solid #2196f3; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 4px; }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo { background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo { margin: 1rem 0; padding-left: 1.5rem; border-left: 2px solid #4caf50; }
+    .lembrete { background-color: rgba(255, 152, 0, 0.15); border-left: 4px solid #ff9800; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 4px; }
+    .lembrete strong { color: #ff9800; }
+    .conceito-basico { background-color: rgba(156, 39, 176, 0.1); border: 2px solid #9c27b0; border-radius: 6px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .badge-nivel { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .ano-1em { background-color: rgba(33, 150, 243, 0.3); color: #64b5f6; border: 1px solid #2196f3; }
+    .estrelas { color: #ffd700; font-size: 1.2rem; margin-left: 0.5rem; }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <span class="badge-nivel ano-1em">1º Ano EM</span>
+      <span class="estrelas">★★★</span>
+      <h1>Atividade de Recuperação: Função Quadrática & Otimização</h1>
+
+      <div class="orientacao-inicial">
+        <h3>📚 Roteiro Pedagógico de Recuperação</h3>
+        <p>A função quadrática é a ferramenta matemática por excelência para modelar trajetórias parabólicas e resolver problemas de máximos e mínimos (otimização de lucros, áreas e custos).</p>
+      </div>
+
+      <h2>Revisão dos Fundamentos</h2>
+      <div class="conceito-basico">
+        <h4>1. Forma Geral e Propriedades da Parábola</h4>
+        <p>A lei de formação é <strong>@f(x) = ax^2 + bx + c@</strong>, com @a, b, c \in \mathbb{R}@ e @a \neq 0@.</p>
+        <ul>
+          <li><strong>Concavidade:</strong> Se @a > 0@, concavidade voltada para cima (ponto de mínimo); se @a < 0@, para baixo (ponto de máximo).</li>
+          <li><strong>Discriminante (@\Delta = b^2 - 4ac@):</strong>
+            <br>• @\Delta > 0@: duas raízes reais distintas (@x_1 \neq x_2@).
+            <br>• @\Delta = 0@: raiz real dupla (@x_1 = x_2 = -b / 2a@).
+            <br>• @\Delta < 0@: nenhuma raiz real (a parábola não toca o eixo @x@).
+          </li>
+          <li><strong>Coordenadas do Vértice @V(x_v, y_v)@:</strong>
+            <p>@@ x_v = -\frac{b}{2a} \quad \text{e} \quad y_v = -\frac{\Delta}{4a} = f(x_v) @@</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo Resolvido: Lançamento de um Foguete Experimental</h4>
+        <p>A altura @h@ (em metros) de um foguete lançado verticalmente é dada por @h(t) = -5t^2 + 40t@, onde @t@ é o tempo em segundos.</p>
+        <div class="passo">
+          <strong>a) Em que instante o foguete atinge a altura máxima?</strong>
+          <p>Como @a = -5 < 0@, a parábola tem ponto de máximo em @t_v@:</p>
+          <p>@@ t_v = -\frac{b}{2a} = -\frac{40}{2(-5)} = \frac{40}{10} = 4 \text{ segundos} @@</p>
+        </div>
+        <div class="passo">
+          <strong>b) Qual é a altura máxima atingida?</strong>
+          <p>Substituindo @t = 4@ na função:</p>
+          <p>@@ h(4) = -5(4)^2 + 40(4) = -5(16) + 160 = -80 + 160 = 80 \text{ metros} @@</p>
+        </div>
+        <div class="passo">
+          <strong>c) Quanto tempo dura o voo até tocar o solo?</strong>
+          <p>Basta resolver @h(t) = 0 \implies -5t(t - 8) = 0 \implies t = 0@ (lançamento) ou @t = 8@ segundos (retorno ao solo).</p>
+        </div>
+      </div>
+
+      <h2>Exercícios com Apoio Gradual</h2>
+
+      <div class="destaque-box">
+        <h3>Nível 1: Apoio Alto (Raízes e Vértice)</h3>
+        <ol>
+          <li>Dada a função quadrática @f(x) = x^2 - 6x + 8@:
+            <br>a) Determine os coeficientes @a, b, c@ e o valor de @\Delta@.
+            <br>b) Calcule as raízes reais da função.
+            <br>c) Determine as coordenadas do vértice @V(x_v, y_v)@.
+            <div class="dica"><strong>Dica:</strong> Use @x_v = -\frac{b}{2a}@ e depois calcule @f(x_v)@ para achar @y_v@.</div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box">
+        <h3>Nível 2: Apoio Médio (Problemas de Máximos e Mínimos)</h3>
+        <ol start="2">
+          <li>O lucro mensal @L@ (em milhares de reais) de uma microempresa depende do preço de venda unitário @x@ (em reais) segundo a lei:
+            <p>@@ L(x) = -2x^2 + 60x - 250 @@</p>
+            a) Qual preço @x@ deve ser cobrado para maximizar o lucro mensal?
+            <br>b) Qual é o valor do lucro máximo atingido?
+            <div class="dica"><strong>Dica:</strong> O preço ideal é a abscissa do vértice (@x_v@) e o lucro máximo é a ordenada (@y_v@).</div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box">
+        <h3>Nível 3: Autonomia (Modelagem Geométrica)</h3>
+        <ol start="3">
+          <li>Um fazendeiro possui 120 metros de cerca para construir um galinheiro retangular aproveitando um muro já existente como um dos lados.
+            <br>a) Mostre que a área @A(x)@ em função da largura @x@ perpendicular ao muro é @A(x) = -2x^2 + 120x@.
+            <br>b) Calcule as dimensões do retângulo para que a área cercada seja máxima e determine essa área máxima.
+          </li>
+        </ol>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

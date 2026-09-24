@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Guia de Estudos: Funções Afins e Quadráticas</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .guia-header { background-color: rgba(0, 0, 0, 0.2); padding: 2rem; border-radius: 8px; margin-bottom: 2rem; border-left: 5px solid var(--link-color); }
+    .guia-header h1 { margin-top: 0; color: var(--heading-text-color); }
+    .objetivos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .objetivo-item { background-color: rgba(0, 0, 0, 0.2); padding: 1rem; border-radius: 5px; border-left: 3px solid var(--link-color); }
+    .objetivo-item strong { color: var(--link-color); display: block; margin-bottom: 0.5rem; }
+    .etapa-estudo { background-color: rgba(0, 0, 0, 0.2); padding: 1.5rem; margin: 1.5rem 0; border-radius: 6px; border-left: 5px solid var(--link-color); }
+    .etapa-estudo h3 { color: var(--heading-text-color); margin-top: 0; display: flex; align-items: center; gap: 1rem; }
+    .etapa-numero { background-color: var(--link-color); color: #000; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-family: 'Press Start 2P', monospace; }
+    .checklist-item { display: flex; align-items: flex-start; gap: 0.75rem; margin: 0.75rem 0; }
+    .badge-nivel { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .ano-1em { background-color: rgba(33, 150, 243, 0.3); color: #64b5f6; border: 1px solid #2196f3; }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <div class="guia-header">
+        <span class="badge-nivel ano-1em">1º Ano EM</span>
+        <h1>Guia de Estudos: Entre Retas e Parábolas</h1>
+        <p>Roteiro completo de aprendizagem e estratégias de fixação para dominar Funções do 1º e 2º Grau.</p>
+      </div>
+
+      <section>
+        <h2>Metas de Aprendizagem do Capítulo</h2>
+        <div class="objetivos-grid">
+          <div class="objetivo-item">
+            <strong>Habilidade 1</strong>
+            Modelar e interpretar variações lineares contínuas no plano cartesiano.
+          </div>
+          <div class="objetivo-item">
+            <strong>Habilidade 2</strong>
+            Reconhecer taxas de variação constante e coeficientes lineares em tabelas e gráficos.
+          </div>
+          <div class="objetivo-item">
+            <strong>Habilidade 3</strong>
+            Calcular o discriminante @\Delta@ e as coordenadas do vértice da parábola.
+          </div>
+          <div class="objetivo-item">
+            <strong>Habilidade 4</strong>
+            Resolver situações-problema envolvendo pontos de máximo e mínimo (otimização).
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Trilha de Missões</h2>
+
+        <div class="etapa-estudo">
+          <h3><span class="etapa-numero">01</span> Missão 1: O Domínio das Retas</h3>
+          <p>Compreenda a função afim @f(x) = ax + b@ através da taxa média de variação @\frac{\Delta y}{\Delta x}@. Estude como o sinal de @a@ altera a inclinação e como @b@ ancora a reta no eixo @y@.</p>
+          <div class="checklist-item">
+            <input type="checkbox" id="m1-1">
+            <label for="m1-1">Revisar o <a href="../resumos/1EM-FUNCAO-1GRAU.html" style="color: var(--link-color);">Resumo de Função do 1º Grau</a>.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="m1-2">
+            <label for="m1-2">Resolver pelo menos 8 problemas da <a href="../listas/1EM-FUNCAO-1GRAU.html" style="color: var(--link-color);">Lista de Problemas</a>.</label>
+          </div>
+        </div>
+
+        <div class="etapa-estudo">
+          <h3><span class="etapa-numero">02</span> Missão 2: A Trajetória das Parábolas</h3>
+          <p>Domine a função quadrática @f(x) = ax^2 + bx + c@. Entenda o papel da concavidade e determine os três pontos estratégicos do gráfico: as raízes (@f(x) = 0@), a interceptação vertical @(0, c)@ e o vértice @V(x_v, y_v)@.</p>
+          <div class="checklist-item">
+            <input type="checkbox" id="m2-1">
+            <label for="m2-1">Estudar o <a href="../resumos/1EM-FUNCAO-QUADRATICA.html" style="color: var(--link-color);">Resumo de Função Quadrática</a>.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="m2-2">
+            <label for="m2-2">Praticar o cálculo de vértices na <a href="../listas/1EM-FUNCAO-QUADRATICA.html" style="color: var(--link-color);">Lista de Função Quadrática</a>.</label>
+          </div>
+        </div>
+
+        <div class="etapa-estudo">
+          <h3><span class="etapa-numero">03</span> Missão 3: Otimização e Aplicações do Mundo Real</h3>
+          <p>Aplique o vértice para solucionar problemas de lucro máximo, altura máxima de projéteis e áreas máximas de cercamentos.</p>
+          <div class="checklist-item">
+            <input type="checkbox" id="m3-1">
+            <label for="m3-1">Completar a <a href="../recuperacao/1EM-RECUPERACAO-FUNCAO-QUADRATICA.html" style="color: var(--link-color);">Atividade de Recuperação</a>.</label>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Checklist de Autoavaliação</h2>
+        <div class="destaque-box definicao">
+          <h3>Verifique se você domina:</h3>
+          <div class="checklist-item">
+            <input type="checkbox" id="chk-1">
+            <label for="chk-1">Sei encontrar a equação da reta conhecendo apenas 2 pontos @A(x_1, y_1)@ e @B(x_2, y_2)@.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="chk-2">
+            <label for="chk-2">Sei calcular @x_v = -\frac{b}{2a}@ e @y_v = -\frac{\Delta}{4a}@ sem hesitar.</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="chk-3">
+            <label for="chk-3">Compreendo a diferença entre o valor de @x@ que maximiza a função e o valor máximo alcançado por @y@.</label>
+          </div>
+        </div>
+      </section>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

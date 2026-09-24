@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Python Módulo 2: Funções, Álgebra & Visualização Gráfica</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .code-block {
+      background: #090d16;
+      border: 1px solid var(--container-border-color);
+      border-radius: 6px;
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+      position: relative;
+      overflow-x: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #38bdf8;
+    }
+
+    .code-comment { color: #64748b; font-style: italic; }
+    .code-keyword { color: #f43f5e; font-weight: 600; }
+    .code-func { color: #a855f7; }
+    .code-str { color: #34d399; }
+    .code-num { color: #fbbf24; }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--container-border-color);
+      color: var(--secondary-text-color);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: var(--link-color);
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <div style="margin-bottom: 1.5rem;">
+        <span class="badge-nivel" style="background: rgba(59, 130, 246, 0.3); border: 1px solid #3b82f6; color: #60a5fa;">MÓDULO COMPUTACIONAL 02</span>
+      </div>
+
+      <h1>Funções, Álgebra & Visualização: Do Teorema de Bolzano ao Gráfico</h1>
+
+      <p class="section-intro">
+        Neste módulo, aprenderemos a modelar funções matemáticas em Python, encontrar raízes analíticas e numéricas e transformar tabelas de dados em gráficos cartesianos de alta definição com Matplotlib.
+      </p>
+
+      <section>
+        <h2>1. Funções Matemáticas como Objetos de Primeira Classe</h2>
+        <p>
+          Em Python, uma função matemática @f: \mathbb{R} \to \mathbb{R}@ é implementada com a palavra-chave <code>def</code> ou com funções anônimas <code>lambda</code>:
+        </p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre><code><span class="code-comment"># Definindo a função f(x) = 2x³ - 5x + 3</span>
+<span class="code-keyword">def</span> <span class="code-func">f</span>(x):
+    <span class="code-keyword">return</span> <span class="code-num">2</span> * x**<span class="code-num">3</span> - <span class="code-num">5</span> * x + <span class="code-num">3</span>
+
+<span class="code-comment"># Avaliando f em diferentes pontos</span>
+pontos_x = [-<span class="code-num">2</span>, -<span class="code-num">1</span>, <span class="code-num">0</span>, <span class="code-num">1</span>, <span class="code-num">2</span>]
+<span class="code-func">print</span>({x: f(x) <span class="code-keyword">for</span> x <span class="code-keyword">in</span> pontos_x})</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>2. Raízes Numéricas: O Método da Bisseção</h2>
+        <div class="destaque-box teorema">
+          <h3>Teorema: Teorema do Valor Intermediário (Bolzano)</h3>
+          <p>
+            Seja @f: [a, b] \to \mathbb{R}@ uma função contínua. Se @f(a) \cdot f(b) < 0@ (isto é, @f(a)@ e @f(b)@ têm sinais opostos), então existe pelo menos um @c \in (a, b)@ tal que @f(c) = 0@.
+          </p>
+        </div>
+
+        <div class="exemplo-resolvido">
+          <h3>Exemplo Prático: Implementação da Bisseção</h3>
+          <p>Dividimos o intervalo ao meio repetidamente até alcançar a tolerância desejada (@\varepsilon = 10^{-6}@):</p>
+
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre><code><span class="code-keyword">def</span> <span class="code-func">bissecao</span>(f, a, b, tol=<span class="code-num">1e-6</span>, max_iter=<span class="code-num">100</span>):
+    <span class="code-keyword">if</span> f(a) * f(b) >= <span class="code-num">0</span>:
+        <span class="code-keyword">raise</span> <span class="code-func">ValueError</span>(<span class="code-str">"f(a) e f(b) devem ter sinais opostos!"</span>)
+        
+    <span class="code-keyword">for</span> i <span class="code-keyword">in</span> <span class="code-func">range</span>(max_iter):
+        m = (a + b) / <span class="code-num">2</span>
+        <span class="code-keyword">if</span> <span class="code-func">abs</span>(f(m)) < tol <span class="code-keyword">or</span> (b - a) / <span class="code-num">2</span> < tol:
+            <span class="code-func">print</span>(<span class="code-str">f"Convergência em {i+1} iterações!"</span>)
+            <span class="code-keyword">return</span> m
+        <span class="code-keyword">if</span> f(a) * f(m) < <span class="code-num">0</span>:
+            b = m
+        <span class="code-keyword">else</span>:
+            a = m
+    <span class="code-keyword">return</span> (a + b) / <span class="code-num">2</span>
+
+<span class="code-comment"># Encontrando a raiz de x³ - x - 2 = 0 no intervalo [1, 2]</span>
+raiz = bissecao(<span class="code-keyword">lambda</span> x: x**<span class="code-num">3</span> - x - <span class="code-num">2</span>, <span class="code-num">1</span>, <span class="code-num">2</span>)
+<span class="code-func">print</span>(<span class="code-str">f"Raiz aproximada: {raiz:.6f}"</span>)</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>3. Plotagem Gráfica de Curvas com Matplotlib</h2>
+        <p>
+          Visualizar o comportamento global de funções afins, quadráticas e trigonométricas é essencial para a intuição matemática. Veja como plotar uma parábola completa com seu vértice em destaque:
+        </p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre><code><span class="code-keyword">import</span> matplotlib.pyplot <span class="code-keyword">as</span> plt
+<span class="code-keyword">import</span> numpy <span class="code-keyword">as</span> np
+
+<span class="code-comment"># Gerar 400 pontos de x entre -4 e 4</span>
+x = np.linspace(-<span class="code-num">4</span>, <span class="code-num">4</span>, <span class="code-num">400</span>)
+y = x**<span class="code-num">2</span> - <span class="code-num">2</span>*x - <span class="code-num">3</span>  <span class="code-comment"># f(x) = x² - 2x - 3</span>
+
+plt.figure(figsize=(<span class="code-num">8</span>, <span class="code-num">5</span>))
+plt.plot(x, y, label=<span class="code-str">'f(x) = x² - 2x - 3'</span>, color=<span class="code-str">'#38bdf8'</span>, linewidth=<span class="code-num">2</span>)
+plt.axhline(<span class="code-num">0</span>, color=<span class="code-str">'white'</span>, linestyle=<span class="code-str">'--'</span>, alpha=<span class="code-num">0.4</span>)
+plt.axvline(<span class="code-num">0</span>, color=<span class="code-str">'white'</span>, linestyle=<span class="code-str">'--'</span>, alpha=<span class="code-num">0.4</span>)
+
+<span class="code-comment"># Destacar o vértice V(1, -4)</span>
+plt.scatter([<span class="code-num">1</span>], [-<span class="code-num">4</span>], color=<span class="code-str">'#f43f5e'</span>, zorder=<span class="code-num">5</span>, label=<span class="code-str">'Vértice (1, -4)'</span>)
+
+plt.title(<span class="code-str">'Estudo Gráfico da Função Quadrática'</span>)
+plt.xlabel(<span class="code-str">'Eixo x'</span>)
+plt.ylabel(<span class="code-str">'Eixo y'</span>)
+plt.grid(<span class="code-keyword">True</span>, alpha=<span class="code-num">0.2</span>)
+plt.legend()
+plt.show()</code></pre>
+        </div>
+      </section>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../python.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">TESTAR NO PLAYGROUND</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copiado!';
+      setTimeout(() => btn.textContent = 'Copiar', 2000);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

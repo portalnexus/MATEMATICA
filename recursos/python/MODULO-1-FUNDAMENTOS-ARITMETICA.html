@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Python Módulo 1: Fundamentos & Teoria dos Números</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .code-block {
+      background: #090d16;
+      border: 1px solid var(--container-border-color);
+      border-radius: 6px;
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+      position: relative;
+      overflow-x: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #38bdf8;
+    }
+
+    .code-comment { color: #64748b; font-style: italic; }
+    .code-keyword { color: #f43f5e; font-weight: 600; }
+    .code-func { color: #a855f7; }
+    .code-str { color: #34d399; }
+    .code-num { color: #fbbf24; }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--container-border-color);
+      color: var(--secondary-text-color);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: var(--link-color);
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <div style="margin-bottom: 1.5rem;">
+        <span class="badge-nivel" style="background: rgba(59, 130, 246, 0.3); border: 1px solid #3b82f6; color: #60a5fa;">MÓDULO COMPUTACIONAL 01</span>
+      </div>
+
+      <h1>Python & Teoria dos Números: Aritmética Exata e Algoritmos Clássicos</h1>
+
+      <p class="section-intro">
+        Neste módulo, exploramos a ponte entre as propriedades fundamentais dos números inteiros (@\mathbb{Z}@) e a arquitetura do Python, aprendendo como o computador manipula inteiros de precisão arbitrária e implementando dois pilares milenares da computação: o <strong>Algoritmo de Euclides</strong> e o <strong>Crivo de Eratóstenes</strong>.
+      </p>
+
+      <section>
+        <h2>1. Inteiros de Precisão Arbitrária no Python</h2>
+        <div class="destaque-box definicao">
+          <h3>Definição: Aritmética de Precisão Arbitrária (Bignum)</h3>
+          <p>
+            Diferente de linguagens como C ou Java, onde números inteiros normalmente sofrem <em>overflow</em> ao ultrapassarem 32 ou 64 bits (@2^{63} - 1 \approx 9,22 \times 10^{18}@), o tipo <code>int</code> em Python possui precisão arbitrária. Seu limite é unicamente a memória RAM disponível do dispositivo.
+          </p>
+        </div>
+
+        <p>Isso permite calcular valores gigantescos, como fatoriais e potências astronômicas, sem perder um único dígito de precisão:</p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre><code><span class="code-comment"># Cálculo de 100! (fatorial de 100) com precisão absoluta</span>
+<span class="code-keyword">import</span> math
+
+n = <span class="code-num">100</span>
+fatorial_100 = math.factorial(n)
+<span class="code-func">print</span>(<span class="code-str">f"100! possui {len(str(fatorial_100))} dígitos decimais!"</span>)
+<span class="code-func">print</span>(<span class="code-str">"Primeiros 50 dígitos:"</span>, <span class="code-func">str</span>(fatorial_100)[:<span class="code-num">50</span>] + <span class="code-str">"..."</span>)</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>2. Divisão Euclidiana: Quociente (@//@) e Resto (@\%@)</h2>
+        <div class="destaque-box teorema">
+          <h3>Teorema: Teorema da Divisão Euclidiana</h3>
+          <p>
+            Dados dois inteiros @a@ e @b@, com @b > 0@, existem únicos inteiros @q@ (quociente) e @r@ (resto) tais que:
+          </p>
+          <p>@@ a = b \cdot q + r, \quad \text{onde } 0 \le r < b @@</p>
+        </div>
+
+        <p>Em Python, obtemos diretamente @q = a // b@ e @r = a \% b@, ou simultaneamente com <code>divmod(a, b)</code>:</p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre><code>a, b = <span class="code-num">57</span>, <span class="code-num">7</span>
+q = a // b   <span class="code-comment"># 8</span>
+r = a % b    <span class="code-comment"># 1</span>
+
+<span class="code-func">print</span>(<span class="code-str">f"{a} = {b} * {q} + {r}"</span>)  <span class="code-comment"># 57 = 7 * 8 + 1</span></code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>3. O Algoritmo de Euclides para o MDC</h2>
+        <div class="destaque-box observacao">
+          <h3>Lema de Euclides</h3>
+          <p>
+            Se @a = b \cdot q + r@, então @\operatorname{mdc}(a, b) = \operatorname{mdc}(b, r)@. 
+            Repetindo sucessivamente as divisões com os restos, chegamos ao último resto não nulo, que é o MDC!
+          </p>
+        </div>
+
+        <div class="exemplo-resolvido">
+          <h3>Exemplo Passo a Passo: Algoritmo de Euclides em Python</h3>
+          <p>Implementamos uma versão interativa que exibe a tabela de divisões sucessivas:</p>
+
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre><code><span class="code-keyword">def</span> <span class="code-func">mdc_euclides</span>(a, b):
+    <span class="code-str">"""Calcula o MDC(a, b) com rastreamento das divisões."""</span>
+    passo = <span class="code-num">1</span>
+    <span class="code-keyword">while</span> b != <span class="code-num">0</span>:
+        q = a // b
+        r = a % b
+        <span class="code-func">print</span>(<span class="code-str">f"Passo {passo}: {a} = {b} * {q} + {r}"</span>)
+        a, b = b, r
+        passo += <span class="code-num">1</span>
+    <span class="code-keyword">return</span> a
+
+resultado = mdc_euclides(<span class="code-num">1071</span>, <span class="code-num">462</span>)
+<span class="code-func">print</span>(<span class="code-str">f"\nO MDC é: {resultado}"</span>)  <span class="code-comment"># Resultado: 21</span></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>4. O Crivo de Eratóstenes</h2>
+        <p>
+          Para encontrar todos os números primos até um limite @N@, o método mais eficiente é marcar iterativamente os múltiplos de cada primo identificado. Sua complexidade temporal é @O(N \log \log N)@.
+        </p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre><code><span class="code-keyword">def</span> <span class="code-func">crivo</span>(limite):
+    eh_primo = [<span class="code-keyword">True</span>] * (limite + <span class="code-num">1</span>)
+    eh_primo[<span class="code-num">0</span>] = eh_primo[<span class="code-num">1</span>] = <span class="code-keyword">False</span>
+    
+    <span class="code-keyword">for</span> p <span class="code-keyword">in</span> <span class="code-func">range</span>(<span class="code-num">2</span>, <span class="code-func">int</span>(limite**<span class="code-num">0.5</span>) + <span class="code-num">1</span>):
+        <span class="code-keyword">if</span> eh_primo[p]:
+            <span class="code-keyword">for</span> multiplo <span class="code-keyword">in</span> <span class="code-func">range</span>(p * p, limite + <span class="code-num">1</span>, p):
+                eh_primo[multiplo] = <span class="code-keyword">False</span>
+                
+    <span class="code-keyword">return</span> [i <span class="code-keyword">for</span> i, primo <span class="code-keyword">in</span> <span class="code-func">enumerate</span>(eh_primo) <span class="code-keyword">if</span> primo]
+
+primos_ate_200 = crivo(<span class="code-num">200</span>)
+<span class="code-func">print</span>(<span class="code-str">f"Existem {len(primos_ate_200)} primos até 200:"</span>)
+<span class="code-func">print</span>(primos_ate_200)</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>5. Desafios Propostos para o Aluno</h2>
+        <div class="destaque-box">
+          <h3>Missão de Programação: Fatoração Prima</h3>
+          <p>
+            Escreva uma função <code>fatorar(n)</code> que receba um inteiro @n > 1@ e retorne um dicionário com seus fatores primos e expoentes.
+            <br><em>Exemplo</em>: Para @n = 360@, a função deve retornar <code>{2: 3, 3: 2, 5: 1}</code>, pois @360 = 2^3 \cdot 3^2 \cdot 5^1@.
+          </p>
+        </div>
+      </section>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../python.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">TESTAR NO PLAYGROUND</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copiado!';
+      setTimeout(() => btn.textContent = 'Copiar', 2000);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

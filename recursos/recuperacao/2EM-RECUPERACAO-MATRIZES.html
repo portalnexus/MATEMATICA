@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Matrizes & Determinantes</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .orientacao-inicial { background-color: rgba(33, 150, 243, 0.2); border: 2px solid #2196f3; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .dica { background-color: rgba(33, 150, 243, 0.15); border-left: 4px solid #2196f3; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 4px; }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo { background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo { margin: 1rem 0; padding-left: 1.5rem; border-left: 2px solid #4caf50; }
+    .conceito-basico { background-color: rgba(156, 39, 176, 0.1); border: 2px solid #9c27b0; border-radius: 6px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .badge-nivel { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .ano-2em { background-color: rgba(156, 39, 176, 0.3); color: #ce93d8; border: 1px solid #ab47bc; }
+    .estrelas { color: #ffd700; font-size: 1.2rem; margin-left: 0.5rem; }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <span class="badge-nivel ano-2em">2º Ano EM</span>
+      <span class="estrelas">★★★</span>
+      <h1>Atividade de Recuperação: Matrizes & Determinantes</h1>
+
+      <div class="orientacao-inicial">
+        <h3>📚 Roteiro Pedagógico de Recuperação</h3>
+        <p>Matrizes organizam tabelas bidimensionais e fundamentam a computação gráfica, criptografia e inteligência artificial. Esta atividade revisa as operações fundamentais e o cálculo de determinantes.</p>
+      </div>
+
+      <h2>Revisão Conceitual</h2>
+      <div class="conceito-basico">
+        <h4>1. Operações Matriciais Essenciais</h4>
+        <ul>
+          <li><strong>Adição e Subtração:</strong> Só é possível se as matrizes possuírem a mesma ordem @m \times n@. Somam-se os elementos correspondentes: @c_{ij} = a_{ij} + b_{ij}@.</li>
+          <li><strong>Multiplicação de Matrizes (@A_{m \times k} \cdot B_{k \times n} = C_{m \times n}@):</strong>
+            O número de <strong>colunas de A</strong> deve ser exatamente igual ao número de <strong>linhas de B</strong>. O elemento @c_{ij}@ é a soma dos produtos da linha @i@ de A pelos elementos da coluna @j@ de B ("linha vezes coluna").
+          </li>
+          <li><strong>Determinante @2 \times 2@:</strong>
+            @@ \det \begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc @@
+          </li>
+          <li><strong>Determinante @3 \times 3@ (Regra de Sarrus):</strong>
+            Repetem-se as duas primeiras colunas à direita. Somam-se os produtos das diagonais principais e subtraem-se os das secundárias.
+          </li>
+        </ul>
+      </div>
+
+      <div class="exemplo-passo-a-passo">
+        <h4>Exemplo Resolvido: Produto Matricial</h4>
+        <p>Calcule o produto @A \cdot B@ para @A = \begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix}@ e @B = \begin{pmatrix} 4 & 5 \\ 1 & -2 \end{pmatrix}@.</p>
+        <div class="passo">
+          <strong>Linha 1 de A:</strong>
+          <p>• Coluna 1 de B: @(2 \cdot 4) + (1 \cdot 1) = 8 + 1 = 9@</p>
+          <p>• Coluna 2 de B: @(2 \cdot 5) + (1 \cdot (-2)) = 10 - 2 = 8@</p>
+        </div>
+        <div class="passo">
+          <strong>Linha 2 de A:</strong>
+          <p>• Coluna 1 de B: @(0 \cdot 4) + (3 \cdot 1) = 0 + 3 = 3@</p>
+          <p>• Coluna 2 de B: @(0 \cdot 5) + (3 \cdot (-2)) = 0 - 6 = -6@</p>
+        </div>
+        <div class="passo">
+          <strong>Resultado:</strong>
+          <p>@@ A \cdot B = \begin{pmatrix} 9 & 8 \\ 3 & -6 \end{pmatrix} @@</p>
+        </div>
+      </div>
+
+      <h2>Exercícios com Apoio Gradual</h2>
+
+      <div class="destaque-box">
+        <h3>Nível 1: Apoio Alto (Operações Básicas e Determinantes 2x2)</h3>
+        <ol>
+          <li>Dadas as matrizes @A = \begin{pmatrix} 3 & -1 \\ 2 & 4 \end{pmatrix}@ e @B = \begin{pmatrix} 1 & 5 \\ 0 & -2 \end{pmatrix}@:
+            <br>a) Calcule @A + B@ e @2A - 3B@.
+            <br>b) Calcule @\det(A)@ e @\det(B)@.
+            <div class="dica"><strong>Dica:</strong> Em @2A@, multiplique cada entrada de @A@ por 2.</div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box">
+        <h3>Nível 2: Apoio Médio (Multiplicação e Regra de Sarrus)</h3>
+        <ol start="2">
+          <li>Dadas as matrizes @M = \begin{pmatrix} 1 & 2 \\ 3 & 0 \end{pmatrix}@ e @N = \begin{pmatrix} 2 & -1 \\ 4 & 1 \end{pmatrix}@:
+            <br>a) Calcule o produto @M \cdot N@.
+            <br>b) Calcule o produto @N \cdot M@. A multiplicação é comutativa?
+          </li>
+          <li>Calcule o determinante da matriz @3 \times 3@ usando a Regra de Sarrus:
+            <p>@@ \Delta = \det \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 4 \\ 2 & 1 & 0 \end{pmatrix} @@</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box">
+        <h3>Nível 3: Autonomia (Propriedades e Equações)</h3>
+        <ol start="4">
+          <li>Encontre os valores reais de @x@ que tornam o determinante nulo:
+            <p>@@ \det \begin{pmatrix} x & 3 \\ 2 & x - 1 \end{pmatrix} = 0 @@</p>
+          </li>
+        </ol>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

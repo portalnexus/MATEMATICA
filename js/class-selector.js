@@ -48,8 +48,12 @@ function updateClassDisplay() {
   }
 }
 
-// Filtra recursos por turma selecionada
+// Filtra recursos por turma selecionada e termo de busca em tempo real
 function filterContentByClass(classId) {
+  const targetClass = classId || getSelectedClass();
+  const searchInput = document.getElementById('resource-search');
+  const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
   // Filtra botões de recursos (todos os links na página de recursos)
   const resourceButtons = document.querySelectorAll('.quick-link-button');
 
@@ -68,14 +72,27 @@ function filterContentByClass(classId) {
     const availableForClasses = getClassesFromFileName(fileName);
 
     // Verificar se o recurso deve ser mostrado para a turma selecionada
-    const shouldShow = availableForClasses.includes('all') || availableForClasses.includes(classId);
+    const shouldShowClass = availableForClasses.includes('all') || availableForClasses.includes(targetClass);
 
-    if (shouldShow) {
+    // Verificar se o botão ou nome do arquivo corresponde ao termo pesquisado
+    const buttonText = button.textContent.toLowerCase();
+    const matchesSearch = !query || buttonText.includes(query) || fileName.toLowerCase().includes(query);
+
+    if (shouldShowClass && matchesSearch) {
       button.style.display = '';
       button.classList.remove('hidden');
     } else {
       button.style.display = 'none';
       button.classList.add('hidden');
+    }
+  });
+
+  // Ocultar artigos se todos os botões filhos estiverem ocultos
+  document.querySelectorAll('.container article').forEach(article => {
+    const buttons = article.querySelectorAll('.quick-link-button');
+    if (buttons.length > 0) {
+      const visibleButtons = article.querySelectorAll('.quick-link-button:not(.hidden)');
+      article.style.display = visibleButtons.length === 0 ? 'none' : '';
     }
   });
 }
@@ -206,6 +223,15 @@ function initClassSelector() {
     selectorLi.appendChild(selectorLabel);
     selectorLi.appendChild(selector);
     nav.appendChild(selectorLi);
+  }
+
+  // Registra listener no campo de busca de recursos caso exista
+  const searchInput = document.getElementById('resource-search');
+  if (searchInput && !searchInput.dataset.listenerBound) {
+    searchInput.dataset.listenerBound = 'true';
+    searchInput.addEventListener('input', () => {
+      filterContentByClass(getSelectedClass());
+    });
   }
 
   // Aplica filtros iniciais

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Python para Matemáticos & Entusiastas</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Pyodide (Python no navegador via WebAssembly) -->
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Estilos customizados da seção Python */
+    .python-badge {
+      display: inline-block;
+      padding: 0.35rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: rgba(59, 130, 246, 0.2);
+      border: 1px solid #3b82f6;
+      color: #60a5fa;
+      margin-bottom: 1.5rem;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.65rem;
+    }
+
+    .ide-container {
+      background: rgba(10, 15, 25, 0.95);
+      border: 2px solid var(--container-border-color);
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      margin: 2rem 0;
+      overflow: hidden;
+    }
+
+    .ide-toolbar {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      border-bottom: 1px solid var(--container-border-color);
+    }
+
+    .ide-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .snippet-select {
+      background: rgba(0, 0, 0, 0.7);
+      color: var(--main-text-color);
+      border: 1px solid var(--container-border-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      font-family: 'Fira Sans', sans-serif;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .run-btn {
+      background: #10b981;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      padding: 0.45rem 1.1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.65rem;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .run-btn:hover {
+      background: #34d399;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    }
+
+    .clear-btn {
+      background: transparent;
+      color: var(--secondary-text-color);
+      border: 1px solid var(--secondary-text-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+
+    .clear-btn:hover {
+      color: #ef4444;
+      border-color: #ef4444;
+    }
+
+    .status-indicator {
+      font-size: 0.8rem;
+      font-family: 'Fira Code', monospace;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #f59e0b;
+      display: inline-block;
+    }
+
+    .status-dot.ready {
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    .status-dot.running {
+      background: #3b82f6;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .ide-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 380px;
+    }
+
+    @media (max-width: 900px) {
+      .ide-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .editor-pane {
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--container-border-color);
+    }
+
+    .pane-header {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      font-family: 'Press Start 2P', monospace;
+      color: var(--secondary-text-color);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    #python-code {
+      flex: 1;
+      width: 100%;
+      background: #06090e;
+      color: #38bdf8;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding: 1rem;
+      border: none;
+      resize: vertical;
+      min-height: 340px;
+      outline: none;
+      white-space: pre;
+      tab-size: 4;
+    }
+
+    .terminal-pane {
+      background: #030712;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #terminal-output {
+      flex: 1;
+      padding: 1rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #4ade80;
+      overflow-y: auto;
+      max-height: 450px;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .plot-container {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(0,0,0,0.5);
+      border-radius: 8px;
+      border: 1px solid var(--container-border-color);
+      text-align: center;
+      display: none;
+    }
+
+    .plot-container img {
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    /* Cards de Trilha */
+    .trilha-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .trilha-card {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--container-border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .trilha-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      border-color: var(--link-hover-color);
+    }
+
+    .trilha-num {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.7rem;
+      color: var(--heading-text-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .trilha-card h3 {
+      margin: 0.5rem 0 1rem 0;
+      color: var(--link-color);
+      font-size: 1.2rem;
+    }
+
+    .trilha-card p {
+      color: var(--main-text-color);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 3px;
+      color: var(--secondary-text-color);
+    }
+
+    /* Mini Desafios */
+    .desafio-box {
+      background: rgba(30, 41, 59, 0.4);
+      border-left: 4px solid #f59e0b;
+      padding: 1.2rem;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+
+    .desafio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .desafio-header h4 {
+      margin: 0;
+      color: #fbbf24;
+    }
+
+    .desafio-input-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .desafio-input {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid #475569;
+      color: #fff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      font-family: 'Fira Code', monospace;
+    }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="python.html" class="nav-button active">PYTHON</a></li>
+      <li><a href="dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <header>
+      <span class="python-badge">&gt;&gt; NEXUS COMPUTACIONAL // PYTHON 3</span>
+      <h1>Programação & Python para Matemáticos</h1>
+      <p style="font-size: 1.05rem; line-height: 1.6; color: var(--main-text-color);">
+        A Matemática é a linguagem do universo, e a programação é o motor que nos permite explorá-la com velocidade sobre-humana. 
+        Aqui você aprende a transformar teoremas em algoritmos, investigar conjecturas, simular probabilidades e visualizar geometrias complexas diretamente no seu navegador.
+      </p>
+    </header>
+
+    <!-- NEXUS PYTHON IDE / PLAYGROUND INTERATIVO -->
+    <section>
+      <article>
+        <h2>NEXUS CODE LAB: Playground Interativo</h2>
+        <p>
+          Execute código Python 3 em tempo real através de <strong>WebAssembly (Pyodide)</strong>. Não é necessário instalar nada! 
+          Selecione um exemplo matemático abaixo ou escreva seu próprio algoritmo.
+        </p>
+
+        <div class="ide-container">
+          <div class="ide-toolbar">
+            <div class="ide-controls">
+              <label for="code-snippet-select" style="font-size: 0.85rem; color: var(--secondary-text-color);">Exemplo:</label>
+              <select id="code-snippet-select" class="snippet-select" onchange="loadSnippet(this.value)">
+                <option value="primos">1. Crivo de Eratóstenes (Números Primos)</option>
+                <option value="fibonacci">2. Fibonacci & Razão Áurea (Phi)</option>
+                <option value="euclides">3. Algoritmo de Euclides (MDC & MMC)</option>
+                <option value="bhaskara">4. Equação do 2º Grau & Vértice</option>
+                <option value="montecarlo">5. Monte Carlo: Estimando o valor de Pi</option>
+                <option value="montyhall">6. Simulação do Paradoxo de Monty Hall</option>
+                <option value="matrizes">7. Produto & Determinante de Matrizes</option>
+              </select>
+
+              <button class="run-btn" id="btn-run" onclick="runPythonCode()">
+                ▶ EXECUTAR <span style="font-size: 0.55rem;">(Ctrl+Enter)</span>
+              </button>
+              <button class="clear-btn" onclick="clearOutput()">Limpar Terminal</button>
+            </div>
+
+            <div class="status-indicator">
+              <span class="status-dot" id="engine-dot"></span>
+              <span id="engine-status">Iniciando motor Python...</span>
+            </div>
+          </div>
+
+          <div class="ide-body">
+            <div class="editor-pane">
+              <div class="pane-header">ENTRADA: SCRIPT.PY</div>
+              <textarea id="python-code" spellcheck="false" placeholder="# Escreva seu código Python aqui..."></textarea>
+            </div>
+
+            <div class="terminal-pane">
+              <div class="pane-header">SAÍDA: NEXUS TERMINAL</div>
+              <div id="terminal-output">Carregando ambiente WebAssembly Python 3...
+Aguarde alguns segundos na primeira inicialização.</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="plot-area" class="plot-container">
+          <h4 style="color: var(--heading-text-color); margin-top: 0;">Gráfico Gerado (Matplotlib):</h4>
+          <img id="plot-image" alt="Gráfico de saída">
+        </div>
+      </article>
+
+      <!-- TRILHA DIDÁTICA DE MÓDULOS -->
+      <article>
+        <h2>Trilha Pedagógica: Do Zero ao Pensamento Algorítmico</h2>
+        <p>Aprofunde seus estudos teóricos e práticos com os módulos desenvolvidos para conectar a grade curricular ao código:</p>
+
+        <div class="trilha-grid">
+          <div class="trilha-card">
+            <div>
+              <span class="trilha-num">MÓDULO 01</span>
+              <h3>Fundamentos & Teoria dos Números</h3>
+              <p>Operações aritméticas sem limite de dígitos, divisão inteira, operador resto (módulo), teste de primalidade e Algoritmo de Euclides.</p>
+              <div class="card-tags">
+                <span class="tag">MDC / MMC</span>
+                <span class="tag">Crivo</span>
+                <span class="tag">Primalidade</span>
+              </div>
+            </div>
+            <a href="./recursos/python/MODULO-1-FUNDAMENTOS-ARITMETICA.html" class="themed-button" style="text-align: center; text-decoration: none;">ACESSAR MÓDULO</a>
+          </div>
+
+          <div class="trilha-card">
+            <div>
+              <span class="trilha-num">MÓDULO 02</span>
+              <h3>Funções, Álgebra & Gráficos</h3>
+              <p>Modelando funções polinomiais em código, determinação automatizada de raízes, métodos numéricos de aproximação (Bisseção) e plotagem gráfica.</p>
+              <div class="card-tags">
+                <span class="tag">Função 1º e 2º Grau</span>
+                <span class="tag">Bisseção</span>
+                <span class="tag">Gráficos</span>
+              </div>
+            </div>
+            <a href="./recursos/python/MODULO-2-FUNCOES-GRAFICOS.html" class="themed-button" style="text-align: center; text-decoration: none;">ACESSAR MÓDULO</a>
+          </div>
+
+          <div class="trilha-card">
+            <div>
+              <span class="trilha-num">MÓDULO 03</span>
+              <h3>Probabilidade & Monte Carlo</h3>
+              <p>Simulação computacional de eventos aleatórios, verificação da Lei dos Grandes Números, cálculo empírico de @\pi@ e desmistificação do Monty Hall.</p>
+              <div class="card-tags">
+                <span class="tag">Monte Carlo</span>
+                <span class="tag">Probabilidade</span>
+                <span class="tag">Simulação</span>
+              </div>
+            </div>
+            <a href="./recursos/python/MODULO-3-PROBABILIDADE-MONTE-CARLO.html" class="themed-button" style="text-align: center; text-decoration: none;">ACESSAR MÓDULO</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- DESAFIOS RÁPIDOS ESTILO PROJECT EULER -->
+      <article>
+        <h2>Desafios Algorítmicos Rápidos (Nexus Challenge)</h2>
+        <p>Use o editor acima para escrever os algoritmos, descubra as respostas e digite-as abaixo para validar!</p>
+
+        <div class="desafio-box">
+          <div class="desafio-header">
+            <h4>Desafio 1: Múltiplos de 3 ou 5</h4>
+            <span style="font-size: 0.8rem; color: #10b981; font-weight: bold;">★ FÁCIL</span>
+          </div>
+          <p>Se listarmos todos os números naturais abaixo de 10 que são múltiplos de 3 ou 5, temos 3, 5, 6 e 9. A soma destes múltiplos é 23. <strong>Qual é a soma de todos os múltiplos de 3 ou 5 abaixo de 1.000?</strong></p>
+          <div class="desafio-input-group">
+            <input type="number" id="ans-1" class="desafio-input" placeholder="Sua resposta">
+            <button class="themed-button" onclick="checkAnswer(1, 233168)">VALIDAR</button>
+            <span id="feedback-1" style="margin-left: 10px; align-self: center; font-weight: bold;"></span>
+          </div>
+        </div>
+
+        <div class="desafio-box">
+          <div class="desafio-header">
+            <h4>Desafio 2: Maior Fator Primo</h4>
+            <span style="font-size: 0.8rem; color: #3b82f6; font-weight: bold;">★★ MÉDIO</span>
+          </div>
+          <p>Os fatores primos de 13195 são 5, 7, 13 e 29. <strong>Qual é o maior fator primo do número 600851475143?</strong></p>
+          <div class="desafio-input-group">
+            <input type="number" id="ans-2" class="desafio-input" placeholder="Sua resposta">
+            <button class="themed-button" onclick="checkAnswer(2, 6857)">VALIDAR</button>
+            <span id="feedback-2" style="margin-left: 10px; align-self: center; font-weight: bold;"></span>
+          </div>
+        </div>
+      </article>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AO INÍCIO</a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="js/matrix-rain.js" defer></script>
+<script src="js/class-selector.js" defer></script>
+<script src="js/theme-switcher.js" defer></script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+  <h3>Escolha um Tema:</h3>
+  <button data-theme="theme-default" title="Tema Padrão">Default</button>
+  <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+  <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+  <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+  <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+  <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+  <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+  <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+  <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+  <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+  <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+  <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+  <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+  <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+
+<!-- LÓGICA DO PLAYGROUND PYTHON & PYODIDE -->
+<script>
+  let pyodide = null;
+  let isPyodideLoading = true;
+
+  const SNIPPETS = {
+    primos: `# CRIVO DE ERATÓSTENES
+# Encontra todos os números primos até N em O(N log log N)
+
+def crivo_eratostenes(limite):
+    eh_primo = [True] * (limite + 1)
+    eh_primo[0] = eh_primo[1] = False
+    
+    for p in range(2, int(limite**0.5) + 1):
+        if eh_primo[p]:
+            for multiplo in range(p * p, limite + 1, p):
+                eh_primo[multiplo] = False
+                
+    return [i for i, primo in enumerate(eh_primo) if primo]
+
+limite = 100
+primos = crivo_eratostenes(limite)
+print(f"Total de primos ate {limite}: {len(primos)}")
+print("Lista de primos:", primos)
+`,
+
+    fibonacci: `# FIBONACCI & CONVERGÊNCIA PARA A RAZÃO ÁUREA (PHI)
+# phi = (1 + sqrt(5)) / 2 ≈ 1.6180339887...
+
+n_termos = 15
+fib = [1, 1]
+
+for i in range(2, n_termos):
+    fib.append(fib[-1] + fib[-2])
+
+print("Sequencia de Fibonacci:")
+print(fib)
+print("\\nConvergencia da razao F(n)/F(n-1) para Phi:")
+for i in range(2, n_termos):
+    razao = fib[i] / fib[i-1]
+    print(f"F({i+1})/F({i}) = {fib[i]}/{fib[i-1]} = {razao:.8f}")
+`,
+
+    euclides: `# ALGORITMO DE EUCLIDES: MDC e MMC
+def mdc(a, b):
+    passos = 0
+    while b != 0:
+        a, b = b, a % b
+        passos += 1
+    return a, passos
+
+def mmc(a, b):
+    m, _ = mdc(a, b)
+    return (a * b) // m
+
+x, y = 1071, 462
+resultado, iteracoes = mdc(x, y)
+print(f"MDC({x}, {y}) = {resultado} (encontrado em {iteracoes} passos)")
+print(f"MMC({x}, {y}) = {mmc(x, y)}")
+`,
+
+    bhaskara: `# RESOLUÇÃO DA EQUAÇÃO DO 2º GRAU E VÉRTICE
+# ax² + bx + c = 0
+
+import math
+
+def analisar_quadratica(a, b, c):
+    print(f"Equacao: ({a})x² + ({b})x + ({c}) = 0")
+    delta = b**2 - 4*a*c
+    xv = -b / (2*a)
+    yv = -delta / (4*a)
+    print(f"Discriminante Delta: {delta}")
+    print(f"Vertice da parabola: V = ({xv:.2f}, {yv:.2f})")
+    
+    if delta > 0:
+        x1 = (-b + math.sqrt(delta)) / (2*a)
+        x2 = (-b - math.sqrt(delta)) / (2*a)
+        print(f"Duas raizes reais distintas: x1 = {x1:.2f}, x2 = {x2:.2f}")
+    elif delta == 0:
+        x1 = -b / (2*a)
+        print(f"Uma raiz real dupla: x = {x1:.2f}")
+    else:
+        print("Delta < 0: Nao existem raizes reais (raizes complexas).")
+
+analisar_quadratica(1, -5, 6)
+`,
+
+    montecarlo: `# MÉTODO DE MONTE CARLO: ESTIMANDO O VALOR DE PI
+import random
+
+def estimar_pi(num_pontos):
+    dentro_circulo = 0
+    for _ in range(num_pontos):
+        x = random.random()
+        y = random.random()
+        if x**2 + y**2 <= 1.0:
+            dentro_circulo += 1
+            
+    # Area do quarto de circulo = pi / 4
+    pi_estimado = 4 * dentro_circulo / num_pontos
+    return pi_estimado
+
+pontos = 100_000
+pi_calc = estimar_pi(pontos)
+print(f"Pontos simulados: {pontos:,}")
+print(f"Valor estimado de Pi: {pi_calc:.5f}")
+print(f"Valor real de Pi:     3.14159...")
+erro = abs(pi_calc - 3.1415926535) / 3.1415926535 * 100
+print(f"Erro percentual: {erro:.3f}%")
+`,
+
+    montyhall: `# O PARADOXO DE MONTY HALL (10.000 SIMULAÇÕES)
+import random
+
+def simular_monty_hall(simulacoes=10000):
+    vitorias_sem_trocar = 0
+    vitorias_trocando = 0
+    
+    for _ in range(simulacoes):
+        portas = [0, 1, 2]
+        premio = random.randint(0, 2)
+        escolha_inicial = random.randint(0, 2)
+        
+        # Apresentador abre porta que nao tem o premio nem a escolha inicial
+        portas_restantes = [p for p in portas if p != escolha_inicial and p != premio]
+        porta_aberta = random.choice(portas_restantes)
+        
+        # Caso 1: mantem a porta
+        if escolha_inicial == premio:
+            vitorias_sem_trocar += 1
+            
+        # Caso 2: troca de porta
+        porta_trocada = [p for p in portas if p != escolha_inicial and p != porta_aberta][0]
+        if porta_trocada == premio:
+            vitorias_trocando += 1
+            
+    print(f"Simulacoes: {simulacoes}")
+    print(f"Taxa de vitoria SEM trocar: {vitorias_sem_trocar/simulacoes*100:.2f}% (esperado: 33.33%)")
+    print(f"Taxa de vitoria TROCANDO:   {vitorias_trocando/simulacoes*100:.2f}% (esperado: 66.67%)")
+
+simular_monty_hall()
+`,
+
+    matrizes: `# ÁLGEBRA LINEAR: PRODUTO E DETERMINANTE DE MATRIZES
+def determinante_2x2(M):
+    return M[0][0]*M[1][1] - M[0][1]*M[1][0]
+
+def multiplicar_matrizes(A, B):
+    linhas_A, cols_A = len(A), len(A[0])
+    linhas_B, cols_B = len(B), len(B[0])
+    
+    if cols_A != linhas_B:
+        raise ValueError("Numero de colunas de A deve ser igual ao numero de linhas de B.")
+        
+    resultado = [[0] * cols_B for _ in range(linhas_A)]
+    for i in range(linhas_A):
+        for j in range(cols_B):
+            for k in range(cols_A):
+                resultado[i][j] += A[i][k] * B[k][j]
+    return resultado
+
+A = [[2, 3], [1, 4]]
+B = [[5, 1], [0, 2]]
+
+print("Matriz A:", A)
+print(f"Determinante de A: {determinante_2x2(A)}")
+print("\\nMatriz B:", B)
+print(f"Determinante de B: {determinante_2x2(B)}")
+print("\\nProduto A x B:", multiplicar_matrizes(A, B))
+`
+  };
+
+  function loadSnippet(snippetId) {
+    if (SNIPPETS[snippetId]) {
+      document.getElementById('python-code').value = SNIPPETS[snippetId];
+    }
+  }
+
+  function clearOutput() {
+    document.getElementById('terminal-output').textContent = '';
+    document.getElementById('plot-area').style.display = 'none';
+  }
+
+  async function initPyodide() {
+    const statusText = document.getElementById('engine-status');
+    const statusDot = document.getElementById('engine-dot');
+    const terminal = document.getElementById('terminal-output');
+
+    try {
+      pyodide = await loadPyodide({
+        stdout: (text) => {
+          terminal.textContent += text + "\n";
+          terminal.scrollTop = terminal.scrollHeight;
+        },
+        stderr: (text) => {
+          terminal.textContent += "[ERRO] " + text + "\n";
+          terminal.scrollTop = terminal.scrollHeight;
+        }
+      });
+
+      isPyodideLoading = false;
+      statusDot.className = 'status-dot ready';
+      statusText.textContent = 'Python 3 (Pyodide Wasm) Pronto';
+      terminal.textContent = "Nexus Python Engine v3.11 [WebAssembly]\n" +
+                             "Pronto para executar! Pressione 'EXECUTAR' ou Ctrl+Enter.\n\n";
+
+      // Carregar primeiro snippet
+      loadSnippet('primos');
+    } catch (err) {
+      statusText.textContent = 'Falha ao carregar motor';
+      statusDot.style.background = '#ef4444';
+      terminal.textContent = "Erro ao iniciar Pyodide: " + err;
+    }
+  }
+
+  async function runPythonCode() {
+    if (isPyodideLoading || !pyodide) {
+      alert("O motor Python ainda está carregando no navegador. Aguarde alguns instantes...");
+      return;
+    }
+
+    const code = document.getElementById('python-code').value;
+    const terminal = document.getElementById('terminal-output');
+    const statusDot = document.getElementById('engine-dot');
+
+    terminal.textContent += ">>> Executando script...\n";
+    statusDot.className = 'status-dot running';
+
+    try {
+      await pyodide.runPythonAsync(code);
+      terminal.textContent += ">>> Execução concluída com sucesso.\n\n";
+    } catch (err) {
+      terminal.textContent += `\nTraceback / Erro:\n${err}\n\n`;
+    } finally {
+      statusDot.className = 'status-dot ready';
+      terminal.scrollTop = terminal.scrollHeight;
+    }
+  }
+
+  function checkAnswer(id, expected) {
+    const input = document.getElementById(`ans-${id}`);
+    const feedback = document.getElementById(`feedback-${id}`);
+    if (parseInt(input.value) === expected) {
+      feedback.style.color = '#10b981';
+      feedback.textContent = '✔ Correto! Excelente algoritmo!';
+    } else {
+      feedback.style.color = '#ef4444';
+      feedback.textContent = '✖ Tente novamente!';
+    }
+  }
+
+  // Atalho de teclado Ctrl + Enter para executar
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      runPythonCode();
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    initPyodide();
+
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

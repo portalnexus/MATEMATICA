@@ -164,6 +164,39 @@
                 "tipo": "manual",
                 "valor": 0
             }
+        },
+        {
+            "id": "py-primeiro-script",
+            "nome": "Primeiro Algoritmo",
+            "descricao": "Execute seu primeiro código matemático no terminal Nexus Python",
+            "categoria": "programacao",
+            "raridade": "comum",
+            "condicao": {
+                "tipo": "scripts_executados",
+                "valor": 1
+            }
+        },
+        {
+            "id": "py-crivo-primos",
+            "nome": "Mestre de Eratóstenes",
+            "descricao": "Encontre todos os números primos até 1.000 usando Python",
+            "categoria": "programacao",
+            "raridade": "raro",
+            "condicao": {
+                "tipo": "desafios_python",
+                "valor": 3
+            }
+        },
+        {
+            "id": "py-monte-carlo",
+            "nome": "Oráculo de Monte Carlo",
+            "descricao": "Aproxime o valor de pi por simulação probabilística",
+            "categoria": "programacao",
+            "raridade": "epico",
+            "condicao": {
+                "tipo": "desafios_python",
+                "valor": 5
+            }
         }
     ]
 }

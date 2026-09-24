@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Python Módulo 3: Probabilidade & Simulação Monte Carlo</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .code-block {
+      background: #090d16;
+      border: 1px solid var(--container-border-color);
+      border-radius: 6px;
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+      position: relative;
+      overflow-x: auto;
+    }
+
+    .code-block pre {
+      margin: 0;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #38bdf8;
+    }
+
+    .code-comment { color: #64748b; font-style: italic; }
+    .code-keyword { color: #f43f5e; font-weight: 600; }
+    .code-func { color: #a855f7; }
+    .code-str { color: #34d399; }
+    .code-num { color: #fbbf24; }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--container-border-color);
+      color: var(--secondary-text-color);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: var(--link-color);
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../python.html" class="nav-button">PYTHON</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+
+  <div class="container">
+    <article>
+      <div style="margin-bottom: 1.5rem;">
+        <span class="badge-nivel" style="background: rgba(59, 130, 246, 0.3); border: 1px solid #3b82f6; color: #60a5fa;">MÓDULO COMPUTACIONAL 03</span>
+      </div>
+
+      <h1>Probabilidade Experimental & O Método de Monte Carlo</h1>
+
+      <p class="section-intro">
+        Quando um problema probabilístico é excessivamente complexo para resolver analiticamente no papel, os matemáticos recorrem a <strong>Simulações de Monte Carlo</strong>: realizamos milhões de experimentos aleatórios virtuais para obter respostas com extrema acurácia.
+      </p>
+
+      <section>
+        <h2>1. A Lei dos Grandes Números</h2>
+        <div class="destaque-box teorema">
+          <h3>Teorema: Lei Fraca dos Grandes Números (Khinchin)</h3>
+          <p>
+            À medida que o número de repetições @n@ de um experimento aleatório cresce (@n \to \infty@), a média observada @\bar{X}_n@ converge em probabilidade para o valor esperado teórico @\mu = E[X]@:
+          </p>
+          <p>@@ \lim_{n \to \infty} P(|\bar{X}_n - \mu| \ge \varepsilon) = 0, \quad \forall \varepsilon > 0 @@</p>
+        </div>
+
+        <p>Veja a simulação do lançamento de uma moeda honesta (@P(\text{Cara}) = 0{,}5@):</p>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre><code><span class="code-keyword">import</span> random
+
+<span class="code-keyword">def</span> <span class="code-func">simular_lancamentos</span>(n):
+    caras = <span class="code-num">0</span>
+    <span class="code-keyword">for</span> _ <span class="code-keyword">in</span> <span class="code-func">range</span>(n):
+        <span class="code-keyword">if</span> random.random() < <span class="code-num">0.5</span>:
+            caras += <span class="code-num">1</span>
+    frequencia = caras / n
+    <span class="code-func">print</span>(<span class="code-str">f"Lançamentos: {n:>7} | Caras: {caras:>6} | Frequência: {frequencia:.4f}"</span>)
+
+<span class="code-keyword">for</span> n <span class="code-keyword">in</span> [<span class="code-num">10</span>, <span class="code-num">100</span>, <span class="code-num">1000</span>, <span class="code-num">10000</span>, <span class="code-num">100000</span>]:
+    simular_lancamentos(n)</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>2. Estimando o Número @\pi@ com Dardos Aleatórios</h2>
+        <div class="destaque-box definicao">
+          <h3>Fundamentação Geométrica</h3>
+          <p>
+            Considere um quarto de círculo de raio @r = 1@ inscrito em um quadrado de lado @1@.
+            <br>Área do quarto de círculo: @A_{\text{setor}} = \frac{\pi r^2}{4} = \frac{\pi}{4}@
+            <br>Área do quadrado unitário: @A_{\text{quadrado}} = 1 \times 1 = 1@
+            <br>A probabilidade de um ponto aleatório @(x, y) \in [0, 1] \times [0, 1]@ cair dentro do círculo (@x^2 + y^2 \le 1@) é:
+          </p>
+          <p>@@ P(\text{dentro}) = \frac{A_{\text{setor}}}{A_{\text{quadrado}}} = \frac{\pi}{4} \implies \pi = 4 \cdot P(\text{dentro}) @@</p>
+        </div>
+
+        <div class="exemplo-resolvido">
+          <h3>Simulação de Monte Carlo Completa</h3>
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre><code><span class="code-keyword">import</span> random
+<span class="code-keyword">import</span> math
+
+<span class="code-keyword">def</span> <span class="code-func">monte_carlo_pi</span>(pontos):
+    dentro = <span class="code-num">0</span>
+    <span class="code-keyword">for</span> _ <span class="code-keyword">in</span> <span class="code-func">range</span>(pontos):
+        x = random.uniform(<span class="code-num">0</span>, <span class="code-num">1</span>)
+        y = random.uniform(<span class="code-num">0</span>, <span class="code-num">1</span>)
+        <span class="code-keyword">if</span> x**<span class="code-num">2</span> + y**<span class="code-num">2</span> <= <span class="code-num">1.0</span>:
+            dentro += <span class="code-num">1</span>
+            
+    pi_aprox = <span class="code-num">4</span> * (dentro / pontos)
+    erro = <span class="code-func">abs</span>(pi_aprox - math.pi) / math.pi * <span class="code-num">100</span>
+    <span class="code-func">print</span>(<span class="code-str">f"Pontos: {pontos:,} | Pi estimado: {pi_aprox:.5f} | Erro: {erro:.3f}%"</span>)
+
+monte_carlo_pi(<span class="code-num">500_000</span>)</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>3. Resolvendo o Paradoxo de Monty Hall</h2>
+        <div class="destaque-box observacao">
+          <h3>O Dilema das Três Portas</h3>
+          <p>
+            Em um programa de TV, existem 3 portas: atrás de uma há um carro esportivo, e atrás das outras duas, cabras. Você escolhe uma porta. O apresentador (que sabe o que há atrás de cada uma) abre uma das outras duas portas revelando uma cabra e pergunta: <em>"Você deseja trocar de porta?"</em>
+            <br><strong>Vale a pena trocar?</strong> Sim! Trocar dobra sua chance de vitória (@\frac{2}{3}@ vs @\frac{1}{3}@).
+          </p>
+        </div>
+
+        <div class="code-block">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre><code><span class="code-keyword">def</span> <span class="code-func">teste_monty_hall</span>(n_jogos=<span class="code-num">50000</span>):
+    sem_troca = <span class="code-num">0</span>
+    com_troca = <span class="code-num">0</span>
+    
+    <span class="code-keyword">for</span> _ <span class="code-keyword">in</span> <span class="code-func">range</span>(n_jogos):
+        portas = [<span class="code-num">0</span>, <span class="code-num">1</span>, <span class="code-num">2</span>]
+        premio = random.randint(<span class="code-num">0</span>, <span class="code-num">2</span>)
+        escolha = random.randint(<span class="code-num">0</span>, <span class="code-num">2</span>)
+        
+        <span class="code-comment"># Apresentador revela uma cabra que não foi a escolha</span>
+        aberta = [p <span class="code-keyword">for</span> p <span class="code-keyword">in</span> portas <span class="code-keyword">if</span> p != escolha <span class="code-keyword">and</span> p != premio][<span class="code-num">0</span>]
+        troca = [p <span class="code-keyword">for</span> p <span class="code-keyword">in</span> portas <span class="code-keyword">if</span> p != escolha <span class="code-keyword">and</span> p != aberta][<span class="code-num">0</span>]
+        
+        <span class="code-keyword">if</span> escolha == premio:
+            sem_troca += <span class="code-num">1</span>
+        <span class="code-keyword">if</span> troca == premio:
+            com_troca += <span class="code-num">1</span>
+            
+    <span class="code-func">print</span>(<span class="code-str">f"Vitórias Mantendo a Porta: {sem_troca/n_jogos*100:.2f}% (Teórico: 33.3%)"</span>)
+    <span class="code-func">print</span>(<span class="code-str">f"Vitórias Trocando a Porta:  {com_troca/n_jogos*100:.2f}% (Teórico: 66.7%)"</span>)
+
+teste_monty_hall()</code></pre>
+        </div>
+      </section>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../python.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">TESTAR NO PLAYGROUND</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copiado!';
+      setTimeout(() => btn.textContent = 'Copiar', 2000);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

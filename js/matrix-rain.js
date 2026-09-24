@@ -57,14 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Draw function
     function draw() {
-        // Conditional Background Fill for Trails
-        if (document.body.classList.contains('theme-light-classic-neon-red')) {
-            // For light theme: white background with red letters
-            // Use a semi-transparent white for the trail effect on a white CSS background
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.15)'; // Adjust alpha for desired trail length
+        if (document.body.classList.contains('theme-paper-light') || 
+            document.body.classList.contains('theme-solarized-light') || 
+            document.body.classList.contains('theme-light-classic-neon-red')) {
+            // Para temas claros: rastro translúcido compatível com o tom de fundo claro
+            ctx.fillStyle = document.body.classList.contains('theme-solarized-light') 
+                ? 'rgba(251, 241, 199, 0.15)' 
+                : 'rgba(241, 245, 249, 0.15)';
         } else {
-            // For dark themes: default semi-transparent black for trails
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            // Para temas escuros: rastro translúcido escuro
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.06)';
         }
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 

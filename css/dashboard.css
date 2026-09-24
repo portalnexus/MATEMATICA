@@ -27,15 +27,49 @@
     /* Ajustado para melhor equilíbrio */
 }
 
+.hud-status-badge {
+    display: inline-block;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.65rem;
+    color: var(--link-color);
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--link-color);
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 12px rgba(0, 255, 100, 0.2);
+    margin-bottom: 0.5rem;
+}
+
 .dashboard-box {
-    border-radius: var(--container-border-radius);
-    padding: 15px;
-    border: 1px solid var(--secondary-text-color);
-    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: var(--container-border-radius, 8px);
+    padding: 16px;
+    border: 1px solid var(--container-border-color, var(--secondary-text-color));
+    background-color: var(--content-box-bg-color, rgba(10, 15, 25, 0.65));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     min-height: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.dashboard-box:hover {
+    border-color: var(--link-color);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+.area-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.65rem;
+    color: var(--link-color);
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    display: block;
+    text-transform: uppercase;
 }
 
 /* --- Mapeamento das Áreas --- */
@@ -47,12 +81,20 @@
     grid-area: lvl;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 #avatar-area {
     grid-area: avatar;
-    padding: 0;
+    padding: 6px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--link-color);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 #progresso-area {
@@ -91,16 +133,30 @@
 #id-input {
     flex-grow: 1;
     margin-right: 10px;
-    font-family: 'Press Start 2P';
+    font-family: 'Press Start 2P', monospace;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     min-width: 0;
+    padding: 8px 10px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--secondary-text-color);
+    color: var(--link-color);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+#id-input:focus {
+    outline: none;
+    border-color: var(--link-color);
+    box-shadow: 0 0 10px rgba(0, 255, 100, 0.3);
 }
 
 #user-name {
     flex-grow: 1;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
     color: var(--link-color);
+    letter-spacing: 0.5px;
 }
 
 #login-btn,
@@ -108,26 +164,78 @@
     background: transparent;
     border: 2px solid var(--link-color);
     color: var(--link-color);
-    font-family: 'Press Start 2P';
-    font-size: 1.2rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1rem;
     cursor: pointer;
-    padding: 5px 12px;
-    transition: all 0.2s;
+    padding: 7px 14px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
 }
 
 #login-btn:hover,
 #logout-btn:hover {
-    background: var(--link-hover-color);
+    background: var(--link-color);
     color: var(--primary-bg-color);
+    box-shadow: 0 0 10px var(--link-color);
 }
 
 #error-message {
     position: absolute;
-    bottom: -20px;
+    bottom: -18px;
     left: 15px;
     font-family: 'Fira Sans', sans-serif;
-    color: #E54D42;
-    font-size: 0.8rem;
+    color: #ef4444;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Demo Chips de Acesso Rápido */
+.demo-chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--secondary-text-color);
+}
+
+.demo-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: var(--secondary-text-color);
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+.demo-chip {
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid var(--secondary-text-color);
+    color: var(--main-text-color);
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.demo-chip:hover {
+    border-color: var(--link-color);
+    color: var(--link-color);
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-1px);
+}
+
+.demo-chip.chip-prof {
+    border-color: #f59e0b;
+    color: #fbbf24;
+}
+
+.demo-chip.chip-prof:hover {
+    background: rgba(245, 158, 11, 0.2);
+    border-color: #fbbf24;
+    color: #fef08a;
 }
 
 .hidden {
@@ -136,17 +244,21 @@
 
 /* --- Outros Ajustes --- */
 #lvl {
-    font-size: 2.5rem;
-    line-height: 1;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 2.2rem;
+    line-height: 1.1;
     text-align: center;
+    color: var(--link-color);
+    text-shadow: 0 0 10px var(--link-color);
 }
 
 #avatar-img {
     width: 100%;
     height: 100%;
+    max-height: 110px;
     object-fit: cover;
     border: none;
-    border-radius: 0;
+    border-radius: 4px;
 }
 
 .progress-bar-container {
@@ -255,14 +367,31 @@
 }
 
 .bar {
-    width: 25px;
+    width: 26px;
     background-color: var(--link-color);
-    border-radius: 3px 3px 0 0;
-    transition: height 0.8s ease-in-out;
+    border-radius: 4px 4px 0 0;
+    transition: height 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s;
+    cursor: pointer;
+}
+
+.bar.nota-alta {
+    background: linear-gradient(180deg, #10b981, #059669);
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.bar.nota-media {
+    background: linear-gradient(180deg, #f59e0b, #d97706);
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
+.bar.nota-baixa {
+    background: linear-gradient(180deg, #ef4444, #dc2626);
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
 }
 
 .bar:hover {
-    background-color: var(--link-hover-color);
+    filter: brightness(1.25);
+    transform: scaleX(1.1);
 }
 
 .nota-rotulo {
@@ -385,12 +514,18 @@
 
 /* --- Gráfico de Evolução --- */
 #evolucao-container {
-    min-height: 150px;
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--secondary-text-color);
+    width: 100%;
 }
 
 #evolucao-grafico {
     width: 100%;
-    height: 100px;
+    height: 110px;
+    display: block;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 /* --- Melhorias em Troféus --- */
@@ -728,37 +863,75 @@
   MEDIA QUERIES PARA DESIGN RESPONSIVO
 ================================================================================
 */
-/* --- Seletor de Etapas (Discreto e Simples) --- */
+/* --- Seletor de Etapas (Discreto e Tecnológico) --- */
 #etapa-selector {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 15px;
+    gap: 15px;
+    margin-bottom: 20px;
     padding: 8px 0;
+    flex-wrap: wrap;
 }
 
 .etapa-btn {
-    padding: 4px 12px;
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
+    padding: 8px 16px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.72rem;
     color: var(--secondary-text-color);
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid transparent;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--secondary-text-color);
+    border-radius: 6px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 130px;
 }
 
 .etapa-btn:hover {
-    color: var(--text-color);
-    border-bottom-color: var(--secondary-text-color);
+    color: var(--main-text-color);
+    border-color: var(--link-color);
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateY(-1px);
 }
 
 .etapa-btn.active {
-    color: var(--link-color);
-    border-bottom-color: var(--link-color);
+    color: var(--primary-bg-color);
+    background-color: var(--link-color);
+    border-color: var(--link-color);
+    box-shadow: 0 0 12px var(--link-color);
+}
+
+.etapa-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--secondary-text-color);
+}
+
+.etapa-btn.active .etapa-info {
+    color: var(--primary-bg-color);
+}
+
+.etapa-media {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+.etapa-missoes-count {
+    font-size: 0.7rem;
+}
+
+.etapa-status-icon {
+    font-size: 0.75rem;
 }
 
 

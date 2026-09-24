@@ -215,63 +215,114 @@ function renderizarTrofeusBloqueados(usuario) {
 }
 
 /**
- * Desenha o gráfico de evolução de notas
+ * Desenha o gráfico de evolução de notas (tendência histórica entre Etapas)
  */
 function desenharGraficoEvolucao(usuario) {
     const canvas = document.getElementById('evolucao-grafico');
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
-    const width = canvas.width = canvas.offsetWidth;
-    const height = canvas.height = 100;
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    const width = rect.width || canvas.parentElement?.clientWidth || 300;
+    const height = 110;
 
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
     ctx.clearRect(0, 0, width, height);
 
+    const etapasLabels = ['Etapa I', 'Etapa II', 'Etapa III'];
     const medias = ['1', '2', '3'].map(etapa => {
+        if (!usuario.etapas || !usuario.etapas[etapa] || !usuario.etapas[etapa].notas) return 0;
         const notas = usuario.etapas[etapa].notas;
         return notas.reduce((a, b) => a + b, 0) / notas.length;
     });
 
     const max = 10;
     const min = 0;
-    const padding = 20;
-    const graphHeight = height - padding * 2;
-    const graphWidth = width - padding * 2;
+    const paddingTop = 26;
+    const paddingBottom = 26;
+    const paddingX = 40;
+    const graphHeight = height - paddingTop - paddingBottom;
+    const graphWidth = width - paddingX * 2;
 
-    // Desenhar linhas de grade
-    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--secondary-text-color').trim();
-    ctx.lineWidth = 0.5;
-    for (let i = 0; i <= 5; i++) {
-        const y = padding + (graphHeight / 5) * i;
+    const computedStyles = getComputedStyle(document.documentElement);
+    const linkColor = computedStyles.getPropertyValue('--link-color').trim() || '#00ff66';
+    const secondaryColor = computedStyles.getPropertyValue('--secondary-text-color').trim() || '#888888';
+    const headingColor = computedStyles.getPropertyValue('--heading-text-color').trim() || '#ffffff';
+
+    // Linhas de referência (horizontal)
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+    ctx.lineWidth = 1;
+    [0, 5, 10].forEach(val => {
+        const y = height - paddingBottom - (val / 10) * graphHeight;
         ctx.beginPath();
-        ctx.moveTo(padding, y);
-        ctx.lineTo(width - padding, y);
+        ctx.setLineDash([3, 3]);
+        ctx.moveTo(paddingX, y);
+        ctx.lineTo(width - paddingX, y);
         ctx.stroke();
-    }
+    });
+    ctx.setLineDash([]);
 
-    // Desenhar linha de evolução
-    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--link-color').trim();
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-
-    medias.forEach((media, index) => {
-        const x = padding + (graphWidth / 2) * index;
-        const y = height - padding - ((media - min) / (max - min)) * graphHeight;
-
-        if (index === 0) {
-            ctx.moveTo(x, y);
-        } else {
-            ctx.lineTo(x, y);
-        }
-
-        // Desenhar ponto
-        ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--link-color').trim();
-        ctx.beginPath();
-        ctx.arc(x, y, 4, 0, Math.PI * 2);
-        ctx.fill();
+    // Coordenadas dos pontos
+    const points = medias.map((media, index) => {
+        const x = paddingX + (graphWidth / 2) * index;
+        const y = height - paddingBottom - ((media - min) / (max - min)) * graphHeight;
+        return { x, y, media, label: etapasLabels[index] };
     });
 
+    // Gradiente suave abaixo da curva
+    const gradient = ctx.createLinearGradient(0, paddingTop, 0, height - paddingBottom);
+    gradient.addColorStop(0, 'rgba(0, 255, 100, 0.25)');
+    gradient.addColorStop(1, 'rgba(0, 255, 100, 0.0)');
+
+    ctx.beginPath();
+    ctx.moveTo(points[0].x, points[0].y);
+    for (let i = 1; i < points.length; i++) {
+        ctx.lineTo(points[i].x, points[i].y);
+    }
+    ctx.lineTo(points[points.length - 1].x, height - paddingBottom);
+    ctx.lineTo(points[0].x, height - paddingBottom);
+    ctx.closePath();
+    ctx.fillStyle = gradient;
+    ctx.fill();
+
+    // Linha de evolução
+    ctx.strokeStyle = linkColor;
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.moveTo(points[0].x, points[0].y);
+    for (let i = 1; i < points.length; i++) {
+        ctx.lineTo(points[i].x, points[i].y);
+    }
     ctx.stroke();
+
+    // Desenhar pontos, valores e rótulos
+    points.forEach((pt) => {
+        // Ponto circular
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, 4.5, 0, Math.PI * 2);
+        ctx.fillStyle = '#0a0e14';
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = linkColor;
+        ctx.stroke();
+
+        // Rótulo da média acima do ponto
+        ctx.fillStyle = headingColor;
+        ctx.font = 'bold 10px "Fira Sans", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(pt.media.toFixed(1), pt.x, pt.y - 8);
+
+        // Rótulo da Etapa abaixo do gráfico
+        ctx.fillStyle = secondaryColor;
+        ctx.font = '8px "Press Start 2P", monospace';
+        ctx.fillText(pt.label, pt.x, height - 8);
+    });
 }
 
 /**
@@ -441,6 +492,16 @@ function exportarDadosCSV(alunos) {
 function preencherPainel(usuario, id, etapa) {
     // Se for professor, renderizar dashboard específico
     if (id === 'PR0F1') {
+        userNameSpan.innerText = usuario.nome;
+        idForm.classList.add('hidden');
+        const demoChips = document.getElementById('demo-chips');
+        if (demoChips) demoChips.classList.add('hidden');
+        userDisplay.classList.remove('hidden');
+
+        document.getElementById('lvl').innerText = 'PR0F';
+        document.getElementById('avatar-img').src = 'data/avatar/PR0F1.jpg';
+        document.getElementById('progress-bar-fill').style.width = '100%';
+        document.getElementById('progress-bar-text').innerText = 'MODO INSTRUTOR / GESTÃO DOCENTE';
         renderizarDashboardProfessor();
         return;
     }
@@ -449,6 +510,8 @@ function preencherPainel(usuario, id, etapa) {
     if (etapa === '1') { // Preenche apenas na primeira carga
         userNameSpan.innerText = usuario.nome;
         idForm.classList.add('hidden');
+        const demoChips = document.getElementById('demo-chips');
+        if (demoChips) demoChips.classList.add('hidden');
         userDisplay.classList.remove('hidden');
 
         document.getElementById('lvl').innerText = `${usuario.lvl}`;
@@ -493,15 +556,17 @@ function preencherPainel(usuario, id, etapa) {
         renderizarTrofeusBloqueados(usuario);
 
         const areaMencoes = document.getElementById('mencoes');
-        areaMencoes.innerHTML = 'MENÇÕES';
-        usuario.mencoes.forEach(mencao => {
-            const span = document.createElement('span');
-            span.className = 'mencao-item';
-            span.innerText = mencao.nome;
-            span.setAttribute('data-tooltip', mencao.descricao);
-            attachTooltipEvents(span);
-            areaMencoes.appendChild(span);
-        });
+        areaMencoes.innerHTML = '<span class="area-title">MENÇÕES DE HONRA</span>';
+        if (usuario.mencoes && usuario.mencoes.length > 0) {
+            usuario.mencoes.forEach(mencao => {
+                const span = document.createElement('span');
+                span.className = 'mencao-item';
+                span.innerText = `🎖️ ${mencao.nome}`;
+                span.setAttribute('data-tooltip', mencao.descricao);
+                attachTooltipEvents(span);
+                areaMencoes.appendChild(span);
+            });
+        }
 
         // Adicionar tooltips na legenda de disciplinas
         document.querySelectorAll('#legenda-disciplinas span').forEach(span => {
@@ -561,7 +626,7 @@ function preencherPainel(usuario, id, etapa) {
     }
 
     const media = dadosEtapa.notas.reduce((acc, nota) => acc + nota, 0) / dadosEtapa.notas.length;
-    document.getElementById('media-notas').innerText = isNaN(media) ? 'N/A' : media.toFixed(1);
+    document.getElementById('media-notas').innerText = isNaN(media) ? 'MÉDIA: N/A' : `MÉDIA: ${media.toFixed(1)}`;
 
     const graficoNotas = document.getElementById('notas-grafico');
     const rotulosNotas = ["MDA", "MDEP", "NIF", "NAAG", "PORT"];
@@ -570,8 +635,11 @@ function preencherPainel(usuario, id, etapa) {
         const coluna = document.createElement('div');
         coluna.className = 'nota-coluna';
         const barra = document.createElement('div');
-        barra.className = 'bar';
-        barra.setAttribute('data-tooltip', `Nota: ${nota.toFixed(1)}`);
+        let classeNota = 'nota-alta';
+        if (nota < 5.0) classeNota = 'nota-baixa';
+        else if (nota < 7.0) classeNota = 'nota-media';
+        barra.className = `bar ${classeNota}`;
+        barra.setAttribute('data-tooltip', `${rotulosNotas[index] || 'Disciplina'}: ${nota.toFixed(1)}`);
         const rotulo = document.createElement('span');
         rotulo.className = 'nota-rotulo';
         rotulo.innerText = rotulosNotas[index] || 'N/A';
@@ -583,6 +651,9 @@ function preencherPainel(usuario, id, etapa) {
         graficoNotas.appendChild(coluna);
     });
 
+    // Renderizar curva de evolução histórica
+    desenharGraficoEvolucao(usuario);
+
     console.log(`[Dashboard Debug] Painel preenchido para o usuário: ${id}, Etapa: ${etapa}`);
 }
 
@@ -593,6 +664,12 @@ function limparPainel() {
     idInput.value = '';
     userDisplay.classList.add('hidden');
     idForm.classList.remove('hidden');
+    const demoChips = document.getElementById('demo-chips');
+    if (demoChips) demoChips.classList.remove('hidden');
+
+    try {
+        localStorage.removeItem('nexus_dashboard_last_id');
+    } catch (e) {}
 
     usuarioAtual = null;
     idAtual = null;
@@ -621,10 +698,17 @@ function limparPainel() {
     document.getElementById('trofeus-bloqueados-grid').innerHTML = '';
     document.getElementById('lista-missoes').innerHTML = '';
     document.getElementById('notas-grafico').innerHTML = '';
-    document.getElementById('media-notas').innerText = '0.0';
-    document.getElementById('mencoes').innerHTML = 'MENÇÕES';
+    document.getElementById('media-notas').innerText = 'MÉDIA: 0.0';
+    document.getElementById('mencoes').innerHTML = '<span class="area-title">MENÇÕES DE HONRA</span>';
     document.getElementById('progress-bar-fill').style.width = '0%';
     document.getElementById('progress-bar-text').innerText = '0 / 0 EXP';
+
+    // Limpar gráfico de evolução
+    const canvas = document.getElementById('evolucao-grafico');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
 
     // Limpar estatísticas
     document.getElementById('stat-turma').innerText = '-';
@@ -673,6 +757,24 @@ async function buscarUsuario() {
             usuarioAtual = usuario;
             idAtual = inputId;
             etapaAtual = '1'; // Reseta para a etapa 1 ao logar
+
+            // Salvar sessão no localStorage
+            try {
+                localStorage.setItem('nexus_dashboard_last_id', inputId);
+            } catch (e) {
+                console.warn("Não foi possível salvar sessão no localStorage:", e);
+            }
+
+            // Sincronizar turma do estudante com o Portal Nexus
+            if (usuario.turma) {
+                try {
+                    localStorage.setItem('selectedClass', usuario.turma);
+                    window.dispatchEvent(new CustomEvent('classChanged', { detail: { class: usuario.turma } }));
+                } catch (e) {
+                    console.warn("Não foi possível sincronizar turma:", e);
+                }
+            }
+
             preencherPainel(usuario, inputId, etapaAtual);
         } else {
             exibirErro("ID não encontrado.");
@@ -809,5 +911,35 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!sharedTooltip) {
         console.error("ERRO CRÍTICO: #shared-tooltip não encontrado.");
     }
+
+    // Configurar chips de demonstração (acesso rápido com 1 clique)
+    document.querySelectorAll('.demo-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const id = chip.getAttribute('data-id');
+            if (id) {
+                idInput.value = id;
+                buscarUsuario();
+            }
+        });
+    });
+
+    // Redimensionar gráfico de evolução dinamicamente
+    window.addEventListener('resize', () => {
+        if (usuarioAtual && idAtual !== 'PR0F1') {
+            desenharGraficoEvolucao(usuarioAtual);
+        }
+    });
+
     limparPainel();
+
+    // Auto-login se houver sessão salva
+    try {
+        const savedId = localStorage.getItem('nexus_dashboard_last_id');
+        if (savedId) {
+            idInput.value = savedId;
+            buscarUsuario();
+        }
+    } catch (e) {
+        console.warn("Não foi possível restaurar sessão salva:", e);
+    }
 });

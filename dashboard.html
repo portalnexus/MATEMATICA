@@ -2,12 +2,13 @@
 <html lang="pt-BR">
 
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEXUS - Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
@@ -18,41 +19,59 @@
 
 <body>
     <div id="page-wrapper">
-        <nav>
-            <ul>
-                <li><a href="index.html" class="nav-button">INÍCIO</a></li>
-                <li><a href="recursos.html" class="nav-button">RECURSOS</a></li>
-                <li><a href="python.html" class="nav-button">PYTHON</a></li>
-                <li><a href="dashboard.html" class="nav-button">DASHBOARD</a></li>
-                <!-- Seletor de turma será adicionado aqui pelo class-selector.js -->
-            </ul>
-        </nav>
+          <nav>
+    <ul>
+      <li><a href="index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="python.html" class="nav-button">PYTHON</a></li>
+      <li><a href="dashboard.html" class="nav-button active">DASHBOARD</a></li>
+    </ul>
+  </nav>
 
         <div class="container">
+            <header style="text-align: center; margin-bottom: 1.5rem;">
+                <span class="hud-status-badge">&gt;&gt; NEXUS ACADEMIC HUD // TERMINAL DE DESEMPENHO</span>
+                <h1 style="font-size: 1.8rem; margin: 0.5rem 0;">Painel de Controle do Estudante</h1>
+            </header>
+
             <article>
                 <!-- Seletor de Etapas -->
                 <div id="etapa-selector">
-                    <button class="etapa-btn active" data-etapa="1">I</button>
-                    <button class="etapa-btn" data-etapa="2">II</button>
-                    <button class="etapa-btn" data-etapa="3">III</button>
+                    <button class="etapa-btn active" data-etapa="1">ETAPA I</button>
+                    <button class="etapa-btn" data-etapa="2">ETAPA II</button>
+                    <button class="etapa-btn" data-etapa="3">ETAPA III</button>
                 </div>
 
                 <div class="dashboard-grid">
                     <!-- Linha 1: ID Input/Nome, Nível e Avatar -->
                     <div id="id-area" class="dashboard-box">
+                        <span class="area-title">AUTENTICAÇÃO</span>
                         <div id="id-form">
-                            <input type="text" id="id-input" placeholder="ID" maxlength="5">
-                            <button id="login-btn">&gt;</button>
+                            <input type="text" id="id-input" placeholder="ID (ex: BR123)" maxlength="5" autocomplete="off" spellcheck="false">
+                            <button id="login-btn" title="Entrar">&gt;</button>
                         </div>
                         <div id="user-display" class="hidden">
                             <span id="user-name"></span>
-                            <button id="logout-btn">&lt;</button>
+                            <button id="logout-btn" title="Sair do perfil">&lt;</button>
                         </div>
                         <div id="error-message"></div>
+
+                        <!-- Chips de Acesso Rápido para Demonstração -->
+                        <div id="demo-chips" class="demo-chips-container">
+                            <span class="demo-label">Acesso Rápido:</span>
+                            <button type="button" class="demo-chip" data-id="BR123">Beatriz (9A)</button>
+                            <button type="button" class="demo-chip" data-id="LM456">Lucas (1A)</button>
+                            <button type="button" class="demo-chip" data-id="JV789">Juliana (2EM)</button>
+                            <button type="button" class="demo-chip" data-id="RA987">Rafael (3EM)</button>
+                            <button type="button" class="demo-chip chip-prof" data-id="PR0F1">Professor</button>
+                        </div>
                     </div>
+
                     <div id="lvl-area" class="dashboard-box">
+                        <span class="area-title">NÍVEL</span>
                         <div id="lvl">LVL</div>
                     </div>
+
                     <div id="avatar-area" class="dashboard-box">
                         <img id="avatar-img" src="data/avatar/default_avatar.png"
                             onerror="this.src='data/avatar/default_avatar.png'; this.onerror=null;"
@@ -61,7 +80,7 @@
 
                     <!-- Linha 2: Barra de Progresso -->
                     <div id="progresso-area" class="dashboard-box">
-                        <span class="area-title">PROGRESSO</span>
+                        <span class="area-title">PROGRESSO DE EXPERIÊNCIA</span>
                         <div class="progress-bar-container">
                             <div id="progress-bar-fill"></div>
                             <span id="progress-bar-text">0 / 0 EXP</span>
@@ -70,7 +89,7 @@
 
                     <!-- Linha 2.5: Painel de Estatísticas Gerais -->
                     <div id="estatisticas-area" class="dashboard-box">
-                        <span class="area-title">ESTATÍSTICAS</span>
+                        <span class="area-title">ESTATÍSTICAS GERAIS</span>
                         <div class="stats-grid">
                             <div class="stat-item">
                                 <span class="stat-value" id="stat-turma">-</span>
@@ -93,6 +112,7 @@
 
                     <!-- Linha 3: Troféus -->
                     <div id="trofeus-area" class="dashboard-box">
+                        <span class="area-title">CONQUISTAS E TROFÉUS</span>
                         <div id="trofeus-conquistados"></div>
                         <div id="trofeus-proximos">
                             <h4>PRÓXIMAS CONQUISTAS</h4>
@@ -100,19 +120,24 @@
                         </div>
                     </div>
 
-                    <!-- Linha 4: Missões e Sidebar (Notas e Menções) -->
+                    <!-- Linha 4: Missões -->
                     <div id="missoes-area" class="dashboard-box">
-                        <span class="area-title">MISSÕES</span>
+                        <span class="area-title">MISSÕES DA ETAPA</span>
                         <ul id="lista-missoes">
                             <!-- Missões serão carregadas via JS -->
                         </ul>
                     </div>
 
-                    <div id="professor-area" class="dashboard-box hidden">
-                        <span class="area-title">PAINEL DO PROFESSOR</span>
+                    <!-- Linha 4 (Alternativa): Painel do Professor -->
+                    <div id="professor-dashboard" class="dashboard-box hidden">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+                            <span class="area-title" style="margin: 0;">PAINEL DE GESTÃO DOCENTE</span>
+                            <button id="export-csv-btn" class="themed-button" style="font-size: 0.75rem; padding: 0.4rem 0.8rem;">📥 EXPORTAR CSV</button>
+                        </div>
                         <div id="professor-filter">
-                            <label for="professor-turma-select">Turma:</label>
+                            <label for="professor-turma-select">Filtrar Turma:</label>
                             <select id="professor-turma-select">
+                                <option value="all">Todas as Turmas</option>
                                 <option value="9A">9º Ano A</option>
                                 <option value="9B">9º Ano B</option>
                                 <option value="1A">1º Ano EM A</option>
@@ -138,52 +163,87 @@
                             </table>
                         </div>
                         <div id="professor-alertas">
-                            <h4>ALERTAS</h4>
+                            <h4>ALERTAS PEDAGÓGICOS (INTERVENÇÃO PRIORITÁRIA)</h4>
                             <ul id="alertas-list"></ul>
                         </div>
                     </div>
-                </div>
 
-                <div id="sidebar-area">
-                    <div id="notas-container" class="dashboard-box">
-                        <div id="media-notas">MÉDIA: 0.0</div>
-                        <span class="area-title">NOTAS</span>
-                        <div id="notas-grafico"></div>
-                        <div id="legenda-disciplinas">
-                            <span data-tooltip="Matemática Discreta e Aplicada">MDA</span>
-                            <span data-tooltip="Matemática Discreta e Pensamento Lógico">MDEP</span>
-                            <span data-tooltip="Números e Funções">NIF</span>
-                            <span data-tooltip="Números, Álgebra e Geometria">NAAG</span>
-                            <span data-tooltip="Português">PORT</span>
+                    <!-- Sidebar de Notas e Menções -->
+                    <div id="sidebar-area">
+                        <div id="notas-container" class="dashboard-box">
+                            <div id="media-notas">MÉDIA: 0.0</div>
+                            <span class="area-title">DESEMPENHO POR DISCIPLINA</span>
+                            <div id="notas-grafico"></div>
+                            <div id="evolucao-container">
+                                <canvas id="evolucao-grafico"></canvas>
+                            </div>
+                            <div id="legenda-disciplinas">
+                                <span data-tooltip="Matemática Discreta e Aplicada">MDA</span>
+                                <span data-tooltip="Matemática Discreta e Pensamento Lógico">MDEP</span>
+                                <span data-tooltip="Números e Funções">NIF</span>
+                                <span data-tooltip="Números, Álgebra e Geometria">NAAG</span>
+                                <span data-tooltip="Português">PORT</span>
+                            </div>
                         </div>
-                    </div>
-                    <div id="mencoes" class="dashboard-box">
-                        <span class="area-title">MENÇÕES</span>
-                        <div id="mencoes-lista"></div>
+                        <div id="mencoes" class="dashboard-box">
+                            <span class="area-title">MENÇÕES DE HONRA</span>
+                            <div id="mencoes-lista"></div>
+                        </div>
                     </div>
                 </div>
             </article>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AO INÍCIO</a>
+            </div>
+        </div> <!-- /.container -->
+    </div> <!-- /#page-wrapper -->
+
+    <!-- Botão e Modal de Novidades / Changelog -->
+    <div id="news-icon" title="Novidades do Portal Nexus">📢</div>
+    <div id="news-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="font-family: 'Press Start 2P', monospace; font-size: 1rem; color: var(--link-color); margin-top: 0;">NOTIFICAÇÕES // NEXUS</h2>
+            <div class="news-item">
+                <h3>🐍 Nova Seção de Programação & Python</h3>
+                <p>Módulos de simulação numérica, geometria computacional e análise de dados matemáticos disponíveis no portal.</p>
+                <span class="news-date">Setembro 2026</span>
+            </div>
+            <div class="news-item">
+                <h3>🚀 Painel de Controle Renovado</h3>
+                <p>HUD reestilizado com curva histórica de evolução, acesso rápido por turma e relatórios dinâmicos para docentes.</p>
+                <span class="news-date">Setembro 2026</span>
+            </div>
+            <div class="news-item">
+                <h3>📚 Novos Materiais para o Ensino Médio</h3>
+                <p>18 novas atividades de recuperação e guias de estudos completos adicionados para 1º, 2º e 3º Anos.</p>
+                <span class="news-date">Setembro 2026</span>
+            </div>
         </div>
     </div>
-    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
-    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
-    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
-    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
-    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
-    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
-    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
-    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
-    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
-    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
-    <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+
+    <canvas id="matrixCanvas"></canvas>
+    <script src="js/matrix-rain.js" defer></script>
+    <script src="js/class-selector.js" defer></script>
+    <script src="js/dashboard.js" defer></script>
+
+    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+    <div id="theme-selector-panel" class="hidden">
+        <h3>Escolha um Tema:</h3>
+        <div class="theme-group-label">🌙 MODO ESCURO</div>
+        <button data-theme="theme-default" title="Matrix Cyber (Dark Padrão)">🟢 Matrix Cyber</button>
+        <button data-theme="theme-cyber-blue" title="Cyber Blue (Dark Moderno)">🔵 Cyber Blue</button>
+        <div class="theme-group-label">⚡ ALTO CONTRASTE (AAA)</div>
+        <button data-theme="theme-high-contrast-green" title="OLED Neon Green (Alto Contraste AAA)">⚡ OLED Neon Green</button>
+        <button data-theme="theme-high-contrast-amber" title="OLED Amber (Fósforo Âmbar VT220 AAA)">🟠 OLED Amber</button>
+        <div class="theme-group-label">☀️ MODO CLARO</div>
+        <button data-theme="theme-paper-light" title="Paper Clean (Claro Minimalista)">📄 Paper Clean</button>
+        <button data-theme="theme-solarized-light" title="Solarized Sepia (Claro Pergaminho Quente)">📜 Solarized Sepia</button>
     </div>
     <script src="js/theme-switcher.js" defer></script>
+
     <div id="shared-tooltip"></div>
 </body>
 
 </html>
-<!-- BOTÃO VOLTAR DE FINAL DE PÁGINA
-     <div style="text-align: center; margin-top: 30px;">
-        <a href="index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
-    </div>
-  -->

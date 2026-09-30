@@ -61,24 +61,27 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (document.body.classList.contains('theme-paper-light') || 
-            document.body.classList.contains('theme-solarized-light') || 
-            document.body.classList.contains('theme-light-classic-neon-red')) {
-            // Para temas claros: rastro translúcido compatível com o tom de fundo claro
-            ctx.fillStyle = document.body.classList.contains('theme-solarized-light') 
-                ? 'rgba(251, 241, 199, 0.15)' 
-                : 'rgba(241, 245, 249, 0.15)';
+        if (document.body.classList.contains('theme-solarized-light')) {
+            ctx.fillStyle = 'rgba(251, 241, 199, 0.16)';
+        } else if (document.body.classList.contains('theme-paper-light')) {
+            ctx.fillStyle = 'rgba(248, 250, 252, 0.16)';
+        } else if (document.body.classList.contains('theme-dark-graphite')) {
+            ctx.fillStyle = 'rgba(18, 18, 20, 0.08)';
+        } else if (document.body.classList.contains('theme-matrix-retro') || document.body.classList.contains('theme-green-circuit')) {
+            ctx.fillStyle = 'rgba(10, 14, 20, 0.08)';
+        } else if (document.body.classList.contains('theme-high-contrast')) {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
         } else {
-            // Para temas escuros: rastro translúcido escuro
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.06)';
+            // Padrão Neutro Slate
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.08)';
         }
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // Get Text Color from CSS Variable
         const computedStyle = getComputedStyle(canvas);
-        const matrixTextColor = computedStyle.getPropertyValue('--matrix-rain-actual-color').trim() || '#00FF00'; // Default to green if var not found
+        const matrixTextColor = computedStyle.getPropertyValue('--matrix-rain-actual-color').trim() || '#38bdf8';
         ctx.fillStyle = matrixTextColor;
-        ctx.font = fontSize + 'px monospace'; // Using a generic monospace font
+        ctx.font = fontSize + 'px "Cambria Math", "Fira Code", monospace';
 
         // Loop through the columns
         for (let i = 0; i < columns; i++) {

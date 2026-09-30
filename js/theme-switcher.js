@@ -2,14 +2,15 @@
 // Suporta 6 temas curados: Neutro Slate (Padrão), Neutro Claro (Paper), Sépia Acadêmico, Dark Grafite, Alto Contraste AAA e Matrix Retrô
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 6 Temas Curados do Portal Nexus
+    // 7 Temas Curados do Portal Nexus
     const THEMES = [
-        { id: 'theme-default', name: '🔘 Neutro Slate (Padrão)', group: 'neutral', title: 'Neutro Slate (Dark Sóbrio, Cores Simples)' },
-        { id: 'theme-paper-light', name: '📄 Neutro Claro (Paper)', group: 'light', title: 'Neutro Claro (Minimalista Diurno)' },
-        { id: 'theme-solarized-light', name: '📜 Sépia Acadêmico', group: 'light', title: 'Sépia Acadêmico (Pergaminho Quente)' },
-        { id: 'theme-dark-graphite', name: '🌑 Dark Grafite', group: 'dark', title: 'Dark Grafite (Carvão Minimalista)' },
-        { id: 'theme-high-contrast', name: '⚡ Alto Contraste AAA', group: 'contrast', title: 'Alto Contraste Preto & Branco (WCAG AAA)' },
-        { id: 'theme-matrix-retro', name: '🟢 Matrix Retrô (Opcional)', group: 'retro', title: 'Matrix Cyber Retrô (Terminal Verde com Chuva de Código)' }
+        { id: 'theme-default', name: '🔘 Neutro Slate (Padrão + Matrix)', group: 'standard', title: 'Neutro Slate (Dark Sóbrio com Chuva Matrix)' },
+        { id: 'theme-clean-print', name: '🖨️ Limpo & Impressão (Sem Matrix)', group: 'clean', title: 'Formato ultra simples estilo impressão (Fundo Branco, Texto Preto, Sem Matrix)' },
+        { id: 'theme-paper-light', name: '☀️ Neutro Claro (Paper + Matrix)', group: 'standard', title: 'Neutro Claro (Minimalista Diurno com Chuva Matrix)' },
+        { id: 'theme-solarized-light', name: '📜 Sépia Acadêmico (+ Matrix)', group: 'standard', title: 'Sépia Acadêmico (Pergaminho com Chuva Matrix)' },
+        { id: 'theme-dark-graphite', name: '🌑 Dark Grafite (+ Matrix)', group: 'standard', title: 'Dark Grafite (Carvão Minimalista com Chuva Matrix)' },
+        { id: 'theme-high-contrast', name: '⚡ Alto Contraste AAA (+ Matrix)', group: 'contrast', title: 'Alto Contraste Preto & Branco (WCAG AAA com Chuva Matrix)' },
+        { id: 'theme-matrix-retro', name: '🟢 Matrix Retrô Cyber (+ Matrix)', group: 'retro', title: 'Matrix Cyber Retrô (Terminal Verde com Chuva de Código)' }
     ];
 
     // Mapeamento de retrocompatibilidade para preferências antigas salvas
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const ALL_KNOWN_THEME_CLASSES = [
         'theme-default',
+        'theme-clean-print',
         'theme-paper-light',
         'theme-solarized-light',
         'theme-dark-graphite',
@@ -110,18 +112,19 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.appendChild(themeSelectorPanel);
         }
 
-        // Popula o painel com os 6 temas organizados por grupos
+        // Popula o painel com os 7 temas organizados por grupos
         themeSelectorPanel.innerHTML = `
             <h3>Escolha um Tema:</h3>
-            <div class="theme-group-label">✨ TEMAS NEUTROS & SÓBRIOS</div>
-            <button data-theme="theme-default" title="Neutro Slate (Dark Sóbrio, Cores Simples)">🔘 Neutro Slate (Padrão)</button>
-            <button data-theme="theme-paper-light" title="Neutro Claro (Minimalista Diurno)">📄 Neutro Claro (Paper)</button>
-            <button data-theme="theme-solarized-light" title="Sépia Acadêmico (Pergaminho Quente)">📜 Sépia Acadêmico</button>
-            <button data-theme="theme-dark-graphite" title="Dark Grafite (Carvão Minimalista)">🌑 Dark Grafite</button>
-            <div class="theme-group-label">♿ ACESSIBILIDADE</div>
-            <button data-theme="theme-high-contrast" title="Alto Contraste Preto & Branco (WCAG AAA)">⚡ Alto Contraste AAA</button>
-            <div class="theme-group-label">🕹️ RETRÔ (OPCIONAL)</div>
-            <button data-theme="theme-matrix-retro" title="Matrix Cyber Retrô (Terminal Verde com Chuva de Código)">🟢 Matrix Retrô</button>
+            <div class="theme-group-label">✨ TEMAS COMUNS (COM MATRIX)</div>
+            <button data-theme="theme-default" title="Neutro Slate (Dark Sóbrio com Chuva Matrix)">🔘 Neutro Slate (Padrão)</button>
+            <button data-theme="theme-paper-light" title="Neutro Claro (Minimalista Diurno com Chuva Matrix)">☀️ Neutro Claro (Paper)</button>
+            <button data-theme="theme-solarized-light" title="Sépia Acadêmico (Pergaminho com Chuva Matrix)">📜 Sépia Acadêmico</button>
+            <button data-theme="theme-dark-graphite" title="Dark Grafite (Carvão Minimalista com Chuva Matrix)">🌑 Dark Grafite</button>
+            <div class="theme-group-label">📄 MODO LIMPO / IMPRESSÃO (SEM MATRIX)</div>
+            <button data-theme="theme-clean-print" title="Formato ultra simples estilo impressão: fundo branco, texto preto, sem chuva de matrix">🖨️ Limpo & Impressão (Clean)</button>
+            <div class="theme-group-label">♿ ACESSIBILIDADE & RETRÔ</div>
+            <button data-theme="theme-high-contrast" title="Alto Contraste Preto & Branco (WCAG AAA com Chuva Matrix)">⚡ Alto Contraste AAA</button>
+            <button data-theme="theme-matrix-retro" title="Matrix Cyber Retrô (Terminal Verde com Chuva de Código)">🟢 Matrix Retrô Cyber</button>
         `;
 
         return { themeConfigIcon, themeSelectorPanel };

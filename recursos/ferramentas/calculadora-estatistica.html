@@ -39,7 +39,7 @@
       outline: none;
       box-sizing: border-box;
       resize: vertical;
-      font-family: 'Fira Sans', monospace;
+      font-family: var(--font-family-headings, 'Cambria Math', Cambria, serif);
     }
     .presets-row {
       display: flex;
@@ -69,7 +69,7 @@
       color: var(--main-bg-color, #0d0208);
       border: none;
       border-radius: 6px;
-      font-family: var(--font-family-headings, 'Fira Sans', sans-serif); font-weight: 600;
+      font-family: var(--font-family-headings, var(--font-family-headings, 'Cambria Math', Cambria, serif)); font-weight: 600;
       font-size: 0.85rem;
       cursor: pointer;
       transition: transform 0.15s ease;

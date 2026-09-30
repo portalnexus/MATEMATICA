@@ -1,26 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400;1,700&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Fira+Code:wght@400;600&display=swap');
+
 html {
     font-size: clamp(14px, 12px + 0.5vw, 18px); /* Base for rem units */
 }
 /* 
 ================================================================================
-  1. DEFINIÇÃO DAS VARIÁVEIS DE COR (6 TEMAS CURADOS)
-  - 4 Opções Dark (2 Padrão/Moderno + 2 Alto Contraste WCAG AAA)
-  - 2 Opções Claras (1 Paper Minimalista + 1 Sépia Pergaminho)
+  1. DEFINIÇÃO DAS VARIÁVEIS DE COR (7 TEMAS CURADOS)
+  - Temas Comuns possuem chuva de Matrix matemática ativa
+  - Tema 'Limpo & Impressão' (Clean Paper) desativa a chuva de Matrix e oferece
+    fundo branco e leitura sem distrações
 ================================================================================
 */
 
-/* TEMA 1 (PADRÃO): Neutro Slate (Sóbrio, Elegante e Sem Distrações) */
+/* TEMA 1 (PADRÃO): Neutro Slate (Dark Sóbrio com Chuva Matrix Celeste) */
 :root,
 body.theme-default {
     --primary-bg-color: #0f172a;               /* Slate 900 profundo e neutro */
-    --content-box-bg-color: #1e293b;            /* Slate 800 sólido e limpo */
+    --content-box-bg-color: rgba(30, 41, 59, 0.94); /* Slate 800 sólido e limpo */
     --main-text-color: #f1f5f9;                 /* Slate 100 com excelente legibilidade */
     --secondary-text-color: #94a3b8;            /* Slate 400 discreto e equilibrado */
     --heading-text-color: #ffffff;              /* Branco puro para títulos destacados */
     --container-border-color: #334155;          /* Slate 700 borda fina e sutil */
     --link-color: #38bdf8;                      /* Sky Blue acadêmico e claro */
     --link-hover-color: #7dd3fc;                /* Sky Blue hover */
-    --matrix-rain-actual-color: transparent;    /* Chuva Matrix invisível no tema neutro */
+    --matrix-rain-actual-color: #38bdf8;        /* Chuva Matrix matemática azul celeste */
     --katex-text-color: #f8fafc;                /* KaTeX nítido e sem coloração neon */
     --katex-text-shadow-color: transparent;     /* SEM sombra ou desfoque */
 
@@ -34,17 +37,17 @@ body.theme-default {
     --dica-color: #f59e0b;
 }
 
-/* TEMA 2: Neutro Claro (Paper Clean - Minimalista Diurno) */
+/* TEMA 2: Neutro Claro (Paper Clean Diurno com Chuva Matrix Suave) */
 body.theme-paper-light {
     --primary-bg-color: #f8fafc;               /* Slate 50 ultra limpo */
-    --content-box-bg-color: #ffffff;            /* Branco puro */
+    --content-box-bg-color: rgba(255, 255, 255, 0.94); /* Branco puro translúcido */
     --main-text-color: #0f172a;                 /* Slate 900 para máxima legibilidade */
     --secondary-text-color: #475569;            /* Slate 600 */
     --heading-text-color: #0f172a;              /* Slate 900 */
-    --container-border-color: #e2e8f0;          /* Slate 200 borda suave */
+    --container-border-color: #cbd5e1;          /* Slate 300 borda suave */
     --link-color: #0284c7;                      /* Azul clássico */
     --link-hover-color: #0369a1;
-    --matrix-rain-actual-color: transparent;
+    --matrix-rain-actual-color: #0284c7;        /* Chuva Matrix azul clássico */
     --katex-text-color: #0f172a;
     --katex-text-shadow-color: transparent;
 
@@ -58,17 +61,17 @@ body.theme-paper-light {
     --dica-color: #d97706;
 }
 
-/* TEMA 3: Sépia Acadêmico (Pergaminho Quente Anti-Fadiga) */
+/* TEMA 3: Sépia Acadêmico (Pergaminho Quente com Chuva Matrix Âmbar) */
 body.theme-solarized-light {
     --primary-bg-color: #fbf1c7;
-    --content-box-bg-color: rgba(253, 246, 227, 0.98);
+    --content-box-bg-color: rgba(253, 246, 227, 0.95);
     --main-text-color: #282828;
     --secondary-text-color: #7c6f64;
     --heading-text-color: #af3a03;
     --container-border-color: #d5c4a1;
     --link-color: #b57614;
     --link-hover-color: #d65d0e;
-    --matrix-rain-actual-color: transparent;
+    --matrix-rain-actual-color: #b57614;        /* Chuva Matrix âmbar quente */
     --katex-text-color: #af3a03;
     --katex-text-shadow-color: transparent;
 
@@ -82,18 +85,18 @@ body.theme-solarized-light {
     --dica-color: #d79921;
 }
 
-/* TEMA 4: Dark Grafite (Carvão Minimalista) */
+/* TEMA 4: Dark Grafite (Carvão Minimalista com Chuva Matrix Azulada) */
 body.theme-dark-graphite,
 body.theme-cyber-blue {
     --primary-bg-color: #121214;
-    --content-box-bg-color: #18181b;
+    --content-box-bg-color: rgba(24, 24, 27, 0.94);
     --main-text-color: #e4e4e7;
     --secondary-text-color: #a1a1aa;
     --heading-text-color: #ffffff;
     --container-border-color: #27272a;
     --link-color: #60a5fa;
     --link-hover-color: #93c5fd;
-    --matrix-rain-actual-color: transparent;
+    --matrix-rain-actual-color: #60a5fa;        /* Chuva Matrix azul grafite */
     --katex-text-color: #fafafa;
     --katex-text-shadow-color: transparent;
 
@@ -107,19 +110,19 @@ body.theme-cyber-blue {
     --dica-color: #fbbf24;
 }
 
-/* TEMA 5: Alto Contraste AAA (Acessibilidade Preto & Branco Puro) */
+/* TEMA 5: Alto Contraste AAA (Acessibilidade Preto & Branco com Chuva Matrix Branca) */
 body.theme-high-contrast,
 body.theme-high-contrast-green,
 body.theme-high-contrast-amber {
     --primary-bg-color: #000000;
-    --content-box-bg-color: #000000;
+    --content-box-bg-color: rgba(0, 0, 0, 0.96);
     --main-text-color: #ffffff;
     --secondary-text-color: #facc15;
     --heading-text-color: #ffffff;
     --container-border-color: #ffffff;
     --link-color: #38bdf8;
     --link-hover-color: #ffffff;
-    --matrix-rain-actual-color: transparent;
+    --matrix-rain-actual-color: #ffffff;        /* Chuva Matrix branca pura */
     --katex-text-color: #ffffff;
     --katex-text-shadow-color: transparent;
 
@@ -133,7 +136,7 @@ body.theme-high-contrast-amber {
     --dica-color: #38bdf8;
 }
 
-/* TEMA 6: Matrix Retrô (Opcional - Terminal Verde Cyberpunk) */
+/* TEMA 6: Matrix Retrô (Terminal Verde Cyberpunk Clássico) */
 body.theme-matrix-retro,
 body.theme-matrix-cyber,
 body.theme-green-circuit {
@@ -145,7 +148,7 @@ body.theme-green-circuit {
     --container-border-color: #059669;
     --link-color: #00ff66;
     --link-hover-color: #6ee7b7;
-    --matrix-rain-actual-color: #00ff66;
+    --matrix-rain-actual-color: #00ff66;        /* Chuva Matrix verde clássico */
     --katex-text-color: #00ff66;
     --katex-text-shadow-color: transparent;
 
@@ -157,6 +160,30 @@ body.theme-green-circuit {
     --teorema-color: #10b981;
     --observacao-color: #8b5cf6;
     --dica-color: #f59e0b;
+}
+
+/* TEMA 7: Limpo & Formato Impressão (Clean Paper / Sem Chuva de Matrix) */
+body.theme-clean-print {
+    --primary-bg-color: #ffffff;
+    --content-box-bg-color: #ffffff;
+    --main-text-color: #111827;
+    --secondary-text-color: #4b5563;
+    --heading-text-color: #000000;
+    --container-border-color: #d1d5db;
+    --link-color: #1d4ed8;
+    --link-hover-color: #1e40af;
+    --matrix-rain-actual-color: transparent;    /* Chuva Matrix desabilitada */
+    --katex-text-color: #000000;
+    --katex-text-shadow-color: transparent;
+
+    --theme-selector-bg-color: #ffffff;
+    --theme-selector-text-color: #111827;
+    --theme-selector-hover-bg-color: #f3f4f6;
+    --theme-selector-hover-text-color: #000000;
+
+    --teorema-color: #047857;
+    --observacao-color: #6d28d9;
+    --dica-color: #b45309;
 }
 
 /* Compatibilidade com seletores e contrastes em temas claros */
@@ -180,9 +207,10 @@ body.theme-solarized-light table {
 ================================================================================
 */
 :root {
-    --font-family-headings: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-family-body: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-family-monospace: 'Fira Code', monospace;
+    --font-family-headings: 'Cambria Math', Cambria, 'Caladea', 'STIX Two Text', 'Liberation Serif', 'Times New Roman', serif;
+    --font-family-body: 'Cambria Math', Cambria, 'Caladea', 'STIX Two Text', 'Liberation Serif', 'Times New Roman', serif;
+    --font-family-base: 'Cambria Math', Cambria, 'Caladea', 'STIX Two Text', 'Liberation Serif', 'Times New Roman', serif;
+    --font-family-monospace: 'Fira Code', 'Courier New', monospace;
     --container-padding: 30px;
     --container-border-radius: 10px;
     --container-max-width: 980px;
@@ -420,15 +448,14 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    display: none; /* Desativado por padrão para garantir tema neutro e sem distrações */
+    display: block; /* Ativo por padrão em todos os temas comuns */
     background-color: var(--primary-bg-color);
     transition: background-color 0.3s ease;
 }
 
-body.theme-matrix-retro #matrixCanvas,
-body.theme-matrix-cyber #matrixCanvas,
-body.theme-green-circuit #matrixCanvas {
-    display: block; /* Ativa chuva de código exclusivamente no tema retrô opcional */
+body.theme-clean-print #matrixCanvas,
+body.print-mode #matrixCanvas {
+    display: none !important; /* Desativa a chuva de matrix no tema limpo/impressão */
 }
 
 .container {
@@ -443,6 +470,70 @@ body.theme-green-circuit #matrixCanvas {
     font-family: var(--font-family-body);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* --- Regras do Tema Limpo & Formato Impressão (Clean Paper / Sem Matrix) --- */
+body.theme-clean-print {
+    background-color: #ffffff !important;
+}
+
+body.theme-clean-print #page-wrapper {
+    background-color: #ffffff !important;
+}
+
+body.theme-clean-print .container {
+    background-color: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: none !important;
+}
+
+body.theme-clean-print nav {
+    background-color: #f9fafb !important;
+    border-bottom: 1px solid #e5e7eb !important;
+}
+
+body.theme-clean-print .nav-button,
+body.theme-clean-print .themed-button {
+    background-color: #f3f4f6 !important;
+    color: #111827 !important;
+    border: 1px solid #d1d5db !important;
+    box-shadow: none !important;
+}
+
+body.theme-clean-print .nav-button:hover,
+body.theme-clean-print .themed-button:hover {
+    background-color: #e5e7eb !important;
+    color: #000000 !important;
+    border-color: #9ca3af !important;
+}
+
+body.theme-clean-print .destaque-box {
+    box-shadow: none !important;
+}
+
+body.theme-clean-print .destaque-box.definicao {
+    background-color: #f0f7ff !important;
+    border-left: 4px solid #2563eb !important;
+}
+
+body.theme-clean-print .destaque-box.teorema {
+    background-color: #f0fdf4 !important;
+    border-left: 4px solid #16a34a !important;
+}
+
+body.theme-clean-print .destaque-box.observacao {
+    background-color: #faf5ff !important;
+    border-left: 4px solid #7c3aed !important;
+}
+
+body.theme-clean-print .exemplo-resolvido {
+    background-color: #fffbeb !important;
+    border-left: 4px solid #d97706 !important;
+    box-shadow: none !important;
+}
+
+body.theme-clean-print .katex {
+    color: #000000 !important;
 }
 /* 
 ================================================================================

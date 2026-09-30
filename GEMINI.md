@@ -9,7 +9,7 @@ Minha missão é garantir que o Portal Nexus seja uma ferramenta educacional de 
 1. **Orquestração de Agentes**: Coordenar agentes especializados para resumos (`agent-resumos`), listas de problemas (`agent-listas`), recuperação pedagógica (`agent-recuperacao`), guias de estudo (`agent-guias`), visualização matemática (`agent-graficos`) e calculadoras (`agent-ferramentas`).
 2. **Cobertura Curricular Plena**: Assegurar que **todos** os tópicos de cada turma (9º Ano, 1º EM, 2º EM e 3º EM) possuam o quarteto formativo: Resumo Teórico, Lista de Problemas, Atividade de Recuperação e Guia de Estudos.
 3. **Manutenção de Código**: Garantir que scripts de auditoria (`scripts/validate_nexus.py` e `scripts/validate_data.py`) aprovem com 100% de sucesso sem arquivos órfãos ou links quebrados.
-4. **Consistência Estética e Temas Sóbrios**: Respeitar a identidade visual limpa e elegante (tema padrão Neutro Slate, sem excessos de neon ou fontes pixeladas) e o suporte aos 6 temas curados.
+4. **Consistência Estética, Fontes e Temas**: Tipografia acadêmica de excelência em `Cambria Math`, `Caladea` e `STIX Two Text`, chuva de matrix matemática ativa por padrão em temas comuns e suporte aos 7 temas curados (incluindo o tema especial 'Limpo & Impressão' sem matrix).
 5. **Gabarito Secreto do Professor (Inviolável)**: Em todas as listas e atividades de recuperação, as resoluções comentadas devem ficar **estritamente em comentários HTML acessíveis apenas via Ctrl+U**. Nenhuma tag `<details>` ou solução visível aos alunos é permitida.
 
 ---

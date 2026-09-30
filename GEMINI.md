@@ -17,6 +17,7 @@ Minha missão é garantir que o Portal Nexus seja uma ferramenta educacional de 
 
 As referências pedagógicas e operacionais estão organizadas em:
 
+- `MEMORY.md`: Memória operacional permanente do projeto, convenções e regras invioláveis (como o Gabarito Secreto do Professor via `Ctrl+U`).
 - `docs/curriculo/`: Ementas oficiais por turma (`9ANO-MD.md`, `1EM-MD.md`, `2EM-MD.md`, `3EM-MD.md`).
 - `docs/agents/`: Manuais e templates para cada papel de agente (`agent-resumos.md`, `agent-listas.md`, `agent-recuperacao.md`, `agent-guias.md`, `agent-graficos.md`, `agent-ferramentas.md`, etc.).
 

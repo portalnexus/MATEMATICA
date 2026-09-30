@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Guia de Estudos: Probabilidade e Eventos Aleatórios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .guia-header { margin-bottom: 2rem; border-bottom: 2px solid var(--container-border-color); padding-bottom: 1rem; }
+    .guia-section { background: rgba(0, 0, 0, 0.2); padding: 1.5rem; margin: 1.5rem 0; border-radius: 8px; border-left: 4px solid var(--link-color); }
+    .mapa-conceitual { text-align: center; padding: 1.5rem; background: rgba(0,0,0,0.3); border-radius: 8px; margin: 1.5rem 0; }
+    .conceito-central { display: inline-block; background: var(--link-color); color: var(--main-bg-color); padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: bold; font-size: 1.2rem; margin-bottom: 1rem; }
+    .conceitos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.8rem; margin-top: 1rem; }
+    .conceito-box { background: rgba(0, 0, 0, 0.4); border: 1px solid var(--container-border-color); padding: 0.8rem; border-radius: 6px; font-size: 0.85rem; font-weight: bold; }
+    .missao-card { background: rgba(0, 0, 0, 0.25); border: 1px solid var(--container-border-color); border-radius: 8px; padding: 1.2rem; margin-bottom: 1rem; }
+    .missao-card h4 { margin: 0 0 0.5rem 0; color: var(--link-color); display: flex; justify-content: space-between; }
+    .xp-badge { background: #ffd700; color: #000; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-family: monospace; font-weight: bold; }
+    .checklist-item { display: flex; align-items: center; gap: 8px; margin: 0.5rem 0; }
+    .quick-links-panel { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .hub-link { padding: 0.6rem 1rem; background: rgba(0, 255, 102, 0.15); border: 1px solid var(--container-border-color); color: var(--main-text-color); border-radius: 6px; text-decoration: none; font-size: 0.85rem; transition: all 0.2s; }
+    .hub-link:hover { background: var(--link-color); color: var(--main-bg-color); }
+  </style>
+</head>
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+        <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
+        <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
+        <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <article>
+        <div class="guia-header">
+          <span class="badge-nivel ano-1em">1º Ano EM</span>
+          <span style="font-family: monospace; font-size: 0.85rem; color: #64748b; margin-left: 10px;">HABILIDADES: EM13MAT311</span>
+          <h2>Guia de Estudos: Probabilidade e Eventos Aleatórios</h2>
+          <p class="lead">Roteiro de estudos gamificado baseado em missões de aprendizagem, integração com o Dashboard Nexus e metas práticas.</p>
+        </div>
+
+        <div class="mapa-conceitual">
+          <div class="conceito-central">PROBABILIDADE</div>
+          <div class="conceitos-grid">
+            <div class="conceito-box">Espaços Amostrais</div><div class="conceito-box">Probabilidade Laplaciana</div><div class="conceito-box">União e Interseção</div><div class="conceito-box">Prob. Condicional</div>
+          </div>
+        </div>
+
+        <div class="guia-section">
+          <h3>🎮 Roteiro de Missões Práticas (Ganhe XP)</h3>
+
+          <div class="missao-card">
+            <h4><span>Missão 1: Fundamentação Teórica</span> <span class="xp-badge">+50 XP</span></h4>
+            <p>Faça a leitura detalhada do Resumo Teórico oficial, copiando no seu caderno as definições formais, teoremas e anotações dos passos algébricos.</p>
+            <a href="../resumos/1EM-PROBABILIDADE.html" class="hub-link">Acessar Resumo Teórico &rarr;</a>
+          </div>
+
+          <div class="missao-card">
+            <h4><span>Missão 2: Resolução de Treinamento</span> <span class="xp-badge">+100 XP</span></h4>
+            <p>Resolva pelo menos 5 problemas da Seção 1 (Introdutórios) e 5 problemas da Seção 2 (Fixação) da Lista de Problemas correspondente.</p>
+            <a href="../listas/1EM-PROBABILIDADE.html" class="hub-link">Acessar Lista de Problemas &rarr;</a>
+          </div>
+
+          <div class="missao-card">
+            <h4><span>Missão 3: Consolidação e Diagnóstico</span> <span class="xp-badge">+150 XP</span></h4>
+            <p>Trabalhe os problemas da Atividade de Recuperação com apoio gradual para certificar que nenhum conceito fundamental ficou com lacunas.</p>
+            <a href="../recuperacao/1EM-RECUPERACAO-ESTATISTICA-PROBABILIDADE.html" class="hub-link">Acessar Atividade de Recuperação &rarr;</a>
+          </div>
+        </div>
+
+        <div class="guia-section">
+          <h3>✅ Checklist de Autoavaliação</h3>
+          <div class="checklist-item"><input type="checkbox"> Compreendi as definições e fórmulas fundamentais do tópico.</div>
+          <div class="checklist-item"><input type="checkbox"> Sei identificar quando e como aplicar cada relação matemática.</div>
+          <div class="checklist-item"><input type="checkbox"> Resolvi os problemas propostos conferindo o gabarito.</div>
+          <div class="checklist-item"><input type="checkbox"> Registrei minhas dúvidas e anotações no caderno.</div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+        </div>
+      </article>
+    </div>
+  </div>
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "@@", right: "@@", display: true },
+          { left: "\[", right: "\]", display: true },
+          { left: "@", right: "@", display: false },
+          { left: "\(", right: "\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+</html>

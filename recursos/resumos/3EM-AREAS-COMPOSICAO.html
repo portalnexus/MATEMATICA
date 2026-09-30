@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Áreas de Figuras Planas: Composição e Decomposição</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS Nexus -->
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+        <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
+        <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
+        <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <article>
+        <span class="badge-nivel ano-3em">3º ANO DO ENSINO MÉDIO</span>
+        <h2>ÁREAS DE FIGURAS PLANAS: COMPOSIÇÃO, DECOMPOSIÇÃO E REGIÕES CIRCULARES</h2>
+        <p class="lead">Formulário avançado de geometria plana métrica: Teorema de Heron, fórmula trigonométrica da área, setores, coroas, segmentos circulares e partição de superfícies poligonais complexas.</p>
+
+        <!-- Seção 1: Fórmulas Avançadas de Triângulos -->
+        <section>
+          <h3>1. Métodos de Cálculo da Área de Triângulos</h3>
+
+          <div class="destaque-box teorema">
+            <h4>Teorema 1.1: Três Abordagens para o Triângulo</h4>
+            <ol>
+              <li><strong>Fórmula Clássica (Base e Altura):</strong>
+                @@A = \frac{b \cdot h}{2}@@
+              </li>
+              <li><strong>Fórmula Trigonométrica (Dois lados e o ângulo compreendido):</strong>
+                @@A = \frac{1}{2} a \cdot b \cdot \text{sen}(\theta)@@
+              </li>
+              <li><strong>Fórmula de Heron (Três lados conhecidos):</strong>
+                Seja o semiperímetro @p = \frac{a + b + c}{2}@:
+                @@A = \sqrt{p(p - a)(p - b)(p - c)}@@
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Seção 2: Regiões Circulares -->
+        <section>
+          <h3>2. Regiões Circulares e Partições</h3>
+
+          <div class="destaque-box definicao">
+            <h4>Definição 2.1: Setor, Coroa e Segmento Circular</h4>
+            <ul>
+              <li><strong>Círculo Completo:</strong> @@A = \pi R^2@@</li>
+              <li><strong>Setor Circular (ângulo central @\alpha@ em radianos ou graus):</strong>
+                @@A_{\text{setor}} = \frac{\alpha^\circ}{360^\circ} \cdot \pi R^2 = \frac{1}{2} R^2 \theta_{\text{rad}}@@
+              </li>
+              <li><strong>Coroa Circular (entre dois círculos concêntricos de raios @R > r@):</strong>
+                @@A_{\text{coroa}} = \pi (R^2 - r^2)@@
+              </li>
+              <li><strong>Segmento Circular:</strong>
+                @@A_{\text{segmento}} = A_{\text{setor}} - A_{\triangle} = \frac{1}{2} R^2 (\theta - \text{sen}\,\theta)@@
+              </li>
+            </ul>
+          </div>
+
+          <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
+            <svg viewBox="0 0 420 180" width="400" height="170" aria-label="Setor circular e coroa circular">
+              <!-- Setor Circular -->
+              <path d="M 100,140 L 100,40 A 100,100 0 0,1 170.7,69.3 Z" fill="rgba(33, 150, 243, 0.25)" stroke="var(--link-color, #00ff66)" stroke-width="2" />
+              <text x="110" y="110" fill="currentColor" font-size="12">&alpha; = 45&deg;</text>
+              <text x="80" y="90" fill="#ff7043" font-size="12">R</text>
+              <text x="80" y="160" fill="currentColor" font-size="12">Setor Circular</text>
+
+              <!-- Coroa Circular -->
+              <circle cx="310" cy="90" r="60" fill="rgba(0, 255, 102, 0.15)" stroke="var(--link-color, #00ff66)" stroke-width="2" />
+              <circle cx="310" cy="90" r="30" fill="var(--main-bg-color, #0d0208)" stroke="var(--link-color, #00ff66)" stroke-width="1.5" />
+              <line x1="310" y1="90" x2="340" y2="90" stroke="#ffaa00" stroke-width="2" />
+              <line x1="310" y1="90" x2="370" y2="90" stroke="#ff7043" stroke-width="1.5" stroke-dasharray="3" />
+              <text x="320" y="85" fill="#ffaa00" font-size="10">r</text>
+              <text x="350" y="85" fill="#ff7043" font-size="10">R</text>
+              <text x="270" y="165" fill="currentColor" font-size="12">Coroa Circular: &pi;(R&sup2; - r&sup2;)</text>
+            </svg>
+            <p class="legenda-figura" style="font-size: 0.85rem; opacity: 0.8;"><em>Figura 1: Partições circulares clássicas — setor angular e coroa circular concêntrica.</em></p>
+          </div>
+        </section>
+
+        <!-- Seção 3: Composição e Decomposição -->
+        <section>
+          <h3>3. Técnica de Decomposição de Regiões Sombreadas</h3>
+
+          <div class="destaque-box observacao">
+            <h4>Estratégia dos Três Passos para Áreas Sombreadas</h4>
+            <ol>
+              <li><strong>Identificação das Fronteiras:</strong> Reconhecer as geometrias conhecidas que delimitam o contorno externo e os vazios internos.</li>
+              <li><strong>Princípio Aditivo ou Subtrativo:</strong>
+                <ul>
+                  <li>@A_{\text{sombreada}} = A_{\text{total}} - A_{\text{não sombreada}}@</li>
+                  <li>@A_{\text{sombreada}} = A_1 + A_2 + \dots + A_k@ (partição em polígonos simples)</li>
+                </ul>
+              </li>
+              <li><strong>Compatibilização de Escalas e Cotas:</strong> Expressar todas as dimensões na mesma unidade antes da operação.</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Seção 4: Exemplos Resolvidos -->
+        <section>
+          <h3>4. Exemplos Resolvidos de Vestibulares</h3>
+
+          <div class="exemplo-resolvido">
+            <h4>Exemplo 4.1: Área de Triângulo via Teorema de Heron</h4>
+            <p><strong>Enunciado:</strong> Um terreno triangular possui lados medindo @13\text{ m}@, @14\text{ m}@ e @15\text{ m}@. Calcule a sua área total.</p>
+            <p><strong>Resolução:</strong></p>
+            <ol>
+              <li>Cálculo do semiperímetro:
+                @@p = \frac{13 + 14 + 15}{2} = \frac{42}{2} = 21\text{ m}@@
+              </li>
+              <li>Diferenças @(p - a), (p - b), (p - c)@:
+                @@p - 13 = 8, \quad p - 14 = 7, \quad p - 15 = 6@@
+              </li>
+              <li>Pela fórmula de Heron:
+                @@A = \sqrt{21 \cdot 8 \cdot 7 \cdot 6} = \sqrt{(7 \cdot 3) \cdot (4 \cdot 2) \cdot 7 \cdot (3 \cdot 2)} = \sqrt{7^2 \cdot 3^2 \cdot 4^2} = 7 \cdot 3 \cdot 4 = 84\text{ m}^2@@
+              </li>
+            </ol>
+          </div>
+
+          <div class="exemplo-resolvido">
+            <h4>Exemplo 4.2: Região Sombreada entre Quadrado e Círculo</h4>
+            <p><strong>Enunciado:</strong> Um círculo de raio @R = 4\text{ cm}@ está inscrito em um quadrado de lado @l = 8\text{ cm}@. Determine a área da região compreendida entre o quadrado e o círculo (região dos cantos). Adote @\pi \approx 3{,}14@.</p>
+            <p><strong>Resolução:</strong></p>
+            <ol>
+              <li>Área do quadrado externo:
+                @@A_{\text{quad}} = l^2 = 8^2 = 64\text{ cm}^2@@
+              </li>
+              <li>Área do círculo inscrito:
+                @@A_{\text{circ}} = \pi R^2 = \pi \cdot 4^2 = 16\pi \approx 16 \cdot 3{,}14 = 50{,}24\text{ cm}^2@@
+              </li>
+              <li>Área sombreada dos 4 cantos:
+                @@A_{\text{cantos}} = A_{\text{quad}} - A_{\text{circ}} = 64 - 50{,}24 = 13{,}76\text{ cm}^2@@
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "@@", right: "@@", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "@", right: "@", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+</html>

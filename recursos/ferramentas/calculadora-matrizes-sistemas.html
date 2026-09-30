@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Calculadora de Matrizes e Sistemas Lineares</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS Nexus -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .calc-container {
+      background: var(--container-bg-color, rgba(13, 2, 8, 0.9));
+      border: 2px solid var(--container-border-color, #00ff66);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
+    }
+    .tool-tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .tool-tab {
+      flex: 1;
+      padding: 0.8rem;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--container-border-color, #00ff66);
+      color: var(--main-text-color, #00ff66);
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.75rem;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .tool-tab.active {
+      background: var(--link-color, #00ff66);
+      color: var(--main-bg-color, #0d0208);
+      font-weight: bold;
+    }
+    .matrix-grid {
+      display: inline-grid;
+      gap: 6px;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.4);
+      border-left: 3px solid var(--link-color, #00ff66);
+      border-right: 3px solid var(--link-color, #00ff66);
+      border-radius: 8px;
+    }
+    .matrix-cell {
+      width: 55px;
+      height: 40px;
+      text-align: center;
+      font-size: 1.05rem;
+      font-family: monospace;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--container-border-color, #00ff66);
+      color: var(--main-text-color, #00ff66);
+      border-radius: 4px;
+      outline: none;
+    }
+    .actions-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 1.5rem 0;
+    }
+    .btn-matrix-action {
+      padding: 0.6rem 1.2rem;
+      background: rgba(0, 255, 102, 0.15);
+      border: 1px solid var(--container-border-color, #00ff66);
+      color: var(--main-text-color, #00ff66);
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s;
+    }
+    .btn-matrix-action:hover {
+      background: var(--link-color, #00ff66);
+      color: var(--main-bg-color, #0d0208);
+    }
+    .system-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+    .system-cell {
+      width: 50px;
+      padding: 6px;
+      text-align: center;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid var(--container-border-color, #00ff66);
+      color: var(--main-text-color, #00ff66);
+      border-radius: 4px;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+        <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
+        <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
+        <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <article>
+        <h2>🧮 CALCULADORA DE MATRIZES E SISTEMAS LINEARES</h2>
+        <p>Realize operações matriciais (Determinante, Inversa, Transposta) e resolva Sistemas Lineares 2x2 e 3x3 com a Regra de Cramer e classificação completa (SPD, SPI, SI).</p>
+
+        <div class="calc-container">
+          <div class="tool-tabs">
+            <button class="tool-tab active" data-tab="matrizes">MATRIZES & DETERMINANTES</button>
+            <button class="tool-tab" data-tab="sistemas">SISTEMAS LINEARES</button>
+          </div>
+
+          <!-- ABA MATRIZES -->
+          <div id="tabMatrizes">
+            <div style="margin-bottom: 1rem;">
+              <label>Ordem da Matriz: </label>
+              <select id="matrixOrder" style="padding: 0.4rem; background: rgba(0,0,0,0.6); border: 1px solid var(--container-border-color); color: var(--main-text-color); border-radius: 4px;">
+                <option value="2">2x2</option>
+                <option value="3" selected>3x3</option>
+              </select>
+            </div>
+
+            <div style="text-align: center; margin: 1.5rem 0;">
+              <div class="matrix-grid" id="matrixInputGrid"></div>
+            </div>
+
+            <div class="actions-bar">
+              <button class="btn-matrix-action" id="btnDet">Calcular Determinante</button>
+              <button class="btn-matrix-action" id="btnTransp">Matriz Transposta</button>
+              <button class="btn-matrix-action" id="btnInv">Matriz Inversa</button>
+            </div>
+
+            <div class="destaque-box definicao" id="matrixOutput" style="display: none;"></div>
+          </div>
+
+          <!-- ABA SISTEMAS -->
+          <div id="tabSistemas" style="display: none;">
+            <div style="margin-bottom: 1rem;">
+              <label>Dimensão do Sistema: </label>
+              <select id="systemDim" style="padding: 0.4rem; background: rgba(0,0,0,0.6); border: 1px solid var(--container-border-color); color: var(--main-text-color); border-radius: 4px;">
+                <option value="2">2 Equações / 2 Variáveis (x, y)</option>
+                <option value="3" selected>3 Equações / 3 Variáveis (x, y, z)</option>
+              </select>
+            </div>
+
+            <div id="systemInputsContainer" style="margin: 1.5rem 0;"></div>
+
+            <button class="btn-matrix-action" id="btnSolveSystem" style="width: 100%;">RESOLVER SISTEMA LINEAR (REGRA DE CRAMER)</button>
+
+            <div class="destaque-box teorema" id="systemOutput" style="display: none; margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+
+  <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+  <div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <div class="theme-group-label">🌙 MODO ESCURO</div>
+    <button data-theme="theme-default">🟢 Matrix Cyber</button>
+    <button data-theme="theme-cyber-blue">🔵 Cyber Blue</button>
+    <div class="theme-group-label">⚡ ALTO CONTRASTE (AAA)</div>
+    <button data-theme="theme-high-contrast-green">⚡ OLED Neon Green</button>
+    <button data-theme="theme-high-contrast-amber">🟠 OLED Amber</button>
+    <div class="theme-group-label">☀️ MODO CLARO</div>
+    <button data-theme="theme-paper-light">📄 Paper Clean</button>
+    <button data-theme="theme-solarized-light">📜 Solarized Sepia</button>
+  </div>
+
+  <script>
+    // Tab Switching
+    document.querySelectorAll('.tool-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tool-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const isMat = tab.getAttribute('data-tab') === 'matrizes';
+        document.getElementById('tabMatrizes').style.display = isMat ? 'block' : 'none';
+        document.getElementById('tabSistemas').style.display = isMat ? 'none' : 'block';
+      });
+    });
+
+    // Render Matrix Grid
+    function renderMatrixGrid() {
+      const order = parseInt(document.getElementById('matrixOrder').value);
+      const grid = document.getElementById('matrixInputGrid');
+      grid.style.gridTemplateColumns = `repeat(${order}, 55px)`;
+
+      let html = '';
+      const defs = order === 2 ? [[2, 1], [1, 3]] : [[1, 2, 3], [0, 1, 4], [5, 6, 0]];
+      for (let i = 0; i < order; i++) {
+        for (let j = 0; j < order; j++) {
+          const val = defs[i]?.[j] ?? 1;
+          html += `<input type="number" class="matrix-cell" id="m_${i}_${j}" value="${val}">`;
+        }
+      }
+      grid.innerHTML = html;
+    }
+
+    function getMatrix() {
+      const order = parseInt(document.getElementById('matrixOrder').value);
+      const m = [];
+      for (let i = 0; i < order; i++) {
+        m[i] = [];
+        for (let j = 0; j < order; j++) {
+          m[i][j] = parseFloat(document.getElementById(`m_${i}_${j}`).value) || 0;
+        }
+      }
+      return m;
+    }
+
+    function det2(m) {
+      return m[0][0] * m[1][1] - m[0][1] * m[1][0];
+    }
+
+    function det3(m) {
+      return (
+        m[0][0] * (m[1][1] * m[2][2] - m[1][2] * m[2][1]) -
+        m[0][1] * (m[1][0] * m[2][2] - m[1][2] * m[2][0]) +
+        m[0][2] * (m[1][0] * m[2][1] - m[1][1] * m[2][0])
+      );
+    }
+
+    document.getElementById('btnDet').addEventListener('click', () => {
+      const m = getMatrix();
+      const order = m.length;
+      let d = 0;
+      let demo = '';
+
+      if (order === 2) {
+        d = det2(m);
+        demo = `<p>@@\\det(A) = (${m[0][0]}) \\cdot (${m[1][1]}) - (${m[0][1]}) \\cdot (${m[1][0]}) = ${d.toFixed(2)}@@</p>`;
+      } else {
+        d = det3(m);
+        demo = `<p><strong>Regra de Sarrus / Teorema de Laplace:</strong></p>
+                <p>@@\\det(A) = ${d.toFixed(2)}@@</p>`;
+      }
+
+      const out = document.getElementById('matrixOutput');
+      out.style.display = 'block';
+      out.innerHTML = `<h4>Determinante da Matriz:</h4>${demo}`;
+      renderKatex(out);
+    });
+
+    document.getElementById('btnTransp').addEventListener('click', () => {
+      const m = getMatrix();
+      const order = m.length;
+      let latex = '\\begin{pmatrix}';
+      for (let i = 0; i < order; i++) {
+        for (let j = 0; j < order; j++) {
+          latex += m[j][i] + (j === order - 1 ? '' : ' & ');
+        }
+        latex += (i === order - 1 ? '' : ' \\\\ ');
+      }
+      latex += '\\end{pmatrix}';
+
+      const out = document.getElementById('matrixOutput');
+      out.style.display = 'block';
+      out.innerHTML = `<h4>Matriz Transposta (Aᵗ):</h4><p>@@A^T = ${latex}@@</p>`;
+      renderKatex(out);
+    });
+
+    document.getElementById('btnInv').addEventListener('click', () => {
+      const m = getMatrix();
+      const order = m.length;
+      const d = order === 2 ? det2(m) : det3(m);
+      const out = document.getElementById('matrixOutput');
+      out.style.display = 'block';
+
+      if (Math.abs(d) < 1e-9) {
+        out.innerHTML = `<h4>Matriz Singular:</h4><p>Como @\\det(A) = 0@, a matriz <strong>não possui inversa</strong>.</p>`;
+      } else if (order === 2) {
+        const inv = [
+          [m[1][1] / d, -m[0][1] / d],
+          [-m[1][0] / d, m[0][0] / d]
+        ];
+        out.innerHTML = `<h4>Matriz Inversa (A⁻¹):</h4>
+                         <p>@@A^{-1} = \\begin{pmatrix} ${inv[0][0].toFixed(2)} & ${inv[0][1].toFixed(2)} \\\\ ${inv[1][0].toFixed(2)} & ${inv[1][1].toFixed(2)} \\end{pmatrix}@@</p>`;
+      } else {
+        out.innerHTML = `<h4>Determinante @\\det(A) = ${d.toFixed(2)} \\neq 0@</h4><p>Matriz invertível. (Cálculo via cofatores / matriz adjunta).</p>`;
+      }
+      renderKatex(out);
+    });
+
+    // Render Systems
+    function renderSystemInputs() {
+      const dim = parseInt(document.getElementById('systemDim').value);
+      const container = document.getElementById('systemInputsContainer');
+      let html = '';
+      const vars = ['x', 'y', 'z'];
+      const defCoeffs2 = [[2, 1, 5], [1, -1, 1]];
+      const defCoeffs3 = [[1, 1, 1, 6], [2, -1, 1, 3], [1, 2, -1, 2]];
+
+      for (let i = 0; i < dim; i++) {
+        html += `<div class="system-row">`;
+        for (let j = 0; j < dim; j++) {
+          const val = dim === 2 ? defCoeffs2[i][j] : defCoeffs3[i][j];
+          html += `<input type="number" class="system-cell" id="s_${i}_${j}" value="${val}"><span>${vars[j]}</span>`;
+          if (j < dim - 1) html += `<span>+</span>`;
+        }
+        const bVal = dim === 2 ? defCoeffs2[i][dim] : defCoeffs3[i][dim];
+        html += `<span>=</span><input type="number" class="system-cell" id="s_b_${i}" value="${bVal}">`;
+        html += `</div>`;
+      }
+      container.innerHTML = html;
+    }
+
+    document.getElementById('btnSolveSystem').addEventListener('click', () => {
+      const dim = parseInt(document.getElementById('systemDim').value);
+      const A = [];
+      const B = [];
+      for (let i = 0; i < dim; i++) {
+        A[i] = [];
+        for (let j = 0; j < dim; j++) {
+          A[i][j] = parseFloat(document.getElementById(`s_${i}_${j}`).value) || 0;
+        }
+        B[i] = parseFloat(document.getElementById(`s_b_${i}`).value) || 0;
+      }
+
+      const out = document.getElementById('systemOutput');
+      out.style.display = 'block';
+
+      if (dim === 2) {
+        const D = det2(A);
+        const Ax = [[B[0], A[0][1]], [B[1], A[1][1]]];
+        const Ay = [[A[0][0], B[0]], [A[1][0], B[1]]];
+        const Dx = det2(Ax);
+        const Dy = det2(Ay);
+
+        if (Math.abs(D) > 1e-9) {
+          const x = Dx / D;
+          const y = Dy / D;
+          out.innerHTML = `
+            <h4>Sistema Possível e Determinado (SPD):</h4>
+            <p>@@D = ${D.toFixed(2)}, \\quad D_x = ${Dx.toFixed(2)}, \\quad D_y = ${Dy.toFixed(2)}@@</p>
+            <p><strong>Solução Única:</strong> @@S = \\{(${x.toFixed(2)}, ${y.toFixed(2)})\\}@@</p>
+          `;
+        } else if (Math.abs(Dx) < 1e-9 && Math.abs(Dy) < 1e-9) {
+          out.innerHTML = `<h4>Sistema Possível e Indeterminado (SPI):</h4><p>@@D = 0, D_x = 0, D_y = 0@@. Possui infinitas soluções.</p>`;
+        } else {
+          out.innerHTML = `<h4>Sistema Impossível (SI):</h4><p>@@D = 0@@ e determinantes das variáveis não-nulos. Não possui solução.</p>`;
+        }
+      } else {
+        const D = det3(A);
+        if (Math.abs(D) > 1e-9) {
+          const Ax = [
+            [B[0], A[0][1], A[0][2]],
+            [B[1], A[1][1], A[1][2]],
+            [B[2], A[2][1], A[2][2]]
+          ];
+          const Ay = [
+            [A[0][0], B[0], A[0][2]],
+            [A[1][0], B[1], A[1][2]],
+            [A[2][0], B[2], A[2][2]]
+          ];
+          const Az = [
+            [A[0][0], A[0][1], B[0]],
+            [A[1][0], A[1][1], B[1]],
+            [A[2][0], A[2][1], B[2]]
+          ];
+          const Dx = det3(Ax);
+          const Dy = det3(Ay);
+          const Dz = det3(Az);
+          const x = Dx / D;
+          const y = Dy / D;
+          const z = Dz / D;
+
+          out.innerHTML = `
+            <h4>Sistema 3x3 Possível e Determinado (SPD):</h4>
+            <p>@@D = ${D.toFixed(2)}, \\quad D_x = ${Dx.toFixed(2)}, \\quad D_y = ${Dy.toFixed(2)}, \\quad D_z = ${Dz.toFixed(2)}@@</p>
+            <p><strong>Solução:</strong> @@S = \\{(${x.toFixed(2)}, ${y.toFixed(2)}, ${z.toFixed(2)})\\}@@</p>
+          `;
+        } else {
+          out.innerHTML = `<h4>Determinante Principal Nulo (@D = 0@)</h4><p>O sistema é <strong>SPI</strong> (infinitas soluções) ou <strong>SI</strong> (impossível).</p>`;
+        }
+      }
+      renderKatex(out);
+    });
+
+    function renderKatex(elem) {
+      if (window.renderMathInElement) {
+        renderMathInElement(elem, {
+          delimiters: [
+            { left: "@@", right: "@@", display: true },
+            { left: "@", right: "@", display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    }
+
+    document.getElementById('matrixOrder').addEventListener('change', renderMatrixGrid);
+    document.getElementById('systemDim').addEventListener('change', renderSystemInputs);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderMatrixGrid();
+      renderSystemInputs();
+    });
+  </script>
+</body>
+</html>

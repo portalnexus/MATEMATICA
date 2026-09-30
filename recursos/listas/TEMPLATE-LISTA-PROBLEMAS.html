@@ -281,27 +281,61 @@
 </article>
 
 <!-- ============================================================================
-     GABARITO E SOLUÇÕES (OPCIONAL - EM COMENTÁRIO HTML)
+     GABARITO SECRETO DO PROFESSOR (ACESSO EXCLUSIVO VIA CTRL+U NO NAVEGADOR)
+     RESOLUÇÕES E RESPOSTAS COMENTADAS DETALHADAS:
 
-     INSTRUÇÕES:
-     1. Mantenha sempre em comentário HTML <!-- ... -->
-     2. Forneça solução passo a passo
-     3. Destaque conceitos importantes
-     4. Use formatação KaTeX para matemática
+<div class="gabarito-content">
 
-     EXEMPLO DE ESTRUTURA:
-     <article>
-       <h2>Gabarito e Soluções</h2>
+    [--- SEÇÃO 1 NO GABARITO ---]
+    <div class="gabarito-secao">
+      <h3>Seção 1: Problemas Introdutórios</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          [Resolução passo a passo com fórmulas KaTeX @...@ ou @@...@@]...<br>
+          <strong>Resposta:</strong> [Resposta final destacada]
+        </li>
+      </ol>
+    </div>
 
-       <h3>Problemas Introdutórios</h3>
-       <ol>
-         <li>
-           <p><strong>Solução:</strong> [Explicação passo a passo]</p>
-           <p><strong>Resposta:</strong> [Resposta final]</p>
-         </li>
-       </ol>
-     </article>
-     ============================================================================ -->
+    [--- SEÇÃO 2 NO GABARITO ---]
+    <div class="gabarito-secao">
+      <h3>Seção 2: Problemas de Fixação</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          [Resolução detalhada com interpretação e cálculos]...<br>
+          <strong>Resposta:</strong> [Resposta final destacada]
+        </li>
+      </ol>
+    </div>
+
+    [--- SEÇÃO 3 NO GABARITO ---]
+    <div class="gabarito-secao">
+      <h3>Seção 3: Problemas de Aprofundamento</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          [Resolução aprofundada em múltiplas etapas]...<br>
+          <strong>Resposta:</strong> [Resposta final destacada]
+        </li>
+      </ol>
+    </div>
+
+    [--- SEÇÃO 4 NO GABARITO ---]
+    <div class="gabarito-secao">
+      <h3>Seção 4: Problemas Propostos</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          [Resolução pedagógica e resposta do problema proposto]...<br>
+          <strong>Resposta:</strong> [Resposta final destacada]
+        </li>
+      </ol>
+    </div>
+
+</div>
+============================================================================ -->
 
 <!-- BOTÃO DE RETORNO -->
 <div style="text-align: center; margin-top: 30px;">
@@ -398,5 +432,56 @@ document.addEventListener("DOMContentLoaded", function() {
         - Exemplos de tópicos: "Probabilidade simples", "Eventos independentes",
           "Teorema de Pitágoras", "Equações do 1º grau", etc.
         - Isso ajuda os estudantes a identificarem os conceitos envolvidos
+
+     8. GABARITO SECRETO DO PROFESSOR (ACESSO EXCLUSIVO VIA CTRL+U NO NAVEGADOR):
+        - Localização obrigatória: Imediatamente antes do botão de retorno:
+          <div style="text-align: center; margin-top: 30px;">
+        - Finalidade pedagógica: Fornecer resoluções completas passo a passo
+          (com fórmulas KaTeX @...@ e @@...@@) e respostas destacadas de TODAS as
+          questões das 4 seções para consulta exclusiva do professor via código-fonte (Ctrl+U).
+        - REGRA CRÍTICA DE SINTAXE: NUNCA utilize "-->" dentro do bloco do gabarito!
+          Para separar seções dentro do comentário, use [--- SEÇÃO X NO GABARITO ---].
+        - SEM TAGS VISÍVEIS: Não utilize tags de expansão visíveis (&lt;details&gt;) para preservar o sigilo das respostas.
+        - Exemplo de estrutura do bloco:
+          [ABRE COMENTÁRIO HTML: <!-- ]
+          ============================================================================
+          GABARITO SECRETO DO PROFESSOR (ACESSO EXCLUSIVO VIA CTRL+U NO NAVEGADOR)
+          RESOLUÇÕES E RESPOSTAS COMENTADAS DETALHADAS:
+
+          <div class="gabarito-content">
+
+              [--- SEÇÃO 1 NO GABARITO ---]
+              <div class="gabarito-secao">
+                <h3>Seção 1: Problemas Introdutórios</h3>
+                <ol>
+                  <li>
+                    <span class="gabarito-item-titulo">Solução:</span><br>
+                    Passo a passo detalhado com KaTeX (@...@ ou @@...@@)...<br>
+                    <strong>Resposta:</strong> Resposta final destacada.
+                  </li>
+                </ol>
+              </div>
+
+              [--- SEÇÃO 2 NO GABARITO ---]
+              <div class="gabarito-secao">
+                <h3>Seção 2: Problemas de Fixação</h3>
+                ...
+              </div>
+
+              [--- SEÇÃO 3 NO GABARITO ---]
+              <div class="gabarito-secao">
+                <h3>Seção 3: Problemas de Aprofundamento</h3>
+                ...
+              </div>
+
+              [--- SEÇÃO 4 NO GABARITO ---]
+              <div class="gabarito-secao">
+                <h3>Seção 4: Problemas Propostos</h3>
+                ...
+              </div>
+
+          </div>
+          ============================================================================
+          [FECHA COMENTÁRIO HTML: --> ]
 
      ============================================================================ -->

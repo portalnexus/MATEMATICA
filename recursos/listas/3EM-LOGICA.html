@@ -618,6 +618,417 @@
   </ol>
 </article>
 
+<!-- ============================================================================
+     GABARITO SECRETO DO PROFESSOR (ACESSO EXCLUSIVO VIA CTRL+U NO NAVEGADOR)
+     RESOLUÇÕES E RESPOSTAS COMENTADAS DETALHADAS:
+
+<div class="gabarito-content">
+
+    [--- SEÇÃO 1 NO GABARITO ---]
+    <div class="gabarito-secao">
+      <h3>Seção 1: Problemas Introdutórios</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Uma proposição é uma sentença declarativa suscetível de valoração lógica (Verdadeira ou Falsa):<br>
+          a) "7 é um número primo": declarativa matemática com valor V @\implies@ <strong>É proposição</strong>.<br>
+          b) "Feche a janela!": frase imperativa @\implies@ <strong>Não é proposição</strong>.<br>
+          c) "Se @x > 5@, então @x > 3@": implicação matemática universalmente válida em @\mathbb{R}@ @\implies@ <strong>É proposição</strong>.<br>
+          d) "Esta frase é falsa": paradoxo autorreferencial que não admite valor de verdade estável @\implies@ <strong>Não é proposição</strong>.<br>
+          <strong>Resposta:</strong> São proposições lógicas: <strong>a</strong> e <strong>c</strong>; não são proposições: <strong>b</strong> e <strong>d</strong>.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Proposições dadas: @p@: "8 é par" (V) e @q@: "8 é divisível por 4" (V).<br>
+          A conjunção @p \land q@ é verdadeira quando ambas as componentes são verdadeiras:<br>
+          @p \land q = \text{V} \land \text{V} = \text{V}@.<br>
+          <strong>Resposta:</strong> Verdadeiro (V).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Proposições dadas: @r@: "3 é ímpar" (V) e @s@: "3 é múltiplo de 5" (F).<br>
+          A disjunção @r \lor s@ é verdadeira se pelo menos uma das proposições for verdadeira:<br>
+          @r \lor s = \text{V} \lor \text{F} = \text{V}@.<br>
+          <strong>Resposta:</strong> Verdadeiro (V).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A negação de uma proposição universal afirmativa é existencial particular:<br>
+          @\neg p@: "Existe pelo menos um número par que não é divisível por 2."<br>
+          b) A negação de uma existencial é universal negativa:<br>
+          @\neg q@: "Nenhum triângulo possui quatro lados" (ou "Todo triângulo não possui quatro lados").<br>
+          <strong>Resposta:</strong> a) "Existe pelo menos um número par que não é divisível por 2"; b) "Nenhum triângulo tem quatro lados".
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Tabela-verdade da fórmula @p \land \neg q@:<br>
+          • @(V, V): \text{V} \land \text{F} = \text{F}@<br>
+          • @(V, F): \text{V} \land \text{V} = \text{V}@<br>
+          • @(F, V): \text{F} \land \text{F} = \text{F}@<br>
+          • @(F, F): \text{F} \land \text{V} = \text{F}@<br>
+          <strong>Resposta:</strong> Coluna resultante: (F, V, F, F).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Antecedente: "5 é ímpar" (V). Consequente: "10 é par" (V).<br>
+          Pela tabela do condicional: @\text{V} \to \text{V} = \text{V}@.<br>
+          <strong>Resposta:</strong> Verdadeiro (V).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Para o número 15:<br>
+          - "15 é par" é Falso (F).<br>
+          - "15 termina em 0, 2, 4, 6 ou 8" é Falso (F), pois termina em 5.<br>
+          O bicondicional entre duas proposições falsas é verdadeiro: @\text{F} \leftrightarrow \text{F} = \text{V}@.<br>
+          <strong>Resposta:</strong> Verdadeiro (V).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Em lógica de predicados com quantificador universal:<br>
+          @\forall x \in \mathbb{R} \, (x > 0 \to \exists y \in \mathbb{R} \, (y^2 = x))@.<br>
+          <strong>Resposta:</strong> @\forall x \in \mathbb{R} \, (x > 0 \to \exists y \in \mathbb{R} \, (y^2 = x))@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Usando o quantificador existencial (@\exists@):<br>
+          @\exists n \in \mathbb{N} \, (Pr(n) \land Par(n))@.<br>
+          <strong>Resposta:</strong> @\exists n \in \mathbb{N} \, (Pr(n) \land Par(n))@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Avaliando @p \lor \neg p@ (Princípio do Terceiro Excluído):<br>
+          • Se @p = \text{V} \implies \text{V} \lor \text{F} = \text{V}@.<br>
+          • Se @p = \text{F} \implies \text{F} \lor \text{V} = \text{V}@.<br>
+          Como é sempre verdadeira em todas as valorações, classifica-se como <strong>tautologia</strong>.<br>
+          <strong>Resposta:</strong> Tautologia.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Comparando as colunas linha por linha:<br>
+          • (V, V): @\neg(V \land V) = \text{F}@; @\neg V \lor \neg V = \text{F} \lor \text{F} = \text{F}@<br>
+          • (V, F): @\neg(V \land F) = \text{V}@; @\neg V \lor \neg F = \text{F} \lor \text{V} = \text{V}@<br>
+          • (F, V): @\neg(F \land V) = \text{V}@; @\neg F \lor \neg V = \text{V} \lor \text{F} = \text{V}@<br>
+          • (F, F): @\neg(F \land F) = \text{V}@; @\neg F \lor \neg F = \text{V} \lor \text{V} = \text{V}@<br>
+          Ambas as fórmulas possuem a coluna (F, V, V, V). Logo, são equivalentes (1ª Lei de De Morgan).<br>
+          <strong>Resposta:</strong> São logicamente equivalentes (1ª Lei de De Morgan).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Identificação dos componentes do argumento dedutivo:<br>
+          • Premissa 1: "Todos os matemáticos são lógicos."<br>
+          • Premissa 2: "Euclides era matemático."<br>
+          • Conclusão: "Euclides era lógico."<br>
+          <strong>Resposta:</strong> Premissas: "Todos os matemáticos são lógicos" e "Euclides era matemático"; Conclusão: "Euclides era lógico".
+        </li>
+      </ol>
+    </div>
+
+    [--- SEÇÃO 2 NO GABARITO ---]
+    <div class="gabarito-secao">
+      <h3>Seção 2: Problemas de Fixação</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Construindo a tabela de 8 linhas para @(p \lor q) \land r@:<br>
+          1) V, V, V @\implies p \lor q = \text{V} \implies \text{V} \land \text{V} = \text{V}@<br>
+          2) V, V, F @\implies p \lor q = \text{V} \implies \text{V} \land \text{F} = \text{F}@<br>
+          3) V, F, V @\implies p \lor q = \text{V} \implies \text{V} \land \text{V} = \text{V}@<br>
+          4) V, F, F @\implies p \lor q = \text{V} \implies \text{V} \land \text{F} = \text{F}@<br>
+          5) F, V, V @\implies p \lor q = \text{V} \implies \text{V} \land \text{V} = \text{V}@<br>
+          6) F, V, F @\implies p \lor q = \text{V} \implies \text{V} \land \text{F} = \text{F}@<br>
+          7) F, F, V @\implies p \lor q = \text{F} \implies \text{F} \land \text{V} = \text{F}@<br>
+          8) F, F, F @\implies p \lor q = \text{F} \implies \text{F} \land \text{F} = \text{F}@<br>
+          <strong>Resposta:</strong> Coluna resultante: (V, F, V, F, V, F, F, F).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Seja @p@: "João estuda matemática" e @q@: "João estuda física".<br>
+          A afirmação original é @p \land q@. Pela Lei de De Morgan: @\neg(p \land q) \equiv \neg p \lor \neg q@.<br>
+          Em linguagem natural: "João não estuda matemática ou João não estuda física."<br>
+          <strong>Resposta:</strong> "João não estuda matemática ou não estuda física."
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Para @p \to q@: "Se um número é divisível por 6, então é divisível por 3":<br>
+          a) Recíproca (@q \to p@): "Se um número é divisível por 3, então é divisível por 6."<br>
+          b) Contrapositiva (@\neg q \to \neg p@): "Se um número não é divisível por 3, então não é divisível por 6."<br>
+          c) Análise de veracidade:<br>
+          - A proposição original é Verdadeira (@6k = 3(2k)@).<br>
+          - A contrapositiva é logicamente equivalente à original, logo é Verdadeira.<br>
+          - A recíproca é Falsa (contraexemplo: @n = 9@ é divisível por 3, mas não por 6).<br>
+          <strong>Resposta:</strong> a) "Se um número é divisível por 3, então é divisível por 6"; b) "Se um número não é divisível por 3, então não é divisível por 6"; c) São verdadeiras a original e a contrapositiva; a recíproca é falsa.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          A proposição tem a forma universal @\forall x (E(x) \to C(x))@.<br>
+          Sua negação lógica é existencial particular: @\exists x (E(x) \land \neg C(x))@:<br>
+          "Existe pelo menos um triângulo equilátero que não possui três lados congruentes."<br>
+          <strong>Resposta:</strong> "Existe pelo menos um triângulo equilátero que não possui três lados congruentes."
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Premissas: @p \to q@ e @q@. Conclusão: @p@.<br>
+          O argumento é <strong>inválido</strong>. Trata-se da clássica falácia da afirmação do consequente.<br>
+          Contraexemplo: A rua pode estar molhada devido a um caminhão-pipa ou vazamento, sem que tenha chovido.<br>
+          <strong>Resposta:</strong> Argumento inválido (falácia da afirmação do consequente).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Estrutura do argumento: Premissa 1: @p \to q@; Premissa 2: @p@; Conclusão: @q@.<br>
+          Este argumento segue perfeitamente o padrão dedutivo do <strong>Modus Ponens</strong> (afirmação do antecedente). Portanto, é <strong>válido</strong>.<br>
+          <strong>Resposta:</strong> Utiliza a regra de Modus Ponens; o argumento é válido.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Premissa 1: @C(a) \to D(a)@; Premissa 2: @\neg D(2)@; Conclusão: @\neg C(2)@.<br>
+          A estrutura é @p \to q@ e @\neg q@, inferindo @\neg p@. Esta é exatamente a forma lógica do <strong>Modus Tollens</strong> (negação do consequente). O argumento é <strong>válido</strong>.<br>
+          <strong>Resposta:</strong> Utiliza o Modus Tollens corretamente; o argumento é válido.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Pela regra do Silogismo Hipotético (@p \to q@ e @q \to r \implies p \to r@):<br>
+          Conclusão: "Se @n@ é múltiplo de 6, então a soma de seus algarismos é múltiplo de 3."<br>
+          <strong>Resposta:</strong> "Se @n@ é múltiplo de 6, então a soma de seus algarismos é múltiplo de 3."
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          A afirmação é <strong>verdadeira</strong>.<br>
+          Demonstração por contrapositiva: Suponha que @n@ não seja par (seja ímpar). Então @n = 2k + 1@ para algum @k \in \mathbb{Z}@.<br>
+          Elevando ao quadrado: @n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1@, que é comprovadamente ímpar.<br>
+          Como @\neg(\text{par}) \implies \neg(\text{par})@ é verdade, a proposição original é verdadeira. Logo, não existe contraexemplo.<br>
+          <strong>Resposta:</strong> A afirmação é verdadeira; não há contraexemplo possível.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          • Se um número é divisível por 6, ele é divisível por 2 e por 3 (é suficiente).<br>
+          • Se um número é divisível por 2 e por 3, como @\text{mdc}(2, 3) = 1@, ele é necessariamente divisível por 6 (é necessária).<br>
+          Portanto, a relação entre as duas afirmações é de equivalência estrita (@p \leftrightarrow q@).<br>
+          <strong>Resposta:</strong> Condição necessária e suficiente.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Pela equivalência fundamental da condicional: @p \to q \equiv \neg p \lor q@.<br>
+          Negando ambos os membros e aplicando a Lei de De Morgan:<br>
+          @\neg(p \to q) \equiv \neg(\neg p \lor q) \equiv \neg(\neg p) \land \neg q \equiv p \land \neg q@.<br>
+          <strong>Resposta:</strong> @p \land \neg q@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Classificação pelo quadrado aristotélico de oposições:<br>
+          a) "Todos os quadrados são retângulos": Universal Afirmativa (**A**).<br>
+          b) "Nenhum número primo é par, exceto 2": Universal Negativa com exceção explícita (**E**).<br>
+          c) "Alguns polígonos têm lados curvos": Particular Afirmativa (**I**).<br>
+          <strong>Resposta:</strong> a) Tipo A (Universal afirmativa); b) Tipo E (Universal negativa); c) Tipo I (Particular afirmativa).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Estrutura: @p \to q@ e @q@ conclui @p@.<br>
+          Ser mamífero é uma condição necessária para ser gato, mas não é exclusiva nem suficiente. Existem infinitos outros animais mamíferos (cães, cavalos, humanos, golfinhos). Afirmar o consequente não autoriza inferir o antecedente.<br>
+          <strong>Resposta:</strong> Falácia da afirmação do consequente; a classe dos mamíferos engloba diversos outros seres não felinos.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Seja @n@ um número inteiro par. Por definição, existe @k \in \mathbb{Z}@ tal que @n = 2k@.<br>
+          Calculando o quadrado de @n@:<br>
+          @n^2 = (2k)^2 = 4k^2 = 2(2k^2)@.<br>
+          Como @k \in \mathbb{Z}@, o termo @m = 2k^2@ também é um número inteiro.<br>
+          Portanto, @n^2 = 2m@, o que comprova diretamente que @n^2@ é um número par.<br>
+          <strong>Resposta:</strong> Demonstração direta apresentada: @n = 2k \implies n^2 = 2(2k^2) = 2m@, que é par.
+        </li>
+      </ol>
+    </div>
+
+    [--- SEÇÃO 3 NO GABARITO ---]
+    <div class="gabarito-secao">
+      <h3>Seção 3: Problemas de Aprofundamento</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Suponha, por absurdo (redução ao absurdo), que @\sqrt{2}@ seja um número racional.<br>
+          Então existem inteiros positivos @a@ e @b@ primos entre si (@\text{mdc}(a, b) = 1@) tais que:<br>
+          @\sqrt{2} = \frac{a}{b} \implies 2 = \frac{a^2}{b^2} \implies a^2 = 2b^2@.<br>
+          Como @a^2@ é múltiplo de 2, @a^2@ é par, o que implica que @a@ é par. Logo, @a = 2k@ para algum @k \in \mathbb{Z}@.<br>
+          Substituindo na equação: @(2k)^2 = 2b^2 \implies 4k^2 = 2b^2 \implies b^2 = 2k^2@.<br>
+          Isso implica que @b^2@ é par, e portanto @b@ também é par.<br>
+          Mas se @a@ e @b@ são ambos pares, eles compartilham o fator comum 2, o que contradiz a hipótese de que @\frac{a}{b}@ era uma fração irredutível.<br>
+          Portanto, a suposição inicial é falsa, provando que @\sqrt{2}@ é irracional.<br>
+          <strong>Resposta:</strong> Demonstração por contradição (redução ao absurdo) concluída com sucesso.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Em linguagem natural: "Para todo número real @x@, existe um número real @y@ tal que @y@ é estritamente maior que @x@."<br>
+          b) É <strong>verdadeira</strong>, pois para qualquer real @x@, basta tomar @y = x + 1@ (ou qualquer @y = x + c@ com @c > 0@), o qual é real e satisfaz @x + 1 > x@.<br>
+          c) Negando os quantificadores aninhados:<br>
+          @\neg [\forall x \in \mathbb{R} \, \exists y \in \mathbb{R} \, (y > x)] \equiv \exists x \in \mathbb{R} \, \forall y \in \mathbb{R} \, (y \leq x)@.<br>
+          <strong>Resposta:</strong> a) "Para todo número real x, existe um número real y maior que x"; b) Verdadeira; c) @\exists x \in \mathbb{R} \, \forall y \in \mathbb{R} \, (y \leq x)@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Formalizando o silogismo:<br>
+          • Premissa Maior: Todo @x@ racional pode ser expresso como fração (@\forall x (Q(x) \to F(x))@).<br>
+          • Premissa Menor: @\pi@ não pode ser expresso como fração (@\neg F(\pi)@).<br>
+          • Conclusão: @\pi@ não é racional (@\neg Q(\pi)@).<br>
+          Trata-se de uma inferência dedutiva válida da forma <em>Modus Tollens</em> universalizado (Silogismo Categórico de Modo Camestres na 2ª figura). O argumento é <strong>válido</strong>.<br>
+          <strong>Resposta:</strong> Argumento válido (Modus Tollens universalizado / Modo Camestres).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Demonstração por Indução Finita sobre @n@:<br>
+          1) <em>Caso Base (@n = 1@):</em><br>
+          Lado esquerdo: @1@.<br>
+          Lado direito: @\frac{1(1 + 1)}{2} = \frac{2}{2} = 1@.<br>
+          Como @1 = 1@, a base é válida.<br>
+          2) <em>Hipótese de Indução:</em> Assuma válido para @n = k@:<br>
+          @1 + 2 + \dots + k = \frac{k(k + 1)}{2}@.<br>
+          3) <em>Passo Indutivo:</em> Provar para @n = k + 1@:<br>
+          @1 + 2 + \dots + k + (k + 1) = \frac{k(k + 1)}{2} + (k + 1)@.<br>
+          Colocando @(k + 1)@ em evidência:<br>
+          @= (k + 1) \left(\frac{k}{2} + 1\right) = (k + 1)\left(\frac{k + 2}{2}\right) = \frac{(k + 1)((k + 1) + 1)}{2}@.<br>
+          A igualdade é preservada para @k + 1@. Pelo PIM, a fórmula é válida para todo @n \in \mathbb{N}^*@.<br>
+          <strong>Resposta:</strong> Demonstração por indução matemática completa apresentada.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Dedução lógica por regras de inferência:<br>
+          1. Das premissas 2 e 3 (@r \to \neg q@ e @r@), aplica-se <strong>Modus Ponens</strong> para obter @\neg q@.<br>
+          2. Da premissa 1 (@p \to q@) e de @\neg q@, aplica-se <strong>Modus Tollens</strong> para obter @\neg p@.<br>
+          Como a conclusão @\neg p@ foi deduzida rigorosamente passo a passo a partir das premissas, o argumento é <strong>válido</strong>.<br>
+          <strong>Resposta:</strong> Argumento válido (comprovado por Modus Ponens seguido de Modus Tollens).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          A proposição original é a definição formal de limite de Cauchy-Weierstrass:<br>
+          @\forall \epsilon > 0 \, \exists \delta > 0 \, \forall x \, (|x - a| < \delta \to |f(x) - L| < \epsilon)@.<br>
+          Aplicando as regras de negação de quantificadores e a negação da condicional @\neg(P \to Q) \equiv P \land \neg Q@:<br>
+          @\exists \epsilon > 0 \, \forall \delta > 0 \, \exists x \, (|x - a| < \delta \land |f(x) - L| \geq \epsilon)@.<br>
+          <strong>Resposta:</strong> @\exists \epsilon > 0 \, \forall \delta > 0 \, \exists x \, (|x - a| < \delta \land |f(x) - L| \geq \epsilon)@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Fatorando a expressão algébrica:<br>
+          @n^3 - n = n(n^2 - 1) = (n - 1) \cdot n \cdot (n + 1)@.<br>
+          Note que @(n - 1)@, @n@ e @(n + 1)@ são três números inteiros consecutivos.<br>
+          No sistema de congruências módulo 3, o resto da divisão por 3 de qualquer inteiro pertence a @\{0, 1, 2\}@:<br>
+          • Se @n \equiv 0 \pmod 3@: @n@ é múltiplo de 3.<br>
+          • Se @n \equiv 1 \pmod 3@: @n - 1@ é múltiplo de 3.<br>
+          • Se @n \equiv 2 \pmod 3@: @n + 1 \equiv 3 \equiv 0 \pmod 3@ é múltiplo de 3.<br>
+          Em todos os casos possíveis, pelo menos um dos fatores é divisível por 3. Logo, o produto @n^3 - n@ é sempre divisível por 3.<br>
+          <strong>Resposta:</strong> Demonstração concluída por fatoração em três inteiros consecutivos @(n-1)n(n+1)@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Demonstração utilizando apenas identidades de álgebra proposicional:<br>
+          1. Pela definição da condicional (@A \to B \equiv \neg A \lor B@):<br>
+          @(p \to q) \land (p \to r) \equiv (\neg p \lor q) \land (\neg p \lor r)@.<br>
+          2. Pela propriedade distributiva da disjunção em relação à conjunção (@X \lor (Y \land Z) \equiv (X \lor Y) \land (X \lor Z)@, com @X = \neg p@):<br>
+          @(\neg p \lor q) \land (\neg p \lor r) \equiv \neg p \lor (q \land r)@.<br>
+          3. Convertendo novamente a disjunção em condicional (@\neg A \lor B \equiv A \to B@):<br>
+          @\neg p \lor (q \land r) \equiv p \to (q \land r)@ (demonstração concluída).<br>
+          <strong>Resposta:</strong> Demonstração algébrica formal concluída via distributividade lógica.
+        </li>
+      </ol>
+    </div>
+
+    [--- SEÇÃO 4 NO GABARITO ---]
+    <div class="gabarito-secao">
+      <h3>Seção 4: Problemas Propostos</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Regra do barbeiro: O barbeiro barbeia todos e somente os homens da cidade que não barbeiam a si mesmos.<br>
+          Análise de casos para o barbeiro @B@:<br>
+          • Se @B@ faz a própria barba, então ele é um homem que faz a própria barba; portanto, pela regra, o barbeiro não pode fazer a sua barba (contradição).<br>
+          • Se @B@ não faz a própria barba, então ele pertence à classe dos homens que não fazem a própria barba; logo, o barbeiro deve fazer a sua barba (contradição).<br>
+          Trata-se de uma contradição lógica insolúvel demonstrada por Bertrand Russell em 1901 para evidenciar que o Princípio da Compreensão Irrestrita da teoria ingênua de conjuntos permite construir conjuntos contraditórios.<br>
+          <strong>Resposta:</strong> O barbeiro faz a sua própria barba se e somente se ele não faz a sua própria barba, violando o princípio da não-contradição.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Na lógica clássica bivalente, toda proposição deve ser estritamente verdadeira (1) ou falsa (0). O predicado "alto" não possui um limiar objetivo e absoluto.<br>
+          A Lógica Fuzzy (difusa) soluciona essa limitação associando a cada afirmação um grau de pertinência no intervalo real contínuo @[0, 1]@.<br>
+          Por exemplo, para um homem de 1,78 m, o valor de verdade da proposição "João é alto" pode ser @0{,}72@ (72% de pertinência ao conjunto das pessoas altas).<br>
+          <strong>Resposta:</strong> O predicado é vago e gradual; seus valores de verdade variam continuamente no intervalo @[0, 1]@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          A contrapositiva da proposição "@p \to q@" ("Se @n^2@ é ímpar, então @n@ é ímpar") é "@\neg q \to \neg p@" ("Se @n@ é par, então @n^2@ é par").<br>
+          Demonstração da contrapositiva:<br>
+          Se @n@ é par, existe @k \in \mathbb{Z}@ tal que @n = 2k@.<br>
+          Calculando @n^2 = (2k)^2 = 4k^2 = 2(2k^2) = 2m@, com @m = 2k^2 \in \mathbb{Z}@.<br>
+          Logo, @n^2@ é par.<br>
+          Como a contrapositiva é verdadeira e logicamente equivalente à original, fica provado que se @n^2@ é ímpar, então @n@ é ímpar.<br>
+          <strong>Resposta:</strong> Prova por contrapositiva concluída: @n = 2k \implies n^2 = 2(2k^2)@ (par).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Pelo Princípio da Casa dos Pombos (Princípio de Dirichlet):<br>
+          Sejam as 13 pessoas os "pombos" (@k = 13@) e os 12 meses do ano as "casas" (@n = 12@).<br>
+          Como o número de pessoas é estritamente maior que o número de meses do ano (@13 > 12@), pelo menos uma casa deve conter mais de um elemento. Logo, obrigatoriamente pelo menos duas pessoas compartilham o mesmo mês de nascimento.<br>
+          <strong>Resposta:</strong> Demonstração pelo Princípio da Casa dos Pombos com 13 pessoas distribuídas em 12 meses.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          O argumento comete a falácia informal da <strong>petição de princípio</strong> (raciocínio circular ou <em>petitio principii</em>):<br>
+          A conclusão ("a Bíblia é a palavra de Deus") é adotada implicitamente como premissa para validar a confiabilidade do que nela está escrito. Não há evidência independente externa que comprove a alegação.<br>
+          <strong>Resposta:</strong> Falácia da petição de princípio (raciocínio circular), pois a conclusão é assumida na premissa.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Dada a expressão @(A \land B) \lor (A \land \neg B) \lor (\neg A \land B)@:<br>
+          1. Fatorando @A@ nos dois primeiros termos:<br>
+          @[A \land (B \lor \neg B)] \lor (\neg A \land B)@.<br>
+          2. Como @B \lor \neg B \equiv 1@:<br>
+          @[A \land 1] \lor (\neg A \land B) \equiv A \lor (\neg A \land B)@.<br>
+          3. Pela propriedade distributiva da disjunção:<br>
+          @(A \lor \neg A) \land (A \lor B) \equiv 1 \land (A \lor B) \equiv A \lor B@.<br>
+          <strong>Resposta:</strong> @A \lor B@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Pelo Teorema da Dedução (Herbrand, 1930): se @\{p, q\} \vdash r@ em um sistema dedutivo, então @\{p\} \vdash q \to r@.<br>
+          Semântica equivalente:<br>
+          @[(p \land q) \to r] \equiv \neg(p \land q) \lor r \equiv (\neg p \lor \neg q) \lor r \equiv \neg p \lor (\neg q \lor r) \equiv \neg p \lor (q \to r) \equiv p \to (q \to r)@.<br>
+          Logo, derivar @r@ a partir de @p@ e @q@ é equivalente a deduzir @q \to r@ a partir apenas de @p@.<br>
+          <strong>Resposta:</strong> Demonstração concluída via equivalência lógica: @(p \land q) \to r \equiv p \to (q \to r)@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Existência: @x = 4@ é uma solução real, pois @4 + 3 = 7@.<br>
+          Unicidade: Suponha que existam dois números reais @x_1@ e @x_2@ tais que:<br>
+          @x_1 + 3 = 7@ e @x_2 + 3 = 7@.<br>
+          Igualando as duas expressões:<br>
+          @x_1 + 3 = x_2 + 3@.<br>
+          Somando o oposto aditivo @(-3)@ a ambos os membros da igualdade:<br>
+          @(x_1 + 3) + (-3) = (x_2 + 3) + (-3) \implies x_1 = x_2@.<br>
+          Portanto, a solução é única.<br>
+          <strong>Resposta:</strong> Demonstração de unicidade concluída (@x_1 + 3 = x_2 + 3 \implies x_1 = x_2 = 4@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Resolvendo a equação algébrica em @\mathbb{R}@:<br>
+          @x^2 - 5x + 6 = 0 \implies (x - 2)(x - 3) = 0@.<br>
+          As raízes são @x = 2@ e @x = 3@.<br>
+          O conjunto-verdade @V@ (ou conjunto solução @S@) no universo dos reais é formado por esses dois elementos.<br>
+          <strong>Resposta:</strong> @V = \{2, 3\}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Sendo @P(x, y)@: "@x@ é pai de @y@":<br>
+          a) "Todo mundo tem um pai": @\forall y \, \exists x \, P(x, y)@.<br>
+          b) "Existe alguém que é pai de todos": @\exists x \, \forall y \, P(x, y)@.<br>
+          c) "Ninguém é pai de si mesmo": @\forall x \, \neg P(x, x)@.<br>
+          d) No mundo real biológico:<br>
+          • A proposição <strong>a</strong> é verdadeira (todo ser humano vivo é fruto de um progenitor biológico).<br>
+          • A proposição <strong>b</strong> é falsa (não existe um único pai universal vivo simultâneo para toda a população).<br>
+          • A proposição <strong>c</strong> é verdadeira (a relação de filiação biológica é irreflexiva).<br>
+          <strong>Resposta:</strong> a) @\forall y \, \exists x \, P(x, y)@; b) @\exists x \, \forall y \, P(x, y)@; c) @\forall x \, \neg P(x, x)@; d) No mundo real biológico, <strong>a</strong> e <strong>c</strong> são verdadeiras, enquanto <strong>b</strong> é falsa.
+        </li>
+      </ol>
+    </div>
+
+  </div>
+============================================================================ -->
+
 <!-- BOTÃO DE RETORNO -->
 <div style="text-align: center; margin-top: 30px;">
     <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>

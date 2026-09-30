@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Probabilidade Condicional e Regra do Produto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .orientacao-inicial { background: rgba(0, 255, 102, 0.1); border-left: 4px solid var(--link-color); padding: 1.2rem; border-radius: 8px; margin-bottom: 2rem; }
+    .conceito-basico { background: rgba(0, 0, 0, 0.3); border-left: 4px solid #3b82f6; padding: 1rem; border-radius: 6px; margin-bottom: 1.2rem; }
+    .conceito-basico h4 { color: #3b82f6; margin-top: 0; }
+    .exemplo-passo-a-passo { background: rgba(0, 0, 0, 0.35); border-left: 4px solid #eab308; padding: 1.2rem; border-radius: 6px; margin-bottom: 2rem; }
+    .exemplo-passo-a-passo h4 { color: #eab308; margin-top: 0; }
+    .problema-recuperacao { background: rgba(0, 0, 0, 0.25); border: 1px solid var(--container-border-color); padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem; }
+    .nivel-apoio { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-bottom: 0.5rem; }
+    .apoio-alto { background: rgba(76, 175, 80, 0.3); color: #81c784; }
+    .apoio-medio { background: rgba(255, 193, 7, 0.3); color: #ffd54f; }
+    .apoio-baixo { background: rgba(244, 67, 54, 0.3); color: #e57373; }
+    .dica-box { background: rgba(234, 179, 8, 0.15); border-left: 3px solid #eab308; padding: 0.6rem; border-radius: 4px; margin: 0.6rem 0; font-size: 0.9rem; }
+    details summary { cursor: pointer; color: var(--link-color); font-weight: bold; margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+        <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
+        <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
+        <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <article>
+        <span class="badge-nivel ano-2em">2º Ano EM</span>
+        <h2>Recuperação: Probabilidade Condicional e Regra do Produto</h2>
+        <p class="lead">Eventos Dependentes, Independentes e Teorema da Multiplicação</p>
+
+        <div class="orientacao-inicial">
+          <h3>📚 Roteiro Pedagógico de Recuperação</h3>
+          <p>Esta atividade foi estruturada com <strong>scaffolding gradual</strong> para consolidar seu aprendizado:</p>
+          <ul>
+            <li><strong>Revisão Essencial:</strong> Conceitos chave sem rodeios.</li>
+            <li><strong>Exemplo Guiado:</strong> Veja a linha de raciocínio passo a passo antes de tentar sozinho.</li>
+            <li><strong>Progressão de Autonomia:</strong> O apoio e as pistas diminuem conforme você avança pelas questões.</li>
+          </ul>
+        </div>
+
+        <h2>Relembrando: Conceitos Fundamentais</h2>
+        <div class="conceito-basico"><h4>Conceito 1: Regra da Multiplicação</h4><p>P(A ∩ B) = P(A) * P(B | A). Se forem independentes: P(A ∩ B) = P(A) * P(B).</p></div>
+<div class="conceito-basico"><h4>Conceito 2: Probabilidade Sem Reposição</h4><p>Na retirada sem reposição, o espaço amostral diminui a cada etapa.</p></div>
+<div class="conceito-basico"><h4>Conceito 3: Árvore de Probabilidades</h4><p>Diagrama em árvore para rastrear múltiplos caminhos de eventos sucessivos.</p></div>
+
+
+        <h2>Exemplo Resolvido Passo a Passo</h2>
+        <div class="exemplo-passo-a-passo">
+          <h4>Retirada de Bolas sem Reposição</h4>
+          <p><strong>Problema:</strong> Uma urna tem 4 bolas azuis e 6 vermelhas. Retiram-se duas bolas sem reposição. Qual a probabilidade de ambas serem azuis?</p>
+          <p><strong>Solução:</strong> P = (4/10) * (3/9) = 12/90 = 2/15 ≈ 13,33%.</p>
+        </div>
+
+        <h2>Atividades Práticas com Apoio Gradual</h2>
+
+        <div class="problema-recuperacao">
+          <span class="nivel-apoio apoio-alto">Parte 1: Alto Apoio (Guiado)</span>
+          <p><strong>Questão 1:</strong> Em uma moeda honesta, qual a probabilidade de obter Cara duas vezes seguidas?</p>
+          <div class="dica-box">💡 Dica: Eventos independentes: (1/2) * (1/2).</div>
+          <details>
+            <summary>Ver Gabarito</summary>
+            <p><strong>Resposta:</strong> 1/4 ou 25%</p>
+          </details>
+        </div>
+
+        <div class="problema-recuperacao">
+          <span class="nivel-apoio apoio-medio">Parte 2: Médio Apoio (Reforço)</span>
+          <p><strong>Questão 2:</strong> De um baralho de 52 cartas, retiram-se duas cartas sem reposição. Qual a chance de tirar dois Reis?</p>
+          <div class="dica-box">💡 Dica: Há 4 reis. P = (4/52) * (3/51).</div>
+          <details>
+            <summary>Ver Gabarito</summary>
+            <p><strong>Resposta:</strong> 12 / 2652 = 1 / 221 ≈ 0,45%</p>
+          </details>
+        </div>
+
+        <div class="problema-recuperacao">
+          <span class="nivel-apoio apoio-baixo">Parte 3: Autonomia Completa</span>
+          <p><strong>Questão 3:</strong> Se P(A) = 0,6 e P(B | A) = 0,5, calcule P(A ∩ B).</p>
+          <div class="dica-box">💡 Dica: P(A ∩ B) = P(A) * P(B | A).</div>
+          <details>
+            <summary>Ver Gabarito</summary>
+            <p><strong>Resposta:</strong> 0,3 ou 30%</p>
+          </details>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+        </div>
+      </article>
+    </div>
+  </div>
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "@@", right: "@@", display: true },
+          { left: "\[", right: "\]", display: true },
+          { left: "@", right: "@", display: false },
+          { left: "\(", right: "\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+</html>

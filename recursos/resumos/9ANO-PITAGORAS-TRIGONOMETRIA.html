@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Teorema de Pitágoras e Trigonometria no Triângulo Retângulo</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS Nexus -->
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+        <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
+        <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
+        <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <article>
+        <span class="badge-nivel ano-9">9º ANO DO ENSINO FUNDAMENTAL</span>
+        <h2>TEOREMA DE PITÁGORAS E TRIGONOMETRIA NO TRIÂNGULO RETÂNGULO</h2>
+        <p class="lead">Fundamentos da geometria euclidiana métrica e introdução rigorosa às razões trigonométricas fundamentais (seno, cosseno e tangente).</p>
+
+        <!-- Seção 1: Conceitos Fundamentais -->
+        <section>
+          <h3>1. Elementos do Triângulo Retângulo</h3>
+          
+          <div class="destaque-box definicao">
+            <h4>Definição 1.1: Triângulo Retângulo</h4>
+            <p>Um triângulo é dito <strong>retângulo</strong> quando possui um de seus ângulos internos medindo exatamente @90^\circ@ (ângulo reto). O lado oposto ao ângulo reto denomina-se <strong>hipotenusa</strong> (@a@), sendo o maior lado do triângulo. Os outros dois lados adjacentes ao ângulo reto são denominados <strong>catetos</strong> (@b@ e @c@).</p>
+          </div>
+
+          <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
+            <svg viewBox="0 0 380 220" width="360" height="200" aria-label="Triângulo Retângulo com catetos b, c e hipotenusa a">
+              <polygon points="80,180 300,180 80,50" fill="rgba(33, 150, 243, 0.2)" stroke="var(--link-color, #00ff66)" stroke-width="2.5" />
+              <!-- Ângulo Reto -->
+              <rect x="80" y="160" width="20" height="20" fill="none" stroke="var(--link-color, #00ff66)" stroke-width="1.5" />
+              <circle cx="90" cy="170" r="2.5" fill="var(--link-color, #00ff66)" />
+              <!-- Rótulos -->
+              <text x="55" y="120" fill="var(--main-text-color, #00ff66)" font-size="14" font-weight="bold">c</text>
+              <text x="185" y="200" fill="var(--main-text-color, #00ff66)" font-size="14" font-weight="bold">b</text>
+              <text x="200" y="105" fill="#ff7043" font-size="14" font-weight="bold">a (hipotenusa)</text>
+              <text x="65" y="195" fill="currentColor" font-size="12">C</text>
+              <text x="310" y="195" fill="currentColor" font-size="12">B</text>
+              <text x="65" y="45" fill="currentColor" font-size="12">A</text>
+            </svg>
+            <p class="legenda-figura" style="font-size: 0.85rem; opacity: 0.8;"><em>Figura 1: Triângulo @\triangle ABC@ retângulo em @C@, com catetos @b, c@ e hipotenusa @a@.</em></p>
+          </div>
+        </section>
+
+        <!-- Seção 2: O Teorema de Pitágoras -->
+        <section>
+          <h3>2. O Teorema de Pitágoras</h3>
+
+          <div class="destaque-box teorema">
+            <h4>Teorema 2.1: Teorema de Pitágoras</h4>
+            <p>Em qualquer triângulo retângulo, a área do quadrado construído sobre a hipotenusa é igual à soma das áreas dos quadrados construídos sobre os catetos:</p>
+            @@a^2 = b^2 + c^2@@
+          </div>
+
+          <div class="destaque-box observacao">
+            <h4>Demonstração Geométrica Clássica</h4>
+            <p>Considere um quadrado de lado @(b + c)@. Sua área total pode ser particionada de duas formas equivalentes:</p>
+            <ul>
+              <li>Por 4 triângulos retângulos congruentes de área @\frac{b \\cdot c}{2}@ e um quadrado central de lado @a@ e área @a^2@:
+                @@A_{\text{total}} = 4 \\cdot \\left(\\frac{bc}{2}\\right) + a^2 = 2bc + a^2@@
+              </li>
+              <li>Pela expansão algébrica do quadrado da soma:
+                @@A_{\text{total}} = (b + c)^2 = b^2 + 2bc + c^2@@
+              </li>
+            </ul>
+            <p>Igualando ambas as expressões: @@2bc + a^2 = b^2 + 2bc + c^2 \implies a^2 = b^2 + c^2 \quad \blacksquare@@</p>
+          </div>
+        </section>
+
+        <!-- Seção 3: Razões Trigonométricas -->
+        <section>
+          <h3>3. Razões Trigonométricas no Triângulo Retângulo</h3>
+
+          <div class="destaque-box definicao">
+            <h4>Definição 3.1: Seno, Cosseno e Tangente</h4>
+            <p>Dado um ângulo agudo @\theta@ de um triângulo retângulo, definimos as três razões fundamentais:</p>
+            @@\text{sen}(\theta) = \frac{\text{Cateto Oposto}}{\text{Hipotenusa}} = \frac{\text{CO}}{\text{H}}@@
+            @@\cos(\theta) = \frac{\text{Cateto Adjacente}}{\text{Hipotenusa}} = \frac{\text{CA}}{\text{H}}@@
+            @@\text{tg}(\theta) = \frac{\text{Cateto Oposto}}{\text{Cateto Adjacente}} = \frac{\text{CO}}{\text{CA}} = \frac{\text{sen}(\theta)}{\cos(\theta)}@@
+          </div>
+
+          <div class="destaque-box observacao">
+            <h4>Tabela dos Ângulos Notáveis (30°, 45°, 60°)</h4>
+            <table style="width:100%; border-collapse:collapse; margin-top:0.8rem; text-align:center;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--container-border-color);">
+                  <th style="padding:8px;">Razão \ Ângulo</th>
+                  <th style="padding:8px;">@30^\circ@ (@\frac{\pi}{6}@)</th>
+                  <th style="padding:8px;">@45^\circ@ (@\frac{\pi}{4}@)</th>
+                  <th style="padding:8px;">@60^\circ@ (@\frac{\pi}{3}@)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                  <td style="padding:8px; font-weight:bold;">@\text{sen}@</td>
+                  <td>@\frac{1}{2}@</td>
+                  <td>@\frac{\sqrt{2}}{2}@</td>
+                  <td>@\frac{\sqrt{3}}{2}@</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                  <td style="padding:8px; font-weight:bold;">@\cos@</td>
+                  <td>@\frac{\sqrt{3}}{2}@</td>
+                  <td>@\frac{\sqrt{2}}{2}@</td>
+                  <td>@\frac{1}{2}@</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px; font-weight:bold;">@\text{tg}@</td>
+                  <td>@\frac{\sqrt{3}}{3}@</td>
+                  <td>@1@</td>
+                  <td>@\sqrt{3}@</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Seção 4: Exemplos Resolvidos -->
+        <section>
+          <h3>4. Exemplos Práticos Resolvidos</h3>
+
+          <div class="exemplo-resolvido">
+            <h4>Exemplo 4.1: Aplicação Direta de Pitágoras</h4>
+            <p><strong>Enunciado:</strong> Um triângulo retângulo possui catetos de medidas @b = 6\text{ cm}@ e @c = 8\text{ cm}@. Determine a medida de sua hipotenusa @a@ e o valor de @\text{sen}(\hat{B})@.</p>
+            <p><strong>Resolução:</strong></p>
+            <ol>
+              <li>Pelo Teorema de Pitágoras:
+                @@a^2 = b^2 + c^2 = 6^2 + 8^2 = 36 + 64 = 100 \implies a = \sqrt{100} = 10\text{ cm}@@
+              </li>
+              <li>O ângulo @\hat{B}@ tem como cateto oposto o lado @b = 6@:
+                @@\text{sen}(\hat{B}) = \frac{\text{Cateto Oposto}}{\text{Hipotenusa}} = \frac{6}{10} = 0{,}6@@
+              </li>
+            </ol>
+          </div>
+
+          <div class="exemplo-resolvido">
+            <h4>Exemplo 4.2: Altura de uma Torre com Ângulo Notável</h4>
+            <p><strong>Enunciado:</strong> Um observador a @30\text{ m}@ de distância da base de uma antena avista o seu topo sob um ângulo de elevação de @30^\circ@. Desprezando a altura do observador, determine a altura @h@ da antena.</p>
+            <p><strong>Resolução:</strong></p>
+            <ol>
+              <li>O cateto adjacente ao ângulo de @30^\circ@ mede @30\text{ m}@ e o cateto oposto é a altura @h@.</li>
+              <li>Utilizamos a razão tangente:
+                @@\text{tg}(30^\circ) = \frac{\text{CO}}{\text{CA}} = \frac{h}{30}@@
+              </li>
+              <li>Como @\text{tg}(30^\circ) = \frac{\sqrt{3}}{3}@:
+                @@\frac{\sqrt{3}}{3} = \frac{h}{30} \implies 3h = 30\sqrt{3} \implies h = 10\sqrt{3}\text{ m} \approx 17{,}32\text{ m}@@
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "@@", right: "@@", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "@", right: "@", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+</html>

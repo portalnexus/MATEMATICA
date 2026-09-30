@@ -1,281 +1,387 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Estatística | Nexus</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Calculadora Estatística</title>
 
-    <!-- KaTeX para renderização LaTeX -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
 
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+  <!-- CSS Nexus -->
+  <link rel="stylesheet" href="../../css/style.css">
 
-        .container {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 900px;
-            width: 100%;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-
-        h1 {
-            text-align: center;
-            color: #2563eb;
-            margin-bottom: 10px;
-            font-size: 2rem;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #64748b;
-            margin-bottom: 30px;
-            font-size: 0.95rem;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 25px;
-        }
-
-        .input-field {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .input-field label {
-            font-weight: 600;
-            color: #334155;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-        }
-
-        textarea {
-            padding: 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: system-ui, -apple-system, sans-serif;
-            resize: vertical;
-            min-height: 120px;
-            transition: all 0.3s;
-        }
-
-        textarea:focus {
-            outline: none;
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .btn-calcular {
-            width: 100%;
-            padding: 15px;
-            background: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-bottom: 30px;
-        }
-
-        .btn-calcular:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
-        }
-
-        .resultado {
-            background: #f1f5f9;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-        }
-
-        .resultado h2 {
-            color: #2563eb;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .resultado-item {
-            margin: 10px 0;
-            padding: 10px;
-            background: white;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        .resultado-item strong {
-            color: #1e293b;
-        }
-
-        .dados-input {
-            margin-top: 20px;
-            padding: 15px;
-            background: #e2e8f0;
-            border-radius: 8px;
-            font-family: monospace;
-            white-space: pre-wrap;
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+  <style>
+    .calc-container {
+      background: var(--container-bg-color, rgba(13, 2, 8, 0.9));
+      border: 2px solid var(--container-border-color, #00ff66);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
+    }
+    .input-textarea {
+      width: 100%;
+      height: 90px;
+      padding: 0.8rem;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--container-border-color, #00ff66);
+      color: var(--main-text-color, #00ff66);
+      border-radius: 6px;
+      font-size: 1rem;
+      outline: none;
+      box-sizing: border-box;
+      resize: vertical;
+      font-family: 'Fira Sans', monospace;
+    }
+    .presets-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.8rem 0 1.2rem 0;
+    }
+    .preset-btn {
+      padding: 0.4rem 0.7rem;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid var(--container-border-color, #00ff66);
+      color: var(--main-text-color, #00ff66);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .preset-btn:hover {
+      background: var(--link-color, #00ff66);
+      color: var(--main-bg-color, #0d0208);
+    }
+    .calc-btn-action {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      background: var(--link-color, #00ff66);
+      color: var(--main-bg-color, #0d0208);
+      border: none;
+      border-radius: 6px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+      margin-top: 1rem;
+    }
+    .calc-btn-action:hover {
+      transform: scale(1.02);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .stat-card {
+      background: rgba(0,0,0,0.4);
+      border-left: 3px solid var(--link-color, #00ff66);
+      border-radius: 6px;
+      padding: 0.9rem;
+    }
+    .stat-card h4 {
+      margin: 0 0 0.3rem 0;
+      font-size: 0.85rem;
+      color: var(--link-color, #00ff66);
+    }
+    .stat-card .val {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+    .charts-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .chart-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px dashed var(--container-border-color, #00ff66);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .chart-box h4 {
+      margin-top: 0;
+      color: var(--link-color, #00ff66);
+      font-size: 0.95rem;
+    }
+  </style>
 </head>
+
 <body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+        <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
+        <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
+        <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+      </ul>
+    </nav>
+
     <div class="container">
-        <h1>📊 Calculadora Estatística</h1>
-        <p class="subtitle">Calcule média, mediana, moda, desvio padrão e outras medidas</p>
+      <article>
+        <h2>📊 CALCULADORA ESTATÍSTICA & VISUALIZADOR</h2>
+        <p>Insira um conjunto de dados numéricos (separados por vírgula, espaço ou ponto e vírgula) para computar medidas de tendência central, dispersão, e gerar dinamicamente o Histograma de Frequência e o Diagrama de Caixa (Boxplot).</p>
 
-        <div class="input-group">
-            <div class="input-field">
-                <label for="dados">Dados (separados por vírgula, espaço ou nova linha):</label>
-                <textarea id="dados" placeholder="Ex: 10, 15, 20, 25, 30
-Ex: 5 10 15 20 25
-Ex: 1,2,3,4,5,6,7,8,9,10">10, 15, 20, 25, 30, 35, 40, 45, 50</textarea>
+        <div class="calc-container">
+          <label for="dataInput" style="font-weight: bold; display: block; margin-bottom: 0.5rem;">Dados Amostrais:</label>
+          <textarea id="dataInput" class="input-textarea" placeholder="Ex: 12, 15, 14, 10, 18, 20, 15, 16, 22, 19, 15, 17"></textarea>
+
+          <div class="presets-row">
+            <span style="font-size: 0.8rem; align-self: center;">Exemplos rápidos:</span>
+            <button class="preset-btn" onclick="loadPreset([12, 14, 15, 15, 16, 17, 18, 19, 20, 22, 25])">Distribuição Simétrica</button>
+            <button class="preset-btn" onclick="loadPreset([5, 6, 7, 7, 8, 8, 8, 9, 10, 28])">Presença de Outlier</button>
+            <button class="preset-btn" onclick="loadPreset([10, 12, 12, 14, 25, 26, 28, 30, 31, 32])">Distribuição Bimodal</button>
+          </div>
+
+          <button class="calc-btn-action" id="btnCalcular">PROCESSAR ESTATÍSTICAS & GERAR GRÁFICOS</button>
+
+          <div id="resultsSection" style="display: none;">
+            <div class="stats-grid" id="statsGrid">
+              <!-- Cards gerados via JS -->
             </div>
+
+            <div class="charts-row">
+              <div class="chart-box">
+                <h4>Histograma de Distribuição de Frequências</h4>
+                <svg id="histSvg" viewBox="0 0 380 230" width="100%" height="220"></svg>
+              </div>
+              <div class="chart-box">
+                <h4>Diagrama de Caixa (Boxplot & Quartis)</h4>
+                <svg id="boxSvg" viewBox="0 0 380 230" width="100%" height="220"></svg>
+              </div>
+            </div>
+
+            <div class="stat-card" style="margin-top: 1.5rem;" id="formulaDetails">
+              <!-- Fórmulas LaTeX renderizadas -->
+            </div>
+          </div>
         </div>
 
-        <button class="btn-calcular" onclick="calcularEstatisticas()">Calcular Estatísticas</button>
-
-        <div class="resultado" id="resultado" style="display: none;">
-            <h2>📈 Resultados Estatísticos</h2>
-            <div id="resultado-conteudo"></div>
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
         </div>
+      </article>
     </div>
+  </div>
 
-    <script>
-        function calcularEstatisticas() {
-            // Obter dados do textarea
-            const dadosTexto = document.getElementById('dados').value;
-            
-            // Processar os dados (separar por vírgula, espaço ou nova linha)
-            const dados = dadosTexto
-                .replace(/\n/g, ',') // Substituir quebras de linha por vírgulas
-                .replace(/\s+/g, ',') // Substituir espaços por vírgulas
-                .split(',') // Dividir por vírgulas
-                .map(item => parseFloat(item.trim())) // Converter para número
-                .filter(item => !isNaN(item)); // Filtrar valores inválidos
-            
-            if (dados.length === 0) {
-                alert('Por favor, insira dados válidos!');
-                return;
-            }
-            
-            if (dados.length === 1) {
-                alert('É necessário pelo menos 2 valores para calcular estatísticas!');
-                return;
-            }
-            
-            // Calcular estatísticas
-            const n = dados.length;
-            const soma = dados.reduce((acc, val) => acc + val, 0);
-            const media = soma / n;
-            
-            // Ordenar dados para calcular mediana
-            const dadosOrdenados = [...dados].sort((a, b) => a - b);
-            let mediana;
-            if (n % 2 === 0) {
-                mediana = (dadosOrdenados[n/2 - 1] + dadosOrdenados[n/2]) / 2;
-            } else {
-                mediana = dadosOrdenados[Math.floor(n/2)];
-            }
-            
-            // Calcular moda
-            const frequencias = {};
-            dados.forEach(valor => {
-                frequencias[valor] = (frequencias[valor] || 0) + 1;
-            });
-            
-            const maxFreq = Math.max(...Object.values(frequencias));
-            const modas = Object.keys(frequencias)
-                .filter(valor => frequencias[valor] === maxFreq)
-                .map(valor => parseFloat(valor));
-            
-            let modaTexto;
-            if (modas.length === 1) {
-                modaTexto = modas[0].toString();
-            } else if (modas.length === dados.length) {
-                modaTexto = "Não há moda (todos os valores aparecem com mesma frequência)";
-            } else {
-                modaTexto = `Multimodal: ${modas.join(', ')}`;
-            }
-            
-            // Calcular variância e desvio padrão
-            const somaDosQuadrados = dados.reduce((acc, val) => acc + Math.pow(val - media, 2), 0);
-            const variancia = somaDosQuadrados / (n - 1); // Variância amostral
-            const desvioPadrao = Math.sqrt(variancia);
-            
-            // Calcular valor máximo e mínimo
-            const valorMax = Math.max(...dados);
-            const valorMin = Math.min(...dados);
-            const amplitude = valorMax - valorMin;
-            
-            // Calcular quartis
-            const q1 = dadosOrdenados[Math.floor(n * 0.25)];
-            const q3 = dadosOrdenados[Math.floor(n * 0.75)];
-            const iqr = q3 - q1; // Amplitude interquartil
-            
-            // Exibir resultados
-            const resultadoDiv = document.getElementById('resultado');
-            const conteudoDiv = document.getElementById('resultado-conteudo');
-            
-            conteudoDiv.innerHTML = `
-                <div class="resultado-item"><strong>Número de dados (n):</strong> ${n}</div>
-                <div class="resultado-item"><strong>Média:</strong> ${media.toFixed(4)}</div>
-                <div class="resultado-item"><strong>Mediana:</strong> ${mediana.toFixed(4)}</div>
-                <div class="resultado-item"><strong>Moda:</strong> ${modaTexto}</div>
-                <div class="resultado-item"><strong>Desvio Padrão:</strong> ${desvioPadrao.toFixed(4)}</div>
-                <div class="resultado-item"><strong>Variância:</strong> ${variancia.toFixed(4)}</div>
-                <div class="resultado-item"><strong>Valor Mínimo:</strong> ${valorMin.toFixed(2)}</div>
-                <div class="resultado-item"><strong>Valor Máximo:</strong> ${valorMax.toFixed(2)}</div>
-                <div class="resultado-item"><strong>Amplitude:</strong> ${amplitude.toFixed(2)}</div>
-                <div class="resultado-item"><strong>1º Quartil (Q1):</strong> ${q1.toFixed(2)}</div>
-                <div class="resultado-item"><strong>3º Quartil (Q3):</strong> ${q3.toFixed(2)}</div>
-                <div class="resultado-item"><strong>Amplitude Interquartil (IQR):</strong> ${iqr.toFixed(2)}</div>
-                <div class="resultado-item">
-                    <strong>Dados processados:</strong>
-                    <div class="dados-input">${dados.join(', ')}</div>
-                </div>
-            `;
-            
-            resultadoDiv.style.display = 'block';
-        }
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
 
-        // Calcular automaticamente ao carregar
-        window.onload = calcularEstatisticas;
+  <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+  <div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <div class="theme-group-label">🌙 MODO ESCURO</div>
+    <button data-theme="theme-default">🟢 Matrix Cyber</button>
+    <button data-theme="theme-cyber-blue">🔵 Cyber Blue</button>
+    <div class="theme-group-label">⚡ ALTO CONTRASTE (AAA)</div>
+    <button data-theme="theme-high-contrast-green">⚡ OLED Neon Green</button>
+    <button data-theme="theme-high-contrast-amber">🟠 OLED Amber</button>
+    <div class="theme-group-label">☀️ MODO CLARO</div>
+    <button data-theme="theme-paper-light">📄 Paper Clean</button>
+    <button data-theme="theme-solarized-light">📜 Solarized Sepia</button>
+  </div>
 
-        // Recalcular ao pressionar Enter
-        document.getElementById('dados').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && e.ctrlKey) calcularEstatisticas();
+  <script>
+    function loadPreset(arr) {
+      document.getElementById('dataInput').value = arr.join(', ');
+      processData();
+    }
+
+    function parseNumbers(str) {
+      return str.split(/[\s,;]+/)
+                .map(x => parseFloat(x))
+                .filter(x => !isNaN(x))
+                .sort((a, b) => a - b);
+    }
+
+    function calculatePercentile(sortedArr, p) {
+      const idx = (sortedArr.length - 1) * p;
+      const lower = Math.floor(idx);
+      const upper = Math.ceil(idx);
+      const weight = idx - lower;
+      return sortedArr[lower] * (1 - weight) + sortedArr[upper] * weight;
+    }
+
+    function processData() {
+      const nums = parseNumbers(document.getElementById('dataInput').value);
+      if (nums.length < 3) {
+        alert('Por favor, insira ao menos 3 números válidos.');
+        return;
+      }
+
+      const n = nums.length;
+      const sum = nums.reduce((a, b) => a + b, 0);
+      const mean = sum / n;
+
+      // Mediana
+      const q1 = calculatePercentile(nums, 0.25);
+      const median = calculatePercentile(nums, 0.5);
+      const q3 = calculatePercentile(nums, 0.75);
+      const iqr = q3 - q1;
+
+      // Moda
+      const counts = {};
+      nums.forEach(x => counts[x] = (counts[x] || 0) + 1);
+      let maxFreq = 0;
+      for (const k in counts) if (counts[k] > maxFreq) maxFreq = counts[k];
+      let modes = [];
+      if (maxFreq > 1) {
+        for (const k in counts) if (counts[k] === maxFreq) modes.push(Number(k));
+      }
+      const modeStr = modes.length === 0 ? 'Amodal' : modes.join(', ');
+
+      // Variância e Desvio Padrão
+      const sqDiffs = nums.map(x => Math.pow(x - mean, 2));
+      const popVar = sqDiffs.reduce((a, b) => a + b, 0) / n;
+      const sampleVar = n > 1 ? sqDiffs.reduce((a, b) => a + b, 0) / (n - 1) : 0;
+      const sampleStd = Math.sqrt(sampleVar);
+      const min = nums[0];
+      const max = nums[nums.length - 1];
+      const amp = max - min;
+
+      // Render Cards
+      const grid = document.getElementById('statsGrid');
+      grid.innerHTML = `
+        <div class="stat-card"><h4>Tamanho da Amostra (n)</h4><div class="val">${n}</div></div>
+        <div class="stat-card"><h4>Média Aritmética (@\\bar{x}@)</h4><div class="val">${mean.toFixed(2)}</div></div>
+        <div class="stat-card"><h4>Mediana (@Md@)</h4><div class="val">${median.toFixed(2)}</div></div>
+        <div class="stat-card"><h4>Moda (@Mo@)</h4><div class="val" style="font-size: 1rem;">${modeStr}</div></div>
+        <div class="stat-card"><h4>Desvio Padrão Amostral (@s@)</h4><div class="val">${sampleStd.toFixed(2)}</div></div>
+        <div class="stat-card"><h4>Variância Amostral (@s^2@)</h4><div class="val">${sampleVar.toFixed(2)}</div></div>
+        <div class="stat-card"><h4>Amplitude Total</h4><div class="val">${amp.toFixed(2)}</div></div>
+        <div class="stat-card"><h4>Intervalo Interquartil (IQR)</h4><div class="val">${iqr.toFixed(2)}</div></div>
+      `;
+
+      // Render SVGs
+      drawHistogram(nums);
+      drawBoxplot(min, q1, median, q3, max, iqr, nums);
+
+      // Formula breakdown
+      document.getElementById('formulaDetails').innerHTML = `
+        <h4 style="margin-top:0;">Memória de Cálculo Formal</h4>
+        <p><strong>Média:</strong> @@\\bar{x} = \\frac{\\sum x_i}{n} = \\frac{${sum.toFixed(2)}}{${n}} = ${mean.toFixed(2)}@@</p>
+        <p><strong>Variância Amostral:</strong> @@s^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n - 1} = \\frac{${sqDiffs.reduce((a,b)=>a+b,0).toFixed(2)}}{${n - 1}} = ${sampleVar.toFixed(2)}@@</p>
+        <p><strong>Desvio Padrão:</strong> @@s = \\sqrt{s^2} = \\sqrt{${sampleVar.toFixed(2)}} = ${sampleStd.toFixed(2)}@@</p>
+      `;
+
+      document.getElementById('resultsSection').style.display = 'block';
+
+      if (window.renderMathInElement) {
+        renderMathInElement(document.getElementById('resultsSection'), {
+          delimiters: [
+            { left: "@@", right: "@@", display: true },
+            { left: "@", right: "@", display: false }
+          ],
+          throwOnError: false
         });
-    </script>
+      }
+    }
+
+    function drawHistogram(nums) {
+      const svg = document.getElementById('histSvg');
+      const min = nums[0];
+      const max = nums[nums.length - 1];
+      const k = Math.min(6, Math.max(3, Math.round(Math.sqrt(nums.length))));
+      const binWidth = (max - min) / k || 1;
+
+      const bins = Array(k).fill(0);
+      nums.forEach(x => {
+        let b = Math.floor((x - min) / binWidth);
+        if (b >= k) b = k - 1;
+        bins[b]++;
+      });
+
+      const maxCount = Math.max(...bins, 1);
+      const w = 320;
+      const h = 160;
+      const ox = 40;
+      const oy = 180;
+      const barW = (w / k) - 6;
+
+      let svgContent = `
+        <line x1="${ox}" y1="${oy}" x2="${ox + w}" y2="${oy}" stroke="currentColor" stroke-width="1.5" />
+        <line x1="${ox}" y1="${oy}" x2="${ox}" y2="${oy - h}" stroke="currentColor" stroke-width="1.5" />
+      `;
+
+      bins.forEach((count, i) => {
+        const barH = (count / maxCount) * (h - 20);
+        const bx = ox + i * (w / k) + 4;
+        const by = oy - barH;
+        const bStart = (min + i * binWidth).toFixed(1);
+
+        svgContent += `
+          <rect x="${bx}" y="${by}" width="${barW}" height="${barH}" fill="rgba(33, 150, 243, 0.4)" stroke="var(--link-color, #00ff66)" stroke-width="1.5" />
+          <text x="${bx + barW / 2}" y="${by - 5}" fill="var(--link-color, #00ff66)" font-size="11" text-anchor="middle">${count}</text>
+          <text x="${bx + barW / 2}" y="${oy + 14}" fill="currentColor" font-size="9" text-anchor="middle">${bStart}</text>
+        `;
+      });
+
+      svg.innerHTML = svgContent;
+    }
+
+    function drawBoxplot(min, q1, med, q3, max, iqr, nums) {
+      const svg = document.getElementById('boxSvg');
+      const ox = 40;
+      const w = 300;
+      const oy = 110;
+      const span = max - min || 1;
+
+      const toX = (val) => ox + ((val - min) / span) * w;
+
+      const xMin = toX(min);
+      const xQ1 = toX(q1);
+      const xMed = toX(med);
+      const xQ3 = toX(q3);
+      const xMax = toX(max);
+
+      let content = `
+        <!-- Eixo inferior -->
+        <line x1="${ox}" y1="180" x2="${ox + w}" y2="180" stroke="currentColor" stroke-width="1" />
+        <text x="${xMin}" y="195" font-size="9" fill="currentColor" text-anchor="middle">${min.toFixed(1)}</text>
+        <text x="${xMed}" y="195" font-size="9" fill="currentColor" text-anchor="middle">${med.toFixed(1)}</text>
+        <text x="${xMax}" y="195" font-size="9" fill="currentColor" text-anchor="middle">${max.toFixed(1)}</text>
+
+        <!-- Bigodes (Whiskers) -->
+        <line x1="${xMin}" y1="${oy}" x2="${xQ1}" y2="${oy}" stroke="var(--link-color, #00ff66)" stroke-width="2" />
+        <line x1="${xQ3}" y1="${oy}" x2="${xMax}" y2="${oy}" stroke="var(--link-color, #00ff66)" stroke-width="2" />
+        <line x1="${xMin}" y1="${oy - 15}" x2="${xMin}" y2="${oy + 15}" stroke="var(--link-color, #00ff66)" stroke-width="2" />
+        <line x1="${xMax}" y1="${oy - 15}" x2="${xMax}" y2="${oy + 15}" stroke="var(--link-color, #00ff66)" stroke-width="2" />
+
+        <!-- Caixa (Q1 a Q3) -->
+        <rect x="${xQ1}" y="${oy - 35}" width="${xQ3 - xQ1}" height="70" fill="rgba(33, 150, 243, 0.3)" stroke="var(--link-color, #00ff66)" stroke-width="2" />
+
+        <!-- Mediana -->
+        <line x1="${xMed}" y1="${oy - 35}" x2="${xMed}" y2="${oy + 35}" stroke="#ff7043" stroke-width="3" />
+        <text x="${xMed}" y="${oy - 42}" font-size="10" fill="#ff7043" text-anchor="middle">Md = ${med.toFixed(1)}</text>
+        <text x="${xQ1}" y="${oy + 48}" font-size="10" fill="currentColor" text-anchor="middle">Q1 = ${q1.toFixed(1)}</text>
+        <text x="${xQ3}" y="${oy + 48}" font-size="10" fill="currentColor" text-anchor="middle">Q3 = ${q3.toFixed(1)}</text>
+      `;
+
+      svg.innerHTML = content;
+    }
+
+    document.getElementById('btnCalcular').addEventListener('click', processData);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('dataInput').value = "12, 15, 14, 10, 18, 20, 15, 16, 22, 19, 15, 17, 24";
+      processData();
+    });
+  </script>
 </body>
 </html>

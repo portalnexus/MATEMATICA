@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Teoria da Probabilidade e Fenômenos Aleatórios</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS Nexus -->
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+        <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
+        <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
+        <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <article>
+        <span class="badge-nivel ano-1em">1º ANO DO ENSINO MÉDIO</span>
+        <h2>TEORIA DA PROBABILIDADE E MODELAGEM DE FENÔMENOS ALEATÓRIOS</h2>
+        <p class="lead">Estudo sistemático dos espaços amostrais, axiomas da probabilidade, eventos equiprováveis, probabilidade da união e probabilidade condicional.</p>
+
+        <!-- Seção 1: Conceitos Iniciais -->
+        <section>
+          <h3>1. Fundamentos da Probabilidade</h3>
+
+          <div class="destaque-box definicao">
+            <h4>Definição 1.1: Experimento Aleatório e Espaço Amostral</h4>
+            <p>Um <strong>experimento aleatório</strong> (@\mathcal{E}@) é aquele cujo resultado não pode ser previsto com certeza antes de sua realização, mesmo quando repetido sob idênticas condições.</p>
+            <p>O conjunto de todos os resultados possíveis de @\mathcal{E}@ denomina-se <strong>Espaço Amostral</strong> (@\Omega@). Qualquer subconjunto @A \subseteq \Omega@ é denominado <strong>evento</strong>.</p>
+          </div>
+
+          <div class="destaque-box definicao">
+            <h4>Definição 1.2: Probabilidade Clássica (Laplaciana)</h4>
+            <p>Seja @\Omega@ um espaço amostral finito e equiprovável (todos os pontos amostrais têm a mesma chance de ocorrência). A probabilidade de ocorrência de um evento @A@ é definida pela razão:</p>
+            @@P(A) = \frac{n(A)}{n(\Omega)} = \frac{\text{número de casos favoráveis}}{\text{número total de casos possíveis}}@@
+            <p>Propriedades decorrentes: @0 \le P(A) \le 1@, com @P(\emptyset) = 0@ (evento impossível) e @P(\Omega) = 1@ (evento certo).</p>
+          </div>
+        </section>
+
+        <!-- Seção 2: Teoremas da Adição -->
+        <section>
+          <h3>2. Probabilidade da União e Eventos Complementares</h3>
+
+          <div class="destaque-box teorema">
+            <h4>Teorema 2.1: Teorema da Adição (União de Dois Eventos)</h4>
+            <p>Para quaisquer eventos @A, B \subseteq \Omega@, a probabilidade da união de @A@ e @B@ é dada por:</p>
+            @@P(A \cup B) = P(A) + P(B) - P(A \cap B)@@
+            <p>Se @A@ e @B@ são <strong>mutuamente excludentes</strong> (ou seja, @A \cap B = \emptyset@):</p>
+            @@P(A \cup B) = P(A) + P(B)@@
+          </div>
+
+          <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
+            <svg viewBox="0 0 380 180" width="360" height="170" aria-label="Diagrama de Venn com eventos A, B e interseção">
+              <!-- Espaço Amostral Omega -->
+              <rect x="20" y="20" width="340" height="140" rx="8" fill="rgba(0,0,0,0.4)" stroke="#64748b" stroke-width="1.5" />
+              <text x="35" y="42" fill="#64748b" font-weight="bold" font-size="14">&Omega;</text>
+
+              <!-- Círculo A -->
+              <circle cx="150" cy="90" r="55" fill="rgba(33, 150, 243, 0.25)" stroke="#3b82f6" stroke-width="2" />
+              <text x="120" y="95" fill="#3b82f6" font-size="14" font-weight="bold">A</text>
+
+              <!-- Círculo B -->
+              <circle cx="230" cy="90" r="55" fill="rgba(0, 255, 102, 0.2)" stroke="var(--link-color, #00ff66)" stroke-width="2" />
+              <text x="250" y="95" fill="var(--link-color, #00ff66)" font-size="14" font-weight="bold">B</text>
+
+              <!-- Interseção -->
+              <text x="183" y="95" fill="#ff7043" font-size="11" font-weight="bold">A &cap; B</text>
+            </svg>
+            <p class="legenda-figura" style="font-size: 0.85rem; opacity: 0.8;"><em>Figura 1: Diagrama de Venn ilustrando a união e a dupla contagem da interseção @A \cap B@.</em></p>
+          </div>
+
+          <div class="destaque-box teorema">
+            <h4>Teorema 2.2: Evento Complementar</h4>
+            <p>O evento complementar @\bar{A}@ (ou @A^c@) representa a não ocorrência de @A@. Sua probabilidade é:</p>
+            @@P(\bar{A}) = 1 - P(A)@@
+          </div>
+        </section>
+
+        <!-- Seção 3: Probabilidade Condicional -->
+        <section>
+          <h3>3. Probabilidade Condicional e Independência</h3>
+
+          <div class="destaque-box definicao">
+            <h4>Definição 3.1: Probabilidade Condicional</h4>
+            <p>A probabilidade de ocorrer o evento @A@ sabendo-se que o evento @B@ já ocorreu (com @P(B) > 0@) é denotada por @P(A \mid B)@ e calculada por:</p>
+            @@P(A \mid B) = \frac{P(A \cap B)}{P(B)} = \frac{n(A \cap B)}{n(B)}@@
+          </div>
+
+          <div class="destaque-box observacao">
+            <h4>Eventos Independentes</h4>
+            <p>Dois eventos @A@ e @B@ são ditos <strong>independentes</strong> se a ocorrência de um não altera a probabilidade da ocorrência do outro, ou seja:</p>
+            @@P(A \mid B) = P(A) \iff P(A \cap B) = P(A) \cdot P(B)@@
+          </div>
+        </section>
+
+        <!-- Seção 4: Exemplos Resolvidos -->
+        <section>
+          <h3>4. Exemplos Resolvidos</h3>
+
+          <div class="exemplo-resolvido">
+            <h4>Exemplo 4.1: Retirada de Cartas de um Baralho</h4>
+            <p><strong>Enunciado:</strong> De um baralho comum de 52 cartas, retira-se uma carta ao acaso. Qual a probabilidade de ela ser um <em>Ás</em> ou uma carta de <em>Copas</em>?</p>
+            <p><strong>Resolução:</strong></p>
+            <ol>
+              <li>Total de cartas: @n(\Omega) = 52@.</li>
+              <li>Evento @A@ (ser Ás): existem 4 ases no baralho @\implies P(A) = \frac{4}{52}@.</li>
+              <li>Evento @B@ (ser Copas): existem 13 cartas de copas @\implies P(B) = \frac{13}{52}@.</li>
+              <li>Evento @A \cap B@ (ser o Ás de Copas): há exatamente 1 carta @\implies P(A \cap B) = \frac{1}{52}@.</li>
+              <li>Pelo teorema da adição:
+                @@P(A \cup B) = P(A) + P(B) - P(A \cap B) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52} = \frac{16}{52} = \frac{4}{13} \approx 30{,}77\%@@
+              </li>
+            </ol>
+          </div>
+
+          <div class="exemplo-resolvido">
+            <h4>Exemplo 4.2: Probabilidade Condicional em Teste Diagnóstico</h4>
+            <p><strong>Enunciado:</strong> Em uma turma de 40 alunos, 25 jogam futebol, 15 jogam voleibol e 8 praticam ambos os esportes. Escolhendo-se ao acaso um aluno que pratica futebol, qual é a probabilidade de ele também praticar voleibol?</p>
+            <p><strong>Resolução:</strong></p>
+            <ol>
+              <li>O universo fica restrito aos praticantes de futebol: @n(F) = 25@.</li>
+              <li>Dentre estes, os que também jogam voleibol são os da interseção: @n(V \cap F) = 8@.</li>
+              <li>Aplicando probabilidade condicional:
+                @@P(V \mid F) = \frac{n(V \cap F)}{n(F)} = \frac{8}{25} = 0{,}32 = 32\%@@
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "@@", right: "@@", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "@", right: "@", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+</html>

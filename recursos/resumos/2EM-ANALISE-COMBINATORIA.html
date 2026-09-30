@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Análise Combinatória e Métodos de Contagem</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS Nexus -->
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+        <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
+        <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
+        <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <article>
+        <span class="badge-nivel ano-2em">2º ANO DO ENSINO MÉDIO</span>
+        <h2>ANÁLISE COMBINATÓRIA E TÉCNICAS AVANÇADAS DE CONTAGEM</h2>
+        <p class="lead">Estruturas de contagem sistemática: Princípio Fundamental da Contagem (PFC), Permutações, Arranjos, Combinações e Relação de Stifel.</p>
+
+        <!-- Seção 1: PFC e Fatorial -->
+        <section>
+          <h3>1. Princípio Fundamental da Contagem (PFC)</h3>
+
+          <div class="destaque-box teorema">
+            <h4>Teorema 1.1: Princípio Multiplicativo (PFC)</h4>
+            <p>Se uma decisão @d_1@ pode ser tomada de @m@ maneiras distintas e, subsequentemente, uma decisão @d_2@ puder ser tomada de @n@ maneiras distintas, então o número total de maneiras consecutivas de tomar as decisões @d_1@ e @d_2@ é dado por:</p>
+            @@N = m \cdot n@@
+            <p>Generalização para @k@ etapas: @@N = n_1 \cdot n_2 \cdot \dots \cdot n_k@@</p>
+          </div>
+
+          <div class="destaque-box definicao">
+            <h4>Definição 1.2: Fatorial</h4>
+            <p>Para todo número natural @n \ge 2@, define-se o <strong>fatorial</strong> de @n@ como o produto de todos os inteiros positivos menores ou iguais a @n@:</p>
+            @@n! = n \cdot (n - 1) \cdot (n - 2) \cdot \dots \cdot 2 \cdot 1@@
+            <p>Por convenção axiomática: @0! = 1@ e @1! = 1@.</p>
+          </div>
+        </section>
+
+        <!-- Seção 2: Agrupamentos Simples -->
+        <section>
+          <h3>2. Agrupamentos Simples: Permutações, Arranjos e Combinações</h3>
+
+          <div class="destaque-box definicao">
+            <h4>Definição 2.1: Permutação Simples (@P_n@)</h4>
+            <p>Agrupamento ordenado de todos os @n@ elementos distintos de um conjunto. A troca de posição de qualquer elemento gera uma nova permutação:</p>
+            @@P_n = n!@@
+          </div>
+
+          <div class="destaque-box definicao">
+            <h4>Definição 2.2: Arranjo Simples (@A_{n,p}@)</h4>
+            <p>Agrupamento de @p@ elementos escolhidos entre @n@ elementos distintos (@p \le n@), onde a <strong>ordem de escolha faz diferença</strong> (ex: cargos, senhas, pódios):</p>
+            @@A_{n,p} = \frac{n!}{(n - p)!}@@
+          </div>
+
+          <div class="destaque-box definicao">
+            <h4>Definição 2.3: Combinação Simples (@C_{n,p}@ ou @\binom{n}{p}@)</h4>
+            <p>Subconjunto de @p@ elementos escolhidos entre @n@ elementos distintos (@p \le n@), onde a <strong>ordem NÃO altera o agrupamento</strong> (ex: comissões, equipes, sorteios):</p>
+            @@C_{n,p} = \binom{n}{p} = \frac{n!}{p! \cdot (n - p)!}@@
+          </div>
+
+          <div class="destaque-box observacao">
+            <h4>Diferença Crucial: Ordem Importa vs. Ordem Não Importa</h4>
+            <ul>
+              <li><strong>Arranjo:</strong> A sequência @(A, B)@ é DIFERENTE de @(B, A)@. (Ex: Presidente e Vice-Presidente).</li>
+              <li><strong>Combinação:</strong> O grupo @\{A, B\}@ é IDÊNTICO ao grupo @\{B, A\}@. Para compensar as @p!@ permutações internas redundantes, divide-se por @p!@.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Seção 3: Permutação com Elementos Repetidos -->
+        <section>
+          <h3>3. Permutações com Elementos Repetidos e Triângulo de Pascal</h3>
+
+          <div class="destaque-box teorema">
+            <h4>Teorema 3.1: Permutação com Repetição</h4>
+            <p>Se entre @n@ elementos existem @\alpha@ elementos iguais a um tipo, @\beta@ de outro, e assim por diante:</p>
+            @@P_n^{\alpha, \beta, \dots} = \frac{n!}{\alpha! \cdot \beta! \cdot \dots}@@
+          </div>
+
+          <div class="destaque-box teorema">
+            <h4>Teorema 3.2: Relação de Stifel (Triângulo de Pascal)</h4>
+            <p>Para inteiros @n \ge p \ge 1@:</p>
+            @@\binom{n - 1}{p - 1} + \binom{n - 1}{p} = \binom{n}{p}@@
+          </div>
+        </section>
+
+        <!-- Seção 4: Exemplos Resolvidos -->
+        <section>
+          <h3>4. Exemplos Resolvidos</h3>
+
+          <div class="exemplo-resolvido">
+            <h4>Exemplo 4.1: Formação de Comissão de Trabalho</h4>
+            <p><strong>Enunciado:</strong> Um conselho é formado por 8 professores e 6 estudantes. Deseja-se criar uma comissão de 5 membros composta por 3 professores e 2 estudantes. De quantas maneiras distintas essa comissão pode ser formada?</p>
+            <p><strong>Resolução:</strong></p>
+            <ol>
+              <li>A escolha dos professores é uma combinação (a ordem não importa):
+                @@C_{8,3} = \frac{8!}{3! \cdot 5!} = \frac{8 \cdot 7 \cdot 6}{3 \cdot 2 \cdot 1} = 56@@
+              </li>
+              <li>A escolha dos estudantes é também uma combinação:
+                @@C_{6,2} = \frac{6!}{2! \cdot 4!} = \frac{6 \cdot 5}{2 \cdot 1} = 15@@
+              </li>
+              <li>Pelo Princípio Multiplicativo (PFC):
+                @@N = C_{8,3} \cdot C_{6,2} = 56 \cdot 15 = 840\text{ maneiras}@@
+              </li>
+            </ol>
+          </div>
+
+          <div class="exemplo-resolvido">
+            <h4>Exemplo 4.2: Anagramas com Letras Repetidas</h4>
+            <p><strong>Enunciado:</strong> Quantos anagramas distintos podem ser formados com todas as letras da palavra <strong>MATEMATICA</strong>?</p>
+            <p><strong>Resolução:</strong></p>
+            <ol>
+              <li>Total de letras: @n = 10@.</li>
+              <li>Frequência das letras repetidas: M (2 vezes), A (3 vezes), T (2 vezes), E (1), I (1), C (1).</li>
+              <li>Aplicando permutação com repetição:
+                @@P_{10}^{2, 3, 2} = \frac{10!}{2! \cdot 3! \cdot 2!} = \frac{3.628.800}{2 \cdot 6 \cdot 2} = \frac{3.628.800}{24} = 151.200\text{ anagramas}@@
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "@@", right: "@@", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "@", right: "@", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+</html>

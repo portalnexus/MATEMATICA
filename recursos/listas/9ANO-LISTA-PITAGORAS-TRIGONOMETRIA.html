@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lista de Problemas: Teorema de Pitágoras e Trigonometria</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); color: #81c784; }
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); color: #ffd54f; }
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); color: #e57373; }
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); color: #ba68c8; }
+    .secao-header {
+      border-bottom: 2px solid var(--container-border-color);
+      padding-bottom: 0.5rem;
+      margin: 2rem 0 1rem 0;
+    }
+    .problema-item {
+      background: rgba(0, 0, 0, 0.25);
+      border-left: 3px solid var(--container-border-color);
+      padding: 1rem;
+      margin-bottom: 1.2rem;
+      border-radius: 0 8px 8px 0;
+    }
+    details summary {
+      cursor: pointer;
+      color: var(--link-color);
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+        <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
+        <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
+        <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <article>
+        <span class="badge-nivel ano-9">9º ANO DO ENSINO FUNDAMENTAL</span>
+        <h2>LISTA DE PROBLEMAS: TEOREMA DE PITÁGORAS E TRIGONOMETRIA NO TRIÂNGULO RETÂNGULO</h2>
+        <p class="lead">Coleção graduada de problemas para treino intensivo e fixação: desde cálculos fundamentais de hipotenusa até aplicações trigonométricas em desníveis e olimpíadas.</p>
+
+        <!-- SEÇÃO 1 -->
+        <h3 class="secao-header">SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS E FUNDAMENTAIS</h3>
+
+        <div class="problema-item">
+          <div class="problema-meta">
+            <span class="topico">Teorema de Pitágoras</span>
+            <span class="dificuldade facil">Fácil</span>
+          </div>
+          <p><strong>Problema 1:</strong> Os catetos de um triângulo retângulo medem @9\text{ cm}@ e @12\text{ cm}@. Determine a medida de sua hipotenusa @a@.</p>
+        </div>
+
+        <div class="problema-item">
+          <div class="problema-meta">
+            <span class="topico">Razões Trigonométricas</span>
+            <span class="dificuldade facil">Fácil</span>
+          </div>
+          <p><strong>Problema 2:</strong> Em um triângulo retângulo, a hipotenusa mede @10\text{ cm}@ e o cateto oposto ao ângulo agudo @\alpha@ mede @6\text{ cm}@. Calcule @\text{sen}(\alpha)@, @\cos(\alpha)@ e @\text{tg}(\alpha)@.</p>
+        </div>
+
+        <!-- SEÇÃO 2 -->
+        <h3 class="secao-header">SEÇÃO 2: PROBLEMAS DE FIXAÇÃO E MODELAGEM PRÁTICA</h3>
+
+        <div class="problema-item">
+          <div class="problema-meta">
+            <span class="topico">Aplicações Práticas</span>
+            <span class="dificuldade media">Média</span>
+          </div>
+          <p><strong>Problema 3:</strong> Uma escada de @5\text{ m}@ de comprimento está apoiada em uma parede vertical. Se o pé da escada dista @3\text{ m}@ da base da parede, a que altura do solo a extremidade superior da escada encosta na parede?</p>
+          <div class="figura-geometrica" style="text-align: center; margin: 1rem 0;">
+            <svg viewBox="0 0 320 180" width="300" height="160">
+              <line x1="40" y1="150" x2="280" y2="150" stroke="#64748b" stroke-width="2" />
+              <line x1="80" y1="150" x2="80" y2="30" stroke="#ff7043" stroke-width="3" />
+              <line x1="80" y1="30" x2="200" y2="150" stroke="var(--link-color, #00ff66)" stroke-width="3" />
+              <text x="150" y="80" fill="var(--link-color, #00ff66)" font-size="12">Escada = 5 m</text>
+              <text x="130" y="165" fill="#64748b" font-size="12">3 m</text>
+              <text x="55" y="90" fill="#ff7043" font-size="12">h = ?</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="problema-item">
+          <div class="problema-meta">
+            <span class="topico">Ângulos Notáveis</span>
+            <span class="dificuldade media">Média</span>
+          </div>
+          <p><strong>Problema 4:</strong> Para calcular a largura de um rio, um topógrafo fixa um ponto @A@ na margem e avista uma árvore no ponto @C@ da margem oposta sob um ângulo reto. Caminhando @40\text{ m}@ perpendicularmente até o ponto @B@, ele avista a mesma árvore sob um ângulo de @60^\circ@ em relação à margem. Qual é a largura do rio?</p>
+        </div>
+
+        <!-- SEÇÃO 3 -->
+        <h3 class="secao-header">SEÇÃO 3: APROFUNDAMENTO E DESAFIOS OLÍMPICOS</h3>
+
+        <div class="problema-item">
+          <div class="problema-meta">
+            <span class="topico">Relações Métricas e Pitágoras</span>
+            <span class="dificuldade dificil">Difícil</span>
+          </div>
+          <p><strong>Problema 5 (OBMEP Adaptada):</strong> Em um triângulo retângulo de catetos @6@ e @8@, traça-se a altura relativa à hipotenusa. Determine o comprimento dessa altura @h@ e a área dos dois triângulos menores formados.</p>
+        </div>
+
+        <!-- ============================================================================
+     GABARITO SECRETO DO PROFESSOR (ACESSO EXCLUSIVO VIA CTRL+U NO NAVEGADOR)
+     RESOLUÇÕES E RESPOSTAS COMENTADAS DETALHADAS:
+
+Problema 1:
+<p>@@a^2 = 9^2 + 12^2 = 81 + 144 = 225 \implies a = \sqrt{225} = 15\text{ cm}@@</p>
+
+Problema 2:
+<p>O cateto adjacente @b@ é: @b = \sqrt{10^2 - 6^2} = \sqrt{64} = 8\text{ cm}@.</p>
+            <p>@@\text{sen}(\alpha) = \frac{6}{10} = 0{,}6; \quad \cos(\alpha) = \frac{8}{10} = 0{,}8; \quad \text{tg}(\alpha) = \frac{6}{8} = 0{,}75@@</p>
+
+Problema 3:
+<p>@@5^2 = h^2 + 3^2 \implies 25 = h^2 + 9 \implies h^2 = 16 \implies h = 4\text{ m}@@</p>
+
+Problema 4:
+<p>@@\text{tg}(60^\circ) = \frac{\text{Largura}}{40} \implies \sqrt{3} = \frac{L}{40} \implies L = 40\sqrt{3}\text{ m} \approx 69{,}28\text{ m}@@</p>
+
+Problema 5:
+<p>1. Hipotenusa: @a = \sqrt{6^2 + 8^2} = 10@.</p>
+            <p>2. Relação métrica @a \cdot h = b \cdot c \implies 10h = 6 \cdot 8 = 48 \implies h = 4{,}8@.</p>
+            <p>3. As projeções dos catetos são @m = \frac{6^2}{10} = 3{,}6@ e @n = \frac{8^2}{10} = 6{,}4@.</p>
+            <p>4. Áreas: @A_1 = \frac{3{,}6 \cdot 4{,}8}{2} = 8{,}64@ e @A_2 = \frac{6{,}4 \cdot 4{,}8}{2} = 15{,}36@. Verificação: @8{,}64 + 15{,}36 = 24 = \frac{6 \cdot 8}{2}@.</p>
+
+============================================================================ -->
+<div style="text-align: center; margin-top: 30px;">
+          <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR AOS RECURSOS</a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "@@", right: "@@", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "@", right: "@", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+</html>

@@ -57,6 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Draw function
     function draw() {
+        if (getComputedStyle(canvas).display === 'none') {
+            return;
+        }
+
         if (document.body.classList.contains('theme-paper-light') || 
             document.body.classList.contains('theme-solarized-light') || 
             document.body.classList.contains('theme-light-classic-neon-red')) {

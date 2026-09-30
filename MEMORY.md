@@ -7,14 +7,17 @@ Este arquivo é a fonte primordial de continuidade para o **Antigravity** e qual
 
 ## 🎯 1. Princípios e Regras Fundamentais
 
-1. **Estética Retro-Futurista & Matrix**:
-   - Paleta escura ("Matrix/Terminal") com suporte estrito a 14 temas dinâmicos via `css/style.css` e `js/theme-switcher.js`.
-   - Uso de Canvas Matrix Rain (`js/matrix-rain.js`) e fontes tipográficas (`Fira Sans`, `Press Start 2P`).
+1. **Estética Acadêmica Neutra, Sóbria e Elegante**:
+   - **Tema Padrão Neutro Slate**: Fundo sóbrio em tom ardósia (`#0f172a`), caixas limpas (`#1e293b`), bordas discretas (`#334155`), sem efeitos pesados de neon ou text-shadows que borram KaTeX.
+   - **Tipografia Moderna e Legível**: Títulos em `Fira Sans` (700) e badges/código em `Fira Code`. Fontes arcade pixeladas (`Press Start 2P`) foram substituídas por tipografia de excelência acadêmica.
+   - **Matrix Rain Opcional**: O canvas `#matrixCanvas` fica desativado por padrão (`display: none;` com detecção de ciclo no script `matrix-rain.js`) para leitura focada e economia de recursos, sendo ativado apenas caso o usuário selecione expressamente o tema retrô.
+   - **6 Temas Curados**: Neutro Slate (Padrão), Neutro Claro (Paper), Sépia Acadêmico, Dark Grafite, Alto Contraste AAA e Matrix Retrô (Opcional).
 2. **Rigor Matemático & Didático**:
    - Padrão FME (Fundamentos de Matemática Elementar - Iezzi) e OBMEP.
    - Notação matemática via **KaTeX** com delimitadores específicos:
      - **Inline**: `@ fórmula @` ou `\( fórmula \)`.
      - **Display**: `@@ fórmula @@` ou `\[ fórmula \]`.
+   - Fórmulas sem sombras borradas (`text-shadow: none !important`), garantindo contraste e legibilidade impecáveis.
 3. **Gráficos e Visualizações (Zero CDN Pesado)**:
    - Utilizar exclusivamente **SVG vetorial nativo** e **HTML5 Canvas vanilla**.
    - Gráficos devem reagir dinamicamente às variáveis de tema CSS (`var(--link-color)`, `var(--main-text-color)`, `var(--card-bg)`, etc.).
@@ -67,7 +70,7 @@ Esta é uma diretriz inviolável solicitada pessoalmente pelo usuário/professor
   ============================================================================ -->
   ```
 - **Atenção Crítica de Sintaxe**: **NUNCA** use `-->` dentro do comentário do gabarito. Utilize divisores como `[--- SEÇÃO X NO GABARITO ---]` para evitar fechamento precoce da tag de comentário.
-- **Status Atual**: 51 de 51 listas em `recursos/listas/` possuem o gabarito secreto implementado com 0 tags `<details>` ativas.
+- **Status Atual**: **100% de conformidade**. Todas as 51 listas em `recursos/listas/` e todas as 35 atividades em `recursos/recuperacao/` (totalizando 86 arquivos pedagógicos) possuem o gabarito secreto implementado com **0 tags `<details>` ou soluções visíveis**.
 
 ---
 
@@ -75,11 +78,11 @@ Esta é uma diretriz inviolável solicitada pessoalmente pelo usuário/professor
 
 ```
 MATEMATICA/
-├── index.html                   # Página inicial do portal
+├── index.html                   # Página inicial do portal (Design Neutro Slate)
 ├── recursos.html                # Catálogo unificado com filtros por turma
 ├── python.html                  # Hub de programação matemática
 ├── dashboard.html               # Painel de gamificação e progresso do estudante
-├── css/style.css                # Folha de estilos central e variáveis de 14 temas
+├── css/style.css                # Folha de estilos com tema sóbrio Neutro Slate e 6 temas curados
 ├── js/                          # Scripts modulares (matrix-rain, theme-switcher, print-mode)
 ├── data/                        # Persistência de dados locais (student-data.json, etc.)
 ├── scripts/
@@ -164,6 +167,18 @@ O Portal Nexus opera com a garantia de que **todo tópico** possui o quarteto fo
 ---
 
 ## 📜 6. Histórico de Versões e Marcos Recentes
+
+- **Sessão Atual (30/09/2026) — Redesign Neutro & Gabaritos Universais de Recuperação**:
+  - **Identidade Visual Sóbria e Acadêmica**:
+    - Substituição do tema verde neon/arcade pelo novo padrão **Neutro Slate** (`#0f172a`, `#1e293b`, `#38bdf8`), com contrastes confortáveis e cores limpas.
+    - Nova paleta com 6 temas curados: Neutro Slate (Padrão), Neutro Claro (Paper), Sépia Acadêmico, Dark Grafite, Alto Contraste AAA e Matrix Retrô (Opcional).
+    - Tipografia modernizada com `Fira Sans` para títulos e `Fira Code` para monospaced/código/badges, eliminando a fonte retrô pixelada `Press Start 2P`.
+    - Remoção de text-shadows pesados sobre fórmulas KaTeX, garantindo máxima nitidez.
+    - Otimização do Canvas Matrix Rain: oculto por padrão (`display: none`), com pausa no loop de renderização para evitar consumo desnecessário de CPU.
+  - **Gabaritos Secretos de Recuperação (Ctrl+U)**:
+    - Ocultação e conversão de 100% das 35 atividades de recuperação (`recursos/recuperacao/*.html`).
+    - Remoção de todas as tags `<details>` residuais no portal: agora 86 arquivos (51 listas + 35 recuperações) contam exclusivamente com o Gabarito Secreto do Professor em comentários HTML.
+  - Aprovação de 100% dos testes da suíte `scripts/validate_nexus.py` e `scripts/validate_data.py`.
 
 - **Commit `2b25f73` (30/09/2026)**:
   - Criação de 33 recursos pedagógicos completando 100% da ementa.

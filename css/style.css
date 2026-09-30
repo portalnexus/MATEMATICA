@@ -9,114 +9,42 @@ html {
 ================================================================================
 */
 
-/* TEMA 1 (PADRÃO): Matrix Cyber (Verde Terminal Cyberpunk) */
+/* TEMA 1 (PADRÃO): Neutro Slate (Sóbrio, Elegante e Sem Distrações) */
 :root,
 body.theme-default {
-    --primary-bg-color: #0a0e14;
-    --content-box-bg-color: rgba(13, 20, 32, 0.90);
-    --main-text-color: #e2e8f0;
-    --secondary-text-color: #10b981;
-    --heading-text-color: #00ff66;
-    --container-border-color: #059669;
-    --link-color: #00ff66;
-    --link-hover-color: #6ee7b7;
-    --matrix-rain-actual-color: #00ff66;
-    --katex-text-color: #00ff66;
-    --katex-text-shadow-color: rgba(0, 255, 102, 0.4);
+    --primary-bg-color: #0f172a;               /* Slate 900 profundo e neutro */
+    --content-box-bg-color: #1e293b;            /* Slate 800 sólido e limpo */
+    --main-text-color: #f1f5f9;                 /* Slate 100 com excelente legibilidade */
+    --secondary-text-color: #94a3b8;            /* Slate 400 discreto e equilibrado */
+    --heading-text-color: #ffffff;              /* Branco puro para títulos destacados */
+    --container-border-color: #334155;          /* Slate 700 borda fina e sutil */
+    --link-color: #38bdf8;                      /* Sky Blue acadêmico e claro */
+    --link-hover-color: #7dd3fc;                /* Sky Blue hover */
+    --matrix-rain-actual-color: transparent;    /* Chuva Matrix invisível no tema neutro */
+    --katex-text-color: #f8fafc;                /* KaTeX nítido e sem coloração neon */
+    --katex-text-shadow-color: transparent;     /* SEM sombra ou desfoque */
 
-    --theme-selector-bg-color: #0a0e14;
-    --theme-selector-text-color: #e2e8f0;
-    --theme-selector-hover-bg-color: #00ff66;
-    --theme-selector-hover-text-color: #0a0e14;
+    --theme-selector-bg-color: #1e293b;
+    --theme-selector-text-color: #f1f5f9;
+    --theme-selector-hover-bg-color: #38bdf8;
+    --theme-selector-hover-text-color: #0f172a;
 
     --teorema-color: #10b981;
     --observacao-color: #8b5cf6;
     --dica-color: #f59e0b;
 }
 
-/* TEMA 2: Cyber Blue (Azul Espacial & Ciano Moderno) */
-body.theme-cyber-blue {
-    --primary-bg-color: #080d1a;
-    --content-box-bg-color: rgba(15, 23, 42, 0.90);
-    --main-text-color: #e2e8f0;
-    --secondary-text-color: #38bdf8;
-    --heading-text-color: #60a5fa;
-    --container-border-color: #1e40af;
-    --link-color: #38bdf8;
-    --link-hover-color: #93c5fd;
-    --matrix-rain-actual-color: #38bdf8;
-    --katex-text-color: #38bdf8;
-    --katex-text-shadow-color: rgba(56, 189, 248, 0.4);
-
-    --theme-selector-bg-color: #080d1a;
-    --theme-selector-text-color: #e2e8f0;
-    --theme-selector-hover-bg-color: #38bdf8;
-    --theme-selector-hover-text-color: #080d1a;
-
-    --teorema-color: #38bdf8;
-    --observacao-color: #a855f7;
-    --dica-color: #fbbf24;
-}
-
-/* TEMA 3: OLED Neon Green (Alto Contraste AAA - Contraste > 18:1) */
-body.theme-high-contrast-green {
-    --primary-bg-color: #000000;
-    --content-box-bg-color: #000000;
-    --main-text-color: #ffffff;
-    --secondary-text-color: #00ff00;
-    --heading-text-color: #00ff00;
-    --container-border-color: #00ff00;
-    --link-color: #00ff00;
-    --link-hover-color: #ffffff;
-    --matrix-rain-actual-color: #00ff00;
-    --katex-text-color: #00ff00;
-    --katex-text-shadow-color: transparent;
-
-    --theme-selector-bg-color: #000000;
-    --theme-selector-text-color: #ffffff;
-    --theme-selector-hover-bg-color: #00ff00;
-    --theme-selector-hover-text-color: #000000;
-
-    --teorema-color: #00ff00;
-    --observacao-color: #ffff00;
-    --dica-color: #00ffff;
-}
-
-/* TEMA 4: OLED Amber (Alto Contraste Fósforo Âmbar VT220 AAA) */
-body.theme-high-contrast-amber {
-    --primary-bg-color: #000000;
-    --content-box-bg-color: #000000;
-    --main-text-color: #ffffff;
-    --secondary-text-color: #ffb000;
-    --heading-text-color: #ffc107;
-    --container-border-color: #ffb000;
-    --link-color: #ffb000;
-    --link-hover-color: #ffffff;
-    --matrix-rain-actual-color: #ffb000;
-    --katex-text-color: #ffc107;
-    --katex-text-shadow-color: transparent;
-
-    --theme-selector-bg-color: #000000;
-    --theme-selector-text-color: #ffffff;
-    --theme-selector-hover-bg-color: #ffb000;
-    --theme-selector-hover-text-color: #000000;
-
-    --teorema-color: #ffb000;
-    --observacao-color: #ff8c00;
-    --dica-color: #ffd700;
-}
-
-/* TEMA 5: Paper Clean (Modo Claro Minimalista Diurno) */
+/* TEMA 2: Neutro Claro (Paper Clean - Minimalista Diurno) */
 body.theme-paper-light {
-    --primary-bg-color: #f1f5f9;
-    --content-box-bg-color: rgba(255, 255, 255, 0.96);
-    --main-text-color: #0f172a;
-    --secondary-text-color: #475569;
-    --heading-text-color: #0369a1;
-    --container-border-color: #cbd5e1;
-    --link-color: #0284c7;
+    --primary-bg-color: #f8fafc;               /* Slate 50 ultra limpo */
+    --content-box-bg-color: #ffffff;            /* Branco puro */
+    --main-text-color: #0f172a;                 /* Slate 900 para máxima legibilidade */
+    --secondary-text-color: #475569;            /* Slate 600 */
+    --heading-text-color: #0f172a;              /* Slate 900 */
+    --container-border-color: #e2e8f0;          /* Slate 200 borda suave */
+    --link-color: #0284c7;                      /* Azul clássico */
     --link-hover-color: #0369a1;
-    --matrix-rain-actual-color: #94a3b8;
+    --matrix-rain-actual-color: transparent;
     --katex-text-color: #0f172a;
     --katex-text-shadow-color: transparent;
 
@@ -130,17 +58,17 @@ body.theme-paper-light {
     --dica-color: #d97706;
 }
 
-/* TEMA 6: Solarized Sepia (Modo Claro Pergaminho Quente Anti-Ofuscamento) */
+/* TEMA 3: Sépia Acadêmico (Pergaminho Quente Anti-Fadiga) */
 body.theme-solarized-light {
     --primary-bg-color: #fbf1c7;
-    --content-box-bg-color: rgba(253, 246, 227, 0.96);
+    --content-box-bg-color: rgba(253, 246, 227, 0.98);
     --main-text-color: #282828;
     --secondary-text-color: #7c6f64;
     --heading-text-color: #af3a03;
     --container-border-color: #d5c4a1;
     --link-color: #b57614;
     --link-hover-color: #d65d0e;
-    --matrix-rain-actual-color: #bdae93;
+    --matrix-rain-actual-color: transparent;
     --katex-text-color: #af3a03;
     --katex-text-shadow-color: transparent;
 
@@ -152,6 +80,83 @@ body.theme-solarized-light {
     --teorema-color: #b57614;
     --observacao-color: #8f3f71;
     --dica-color: #d79921;
+}
+
+/* TEMA 4: Dark Grafite (Carvão Minimalista) */
+body.theme-dark-graphite,
+body.theme-cyber-blue {
+    --primary-bg-color: #121214;
+    --content-box-bg-color: #18181b;
+    --main-text-color: #e4e4e7;
+    --secondary-text-color: #a1a1aa;
+    --heading-text-color: #ffffff;
+    --container-border-color: #27272a;
+    --link-color: #60a5fa;
+    --link-hover-color: #93c5fd;
+    --matrix-rain-actual-color: transparent;
+    --katex-text-color: #fafafa;
+    --katex-text-shadow-color: transparent;
+
+    --theme-selector-bg-color: #18181b;
+    --theme-selector-text-color: #e4e4e7;
+    --theme-selector-hover-bg-color: #60a5fa;
+    --theme-selector-hover-text-color: #121214;
+
+    --teorema-color: #38bdf8;
+    --observacao-color: #a855f7;
+    --dica-color: #fbbf24;
+}
+
+/* TEMA 5: Alto Contraste AAA (Acessibilidade Preto & Branco Puro) */
+body.theme-high-contrast,
+body.theme-high-contrast-green,
+body.theme-high-contrast-amber {
+    --primary-bg-color: #000000;
+    --content-box-bg-color: #000000;
+    --main-text-color: #ffffff;
+    --secondary-text-color: #facc15;
+    --heading-text-color: #ffffff;
+    --container-border-color: #ffffff;
+    --link-color: #38bdf8;
+    --link-hover-color: #ffffff;
+    --matrix-rain-actual-color: transparent;
+    --katex-text-color: #ffffff;
+    --katex-text-shadow-color: transparent;
+
+    --theme-selector-bg-color: #000000;
+    --theme-selector-text-color: #ffffff;
+    --theme-selector-hover-bg-color: #ffffff;
+    --theme-selector-hover-text-color: #000000;
+
+    --teorema-color: #4ade80;
+    --observacao-color: #facc15;
+    --dica-color: #38bdf8;
+}
+
+/* TEMA 6: Matrix Retrô (Opcional - Terminal Verde Cyberpunk) */
+body.theme-matrix-retro,
+body.theme-matrix-cyber,
+body.theme-green-circuit {
+    --primary-bg-color: #0a0e14;
+    --content-box-bg-color: rgba(13, 20, 32, 0.92);
+    --main-text-color: #e2e8f0;
+    --secondary-text-color: #10b981;
+    --heading-text-color: #00ff66;
+    --container-border-color: #059669;
+    --link-color: #00ff66;
+    --link-hover-color: #6ee7b7;
+    --matrix-rain-actual-color: #00ff66;
+    --katex-text-color: #00ff66;
+    --katex-text-shadow-color: transparent;
+
+    --theme-selector-bg-color: #0a0e14;
+    --theme-selector-text-color: #e2e8f0;
+    --theme-selector-hover-bg-color: #00ff66;
+    --theme-selector-hover-text-color: #0a0e14;
+
+    --teorema-color: #10b981;
+    --observacao-color: #8b5cf6;
+    --dica-color: #f59e0b;
 }
 
 /* Compatibilidade com seletores e contrastes em temas claros */
@@ -175,13 +180,13 @@ body.theme-solarized-light table {
 ================================================================================
 */
 :root {
-    --font-family-headings: 'Press Start 2P', monospace;
-    --font-family-body: 'Fira Sans', sans-serif;
-    --font-family-monospace: monospace;
-    --container-padding: 25px;
-    --container-border-radius: 5px;
-    --container-max-width: 960px;
-    --container-margin-top-bottom: 40px;
+    --font-family-headings: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-family-body: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-family-monospace: 'Fira Code', monospace;
+    --container-padding: 30px;
+    --container-border-radius: 10px;
+    --container-max-width: 980px;
+    --container-margin-top-bottom: 35px;
 }
 
 /*
@@ -269,14 +274,14 @@ body.print-mode .erro-comum h4 {
 
 .badge-nivel {
     display: inline-block;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
     font-family: var(--font-family-headings);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 1rem;
-    letter-spacing: 1px;
+    letter-spacing: 0.05em;
 }
 
 /* 9º ano - Azul */
@@ -415,20 +420,28 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    display: block;
+    display: none; /* Desativado por padrão para garantir tema neutro e sem distrações */
     background-color: var(--primary-bg-color);
     transition: background-color 0.3s ease;
 }
+
+body.theme-matrix-retro #matrixCanvas,
+body.theme-matrix-cyber #matrixCanvas,
+body.theme-green-circuit #matrixCanvas {
+    display: block; /* Ativa chuva de código exclusivamente no tema retrô opcional */
+}
+
 .container {
-    width: 80%;
+    width: 88%;
     max-width: var(--container-max-width);
     margin: var(--container-margin-top-bottom) auto;
     padding: var(--container-padding);
     background-color: var(--content-box-bg-color);
-    border: 2px solid var(--container-border-color, var(--matrix-rain-actual-color));
+    border: 1px solid var(--container-border-color);
     border-radius: var(--container-border-radius);
     color: var(--main-text-color);
     font-family: var(--font-family-body);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 /* 
@@ -439,9 +452,11 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-headings);
     color: var(--heading-text-color);
-    line-height: 1.3;
+    line-height: 1.35;
     text-align: center;
     margin-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
 }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.75rem; }
@@ -520,16 +535,18 @@ nav a:hover {
 /* Botões de navegação estilizados */
 .nav-button {
     display: inline-block;
-    padding: 0.6rem 1.2rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 2px solid var(--link-color);
+    padding: 0.5rem 1.1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--container-border-color);
     border-radius: 6px;
-    color: var(--link-color) !important;
-    font-family: var(--font-family-headings);
-    font-size: 0.875rem;
+    color: var(--main-text-color) !important;
+    font-family: var(--font-family-headings) !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     cursor: pointer;
 }
 
@@ -537,15 +554,15 @@ nav a:hover {
     background-color: var(--link-color);
     color: var(--primary-bg-color) !important;
     border-color: var(--link-hover-color);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .nav-button.active {
     background-color: var(--link-color) !important;
     color: var(--primary-bg-color) !important;
     border-color: var(--link-color) !important;
-    box-shadow: 0 0 12px var(--link-color);
+    box-shadow: none;
 }
 
 /* --- Seletor de Turma --- */
@@ -645,11 +662,11 @@ footer p {
 }
 .katex {
     font-size: 1.1em;
-    color: var(--katex-text-color, var(--link-color));
-    text-shadow: 1px 1px 3px var(--katex-text-shadow-color, rgba(0,0,0,0.4));
+    color: var(--katex-text-color, inherit);
+    text-shadow: none !important;
 }
 .katex .frac-line {
-    border-bottom-color: var(--katex-text-color, var(--link-color));
+    border-bottom-color: var(--katex-text-color, currentColor);
 }
 /* 
 ================================================================================
@@ -668,6 +685,7 @@ footer p {
     border-radius: 50%;
     cursor: pointer;
     z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 #theme-config-icon:hover {
@@ -679,13 +697,13 @@ footer p {
     position: fixed;
     bottom: 5rem;
     right: 1.25rem;
-    width: 14rem;
-    background-color: var(--primary-bg-color);
+    width: 15rem;
+    background-color: var(--content-box-bg-color);
     border: 1px solid var(--container-border-color);
     border-radius: var(--container-border-radius);
     padding: 1rem;
     z-index: 999;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -695,7 +713,8 @@ footer p {
 #theme-selector-panel h3 {
     margin-top: 0;
     margin-bottom: 0.8rem;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
+    font-weight: 700;
     color: var(--heading-text-color);
     font-family: var(--font-family-headings);
     text-align: center;
@@ -703,28 +722,29 @@ footer p {
 
 .theme-group-label {
     font-family: var(--font-family-headings);
-    font-size: 0.55rem;
+    font-size: 0.7rem;
+    font-weight: 700;
     color: var(--secondary-text-color);
     margin: 0.8rem 0 0.4rem 0;
     padding-bottom: 0.25rem;
     border-bottom: 1px dashed var(--container-border-color);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05em;
     text-align: left;
 }
 #theme-selector-panel button {
     display: block;
     width: 100%;
-    padding: 0.6rem;
-    margin-bottom: 0.5rem;
-    border: 1px solid var(--secondary-text-color);
-    background-color: transparent;
-    color: var(--link-color);
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 0.4rem;
+    border: 1px solid var(--container-border-color);
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--main-text-color);
     font-family: var(--font-family-body);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     cursor: pointer;
     text-align: left;
-    border-radius: 3px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 #theme-selector-panel button:hover {
     background-color: var(--theme-selector-hover-bg-color, var(--link-color));
@@ -749,47 +769,54 @@ footer p {
     gap: 1.5rem; 
 }
 .quick-link-button {
-    font-family: var(--font-family-headings); 
+    font-family: var(--font-family-headings) !important; 
+    font-weight: 600;
     color: var(--link-color);                 
-    background-color: transparent;
-    border: 2px solid var(--link-color);    
-    padding: 0.75rem 1.25rem;               
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--container-border-color);    
+    padding: 0.65rem 1.25rem;               
     text-decoration: none;
     text-transform: uppercase;
-    border-radius: var(--container-border-radius, 5px); 
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    border-radius: 6px; 
+    transition: all 0.2s ease;
     display: inline-block; 
-    font-size: 0.8rem; 
-    letter-spacing: 1px; 
+    font-size: 0.825rem; 
+    letter-spacing: 0.04em; 
 }
 .quick-link-button:hover,
 .quick-link-button:focus {
     background-color: var(--link-color);   
     color: var(--primary-bg-color);          
-    transform: translateY(-2px); 
-    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.3); 
+    border-color: var(--link-color);
+    transform: translateY(-1px); 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); 
 }
 /* General Themed Button Style */
 .themed-button {
-    font-family: var(--font-family-body);
-    font-size: 0.9rem;
+    font-family: var(--font-family-headings) !important;
+    font-size: 0.85rem;
+    font-weight: 700;
     color: var(--link-color);
     background-color: transparent;
-    border: 1px solid var(--link-color); 
-    padding: 0.6rem 1.2rem; 
+    border: 1px solid var(--container-border-color); 
+    padding: 0.6rem 1.4rem; 
     text-transform: uppercase;
-    border-radius: var(--container-border-radius);
+    letter-spacing: 0.04em;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: all 0.2s ease;
     text-decoration: none; 
     display: inline-block; 
     margin: 0.25rem; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .themed-button:hover,
 .themed-button:focus {
     background-color: var(--link-color);
     color: var(--primary-bg-color); 
     border-color: var(--link-color); 
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /*

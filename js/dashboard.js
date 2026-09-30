@@ -320,7 +320,7 @@ function desenharGraficoEvolucao(usuario) {
 
         // Rótulo da Etapa abaixo do gráfico
         ctx.fillStyle = secondaryColor;
-        ctx.font = '8px "Press Start 2P", monospace';
+        ctx.font = 'bold 9px "Fira Code", monospace';
         ctx.fillText(pt.label, pt.x, height - 8);
     });
 }

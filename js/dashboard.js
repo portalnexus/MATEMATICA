@@ -39,14 +39,14 @@ async function calcularHashSHA256(texto) {
     return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-// 5 Dimensões Tradicionais de Avaliação
+// 5 Dimensões Tradicionais de Avaliação Formativa
 const ROTULOS_DIMENSOES_MAT = ["MDA", "MDEP", "NAAG", "NIF", "PORT"];
 const DESCRICOES_DIMENSOES_MAT = {
-    "MDA": "Matemática Discreta e Aplicada",
-    "MDEP": "Matemática Discreta e Pensamento Lógico",
-    "NAAG": "Números, Álgebra e Geometria",
-    "NIF": "Números e Funções",
-    "PORT": "Português"
+    "MDA": "Média das Avaliações",
+    "MDEP": "Média dos estudos em prática",
+    "NAAG": "Nota atribuída ao grupo",
+    "NIF": "Nota individual final",
+    "PORT": "Portfólio"
 };
 
 // Ementas Oficiais de Matemática por Turma vinculadas aos Guias de Estudos

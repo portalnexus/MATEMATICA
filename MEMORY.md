@@ -191,12 +191,12 @@ O Portal Nexus opera com a garantia de que **todo tópico** possui o quarteto fo
     - **Tag Admin do Professor**: Chave exclusiva docente (validada no cliente via hash SHA-256 criptográfico, sem exposição da chave no código-fonte ou no GitHub).
     - **Campo de Digitação Mascarado**: Input `type="password"` com botão de toggle de visualização (`👁️` / `🔒`), mantendo a tag oculta por padrão.
     - **Omissão dos botões de teste**: Remoção dos `#demo-chips` rápidos para privacidade e integridade.
-    - **5 Dimensões Tradicionais de Avaliação**:
-      1. `MDA` — Matemática Discreta e Aplicada
-      2. `MDEP` — Matemática Discreta e Pensamento Lógico
-      3. `NAAG` — Números, Álgebra e Geometria
-      4. `NIF` — Números e Funções
-      5. `PORT` — Português / Comunicação e Expressão
+    - **5 Dimensões Tradicionais de Avaliação Formativa**:
+      1. `MDA` — Média das Avaliações
+      2. `MDEP` — Média dos estudos em prática
+      3. `NAAG` — Nota atribuída ao grupo
+      4. `NIF` — Nota individual final
+      5. `PORT` — Portfólio
     - **Metas e Missões Estritamente de Matemática**:
       - Conectadas diretamente aos Guias de Estudos (`recursos/guias/*.html`) e ementas curriculares (`docs/curriculo/`).
     - **Painel de Gestão Docente (Admin)**:
@@ -225,7 +225,7 @@ O Portal Nexus opera com a garantia de que **todo tópico** possui o quarteto fo
 2. Ao cadastrar estudantes no Dashboard:
    - Respeite o formato de tag **4 letras e 3 dígitos** (`/^[A-Z]{4}\d{3}$/`).
    - A tag admin do professor é confidencial (validada via hash SHA-256 seguro, identificador interno `ADMIN_DOCENTE`).
-   - As notas seguem estritamente as 5 dimensões: `MDA`, `MDEP`, `NAAG`, `NIF`, `PORT`.
+   - As notas seguem estritamente as 5 dimensões formativas: MDA (Média das Avaliações), MDEP (Média dos estudos em prática), NAAG (Nota atribuída ao grupo), NIF (Nota individual final) e PORT (Portfólio).
 3. Tipografia e Rigor Visual:
    - Títulos, botões HUD e badges: `'Press Start 2P', monospace`.
    - Corpo do texto e leitura didática: `'Fira Sans', sans-serif`.

@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS - Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400;1,700&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Press+Start+2P&family=Fira+Code:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
@@ -122,7 +123,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem; border-bottom: 1px solid var(--container-border-color); padding-bottom: 0.8rem;">
                             <div>
                                 <span class="area-title" style="margin: 0;">PAINEL DE GESTÃO DOCENTE // ADMIN</span>
-                                <span style="font-size: 0.8rem; color: var(--secondary-text-color);">Chave de Acesso: <code style="color: var(--link-color);">twdzujqr369</code></span>
+                                <span style="font-size: 0.8rem; color: var(--secondary-text-color);">Sessão Autenticada // Acesso Restrito</span>
                             </div>
                             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                                 <button id="btn-open-create-student" class="themed-button" style="font-size: 0.8rem; padding: 0.45rem 0.9rem; background: var(--teorema-color, #10b981); color: #fff; border-color: #10b981;">➕ CRIAR ESTUDANTE</button>
@@ -199,11 +200,11 @@
                                 <canvas id="evolucao-grafico"></canvas>
                             </div>
                             <div id="legenda-disciplinas">
-                                <span data-tooltip="Álgebra & Funções (Equações, Polinômios, Funções)">ALG</span>
-                                <span data-tooltip="Geometria & Medidas (Plana, Espacial, Analítica e Métrica)">GEO</span>
-                                <span data-tooltip="Números & Operações (Conjuntos, Progressões e Finanças)">NUM</span>
-                                <span data-tooltip="Estatística & Probabilidade (Tratamento de Dados e Contagem)">EST</span>
-                                <span data-tooltip="Raciocínio Lógico & Modelagem (Dedução e Resolução de Problemas)">LOG</span>
+                                <span data-tooltip="Matemática Discreta e Aplicada">MDA</span>
+                                <span data-tooltip="Matemática Discreta e Pensamento Lógico">MDEP</span>
+                                <span data-tooltip="Números, Álgebra e Geometria">NAAG</span>
+                                <span data-tooltip="Números e Funções">NIF</span>
+                                <span data-tooltip="Português">PORT</span>
                             </div>
                         </div>
                         <div id="mencoes" class="dashboard-box">
@@ -306,11 +307,11 @@
                             <thead>
                                 <tr>
                                     <th>Etapa</th>
-                                    <th>ALG (Álgebra)</th>
-                                    <th>GEO (Geometria)</th>
-                                    <th>NUM (Números)</th>
-                                    <th>EST (Estatística)</th>
-                                    <th>LOG (Lógica)</th>
+                                    <th>MDA (Mat. Discreta e Aplicada)</th>
+                                    <th>MDEP (Mat. Discreta e Pens. Lógico)</th>
+                                    <th>NAAG (Núm., Álgebra e Geometria)</th>
+                                    <th>NIF (Números e Funções)</th>
+                                    <th>PORT (Português)</th>
                                     <th>Média</th>
                                 </tr>
                             </thead>
@@ -409,6 +410,8 @@
         <div class="theme-group-label">☀️ MODO CLARO</div>
         <button data-theme="theme-paper-light" title="Paper Clean (Claro Minimalista)">📄 Paper Clean</button>
         <button data-theme="theme-solarized-light" title="Solarized Sepia (Claro Pergaminho Quente)">📜 Solarized Sepia</button>
+        <div class="theme-group-label">🖨️ MODO LIMPO / IMPRESSÃO</div>
+        <button data-theme="theme-clean-print" title="Limpo & Impressão (Fundo Branco sem Matrix)">📄 Limpo & Impressão</button>
     </div>
     <script src="js/theme-switcher.js" defer></script>
 

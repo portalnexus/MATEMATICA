@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Flashcards Interativos de Matemática</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Press+Start+2P&family=Fira+Code:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS Nexus -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .flashcards-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .deck-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--container-border-color);
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+    }
+
+    .deck-select-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .deck-select-group select {
+      background: var(--primary-bg-color);
+      color: var(--main-text-color);
+      border: 1px solid var(--container-border-color);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-family: var(--font-family-body);
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    /* Card Scene 3D */
+    .card-scene {
+      perspective: 1200px;
+      margin: 20px auto 28px auto;
+      width: 100%;
+      height: 380px;
+    }
+
+    .flashcard {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+      cursor: pointer;
+      border-radius: 12px;
+    }
+
+    .flashcard.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 12px;
+      padding: 28px 32px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 2px solid var(--container-border-color);
+      background: var(--content-box-bg-color);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-face-front {
+      border-top: 4px solid var(--link-color);
+    }
+
+    .card-face-back {
+      transform: rotateY(180deg);
+      border-top: 4px solid var(--teorema-color, #10b981);
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    body.theme-clean-print .card-face-back {
+      background: #f9fafb !important;
+    }
+
+    .card-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    .card-deck-tag {
+      font-size: 0.72rem;
+      font-family: var(--font-family-headings);
+      color: var(--link-color);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .card-hint {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      font-style: italic;
+    }
+
+    .card-content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      padding: 10px 0;
+    }
+
+    .card-content h3 {
+      font-size: 1rem;
+      color: var(--link-color);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .card-content p {
+      font-size: 1.1rem;
+      margin: 0;
+      text-align: center;
+    }
+
+    .card-footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 10px;
+    }
+
+    /* Actions & Feedback */
+    .flashcard-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .study-feedback {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .btn-review-bad {
+      background: rgba(239, 68, 68, 0.2) !important;
+      border-color: #ef4444 !important;
+      color: #ef4444 !important;
+    }
+
+    .btn-review-good {
+      background: rgba(16, 185, 129, 0.2) !important;
+      border-color: #10b981 !important;
+      color: #10b981 !important;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 8px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 16px 0 8px 0;
+      border: 1px solid var(--container-border-color);
+    }
+
+    .progress-bar-inner {
+      height: 100%;
+      background: var(--link-color);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .stats-pill {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: var(--secondary-text-color);
+    }
+
+    .shortcuts-help {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px dashed var(--container-border-color);
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--secondary-text-color);
+      margin-top: 2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
+      <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+  <div class="container flashcards-wrapper">
+    <header style="text-align: center; margin-bottom: 1.8rem;">
+      <span class="hud-status-badge">&gt;&gt; NEXUS // ESTUDO ATIVO E REPETIÇÃO ESPAÇADA</span>
+      <h1 style="margin: 0.6rem 0 0.5rem 0;">FLASHCARDS DE MATEMÁTICA</h1>
+      <p style="color: var(--secondary-text-color); font-size: 0.95rem; margin: 0 auto; max-width: 680px;">
+        Fixação ativa de definições, propriedades, identidades e teoremas essenciais baseados no currículo SESI-SP e na coleção Fundamentos de Matemática Elementar.
+      </p>
+    </header>
+
+    <div class="deck-controls">
+      <div class="deck-select-group">
+        <label for="select-turma"><strong>Turma / Série:</strong></label>
+        <select id="select-turma">
+          <option value="all">Todas as Séries</option>
+          <option value="9ANO">9º Ano (Fundamental)</option>
+          <option value="1EM">1º Ano (Ensino Médio)</option>
+          <option value="2EM">2º Ano (Ensino Médio)</option>
+          <option value="3EM">3º Ano (Ensino Médio)</option>
+        </select>
+      </div>
+
+      <div class="deck-select-group">
+        <label for="select-topico"><strong>Tópico:</strong></label>
+        <select id="select-topico">
+          <option value="all">Todos os Tópicos</option>
+        </select>
+      </div>
+
+      <div style="display: flex; gap: 8px;">
+        <button id="btn-shuffle" class="themed-button" style="font-size: 0.72rem; padding: 0.45rem 0.8rem;" title="Embaralhar cartões">🔀 Embaralhar</button>
+        <button id="btn-reset" class="themed-button" style="font-size: 0.72rem; padding: 0.45rem 0.8rem;" title="Reiniciar contadores">🔄 Reiniciar</button>
+      </div>
+    </div>
+
+    <!-- Barra de Progresso e Estatísticas -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+      <span id="card-counter" class="stats-pill">CARTÃO 1 DE 1</span>
+      <span id="session-stats" class="stats-pill">Acertos: 0 | A revisar: 0</span>
+    </div>
+    <div class="progress-bar-container">
+      <div id="progress-fill" class="progress-bar-inner"></div>
+    </div>
+
+    <!-- Cena do Flashcard 3D -->
+    <div class="card-scene">
+      <div id="flashcard" class="flashcard" title="Clique ou pressione Espaço para virar o cartão">
+        <div class="card-face card-face-front">
+          <div class="card-header-bar">
+            <span id="card-deck-name" class="card-deck-tag">TÓPICO</span>
+            <span class="card-hint">FRENTE // CONCEITO / DESAFIO</span>
+          </div>
+          <div id="card-front-content" class="card-content">
+            <p>Carregando flashcards...</p>
+          </div>
+          <div class="card-footer-bar">
+            <span>💡 Clique no cartão ou pressione <strong>[ESPAÇO]</strong> para ver a resolução</span>
+            <span id="card-difficulty" class="badge-nivel ano-1em" style="margin: 0; padding: 2px 8px; font-size: 0.65rem;">MÉDIO</span>
+          </div>
+        </div>
+
+        <div class="card-face card-face-back">
+          <div class="card-header-bar">
+            <span id="card-deck-name-back" class="card-deck-tag" style="color: var(--teorema-color, #10b981);">RESOLUÇÃO & PROPRIEDADE</span>
+            <span class="card-hint">VERSO // DEFINIÇÃO FORMAL</span>
+          </div>
+          <div id="card-back-content" class="card-content">
+            <p>Carregando resposta...</p>
+          </div>
+          <div class="card-footer-bar">
+            <span>Avalie seu domínio antes de avançar para calibrar a repetição espaçada</span>
+            <span style="color: var(--teorema-color, #10b981); font-weight: bold;">✔ CONHECIMENTO VALIDADO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controles de Navegação e Auto-Avaliação -->
+    <div class="flashcard-actions">
+      <button id="btn-prev" class="themed-button">◀ ANTERIOR</button>
+      <button id="btn-flip" class="themed-button" style="border-color: var(--link-color); background: rgba(56, 189, 248, 0.15);">🔄 VIRAR CARTÃO [ESPAÇO]</button>
+      <button id="btn-next" class="themed-button">PRÓXIMO ▶</button>
+    </div>
+
+    <div class="study-feedback">
+      <button id="btn-review" class="themed-button btn-review-bad" title="Marcar para revisar novamente [Tecla 1]">🔴 Preciso Revisar (1)</button>
+      <button id="btn-mastered" class="themed-button btn-review-good" title="Marcar como dominado [Tecla 2]">🟢 Acertei com Certeza (2)</button>
+    </div>
+
+    <div class="shortcuts-help">
+      ⌨️ <strong>Atalhos de Teclado:</strong> [Espaço] ou [Enter] = Virar Cartão | [← / →] = Cartão Anterior / Próximo | [1] = Preciso Revisar | [2] = Acertei
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="../../recursos.html" class="themed-button">VOLTAR AOS RECURSOS</a>
+    </div>
+  </div>
+</div>
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/class-selector.js" defer></script>
+
+<!-- BANCO DE FLASHCARDS DIDÁTICOS (FME + SESI CURRÍCULO) -->
+<script>
+const BANCO_FLASHCARDS = [
+  // --- 9º ANO ---
+  {
+    serie: "9ANO",
+    topico: "Produtos Notáveis",
+    dificuldade: "Fácil",
+    frente: "Qual é o desenvolvimento do **Quadrado da Soma** de dois termos: $$(a + b)^2 = ?$$",
+    verso: "O quadrado do primeiro mais duas vezes o produto pelo segundo mais o quadrado do segundo: $$(a + b)^2 = a^2 + 2ab + b^2$$ Exemplo: $(x + 3)^2 = x^2 + 6x + 9$."
+  },
+  {
+    serie: "9ANO",
+    topico: "Produtos Notáveis",
+    dificuldade: "Fácil",
+    frente: "Qual é a fatoração do **Produto da Soma pela Diferença**: $$(a + b)(a - b) = ?$$",
+    verso: "Diferença de quadrados: $$(a + b)(a - b) = a^2 - b^2$$ Exemplo: $(x + 5)(x - 5) = x^2 - 25$."
+  },
+  {
+    serie: "9ANO",
+    topico: "Trigonometria e Pitágoras",
+    dificuldade: "Fácil",
+    frente: "Qual é o enunciado algébrico do **Teorema de Pitágoras** em um triângulo retângulo?",
+    verso: "Em qualquer triângulo retângulo, o quadrado da hipotenusa $a$ é igual à soma dos quadrados dos catetos $b$ e $c$: $$a^2 = b^2 + c^2$$ **Terna clássica mais comum:** $(3, 4, 5)$ pois $3^2 + 4^2 = 9 + 16 = 25 = 5^2$."
+  },
+  {
+    serie: "9ANO",
+    topico: "Trigonometria e Pitágoras",
+    dificuldade: "Médio",
+    frente: "Quais são os valores de $\\operatorname{sen}$, $\\cos$ e $\\operatorname{tg}$ para o ângulo notável de **$30^\\circ$**?",
+    verso: "$$\\operatorname{sen}(30^\\circ) = \\frac{1}{2}, \\quad \\cos(30^\\circ) = \\frac{\\sqrt{3}}{2}, \\quad \\operatorname{tg}(30^\\circ) = \\frac{\\sqrt{3}}{3}$$"
+  },
+  {
+    serie: "9ANO",
+    topico: "Equações do 2º Grau",
+    dificuldade: "Médio",
+    frente: "Quais são as relações de **Soma ($S$) e Produto ($P$)** das raízes de $ax^2 + bx + c = 0$ (Relações de Girard)?",
+    verso: "$$S = x_1 + x_2 = -\\frac{b}{a}$$ $$P = x_1 \\cdot x_2 = \\frac{c}{a}$$ Permite fatorar a equação na forma: $x^2 - Sx + P = 0$."
+  },
+  {
+    serie: "9ANO",
+    topico: "Geometria Espacial",
+    dificuldade: "Médio",
+    frente: "Como se calcula o **Volume de um Cilindro Reto** de raio da base $r$ e altura $h$?",
+    verso: "Área da base vezes a altura: $$V = A_b \\cdot h = \\pi r^2 h$$"
+  },
+
+  // --- 1º ANO EM ---
+  {
+    serie: "1EM",
+    topico: "Conjuntos (FME 1)",
+    dificuldade: "Fácil",
+    frente: "Se um conjunto finito $A$ possui $n$ elementos, quantos elementos possui o **Conjunto das Partes** $\\mathcal{P}(A)$?",
+    verso: "$$n(\\mathcal{P}(A)) = 2^n$$ Pois cada elemento tem 2 escolhas: pertencer ou não a cada subconjunto formado."
+  },
+  {
+    serie: "1EM",
+    topico: "Função Quadrática",
+    dificuldade: "Médio",
+    frente: "Quais são as coordenadas do **Vértice da Parábola** $f(x) = ax^2 + bx + c$?",
+    verso: "$$V = \\left(-\\frac{b}{2a}, -\\frac{\\Delta}{4a}\\right)$$ Onde $\\Delta = b^2 - 4ac$. Se $a > 0$, $y_v$ é valor mínimo; se $a < 0$, $y_v$ é valor máximo."
+  },
+  {
+    serie: "1EM",
+    topico: "Logaritmos (FME 2)",
+    dificuldade: "Médio",
+    frente: "Quais são as 3 propriedades fundamentais de **Logaritmos**: $\\log_b(xy)$, $\\log_b(x/y)$ e $\\log_b(x^k)$?",
+    verso: "1. $\\log_b(x \\cdot y) = \\log_b(x) + \\log_b(y)$\n2. $\\log_b\\left(\\frac{x}{y}\\right) = \\log_b(x) - \\log_b(y)$\n3. $\\log_b(x^k) = k \\cdot \\log_b(x)$"
+  },
+  {
+    serie: "1EM",
+    topico: "Progressões (FME 4)",
+    dificuldade: "Médio",
+    frente: "Qual é a fórmula do **Termo Geral** e da **Soma dos $n$ primeiros termos** de uma Progressão Aritmética (PA)?",
+    verso: "Termo geral: $$a_n = a_1 + (n - 1)r$$ Soma finita: $$S_n = \\frac{(a_1 + a_n) \\cdot n}{2}$$"
+  },
+  {
+    serie: "1EM",
+    topico: "Trigonometria (FME 3)",
+    dificuldade: "Fácil",
+    frente: "Qual é a **Identidade Fundamental da Trigonometria**?",
+    verso: "Para todo arco $x \\in \\mathbb{R}$: $$\\operatorname{sen}^2(x) + \\cos^2(x) = 1$$ Consequências: $1 + \\operatorname{tg}^2(x) = \\sec^2(x)$ e $1 + \\operatorname{cotg}^2(x) = \\operatorname{cossec}^2(x)$."
+  },
+
+  // --- 2º ANO EM ---
+  {
+    serie: "2EM",
+    topico: "Matrizes & Determinantes (FME 4)",
+    dificuldade: "Médio",
+    frente: "O que enuncia o **Teorema de Binet** para determinantes de matrizes quadradas $A$ e $B$ de mesma ordem?",
+    verso: "O determinante do produto é o produto dos determinantes: $$\\det(A \\cdot B) = \\det(A) \\cdot \\det(B)$$ E para a matriz inversa: $\\det(A^{-1}) = \\frac{1}{\\det(A)}$."
+  },
+  {
+    serie: "2EM",
+    topico: "Análise Combinatória (FME 5)",
+    dificuldade: "Médio",
+    frente: "Qual a diferença entre **Arranjo Simples** $A(n, k)$ e **Combinação Simples** $C(n, k)$?",
+    verso: "- **Arranjo:** A ordem dos elementos **importa** (ex: senhas, pódios). $$A(n, k) = \\frac{n!}{(n - k)!}$$\n- **Combinação:** A ordem dos elementos **NÃO importa** (ex: comissões, subconjuntos). $$C(n, k) = \\frac{n!}{k!(n - k)!}$$"
+  },
+  {
+    serie: "2EM",
+    topico: "Probabilidade",
+    dificuldade: "Médio",
+    frente: "Qual é a fórmula da **Probabilidade Condicional** de $A$ dado que $B$ ocorreu ($P(A|B)$)?",
+    verso: "$$P(A|B) = \\frac{P(A \\cap B)}{P(B)}, \\quad \\text{com } P(B) > 0$$ Se $A$ e $B$ forem independentes, $P(A|B) = P(A)$ e $P(A \\cap B) = P(A) \\cdot P(B)$."
+  },
+  {
+    serie: "2EM",
+    topico: "Geometria Espacial (FME 10)",
+    dificuldade: "Médio",
+    frente: "Como se calcula o **Volume e a Área da Superfície de uma Esfera** de raio $R$?",
+    verso: "Volume: $$V = \\frac{4}{3}\\pi R^3$$ Área total: $$A = 4\\pi R^2$$"
+  },
+  {
+    serie: "2EM",
+    topico: "Matemática Financeira (FME 11)",
+    dificuldade: "Fácil",
+    frente: "Qual é a fórmula do **Montante em Juros Compostos** com capital $C$, taxa periódica $i$ e tempo $t$?",
+    verso: "$$M = C(1 + i)^t$$ Onde o juro gerado é $J = M - C = C[(1 + i)^t - 1]$."
+  },
+
+  // --- 3º ANO EM ---
+  {
+    serie: "3EM",
+    topico: "Geometria Analítica (FME 7)",
+    dificuldade: "Fácil",
+    frente: "Qual é a fórmula da **Distância entre dois pontos** $P_1(x_1, y_1)$ e $P_2(x_2, y_2)$ no plano cartesiano?",
+    verso: "$$d(P_1, P_2) = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$ Aplicação direta do Teorema de Pitágoras no sistema cartesiano."
+  },
+  {
+    serie: "3EM",
+    topico: "Geometria Analítica (FME 7)",
+    dificuldade: "Médio",
+    frente: "Qual é a **Equação Reduzida da Circunferência** com centro $C(a, b)$ e raio $R$?",
+    verso: "$$(x - a)^2 + (y - b)^2 = R^2$$ Na forma geral: $x^2 + y^2 - 2ax - 2by + (a^2 + b^2 - R^2) = 0$."
+  },
+  {
+    serie: "3EM",
+    topico: "Geometria Analítica (FME 7)",
+    dificuldade: "Difícil",
+    frente: "Qual é a fórmula da **Distância de um ponto $P(x_0, y_0)$ a uma reta $r: Ax + By + C = 0$**?",
+    verso: "$$d(P, r) = \\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}}$$"
+  },
+  {
+    serie: "3EM",
+    topico: "Sistemas Lineares (FME 4)",
+    dificuldade: "Médio",
+    frente: "Pela **Regra de Cramer**, quando um sistema linear quadrado de ordem $n$ é considerado **Possível e Determinado (SPD)**?",
+    verso: "Quando o determinante da matriz dos coeficientes é diferente de zero: $$\\det(A) = D \\neq 0$$ As incógnitas são dadas por $x_i = \\frac{D_{x_i}}{D}$."
+  },
+  {
+    serie: "3EM",
+    topico: "Volumes e Cavalieri",
+    dificuldade: "Médio",
+    frente: "O que enuncia o **Princípio de Cavalieri** para dois sólidos de mesma altura apoiados num plano?",
+    verso: "Se qualquer plano paralelo às bases secciona ambos os sólidos segundo figuras de áreas iguais, então os dois sólidos têm o mesmo volume: $$A_1(z) = A_2(z) \\implies V_1 = V_2$$"
+  }
+];
+
+// --- Estado da Aplicação ---
+let deckFiltrado = [...BANCO_FLASHCARDS];
+let indiceAtual = 0;
+let acertos = 0;
+let revisoes = 0;
+
+// --- Elementos do DOM ---
+const flashcardEl = document.getElementById('flashcard');
+const frontContentEl = document.getElementById('card-front-content');
+const backContentEl = document.getElementById('card-back-content');
+const deckNameEl = document.getElementById('card-deck-name');
+const deckNameBackEl = document.getElementById('card-deck-name-back');
+const cardCounterEl = document.getElementById('card-counter');
+const difficultyBadgeEl = document.getElementById('card-difficulty');
+const progressFillEl = document.getElementById('progress-fill');
+const sessionStatsEl = document.getElementById('session-stats');
+
+const selectTurma = document.getElementById('select-turma');
+const selectTopico = document.getElementById('select-topico');
+const btnFlip = document.getElementById('btn-flip');
+const btnPrev = document.getElementById('btn-prev');
+const btnNext = document.getElementById('btn-next');
+const btnShuffle = document.getElementById('btn-shuffle');
+const btnReset = document.getElementById('btn-reset');
+const btnReview = document.getElementById('btn-review');
+const btnMastered = document.getElementById('btn-mastered');
+
+// Popula opções de tópicos dinamicamente
+function atualizarTopicosDisponiveis() {
+  const turma = selectTurma.value;
+  const topicos = new Set();
+  BANCO_FLASHCARDS.forEach(card => {
+    if (turma === 'all' || card.serie === turma) {
+      topicos.add(card.topico);
+    }
+  });
+
+  const topicoSelecionado = selectTopico.value;
+  selectTopico.innerHTML = '<option value="all">Todos os Tópicos</option>';
+  Array.from(topicos).sort().forEach(topico => {
+    const opt = document.createElement('option');
+    opt.value = topico;
+    opt.textContent = topico;
+    if (topico === topicoSelecionado) opt.selected = true;
+    selectTopico.appendChild(opt);
+  });
+}
+
+function filtrarDeck() {
+  const turma = selectTurma.value;
+  const topico = selectTopico.value;
+
+  deckFiltrado = BANCO_FLASHCARDS.filter(card => {
+    const matchTurma = (turma === 'all' || card.serie === turma);
+    const matchTopico = (topico === 'all' || card.topico === topico);
+    return matchTurma && matchTopico;
+  });
+
+  if (deckFiltrado.length === 0) {
+    deckFiltrado = [{
+      serie: "GERAL",
+      topico: "Nenhum Encontrado",
+      dificuldade: "Fácil",
+      frente: "Nenhum cartão cadastrado para os filtros selecionados.",
+      verso: "Tente selecionar outra série ou tópico no seletor acima."
+    }];
+  }
+
+  indiceAtual = 0;
+  exibirCartaoAtual();
+}
+
+function renderizarKaTeXNoElemento(el) {
+  if (window.renderMathInElement) {
+    renderMathInElement(el, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "@@", right: "@@", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "@", right: "@", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  }
+}
+
+function exibirCartaoAtual() {
+  if (deckFiltrado.length === 0) return;
+  const card = deckFiltrado[indiceAtual];
+
+  // Sempre desvira o cartão ao mudar
+  flashcardEl.classList.remove('is-flipped');
+
+  deckNameEl.textContent = `${card.serie} // ${card.topico}`;
+  deckNameBackEl.textContent = `${card.serie} // ${card.topico}`;
+  difficultyBadgeEl.textContent = card.dificuldade.toUpperCase();
+
+  // Converte quebras de linha em parágrafos se houver
+  const formatText = (txt) => {
+    return txt.split('\n').map(p => `<p style="margin-bottom: 0.6rem;">${p}</p>`).join('');
+  };
+
+  frontContentEl.innerHTML = formatText(card.frente);
+  backContentEl.innerHTML = formatText(card.verso);
+
+  cardCounterEl.textContent = `CARTÃO ${indiceAtual + 1} DE ${deckFiltrado.length}`;
+  const pct = ((indiceAtual + 1) / deckFiltrado.length) * 100;
+  progressFillEl.style.width = `${pct}%`;
+
+  // Renderiza matemática nas duas faces
+  renderizarKaTeXNoElemento(frontContentEl);
+  renderizarKaTeXNoElemento(backContentEl);
+}
+
+function virarCartao() {
+  flashcardEl.classList.toggle('is-flipped');
+}
+
+function proximoCartao() {
+  if (indiceAtual < deckFiltrado.length - 1) {
+    indiceAtual++;
+    exibirCartaoAtual();
+  } else {
+    // Loop para o começo
+    indiceAtual = 0;
+    exibirCartaoAtual();
+  }
+}
+
+function anteriorCartao() {
+  if (indiceAtual > 0) {
+    indiceAtual--;
+    exibirCartaoAtual();
+  } else {
+    indiceAtual = deckFiltrado.length - 1;
+    exibirCartaoAtual();
+  }
+}
+
+function embaralharDeck() {
+  for (let i = deckFiltrado.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [deckFiltrado[i], deckFiltrado[j]] = [deckFiltrado[j], deckFiltrado[i]];
+  }
+  indiceAtual = 0;
+  exibirCartaoAtual();
+}
+
+function atualizarStats() {
+  sessionStatsEl.textContent = `Acertos: ${acertos} | A revisar: ${revisoes}`;
+}
+
+// Event Listeners
+document.addEventListener("DOMContentLoaded", () => {
+  atualizarTopicosDisponiveis();
+  filtrarDeck();
+
+  flashcardEl.addEventListener('click', virarCartao);
+  btnFlip.addEventListener('click', virarCartao);
+  btnNext.addEventListener('click', proximoCartao);
+  btnPrev.addEventListener('click', anteriorCartao);
+  btnShuffle.addEventListener('click', embaralharDeck);
+  btnReset.addEventListener('click', () => {
+    acertos = 0;
+    revisoes = 0;
+    atualizarStats();
+    indiceAtual = 0;
+    exibirCartaoAtual();
+  });
+
+  selectTurma.addEventListener('change', () => {
+    atualizarTopicosDisponiveis();
+    filtrarDeck();
+  });
+  selectTopico.addEventListener('change', filtrarDeck);
+
+  btnMastered.addEventListener('click', () => {
+    acertos++;
+    atualizarStats();
+    proximoCartao();
+  });
+
+  btnReview.addEventListener('click', () => {
+    revisoes++;
+    atualizarStats();
+    proximoCartao();
+  });
+
+  // Atalhos de teclado
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault();
+      virarCartao();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      proximoCartao();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      anteriorCartao();
+    } else if (e.key === '1') {
+      e.preventDefault();
+      revisoes++;
+      atualizarStats();
+      proximoCartao();
+    } else if (e.key === '2') {
+      e.preventDefault();
+      acertos++;
+      atualizarStats();
+      proximoCartao();
+    }
+  });
+});
+</script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+  <h3>Escolha um Tema:</h3>
+  <div class="theme-group-label">🌙 MODO ESCURO</div>
+  <button data-theme="theme-default" title="Matrix Cyber (Dark Padrão)">🟢 Matrix Cyber</button>
+  <button data-theme="theme-cyber-blue" title="Cyber Blue (Dark Moderno)">🔵 Cyber Blue</button>
+  <div class="theme-group-label">⚡ ALTO CONTRASTE (AAA)</div>
+  <button data-theme="theme-high-contrast-green" title="OLED Neon Green (Alto Contraste AAA)">⚡ OLED Neon Green</button>
+  <button data-theme="theme-high-contrast-amber" title="OLED Amber (Fósforo Âmbar VT220 AAA)">🟠 OLED Amber</button>
+  <div class="theme-group-label">☀️ MODO CLARO</div>
+  <button data-theme="theme-paper-light" title="Paper Clean (Claro Minimalista)">📄 Paper Clean</button>
+  <button data-theme="theme-solarized-light" title="Solarized Sepia (Claro Pergaminho Quente)">📜 Solarized Sepia</button>
+  <div class="theme-group-label">🖨️ MODO LIMPO / IMPRESSÃO</div>
+  <button data-theme="theme-clean-print" title="Limpo & Impressão (Fundo Branco sem Matrix)">📄 Limpo & Impressão</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+</body>
+</html>

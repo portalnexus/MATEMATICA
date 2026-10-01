@@ -188,15 +188,15 @@ O Portal Nexus opera com a garantia de que **todo tópico** possui o quarteto fo
     - 0 erros em todos os 182 arquivos HTML do repositório.
   - **Revamp do Dashboard & Autenticação Segura**:
     - **Tag do Estudante**: Formato rigoroso de **4 letras + 3 números** (ex: `BEAT901`, `GABR902`, `LUCA101`, `CLAR102`, `JULI201`, `RAFA301`). Regex `/^[A-Z]{4}\d{3}$/`.
-    - **Tag Admin do Professor**: Chave exclusiva `"twdzujqr369"`.
+    - **Tag Admin do Professor**: Chave exclusiva docente (validada no cliente via hash SHA-256 criptográfico, sem exposição da chave no código-fonte ou no GitHub).
     - **Campo de Digitação Mascarado**: Input `type="password"` com botão de toggle de visualização (`👁️` / `🔒`), mantendo a tag oculta por padrão.
     - **Omissão dos botões de teste**: Remoção dos `#demo-chips` rápidos para privacidade e integridade.
-    - **5 Dimensões Oficiais da Matemática**:
-      1. `ALG` — Álgebra & Funções (Equações, Polinômios, Funções)
-      2. `GEO` — Geometria & Medidas (Plana, Espacial, Analítica e Métrica)
-      3. `NUM` — Números & Operações (Conjuntos, Progressões e Finanças)
-      4. `EST` — Estatística & Probabilidade (Tratamento de Dados e Contagem)
-      5. `LOG` — Raciocínio Lógico & Modelagem (Dedução e Resolução de Problemas)
+    - **5 Dimensões Tradicionais de Avaliação**:
+      1. `MDA` — Matemática Discreta e Aplicada
+      2. `MDEP` — Matemática Discreta e Pensamento Lógico
+      3. `NAAG` — Números, Álgebra e Geometria
+      4. `NIF` — Números e Funções
+      5. `PORT` — Português / Comunicação e Expressão
     - **Metas e Missões Estritamente de Matemática**:
       - Conectadas diretamente aos Guias de Estudos (`recursos/guias/*.html`) e ementas curriculares (`docs/curriculo/`).
     - **Painel de Gestão Docente (Admin)**:
@@ -209,7 +209,7 @@ O Portal Nexus opera com a garantia de que **todo tópico** possui o quarteto fo
     - Expansão de `3EM-LISTA-AREAS-COMPOSICAO.html` e `9ANO-LISTA-PITAGORAS-TRIGONOMETRIA.html` para 30 problemas graduados com resolução passo a passo comentada via `Ctrl+U`.
     - Remoção de estrelas redundantes e unificação do CSS de problemas em `css/style.css`.
   - **Apresentação Consistente da Página Inicial (`index.html`)**:
-    - Reformulação da apresentação com ênfase no Ecossistema Acadêmico de Matemática, no Quarteto Didático, no Laboratório Python e no Terminal HUD.
+    - Preservação da identidade autêntica Nexus (cyberpunk/retro gamer acadêmico), integrando o Laboratório Python, Terminal de Desempenho e anúncio do sistema de Flashcards.
   - **Validação Automatizada**:
     - 100% de sucesso em `scripts/validate_nexus.py` e `scripts/validate_data.py`.
 
@@ -224,12 +224,16 @@ O Portal Nexus opera com a garantia de que **todo tópico** possui o quarteto fo
    - **NUNCA** deixe o gabarito exposto em tags `<details>` ou em texto visível ao aluno.
 2. Ao cadastrar estudantes no Dashboard:
    - Respeite o formato de tag **4 letras e 3 dígitos** (`/^[A-Z]{4}\d{3}$/`).
-   - A tag admin do professor é estritamente `"twdzujqr369"`.
-   - Sempre vincule missões e notas exclusivamente à Matemática e seus Guias de Estudo.
-3. Ao adicionar páginas HTML:
-   - Inclua link correspondente em `recursos.html` com os atributos `data-class` adequados.
-   - Use o boilerplate padrão do Nexus (`matrixCanvas`, `theme-config-icon`, `theme-switcher.js`, KaTeX auto-render).
-4. Sempre teste a integridade com:
+   - A tag admin do professor é confidencial (validada via hash SHA-256 seguro, identificador interno `ADMIN_DOCENTE`).
+   - As notas seguem estritamente as 5 dimensões: `MDA`, `MDEP`, `NAAG`, `NIF`, `PORT`.
+3. Tipografia e Rigor Visual:
+   - Títulos, botões HUD e badges: `'Press Start 2P', monospace`.
+   - Corpo do texto e leitura didática: `'Fira Sans', sans-serif`.
+   - Fórmulas matemáticas: `'Cambria Math', 'STIX Two Text', serif` estritamente nas expressões KaTeX (`.katex`, `.math`).
+4. Pasta `ARQUIVO-X/`:
+   - Conteúdo de referência didática pesada e confidencial (FME 1 a 11, MD, TURBINA SESI).
+   - **NUNCA** rastrear, estagiar ou comitar arquivos de `ARQUIVO-X/` no Git.
+5. Sempre teste a integridade com:
    ```bash
    python3 scripts/validate_nexus.py && python3 scripts/validate_data.py
    ```

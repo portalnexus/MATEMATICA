@@ -1,9 +1,9 @@
 /**
  * NEXUS DASHBOARD & TERMINAL DOCENTE // JAVASCRIPT
  * - Autenticação por Tag de Estudante (4 letras + 3 dígitos: ex. BEAT901)
- * - Painel do Professor via Chave Master: "twdzujqr369"
+ * - Painel do Professor via Chave Mestre com Validação Criptográfica SHA-256
  * - Roteamento curricular estritamente de Matemática com Guias de Estudos
- * - 5 Dimensões Matemáticas: ALG, GEO, NUM, EST, LOG
+ * - 5 Dimensões Tradicionais: MDA, MDEP, NAAG, NIF, PORT
  * - Gestão completa de estudantes (CRUD com persistência no localStorage)
  */
 
@@ -27,17 +27,26 @@ const etapaBtns = document.querySelectorAll('.etapa-btn');
 const toggleVisibilityBtn = document.getElementById('toggle-visibility-btn');
 
 // --- Constantes Curriculares e Chaves de Acesso ---
-const CHAVE_MESTRE_PROFESSOR = "twdzujqr369";
+// Hash SHA-256 da Chave Secreta do Professor (garante integridade sem expor a chave)
+const HASH_MESTRE_DOCENTE = "e75aca336e2ef436ce8334e598b02f2108a0a262ecc7db7a6984413985c151e7";
+const ID_DOCENTE_ADMIN = "ADMIN_DOCENTE";
 const REGEX_TAG_ESTUDANTE = /^[A-Z]{4}\d{3}$/;
 
-// 5 Dimensões Oficiais da Matemática
-const ROTULOS_DIMENSOES_MAT = ["ALG", "GEO", "NUM", "EST", "LOG"];
+async function calcularHashSHA256(texto) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(texto.trim().toLowerCase());
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+// 5 Dimensões Tradicionais de Avaliação
+const ROTULOS_DIMENSOES_MAT = ["MDA", "MDEP", "NAAG", "NIF", "PORT"];
 const DESCRICOES_DIMENSOES_MAT = {
-    "ALG": "Álgebra & Funções (Equações, Polinômios, Funções)",
-    "GEO": "Geometria & Medidas (Plana, Espacial, Analítica e Métrica)",
-    "NUM": "Números & Operações (Conjuntos, Progressões e Finanças)",
-    "EST": "Estatística & Probabilidade (Tratamento de Dados e Contagem)",
-    "LOG": "Raciocínio Lógico & Modelagem (Dedução e Resolução de Problemas)"
+    "MDA": "Matemática Discreta e Aplicada",
+    "MDEP": "Matemática Discreta e Pensamento Lógico",
+    "NAAG": "Números, Álgebra e Geometria",
+    "NIF": "Números e Funções",
+    "PORT": "Português"
 };
 
 // Ementas Oficiais de Matemática por Turma vinculadas aos Guias de Estudos
@@ -198,6 +207,17 @@ async function carregarDadosDeUsuario() {
         const dadosSalvos = localStorage.getItem('nexus_students_data');
         if (dadosSalvos) {
             dadosUsuarios = JSON.parse(dadosSalvos);
+            // Migrar chave docente se existir no cache local
+            if (!dadosUsuarios[ID_DOCENTE_ADMIN]) {
+                for (const k of Object.keys(dadosUsuarios)) {
+                    if (dadosUsuarios[k] && dadosUsuarios[k].role === 'admin') {
+                        dadosUsuarios[ID_DOCENTE_ADMIN] = dadosUsuarios[k];
+                        if (k !== ID_DOCENTE_ADMIN) delete dadosUsuarios[k];
+                        salvarDadosPersistentes();
+                        break;
+                    }
+                }
+            }
             console.log("[Dashboard Debug] Dados de usuário restaurados do localStorage.");
             return;
         }
@@ -370,7 +390,7 @@ function preencherPainel(usuario, id, etapa = '1') {
     if (!usuario) return;
 
     // Se for o professor, abre o dashboard específico
-    if (id === CHAVE_MESTRE_PROFESSOR || usuario.role === 'admin') {
+    if (id === ID_DOCENTE_ADMIN || usuario.role === 'admin') {
         userNameSpan.innerText = usuario.nome;
         idForm.classList.add('hidden');
         userDisplay.classList.remove('hidden');
@@ -575,7 +595,7 @@ function renderizarDashboardProfessor(turmaFiltro = 'all', buscaTermo = '') {
 
     // Filtrar estudantes
     let estudantes = Object.entries(dadosUsuarios)
-        .filter(([id, dados]) => id !== CHAVE_MESTRE_PROFESSOR && dados.role !== 'admin')
+        .filter(([id, dados]) => id !== ID_DOCENTE_ADMIN && dados.role !== 'admin')
         .map(([id, dados]) => ({
             id,
             ...dados,
@@ -825,16 +845,17 @@ async function buscarUsuario() {
     await carregarTrofeusDisponiveis();
     if (!dadosUsuarios) return;
 
-    // 1. Verificação da Chave Mestre do Professor
-    if (rawInput.toLowerCase() === CHAVE_MESTRE_PROFESSOR.toLowerCase()) {
-        idAtual = CHAVE_MESTRE_PROFESSOR;
-        usuarioAtual = dadosUsuarios[CHAVE_MESTRE_PROFESSOR];
+    // 1. Verificação da Chave Mestre do Professor (via Hash SHA-256 seguro)
+    const hashCalculado = await calcularHashSHA256(rawInput);
+    if (hashCalculado === HASH_MESTRE_DOCENTE) {
+        idAtual = ID_DOCENTE_ADMIN;
+        usuarioAtual = dadosUsuarios[ID_DOCENTE_ADMIN];
 
         try {
-            localStorage.setItem('nexus_dashboard_last_id', CHAVE_MESTRE_PROFESSOR);
+            sessionStorage.setItem('nexus_admin_authenticated', 'true');
         } catch (e) {}
 
-        preencherPainel(usuarioAtual, CHAVE_MESTRE_PROFESSOR);
+        preencherPainel(usuarioAtual, ID_DOCENTE_ADMIN);
         return;
     }
 
@@ -1175,7 +1196,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         exportBtn.addEventListener('click', () => {
             const turmaFiltro = turmaSelect ? turmaSelect.value : 'all';
             let listaAlunos = Object.entries(dadosUsuarios)
-                .filter(([id, d]) => id !== CHAVE_MESTRE_PROFESSOR && d.role !== 'admin')
+                .filter(([id, d]) => id !== ID_DOCENTE_ADMIN && d.role !== 'admin')
                 .map(([id, d]) => ({ id, ...d, stats: calcularEstatisticas(d) }));
             if (turmaFiltro !== 'all') {
                 listaAlunos = listaAlunos.filter(a => a.turma === turmaFiltro);
@@ -1186,7 +1207,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Redimensionamento Dinâmico
     window.addEventListener('resize', () => {
-        if (usuarioAtual && idAtual !== CHAVE_MESTRE_PROFESSOR) {
+        if (usuarioAtual && idAtual !== ID_DOCENTE_ADMIN) {
             desenharGraficoEvolucao(usuarioAtual);
         }
     });

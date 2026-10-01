@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400;1,700&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Fira+Code:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Press+Start+2P&family=Fira+Code:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap');
 
 html {
     font-size: clamp(14px, 12px + 0.5vw, 18px); /* Base for rem units */
@@ -207,13 +207,14 @@ body.theme-solarized-light table {
 ================================================================================
 */
 :root {
-    --font-family-headings: 'Cambria Math', Cambria, 'Caladea', 'STIX Two Text', 'Liberation Serif', 'Times New Roman', serif;
-    --font-family-body: 'Cambria Math', Cambria, 'Caladea', 'STIX Two Text', 'Liberation Serif', 'Times New Roman', serif;
-    --font-family-base: 'Cambria Math', Cambria, 'Caladea', 'STIX Two Text', 'Liberation Serif', 'Times New Roman', serif;
+    --font-family-headings: 'Press Start 2P', monospace;
+    --font-family-body: 'Fira Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-family-base: 'Fira Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-family-monospace: 'Fira Code', 'Courier New', monospace;
-    --container-padding: 30px;
-    --container-border-radius: 10px;
-    --container-max-width: 980px;
+    --font-family-math: 'Cambria Math', 'STIX Two Text', 'KaTeX_Main', serif;
+    --container-padding: 32px;
+    --container-border-radius: 8px;
+    --container-max-width: 1060px;
     --container-margin-top-bottom: 35px;
 }
 
@@ -543,26 +544,37 @@ body.theme-clean-print .katex {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-headings);
     color: var(--heading-text-color);
-    line-height: 1.35;
+    line-height: 1.5;
     text-align: center;
     margin-bottom: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-weight: 400;
+    letter-spacing: 0.02em;
 }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.75rem; }
-h3 { font-size: 1.5rem; }
-h4, h5, h6 { font-size: 1.25rem; }
+h1 { font-size: clamp(1.2rem, 2.2vw + 0.5rem, 1.75rem); line-height: 1.5; }
+h2 { font-size: clamp(1rem, 1.6vw + 0.35rem, 1.35rem); line-height: 1.5; }
+h3 { font-size: clamp(0.85rem, 1.2vw + 0.25rem, 1.1rem); line-height: 1.5; }
+h4, h5, h6 { font-size: 0.9rem; line-height: 1.4; }
+
+/* Fórmulas Matemáticas: uso exclusivo de Cambria Math / STIX Two Text */
+.katex,
+.katex-display,
+.math,
+.katex-html {
+    font-family: var(--font-family-math) !important;
+}
+
 p, li, table, td, th {
     font-family: var(--font-family-body);
     color: var(--main-text-color);
+    font-size: 1.02rem;
+    line-height: 1.75;
 }
 p {
     text-align: justify;
     hyphens: auto;
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 a {
     color: var(--link-color);
@@ -578,10 +590,41 @@ strong, b {
 }
 ul, ol {
     padding-left: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 li {
+    margin-bottom: 0.6rem;
+}
+
+/* Espaçamento elegante para problemas graduados (evita sensação de espremido) */
+ol > li {
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+    line-height: 1.75;
+}
+
+ol > li:last-child {
+    border-bottom: none;
     margin-bottom: 0.5rem;
+    padding-bottom: 0;
+}
+
+ol > li > p {
+    margin-top: 0.4rem;
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+}
+
+/* Base de caixas didáticas */
+.destaque-box {
+    padding: 1.3rem 1.6rem;
+    margin: 1.8rem 0;
+    border-radius: 6px;
+    line-height: 1.75;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--container-border-color);
+}
 }
 /* 
 ================================================================================
@@ -861,18 +904,19 @@ footer p {
 }
 .quick-link-button {
     font-family: var(--font-family-headings) !important; 
-    font-weight: 600;
+    font-weight: 400;
     color: var(--link-color);                 
     background-color: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--container-border-color);    
-    padding: 0.65rem 1.25rem;               
+    padding: 0.65rem 1rem;               
     text-decoration: none;
     text-transform: uppercase;
     border-radius: 6px; 
     transition: all 0.2s ease;
     display: inline-block; 
-    font-size: 0.825rem; 
-    letter-spacing: 0.04em; 
+    font-size: 0.72rem; 
+    letter-spacing: 0.02em; 
+    line-height: 1.45;
 }
 .quick-link-button:hover,
 .quick-link-button:focus {
@@ -885,14 +929,14 @@ footer p {
 /* General Themed Button Style */
 .themed-button {
     font-family: var(--font-family-headings) !important;
-    font-size: 0.85rem;
-    font-weight: 700;
+    font-size: 0.75rem;
+    font-weight: 400;
     color: var(--link-color);
     background-color: transparent;
     border: 1px solid var(--container-border-color); 
-    padding: 0.6rem 1.4rem; 
+    padding: 0.6rem 1.2rem; 
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;

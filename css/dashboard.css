@@ -16,14 +16,14 @@
 /* --- Estrutura e Layout --- */
 .dashboard-grid {
     display: grid;
-    gap: 15px;
+    gap: 16px;
     grid-template-columns: repeat(6, 1fr);
     grid-template-areas:
         "id id id id lvl avatar"
         "progresso progresso progresso estatisticas estatisticas estatisticas"
-        "trofeus trofeus trofeus trofeus trofeus trofeus"
-        "missoes missoes missoes sidebar sidebar sidebar";
-    /* Ajustado para melhor equilíbrio */
+        "notas notas notas notas notas notas"
+        "missoes missoes missoes missoes evolucao evolucao"
+        "trofeus trofeus trofeus trofeus mencoes mencoes";
 }
 
 .hud-status-badge {
@@ -110,12 +110,20 @@
     grid-area: trofeus;
 }
 
+#notas-area {
+    grid-area: notas;
+}
+
 #missoes-area {
     grid-area: missoes;
 }
 
-#sidebar-area {
-    grid-area: sidebar;
+#evolucao-area {
+    grid-area: evolucao;
+}
+
+#mencoes {
+    grid-area: mencoes;
 }
 
 /* --- NOVA Área de ID/Login --- */
@@ -330,78 +338,234 @@
     border-bottom: none;
 }
 
-/* --- Layout de Notas e Menções --- */
-#sidebar-area {
+/* --- Layout de Avaliação Formativa (Expandido & Unstacked) --- */
+.notas-top-bar {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 16px;
+    border-bottom: 1px dashed var(--container-border-color);
+    padding-bottom: 12px;
 }
 
-#notas-container {
-    position: relative;
+.notas-title-group {
+    flex: 1;
+    min-width: 260px;
 }
 
-/* Para posicionar a média */
-#media-notas {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-family: 'Fira Code', monospace;
-    font-weight: 600;
-    font-size: 0.85rem;
+.notas-header-desc {
+    margin: 3px 0 8px 0;
+    font-size: 0.84rem;
+    color: var(--secondary-text-color);
+    line-height: 1.4;
+}
+
+.notas-formula-callout {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--container-border-color);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
     color: var(--link-color);
 }
 
-#notas-grafico {
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    padding: 0 10px 10px 10px;
+.media-notas-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+    font-size: 0.95rem;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid var(--container-border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
 }
 
-.nota-coluna {
+.media-notas-badge.nota-alta {
+    border-color: #10b981;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.12);
+}
+
+.media-notas-badge.nota-media {
+    border-color: #f59e0b;
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.12);
+}
+
+.media-notas-badge.nota-baixa {
+    border-color: #ef4444;
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.12);
+}
+
+.notas-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+}
+
+@media (max-width: 1100px) {
+    .notas-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    }
+}
+
+@media (max-width: 580px) {
+    .notas-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.nota-dim-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--container-border-color);
+    border-radius: 8px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nota-dim-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    border-color: var(--link-color);
+}
+
+.nota-dim-card.nota-alta {
+    border-top: 3px solid #10b981;
+}
+
+.nota-dim-card.nota-media {
+    border-top: 3px solid #f59e0b;
+}
+
+.nota-dim-card.nota-baixa {
+    border-top: 3px solid #ef4444;
+}
+
+.nota-dim-card-top {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    height: 100%;
-    justify-content: flex-end;
-    flex-grow: 1;
+    margin-bottom: 8px;
 }
 
-.bar {
-    width: 26px;
-    background-color: var(--link-color);
-    border-radius: 4px 4px 0 0;
-    transition: height 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s;
-    cursor: pointer;
+.nota-dim-tag {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.72rem;
+    color: var(--link-color);
+    letter-spacing: 0.5px;
 }
 
-.bar.nota-alta {
-    background: linear-gradient(180deg, #10b981, #059669);
-    box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+.nota-dim-status-pill {
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-family: 'Fira Sans', sans-serif;
 }
 
-.bar.nota-media {
-    background: linear-gradient(180deg, #f59e0b, #d97706);
-    box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+.nota-dim-status-pill.nota-alta {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.4);
 }
 
-.bar.nota-baixa {
-    background: linear-gradient(180deg, #ef4444, #dc2626);
-    box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+.nota-dim-status-pill.nota-media {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.4);
 }
 
-.bar:hover {
-    filter: brightness(1.25);
-    transform: scaleX(1.1);
+.nota-dim-status-pill.nota-baixa {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.4);
 }
 
-.nota-rotulo {
-    font-size: 0.6rem;
+.nota-dim-nome {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--main-text-color);
+    margin-bottom: 8px;
+    line-height: 1.25;
+    min-height: 2.2em;
+}
+
+.nota-dim-score-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.nota-dim-score {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.nota-dim-score.nota-alta { color: #10b981; }
+.nota-dim-score.nota-media { color: #f59e0b; }
+.nota-dim-score.nota-baixa { color: #ef4444; }
+
+.nota-dim-max {
+    font-size: 0.8rem;
     color: var(--secondary-text-color);
-    margin-top: 5px;
+    font-family: 'Fira Code', monospace;
+}
+
+.nota-dim-gauge {
+    width: 100%;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.nota-dim-gauge-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nota-dim-gauge-fill.nota-alta {
+    background: linear-gradient(90deg, #059669, #10b981);
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.5);
+}
+
+.nota-dim-gauge-fill.nota-media {
+    background: linear-gradient(90deg, #d97706, #f59e0b);
+    box-shadow: 0 0 6px rgba(245, 158, 11, 0.5);
+}
+
+.nota-dim-gauge-fill.nota-baixa {
+    background: linear-gradient(90deg, #dc2626, #ef4444);
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.5);
+}
+
+.nota-dim-desc {
+    font-size: 0.72rem;
+    color: var(--secondary-text-color);
+    line-height: 1.35;
+    margin-top: auto;
 }
 
 /* --- Tooltips e Animações --- */
@@ -517,21 +681,90 @@
     color: var(--link-color);
 }
 
-/* --- Gráfico de Evolução --- */
+/* --- Gráfico e Painel de Evolução Histórica --- */
+.evolucao-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.evolucao-subtitle {
+    font-size: 0.74rem;
+    color: var(--secondary-text-color);
+}
+
+.evolucao-badge {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--container-border-color);
+    color: var(--secondary-text-color);
+}
+
+.evolucao-badge.tendencia-alta {
+    color: #10b981;
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.15);
+}
+
+.evolucao-badge.tendencia-baixa {
+    color: #ef4444;
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.15);
+}
+
+.evolucao-badge.tendencia-estavel {
+    color: var(--link-color);
+    border-color: var(--link-color);
+    background: rgba(56, 189, 248, 0.15);
+}
+
 #evolucao-container {
-    margin-top: 15px;
-    padding-top: 12px;
-    border-top: 1px dashed var(--secondary-text-color);
+    margin-top: 6px;
     width: 100%;
 }
 
 #evolucao-grafico {
     width: 100%;
-    height: 110px;
+    height: 120px;
     display: block;
-    border-radius: 4px;
-    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--container-border-color);
 }
+
+.evolucao-pills-row {
+    display: flex;
+    justify-content: space-around;
+    gap: 6px;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--container-border-color);
+}
+
+.evolucao-mini-pill {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.72rem;
+    padding: 3px 7px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--container-border-color);
+}
+
+.evolucao-mini-pill .ep-lbl {
+    color: var(--secondary-text-color);
+}
+
+.evolucao-mini-pill.nota-alta .ep-val { color: #10b981; }
+.evolucao-mini-pill.nota-media .ep-val { color: #f59e0b; }
+.evolucao-mini-pill.nota-baixa .ep-val { color: #ef4444; }
 
 /* --- Melhorias em Troféus --- */
 #trofeus-conquistados {
@@ -954,8 +1187,10 @@
         grid-template-areas:
             "id id lvl avatar"
             "progresso progresso estatisticas estatisticas"
-            "trofeus trofeus trofeus trofeus"
-            "missoes missoes sidebar sidebar";
+            "notas notas notas notas"
+            "missoes missoes missoes missoes"
+            "evolucao evolucao mencoes mencoes"
+            "trofeus trofeus trofeus trofeus";
     }
 }
 
@@ -970,9 +1205,11 @@
             "avatar"
             "progresso"
             "estatisticas"
-            "trofeus"
+            "notas"
             "missoes"
-            "sidebar";
+            "evolucao"
+            "trofeus"
+            "mencoes";
     }
 
     #id-area,
@@ -1285,10 +1522,102 @@
     background: rgba(255, 255, 255, 0.08);
 }
 
+/* --- Toolbar e Modos do Professor --- */
+.admin-toolbar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--container-border-color);
+}
+
+.admin-view-toggle {
+    display: flex;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--container-border-color);
+    border-radius: 6px;
+    padding: 3px;
+    gap: 4px;
+}
+
+.admin-view-btn {
+    background: transparent;
+    border: none;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--secondary-text-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.admin-view-btn:hover {
+    color: var(--main-text-color);
+}
+
+.admin-view-btn.active {
+    background: var(--link-color);
+    color: var(--primary-bg-color);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+.admin-filter-bar {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid var(--container-border-color);
+    padding: 10px 14px;
+    border-radius: 6px;
+}
+
+.admin-etapa-selector-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.admin-etapa-pills {
+    display: flex;
+    gap: 4px;
+}
+
+.admin-etapa-btn {
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--container-border-color);
+    color: var(--secondary-text-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.admin-etapa-btn:hover {
+    color: var(--link-color);
+    border-color: var(--link-color);
+}
+
+.admin-etapa-btn.active {
+    background: var(--link-color);
+    color: var(--primary-bg-color);
+    border-color: var(--link-color);
+    font-weight: 700;
+}
+
 /* Grid de Cards dos Estudantes */
 .student-cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
     gap: 16px;
     margin-bottom: 1.5rem;
 }
@@ -1301,7 +1630,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 12px;
+    gap: 10px;
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
     position: relative;
@@ -1366,6 +1695,51 @@
     font-weight: bold;
 }
 
+/* Fita de 5 Notas nos Cards dos Estudantes */
+.student-card-grades-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    margin: 4px 0;
+    padding: 6px 4px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 6px;
+    border: 1px solid var(--container-border-color);
+}
+
+.card-grade-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 2px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.card-grade-pill:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.card-grade-pill .pill-dim {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--secondary-text-color);
+    font-family: 'Fira Code', monospace;
+}
+
+.card-grade-pill .pill-val {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.card-grade-pill.nota-alta .pill-val { color: #10b981; }
+.card-grade-pill.nota-media .pill-val { color: #f59e0b; }
+.card-grade-pill.nota-baixa .pill-val { color: #ef4444; }
+
 .student-card-stats {
     display: flex;
     justify-content: space-between;
@@ -1404,18 +1778,93 @@
 
 .btn-card-edit {
     font-size: 0.75rem;
-    padding: 4px 10px;
+    padding: 5px 12px;
     background: transparent;
     border: 1px solid var(--link-color);
     color: var(--link-color);
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 600;
 }
 
 .btn-card-edit:hover {
     background: var(--link-color);
     color: var(--primary-bg-color);
+}
+
+/* Tabela Panorama Geral (Planilha de Notas da Turma) */
+.table-responsive-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--container-border-color);
+    background: rgba(0, 0, 0, 0.25);
+    margin-bottom: 1.5rem;
+}
+
+.professor-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+
+.professor-table th {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 12px;
+    text-align: left;
+    color: var(--link-color);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--link-color);
+}
+
+.professor-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--container-border-color);
+    color: var(--main-text-color);
+}
+
+.professor-table tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.table-nota-badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-align: center;
+    min-width: 38px;
+}
+
+.table-nota-badge.nota-alta {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.table-nota-badge.nota-media {
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.table-nota-badge.nota-baixa {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+@media (max-width: 860px) {
+    .admin-bottom-grid {
+        grid-template-columns: 1fr !important;
+    }
 }
 
 /* Modais de Administração */
@@ -1424,6 +1873,8 @@
     border: 2px solid var(--link-color);
     color: var(--main-text-color);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    max-width: 940px !important;
+    width: 95% !important;
 }
 
 .admin-modal-title {
@@ -1474,7 +1925,7 @@
 .admin-notas-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     background: rgba(0, 0, 0, 0.25);
     border-radius: 6px;
     overflow: hidden;
@@ -1494,21 +1945,38 @@
     text-transform: uppercase;
 }
 
+.modal-th-dim {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--link-color);
+    font-family: 'Fira Code', monospace;
+}
+
+.modal-th-desc {
+    font-size: 0.66rem;
+    color: var(--secondary-text-color);
+    font-weight: normal;
+    text-transform: none;
+    margin-top: 2px;
+    line-height: 1.2;
+}
+
 .nota-input {
-    width: 60px;
-    padding: 4px 6px;
+    width: 65px;
+    padding: 6px 8px;
     text-align: center;
     background: rgba(0, 0, 0, 0.4);
     border: 1px solid var(--container-border-color);
     color: var(--main-text-color);
     border-radius: 4px;
     font-family: 'Fira Code', monospace;
-    font-size: 0.85rem;
+    font-size: 0.92rem;
 }
 
 .nota-input:focus {
     outline: none;
     border-color: var(--link-color);
+    box-shadow: 0 0 6px rgba(56, 189, 248, 0.3);
 }
 
 /* Checklist de Missões no Modal Admin */

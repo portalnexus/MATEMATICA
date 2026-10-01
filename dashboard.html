@@ -100,7 +100,56 @@
                         </div>
                     </div>
 
-                    <!-- Linha 3: Troféus -->
+                    <!-- Linha 3: Avaliação Formativa // 5 Dimensões Expandidas (Full Width) -->
+                    <div id="notas-area" class="dashboard-box">
+                        <div class="notas-top-bar">
+                            <div class="notas-title-group">
+                                <span class="area-title" style="margin-bottom: 4px;">AVALIAÇÃO FORMATIVA // ETAPA <span id="notas-etapa-label">I</span></span>
+                                <p class="notas-header-desc">
+                                    Desempenho multidimensional nas 5 componentes avaliativas oficiais: MDA, MDEP, NAAG, NIF e PORT.
+                                </p>
+                                <div class="notas-formula-callout" title="Fórmula da Média Aritmética das 5 Dimensões">
+                                    <span class="formula-icon">📐</span>
+                                    <span class="formula-text">\( \text{Média} = \frac{\text{MDA} + \text{MDEP} + \text{NAAG} + \text{NIF} + \text{PORT}}{5} \)</span>
+                                </div>
+                            </div>
+                            <div class="notas-media-wrap">
+                                <div id="media-notas" class="media-notas-badge">MÉDIA DA ETAPA: 0.0</div>
+                            </div>
+                        </div>
+
+                        <!-- 5 Dimension Cards Container -->
+                        <div id="notas-cards-grid" class="notas-cards-grid">
+                            <!-- Cards das 5 dimensões gerados dinamicamente via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Linha 4: Missões da Etapa -->
+                    <div id="missoes-area" class="dashboard-box">
+                        <span class="area-title">MISSÕES DA ETAPA</span>
+                        <ul id="lista-missoes">
+                            <!-- Missões serão carregadas via JS -->
+                        </ul>
+                    </div>
+
+                    <!-- Linha 4 (Ao lado das Missões): Gráfico de Evolução Histórica -->
+                    <div id="evolucao-area" class="dashboard-box">
+                        <div class="evolucao-header-row">
+                            <div>
+                                <span class="area-title" style="margin-bottom: 4px;">HISTÓRICO DE EVOLUÇÃO</span>
+                                <div class="evolucao-subtitle">Rendimento médio pelas Etapas I, II e III</div>
+                            </div>
+                            <div id="evolucao-tendencia-badge" class="evolucao-badge">--</div>
+                        </div>
+                        <div id="evolucao-container">
+                            <canvas id="evolucao-grafico"></canvas>
+                        </div>
+                        <div id="evolucao-etapas-pills" class="evolucao-pills-row">
+                            <!-- Mini-pills com as médias das etapas -->
+                        </div>
+                    </div>
+
+                    <!-- Linha 5: Troféus e Conquistas -->
                     <div id="trofeus-area" class="dashboard-box">
                         <span class="area-title">CONQUISTAS E TROFÉUS</span>
                         <div id="trofeus-conquistados"></div>
@@ -110,20 +159,22 @@
                         </div>
                     </div>
 
-                    <!-- Linha 4: Missões -->
-                    <div id="missoes-area" class="dashboard-box">
-                        <span class="area-title">MISSÕES DA ETAPA</span>
-                        <ul id="lista-missoes">
-                            <!-- Missões serão carregadas via JS -->
-                        </ul>
+                    <!-- Linha 5 (Ao lado dos Troféus): Menções de Honra -->
+                    <div id="mencoes" class="dashboard-box">
+                        <span class="area-title">MENÇÕES DE HONRA</span>
+                        <div id="mencoes-lista"></div>
                     </div>
 
-                    <!-- Linha 4 (Alternativa): Painel do Professor -->
+                    <!-- Linha Alternativa: Painel do Professor (ADMIN) -->
                     <div id="professor-dashboard" class="dashboard-box hidden">
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem; border-bottom: 1px solid var(--container-border-color); padding-bottom: 0.8rem;">
+                        <div class="admin-toolbar-controls">
                             <div>
                                 <span class="area-title" style="margin: 0;">PAINEL DE GESTÃO DOCENTE // ADMIN</span>
                                 <span style="font-size: 0.8rem; color: var(--secondary-text-color);">Sessão Autenticada // Acesso Restrito</span>
+                            </div>
+                            <div class="admin-view-toggle">
+                                <button type="button" id="admin-view-cards-btn" class="admin-view-btn active">🎴 CARDS DOS ALUNOS</button>
+                                <button type="button" id="admin-view-table-btn" class="admin-view-btn">📊 PLANILHA DE NOTAS</button>
                             </div>
                             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                                 <button id="btn-open-create-student" class="themed-button" style="font-size: 0.8rem; padding: 0.45rem 0.9rem; background: var(--teorema-color, #10b981); color: #fff; border-color: #10b981;">➕ CRIAR ESTUDANTE</button>
@@ -132,10 +183,10 @@
                             </div>
                         </div>
 
-                        <!-- Filtro e Busca -->
-                        <div id="professor-filter" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 1.5rem;">
+                        <!-- Filtro, Busca e Seletor de Etapa Docente -->
+                        <div class="admin-filter-bar">
                             <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                <label for="professor-turma-select">Filtrar Turma:</label>
+                                <label for="professor-turma-select" style="font-size: 0.85rem; font-weight: 600; color: var(--secondary-text-color);">Filtrar Turma:</label>
                                 <select id="professor-turma-select">
                                     <option value="all">Todas as Turmas</option>
                                     <option value="9A">9º Ano A</option>
@@ -146,19 +197,58 @@
                                     <option value="3EM">3º Ano EM</option>
                                 </select>
                             </div>
+                            <div class="admin-etapa-selector-wrap">
+                                <span style="font-size: 0.85rem; font-weight: 600; color: var(--secondary-text-color);">Etapa:</span>
+                                <div class="admin-etapa-pills">
+                                    <button type="button" class="admin-etapa-btn active" data-admin-etapa="1">Etapa I</button>
+                                    <button type="button" class="admin-etapa-btn" data-admin-etapa="2">Etapa II</button>
+                                    <button type="button" class="admin-etapa-btn" data-admin-etapa="3">Etapa III</button>
+                                </div>
+                            </div>
                             <div style="display: flex; align-items: center; gap: 0.5rem; flex-grow: 1;">
                                 <input type="text" id="admin-search-input" placeholder="🔍 Buscar aluno por nome ou tag..." style="width: 100%; max-width: 320px; padding: 6px 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--container-border-color); color: var(--main-text-color); border-radius: 4px; font-size: 0.85rem;">
                             </div>
                         </div>
 
-                        <!-- Grade de Cards dos Estudantes -->
-                        <div style="margin-bottom: 1.5rem;">
+                        <!-- Modo 1: Grade de Cards dos Estudantes -->
+                        <div id="professor-students-cards-container" style="margin-bottom: 1.5rem;">
                             <h4 style="font-size: 0.95rem; color: var(--link-color); margin-bottom: 0.8rem; display: flex; justify-content: space-between; align-items: center;">
                                 <span>CARDS DOS ESTUDANTES (<span id="total-estudantes-count">0</span>)</span>
                                 <span style="font-size: 0.75rem; color: var(--secondary-text-color); font-weight: normal;">Clique em um card para editar notas e informações</span>
                             </h4>
                             <div id="professor-students-cards" class="student-cards-grid">
                                 <!-- Cards gerados dinamicamente via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Modo 2: Planilha / Panorama Geral de Notas -->
+                        <div id="professor-panorama-view" class="hidden" style="margin-bottom: 1.5rem;">
+                            <h4 style="font-size: 0.95rem; color: var(--link-color); margin-bottom: 0.8rem; display: flex; justify-content: space-between; align-items: center;">
+                                <span>PANORAMA GERAL DE NOTAS FORMATIVAS // ETAPA <span id="admin-etapa-table-lbl">I</span></span>
+                                <span style="font-size: 0.75rem; color: var(--secondary-text-color); font-weight: normal;">Visão global de rendimento por estudante e dimensão</span>
+                            </h4>
+                            <div class="table-responsive-wrapper">
+                                <table id="panorama-grades-table" class="professor-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Tag</th>
+                                            <th>Estudante</th>
+                                            <th>Turma</th>
+                                            <th title="Média das Avaliações">MDA</th>
+                                            <th title="Média dos estudos em prática">MDEP</th>
+                                            <th title="Nota atribuída ao grupo">NAAG</th>
+                                            <th title="Nota individual final">NIF</th>
+                                            <th title="Portfólio">PORT</th>
+                                            <th>Média Etapa</th>
+                                            <th>Média Geral</th>
+                                            <th>Missões</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="panorama-grades-tbody">
+                                        <!-- Linhas inseridas via JS -->
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
 
@@ -189,28 +279,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Sidebar de Notas e Menções -->
-                    <div id="sidebar-area">
-                        <div id="notas-container" class="dashboard-box">
-                            <div id="media-notas">MÉDIA: 0.0</div>
-                            <span class="area-title">AVALIAÇÃO FORMATIVA // NOTAS</span>
-                            <div id="notas-grafico"></div>
-                            <div id="evolucao-container">
-                                <canvas id="evolucao-grafico"></canvas>
-                            </div>
-                            <div id="legenda-disciplinas">
-                                <span data-tooltip="Média das Avaliações">MDA</span>
-                                <span data-tooltip="Média dos estudos em prática">MDEP</span>
-                                <span data-tooltip="Nota atribuída ao grupo">NAAG</span>
-                                <span data-tooltip="Nota individual final">NIF</span>
-                                <span data-tooltip="Portfólio">PORT</span>
-                            </div>
-                        </div>
-                        <div id="mencoes" class="dashboard-box">
-                            <span class="area-title">MENÇÕES DE HONRA</span>
-                            <div id="mencoes-lista"></div>
-                    </div> <!-- /#sidebar-area -->
                 </div> <!-- /.dashboard-grid -->
             </article>
 
@@ -268,7 +336,7 @@
 
     <!-- Modal: Editar Estudante -->
     <div id="edit-student-modal" class="modal hidden">
-        <div class="modal-content admin-modal-content" style="max-width: 720px;">
+        <div class="modal-content admin-modal-content">
             <span class="close-edit-modal close-modal">&times;</span>
             <h2 class="admin-modal-title">✏️ EDITAR ESTUDANTE: <span id="edit-modal-student-tag" style="color: var(--link-color);"></span></h2>
             
@@ -300,19 +368,37 @@
                 <!-- Tabela de Edição de Notas das 5 Dimensões Matemáticas -->
                 <div style="margin-bottom: 1.2rem;">
                     <h3 style="font-size: 0.85rem; color: var(--link-color); margin-bottom: 0.5rem; text-transform: uppercase;">
-                        📊 Notas por Etapa (Dimensões Matemáticas: ALG, GEO, NUM, EST, LOG)
+                        📊 Notas Formativas por Etapa (5 Dimensões Oficiais: MDA, MDEP, NAAG, NIF, PORT)
                     </h3>
                     <div class="admin-notas-grid-container">
                         <table class="admin-notas-table">
                             <thead>
                                 <tr>
-                                    <th>Etapa</th>
-                                    <th>MDA (Média das Avaliações)</th>
-                                    <th>MDEP (Média dos Estudos em Prática)</th>
-                                    <th>NAAG (Nota Atribuída ao Grupo)</th>
-                                    <th>NIF (Nota Individual Final)</th>
-                                    <th>PORT (Portfólio)</th>
-                                    <th>Média</th>
+                                    <th style="width: 110px;">Etapa</th>
+                                    <th>
+                                        <div class="modal-th-dim">MDA</div>
+                                        <div class="modal-th-desc">Média Avaliações</div>
+                                    </th>
+                                    <th>
+                                        <div class="modal-th-dim">MDEP</div>
+                                        <div class="modal-th-desc">Estudos Prática</div>
+                                    </th>
+                                    <th>
+                                        <div class="modal-th-dim">NAAG</div>
+                                        <div class="modal-th-desc">Nota Grupo</div>
+                                    </th>
+                                    <th>
+                                        <div class="modal-th-dim">NIF</div>
+                                        <div class="modal-th-desc">Indiv. Final</div>
+                                    </th>
+                                    <th>
+                                        <div class="modal-th-dim">PORT</div>
+                                        <div class="modal-th-desc">Portfólio</div>
+                                    </th>
+                                    <th style="width: 100px;">
+                                        <div class="modal-th-dim">MÉDIA</div>
+                                        <div class="modal-th-desc">Calculada</div>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -414,7 +500,21 @@
         <button data-theme="theme-clean-print" title="Limpo & Impressão (Fundo Branco sem Matrix)">📄 Limpo & Impressão</button>
     </div>
     <script src="js/theme-switcher.js" defer></script>
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof renderMathInElement === 'function') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: "@@", right: "@@", display: true },
+                        { left: "\\[", right: "\\]", display: true },
+                        { left: "@", right: "@", display: false },
+                        { left: "\\(", right: "\\)", display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+        });
+    </script>
     <div id="shared-tooltip"></div>
 </body>
 

@@ -49,6 +49,41 @@ const DESCRICOES_DIMENSOES_MAT = {
     "PORT": "Portfólio"
 };
 
+const DETALHES_DIMENSOES_MAT = {
+    "MDA": {
+        nome: "Média das Avaliações",
+        descricao: "Provas escritas e avaliações conceituais formais.",
+        icone: "📝"
+    },
+    "MDEP": {
+        nome: "Média dos estudos em prática",
+        descricao: "Resoluções práticas de listas, exercícios e aplicações.",
+        icone: "📐"
+    },
+    "NAAG": {
+        nome: "Nota atribuída ao grupo",
+        descricao: "Trabalhos colaborativos, cooperação e projetos em equipe.",
+        icone: "👥"
+    },
+    "NIF": {
+        nome: "Nota individual final",
+        descricao: "Domínio de competências, autonomia e raciocínio dedutivo.",
+        icone: "🎯"
+    },
+    "PORT": {
+        nome: "Portfólio",
+        descricao: "Caderno acadêmico, registros de progresso e sínteses.",
+        icone: "📁"
+    }
+};
+
+function getClasseNota(nota) {
+    if (typeof nota !== 'number' || isNaN(nota)) return 'nota-baixa';
+    if (nota < 5.0) return 'nota-baixa';
+    if (nota < 7.0) return 'nota-media';
+    return 'nota-alta';
+}
+
 // Ementas Oficiais de Matemática por Turma vinculadas aos Guias de Estudos
 const EMENTAS_MATEMATICA = {
     "9A": {
@@ -383,6 +418,40 @@ function desenharGraficoEvolucao(usuario) {
         ctx.font = '9px "Fira Sans", sans-serif';
         ctx.fillText(pt.label, pt.x, height - 8);
     });
+
+    // Atualizar mini-pills de histórico e indicador de tendência
+    const pillsRow = document.getElementById('evolucao-etapas-pills');
+    if (pillsRow) {
+        pillsRow.innerHTML = '';
+        ['1', '2', '3'].forEach((etp, idx) => {
+            const m = medias[idx];
+            const c = getClasseNota(m);
+            const pill = document.createElement('div');
+            pill.className = `evolucao-mini-pill ${c}`;
+            pill.innerHTML = `<span class="ep-lbl">Etapa ${['I','II','III'][idx]}:</span> <strong class="ep-val">${m > 0 ? m.toFixed(1) : '-'}</strong>`;
+            pillsRow.appendChild(pill);
+        });
+    }
+
+    const tendenciaBadge = document.getElementById('evolucao-tendencia-badge');
+    if (tendenciaBadge) {
+        if (medias[1] > 0 && medias[0] > 0) {
+            const diff = medias[1] - medias[0];
+            if (diff > 0.2) {
+                tendenciaBadge.className = 'evolucao-badge tendencia-alta';
+                tendenciaBadge.innerText = `📈 Em Alta (+${diff.toFixed(1)})`;
+            } else if (diff < -0.2) {
+                tendenciaBadge.className = 'evolucao-badge tendencia-baixa';
+                tendenciaBadge.innerText = `📉 Atenção (${diff.toFixed(1)})`;
+            } else {
+                tendenciaBadge.className = 'evolucao-badge tendencia-estavel';
+                tendenciaBadge.innerText = `➡️ Estável`;
+            }
+        } else {
+            tendenciaBadge.className = 'evolucao-badge';
+            tendenciaBadge.innerText = `Etapa 1 em Curso`;
+        }
+    }
 }
 
 // --- Preenchimento do Painel do Estudante ---
@@ -516,39 +585,86 @@ function preencherPainel(usuario, id, etapa = '1') {
         listaMissoes.innerHTML = '<li style="padding: 1rem; color: var(--secondary-text-color);">Nenhuma missão registrada nesta etapa.</li>';
     }
 
-    // Gráfico de Barras das 5 Dimensões Matemáticas
+    // Atualização da Média da Etapa e Rótulos
     const media = dadosEtapa.notas.reduce((acc, n) => acc + n, 0) / dadosEtapa.notas.length;
-    document.getElementById('media-notas').innerText = `MÉDIA ETAPA: ${media.toFixed(1)}`;
+    const classeMedia = getClasseNota(media);
 
-    const graficoNotas = document.getElementById('notas-grafico');
-    graficoNotas.innerHTML = '';
-    dadosEtapa.notas.forEach((nota, index) => {
-        const coluna = document.createElement('div');
-        coluna.className = 'nota-coluna';
-        const barra = document.createElement('div');
-        let classeNota = 'nota-alta';
-        if (nota < 5.0) classeNota = 'nota-baixa';
-        else if (nota < 7.0) classeNota = 'nota-media';
+    const mediaBadge = document.getElementById('media-notas');
+    if (mediaBadge) {
+        mediaBadge.className = `media-notas-badge ${classeMedia}`;
+        mediaBadge.innerHTML = `<span style="font-size: 0.75rem; color: var(--secondary-text-color); font-weight: normal; margin-right: 4px;">MÉDIA DA ETAPA ${etapa}:</span> <strong>${media.toFixed(1)}</strong>`;
+    }
 
-        barra.className = `bar ${classeNota}`;
-        const rotuloDim = ROTULOS_DIMENSOES_MAT[index] || 'MAT';
-        const descDim = DESCRICOES_DIMENSOES_MAT[rotuloDim] || 'Dimensão Matemática';
-        barra.setAttribute('data-tooltip', `${descDim}: ${nota.toFixed(1)}`);
+    const etapaLabel = document.getElementById('notas-etapa-label');
+    if (etapaLabel) {
+        etapaLabel.innerText = ['I', 'II', 'III'][parseInt(etapa, 10) - 1] || etapa;
+    }
 
-        const rotulo = document.createElement('span');
-        rotulo.className = 'nota-rotulo';
-        rotulo.innerText = rotuloDim;
+    // Renderizar os 5 Cards de Dimensões Formativas em #notas-cards-grid
+    const cardsGrid = document.getElementById('notas-cards-grid');
+    if (cardsGrid) {
+        cardsGrid.innerHTML = '';
+        ROTULOS_DIMENSOES_MAT.forEach((sigla, index) => {
+            const nota = (dadosEtapa.notas && dadosEtapa.notas[index] !== undefined) ? dadosEtapa.notas[index] : 0.0;
+            const meta = DETALHES_DIMENSOES_MAT[sigla] || { nome: sigla, descricao: '', icone: '📊' };
+            const statusClass = getClasseNota(nota);
 
-        setTimeout(() => { barra.style.height = `${nota * 10}%`; }, 80 * (index + 1));
-        attachTooltipEvents(barra);
-        coluna.appendChild(barra);
-        coluna.appendChild(rotulo);
-        graficoNotas.appendChild(coluna);
-    });
+            let statusText = 'BOM RENDIMENTO';
+            if (nota >= 9.0) statusText = 'EXCELENTE';
+            else if (nota < 5.0) statusText = 'RECUPERAÇÃO';
+            else if (nota < 7.0) statusText = 'ATENÇÃO';
 
-    // Curva histórica
+            const card = document.createElement('div');
+            card.className = `nota-dim-card ${statusClass} fade-in`;
+            card.style.animationDelay = `${index * 0.08}s`;
+
+            const percentual = Math.min(100, Math.max(0, nota * 10));
+
+            card.innerHTML = `
+                <div class="nota-dim-card-top">
+                    <span class="nota-dim-tag">${meta.icone} ${sigla}</span>
+                    <span class="nota-dim-status-pill ${statusClass}">${statusText}</span>
+                </div>
+                <div class="nota-dim-nome">${meta.nome}</div>
+                <div class="nota-dim-score-row">
+                    <span class="nota-dim-score ${statusClass}">${nota.toFixed(1)}</span>
+                    <span class="nota-dim-max">/10.0</span>
+                </div>
+                <div class="nota-dim-gauge">
+                    <div class="nota-dim-gauge-fill ${statusClass}" style="width: 0%;"></div>
+                </div>
+                <div class="nota-dim-desc">${meta.descricao}</div>
+            `;
+
+            cardsGrid.appendChild(card);
+
+            // Animação suave da barra de progresso horizontal
+            setTimeout(() => {
+                const fill = card.querySelector('.nota-dim-gauge-fill');
+                if (fill) fill.style.width = `${percentual}%`;
+            }, 100 + index * 60);
+        });
+    }
+
+    // Curva histórica de evolução
     desenharGraficoEvolucao(usuario);
     atualizarBotoesEtapa(usuario);
+
+    // Renderizar KaTeX no container se disponível
+    if (typeof renderMathInElement === 'function') {
+        const notasArea = document.getElementById('notas-area');
+        if (notasArea) {
+            renderMathInElement(notasArea, {
+                delimiters: [
+                    { left: "@@", right: "@@", display: true },
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "@", right: "@", display: false },
+                    { left: "\\(", right: "\\)", display: false }
+                ],
+                throwOnError: false
+            });
+        }
+    }
 }
 
 // --- Atualizar Indicadores dos Botões de Etapa ---
@@ -585,13 +701,37 @@ function mudarEtapa(novaEtapa) {
     preencherPainel(usuarioAtual, idAtual, etapaAtual);
 }
 
+// Estado do Painel Docente
+let adminEtapaAtual = '1';
+let adminModoVisualizacao = 'cards'; // 'cards' ou 'tabela'
+
 // --- Painel Docente / Professor (ADMIN) ---
-function renderizarDashboardProfessor(turmaFiltro = 'all', buscaTermo = '') {
+function renderizarDashboardProfessor(turmaFiltro = 'all', buscaTermo = '', adminEtapa = adminEtapaAtual) {
+    adminEtapaAtual = adminEtapa;
+
+    // Ocultar painéis de estudante e seletor de etapas do aluno
     document.getElementById('missoes-area').classList.add('hidden');
-    document.getElementById('sidebar-area').classList.add('hidden');
+    document.getElementById('notas-area').classList.add('hidden');
+    document.getElementById('evolucao-area').classList.add('hidden');
     document.getElementById('trofeus-area').classList.add('hidden');
     document.getElementById('estatisticas-area').classList.add('hidden');
+    document.getElementById('progresso-area').classList.add('hidden');
+    document.getElementById('mencoes').classList.add('hidden');
+    const etapaSelector = document.getElementById('etapa-selector');
+    if (etapaSelector) etapaSelector.classList.add('hidden');
+
+    // Exibir painel docente
     document.getElementById('professor-dashboard').classList.remove('hidden');
+
+    // Atualizar botões de etapa docente ativos
+    document.querySelectorAll('.admin-etapa-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-admin-etapa') === adminEtapaAtual);
+    });
+
+    const labelEtapaTable = document.getElementById('admin-etapa-table-lbl');
+    if (labelEtapaTable) {
+        labelEtapaTable.innerText = ['I', 'II', 'III'][parseInt(adminEtapaAtual, 10) - 1] || adminEtapaAtual;
+    }
 
     // Filtrar estudantes
     let estudantes = Object.entries(dadosUsuarios)
@@ -620,19 +760,45 @@ function renderizarDashboardProfessor(turmaFiltro = 'all', buscaTermo = '') {
     const cardsContainer = document.getElementById('professor-students-cards');
     cardsContainer.innerHTML = '';
 
+    // 2. Renderizar Tabela Panorama Geral (Planilha)
+    const panoramaTbody = document.getElementById('panorama-grades-tbody');
+    if (panoramaTbody) panoramaTbody.innerHTML = '';
+
     if (estudantes.length === 0) {
         cardsContainer.innerHTML = '<div style="grid-column: 1 / -1; padding: 2rem; text-align: center; color: var(--secondary-text-color);">Nenhum estudante encontrado para este filtro.</div>';
+        if (panoramaTbody) {
+            panoramaTbody.innerHTML = '<tr><td colspan="12" style="text-align: center; padding: 2rem; color: var(--secondary-text-color);">Nenhum estudante encontrado para este filtro.</td></tr>';
+        }
     } else {
         estudantes.forEach(aluno => {
+            // Notas da etapa selecionada
+            const dadosEtapaDocente = aluno.etapas && aluno.etapas[adminEtapaAtual] && aluno.etapas[adminEtapaAtual].notas 
+                ? aluno.etapas[adminEtapaAtual].notas 
+                : [7.0, 7.0, 7.0, 7.0, 7.0];
+            const mediaEtapa = dadosEtapaDocente.reduce((a, b) => a + b, 0) / dadosEtapaDocente.length;
+            const classeMediaEtapa = getClasseNota(mediaEtapa);
+            const classeMediaGeral = getClasseNota(aluno.stats.mediaGeral);
+
+            const avatarFile = aluno.avatar || `${aluno.id}.jpg`;
+
+            // Construir Card
             const card = document.createElement('div');
             card.className = 'student-card';
             card.setAttribute('data-id', aluno.id);
 
-            let classeNota = 'nota-alta';
-            if (aluno.stats.mediaGeral < 5.0) classeNota = 'nota-baixa';
-            else if (aluno.stats.mediaGeral < 7.0) classeNota = 'nota-media';
-
-            const avatarFile = aluno.avatar || `${aluno.id}.jpg`;
+            // 5 notas pills
+            let pillsHtml = '';
+            ROTULOS_DIMENSOES_MAT.forEach((sigla, dIdx) => {
+                const notaD = dadosEtapaDocente[dIdx] !== undefined ? dadosEtapaDocente[dIdx] : 0.0;
+                const classeD = getClasseNota(notaD);
+                const descD = DESCRICOES_DIMENSOES_MAT[sigla] || sigla;
+                pillsHtml += `
+                    <div class="card-grade-pill ${classeD}" title="${descD}: ${notaD.toFixed(1)}">
+                        <span class="pill-dim">${sigla}</span>
+                        <span class="pill-val">${notaD.toFixed(1)}</span>
+                    </div>
+                `;
+            });
 
             card.innerHTML = `
                 <div class="student-card-header">
@@ -643,9 +809,16 @@ function renderizarDashboardProfessor(turmaFiltro = 'all', buscaTermo = '') {
                     </div>
                     <span class="student-card-turma">${aluno.turma || 'Geral'}</span>
                 </div>
+                <div class="student-card-grades-strip">
+                    ${pillsHtml}
+                </div>
                 <div class="student-card-stats">
                     <div class="card-stat-block">
-                        <span class="card-stat-val ${classeNota}">${aluno.stats.mediaGeral.toFixed(1)}</span>
+                        <span class="card-stat-val ${classeMediaEtapa}">${mediaEtapa.toFixed(1)}</span>
+                        <span class="card-stat-lbl">ETAPA ${adminEtapaAtual}</span>
+                    </div>
+                    <div class="card-stat-block">
+                        <span class="card-stat-val ${classeMediaGeral}">${aluno.stats.mediaGeral.toFixed(1)}</span>
                         <span class="card-stat-lbl">MÉDIA GERAL</span>
                     </div>
                     <div class="card-stat-block">
@@ -658,20 +831,59 @@ function renderizarDashboardProfessor(turmaFiltro = 'all', buscaTermo = '') {
                     </div>
                 </div>
                 <div class="student-card-actions">
-                    <button type="button" class="btn-card-edit" data-id="${aluno.id}">✏️ Editar Informações & Notas</button>
+                    <button type="button" class="btn-card-edit" data-id="${aluno.id}">✏️ Editar Aluno & Notas</button>
                 </div>
             `;
 
-            // Clique no card abre o modal de edição
-            card.addEventListener('click', (e) => {
+            card.addEventListener('click', () => {
                 abrirModalEdicao(aluno.id);
             });
 
             cardsContainer.appendChild(card);
+
+            // Construir Linha na Planilha Panorama
+            if (panoramaTbody) {
+                const tr = document.createElement('tr');
+                let colsNotas = '';
+                ROTULOS_DIMENSOES_MAT.forEach((sigla, dIdx) => {
+                    const notaD = dadosEtapaDocente[dIdx] !== undefined ? dadosEtapaDocente[dIdx] : 0.0;
+                    const classeD = getClasseNota(notaD);
+                    colsNotas += `<td><span class="table-nota-badge ${classeD}">${notaD.toFixed(1)}</span></td>`;
+                });
+
+                tr.innerHTML = `
+                    <td><code style="color: var(--link-color); font-weight: bold;">${aluno.id}</code></td>
+                    <td><strong>${aluno.nome}</strong></td>
+                    <td><span class="student-card-turma">${aluno.turma || 'Geral'}</span></td>
+                    ${colsNotas}
+                    <td><strong class="table-nota-badge ${classeMediaEtapa}">${mediaEtapa.toFixed(1)}</strong></td>
+                    <td><strong class="table-nota-badge ${classeMediaGeral}">${aluno.stats.mediaGeral.toFixed(1)}</strong></td>
+                    <td>${aluno.stats.missoesCompletadas}/${aluno.stats.totalMissoes}</td>
+                    <td><button type="button" class="btn-card-edit" style="padding: 2px 8px; font-size: 0.72rem;" data-id="${aluno.id}">Editar</button></td>
+                `;
+
+                tr.querySelector('.btn-card-edit').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    abrirModalEdicao(aluno.id);
+                });
+
+                panoramaTbody.appendChild(tr);
+            }
         });
     }
 
-    // 2. Estatísticas Agregadas
+    // Alternar visibilidade entre Cards e Planilha
+    const containerCards = document.getElementById('professor-students-cards-container');
+    const containerPanorama = document.getElementById('professor-panorama-view');
+    if (adminModoVisualizacao === 'tabela') {
+        if (containerCards) containerCards.classList.add('hidden');
+        if (containerPanorama) containerPanorama.classList.remove('hidden');
+    } else {
+        if (containerCards) containerCards.classList.remove('hidden');
+        if (containerPanorama) containerPanorama.classList.add('hidden');
+    }
+
+    // 3. Estatísticas Agregadas
     const statsGrid = document.getElementById('professor-stats-grid');
     const totalAlunos = estudantes.length;
     const mediaGeralTurma = totalAlunos > 0 ? (estudantes.reduce((acc, a) => acc + a.stats.mediaGeral, 0) / totalAlunos) : 0;
@@ -702,7 +914,7 @@ function renderizarDashboardProfessor(turmaFiltro = 'all', buscaTermo = '') {
         </div>
     `;
 
-    // 3. Tabela de Ranking
+    // 4. Tabela de Ranking
     const rankingTbody = document.getElementById('ranking-tbody');
     rankingTbody.innerHTML = '';
     const rankingOrdenado = [...estudantes].sort((a, b) => b.stats.mediaGeral - a.stats.mediaGeral);
@@ -724,7 +936,7 @@ function renderizarDashboardProfessor(turmaFiltro = 'all', buscaTermo = '') {
         rankingTbody.appendChild(tr);
     });
 
-    // 4. Alertas Pedagógicos
+    // 5. Alertas Pedagógicos
     const alertasList = document.getElementById('alertas-list');
     alertasList.innerHTML = '';
     let alertasContador = 0;
@@ -900,9 +1112,14 @@ function limparPainel() {
     etapaAtual = '1';
 
     document.getElementById('missoes-area').classList.remove('hidden');
-    document.getElementById('sidebar-area').classList.remove('hidden');
+    document.getElementById('notas-area').classList.remove('hidden');
+    document.getElementById('evolucao-area').classList.remove('hidden');
     document.getElementById('trofeus-area').classList.remove('hidden');
     document.getElementById('estatisticas-area').classList.remove('hidden');
+    document.getElementById('progresso-area').classList.remove('hidden');
+    document.getElementById('mencoes').classList.remove('hidden');
+    const etapaSelector = document.getElementById('etapa-selector');
+    if (etapaSelector) etapaSelector.classList.remove('hidden');
     document.getElementById('professor-dashboard').classList.add('hidden');
 
     etapaBtns.forEach(btn => {
@@ -916,7 +1133,10 @@ function limparPainel() {
     document.getElementById('avatar-img').src = 'data/avatar/default_avatar.png';
     document.getElementById('trofeus-conquistados').innerHTML = '';
     document.getElementById('lista-missoes').innerHTML = '';
-    document.getElementById('notas-grafico').innerHTML = '';
+    const cardsGrid = document.getElementById('notas-cards-grid');
+    if (cardsGrid) cardsGrid.innerHTML = '';
+    const legacyGrafico = document.getElementById('notas-grafico');
+    if (legacyGrafico) legacyGrafico.innerHTML = '';
     document.getElementById('media-notas').innerText = 'MÉDIA: 0.0';
     document.getElementById('mencoes').innerHTML = '<span class="area-title">MENÇÕES DE HONRA</span>';
     document.getElementById('progress-bar-fill').style.width = '0%';
@@ -927,6 +1147,8 @@ function limparPainel() {
         const ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
+    const pillsRow = document.getElementById('evolucao-etapas-pills');
+    if (pillsRow) pillsRow.innerHTML = '';
 
     document.getElementById('stat-turma').innerText = '-';
     document.getElementById('stat-missoes').innerText = '0/0';
@@ -942,14 +1164,23 @@ function exportarDadosCSV(alunos) {
     }
 
     let csvContent = "data:text/csv;charset=utf-8,";
-    csvContent += "Tag,Nome,Turma,Media_Geral,Missoes_Concluidas,Total_Missoes,Nivel,EXP\n";
+    csvContent += "Tag,Nome,Turma,Media_Geral,Etapa1_MDA,Etapa1_MDEP,Etapa1_NAAG,Etapa1_NIF,Etapa1_PORT,Media_Etapa1,Missoes_Concluidas,Total_Missoes,Nivel,EXP\n";
 
     alunos.forEach(aluno => {
+        const e1Notas = aluno.etapas && aluno.etapas["1"] && aluno.etapas["1"].notas ? aluno.etapas["1"].notas : [7,7,7,7,7];
+        const m1 = e1Notas.reduce((a,b)=>a+b,0)/e1Notas.length;
+
         const row = [
             aluno.id,
             `"${aluno.nome}"`,
             aluno.turma || "N/A",
             aluno.stats.mediaGeral.toFixed(2).replace('.', ','),
+            e1Notas[0].toFixed(1).replace('.', ','),
+            e1Notas[1].toFixed(1).replace('.', ','),
+            e1Notas[2].toFixed(1).replace('.', ','),
+            e1Notas[3].toFixed(1).replace('.', ','),
+            e1Notas[4].toFixed(1).replace('.', ','),
+            m1.toFixed(2).replace('.', ','),
             aluno.stats.missoesCompletadas,
             aluno.stats.totalMissoes,
             aluno.lvl || 1,
@@ -1011,14 +1242,49 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (turmaSelect) {
         turmaSelect.addEventListener('change', () => {
-            renderizarDashboardProfessor(turmaSelect.value, searchInput ? searchInput.value : '');
+            renderizarDashboardProfessor(turmaSelect.value, searchInput ? searchInput.value : '', adminEtapaAtual);
         });
     }
     if (searchInput) {
         searchInput.addEventListener('input', () => {
-            renderizarDashboardProfessor(turmaSelect ? turmaSelect.value : 'all', searchInput.value);
+            renderizarDashboardProfessor(turmaSelect ? turmaSelect.value : 'all', searchInput.value, adminEtapaAtual);
         });
     }
+
+    // Toggle de Visualização Docente: Cards vs Planilha de Notas
+    const btnViewCards = document.getElementById('admin-view-cards-btn');
+    const btnViewTable = document.getElementById('admin-view-table-btn');
+    const containerCards = document.getElementById('professor-students-cards-container');
+    const containerPanorama = document.getElementById('professor-panorama-view');
+
+    if (btnViewCards && btnViewTable) {
+        btnViewCards.addEventListener('click', () => {
+            adminModoVisualizacao = 'cards';
+            btnViewCards.classList.add('active');
+            btnViewTable.classList.remove('active');
+            if (containerCards) containerCards.classList.remove('hidden');
+            if (containerPanorama) containerPanorama.classList.add('hidden');
+        });
+
+        btnViewTable.addEventListener('click', () => {
+            adminModoVisualizacao = 'tabela';
+            btnViewTable.classList.add('active');
+            btnViewCards.classList.remove('active');
+            if (containerCards) containerCards.classList.add('hidden');
+            if (containerPanorama) containerPanorama.classList.remove('hidden');
+        });
+    }
+
+    // Seletor de Etapas para o Professor
+    document.querySelectorAll('.admin-etapa-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const novaEtapa = btn.getAttribute('data-admin-etapa') || '1';
+            adminEtapaAtual = novaEtapa;
+            document.querySelectorAll('.admin-etapa-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderizarDashboardProfessor(turmaSelect ? turmaSelect.value : 'all', searchInput ? searchInput.value : '', adminEtapaAtual);
+        });
+    });
 
     // Botão de Criar Estudante
     const btnOpenCreate = document.getElementById('btn-open-create-student');
@@ -1161,7 +1427,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             salvarDadosPersistentes();
             document.getElementById('edit-student-modal').classList.add('hidden');
-            renderizarDashboardProfessor(turmaSelect ? turmaSelect.value : 'all', searchInput ? searchInput.value : '');
+            renderizarDashboardProfessor(turmaSelect ? turmaSelect.value : 'all', searchInput ? searchInput.value : '', adminEtapaAtual);
             alert("Informações e notas do estudante atualizadas com sucesso!");
         });
     }
@@ -1178,7 +1444,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 delete dadosUsuarios[studentId];
                 salvarDadosPersistentes();
                 document.getElementById('edit-student-modal').classList.add('hidden');
-                renderizarDashboardProfessor(turmaSelect ? turmaSelect.value : 'all', searchInput ? searchInput.value : '');
+                renderizarDashboardProfessor(turmaSelect ? turmaSelect.value : 'all', searchInput ? searchInput.value : '', adminEtapaAtual);
                 alert("Estudante removido com sucesso.");
             }
         });

@@ -210,6 +210,18 @@ O Portal Nexus opera com a garantia de que **todo tópico** possui o quarteto fo
     - Remoção de estrelas redundantes e unificação do CSS de problemas em `css/style.css`.
   - **Apresentação Consistente da Página Inicial (`index.html`)**:
     - Preservação da identidade autêntica Nexus (cyberpunk/retro gamer acadêmico), integrando o Laboratório Python, Terminal de Desempenho e anúncio do sistema de Flashcards.
+  - **Desempilhamento & Redesign Completo do Dashboard (Visão do Aluno & Visão do Professor)**:
+    - **Visão do Estudante (Desempilhada & Espaçosa)**:
+      - **Avaliação Formativa em Full Width (Linha 3, 6 colunas)**: Desacoplada da barra lateral espremida. As 5 dimensões oficiais (`MDA`, `MDEP`, `NAAG`, `NIF`, `PORT`) são exibidas horizontalmente em **5 Cards Individuais**, contendo badge da sigla, nome pedagógico por extenso, pontuação numérica destacada (ex: `8.5 / 10.0`), barra de progresso / gauge horizontal animada e status de rendimento (`EXCELENTE`, `BOM RENDIMENTO`, `ATENÇÃO`, `RECUPERAÇÃO`).
+      - **Header da Avaliação com KaTeX**: Exibição da fórmula aritmética \( \text{Média} = \frac{\text{MDA} + \text{MDEP} + \text{NAAG} + \text{NIF} + \text{PORT}}{5} \) e badge de média da etapa com código de cores.
+      - **Histórico de Evolução Independente (`#evolucao-area`)**: Desacoplado das notas, ocupando área própria ao lado das missões, com gráfico de linha Canvas, mini-pills comparativos das Etapas I, II e III e badge de tendência dinâmica (📈 Em Alta, 📉 Atenção, ➡️ Estável).
+      - **Menções de Honra (`#mencoes`)**: Alocadas confortavelmente ao lado de Conquistas e Troféus.
+    - **Visão do Professor / Admin (Diagnóstica & Produtiva)**:
+      - **Fita Horizontal das 5 Notas nos Cards**: Cada card de estudante exibe uma fita com as 5 notas formativas (`MDA: 8.5`, `MDEP: 9.0`, `NAAG: 7.5`, `NIF: 8.0`, `PORT: 9.5`) coloridas por nível de desempenho, permitindo diagnóstico imediato sem necessidade de abrir modais.
+      - **Seletor de Modo Dual (Cards vs. Planilha Geral)**: Alternância fluida entre visualização em Cards e visualização em **Tabela / Planilha de Notas da Turma** (`#panorama-grades-table`), com listagem panorâmica de todos os estudantes, suas 5 notas, média da etapa e média geral.
+      - **Seletor de Etapa Docente**: Abas rápidas (`Etapa I | Etapa II | Etapa III`) que atualizam instantaneamente tanto os cards quanto a planilha.
+      - **Modal de Edição Amplo e Confortável**: Largura expandida para `max-width: 940px` com cabeçalhos de dois níveis concisos (`MDA / Avaliações`, `MDEP / Estudos Prática`, etc.), recálculo ao vivo da média ao digitar e layout fluido.
+      - **Exportação CSV Completa**: Inclui colunas para as 5 dimensões formativas além das médias gerais.
   - **Validação Automatizada**:
     - 100% de sucesso em `scripts/validate_nexus.py` e `scripts/validate_data.py`.
 

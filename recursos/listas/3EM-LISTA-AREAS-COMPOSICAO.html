@@ -3,183 +3,469 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXUS - Lista de Problemas: Áreas, Composição e Decomposição</title>
+  <title>NEXUS - ÁREAS, COMPOSIÇÃO E DECOMPOSIÇÃO DE POLÍGONOS</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400;1,700&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
   <link rel="stylesheet" href="../../css/style.css">
-
-  <style>
-    .problema-meta {
-      font-size: 0.75rem;
-      margin-bottom: 0.5rem;
-      font-family: 'Fira Sans', sans-serif;
-    }
-    .problema-meta .topico {
-      background-color: rgba(100, 100, 255, 0.3);
-      padding: 2px 6px;
-      border-radius: 3px;
-      margin-right: 8px;
-    }
-    .problema-meta .dificuldade {
-      padding: 2px 6px;
-      border-radius: 3px;
-      margin-right: 8px;
-    }
-    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); color: #81c784; }
-    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); color: #ffd54f; }
-    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); color: #e57373; }
-    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); color: #ba68c8; }
-    .secao-header {
-      border-bottom: 2px solid var(--container-border-color);
-      padding-bottom: 0.5rem;
-      margin: 2rem 0 1rem 0;
-    }
-    .problema-item {
-      background: rgba(0, 0, 0, 0.25);
-      border-left: 3px solid var(--container-border-color);
-      padding: 1rem;
-      margin-bottom: 1.2rem;
-      border-radius: 0 8px 8px 0;
-    }
-    details summary {
-      cursor: pointer;
-      color: var(--link-color);
-      font-weight: bold;
-      margin-top: 0.5rem;
-    }
-  </style>
 </head>
 
 <body>
-  <div id="page-wrapper">
-    <nav>
-      <ul>
-        <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
-        <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
-        <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
-        <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
-      </ul>
-    </nav>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
+      <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
 
-    <div class="container">
-      <article>
-        <span class="badge-nivel ano-3em">3º ANO DO ENSINO MÉDIO</span>
-        <h2>LISTA DE PROBLEMAS: CÁLCULO DE ÁREAS, COMPOSIÇÃO E DECOMPOSIÇÃO DE POLÍGONOS</h2>
-        <p class="lead">Problemas de geometria métrica plana aplicados a provas de vestibulares, cálculo de regiões sombreadas, coroas e setores circulares.</p>
+  <div class="container">
+    <span class="badge-nivel ano-3em">3º ANO DO ENSINO MÉDIO</span>
+    <h1>ÁREAS, COMPOSIÇÃO E DECOMPOSIÇÃO DE POLÍGONOS</h1>
 
-        <!-- SEÇÃO 1 -->
-        <h3 class="secao-header">SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS</h3>
+    <article>
+      <h2>Problemas Introdutórios</h2>
+      <p class="section-intro">Problemas fundamentais para consolidar o cálculo direto de áreas por fórmulas clássicas e relações métricas imediatas.</p>
+      <ol>
+        <li>
+          <div class="problema-meta"><span class="topico">Fórmula de Heron</span><span class="dificuldade facil">Fácil</span><span>⏱️ 4 min</span></div>
+          <p>Calcule a área de um triângulo cujos lados medem @5\text{ cm}@, @6\text{ cm}@ e @7\text{ cm}@ utilizando a fórmula de Heron.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Setor Circular</span><span class="dificuldade facil">Fácil</span><span>⏱️ 4 min</span></div>
+          <p>Um setor circular de raio @R = 6\text{ cm}@ possui ângulo central de @60^\circ@. Determine a área exata do setor em função de @\pi@.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Trapézio Notável</span><span class="dificuldade facil">Fácil</span><span>⏱️ 3 min</span></div>
+          <p>Um trapézio isósceles tem bases medindo @14\text{ cm}@ e @6\text{ cm}@ e lados não paralelos medindo @5\text{ cm}@. Calcule sua área.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Losango</span><span class="dificuldade facil">Fácil</span><span>⏱️ 3 min</span></div>
+          <p>As diagonais de um losango medem @12\text{ cm}@ e @16\text{ cm}@. Calcule sua área e o comprimento de cada um de seus lados.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Triângulo Equilátero</span><span class="dificuldade facil">Fácil</span><span>⏱️ 3 min</span></div>
+          <p>Determine a área e a altura de um triângulo equilátero de lado igual a @8\text{ cm}@.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Hexágono Regular</span><span class="dificuldade facil">Fácil</span><span>⏱️ 4 min</span></div>
+          <p>Calcule a área de um hexágono regular cujo lado mede @4\text{ cm}@, decompondo-o em triângulos equiláteros.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Paralelogramo com Ângulo</span><span class="dificuldade facil">Fácil</span><span>⏱️ 4 min</span></div>
+          <p>Um paralelogramo possui lados adjacentes medindo @8\text{ cm}@ e @10\text{ cm}@, formando um ângulo de @30^\circ@. Determine sua área.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Coroa Circular Direta</span><span class="dificuldade facil">Fácil</span><span>⏱️ 4 min</span></div>
+          <p>Dois círculos concêntricos possuem raios medindo @7\text{ cm}@ e @5\text{ cm}@. Determine a área da coroa circular delimitada entre eles.</p>
+        </li>
+      </ol>
+    </article>
 
-        <div class="problema-item">
-          <div class="problema-meta">
-            <span class="topico">Fórmula de Heron</span>
-            <span class="dificuldade facil">Fácil</span>
-          </div>
-          <p><strong>Problema 1:</strong> Calcule a área de um triângulo cujos lados medem @5\text{ cm}@, @6\text{ cm}@ e @7\text{ cm}@.</p>
-        </div>
+    <article>
+      <h2>Problemas de Fixação</h2>
+      <p class="section-intro">Problemas que envolvem decomposição de figuras complexas, sobreposição e cálculo de regiões sombreadas.</p>
+      <ol>
+        <li>
+          <div class="problema-meta"><span class="topico">Coroa Circular Aplicada</span><span class="dificuldade media">Média</span><span>⏱️ 8 min</span></div>
+          <p>Em uma praça circular, constrói-se uma pista de caminhada em forma de coroa circular. O raio interno da pista é @20\text{ m}@ e a largura da pista é de @5\text{ m}@. Adotando @\pi \approx 3{,}14@, calcule a área total da pista asfaltada.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Região Sombreada no Quadrado</span><span class="dificuldade media">Média</span><span>⏱️ 9 min</span></div>
+          <p>Em um quadrado @ABCD@ de lado @10\text{ cm}@, traça-se um quarto de circunferência de raio @10\text{ cm}@ centrado no vértice @A@. Calcule a área da região do quadrado externa a esse setor circular.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Segmento Circular</span><span class="dificuldade media">Média</span><span>⏱️ 10 min</span></div>
+          <p>Em uma circunferência de raio @R = 6\text{ cm}@, uma corda @AB@ subtende um ângulo central de @90^\circ@. Calcule a área do menor segmento circular determinado por essa corda.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Lúnulas de Hipócrates</span><span class="dificuldade media">Média</span><span>⏱️ 10 min</span></div>
+          <p>Sobre os catetos @b = 6\text{ cm}@ e @c = 8\text{ cm}@ de um triângulo retângulo, constroem-se semicírculos externos. Sobre a hipotenusa constrói-se o semicírculo circunscrito. Mostre numericamente que a soma das áreas das duas lúnulas formadas é rigorosamente igual à área do triângulo retângulo.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Decomposição Poligonal</span><span class="dificuldade media">Média</span><span>⏱️ 8 min</span></div>
+          <p>Um terreno tem o formato de um pentágono com vértices @(0,0)@, @(6,0)@, @(8,5)@, @(3,8)@ e @(0,5)@ no plano cartesiano (em metros). Calcule sua área decompondo-o em trapézios e triângulos.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Círculo Inscrito em Triângulo</span><span class="dificuldade media">Média</span><span>⏱️ 9 min</span></div>
+          <p>Um triângulo tem lados medindo @13\text{ cm}@, @14\text{ cm}@ e @15\text{ cm}@. Calcule o raio da circunferência inscrita e a razão entre a área do círculo inscrito e a área do triângulo.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Quadrilátero Circunscrito</span><span class="dificuldade media">Média</span><span>⏱️ 9 min</span></div>
+          <p>Um quadrilátero convexo circunscritível possui perímetro igual a @36\text{ cm}@ e o círculo inscrito possui raio @r = 4\text{ cm}@. Determine a área total desse quadrilátero.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Flor de Quatro Pétalas</span><span class="dificuldade media">Média</span><span>⏱️ 10 min</span></div>
+          <p>Em um quadrado de lado @l = 4\text{ cm}@, traçam-se quatro semicírculos tendo como diâmetros os quatro lados do quadrado. A sobreposição desses semicírculos forma uma flor de 4 pétalas no interior do quadrado. Determine a área total ocupada pelas 4 pétalas.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Área entre Quadrado e Círculo</span><span class="dificuldade media">Média</span><span>⏱️ 8 min</span></div>
+          <p>Um quadrado está inscrito em um círculo de raio @R = 5\sqrt{2}\text{ cm}@. Determine a área da região do círculo que não é coberta pelo quadrado.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Trapézio com Semicírculo</span><span class="dificuldade media">Média</span><span>⏱️ 10 min</span></div>
+          <p>Um trapézio retângulo tem altura @h = 6\text{ cm}@, base maior @B = 10\text{ cm}@ e base menor @b = 6\text{ cm}@. Sobre o lado perpendicular às bases apoia-se o diâmetro de um semicírculo interno. Calcule a área da região do trapézio externa ao semicírculo.</p>
+        </li>
+      </ol>
+    </article>
 
-        <div class="problema-item">
-          <div class="problema-meta">
-            <span class="topico">Setor Circular</span>
-            <span class="dificuldade facil">Fácil</span>
-          </div>
-          <p><strong>Problema 2:</strong> Um setor circular de raio @R = 6\text{ cm}@ possui ângulo central de @60^\circ@. Determine a área exata do setor em função de @\pi@.</p>
-        </div>
+    <article>
+      <h2>Problemas de Aprofundamento</h2>
+      <p class="section-intro">Problemas desafiadores envolvendo otimização, relações trigonométricas avançadas e tangência múltipla.</p>
+      <ol>
+        <li>
+          <div class="problema-meta"><span class="topico">Três Círculos Tangentes</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 15 min</span></div>
+          <p>Três círculos idênticos de raio @R = 2\text{ cm}@ são mutuamente tangentes exteriores dois a dois. Determine a área exata da região compreendida entre eles (o miolo central delimitado pelos pontos de tangência).</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Otimização de Área</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 14 min</span></div>
+          <p>Um retângulo tem dois vértices sobre o eixo @x@ e os outros dois situados no primeiro e segundo quadrantes sobre a parábola @y = 12 - x^2@. Expresse a área @A(x)@ do retângulo em função da abscissa @x@ do vértice do primeiro quadrante e determine as dimensões do retângulo que maximizam sua área.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Teorema de Pick em Malhas</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 13 min</span></div>
+          <p>Um polígono simples desenhado em uma malha pontilhada de lado unitário possui @I = 14@ pontos estritamente internos e @B = 8@ pontos sobre sua fronteira. Calcule a área do polígono usando o Teorema de Pick: @A = I + \frac{B}{2} - 1@. Demonstre por que um triângulo com vértices inteiros e nenhum ponto interno além da fronteira mínima tem área @\frac{1}{2}@.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Círculo dos Nove Pontos</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 16 min</span></div>
+          <p>Em um triângulo acutângulo com lados medindo @13\text{ cm}@, @14\text{ cm}@ e @15\text{ cm}@, determine o raio e a área do Círculo de Euler (Círculo dos Nove Pontos), sabendo que o raio do círculo de Euler é exatamente a metade do raio do círculo circunscrito ao triângulo.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Arbelos de Arquimedes</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 15 min</span></div>
+          <p>Considere um segmento @AB = 10\text{ cm}@ e um ponto @C@ sobre @AB@ tal que @AC = 6\text{ cm}@ e @CB = 4\text{ cm}@. Constroem-se semicírculos com diâmetros @AB@, @AC@ e @CB@ sobre o mesmo lado da reta. A figura delimitada pelos três arcos é conhecida como o Arbelos de Arquimedes. Calcule a área exata do Arbelos e mostre que ela é igual à área do círculo cujo diâmetro é o segmento perpendicular a @AB@ traçado por @C@ até o semicírculo maior.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Triângulo com Bissetriz</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 14 min</span></div>
+          <p>Em um triângulo @ABC@, os lados @AB@ e @AC@ medem @6\text{ cm}@ e @9\text{ cm}@, respectivamente, e o ângulo @\hat{A} = 60^\circ@. A bissetriz interna do ângulo @A@ intercepta o lado @BC@ em @D@. Calcule o comprimento exato da bissetriz @AD@ utilizando a soma das áreas dos triângulos @\triangle ABD@ e @\triangle ACD@.</p>
+        </li>
+      </ol>
+    </article>
 
-        <!-- SEÇÃO 2 -->
-        <h3 class="secao-header">SEÇÃO 2: PROBLEMAS DE FIXAÇÃO E REGIÕES SOMBREADAS</h3>
+    <article>
+      <h2>Problemas Propostos</h2>
+      <p class="section-intro">Problemas de exames nacionais e vestibulares de alta concorrência para consolidação definitiva da autonomia matemática.</p>
+      <ol>
+        <li>
+          <div class="problema-meta"><span class="topico">FUVEST Adaptada</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 15 min</span></div>
+          <p>Em um triângulo retângulo @ABC@ com hipotenusa @BC = 10\text{ cm}@ e cateto @AB = 6\text{ cm}@, inscreve-se um quadrado com um dos lados apoiado sobre a hipotenusa. Determine o comprimento do lado do quadrado e a porcentagem da área do triângulo ocupada pelo quadrado.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">UNICAMP Adaptada</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 16 min</span></div>
+          <p>A planta de um jardim é formada por uma estrela regular de seis pontas obtida pela união de dois triângulos equiláteros congruentes de lado @6\text{ m}@ com o mesmo centro. Calcule a área total da estrela e a área do hexágono regular formado em seu miolo central.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">ENEM Habilidade 8</span><span class="dificuldade media">Média</span><span>⏱️ 10 min</span></div>
+          <p>Uma prefeitura deseja pavimentar uma rotatória octogonal regular. Cada lado do octógono mede @4\text{ m}@. Sabendo que um octógono regular pode ser obtido a partir de um quadrado retirando-se quatro triângulos retângulos isósceles de seus cantos, determine a área total da rotatória. (Dado: @\sqrt{2} \approx 1{,}41@).</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Geometria e Razão de Áreas</span><span class="dificuldade dificil">Difícil</span><span>⏱️ 14 min</span></div>
+          <p>Seja @M@ o ponto médio do lado @BC@ de um triângulo @ABC@ e @P@ um ponto sobre a mediana @AM@ tal que @AP = 2 \cdot PM@. Traçam-se as retas que ligam os vértices ao ponto @P@. Mostre que os três triângulos @\triangle PAB@, @\triangle PBC@ e @\triangle PCA@ possuem rigorosamente a mesma área.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Desafio de Tangência</span><span class="dificuldade desafio">Desafio</span><span>⏱️ 20 min</span></div>
+          <p>Em um quarto de círculo de raio @R = 12\text{ cm}@ delimitado por dois raios perpendiculares @OA@ e @OB@ e pelo arco @AB@, inscreve-se um círculo menor que tangencia simultaneamente os raios @OA@, @OB@ e o arco @AB@. Determine o raio @r@ do círculo menor e a porcentagem da área do setor coberta por esse círculo.</p>
+        </li>
+        <li>
+          <div class="problema-meta"><span class="topico">Ladrilhamento e Decomposição</span><span class="dificuldade desafio">Desafio</span><span>⏱️ 18 min</span></div>
+          <p>Um mosaico é construído com hexágonos regulares de lado @l@ e triângulos equiláteros também de lado @l@, dispostos de modo que cada vértice do mosaico une dois hexágonos e dois triângulos. Determine a proporção entre a área total ocupada pelos hexágonos e a área total ocupada pelos triângulos na malha infinita.</p>
+        </li>
+      </ol>
+    </article>
 
-        <div class="problema-item">
-          <div class="problema-meta">
-            <span class="topico">Coroa Circular</span>
-            <span class="dificuldade media">Média</span>
-          </div>
-          <p><strong>Problema 3:</strong> Em uma pista de atletismo circular, o raio interno mede @20\text{ m}@ e o raio externo mede @25\text{ m}@. Qual é a área da superfície asfaltada correspondente à coroa circular? (Adote @\pi \approx 3{,}14@).</p>
-        </div>
-
-        <div class="problema-item">
-          <div class="problema-meta">
-            <span class="topico">Região Sombreada</span>
-            <span class="dificuldade media">Média</span>
-          </div>
-          <p><strong>Problema 4:</strong> Em um quadrado @ABCD@ de lado @10\text{ cm}@, traça-se um quarto de circunferência com centro em @A@ e raio @10\text{ cm}@. Calcule a área da região do quadrado externa a esse setor circular (área sombreada).</p>
-          <div class="figura-geometrica" style="text-align: center; margin: 1rem 0;">
-            <svg viewBox="0 0 200 200" width="180" height="180">
-              <rect x="20" y="20" width="160" height="160" fill="rgba(255, 112, 67, 0.3)" stroke="var(--link-color, #00ff66)" stroke-width="2" />
-              <path d="M 20,180 L 180,180 A 160,160 0 0,0 20,20 Z" fill="rgba(33, 150, 243, 0.4)" stroke="var(--link-color, #00ff66)" stroke-width="2" />
-              <text x="130" y="50" fill="#ff7043" font-size="11">Área Restante</text>
-            </svg>
-          </div>
-        </div>
-
-        <!-- SEÇÃO 3 -->
-        <h3 class="secao-header">SEÇÃO 3: DESAFIOS DE VESTIBULARES (ENEM / FUVEST)</h3>
-
-        <div class="problema-item">
-          <div class="problema-meta">
-            <span class="topico">Vestibular Fuvest</span>
-            <span class="dificuldade dificil">Difícil</span>
-          </div>
-          <p><strong>Problema 5 (FUVEST Adaptada):</strong> Três círculos idênticos de raio @R = 2\text{ cm}@ são tangentes dois a dois entre si. Determine a área da região compreendida entre os três círculos (miolo delimitado pelas tangências).</p>
-        </div>
-
-        <!-- ============================================================================
+<!-- ============================================================================
      GABARITO SECRETO DO PROFESSOR (ACESSO EXCLUSIVO VIA CTRL+U NO NAVEGADOR)
      RESOLUÇÕES E RESPOSTAS COMENTADAS DETALHADAS:
 
-Problema 1:
-<p>1. Semiperímetro: @p = \frac{5 + 6 + 7}{2} = 9\text{ cm}@.</p>
-            <p>2. Heron: @@A = \sqrt{9 \cdot (9-5) \cdot (9-6) \cdot (9-7)} = \sqrt{9 \cdot 4 \cdot 3 \cdot 2} = \sqrt{216} = 6\sqrt{6}\text{ cm}^2 \approx 14{,}70\text{ cm}^2@@</p>
+<div class="gabarito-content">
 
-Problema 2:
-<p>@@A_{\text{setor}} = \frac{60^\circ}{360^\circ} \cdot \pi \cdot 6^2 = \frac{1}{6} \cdot 36\pi = 6\pi\text{ cm}^2 \approx 18{,}85\text{ cm}^2@@</p>
+    [--- SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS ---]
+    <div class="gabarito-secao">
+      <h3>Seção 1: Problemas Introdutórios</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução 1:</span><br>
+          1. Semiperímetro: @p = \frac{5 + 6 + 7}{2} = 9\text{ cm}@.<br>
+          2. Fórmula de Heron: @@A = \sqrt{p(p-a)(p-b)(p-c)} = \sqrt{9(9-5)(9-6)(9-7)} = \sqrt{9 \cdot 4 \cdot 3 \cdot 2} = \sqrt{216} = 6\sqrt{6}\text{ cm}^2 \approx 14{,}70\text{ cm}^2@@
+          <strong>Resposta:</strong> @6\sqrt{6}\text{ cm}^2@ (aprox. @14{,}70\text{ cm}^2@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 2:</span><br>
+          A fração do círculo correspondente a @60^\circ@ é @\frac{60}{360} = \frac{1}{6}@.<br>
+          @@A = \frac{1}{6} \pi R^2 = \frac{1}{6} \pi (6^2) = \frac{36\pi}{6} = 6\pi\text{ cm}^2 \approx 18{,}85\text{ cm}^2@@
+          <strong>Resposta:</strong> @6\pi\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 3:</span><br>
+          As projeções dos lados oblíquos sobre a base maior medem @x = \frac{14 - 6}{2} = 4\text{ cm}@.<br>
+          Pelo Teorema de Pitágoras no triângulo retângulo lateral: @h^2 + 4^2 = 5^2 \Rightarrow h = \sqrt{25 - 16} = 3\text{ cm}@.<br>
+          Área do trapézio: @@A = \frac{(B + b)h}{2} = \frac{(14 + 6) \cdot 3}{2} = \frac{20 \cdot 3}{2} = 30\text{ cm}^2@@
+          <strong>Resposta:</strong> @30\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 4:</span><br>
+          1. Área: @@A = \frac{D \cdot d}{2} = \frac{16 \cdot 12}{2} = 96\text{ cm}^2@@
+          2. As metades das diagonais formam um triângulo retângulo de catetos @8\text{ cm}@ e @6\text{ cm}@. O lado do losango é: @l = \sqrt{8^2 + 6^2} = \sqrt{64 + 36} = 10\text{ cm}@.
+          <strong>Resposta:</strong> Área = @96\text{ cm}^2@; Lado = @10\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 5:</span><br>
+          Para o triângulo equilátero de lado @l = 8\text{ cm}@:<br>
+          Altura: @h = \frac{l\sqrt{3}}{2} = \frac{8\sqrt{3}}{2} = 4\sqrt{3}\text{ cm}@.<br>
+          Área: @@A = \frac{l^2\sqrt{3}}{4} = \frac{64\sqrt{3}}{4} = 16\sqrt{3}\text{ cm}^2 \approx 27{,}71\text{ cm}^2@@
+          <strong>Resposta:</strong> Altura = @4\sqrt{3}\text{ cm}@; Área = @16\sqrt{3}\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 6:</span><br>
+          O hexágono regular é composto por 6 triângulos equiláteros congruentes de lado @l = 4\text{ cm}@:<br>
+          @@A = 6 \cdot \frac{l^2\sqrt{3}}{4} = 6 \cdot \frac{16\sqrt{3}}{4} = 6 \cdot 4\sqrt{3} = 24\sqrt{3}\text{ cm}^2 \approx 41{,}57\text{ cm}^2@@
+          <strong>Resposta:</strong> @24\sqrt{3}\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 7:</span><br>
+          A área do paralelogramo com lados @a@, @b@ e ângulo @\theta@ entre eles é dada por:<br>
+          @@A = a \cdot b \cdot \text{sen}(\theta) = 8 \cdot 10 \cdot \text{sen}(30^\circ) = 80 \cdot 0{,}5 = 40\text{ cm}^2@@
+          <strong>Resposta:</strong> @40\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 8:</span><br>
+          @@A = \pi (R^2 - r^2) = \pi (7^2 - 5^2) = \pi (49 - 25) = 24\pi\text{ cm}^2 \approx 75{,}40\text{ cm}^2@@
+          <strong>Resposta:</strong> @24\pi\text{ cm}^2@.
+        </li>
+      </ol>
+    </div>
 
-Problema 3:
-<p>@@A = \pi(R^2 - r^2) = \pi(25^2 - 20^2) = \pi(625 - 400) = 225\pi \approx 225 \cdot 3{,}14 = 706{,}5\text{ m}^2@@</p>
+    [--- SEÇÃO 2: PROBLEMAS DE FIXAÇÃO ---]
+    <div class="gabarito-secao">
+      <h3>Seção 2: Problemas de Fixação</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução 9:</span><br>
+          O raio interno é @r = 20\text{ m}@. O raio externo é @R = 20 + 5 = 25\text{ m}@.<br>
+          Área: @@A = \pi(R^2 - r^2) = \pi(25^2 - 20^2) = \pi(625 - 400) = 225\pi \approx 225 \cdot 3{,}14 = 706{,}5\text{ m}^2@@
+          <strong>Resposta:</strong> @706{,}5\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 10:</span><br>
+          1. Área do quadrado: @A_q = 10^2 = 100\text{ cm}^2@.<br>
+          2. Área do quarto de círculo: @A_{\text{setor}} = \frac{\pi \cdot 10^2}{4} = 25\pi \approx 78{,}54\text{ cm}^2@.<br>
+          3. Área externa: @A = 100 - 25\pi \approx 21{,}46\text{ cm}^2@.
+          <strong>Resposta:</strong> @100 - 25\pi\text{ cm}^2 \approx 21{,}46\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 11:</span><br>
+          A área do segmento circular é a área do setor de @90^\circ@ menos a área do triângulo isósceles retângulo formado pelos raios:<br>
+          @@A_{\text{setor}} = \frac{90^\circ}{360^\circ} \cdot \pi \cdot 6^2 = 9\pi\text{ cm}^2@@
+          @@A_{\triangle} = \frac{6 \cdot 6}{2} = 18\text{ cm}^2@@
+          @@A_{\text{seg}} = 9\pi - 18 = 9(\pi - 2)\text{ cm}^2 \approx 10{,}27\text{ cm}^2@@
+          <strong>Resposta:</strong> @9\pi - 18\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 12:</span><br>
+          Hipotenusa do triângulo: @a = \sqrt{6^2 + 8^2} = 10\text{ cm}@.<br>
+          Área do triângulo: @A_{\triangle} = \frac{6 \cdot 8}{2} = 24\text{ cm}^2@.<br>
+          Semicírculos sobre os catetos: raios @3@ e @4@.<br>
+          @@S_1 + S_2 = \frac{\pi \cdot 3^2}{2} + \frac{\pi \cdot 4^2}{2} = \frac{9\pi + 16\pi}{2} = \frac{25\pi}{2}@@
+          Semicírculo sobre a hipotenusa: raio @5@:<br>
+          @@S_3 = \frac{\pi \cdot 5^2}{2} = \frac{25\pi}{2}@@
+          A área total das lúnulas é dada por @(S_1 + S_2 + A_{\triangle}) - S_3 = \frac{25\pi}{2} + 24 - \frac{25\pi}{2} = 24\text{ cm}^2 = A_{\triangle}@. Q.E.D.
+          <strong>Resposta:</strong> Demonstração comprovada: @A_{\text{lúnulas}} = 24\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 13:</span><br>
+          Decomposição do pentágono com vértices @(0,0)@, @(6,0)@, @(8,5)@, @(3,8)@ e @(0,5)@:<br>
+          Pela fórmula do cadarço (Gauss / Shoelace):<br>
+          @@2A = |(0 \cdot 0 + 6 \cdot 5 + 8 \cdot 8 + 3 \cdot 5 + 0 \cdot 0) - (0 \cdot 6 + 0 \cdot 8 + 5 \cdot 3 + 8 \cdot 0 + 5 \cdot 0)| = |(0 + 30 + 64 + 15 + 0) - (15)| = |109 - 15| = 94@@
+          @@A = \frac{94}{2} = 47\text{ m}^2@@
+          <strong>Resposta:</strong> @47\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 14:</span><br>
+          1. Semiperímetro: @p = \frac{13 + 14 + 15}{2} = 21\text{ cm}@.<br>
+          2. Área de Heron: @A = \sqrt{21(21-13)(21-14)(21-15)} = \sqrt{21 \cdot 8 \cdot 7 \cdot 6} = \sqrt{7056} = 84\text{ cm}^2@.<br>
+          3. Raio inscrito: @r = \frac{A}{p} = \frac{84}{21} = 4\text{ cm}@.<br>
+          4. Área do círculo: @A_{\text{círculo}} = \pi r^2 = 16\pi \approx 50{,}27\text{ cm}^2@.<br>
+          5. Razão: @\frac{16\pi}{84} = \frac{4\pi}{21} \approx 0{,}598@ (aprox. @59{,}8\%@).
+          <strong>Resposta:</strong> @r = 4\text{ cm}@; Razão = @\frac{4\pi}{21}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 15:</span><br>
+          Para qualquer polígono circunscrito a um círculo de raio @r@, a área é igual a @A = p \cdot r@, onde @p@ é o semiperímetro.<br>
+          Como o perímetro é @2p = 36\text{ cm}@, temos @p = 18\text{ cm}@.<br>
+          @@A = 18 \cdot 4 = 72\text{ cm}^2@@
+          <strong>Resposta:</strong> @72\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 16:</span><br>
+          Quatro semicírculos têm área combinada: @4 \cdot \left(\frac{1}{2}\pi r^2\right) = 2\pi (2^2) = 8\pi\text{ cm}^2@.<br>
+          A união dos quatro semicírculos cobre o quadrado de lado 4 (@A_q = 16@) com interseções duplas exatamente nas pétalas.<br>
+          Área das 4 pétalas: @A_{\text{pétalas}} = 8\pi - 16 = 8(\pi - 2)\text{ cm}^2 \approx 9{,}13\text{ cm}^2@.
+          <strong>Resposta:</strong> @8\pi - 16\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 17:</span><br>
+          1. Raio do círculo: @R = 5\sqrt{2}\text{ cm}@. Área do círculo: @\pi R^2 = \pi (50) = 50\pi\text{ cm}^2@.<br>
+          2. A diagonal do quadrado inscrito é o diâmetro: @d = 2R = 10\sqrt{2}\text{ cm}@.<br>
+          Lado do quadrado: @l = \frac{d}{\sqrt{2}} = 10\text{ cm}@. Área do quadrado: @l^2 = 100\text{ cm}^2@.<br>
+          3. Área não coberta: @50\pi - 100 = 50(\pi - 2)\text{ cm}^2 \approx 57{,}08\text{ cm}^2@.
+          <strong>Resposta:</strong> @50\pi - 100\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 18:</span><br>
+          1. Área do trapézio: @A_{\text{trap}} = \frac{(10 + 6) \cdot 6}{2} = 48\text{ cm}^2@.<br>
+          2. O diâmetro do semicírculo mede 6, logo o raio é @r = 3\text{ cm}@.<br>
+          Área do semicírculo: @A_{\text{semi}} = \frac{\pi \cdot 3^2}{2} = 4{,}5\pi\text{ cm}^2 \approx 14{,}14\text{ cm}^2@.<br>
+          3. Área restante: @48 - 4{,}5\pi \approx 33{,}86\text{ cm}^2@.
+          <strong>Resposta:</strong> @48 - 4{,}5\pi\text{ cm}^2 \approx 33{,}86\text{ cm}^2@.
+        </li>
+      </ol>
+    </div>
 
-Problema 4:
-<p>1. Área do quadrado: @A_q = 10^2 = 100\text{ cm}^2@.</p>
-            <p>2. Área do quarto de círculo: @A_{\text{setor}} = \frac{\pi \cdot 10^2}{4} = 25\pi \approx 78{,}54\text{ cm}^2@.</p>
-            <p>3. Área externa sombreada: @A = 100 - 25\pi \approx 21{,}46\text{ cm}^2@.</p>
+    [--- SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO ---]
+    <div class="gabarito-secao">
+      <h3>Seção 3: Problemas de Aprofundamento</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução 19:</span><br>
+          1. Ligando os centros dos 3 círculos, obtemos um triângulo equilátero de lado @l = 2R = 4\text{ cm}@.<br>
+          2. Área do triângulo equilátero: @@A_{\triangle} = \frac{l^2\sqrt{3}}{4} = \frac{16\sqrt{3}}{4} = 4\sqrt{3}\text{ cm}^2@@
+          3. Os setores circulares internos ao triângulo somam @3 \cdot 60^\circ = 180^\circ@ (área de um semicírculo de raio 2):
+          @@A_{\text{setores}} = \frac{1}{2} \pi (2^2) = 2\pi\text{ cm}^2@@
+          4. Área do miolo: @@A = 4\sqrt{3} - 2\pi \approx 4(1{,}73205) - 2(3{,}14159) = 6{,}9282 - 6{,}2832 = 0{,}645\text{ cm}^2@@
+          <strong>Resposta:</strong> @4\sqrt{3} - 2\pi\text{ cm}^2 \approx 0{,}645\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 20:</span><br>
+          A base do retângulo no eixo @x@ mede @2x@ e a altura é @y = 12 - x^2@.<br>
+          Função da área: @A(x) = 2x(12 - x^2) = 24x - 2x^3@.<br>
+          Para maximizar, derivamos em relação a @x@: @A'(x) = 24 - 6x^2 = 0 \Rightarrow 6x^2 = 24 \Rightarrow x^2 = 4 \Rightarrow x = 2@.<br>
+          Dimensões: Base = @2x = 4\text{ u}@; Altura = @12 - 2^2 = 8\text{ u}@. Área máxima = @32\text{ u}^2@.
+          <strong>Resposta:</strong> Base = 4, Altura = 8, Área máxima = 32 unidades quadradas.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 21:</span><br>
+          Pelo Teorema de Pick: @@A = I + \frac{B}{2} - 1 = 14 + \frac{8}{2} - 1 = 14 + 4 - 1 = 17\text{ u}^2@@
+          Para um triângulo com @I = 0@ e @B = 3@ (apenas os 3 vértices na malha): @A = 0 + \frac{3}{2} - 1 = \frac{1}{2}@. Esta é a área mínima não nula para qualquer polígono de malha inteira.
+          <strong>Resposta:</strong> Área = 17 unidades quadradas.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 22:</span><br>
+          Para o triângulo de lados @13, 14, 15@ e área @A = 84@:<br>
+          O raio do círculo circunscrito é dado por: @@R = \frac{abc}{4A} = \frac{13 \cdot 14 \cdot 15}{4 \cdot 84} = \frac{2730}{336} = \frac{65}{8} = 8{,}125\text{ cm}@@
+          O raio do círculo dos nove pontos é @R_9 = \frac{R}{2} = \frac{65}{16} = 4{,}0625\text{ cm}@.<br>
+          Área do círculo de Euler: @@A_9 = \pi R_9^2 = \pi \left(\frac{65}{16}\right)^2 = \frac{4225\pi}{256}\text{ cm}^2 \approx 51{,}85\text{ cm}^2@@
+          <strong>Resposta:</strong> Raio = @\frac{65}{16}\text{ cm}@; Área = @\frac{4225\pi}{256}\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 23:</span><br>
+          Os raios dos semicírculos são: @R = 5@, @r_1 = 3@, @r_2 = 2@.<br>
+          Área do Arbelos: @@A = \frac{1}{2}\pi(R^2 - r_1^2 - r_2^2) = \frac{1}{2}\pi(25 - 9 - 4) = \frac{12\pi}{2} = 6\pi\text{ cm}^2@@
+          Pela relação métrica do círculo, a semicorda perpendicular a @AB@ por @C@ tem comprimento @h = \sqrt{AC \cdot CB} = \sqrt{6 \cdot 4} = \sqrt{24} = 2\sqrt{6}@.<br>
+          Um círculo com diâmetro @h = 2\sqrt{6}@ tem raio @\rho = \sqrt{6}@ e sua área é @\pi \rho^2 = 6\pi\text{ cm}^2@, idêntica à do Arbelos!
+          <strong>Resposta:</strong> Área = @6\pi\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 24:</span><br>
+          A área de @\triangle ABC@ é: @A = \frac{1}{2} \cdot 6 \cdot 9 \cdot \text{sen}(60^\circ) = 27 \cdot \frac{\sqrt{3}}{2} = \frac{27\sqrt{3}}{2}@.<br>
+          A bissetriz divide o ângulo de @60^\circ@ em dois ângulos de @30^\circ@:<br>
+          @A_{\triangle ABD} = \frac{1}{2} \cdot 6 \cdot x \cdot \text{sen}(30^\circ) = \frac{3}{2}x@.<br>
+          @A_{\triangle ACD} = \frac{1}{2} \cdot 9 \cdot x \cdot \text{sen}(30^\circ) = \frac{9}{4}x@.<br>
+          Somando: @\frac{3}{2}x + \frac{9}{4}x = \frac{15}{4}x = \frac{27\sqrt{3}}{2} \Rightarrow x = \frac{27\sqrt{3}}{2} \cdot \frac{4}{15} = \frac{18\sqrt{3}}{5} = 3{,}6\sqrt{3}\text{ cm}@.
+          <strong>Resposta:</strong> @\frac{18\sqrt{3}}{5}\text{ cm} \approx 6{,}24\text{ cm}@.
+        </li>
+      </ol>
+    </div>
 
-Problema 5:
-<p>1. Unindo os centros dos três círculos, obtemos um triângulo equilátero de lado @l = 2R = 4\text{ cm}@.</p>
-            <p>2. Área do triângulo equilátero: @@A_{\triangle} = \frac{l^2\sqrt{3}}{4} = \frac{4^2\sqrt{3}}{4} = 4\sqrt{3}\text{ cm}^2@@</p>
-            <p>3. Cada vértice do triângulo possui um ângulo interno de @60^\circ@, englobando um setor de @60^\circ@ de cada círculo. Três setores de @60^\circ@ somam @180^\circ@ (um semicírculo):
-               @@A_{\text{setores}} = \frac{1}{2} \pi R^2 = \frac{1}{2} \pi \cdot 2^2 = 2\pi\text{ cm}^2@@
-            </p>
-            <p>4. Área entre os círculos: @@A = A_{\triangle} - A_{\text{setores}} = 4\sqrt{3} - 2\pi \approx 4(1{,}732) - 2(3{,}1416) = 6{,}928 - 6{,}283 = 0{,}645\text{ cm}^2@@</p>
-
+    [--- SEÇÃO 4: PROBLEMAS PROPOSTOS ---]
+    <div class="gabarito-secao">
+      <h3>Seção 4: Problemas Propostos</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução 25:</span><br>
+          Catetos @AB = 6@ e @AC = \sqrt{10^2 - 6^2} = 8\text{ cm}@. Área do triângulo = @24\text{ cm}^2@.<br>
+          Altura relativa à hipotenusa: @h = \frac{6 \cdot 8}{10} = 4{,}8\text{ cm}@.<br>
+          Para um quadrado apoiado na hipotenusa de base @a = 10@ e altura @h = 4{,}8@, o lado @x@ é dado por:<br>
+          @@x = \frac{a \cdot h}{a + h} = \frac{10 \cdot 4{,}8}{10 + 4{,}8} = \frac{48}{14{,}8} = \frac{120}{37} \approx 3{,}243\text{ cm}@@
+          Área do quadrado: @x^2 \approx 10{,}52\text{ cm}^2@. Porcentagem = @\frac{10{,}52}{24} \approx 43{,}8\%@.
+          <strong>Resposta:</strong> Lado = @\frac{120}{37}\text{ cm}@ (aprox. @3{,}24\text{ cm}@); Ocupação = @43{,}8\%@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 26:</span><br>
+          A estrela de Davi regular com triângulos de lado 6 é formada por 12 pequenos triângulos equiláteros congruentes de lado @l = 2\text{ m}@. O hexágono central é formado por 6 desses triângulos.<br>
+          Área de um triângulo de lado 2: @\frac{2^2\sqrt{3}}{4} = \sqrt{3}\text{ m}^2@.<br>
+          Área total da estrela (12 triângulos): @12\sqrt{3}\text{ m}^2 \approx 20{,}78\text{ m}^2@.<br>
+          Área do hexágono central (6 triângulos): @6\sqrt{3}\text{ m}^2 \approx 10{,}39\text{ m}^2@.
+          <strong>Resposta:</strong> Estrela = @12\sqrt{3}\text{ m}^2@; Hexágono = @6\sqrt{3}\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 27:</span><br>
+          A fórmula da área de um octógono regular de lado @a = 4\text{ m}@ é:<br>
+          @@A = 2(1 + \sqrt{2}) a^2 = 2(1 + 1{,}414) \cdot 16 = 32 \cdot 2{,}414 = 77{,}25\text{ m}^2@@
+          <strong>Resposta:</strong> @32(1 + \sqrt{2})\text{ m}^2 \approx 77{,}25\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 28:</span><br>
+          Como @M@ é ponto médio de @BC@, a mediana @AM@ divide @\triangle ABC@ em dois triângulos de mesma área @\frac{S}{2}@.<br>
+          O ponto @P@ divide @AM@ na razão @2:1@, logo @AP = \frac{2}{3} AM@ e @PM = \frac{1}{3} AM@.<br>
+          A área de @\triangle PBM@ tem a mesma altura que @\triangle ABM@ com @\frac{1}{3}@ da base, portanto @[PBM] = \frac{1}{3}[ABM] = \frac{S}{6}@.<br>
+          Analogamente, @[PCM] = \frac{S}{6}@. Somando: @[PBC] = [PBM] + [PCM] = \frac{S}{3}@.<br>
+          Para @[PAB]@: @[PAB] = \frac{2}{3}[ABM] = \frac{2}{3}\frac{S}{2} = \frac{S}{3}@.<br>
+          Para @[PCA]@: @[PCA] = \frac{2}{3}[ACM] = \frac{2}{3}\frac{S}{2} = \frac{S}{3}@.<br>
+          Portanto, os três triângulos têm área rigorosamente igual a @\frac{S}{3}@. Q.E.D.
+          <strong>Resposta:</strong> Demonstração comprovada: cada triângulo tem área @\frac{1}{3}@ da área total.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 29:</span><br>
+          O centro @C@ do círculo inscrito dista @r@ dos dois eixos perpendiculares. A distância de @O@ a @C@ é @r\sqrt{2}@.<br>
+          O círculo tangencia o arco de raio @R = 12@, logo @OC + r = R \Rightarrow r\sqrt{2} + r = 12 \Rightarrow r(\sqrt{2} + 1) = 12@.<br>
+          @@r = \frac{12}{\sqrt{2} + 1} = 12(\sqrt{2} - 1) \approx 12(0{,}4142) = 4{,}97\text{ cm}@@
+          Área do quarto de círculo: @\frac{\pi \cdot 12^2}{4} = 36\pi\text{ cm}^2@.<br>
+          Área do círculo menor: @\pi r^2 = \pi [144(3 - 2\sqrt{2})] = 144(3 - 2\sqrt{2})\pi \approx 24{,}7\pi\text{ cm}^2@.<br>
+          Porcentagem coberta: @\frac{144(3 - 2\sqrt{2})}{36} = 4(3 - 2\sqrt{2}) = 12 - 8\sqrt{2} \approx 12 - 11{,}3137 = 68{,}63\%@.
+          <strong>Resposta:</strong> @r = 12(\sqrt{2} - 1)\text{ cm}@ (aprox. @4{,}97\text{ cm}@); Cobertura = @68{,}6\%@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução 30:</span><br>
+          Em cada vértice concorrem 2 hexágonos e 2 triângulos.<br>
+          Como cada hexágono tem 6 vértices e cada triângulo tem 3 vértices, a proporção no ladrilhamento infinito de vértices é de 1 hexágono para cada 2 triângulos equiláteros.<br>
+          Área de um hexágono de lado @l@: @6 \cdot \frac{l^2\sqrt{3}}{4} = \frac{3\sqrt{3}}{2}l^2@.<br>
+          Área de dois triângulos de lado @l@: @2 \cdot \frac{l^2\sqrt{3}}{4} = \frac{\sqrt{3}}{2}l^2@.<br>
+          Razão das áreas: @@\frac{\text{Área Hexágonos}}{\text{Área Triângulos}} = \frac{\frac{3\sqrt{3}}{2}}{\frac{\sqrt{3}}{2}} = 3@@
+          Os hexágonos cobrem exatamente 3 vezes mais área do que os triângulos (isto é, @75\%@ do mosaico é formado por hexágonos e @25\%@ por triângulos).
+          <strong>Resposta:</strong> Razão = 3 (ou 3:1).
+        </li>
+      </ol>
+    </div>
+</div>
 ============================================================================ -->
-<div style="text-align: center; margin-top: 30px;">
-          <a href="../../recursos.html" class="themed-button" >VOLTAR AOS RECURSOS</a>
-        </div>
-      </article>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="../../recursos.html" class="themed-button">VOLTAR AOS RECURSOS</a>
     </div>
   </div>
+</div>
 
-  <canvas id="matrixCanvas"></canvas>
-  <script src="../../js/matrix-rain.js" defer></script>
-  <script src="../../js/theme-switcher.js" defer></script>
-  <script src="../../js/print-mode.js" defer></script>
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: "@@", right: "@@", display: true },
-          { left: "\\[", right: "\\]", display: true },
-          { left: "@", right: "@", display: false },
-          { left: "\\(", right: "\\)", display: false }
-        ],
-        throwOnError: false
-      });
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "@@", right: "@@", display: true },
+        { left: "\\[", right: "\\]", display: true },
+        { left: "@", right: "@", display: false },
+        { left: "\\(", right: "\\)", display: false }
+      ],
+      throwOnError: false
     });
-  </script>
+  });
+</script>
 </body>
 </html>

@@ -43,24 +43,17 @@
                     <div id="id-area" class="dashboard-box">
                         <span class="area-title">AUTENTICAÇÃO</span>
                         <div id="id-form">
-                            <input type="text" id="id-input" placeholder="ID (ex: BR123)" maxlength="5" autocomplete="off" spellcheck="false">
-                            <button id="login-btn" title="Entrar">&gt;</button>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="id-input" placeholder="Tag de Acesso (ex: BEAT901)" maxlength="16" autocomplete="off" spellcheck="false">
+                                <button type="button" id="toggle-visibility-btn" class="toggle-eye-btn" title="Mostrar/Ocultar Tag">👁️</button>
+                            </div>
+                            <button id="login-btn" title="Entrar na Plataforma">&gt;</button>
                         </div>
                         <div id="user-display" class="hidden">
                             <span id="user-name"></span>
                             <button id="logout-btn" title="Sair do perfil">&lt;</button>
                         </div>
                         <div id="error-message"></div>
-
-                        <!-- Chips de Acesso Rápido para Demonstração -->
-                        <div id="demo-chips" class="demo-chips-container">
-                            <span class="demo-label">Acesso Rápido:</span>
-                            <button type="button" class="demo-chip" data-id="BR123">Beatriz (9A)</button>
-                            <button type="button" class="demo-chip" data-id="LM456">Lucas (1A)</button>
-                            <button type="button" class="demo-chip" data-id="JV789">Juliana (2EM)</button>
-                            <button type="button" class="demo-chip" data-id="RA987">Rafael (3EM)</button>
-                            <button type="button" class="demo-chip chip-prof" data-id="PR0F1">Professor</button>
-                        </div>
                     </div>
 
                     <div id="lvl-area" class="dashboard-box">
@@ -126,41 +119,73 @@
 
                     <!-- Linha 4 (Alternativa): Painel do Professor -->
                     <div id="professor-dashboard" class="dashboard-box hidden">
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
-                            <span class="area-title" style="margin: 0;">PAINEL DE GESTÃO DOCENTE</span>
-                            <button id="export-csv-btn" class="themed-button" style="font-size: 0.75rem; padding: 0.4rem 0.8rem;">📥 EXPORTAR CSV</button>
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem; border-bottom: 1px solid var(--container-border-color); padding-bottom: 0.8rem;">
+                            <div>
+                                <span class="area-title" style="margin: 0;">PAINEL DE GESTÃO DOCENTE // ADMIN</span>
+                                <span style="font-size: 0.8rem; color: var(--secondary-text-color);">Chave de Acesso: <code style="color: var(--link-color);">twdzujqr369</code></span>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <button id="btn-open-create-student" class="themed-button" style="font-size: 0.8rem; padding: 0.45rem 0.9rem; background: var(--teorema-color, #10b981); color: #fff; border-color: #10b981;">➕ CRIAR ESTUDANTE</button>
+                                <button id="export-csv-btn" class="themed-button" style="font-size: 0.8rem; padding: 0.45rem 0.9rem;">📥 EXPORTAR CSV</button>
+                                <button id="btn-admin-logout" class="themed-button" style="font-size: 0.8rem; padding: 0.45rem 0.9rem; background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #ef4444;">🚪 SAIR</button>
+                            </div>
                         </div>
-                        <div id="professor-filter">
-                            <label for="professor-turma-select">Filtrar Turma:</label>
-                            <select id="professor-turma-select">
-                                <option value="all">Todas as Turmas</option>
-                                <option value="9A">9º Ano A</option>
-                                <option value="9B">9º Ano B</option>
-                                <option value="1A">1º Ano EM A</option>
-                                <option value="1B">1º Ano EM B</option>
-                                <option value="2EM">2º Ano EM</option>
-                                <option value="3EM">3º Ano EM</option>
-                            </select>
+
+                        <!-- Filtro e Busca -->
+                        <div id="professor-filter" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 1.5rem;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <label for="professor-turma-select">Filtrar Turma:</label>
+                                <select id="professor-turma-select">
+                                    <option value="all">Todas as Turmas</option>
+                                    <option value="9A">9º Ano A</option>
+                                    <option value="9B">9º Ano B</option>
+                                    <option value="1A">1º Ano EM A</option>
+                                    <option value="1B">1º Ano EM B</option>
+                                    <option value="2EM">2º Ano EM</option>
+                                    <option value="3EM">3º Ano EM</option>
+                                </select>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; flex-grow: 1;">
+                                <input type="text" id="admin-search-input" placeholder="🔍 Buscar aluno por nome ou tag..." style="width: 100%; max-width: 320px; padding: 6px 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--container-border-color); color: var(--main-text-color); border-radius: 4px; font-size: 0.85rem;">
+                            </div>
                         </div>
+
+                        <!-- Grade de Cards dos Estudantes -->
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="font-size: 0.95rem; color: var(--link-color); margin-bottom: 0.8rem; display: flex; justify-content: space-between; align-items: center;">
+                                <span>CARDS DOS ESTUDANTES (<span id="total-estudantes-count">0</span>)</span>
+                                <span style="font-size: 0.75rem; color: var(--secondary-text-color); font-weight: normal;">Clique em um card para editar notas e informações</span>
+                            </h4>
+                            <div id="professor-students-cards" class="student-cards-grid">
+                                <!-- Cards gerados dinamicamente via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Estatísticas Agregadas -->
                         <div id="professor-stats-grid"></div>
-                        <div id="professor-ranking">
-                            <h4>RANKING DE DESEMPENHO</h4>
-                            <table id="ranking-table">
-                                <thead>
-                                    <tr>
-                                        <th>Pos.</th>
-                                        <th>Aluno</th>
-                                        <th>Média Geral</th>
-                                        <th>Missões</th>
-                                        <th>Nível</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="ranking-tbody"></tbody>
-                            </table>
-                        </div>
-                        <div id="professor-alertas">
-                            <h4>ALERTAS PEDAGÓGICOS (INTERVENÇÃO PRIORITÁRIA)</h4>
-                            <ul id="alertas-list"></ul>
+
+                        <!-- Ranking de Desempenho e Alertas -->
+                        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 15px; margin-top: 1.5rem;" class="admin-bottom-grid">
+                            <div id="professor-ranking">
+                                <h4>RANKING DE DESEMPENHO (MATEMÁTICA)</h4>
+                                <table id="ranking-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Pos.</th>
+                                            <th>Tag</th>
+                                            <th>Aluno</th>
+                                            <th>Média Geral</th>
+                                            <th>Missões</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ranking-tbody"></tbody>
+                                </table>
+                            </div>
+                            <div id="professor-alertas">
+                                <h4>ALERTAS PEDAGÓGICOS</h4>
+                                <ul id="alertas-list"></ul>
+                            </div>
                         </div>
                     </div>
 
@@ -174,19 +199,18 @@
                                 <canvas id="evolucao-grafico"></canvas>
                             </div>
                             <div id="legenda-disciplinas">
-                                <span data-tooltip="Matemática Discreta e Aplicada">MDA</span>
-                                <span data-tooltip="Matemática Discreta e Pensamento Lógico">MDEP</span>
-                                <span data-tooltip="Números e Funções">NIF</span>
-                                <span data-tooltip="Números, Álgebra e Geometria">NAAG</span>
-                                <span data-tooltip="Português">PORT</span>
+                                <span data-tooltip="Álgebra & Funções (Equações, Polinômios, Funções)">ALG</span>
+                                <span data-tooltip="Geometria & Medidas (Plana, Espacial, Analítica e Métrica)">GEO</span>
+                                <span data-tooltip="Números & Operações (Conjuntos, Progressões e Finanças)">NUM</span>
+                                <span data-tooltip="Estatística & Probabilidade (Tratamento de Dados e Contagem)">EST</span>
+                                <span data-tooltip="Raciocínio Lógico & Modelagem (Dedução e Resolução de Problemas)">LOG</span>
                             </div>
                         </div>
                         <div id="mencoes" class="dashboard-box">
                             <span class="area-title">MENÇÕES DE HONRA</span>
                             <div id="mencoes-lista"></div>
-                        </div>
-                    </div>
-                </div>
+                    </div> <!-- /#sidebar-area -->
+                </div> <!-- /.dashboard-grid -->
             </article>
 
             <div style="text-align: center; margin-top: 30px;">
@@ -194,6 +218,155 @@
             </div>
         </div> <!-- /.container -->
     </div> <!-- /#page-wrapper -->
+
+    <!-- Modal: Criar Novo Estudante -->
+    <div id="create-student-modal" class="modal hidden">
+        <div class="modal-content admin-modal-content">
+            <span class="close-create-modal close-modal">&times;</span>
+            <h2 class="admin-modal-title">➕ CRIAR NOVO ESTUDANTE</h2>
+            <form id="create-student-form">
+                <div class="form-row">
+                    <label for="create-nome">Nome Completo:</label>
+                    <input type="text" id="create-nome" placeholder="Ex: Mariana Albuquerque" required autocomplete="off">
+                </div>
+                <div class="form-row">
+                    <label for="create-tag">Tag de Acesso (4 letras + 3 números):</label>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <input type="text" id="create-tag" placeholder="Ex: MARI101" maxlength="7" style="text-transform: uppercase; font-family: 'Fira Code', monospace;" required autocomplete="off">
+                        <button type="button" id="btn-generate-tag" class="themed-button" style="font-size: 0.75rem; white-space: nowrap;">🎲 Gerar Tag</button>
+                    </div>
+                    <small style="color: var(--secondary-text-color); font-size: 0.72rem;">Formato padrão: 4 letras seguidas de 3 dígitos (ex: ABCD123).</small>
+                </div>
+                <div class="form-row">
+                    <label for="create-turma">Turma de Destino:</label>
+                    <select id="create-turma" required>
+                        <option value="9A">9º Ano A (Fundamental)</option>
+                        <option value="9B">9º Ano B (Fundamental)</option>
+                        <option value="1A">1º Ano EM A (Ensino Médio)</option>
+                        <option value="1B">1º Ano EM B (Ensino Médio)</option>
+                        <option value="2EM">2º Ano EM (Ensino Médio)</option>
+                        <option value="3EM">3º Ano EM (Ensino Médio)</option>
+                    </select>
+                    <small style="color: var(--link-color); font-size: 0.75rem; display: block; margin-top: 4px;">
+                        ℹ️ Ao salvar, as metas e missões de Matemática serão roteirizadas automaticamente com base na ementa da turma.
+                    </small>
+                </div>
+                <div class="form-row">
+                    <label for="create-avatar">Avatar do Estudante:</label>
+                    <select id="create-avatar">
+                        <option value="default_avatar.png">Avatar Padrão Nexus</option>
+                    </select>
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 0.8rem; margin-top: 1.5rem;">
+                    <button type="button" class="themed-button close-create-modal" style="background: transparent;">Cancelar</button>
+                    <button type="submit" class="themed-button" style="background: var(--teorema-color, #10b981); color: #fff; border-color: #10b981;">💾 Criar Estudante</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Editar Estudante -->
+    <div id="edit-student-modal" class="modal hidden">
+        <div class="modal-content admin-modal-content" style="max-width: 720px;">
+            <span class="close-edit-modal close-modal">&times;</span>
+            <h2 class="admin-modal-title">✏️ EDITAR ESTUDANTE: <span id="edit-modal-student-tag" style="color: var(--link-color);"></span></h2>
+            
+            <form id="edit-student-form">
+                <input type="hidden" id="edit-original-id">
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 1rem;">
+                    <div class="form-row">
+                        <label for="edit-nome">Nome do Aluno:</label>
+                        <input type="text" id="edit-nome" required autocomplete="off">
+                    </div>
+                    <div class="form-row">
+                        <label for="edit-tag">Tag de Acesso:</label>
+                        <input type="text" id="edit-tag" maxlength="7" style="text-transform: uppercase; font-family: 'Fira Code', monospace;" required autocomplete="off">
+                    </div>
+                    <div class="form-row">
+                        <label for="edit-turma">Turma:</label>
+                        <select id="edit-turma" required>
+                            <option value="9A">9º Ano A</option>
+                            <option value="9B">9º Ano B</option>
+                            <option value="1A">1º Ano EM A</option>
+                            <option value="1B">1º Ano EM B</option>
+                            <option value="2EM">2º Ano EM</option>
+                            <option value="3EM">3º Ano EM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Tabela de Edição de Notas das 5 Dimensões Matemáticas -->
+                <div style="margin-bottom: 1.2rem;">
+                    <h3 style="font-size: 0.85rem; color: var(--link-color); margin-bottom: 0.5rem; text-transform: uppercase;">
+                        📊 Notas por Etapa (Dimensões Matemáticas: ALG, GEO, NUM, EST, LOG)
+                    </h3>
+                    <div class="admin-notas-grid-container">
+                        <table class="admin-notas-table">
+                            <thead>
+                                <tr>
+                                    <th>Etapa</th>
+                                    <th>ALG (Álgebra)</th>
+                                    <th>GEO (Geometria)</th>
+                                    <th>NUM (Números)</th>
+                                    <th>EST (Estatística)</th>
+                                    <th>LOG (Lógica)</th>
+                                    <th>Média</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Etapa I</strong></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-1-0"></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-1-1"></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-1-2"></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-1-3"></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-1-4"></td>
+                                    <td><span id="edit-media-1" style="font-weight: bold; color: var(--link-color);">0.0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Etapa II</strong></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-2-0"></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-2-1"></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-2-2"></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-2-3"></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-2-4"></td>
+                                    <td><span id="edit-media-2" style="font-weight: bold; color: var(--link-color);">0.0</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Etapa III</strong></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-3-0"></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-3-1"></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-3-2"></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-3-3"></td>
+                                    <td><input type="number" step="0.1" min="0" max="10" class="nota-input" id="edit-n-3-4"></td>
+                                    <td><span id="edit-media-3" style="font-weight: bold; color: var(--link-color);">0.0</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Gestão de Missões da Turma -->
+                <div style="margin-bottom: 1.2rem;">
+                    <h3 style="font-size: 0.85rem; color: var(--link-color); margin-bottom: 0.5rem; text-transform: uppercase;">
+                        🎯 Status das Missões Curriculares (Marque para concluir)
+                    </h3>
+                    <div id="edit-missoes-checklist" class="admin-missoes-checklist">
+                        <!-- Gerado dinamicamente -->
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.5rem; border-top: 1px solid var(--container-border-color); padding-top: 1rem;">
+                    <button type="button" id="btn-delete-student" class="themed-button" style="background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #ef4444; font-size: 0.75rem;">🗑️ Excluir Estudante</button>
+                    <div style="display: flex; gap: 0.8rem;">
+                        <button type="button" class="themed-button close-edit-modal" style="background: transparent;">Cancelar</button>
+                        <button type="submit" class="themed-button" style="background: var(--teorema-color, #10b981); color: #fff; border-color: #10b981;">💾 Salvar Alterações</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Botão e Modal de Novidades / Changelog -->
     <div id="news-icon" title="Novidades do Portal Nexus">📢</div>

@@ -181,38 +181,56 @@ O Portal Nexus opera com a garantia de que **todo tópico** possui o quarteto fo
 
 ## 📜 6. Histórico de Versões e Marcos Recentes
 
-- **Sessão Atual (30/09/2026) — Cambria Math, Chuva Matrix Universal & Tema Limpo/Impressão**:
-  - **Tipografia Cambria Math**:
-    - Migração para `Cambria Math`, `Cambria`, `Caladea` (Google Fonts) e `STIX Two Text`, alinhando a tipografia do portal com a melhor tradição de periódicos científicos e com a estética clássica do KaTeX.
-  - **Chuva de Matrix Matemática Universal**:
-    - Reativação essencial da chuva de matrix matemática (`display: block` em `#matrixCanvas`) para todos os temas comuns.
-    - Cada tema possui sua própria cor temática de rastro para a chuva (azul celeste no Slate, azul no Paper Claro, âmbar no Sépia, verde no Retrô).
-  - **Novo Tema Selecionável: "Limpo & Impressão" (`theme-clean-print`)**:
-    - Adicionado à lista de seleção de temas como alternativa minimalista inspirada no formato de impressão das páginas de recursos.
-    - Fundo branco puro (`#ffffff`), texto preto (`#000000`), sem sombras e **sem chuva de matrix** (`display: none !important`), pausando o loop de renderização para leitura limpa e focada.
-  - **Gabaritos Secretos do Professor (Ctrl+U)**:
-    - 100% das 51 listas e 35 recuperações protegidas exclusivamente em comentários HTML.
-  - Aprovação de 100% dos testes da suíte `scripts/validate_nexus.py` e `scripts/validate_data.py`.
-
-- **Commit `2b25f73` (30/09/2026)**:
-  - Criação de 33 recursos pedagógicos completando 100% da ementa.
-  - Implementação das 2 novas calculadoras e refatoração visual das 5 existentes.
-  - Conversão e criação dos **Gabaritos Secretos do Professor via `Ctrl+U`** em todas as 51 listas de exercícios.
-  - Eliminação completa de tags visíveis `<details>`.
-  - Aprovação integral em `scripts/validate_nexus.py` e `scripts/validate_data.py`.
+- **Sessão Atual (30/09/2026) — Revamp do Dashboard (Tags 4L+3N & Admin), Padronização de Listas & KaTeX Zero-Error**:
+  - **Auditoria KaTeX Global (Zero-Error)**:
+    - Correção do erro de parsing em `recursos/resumos/9ANO-CONJUNTOS.html` (Definição 2.6: `@|A|@ ou @\# A@`).
+    - Correção de delimitador em `recursos/listas/3EM-SISTEMAS-LINEARES.html` (linha 732).
+    - 0 erros em todos os 182 arquivos HTML do repositório.
+  - **Revamp do Dashboard & Autenticação Segura**:
+    - **Tag do Estudante**: Formato rigoroso de **4 letras + 3 números** (ex: `BEAT901`, `GABR902`, `LUCA101`, `CLAR102`, `JULI201`, `RAFA301`). Regex `/^[A-Z]{4}\d{3}$/`.
+    - **Tag Admin do Professor**: Chave exclusiva `"twdzujqr369"`.
+    - **Campo de Digitação Mascarado**: Input `type="password"` com botão de toggle de visualização (`👁️` / `🔒`), mantendo a tag oculta por padrão.
+    - **Omissão dos botões de teste**: Remoção dos `#demo-chips` rápidos para privacidade e integridade.
+    - **5 Dimensões Oficiais da Matemática**:
+      1. `ALG` — Álgebra & Funções (Equações, Polinômios, Funções)
+      2. `GEO` — Geometria & Medidas (Plana, Espacial, Analítica e Métrica)
+      3. `NUM` — Números & Operações (Conjuntos, Progressões e Finanças)
+      4. `EST` — Estatística & Probabilidade (Tratamento de Dados e Contagem)
+      5. `LOG` — Raciocínio Lógico & Modelagem (Dedução e Resolução de Problemas)
+    - **Metas e Missões Estritamente de Matemática**:
+      - Conectadas diretamente aos Guias de Estudos (`recursos/guias/*.html`) e ementas curriculares (`docs/curriculo/`).
+    - **Painel de Gestão Docente (Admin)**:
+      - Grade de cards com avatar, tag, turma, média geral e missões concluídas.
+      - Criação dinâmica de estudantes com auto-população de missões matemáticas conforme a turma selecionada.
+      - Modal de edição completo: edição de informações, notas (tabela 3x5 para as 3 Etapas nas 5 Dimensões) e checklist de missões.
+      - Persistência total via `localStorage` (`nexus_students_data`).
+  - **Padronização Universal de Listas de Problemas (Benchmark `9ANO-FUNCOES.html`)**:
+    - Padronização das 51 listas de exercícios com metadados unificados: `<div class="problema-meta"><span class="topico">...</span><span class="dificuldade [facil|media|dificil|desafio]">...</span><span>⏱️ X min</span></div>`.
+    - Expansão de `3EM-LISTA-AREAS-COMPOSICAO.html` e `9ANO-LISTA-PITAGORAS-TRIGONOMETRIA.html` para 30 problemas graduados com resolução passo a passo comentada via `Ctrl+U`.
+    - Remoção de estrelas redundantes e unificação do CSS de problemas em `css/style.css`.
+  - **Apresentação Consistente da Página Inicial (`index.html`)**:
+    - Reformulação da apresentação com ênfase no Ecossistema Acadêmico de Matemática, no Quarteto Didático, no Laboratório Python e no Terminal HUD.
+  - **Validação Automatizada**:
+    - 100% de sucesso em `scripts/validate_nexus.py` e `scripts/validate_data.py`.
 
 ---
 
 ## 💡 7. Instruções para Futuros Agentes de IA
 
 1. Ao criar qualquer nova lista de problemas:
-   - Siga o modelo de [`TEMPLATE-LISTA-PROBLEMAS.html`](file:///home/heimdall/github/MATEMATICA/recursos/listas/TEMPLATE-LISTA-PROBLEMAS.html).
+   - Siga o modelo de [`TEMPLATE-LISTA-PROBLEMAS.html`](file:///home/heimdall/github/MATEMATICA/recursos/listas/TEMPLATE-LISTA-PROBLEMAS.html) e o benchmark [`9ANO-FUNCOES.html`](file:///home/heimdall/github/MATEMATICA/recursos/listas/9ANO-FUNCOES.html).
+   - Inclua sempre `<div class="problema-meta">` com tópico, dificuldade (`facil`, `media`, `dificil`, `desafio`) e estimativa de tempo `⏱️ X min`.
    - Inclua obrigatoriamente o gabarito secreto nos moldes do **Item 2 deste arquivo**.
    - **NUNCA** deixe o gabarito exposto em tags `<details>` ou em texto visível ao aluno.
-2. Ao adicionar páginas HTML:
+2. Ao cadastrar estudantes no Dashboard:
+   - Respeite o formato de tag **4 letras e 3 dígitos** (`/^[A-Z]{4}\d{3}$/`).
+   - A tag admin do professor é estritamente `"twdzujqr369"`.
+   - Sempre vincule missões e notas exclusivamente à Matemática e seus Guias de Estudo.
+3. Ao adicionar páginas HTML:
    - Inclua link correspondente em `recursos.html` com os atributos `data-class` adequados.
    - Use o boilerplate padrão do Nexus (`matrixCanvas`, `theme-config-icon`, `theme-switcher.js`, KaTeX auto-render).
-3. Sempre teste a integridade com:
+4. Sempre teste a integridade com:
    ```bash
    python3 scripts/validate_nexus.py && python3 scripts/validate_data.py
    ```
+

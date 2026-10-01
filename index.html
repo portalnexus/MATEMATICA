@@ -24,59 +24,82 @@
 
 <div class="container">
 
- <header>
-            <h1>Sobre o Nexus: Seu Portal para o Conhecimento</h1>
-        </header>
+  <header style="text-align: center; margin-bottom: 2rem;">
+    <span class="hud-status-badge">&gt;&gt; NEXUS // ECOSSISTEMA ACADÊMICO DE MATEMÁTICA</span>
+    <h1 style="font-size: 2.2rem; margin: 0.5rem 0 0.8rem 0;">Portal Nexus</h1>
+    <p class="lead" style="max-width: 800px; margin: 0 auto; color: var(--secondary-text-color); font-size: 1.1rem; line-height: 1.6;">
+      Plataforma educacional dedicada ao desenvolvimento do raciocínio analítico, rigor formal e autonomia intelectual através da Matemática e da Computação.
+    </p>
+  </header>
 
-        <section>
-            <article>
-                <h2>Nossa Missão: Desvendando o Saber com Inovação</h2>
-                <p>No Nexus, acreditamos que o aprendizado deve ser uma jornada empolgante e acessível a todos. Nossa missão é desmistificar conceitos complexos e revelar a beleza e a relevância da Matemática, em seu dia a dia e em diversas áreas do conhecimento. Queremos inspirar a curiosidade, promover o pensamento crítico e nutrir a criatividade na resolução de problemas.</p>
-            </article>      
-            <article>
-                <h2>O Que o Nexus Oferece: Seu Arsenal de Aprendizagem</h2>
-                <ul>
-                    <li><strong>Resumos:</strong> Resumos sobre conceitos fundamentais com rigor matemático e notação adequada.</li>
-                    <li><strong>Listas de problemas:</strong> Uma vasta gama de problemas para introdução, prática, aperfeiçoamento e aprofundamento da Matemática (32+ problemas por lista).</li>
-                    <li><strong>Atividades de recuperação:</strong> Problemas pensados e selecionados para recuperação das aprendizagens com scaffolding pedagógico progressivo.</li>
-                    <li><strong>Guias de estudos:</strong> Roteiros completos de aprendizagem, mapas conceituais e estratégias de estudo para cada capítulo.</li>
-                    <li><strong>Recursos Complementares:</strong> Plataformas online, artigos, jogos educativos, vídeos e flashcards.</li>
-                    <li><strong>Missões:</strong> Metas e desafios para você desenvolver sua aprendizagem na Matemática e conquistar troféus e menções para seu dashboard.</li>
-                </ul>
-            </article>
-            <article>
-                <h2>Organização do material didático por capítulos e tópicos:</h2>
-                <div id="curriculum-container">
-                    <!-- O conteúdo do currículo será carregado aqui pelo JavaScript -->
-                </div>
-            </article>
-            <article>
-                <h2>Para Quem é o Nexus?</h2>
-                <p>Esta plataforma é destinada a:</p>
-                <ul>
-                    <li>Estudantes do 9º ano do ensino fundamental (turmas 9A e 9B).</li>
-                    <li>Estudantes do 1º ano do ensino médio (turmas 1A e 1B).</li>
-                    <li>Estudantes do 2º ano do ensino médio (turma 2EM).</li>
-                    <li>Estudantes do 3º ano do ensino médio (turma 3EM).</li>
-                    <li>Entusiastas da matemática e curiosos de todas as idades.</li>
-                    <li>Qualquer pessoa que deseje aprimorar seus conhecimentos.</li>
-                </ul>
-                <p><strong>Use o seletor de turma na navegação acima para visualizar o conteúdo específico de sua turma!</strong></p>
-            </article>
-             <article>
-                <h2>Nosso Compromisso e o Futuro do Nexus</h2>
-                <p>O Nexus é um projeto em contínuo desenvolvimento e de código aberto, e estamos sempre buscando expandir e aprimorar nossa oferta. Nossos planos futuros incluem:</p>
-                <ul>
-                    <li>Expansão para mais tópicos.</li>
-                    <li>Adição de mais conteúdo interativo e multimídia.</li>
-                    <li>Desenvolvimento de uma comunidade de usuários com fóruns ou áreas de discussão.</li>
-                </ul>
-                <p>Se você tiver sugestões, encontrar algum erro, ou desejar contribuir com conteúdo, por favor entre em contato com o Professor João Pedro.</p>
-                <ul>
-                  <a href="https://teams.microsoft.com/l/chat/0/0?users=joao.germano305@portalsesisp.org.br">Enviar mensagem para o Professor João Pedro via TEAMS</a>
-                </ul>
-            </article>
-        </section>
+  <section>
+    <article>
+      <h2>Fundamentos & Filosofia Pedagógica</h2>
+      <p>O <strong>Portal Nexus</strong> foi concebido para superar a dicotomia entre a teoria abstrata e a prática mecânica. Nossa metodologia integra rigor conceitual clássico, notação matemática internacional com KaTeX, visualizações geométricas responsivas e ferramentas computacionais em Python, permitindo que cada estudante construa uma compreensão sólida, duradoura e profunda.</p>
+    </article>
+
+    <article>
+      <h2>A Estrutura Formativa do Nexus: O Quarteto Didático</h2>
+      <p>Cada tema e capítulo do currículo escolar conta com quatro pilares pedagógicos estruturados para garantir a progressão contínua do aprendizado:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 1.5rem 0;">
+        <div style="background: rgba(0,0,0,0.25); border: 1px solid var(--container-border-color); border-radius: 8px; padding: 16px;">
+          <h3 style="color: var(--link-color); margin-top: 0; font-size: 1.05rem;">📖 Resumos Teóricos</h3>
+          <p style="font-size: 0.9rem; line-height: 1.5; color: var(--main-text-color); margin-bottom: 0;">
+            Exposições formais contendo definições axiomáticas, teoremas demonstrados, notas históricas e exemplos resolvidos passo a passo.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.25); border: 1px solid var(--container-border-color); border-radius: 8px; padding: 16px;">
+          <h3 style="color: var(--teorema-color, #10b981); margin-top: 0; font-size: 1.05rem;">🧩 Listas Graduadas</h3>
+          <p style="font-size: 0.9rem; line-height: 1.5; color: var(--main-text-color); margin-bottom: 0;">
+            Coleções de 30 a 40+ problemas distribuídos em 4 seções: Introdutórios, Fixação, Aprofundamento e Propostos, com metadados de tempo e tópico.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.25); border: 1px solid var(--container-border-color); border-radius: 8px; padding: 16px;">
+          <h3 style="color: #f59e0b; margin-top: 0; font-size: 1.05rem;">🔄 Recuperação Pedagógica</h3>
+          <p style="font-size: 0.9rem; line-height: 1.5; color: var(--main-text-color); margin-bottom: 0;">
+            Atividades guiadas com scaffolding cognitivo, diagnósticos de dificuldades frequentes e reforço de bases conceituais essenciais.
+          </p>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.25); border: 1px solid var(--container-border-color); border-radius: 8px; padding: 16px;">
+          <h3 style="color: #a855f7; margin-top: 0; font-size: 1.05rem;">🗺️ Guias de Estudos</h3>
+          <p style="font-size: 0.9rem; line-height: 1.5; color: var(--main-text-color); margin-bottom: 0;">
+            Roteiros de aprendizagem gamificados com missões curriculares, sínteses visuais e autoavaliação para desenvolvimento de autonomia.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article>
+      <h2>Laboratório Computacional & Ferramentas Interativas</h2>
+      <p>A matemática contemporânea é inseparável do raciocínio algorítmico. O Nexus disponibiliza um módulo integrado de <strong>Python para Matemática</strong> com tutoriais de cálculo numérico, análise de dados e simulação, além de <strong>ferramentas interativas</strong> (calculadoras de matrizes, simuladores trigonométricos e geradores de gráficos vetoriais).</p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+        <a href="recursos.html" class="themed-button">EXPLORAR RECURSOS</a>
+        <a href="python.html" class="themed-button">LABORATÓRIO PYTHON</a>
+        <a href="dashboard.html" class="themed-button">TERMINAL DE DESEMPENHO</a>
+      </div>
+    </article>
+
+    <article>
+      <h2>Organização Curricular por Capítulos e Tópicos</h2>
+      <p>Selecione a turma desejada no seletor do topo da página para filtrar os conteúdos específicos do seu ano letivo:</p>
+      <div id="curriculum-container">
+        <!-- O conteúdo curricular é renderizado dinamicamente via class-selector.js -->
+      </div>
+    </article>
+
+    <article>
+      <h2>Comunidade e Suporte Acadêmico</h2>
+      <p>O Portal Nexus é um projeto de código aberto em constante evolução, mantido sob curadoria docente. Para dúvidas conceituais, reporte de inconsistências ou sugestões pedagógicas, entre em contato:</p>
+      <p>
+        📧 <strong>Coordenação Docente:</strong> Professor João Pedro Melloni Tardif Germano<br>
+        💬 <a href="https://teams.microsoft.com/l/chat/0/0?users=joao.germano305@portalsesisp.org.br" style="color: var(--link-color); text-decoration: underline;">Canal Direto de Atendimento via Microsoft Teams</a>
+      </p>
+    </article>
+  </section>
 </div> <!-- /.container -->
 </div> <!-- /#page-wrapper -->
 

@@ -1,24 +1,200 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS - Matrizes</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
-    <link rel="stylesheet" href="../../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Matrizes, Determinantes e Teoria Algébrica Linear</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-2em {
+      background-color: rgba(245, 158, 11, 0.25);
+      border: 2px solid #f59e0b;
+      color: #fde68a;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
 </head>
 
 <body>
-    <div id="page-wrapper">
-          <nav>
+<div id="page-wrapper">
+  <nav>
     <ul>
       <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
       <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
@@ -26,79 +202,621 @@
       <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
     </ul>
   </nav>
-        <div class="container">
-            <article>
-                <span class="badge-nivel ano-2em">2º Ano EM</span>
-                <h1>Matrizes e Determinantes</h1>
-                <p>Matrizes são tabelas organizadas em linhas e colunas, fundamentais para a resolução de sistemas
-                    lineares e aplicações em computação gráfica e engenharia.</p>
 
-                <h2>1. Definição</h2>
-                <div class="destaque-box definicao">
-                    <p>Uma matriz @A@ de ordem @m \times n@ (@m@ linhas e @n@ colunas) é representada por:</p>
-                    @@ A = \begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\
-                    \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{bmatrix} @@
-                    <p>Onde cada elemento @a_{ij}@ está na linha @i@ e coluna @j@.</p>
-                </div>
+  <div class="container">
+    <article>
+      <div class="badge-nivel ano-2em">2º Ano EM</div>
 
-                <h2>2. Operações Básicas</h2>
-                <div class="destaque-box teorema">
-                    <ul class="lista-propriedades">
-                        <li><strong>Adição:</strong> Somamos os elementos correspondentes. (Devem ter a mesma ordem).
-                        </li>
-                        <li><strong>Multiplicação por Escalar:</strong> Multiplicamos todos os elementos pelo número
-                            real.</li>
-                        <li><strong>Multiplicação de Matrizes:</strong> O número de colunas da 1ª deve ser igual ao
-                            número de linhas da 2ª.</li>
-                    </ul>
-                </div>
+      <h1>Matrizes, Determinantes e Teoria Algébrica Linear</h1>
+      <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+        Capítulo 2: Estruturas Multilineares, Teoremas de Laplace e Binet no Padrão FME e Olimpíadas
+      </p>
 
-                <h2>3. Determinantes</h2>
-                <div class="destaque-box definicao">
-                    <h3>Matriz 2x2</h3>
-                    @@ \text{det} \begin{bmatrix} a & b \\ c & d \end{bmatrix} = ad - bc @@
-                </div>
+      <!-- ===============================================================
+           1. CONTEXTO HISTÓRICO E EPISTEMOLÓGICO
+           =============================================================== -->
+      <div class="destaque-box observacao">
+        <h3>1. Fundamentação Histórica e Epistemológica</h3>
+        <p>
+          Historicamente, os determinantes antecederam as próprias matrizes em quase dois séculos. No século XVII, Seki Takakazu no Japão (1683) e Gottfried Wilhelm Leibniz na Europa (1693) introduziram coeficientes tabulares para determinar a compatibilidade de sistemas de equações lineares. No século XVIII, Gabriel Cramer (1750) e Pierre-Simon Laplace (1772) formularam a teoria dos menores complementares e a regra de Cramer.
+        </p>
+        <p>
+          Somente em meados do século XIX, com James Joseph Sylvester (que cunhou o termo <em>"matriz"</em> do latim <em>mater</em>, útero onde germinam os determinantes) e especialmente <strong>Arthur Cayley</strong> (<em>A Memoir on the Theory of Matrices</em>, 1858), a matriz passou a ser concebida como uma entidade matemática autônoma dotada de álgebra própria — com adição, produto não-comutativo e inversão —, tornando-se a linguagem formal primária da física quântica, computação gráfica e aprendizado de máquina moderno.
+        </p>
+      </div>
 
-                <div class="destaque-box observacao">
-                    <h3>Regra de Sarrus (3x3)</h3>
-                    <p>Para matrizes 3x3, somamos os produtos das diagonais principais e subtraímos os produtos das
-                        diagonais secundárias.</p>
-                </div>
+      <!-- ===============================================================
+           2. DEFINIÇÃO FORMAL E ÁLGEBRA DE MATRIZES
+           =============================================================== -->
+      <h2>2. Espaço Vetorial das Matrizes @\mathcal{M}_{m \times n}(\mathbb{R})@</h2>
 
-                <h2>4. Exemplo Resolvido</h2>
-                <div class="exemplo-resolvido">
-                    <h3>Exemplo: Determinante 2x2</h3>
-                    <p>Calcule o determinante de @M = \begin{bmatrix} 5 & 2 \\ 3 & 4 \end{bmatrix}@.</p>
-                    <h4>Solução:</h4>
-                    <p>@\text{det}(M) = (5 \cdot 4) - (2 \cdot 3)@</p>
-                    <p>@\text{det}(M) = 20 - 6 = 14@.</p>
-                </div>
+      <div class="destaque-box definicao">
+        <h3>Definição 2.1 (Matriz Real)</h3>
+        <p>
+          Sejam @m, n \in \mathbb{N}^*@. Uma <strong>matriz real de ordem @m \times n@</strong> é uma aplicação:
+        </p>
+        @@
+        A: \{1, 2, \dots, m\} \times \{1, 2, \dots, n\} \to \mathbb{R}, \quad (i, j) \mapsto a_{ij}
+        @@
+        <p>
+          Disposta convencionalmente em uma tabela retangular de @m@ linhas e @n@ colunas:
+        </p>
+        @@
+        A = [a_{ij}]_{m \times n} = \begin{bmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mn}
+        \end{bmatrix}
+        @@
+      </div>
 
-            </article>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="../../recursos.html" class="themed-button"
-                    >VOLTAR</a>
+      <div class="destaque-box definicao">
+        <h3>Classes Notáveis de Matrizes</h3>
+        <ul>
+          <li><strong>Matriz Quadrada (@m = n@):</strong> Possui <em>diagonal principal</em> (@i = j@) e <em>diagonal secundária</em> (@i + j = n + 1@). O <strong>traço</strong> de @A@ é a soma dos elementos da diagonal principal: @\operatorname{tr}(A) = \sum_{i=1}^n a_{ii}@.</li>
+          <li><strong>Matriz Identidade (@I_n@):</strong> Matriz quadrada onde @a_{ij} = 1@ se @i = j@ e @a_{ij} = 0@ se @i \neq j@ (Delta de Kronecker @a_{ij} = \delta_{ij}@). Elemento neutro da multiplicação.</li>
+          <li><strong>Matriz Transposta (@A^T \in \mathcal{M}_{n \times m}@):</strong> Obtida permutando linhas por colunas: @(A^T)_{ij} = a_{ji}@.</li>
+          <li><strong>Matriz Simétrica (@A = A^T@) e Antissimétrica (@A = -A^T@):</strong> Na antissimétrica, necessariamente @a_{ii} = 0@ para todo @i@.</li>
+          <li><strong>Matriz Ortogonal:</strong> Matriz quadrada que satisfaz @A^T A = A A^T = I_n@.</li>
+        </ul>
+      </div>
+
+      <!-- ===============================================================
+           3. PRODUTO DE MATRIZES
+           =============================================================== -->
+      <h2>3. Produto de Matrizes e suas Propriedades Algébricas</h2>
+
+      <div class="destaque-box definicao">
+        <h3>Definição 3.1 (Multiplicação de Matrizes)</h3>
+        <p>
+          Sejam @A \in \mathcal{M}_{m \times p}(\mathbb{R})@ e @B \in \mathcal{M}_{p \times n}(\mathbb{R})@. O produto @C = A \cdot B \in \mathcal{M}_{m \times n}(\mathbb{R})@ é definido por:
+        </p>
+        @@
+        c_{ij} = \sum_{k=1}^p a_{ik} \cdot b_{kj} = a_{i1}b_{1j} + a_{i2}b_{2j} + \dots + a_{ip}b_{pj}
+        @@
+        <p>
+          A multiplicação só está definida se o número de colunas da 1ª matriz (@p@) for estritamente igual ao número de linhas da 2ª matriz.
+        </p>
+      </div>
+
+      <div class="destaque-box teorema">
+        <h3>Propriedades e Contraexemplos Estruturais</h3>
+        <ol>
+          <li><strong>Associativa:</strong> @A(BC) = (AB)C@.</li>
+          <li><strong>Distributiva:</strong> @A(B + C) = AB + AC@ e @(A + B)C = AC + BC@.</li>
+          <li><strong>Transposição do Produto:</strong> @(AB)^T = B^T A^T@ (a ordem inverte-se!).</li>
+          <li>
+            <strong>Não-Comutatividade Geral:</strong> Em geral, @AB \neq BA@, mesmo quando ambas as matrizes são quadradas da mesma ordem.
+          </li>
+          <li>
+            <strong>Existência de Divisores de Zero:</strong> É perfeitamente possível que @AB = 0@ com @A \neq 0@ e @B \neq 0@. Logo, a álgebra de matrizes não é um corpo comutativo nem um domínio de integridade.
+          </li>
+        </ol>
+      </div>
+
+      <!-- ===============================================================
+           4. TEORIA DOS DETERMINANTES E TEOREMA DE LAPLACE
+           =============================================================== -->
+      <h2>4. Teoria dos Determinantes e Teorema de Laplace</h2>
+
+      <div class="destaque-box definicao">
+        <h3>Definição 4.1 (Determinante)</h3>
+        <p>
+          O <strong>determinante</strong> é uma função que associa a cada matriz quadrada @A \in \mathcal{M}_{n \times n}(\mathbb{R})@ um único escalar @\det(A) \in \mathbb{R}@, constituindo a única forma multilinear alternada das colunas de @A@ que satisfaz @\det(I_n) = 1@.
+        </p>
+      </div>
+
+      <div class="destaque-box teorema">
+        <h3>Ordens 1, 2 e 3 (Regra de Sarrus)</h3>
+        <ul>
+          <li><strong>Ordem 1:</strong> @\det[a_{11}] = a_{11}@.</li>
+          <li><strong>Ordem 2:</strong>
+            @@
+            \det \begin{bmatrix} a & b \\ c & d \end{bmatrix} = ad - bc
+            @@
+          </li>
+          <li><strong>Ordem 3 (Sarrus):</strong>
+            @@
+            \det \begin{bmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{bmatrix} = (a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32}) - (a_{13}a_{22}a_{31} + a_{11}a_{23}a_{32} + a_{12}a_{21}a_{33})
+            @@
+          </li>
+        </ul>
+      </div>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 4.1 (Teorema de Expansão de Laplace para Ordem @n@)</h3>
+        <p>
+          O determinante de qualquer matriz quadrada @A@ de ordem @n \ge 2@ é igual à soma dos produtos dos elementos de uma linha (ou coluna) qualquer pelos seus respectivos <strong>cofatores</strong>:
+        </p>
+        <p>Desenvolvimento pela linha @i@ fixada:</p>
+        @@
+        \det(A) = \sum_{j=1}^n a_{ij} \cdot C_{ij}
+        @@
+        <p>Desenvolvimento pela coluna @j@ fixada:</p>
+        @@
+        \det(A) = \sum_{i=1}^n a_{ij} \cdot C_{ij}
+        @@
+        <p>
+          onde o <strong>cofator</strong> @C_{ij}@ do elemento @a_{ij}@ é dado por:
+        </p>
+        @@
+        C_{ij} = (-1)^{i+j} \cdot \det(M_{ij})
+        @@
+        <p>sendo @M_{ij}@ a submatriz de ordem @(n-1) \times (n-1)@ obtida eliminando a linha @i@ e a coluna @j@ de @A@.</p>
+      </div>
+
+      <!-- ===============================================================
+           5. PROPRIEDADES OPERATÓRIAS E TEOREMA DE BINET
+           =============================================================== -->
+      <h2>5. Propriedades Operatórias Fundamentais e Regra de Chió</h2>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 5.1 (Propriedades Canônicas dos Determinantes)</h3>
+        <ol>
+          <li><strong>Transposta:</strong> @\det(A^T) = \det(A)@.</li>
+          <li><strong>Teorema de Binet:</strong> Para quaisquer matrizes quadradas de ordem @n@:
+            @@
+            \det(A \cdot B) = \det(A) \cdot \det(B)
+            @@
+          </li>
+          <li><strong>Multiplicação por Escalar:</strong> Se @k \in \mathbb{R}@ e @A@ tem ordem @n@:
+            @@
+            \det(k \cdot A) = k^n \cdot \det(A)
+            @@
+          </li>
+          <li><strong>Permutação de Filas:</strong> A troca de posição entre duas linhas (ou colunas) paralelas inverte o sinal do determinante.</li>
+          <li><strong>Filas Nulas ou Proporcionais:</strong> Se @A@ possui uma linha (ou coluna) identicamente nula, ou duas filas paralelas iguais ou proporcionais, então @\det(A) = 0@.</li>
+          <li><strong>Teorema de Jacobi:</strong> O determinante não se altera quando se adiciona a uma fila uma combinação linear de outras filas paralelas.</li>
+          <li><strong>Matriz Triangular:</strong> O determinante de uma matriz triangular (superior ou inferior) é simplesmente o produto dos elementos da diagonal principal:
+            @@
+            \det(A) = \prod_{i=1}^n a_{ii}
+            @@
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box observacao">
+        <h3>Regra de Chió para Redução de Ordem</h3>
+        <p>
+          Se o elemento superior esquerdo de @A@ for @a_{11} = 1@, a ordem do determinante pode ser reduzida de @n@ para @n-1@ construindo uma matriz @B@ onde cada elemento é dado por:
+        </p>
+        @@
+        b_{ij} = a_{i+1, j+1} - a_{i+1, 1} \cdot a_{1, j+1}
+        @@
+        <p>com @\det(A) = (-1)^{1+1} \det(B) = \det(B)@.</p>
+      </div>
+
+      <!-- ===============================================================
+           6. MATRIZ INVERSA
+           =============================================================== -->
+      <h2>6. Inversão de Matrizes e Teorema da Matriz Adjunta</h2>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 6.1 (Critério de Inversibilidade e Matriz Adjunta)</h3>
+        <p>
+          Uma matriz quadrada @A@ é <strong>inversível</strong> (não-singular) se, e somente se, seu determinante é não nulo:
+        </p>
+        @@
+        \exists A^{-1} \iff \det(A) \neq 0
+        @@
+        <p>
+          Neste caso, @\det(A^{-1}) = \frac{1}{\det(A)}@ e a matriz inversa pode ser obtida analiticamente pela transposta da matriz dos cofatores (matriz adjunta clássica @\operatorname{adj}(A)@):
+        </p>
+        @@
+        A^{-1} = \frac{1}{\det(A)} \cdot \operatorname{adj}(A) = \frac{1}{\det(A)} \cdot [C_{ij}]^T
+        @@
+        <p>Para o caso particular de ordem @2 \times 2@ com @ad - bc \neq 0@:</p>
+        @@
+        \begin{bmatrix} a & b \\ c & d \end{bmatrix}^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}
+        @@
+      </div>
+
+      <!-- ===============================================================
+           7. EXEMPLOS RESOLVIDOS ANALÍTICOS
+           =============================================================== -->
+      <h2>7. Exemplos Analíticos Resolvidos Passo a Passo</h2>
+
+      <div class="exemplo-resolvido">
+        <h3>Exemplo 7.1: Produto Não-Comutativo e Potências de Matrizes</h3>
+        <p>
+          Dadas as matrizes @A = \begin{bmatrix} 1 & 2 \\ 0 & 1 \end{bmatrix}@ e @B = \begin{bmatrix} 2 & 0 \\ 1 & 3 \end{bmatrix}@:
+        </p>
+        <p>
+          <strong>a)</strong> Calcule @AB@ e @BA@ e conclua sobre a comutatividade.<br>
+          <strong>b)</strong> Prove por indução que @A^n = \begin{bmatrix} 1 & 2n \\ 0 & 1 \end{bmatrix}@ para todo @n \in \mathbb{N}^*@.
+        </p>
+
+        <h4>Resolução Passo a Passo:</h4>
+        <p><strong>a) Cálculo dos Produtos:</strong></p>
+        @@
+        AB = \begin{bmatrix} 1 & 2 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} 2 & 0 \\ 1 & 3 \end{bmatrix} = \begin{bmatrix} 1(2) + 2(1) & 1(0) + 2(3) \\ 0(2) + 1(1) & 0(0) + 1(3) \end{bmatrix} = \begin{bmatrix} 4 & 6 \\ 1 & 3 \end{bmatrix}
+        @@
+        @@
+        BA = \begin{bmatrix} 2 & 0 \\ 1 & 3 \end{bmatrix} \begin{bmatrix} 1 & 2 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 2(1) + 0(0) & 2(2) + 0(1) \\ 1(1) + 3(0) & 1(2) + 3(1) \end{bmatrix} = \begin{bmatrix} 2 & 4 \\ 1 & 5 \end{bmatrix}
+        @@
+        <p>Como @\begin{bmatrix} 4 & 6 \\ 1 & 3 \end{bmatrix} \neq \begin{bmatrix} 2 & 4 \\ 1 & 5 \end{bmatrix}@, temos @AB \neq BA@.</p>
+
+        <p><strong>b) Demonstração por Indução:</strong></p>
+        <ul>
+          <li><em>Base:</em> Para @n = 1@: @A^1 = \begin{bmatrix} 1 & 2(1) \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 2 \\ 0 & 1 \end{bmatrix} = A@ (Verdadeiro).</li>
+          <li><em>Hipótese:</em> Suponhamos válido para @n = k@: @A^k = \begin{bmatrix} 1 & 2k \\ 0 & 1 \end{bmatrix}@.</li>
+          <li><em>Passo Indutivo:</em>
+            @@
+            A^{k+1} = A^k \cdot A = \begin{bmatrix} 1 & 2k \\ 0 & 1 \end{bmatrix} \begin{bmatrix} 1 & 2 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 1(1) + 2k(0) & 1(2) + 2k(1) \\ 0(1) + 1(0) & 0(2) + 1(1) \end{bmatrix} = \begin{bmatrix} 1 & 2k+2 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 2(k+1) \\ 0 & 1 \end{bmatrix}
+            @@
+          </li>
+        </ul>
+        <p>Portanto, a fórmula é válida para todo @n \in \mathbb{N}^*@. @\blacksquare@</p>
+      </div>
+
+      <div class="exemplo-resolvido">
+        <h3>Exemplo 7.2: Aplicação do Teorema de Laplace e Chió</h3>
+        <p>
+          Calcule o determinante da matriz de ordem 4:
+        </p>
+        @@
+        M = \begin{bmatrix}
+        1 & 2 & -1 & 3 \\
+        0 & 3 & 0 & 0 \\
+        2 & 1 & 4 & 1 \\
+        -1 & 0 & 2 & 5
+        \end{bmatrix}
+        @@
+
+        <h4>Resolução Passo a Passo:</h4>
+        <p>Observamos a 2ª linha: ela contém três zeros e apenas um elemento não nulo (@a_{22} = 3@). Aplicamos o Teorema de Laplace desenvolvendo pela 2ª linha:</p>
+        @@
+        \det(M) = a_{22} \cdot C_{22} = 3 \cdot (-1)^{2+2} \cdot \det \begin{bmatrix} 1 & -1 & 3 \\ 2 & 4 & 1 \\ -1 & 2 & 5 \end{bmatrix} = 3 \cdot \det(N)
+        @@
+        <p>Calculamos @\det(N)@ pela Regra de Sarrus:</p>
+        <ul>
+          <li>Termos positivos: @(1 \cdot 4 \cdot 5) + (-1 \cdot 1 \cdot -1) + (3 \cdot 2 \cdot 2) = 20 + 1 + 12 = 33@.</li>
+          <li>Termos negativos: @(3 \cdot 4 \cdot -1) + (1 \cdot 1 \cdot 2) + (-1 \cdot 2 \cdot 5) = -12 + 2 - 10 = -20@.</li>
+        </ul>
+        @@
+        \det(N) = 33 - (-20) = 53
+        @@
+        <p>Multiplicando pelo cofator:</p>
+        @@
+        \det(M) = 3 \cdot 53 = 159 \quad \blacksquare
+        @@
+      </div>
+
+      <!-- ===============================================================
+           8. ERROS COMUNS E ARMADILHAS
+           =============================================================== -->
+      <h2>8. Armadilhas Conceituais e Erros Frequentes</h2>
+
+      <div class="erro-comum">
+        <h3>Armadilha 1: O escalar no determinante @\det(kA) \neq k \det(A)@</h3>
+        <p>
+          Se @A@ é uma matriz de ordem @n \times n@, multiplicar @A@ por @k@ multiplica <strong>todas as @n@ linhas</strong> por @k@. Logo:
+          @@
+          \det(k A) = k^n \cdot \det(A)
+          @@
+          Por exemplo, para uma matriz @3 \times 3@ com @\det(A) = 5@, @\det(2A) = 2^3 \cdot 5 = 8 \cdot 5 = 40@, e não 10!
+        </p>
+      </div>
+
+      <div class="erro-comum">
+        <h3>Armadilha 2: O determinante da soma @\det(A + B) \neq \det(A) + \det(B)@</h3>
+        <p>
+          O determinante é multilinear em relação às linhas individualmente, mas <strong>não é linear</strong> no espaço global das matrizes. Em geral, @\det(A + B) \neq \det(A) + \det(B)@.
+        </p>
+      </div>
+
+      <!-- ===============================================================
+           9. EXERCÍCIOS PROPOSTOS (12 PROBLEMAS EM 3 NÍVEIS)
+           =============================================================== -->
+      <h2>9. Exercícios Propostos e Desafios Olímpicos</h2>
+
+      <h3>Nível 1: Fixação Conceitual e Aplicações Diretas</h3>
+      <ol class="lista-exercicios">
+        <li>
+          <strong>(Nexus)</strong> Dadas as matrizes @A = \begin{bmatrix} 3 & -1 \\ 2 & 4 \end{bmatrix}@ e @B = \begin{bmatrix} 1 & 5 \\ 0 & -2 \end{bmatrix}@, determine a matriz @X = 2A - 3B^T@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Calculamos @2A@ e @B^T@:</p>
+              @@
+              2A = \begin{bmatrix} 6 & -2 \\ 4 & 8 \end{bmatrix}, \quad B^T = \begin{bmatrix} 1 & 0 \\ 5 & -2 \end{bmatrix} \implies 3B^T = \begin{bmatrix} 3 & 0 \\ 15 & -6 \end{bmatrix}
+              @@
+              @@
+              X = 2A - 3B^T = \begin{bmatrix} 6 - 3 & -2 - 0 \\ 4 - 15 & 8 - (-6) \end{bmatrix} = \begin{bmatrix} 3 & -2 \\ -11 & 14 \end{bmatrix}
+              @@
             </div>
-        </div>
-    </div>
-    <canvas id="matrixCanvas"></canvas>
-    <script src="../../js/matrix-rain.js" defer></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    { left: "@@", right: "@@", display: true },
-                    { left: "\\[", right: "\\]", display: true },
-                    { left: "@", right: "@", display: false },
-                    { left: "\\(", right: "\\)", display: false }
-                ],
-                throwOnError: false
-            });
-        });
-    </script>
-    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
-    <script src="../../js/theme-switcher.js" defer></script>
-    <script src="../../js/print-mode.js" defer></script>
-</body>
+          </details>
+        </li>
 
+        <li>
+          <strong>(Nexus)</strong> Calcule o determinante da matriz @A = \begin{bmatrix} x & 4 \\ 3 & x-1 \end{bmatrix}@ e determine os valores de @x@ para os quais @\det(A) = 0@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Aplicando a definição de ordem 2:</p>
+              @@
+              \det(A) = x(x - 1) - (4 \cdot 3) = x^2 - x - 12
+              @@
+              <p>Fazendo @\det(A) = 0@:</p>
+              @@
+              x^2 - x - 12 = 0 \iff (x - 4)(x + 3) = 0 \implies x = 4 \quad \text{ou} \quad x = -3
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Uma matriz @A@ quadrada de ordem 3 possui @\det(A) = -4@. Calcule:
+          <br>
+          a) @\det(A^T)@ e @\det(A^{-1})@
+          <br>
+          b) @\det(3A)@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p><strong>a)</strong> Pelas propriedades 5.1 e 6.1:</p>
+              @@
+              \det(A^T) = \det(A) = -4
+              @@
+              @@
+              \det(A^{-1}) = \frac{1}{\det(A)} = -\frac{1}{4} = -0{,}25
+              @@
+              <p><strong>b)</strong> Como a ordem é @n = 3@:</p>
+              @@
+              \det(3A) = 3^3 \cdot \det(A) = 27 \cdot (-4) = -108
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Obtenha a inversa da matriz @M = \begin{bmatrix} 3 & 5 \\ 1 & 2 \end{bmatrix}@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Calculamos @\det(M) = (3 \cdot 2) - (5 \cdot 1) = 6 - 5 = 1@.</p>
+              <p>Pela fórmula canônica @2 \times 2@:</p>
+              @@
+              M^{-1} = \frac{1}{1} \begin{bmatrix} 2 & -5 \\ -1 & 3 \end{bmatrix} = \begin{bmatrix} 2 & -5 \\ -1 & 3 \end{bmatrix}
+              @@
+              <p><em>Verificação:</em> @\begin{bmatrix} 3 & 5 \\ 1 & 2 \end{bmatrix}\begin{bmatrix} 2 & -5 \\ -1 & 3 \end{bmatrix} = \begin{bmatrix} 6-5 & -15+15 \\ 2-2 & -5+6 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}@. Perfeito!</p>
+            </div>
+          </details>
+        </li>
+      </ol>
+
+      <h3>Nível 2: Aprofundamento e Aplicações Analíticas</h3>
+      <ol class="lista-exercicios" start="5">
+        <li>
+          <strong>(FME - Gelson Iezzi)</strong> Sejam @A@ e @B@ matrizes quadradas de ordem @n@ tais que @AB = A@ e @BA = B@. Prove que @A@ e @B@ são matrizes idempotentes (isto é, @A^2 = A@ e @B^2 = B@).
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Multiplicando @AB = A@ à direita por @A@ e usando a associatividade:</p>
+              @@
+              A^2 = A \cdot A = (AB)A = A(BA)
+              @@
+              <p>Substituindo @BA = B@:</p>
+              @@
+              A^2 = A \cdot B = A
+              @@
+              <p>Analogamente para @B@:</p>
+              @@
+              B^2 = B \cdot B = (BA)B = B(AB) = B \cdot A = B \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(FME)</strong> Mostre que o determinante da Matriz de Vandermonde de ordem 3:
+          @@
+          V = \begin{bmatrix} 1 & 1 & 1 \\ a & b & c \\ a^2 & b^2 & c^2 \end{bmatrix}
+          @@
+          é dado pelo produto @(b - a)(c - a)(c - b)@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Aplicamos o Teorema de Jacobi subtraindo a coluna 1 das colunas 2 e 3 (@C_2 \leftarrow C_2 - C_1@ e @C_3 \leftarrow C_3 - C_1@):</p>
+              @@
+              \det(V) = \det \begin{bmatrix} 1 & 0 & 0 \\ a & b - a & c - a \\ a^2 & b^2 - a^2 & c^2 - a^2 \end{bmatrix}
+              @@
+              <p>Desenvolvendo pela 1ª linha por Laplace:</p>
+              @@
+              \det(V) = 1 \cdot \det \begin{bmatrix} b - a & c - a \\ (b - a)(b + a) & (c - a)(c + a) \end{bmatrix}
+              @@
+              <p>Colocando @(b - a)@ da 1ª coluna e @(c - a)@ da 2ª coluna em evidência:</p>
+              @@
+              \det(V) = (b - a)(c - a) \det \begin{bmatrix} 1 & 1 \\ b + a & c + a \end{bmatrix} = (b - a)(c - a)[(c + a) - (b + a)] = (b - a)(c - a)(c - b) \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Fuvest)</strong> Se @A@ é uma matriz quadrada de ordem 3 tal que @A^3 = 2I_3@, determine o valor de @\det(A)@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Aplicamos a função determinante em ambos os membros de @A^3 = 2I_3@:</p>
+              @@
+              \det(A^3) = \det(2I_3)
+              @@
+              <p>Pelo Teorema de Binet: @\det(A^3) = (\det A)^3@.</p>
+              <p>Pela multiplicação escalar de matriz de ordem @n = 3@:</p>
+              @@
+              \det(2I_3) = 2^3 \cdot \det(I_3) = 8 \cdot 1 = 8
+              @@
+              <p>Logo:</p>
+              @@
+              (\det A)^3 = 8 \implies \det(A) = \sqrt[3]{8} = 2 \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Nível 3)</strong> Uma matriz @A \in \mathcal{M}_{n \times n}(\mathbb{R})@ é dita antissimétrica se @A^T = -A@. Prove que se @n@ for ímpar, então @\det(A) = 0@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Pela propriedade da transposta: @\det(A^T) = \det(A)@.</p>
+              <p>Como @A^T = -A@:</p>
+              @@
+              \det(A) = \det(A^T) = \det(-A) = \det((-1) \cdot A)
+              @@
+              <p>Como a ordem @n@ é ímpar, @(-1)^n = -1@:</p>
+              @@
+              \det((-1) \cdot A) = (-1)^n \cdot \det(A) = -\det(A)
+              @@
+              <p>Portanto:</p>
+              @@
+              \det(A) = -\det(A) \iff 2\det(A) = 0 \iff \det(A) = 0 \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+
+      <h3>Nível 3: Desafios Olímpicos OBMEP e Ensino Superior</h3>
+      <ol class="lista-exercicios" start="9">
+        <li>
+          <strong>(OBMEP / Olimpíada Universitária)</strong> Sejam @A, B \in \mathcal{M}_{n \times n}(\mathbb{R})@. Prove que @\operatorname{tr}(AB) = \operatorname{tr}(BA)@ e mostre que não existem matrizes quadradas @A@ e @B@ tais que:
+          @@
+          AB - BA = I_n
+          @@
+          (Comutador Mecânico-Quântico de Heisenberg no espaço de dimensão finita).
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Pela definição de produto e traço:</p>
+              @@
+              \operatorname{tr}(AB) = \sum_{i=1}^n (AB)_{ii} = \sum_{i=1}^n \left(\sum_{k=1}^n a_{ik}b_{ki}\right) = \sum_{k=1}^n \left(\sum_{i=1}^n b_{ki}a_{ik}\right) = \sum_{k=1}^n (BA)_{kk} = \operatorname{tr}(BA)
+              @@
+              <p>Aplicando o traço na equação hipotética @AB - BA = I_n@:</p>
+              @@
+              \operatorname{tr}(AB - BA) = \operatorname{tr}(AB) - \operatorname{tr}(BA) = 0
+              @@
+              <p>Contudo, o traço da matriz identidade de ordem @n@ é:</p>
+              @@
+              \operatorname{tr}(I_n) = \sum_{i=1}^n 1 = n
+              @@
+              <p>Como @n \ge 1@, teríamos @0 = n@, uma contradição flagrante. Logo, não existem matrizes reais finitas com tal comutador. @\blacksquare@</p>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Desafio Olímpico FME)</strong> Seja @A@ uma matriz real @n \times n@ tal que @A^2 + I_n = 0@. Prove que:
+          <br>
+          a) A ordem @n@ é necessariamente par.
+          <br>
+          b) @\det(A) = 1@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p><strong>a)</strong> De @A^2 = -I_n@, aplicando o determinante:</p>
+              @@
+              \det(A^2) = (\det A)^2 = \det(-I_n) = (-1)^n \det(I_n) = (-1)^n
+              @@
+              <p>Como @A@ é uma matriz com entradas reais, seu determinante @\det(A)@ é um número real. Portanto, @(\det A)^2 \ge 0@. Para que @(-1)^n \ge 0@, o expoente @n@ deve ser necessariamente par (@n = 2k@).</p>
+              <p><strong>b)</strong> Sendo @n@ par: @(\det A)^2 = (-1)^{2k} = 1 \implies \det(A) = \pm 1@. Como @A@ não tem autovalores reais (já que @\lambda^2 + 1 = 0 \implies \lambda = \pm i@), os autovalores ocorrem em pares conjugados @(i, -i)@ cujo produto é @i(-i) = 1@. Logo, @\det(A) = \prod \lambda_j = 1^k = 1@. @\blacksquare@</p>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Banco de Questões)</strong> A sequência de Fibonacci @(F_n)@ satisfaz @F_0 = 0, F_1 = 1, F_{n+1} = F_n + F_{n-1}@. Considere a matriz @M = \begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix}@.
+          <br>
+          Prove por indução que @M^n = \begin{bmatrix} F_{n+1} & F_n \\ F_n & F_{n-1} \end{bmatrix}@ e deduza a célebre Identidade de Cassini:
+          @@
+          F_{n+1}F_{n-1} - F_n^2 = (-1)^n
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Calculamos @\det(M) = (1 \cdot 0) - (1 \cdot 1) = -1@.</p>
+              <p>Pelo Teorema de Binet, @\det(M^n) = (\det M)^n = (-1)^n@.</p>
+              <p>Por outro lado, o determinante da matriz @M^n = \begin{bmatrix} F_{n+1} & F_n \\ F_n & F_{n-1} \end{bmatrix}@ é:</p>
+              @@
+              \det(M^n) = F_{n+1}F_{n-1} - F_n^2
+              @@
+              <p>Igualando as duas expressões, obtemos imediatamente a Identidade de Cassini:</p>
+              @@
+              F_{n+1}F_{n-1} - F_n^2 = (-1)^n \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Desafio Olímpico Avançado)</strong> Sejam @A@ e @B@ matrizes @n \times n@ tais que @A + B = AB@. Prove que @AB = BA@ (isto é, @A@ e @B@ comutam).
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Manipulamos a equação algébrica dada adicionando @I_n@ a ambos os membros:</p>
+              @@
+              I_n - A - B + AB = I_n
+              @@
+              <p>Fatorando o primeiro membro em produto de fatores matriciais:</p>
+              @@
+              (I_n - A)(I_n - B) = I_n
+              @@
+              <p>
+                Como o produto de duas matrizes quadradas é a identidade @I_n@, a matriz @(I_n - A)@ é inversível e sua inversa é exatamente @(I_n - B)@.
+              </p>
+              <p>Pela definição de inversa bilateral, se @XY = I_n@, então @YX = I_n@ também:</p>
+              @@
+              (I_n - B)(I_n - A) = I_n \iff I_n - B - A + BA = I_n \iff BA = A + B
+              @@
+              <p>Como @AB = A + B@ e @BA = A + B@, concluímos que:</p>
+              @@
+              AB = BA \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+    </article>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="../../recursos.html" class="themed-button">VOLTAR</a>
+    </div>
+  </div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas curados com suporte a Alto Contraste -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <div class="theme-group-label">🌙 MODO ESCURO</div>
+    <button data-theme="theme-default">🟢 Matrix Cyber</button>
+    <button data-theme="theme-cyber-blue">🔵 Cyber Blue</button>
+    <div class="theme-group-label">⚡ ALTO CONTRASTE (AAA)</div>
+    <button data-theme="theme-high-contrast-green">⚡ OLED Neon Green</button>
+    <button data-theme="theme-high-contrast-amber">🟠 OLED Amber</button>
+    <div class="theme-group-label">☀️ MODO CLARO</div>
+    <button data-theme="theme-paper-light">📄 Paper Clean</button>
+    <button data-theme="theme-solarized-light">📜 Solarized Sepia</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
 </html>

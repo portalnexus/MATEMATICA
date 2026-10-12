@@ -3,170 +3,788 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXUS - Teoria da Probabilidade e Fenômenos Aleatórios</title>
 
-  <!-- Fontes -->
+  <title>NEXUS - Teoria Axiomática da Probabilidade e Processos Estocásticos</title>
+
+  <!-- Fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
 
-  <!-- KaTeX -->
+  <!-- KaTeX para renderização matemática -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
 
-  <!-- CSS Nexus -->
+  <!-- CSS do projeto -->
   <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-1em {
+      background-color: rgba(16, 185, 129, 0.25);
+      border: 2px solid #10b981;
+      color: #a7f3d0;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+
+    .figura-geometrica {
+      text-align: center;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .figura-geometrica svg {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="page-wrapper">
-    <nav>
-      <ul>
-        <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
-        <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
-        <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
-        <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
-      </ul>
-    </nav>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
+      <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
 
-    <div class="container">
-      <article>
-        <span class="badge-nivel ano-1em">1º ANO DO ENSINO MÉDIO</span>
-        <h2>TEORIA DA PROBABILIDADE E MODELAGEM DE FENÔMENOS ALEATÓRIOS</h2>
-        <p class="lead">Estudo sistemático dos espaços amostrais, axiomas da probabilidade, eventos equiprováveis, probabilidade da união e probabilidade condicional.</p>
+  <div class="container">
+    <article>
+      <div class="badge-nivel ano-1em">1º Ano EM</div>
 
-        <!-- Seção 1: Conceitos Iniciais -->
-        <section>
-          <h3>1. Fundamentos da Probabilidade</h3>
+      <h1>Teoria Axiomática da Probabilidade e Processos Estocásticos</h1>
+      <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+        Capítulo 7: Fundamentação de Kolmogorov, Teorema de Bayes e Desafios Olímpicos OBMEP
+      </p>
 
-          <div class="destaque-box definicao">
-            <h4>Definição 1.1: Experimento Aleatório e Espaço Amostral</h4>
-            <p>Um <strong>experimento aleatório</strong> (@\mathcal{E}@) é aquele cujo resultado não pode ser previsto com certeza antes de sua realização, mesmo quando repetido sob idênticas condições.</p>
-            <p>O conjunto de todos os resultados possíveis de @\mathcal{E}@ denomina-se <strong>Espaço Amostral</strong> (@\Omega@). Qualquer subconjunto @A \subseteq \Omega@ é denominado <strong>evento</strong>.</p>
-          </div>
+      <!-- ===============================================================
+           1. CONTEXTO HISTÓRICO E EPISTEMOLÓGICO
+           =============================================================== -->
+      <div class="destaque-box observacao">
+        <h3>1. Fundamentação Histórica e Epistemológica</h3>
+        <p>
+          A formalização matemática da probabilidade originou-se em 1654 na famosa correspondência epistolar entre <strong>Blaise Pascal</strong> e <strong>Pierre de Fermat</strong> a respeito do célebre "Problema dos Pontos" (a divisão justa das apostas de um jogo interrompido antes do término). No século XVIII, Thomas Bayes e Pierre-Simon Laplace expandiram a disciplina com a introdução da inferência inversa e da definição clássica laplaciana: a razão direta entre casos favoráveis e casos possíveis equiprováveis.
+        </p>
+        <p>
+          Entretanto, a definição clássica sofria de circularidade lógica (definir probabilidade pressupondo eventos "igualmente prováveis") e falhava perante espaços amostrais infinitos contínuos. A resolução definitiva ocorreu em 1933, quando o matemático soviético <strong>Andrei Kolmogorov</strong> publicou sua obra seminal <em>Grundbegriffe der Wahrscheinlichkeitsrechnung</em> (Fundamentos da Teoria da Probabilidade), alicerçando a probabilidade como um ramo rigoroso da Teoria da Medida e da Integração de Lebesgue sobre espaços de estados.
+        </p>
+      </div>
 
-          <div class="destaque-box definicao">
-            <h4>Definição 1.2: Probabilidade Clássica (Laplaciana)</h4>
-            <p>Seja @\Omega@ um espaço amostral finito e equiprovável (todos os pontos amostrais têm a mesma chance de ocorrência). A probabilidade de ocorrência de um evento @A@ é definida pela razão:</p>
-            @@P(A) = \frac{n(A)}{n(\Omega)} = \frac{\text{número de casos favoráveis}}{\text{número total de casos possíveis}}@@
-            <p>Propriedades decorrentes: @0 \le P(A) \le 1@, com @P(\emptyset) = 0@ (evento impossível) e @P(\Omega) = 1@ (evento certo).</p>
-          </div>
-        </section>
+      <!-- ===============================================================
+           2. AXIOMÁTICA DE KOLMOGOROV
+           =============================================================== -->
+      <h2>2. Espaço de Probabilidade e Axiomática de Kolmogorov</h2>
 
-        <!-- Seção 2: Teoremas da Adição -->
-        <section>
-          <h3>2. Probabilidade da União e Eventos Complementares</h3>
-
-          <div class="destaque-box teorema">
-            <h4>Teorema 2.1: Teorema da Adição (União de Dois Eventos)</h4>
-            <p>Para quaisquer eventos @A, B \subseteq \Omega@, a probabilidade da união de @A@ e @B@ é dada por:</p>
-            @@P(A \cup B) = P(A) + P(B) - P(A \cap B)@@
-            <p>Se @A@ e @B@ são <strong>mutuamente excludentes</strong> (ou seja, @A \cap B = \emptyset@):</p>
-            @@P(A \cup B) = P(A) + P(B)@@
-          </div>
-
-          <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
-            <svg viewBox="0 0 380 180" width="360" height="170" aria-label="Diagrama de Venn com eventos A, B e interseção">
-              <!-- Espaço Amostral Omega -->
-              <rect x="20" y="20" width="340" height="140" rx="8" fill="rgba(0,0,0,0.4)" stroke="#64748b" stroke-width="1.5" />
-              <text x="35" y="42" fill="#64748b" font-weight="bold" font-size="14">&Omega;</text>
-
-              <!-- Círculo A -->
-              <circle cx="150" cy="90" r="55" fill="rgba(33, 150, 243, 0.25)" stroke="#3b82f6" stroke-width="2" />
-              <text x="120" y="95" fill="#3b82f6" font-size="14" font-weight="bold">A</text>
-
-              <!-- Círculo B -->
-              <circle cx="230" cy="90" r="55" fill="rgba(0, 255, 102, 0.2)" stroke="var(--link-color, #00ff66)" stroke-width="2" />
-              <text x="250" y="95" fill="var(--link-color, #00ff66)" font-size="14" font-weight="bold">B</text>
-
-              <!-- Interseção -->
-              <text x="183" y="95" fill="#ff7043" font-size="11" font-weight="bold">A &cap; B</text>
-            </svg>
-            <p class="legenda-figura" style="font-size: 0.85rem; opacity: 0.8;"><em>Figura 1: Diagrama de Venn ilustrando a união e a dupla contagem da interseção @A \cap B@.</em></p>
-          </div>
-
-          <div class="destaque-box teorema">
-            <h4>Teorema 2.2: Evento Complementar</h4>
-            <p>O evento complementar @\bar{A}@ (ou @A^c@) representa a não ocorrência de @A@. Sua probabilidade é:</p>
-            @@P(\bar{A}) = 1 - P(A)@@
-          </div>
-        </section>
-
-        <!-- Seção 3: Probabilidade Condicional -->
-        <section>
-          <h3>3. Probabilidade Condicional e Independência</h3>
-
-          <div class="destaque-box definicao">
-            <h4>Definição 3.1: Probabilidade Condicional</h4>
-            <p>A probabilidade de ocorrer o evento @A@ sabendo-se que o evento @B@ já ocorreu (com @P(B) > 0@) é denotada por @P(A \mid B)@ e calculada por:</p>
-            @@P(A \mid B) = \frac{P(A \cap B)}{P(B)} = \frac{n(A \cap B)}{n(B)}@@
-          </div>
-
-          <div class="destaque-box observacao">
-            <h4>Eventos Independentes</h4>
-            <p>Dois eventos @A@ e @B@ são ditos <strong>independentes</strong> se a ocorrência de um não altera a probabilidade da ocorrência do outro, ou seja:</p>
-            @@P(A \mid B) = P(A) \iff P(A \cap B) = P(A) \cdot P(B)@@
-          </div>
-        </section>
-
-        <!-- Seção 4: Exemplos Resolvidos -->
-        <section>
-          <h3>4. Exemplos Resolvidos</h3>
-
-          <div class="exemplo-resolvido">
-            <h4>Exemplo 4.1: Retirada de Cartas de um Baralho</h4>
-            <p><strong>Enunciado:</strong> De um baralho comum de 52 cartas, retira-se uma carta ao acaso. Qual a probabilidade de ela ser um <em>Ás</em> ou uma carta de <em>Copas</em>?</p>
-            <p><strong>Resolução:</strong></p>
-            <ol>
-              <li>Total de cartas: @n(\Omega) = 52@.</li>
-              <li>Evento @A@ (ser Ás): existem 4 ases no baralho @\implies P(A) = \frac{4}{52}@.</li>
-              <li>Evento @B@ (ser Copas): existem 13 cartas de copas @\implies P(B) = \frac{13}{52}@.</li>
-              <li>Evento @A \cap B@ (ser o Ás de Copas): há exatamente 1 carta @\implies P(A \cap B) = \frac{1}{52}@.</li>
-              <li>Pelo teorema da adição:
-                @@P(A \cup B) = P(A) + P(B) - P(A \cap B) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52} = \frac{16}{52} = \frac{4}{13} \approx 30{,}77\%@@
+      <div class="destaque-box definicao">
+        <h3>Definição 2.1 (Espaço de Probabilidade @(\Omega, \mathcal{F}, P)@)</h3>
+        <p>Um <strong>Espaço de Probabilidade</strong> é uma terna matemática @(\Omega, \mathcal{F}, P)@ onde:</p>
+        <ol>
+          <li><strong>Espaço Amostral (@\Omega@):</strong> Conjunto de todos os resultados primitivos possíveis do experimento estocástico.</li>
+          <li><strong>@\sigma@-Álgebra de Eventos (@\mathcal{F}@):</strong> Coleção de subconjuntos de @\Omega@ fechada sob complementação e união enumerável.</li>
+          <li>
+            <strong>Medida de Probabilidade (@P@):</strong> Função @P: \mathcal{F} \to [0, 1]@ que satisfaz estritamente os <strong>Três Axiomas de Kolmogorov</strong>:
+            <ul>
+              <li><strong>Axioma I (Não-negatividade):</strong> @P(A) \ge 0, \quad \forall A \in \mathcal{F}@.</li>
+              <li><strong>Axioma II (Normalização / Evento Certo):</strong> @P(\Omega) = 1@.</li>
+              <li><strong>Axioma III (@\sigma@-Aditividade Enumerável):</strong> Para qualquer família enumerável de eventos mutuamente disjuntos dois a dois @(A_n)_{n=1}^\infty \subset \mathcal{F}@ com @A_i \cap A_j = \emptyset@ (@i \neq j@):
+                @@
+                P\left(\bigcup_{n=1}^\infty A_n\right) = \sum_{n=1}^\infty P(A_n)
+                @@
               </li>
-            </ol>
-          </div>
+            </ul>
+          </li>
+        </ol>
+      </div>
 
-          <div class="exemplo-resolvido">
-            <h4>Exemplo 4.2: Probabilidade Condicional em Teste Diagnóstico</h4>
-            <p><strong>Enunciado:</strong> Em uma turma de 40 alunos, 25 jogam futebol, 15 jogam voleibol e 8 praticam ambos os esportes. Escolhendo-se ao acaso um aluno que pratica futebol, qual é a probabilidade de ele também praticar voleibol?</p>
-            <p><strong>Resolução:</strong></p>
-            <ol>
-              <li>O universo fica restrito aos praticantes de futebol: @n(F) = 25@.</li>
-              <li>Dentre estes, os que também jogam voleibol são os da interseção: @n(V \cap F) = 8@.</li>
-              <li>Aplicando probabilidade condicional:
-                @@P(V \mid F) = \frac{n(V \cap F)}{n(F)} = \frac{8}{25} = 0{,}32 = 32\%@@
-              </li>
-            </ol>
-          </div>
-        </section>
+      <div class="destaque-box teorema">
+        <h3>Teorema 2.1 (Propriedades Fundamentais Decorrentes dos Axiomas)</h3>
+        <ol>
+          <li><strong>Evento Impossível:</strong> @P(\emptyset) = 0@.
+            <br>
+            <em>Demonstração:</em> Sendo @\Omega \cup \emptyset = \Omega@ com @\Omega \cap \emptyset = \emptyset@, pelo Axioma III: @P(\Omega) + P(\emptyset) = P(\Omega) \implies 1 + P(\emptyset) = 1 \implies P(\emptyset) = 0 \quad \blacksquare@
+          </li>
+          <li><strong>Evento Complementar:</strong> Para todo evento @A \in \mathcal{F}@:
+            @@
+            P(A^c) = 1 - P(A)
+            @@
+            <em>Demonstração:</em> Como @A \cup A^c = \Omega@ e @A \cap A^c = \emptyset@: @P(A) + P(A^c) = P(\Omega) = 1 \implies P(A^c) = 1 - P(A) \quad \blacksquare@
+          </li>
+          <li><strong>Monotonia da Probabilidade:</strong> Se @A \subseteq B@, então @P(A) \le P(B)@.</li>
+          <li><strong>Teorema da Adição (Inclusão-Exclusão para 2 Eventos):</strong>
+            @@
+            P(A \cup B) = P(A) + P(B) - P(A \cap B)
+            @@
+            <em>Demonstração:</em> Decompomos @A \cup B@ em três partições disjuntas: @(A \setminus B) \cup (A \cap B) \cup (B \setminus A)@. Pela aditividade:
+            @P(A \cup B) = P(A \setminus B) + P(A \cap B) + P(B \setminus A)@.
+            Como @P(A \setminus B) = P(A) - P(A \cap B)@ e @P(B \setminus A) = P(B) - P(A \cap B)@, a soma resulta em @P(A) + P(B) - P(A \cap B) \quad \blacksquare@
+          </li>
+        </ol>
+      </div>
 
-        <div style="text-align: center; margin-top: 30px;">
-          <a href="../../recursos.html" class="themed-button" >VOLTAR AOS RECURSOS</a>
-        </div>
-      </article>
+      <!-- ===============================================================
+           3. PROBABILIDADE CONDICIONAL E INDEPENDÊNCIA
+           =============================================================== -->
+      <h2>3. Probabilidade Condicional e Independência Estocástica</h2>
+
+      <div class="destaque-box definicao">
+        <h3>Definição 3.1 (Probabilidade Condicional)</h3>
+        <p>
+          Sejam @A, B \in \mathcal{F}@ com @P(B) > 0@. A <strong>probabilidade condicional de @A@ dado que @B@ ocorreu</strong> (denotada por @P(A \mid B)@) é definida pela razão:
+        </p>
+        @@
+        P(A \mid B) = \frac{P(A \cap B)}{P(B)}
+        @@
+        <p>
+          Geometricamente e epistemologicamente, condicionar ao evento @B@ equivale a restringir o espaço amostral original @\Omega@ para o novo subespaço @B@, renormalizando as probabilidades pelo fator @\frac{1}{P(B)}@.
+        </p>
+      </div>
+
+      <div class="destaque-box definicao">
+        <h3>Definição 3.2 (Independência Estocástica)</h3>
+        <p>
+          Dois eventos @A@ e @B@ são ditos <strong>estocasticamente independentes</strong> (notação: @A \perp B@) se, e somente se, a ocorrência de um não afeta a probabilidade da ocorrência do outro:
+        </p>
+        @@
+        P(A \cap B) = P(A) \cdot P(B)
+        @@
+        <p>Equivalentemente, se @P(B) > 0@, @A \perp B \iff P(A \mid B) = P(A)@.</p>
+      </div>
+
+      <div class="destaque-box observacao">
+        <h3>Diferença Crucial: Eventos Disjuntos versus Eventos Independentes</h3>
+        <p>
+          Dois eventos com probabilidades não nulas <em>nunca podem ser simultaneamente disjuntos e independentes</em>:
+        </p>
+        <ul>
+          <li>Se são <strong>disjuntos</strong>: @A \cap B = \emptyset \implies P(A \cap B) = 0@. Saber que @B@ ocorreu significa que @A@ é impossível (@P(A \mid B) = 0 \neq P(A)@). Há dependência estocástica máxima!</li>
+          <li>Se são <strong>independentes</strong>: @P(A \cap B) = P(A) \cdot P(B) > 0@, logo a interseção <strong>não</strong> pode ser vazia.</li>
+        </ul>
+      </div>
+
+      <!-- ===============================================================
+           4. TEOREMAS DA PROBABILIDADE TOTAL E DE BAYES
+           =============================================================== -->
+      <h2>4. Teorema da Probabilidade Total e Teorema de Bayes</h2>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 4.1 (Teorema da Probabilidade Total)</h3>
+        <p>
+          Seja @\{A_1, A_2, \dots, A_n\}@ uma <strong>partição finita</strong> do espaço amostral @\Omega@ (isto é, @A_i \cap A_j = \emptyset@ para @i \neq j@, @\bigcup_{i=1}^n A_i = \Omega@ e @P(A_i) > 0@ para todo @i@). Então, para qualquer evento @B \subset \Omega@:
+        </p>
+        @@
+        P(B) = \sum_{i=1}^n P(A_i) \cdot P(B \mid A_i)
+        @@
+        <p><strong>Demonstração:</strong></p>
+        <p>Como @\Omega = \bigcup A_i@, podemos decompor @B = B \cap \Omega = B \cap \left(\bigcup_{i=1}^n A_i\right) = \bigcup_{i=1}^n (B \cap A_i)@.</p>
+        <p>Como os conjuntos @(B \cap A_i)@ são dois a dois disjuntos, pelo Axioma III:</p>
+        @@
+        P(B) = \sum_{i=1}^n P(B \cap A_i) = \sum_{i=1}^n P(A_i) \cdot P(B \mid A_i) \quad \blacksquare
+        @@
+      </div>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 4.2 (Teorema de Bayes - Inferência Inversa)</h3>
+        <p>
+          Sob as mesmas hipóteses de partição do Teorema 4.1, se @P(B) > 0@, a probabilidade <em>a posteriori</em> de que a causa tenha sido @A_k@ dado que o efeito @B@ foi observado é dada por:
+        </p>
+        @@
+        P(A_k \mid B) = \frac{P(A_k) \cdot P(B \mid A_k)}{\sum_{i=1}^n P(A_i) \cdot P(B \mid A_i)} = \frac{P(A_k \cap B)}{P(B)} \quad \blacksquare
+        @@
+      </div>
+
+      <!-- ===============================================================
+           5. ENSAIOS DE BERNOULLI E DISTRIBUIÇÃO BINOMIAL
+           =============================================================== -->
+      <h2>5. Ensaios de Bernoulli e Distribuição Binomial</h2>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 5.1 (Modelo Binomial de Bernoulli)</h3>
+        <p>
+          Considere @n@ repetições independentes de um experimento com dois desfechos possíveis: "Sucesso" (com probabilidade constante @p \in [0, 1]@) ou "Fracasso" (com probabilidade @q = 1 - p@). A probabilidade de obter exatamente @k@ sucessos (@0 \le k \le n@) é dada pela <strong>distribuição binomial</strong>:
+        </p>
+        @@
+        P(X = k) = \binom{n}{k} p^k (1 - p)^{n - k} = \frac{n!}{k!(n - k)!} p^k (1 - p)^{n - k}
+        @@
+        <p><strong>Demonstração da Consistência:</strong></p>
+        <p>A soma de todas as probabilidades possíveis sobre @k \in \{0, 1, \dots, n\}@ é:</p>
+        @@
+        \sum_{k=0}^n P(X = k) = \sum_{k=0}^n \binom{n}{k} p^k (1 - p)^{n - k} = (p + (1 - p))^n = 1^n = 1 \quad \blacksquare
+        @@
+      </div>
+
+      <!-- ===============================================================
+           6. EXEMPLOS RESOLVIDOS ANALÍTICOS
+           =============================================================== -->
+      <h2>6. Exemplos Analíticos Resolvidos Passo a Passo</h2>
+
+      <div class="exemplo-resolvido">
+        <h3>Exemplo 6.1: O Paradoxo do Falso Positivo e Testes Médicos (Teorema de Bayes)</h3>
+        <p>
+          Uma doença rara afeta 0,2% da população (@P(D) = 0{,}002@). Um teste diagnóstico possui sensibilidade de 98% (@P(T^+ \mid D) = 0{,}98@) e taxa de falso positivo de 1% (@P(T^+ \mid D^c) = 0{,}01@).
+        </p>
+        <p>
+          Um indivíduo escolhido ao acaso realiza o teste e obtém resultado positivo (@T^+@). Qual é a probabilidade real de que esse indivíduo esteja efetivamente infectado?
+        </p>
+
+        <h4>Resolução Passo a Passo:</h4>
+        <p><strong>Passo 1: Identificação dos Eventos e Priors</strong></p>
+        <ul>
+          <li>@P(D) = 0{,}002@ (probabilidade a priori de ter a doença).</li>
+          <li>@P(D^c) = 1 - 0{,}002 = 0{,}998@ (probabilidade a priori de ser saudável).</li>
+          <li>Sensibilidade: @P(T^+ \mid D) = 0{,}98@.</li>
+          <li>Falso positivo: @P(T^+ \mid D^c) = 0{,}01@.</li>
+        </ul>
+
+        <p><strong>Passo 2: Probabilidade Total de Resultado Positivo (@P(T^+)@)</strong></p>
+        @@
+        P(T^+) = P(D) \cdot P(T^+ \mid D) + P(D^c) \cdot P(T^+ \mid D^c)
+        @@
+        @@
+        P(T^+) = (0{,}002 \cdot 0{,}98) + (0{,}998 \cdot 0{,}01) = 0{,}00196 + 0{,}00998 = 0{,}01194
+        @@
+
+        <p><strong>Passo 3: Aplicação do Teorema de Bayes</strong></p>
+        @@
+        P(D \mid T^+) = \frac{P(D) \cdot P(T^+ \mid D)}{P(T^+)} = \frac{0{,}00196}{0{,}01194} \approx 0{,}16415 \approx 16{,}42\%
+        @@
+        <p>
+          <em>Conclusão Contraintuitiva:</em> Mesmo com um teste com 98% de precisão técnica, devido à raridade da doença na população geral (baixa prevalência), a probabilidade de uma pessoa com teste positivo estar realmente doente é de apenas aproximadamente <strong>16,4%</strong>! Mais de 83% dos resultados positivos são alarmes falsos. @\blacksquare@
+        </p>
+      </div>
+
+      <div class="exemplo-resolvido">
+        <h3>Exemplo 6.2: O Paradoxo de Monty Hall Analisado por Bayes</h3>
+        <p>
+          Em um programa de TV, existem 3 portas fechadas. Atrás de uma delas há um automóvel esportivo e atrás das outras duas há cabras. O concorrente escolhe a Porta 1. O apresentador (Monty Hall), que sabe o que há atrás de cada porta, abre a Porta 3, revelando uma cabra, e pergunta ao concorrente: <em>"Você deseja mudar para a Porta 2?"</em>.
+        </p>
+        <p>
+          Demonstre rigorosamente se o concorrente deve trocar de porta ou se a chance é de 50%.
+        </p>
+
+        <h4>Resolução Passo a Passo:</h4>
+        <p>Seja @C_i@ o evento "o carro está na Porta @i@" (@i \in \{1, 2, 3\}@). Inicialmente:</p>
+        @@
+        P(C_1) = P(C_2) = P(C_3) = \frac{1}{3}
+        @@
+        <p>Seja @M_3@ o evento "Monty abre a Porta 3". Analisamos as probabilidades condicionais:</p>
+        <ul>
+          <li>Se o carro está na Porta 1 (@C_1@), Monty pode abrir a Porta 2 ou 3 com igual probabilidade: @P(M_3 \mid C_1) = \frac{1}{2}@.</li>
+          <li>Se o carro está na Porta 2 (@C_2@), Monty é forçado a abrir a Porta 3: @P(M_3 \mid C_2) = 1@.</li>
+          <li>Se o carro está na Porta 3 (@C_3@), Monty jamais pode abri-la: @P(M_3 \mid C_3) = 0@.</li>
+        </ul>
+        <p>Pela Probabilidade Total:</p>
+        @@
+        P(M_3) = \frac{1}{3}\left(\frac{1}{2}\right) + \frac{1}{3}(1) + \frac{1}{3}(0) = \frac{1}{6} + \frac{1}{3} = \frac{3}{6} = \frac{1}{2}
+        @@
+        <p>Calculando as probabilidades a posteriori por Bayes:</p>
+        @@
+        P(C_1 \mid M_3) = \frac{P(C_1) \cdot P(M_3 \mid C_1)}{P(M_3)} = \frac{\frac{1}{3} \cdot \frac{1}{2}}{\frac{1}{2}} = \frac{1}{3}
+        @@
+        @@
+        P(C_2 \mid M_3) = \frac{P(C_2) \cdot P(M_3 \mid C_2)}{P(M_3)} = \frac{\frac{1}{3} \cdot 1}{\frac{1}{2}} = \frac{2}{3}
+        @@
+        <p>
+          <strong>Conclusão Inequívoca:</strong> Ao trocar para a Porta 2, o concorrente <strong>duplica</strong> suas chances de vitória, saltando de @1/3@ (33,3%) para @2/3@ (66,7%)! @\blacksquare@
+        </p>
+      </div>
+
+      <!-- ===============================================================
+           7. ERROS COMUNS E ARMADILHAS
+           =============================================================== -->
+      <h2>7. Armadilhas Conceituais e Erros Frequentes</h2>
+
+      <div class="erro-comum">
+        <h3>Armadilha 1: Falácia do Promotor (Inversão de Condicionais)</h3>
+        <p>
+          Confundir @P(A \mid B)@ com @P(B \mid A)@ é um erro grave na teoria da probabilidade e no direito judiciário. Por exemplo, se a probabilidade de uma evidência genética dada a inocência de um réu é diminuta (@P(E \mid I) = 1/1.000.000@), isso <strong>não significa</strong> que a probabilidade de o réu ser inocente dado o teste seja de um em um milhão (@P(I \mid E) \neq P(E \mid I)@), pois isso depende da probabilidade a priori da população envolvida!
+        </p>
+      </div>
+
+      <div class="erro-comum">
+        <h3>Armadilha 2: A Falácia do Apostador</h3>
+        <p>
+          Acreditar que após 10 lançamentos de uma moeda justa resultando em "Cara", a chance de sair "Coroa" no 11º lançamento seja superior a 50%. Em processos de Bernoulli independentes, moedas e dados <strong>não possuem memória estocástica</strong>: cada ensaio é rigorosamente independente.
+        </p>
+      </div>
+
+      <!-- ===============================================================
+           8. EXERCÍCIOS PROPOSTOS (12 PROBLEMAS EM 3 NÍVEIS)
+           =============================================================== -->
+      <h2>8. Exercícios Propostos e Desafios Olímpicos</h2>
+
+      <h3>Nível 1: Fixação Conceitual e Aplicações Diretas</h3>
+      <ol class="lista-exercicios">
+        <li>
+          <strong>(Nexus)</strong> Dois dados convencionais honestos de 6 faces são lançados simultaneamente.
+          <br>
+          a) Qual é a probabilidade de a soma dos pontos ser igual a 8?
+          <br>
+          b) Qual é a probabilidade de a soma ser estritamente maior que 9?
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>O espaço amostral tem @n(\Omega) = 6 \times 6 = 36@ pares ordenados equiprováveis.</p>
+              <p><strong>a)</strong> Pares cuja soma é 8: @\{(2,6), (3,5), (4,4), (5,3), (6,2)\}@ (5 casos):</p>
+              @@
+              P(S = 8) = \frac{5}{36} \approx 13{,}89\%
+              @@
+              <p><strong>b)</strong> Somas maiores que 9 são 10, 11 e 12:</p>
+              <ul>
+                <li>Soma 10: @(4,6), (5,5), (6,4)@ (3 casos)</li>
+                <li>Soma 11: @(5,6), (6,5)@ (2 casos)</li>
+                <li>Soma 12: @(6,6)@ (1 caso)</li>
+              </ul>
+              <p>Total de casos: @3 + 2 + 1 = 6@ casos:</p>
+              @@
+              P(S > 9) = \frac{6}{36} = \frac{1}{6} \approx 16{,}67\%
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Em uma urna há 5 bolas azuis, 4 verdes e 3 vermelhas. Duas bolas são sorteadas sucessivamente sem reposição. Qual é a probabilidade de ambas serem da mesma cor?
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Total de bolas: @5 + 4 + 3 = 12@ bolas.</p>
+              <p>Calculamos as probabilidades para cada cor disjunta:</p>
+              <ul>
+                <li>Duas azuis: @P(AA) = \frac{5}{12} \cdot \frac{4}{11} = \frac{20}{132}@</li>
+                <li>Duas verdes: @P(VV) = \frac{4}{12} \cdot \frac{3}{11} = \frac{12}{132}@</li>
+                <li>Duas vermelhas: @P(RR) = \frac{3}{12} \cdot \frac{2}{11} = \frac{6}{132}@</li>
+              </ul>
+              <p>Pela aditividade de eventos mutuamente exclusivos:</p>
+              @@
+              P(\text{mesma cor}) = \frac{20 + 12 + 6}{132} = \frac{38}{132} = \frac{19}{66} \approx 28{,}79\%
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Sabendo que @P(A) = 0{,}6@, @P(B) = 0{,}5@ e @P(A \cap B) = 0{,}3@:
+          <br>
+          a) Calcule @P(A \cup B)@.
+          <br>
+          b) Verifique se @A@ e @B@ são estocasticamente independentes.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p><strong>a)</strong> Pelo Teorema da Adição:</p>
+              @@
+              P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0{,}6 + 0{,}5 - 0{,}3 = 0{,}8
+              @@
+              <p><strong>b)</strong> Pelo critério de independência:</p>
+              @@
+              P(A) \cdot P(B) = 0{,}6 \cdot 0{,}5 = 0{,}30 = P(A \cap B)
+              @@
+              <p>Como a igualdade é rigorosamente satisfeita, os eventos @A@ e @B@ são <strong>independentes</strong>.</p>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Uma moeda honesta é lançada 6 vezes. Qual é a probabilidade de obter exatamente 4 caras?
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Modelo Binomial com @n = 6, k = 4, p = 1/2@:</p>
+              @@
+              P(X = 4) = \binom{6}{4} \left(\frac{1}{2}\right)^4 \left(\frac{1}{2}\right)^2 = 15 \cdot \frac{1}{64} = \frac{15}{64} \approx 23{,}44\%
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+
+      <h3>Nível 2: Aprofundamento e Aplicações Analíticas</h3>
+      <ol class="lista-exercicios" start="5">
+        <li>
+          <strong>(FME - Gelson Iezzi)</strong> Uma fábrica produz peças em três máquinas @M_1, M_2, M_3@. A máquina @M_1@ é responsável por 50% da produção e tem 2% de peças defeituosas. A máquina @M_2@ produz 30% com 3% de defeito, e @M_3@ produz 20% com 5% de defeito. Uma peça é sorteada e constata-se que é defeituosa. Qual é a probabilidade de ter sido fabricada por @M_3@?
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Pela Probabilidade Total, calculamos a chance de uma peça ser defeituosa (@D@):</p>
+              @@
+              P(D) = (0{,}50 \cdot 0{,}02) + (0{,}30 \cdot 0{,}03) + (0{,}20 \cdot 0{,}05) = 0{,}010 + 0{,}009 + 0{,}010 = 0{,}029
+              @@
+              <p>Pelo Teorema de Bayes:</p>
+              @@
+              P(M_3 \mid D) = \frac{P(M_3) \cdot P(D \mid M_3)}{P(D)} = \frac{0{,}20 \cdot 0{,}05}{0{,}029} = \frac{0{,}010}{0{,}029} = \frac{10}{29} \approx 34{,}48\% \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Nível 2)</strong> Dois números reais @x@ e @y@ são escolhidos de maneira uniforme e independente no intervalo @[0, 1]@. Qual é a probabilidade de que @x + y \le 1@ e simultaneamente @y \ge x^2@?
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>O espaço amostral é o quadrado unitário @\Omega = [0,1] \times [0,1]@ de área 1.</p>
+              <p>A região favorável é delimitada por @y \le 1 - x@ e @y \ge x^2@ no primeiro quadrante.</p>
+              <p>Interseção das curvas: @x^2 = 1 - x \iff x^2 + x - 1 = 0 \implies x_0 = \frac{-1 + \sqrt{5}}{2}@ (inverso da razão áurea @\phi - 1 \approx 0{,}618@).</p>
+              <p>A área da região favorável é dada pela integral definida:</p>
+              @@
+              P = \int_0^{x_0} ((1 - x) - x^2) \, dx = \left[ x - \frac{x^2}{2} - \frac{x^3}{3} \right]_0^{x_0}
+              @@
+              <p>Usando @x_0^2 = 1 - x_0@ e substituindo, obtém-se exatamente @P = \frac{5\sqrt{5} - 11}{12} \approx 0{,}408@. @\blacksquare@</p>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Nível 2)</strong> Um casal planeja ter 4 filhos. Assumindo que a probabilidade de nascer menino ou menina é idêntica a 50%, qual é a probabilidade de o casal ter pelo menos um filho de cada sexo?
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Utilizamos o método do evento complementar: o único cenário que <strong>não</strong> atende à condição é o de todos os filhos serem do mesmo sexo (todos meninos ou todas meninas).</p>
+              @@
+              P(\text{todos meninos}) = \left(\frac{1}{2}\right)^4 = \frac{1}{16}
+              @@
+              @@
+              P(\text{todas meninas}) = \left(\frac{1}{2}\right)^4 = \frac{1}{16}
+              @@
+              <p>Pela probabilidade complementar:</p>
+              @@
+              P(\text{pelo menos um de cada}) = 1 - \left(\frac{1}{16} + \frac{1}{16}\right) = 1 - \frac{2}{16} = 1 - \frac{1}{8} = \frac{7}{8} = 87{,}5\%
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Demonstre formalmente que se @A@ e @B@ são eventos independentes, então seus complementares @A^c@ e @B^c@ também são eventos independentes.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Pela Lei de De Morgan, @A^c \cap B^c = (A \cup B)^c@. Logo:</p>
+              @@
+              P(A^c \cap B^c) = 1 - P(A \cup B) = 1 - [P(A) + P(B) - P(A \cap B)]
+              @@
+              <p>Como @A@ e @B@ são independentes, substituímos @P(A \cap B) = P(A)P(B)@:</p>
+              @@
+              P(A^c \cap B^c) = 1 - P(A) - P(B) + P(A)P(B) = (1 - P(A))(1 - P(B)) = P(A^c) \cdot P(B^c) \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+
+      <h3>Nível 3: Desafios Olímpicos OBMEP (Fases 1 e 2)</h3>
+      <ol class="lista-exercicios" start="9">
+        <li>
+          <strong>(OBMEP Fase 2)</strong> Em um torneio de xadrez entre dois grandes mestres, o primeiro a vencer 3 partidas é declarado campeão. Em cada partida isolada, a probabilidade do jogador A vencer é 0,4, a de B vencer é 0,3 e a de empate é 0,3. Se as partidas são independentes e empates não pontuam, qual é a probabilidade de A ser o campeão do torneio?
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>
+                Como empates não alteram a contagem de vitórias, podemos condicionar apenas às partidas com desfecho decisivo:
+              </p>
+              @@
+              p = P(A \text{ vence} \mid \text{não houve empate}) = \frac{0{,}4}{0{,}4 + 0{,}3} = \frac{4}{7}
+              @@
+              <p>Analogamente, a chance de B vencer a partida decisiva é @q = 1 - p = \frac{3}{7}@.</p>
+              <p>O jogador A sagra-se campeão se vencer 3 partidas antes de B vencer 3 partidas (em no máximo 5 jogos decisivos):</p>
+              <ul>
+                <li>Em 3 jogos: @\binom{2}{2} p^3 = p^3@</li>
+                <li>Em 4 jogos: @\binom{3}{2} p^3 q = 3 p^3 q@</li>
+                <li>Em 5 jogos: @\binom{4}{2} p^3 q^2 = 6 p^3 q^2@</li>
+              </ul>
+              <p>Substituindo @p = 4/7@ e @q = 3/7@:</p>
+              @@
+              P(A) = p^3 (1 + 3q + 6q^2) = \left(\frac{4}{7}\right)^3 \left[1 + 3\left(\frac{3}{7}\right) + 6\left(\frac{9}{49}\right)\right] = \frac{64}{343} \cdot \frac{49 + 63 + 54}{49} = \frac{64 \cdot 166}{16807} = \frac{10624}{16807} \approx 63{,}21\% \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Fase 2)</strong> O Problema da Ruína do Apostador: Dois jogadores A e B iniciam um jogo com @a@ e @b@ fichas, respectivamente. Em cada rodada, A ganha 1 ficha de B com probabilidade @p@ ou perde 1 ficha para B com probabilidade @q = 1 - p@. O jogo termina quando um dos jogadores perde todas as fichas.
+          <br>
+          Se @p = q = 1/2@ (jogo justo), prove que a probabilidade de A levar B à ruína é:
+          @@
+          P_A = \frac{a}{a + b}
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Seja @P(k)@ a probabilidade de ruína de B quando A possui @k@ fichas (onde @0 \le k \le N@, com @N = a + b@).</p>
+              <p>Por probabilidade total condicionando ao resultado da primeira rodada:</p>
+              @@
+              P(k) = \frac{1}{2} P(k+1) + \frac{1}{2} P(k-1) \iff P(k+1) - P(k) = P(k) - P(k-1)
+              @@
+              <p>Esta é uma progressão aritmética! Logo, @P(k) = c \cdot k + d@.</p>
+              <p>Pelas condições de contorno:</p>
+              <ul>
+                <li>Se @k = 0@: A já faliu, logo @P(0) = 0 \implies d = 0@.</li>
+                <li>Se @k = N@: B já faliu, logo @P(N) = 1 \implies c \cdot N = 1 \implies c = \frac{1}{N}@.</li>
+              </ul>
+              <p>Portanto, para a quantia inicial @k = a@:</p>
+              @@
+              P(a) = \frac{a}{N} = \frac{a}{a + b} \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Banco de Questões)</strong> A Agulha de Buffon e Probabilidade Geométrica: Uma agulha de comprimento @L@ é lançada aleatoriamente sobre um plano marcado com retas paralelas separadas por uma distância @D@ (com @L \le D@). Prove que a probabilidade de a agulha cruzar uma das linhas é:
+          @@
+          P = \frac{2L}{\pi D}
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Seja @x@ a distância do centro da agulha à reta paralela mais próxima (@0 \le x \le D/2@) e @\theta@ o ângulo agudo entre a agulha e as retas paralelas (@0 \le \theta \le \pi/2@).</p>
+              <p>A agulha cruza a reta se, e somente se, a projeção do semi-comprimento for maior que @x@:</p>
+              @@
+              x \le \frac{L}{2} \operatorname{sen}(\theta)
+              @@
+              <p>O espaço amostral no plano @(x, \theta)@ é o retângulo @[0, D/2] \times [0, \pi/2]@ com área @\frac{D}{2} \cdot \frac{\pi}{2} = \frac{\pi D}{4}@.</p>
+              <p>A área favorável é dada pela integral:</p>
+              @@
+              A_{\text{fav}} = \int_0^{\pi/2} \frac{L}{2} \operatorname{sen}(\theta) \, d\theta = \frac{L}{2} [-\cos(\theta)]_0^{\pi/2} = \frac{L}{2} (0 - (-1)) = \frac{L}{2}
+              @@
+              <p>Portanto, a probabilidade geométrica é:</p>
+              @@
+              P = \frac{A_{\text{fav}}}{A_{\text{total}}} = \frac{\frac{L}{2}}{\frac{\pi D}{4}} = \frac{2L}{\pi D} \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Desafio Olímpico Avançado)</strong> O Paradoxo dos Envelopes de Bertrand: Em uma caixa há 3 cartões idênticos com duas faces: um cartão tem duas faces pretas (PP), um tem duas faces brancas (BB) e um tem uma face preta e uma branca (PB). Um cartão é sorteado ao acaso e depositado sobre a mesa, com a face visível sendo preta. Qual é a probabilidade de que a face oculta seja também preta?
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>O erro comum é presumir 50% pensando que sobram apenas os cartões PP e PB.</p>
+              <p>Pelo Teorema de Bayes sobre as 6 faces equiprováveis da caixa:</p>
+              <ul>
+                <li>Existem 3 faces pretas no total: duas pertencentes ao cartão PP (@P_1, P_2@) e uma pertencente ao cartão PB (@P_3@).</li>
+                <li>Se a face visível é preta, estamos em uma dessas 3 faces pretas com igual probabilidade @1/3@ cada.</li>
+                <li>Se a face visível for @P_1@ (do cartão PP), o verso é preto.</li>
+                <li>Se a face visível for @P_2@ (do cartão PP), o verso é preto.</li>
+                <li>Se a face visível for @P_3@ (do cartão PB), o verso é branco.</li>
+              </ul>
+              <p>Portanto, em 2 dos 3 casos favoráveis o verso é preto:</p>
+              @@
+              P(\text{verso preto} \mid \text{frente preta}) = \frac{2}{3} \approx 66{,}67\% \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+    </article>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="../../recursos.html" class="themed-button">VOLTAR</a>
     </div>
-  </div>
+  </div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
 
-  <canvas id="matrixCanvas"></canvas>
-  <script src="../../js/matrix-rain.js" defer></script>
-  <script src="../../js/theme-switcher.js" defer></script>
-  <script src="../../js/print-mode.js" defer></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      renderMathInElement(document.body, {
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
         delimiters: [
-          { left: "@@", right: "@@", display: true },
-          { left: "\\[", right: "\\]", display: true },
-          { left: "@", right: "@", display: false },
-          { left: "\\(", right: "\\)", display: false }
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
         ],
         throwOnError: false
-      });
     });
-  </script>
+});
+</script>
+
+<!-- Seletor de temas curados com suporte a Alto Contraste -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <div class="theme-group-label">🌙 MODO ESCURO</div>
+    <button data-theme="theme-default">🟢 Matrix Cyber</button>
+    <button data-theme="theme-cyber-blue">🔵 Cyber Blue</button>
+    <div class="theme-group-label">⚡ ALTO CONTRASTE (AAA)</div>
+    <button data-theme="theme-high-contrast-green">⚡ OLED Neon Green</button>
+    <button data-theme="theme-high-contrast-amber">🟠 OLED Amber</button>
+    <div class="theme-group-label">☀️ MODO CLARO</div>
+    <button data-theme="theme-paper-light">📄 Paper Clean</button>
+    <button data-theme="theme-solarized-light">📜 Solarized Sepia</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
 </body>
 </html>

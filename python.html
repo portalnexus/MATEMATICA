@@ -354,13 +354,15 @@
             <div class="ide-controls">
               <label for="code-snippet-select" style="font-size: 0.85rem; color: var(--secondary-text-color);">Exemplo:</label>
               <select id="code-snippet-select" class="snippet-select" onchange="loadSnippet(this.value)">
-                <option value="primos">1. Crivo de Eratóstenes (Números Primos)</option>
-                <option value="fibonacci">2. Fibonacci & Razão Áurea (Phi)</option>
-                <option value="euclides">3. Algoritmo de Euclides (MDC & MMC)</option>
-                <option value="bhaskara">4. Equação do 2º Grau & Vértice</option>
-                <option value="montecarlo">5. Monte Carlo: Estimando o valor de Pi</option>
-                <option value="montyhall">6. Simulação do Paradoxo de Monty Hall</option>
-                <option value="matrizes">7. Produto & Determinante de Matrizes</option>
+                <option value="primos">1. Crivo de Eratóstenes & Teorema dos Primos (O(N log log N))</option>
+                <option value="euclides_estendido">2. Euclides Estendido & Identidade de Bézout (ax + by = mdc)</option>
+                <option value="newton_raphson">3. Método de Newton-Raphson (Aproximação de Raízes)</option>
+                <option value="lagrange">4. Interpolação Polinomial de Lagrange</option>
+                <option value="fibonacci">5. Fibonacci & Razão Áurea (Phi)</option>
+                <option value="bhaskara">6. Equação do 2º Grau & Vértice</option>
+                <option value="montecarlo">7. Monte Carlo: Estimando o valor de Pi</option>
+                <option value="montyhall">8. Simulação do Paradoxo de Monty Hall</option>
+                <option value="matrizes">9. Produto & Determinante de Matrizes</option>
               </select>
 
               <button class="run-btn" id="btn-run" onclick="runPythonCode()">
@@ -509,41 +511,154 @@ Aguarde alguns segundos na primeira inicialização.</div>
   let isPyodideLoading = true;
 
   const SNIPPETS = {
-    primos: `# CRIVO DE ERATÓSTENES
-# Encontra todos os números primos até N em O(N log log N)
+    primos: `# CRIVO DE ERATÓSTENES & TEOREMA DOS NÚMEROS PRIMOS
+# Complexidade de Tempo: O(N log log N)
+import math
 
 def crivo_eratostenes(limite):
     eh_primo = [True] * (limite + 1)
     eh_primo[0] = eh_primo[1] = False
+    operacoes = 0
     
     for p in range(2, int(limite**0.5) + 1):
         if eh_primo[p]:
             for multiplo in range(p * p, limite + 1, p):
                 eh_primo[multiplo] = False
+                operacoes += 1
                 
-    return [i for i, primo in enumerate(eh_primo) if primo]
+    primos = [i for i, primo in enumerate(eh_primo) if primo]
+    return primos, operacoes
 
-limite = 100
-primos = crivo_eratostenes(limite)
-print(f"Total de primos ate {limite}: {len(primos)}")
-print("Lista de primos:", primos)
+limite = 200
+primos, ops = crivo_eratostenes(limite)
+pi_N = len(primos)
+assintotico = limite / math.log(limite)
+
+print(f"=== CRIVO DE ERATÓSTENES (N = {limite}) ===")
+print(f"Total de primos pi({limite}) = {pi_N}")
+print(f"Estimativa do Teorema dos Numeros Primos N/ln(N) ≈ {assintotico:.2f}")
+print(f"Marcacoes de compostos realizadas: {ops}")
+print(f"Primos encontrados:\\n{primos}")
+
+# Primos Gemeos (p, p+2)
+gemeos = [(primos[i], primos[i+1]) for i in range(len(primos)-1) if primos[i+1] - primos[i] == 2]
+print(f"\\nPares de Primos Gemeos ate {limite} ({len(gemeos)} pares):")
+print(gemeos[:8], "..." if len(gemeos) > 8 else "")
 `,
 
-    fibonacci: `# FIBONACCI & CONVERGÊNCIA PARA A RAZÃO ÁUREA (PHI)
-# phi = (1 + sqrt(5)) / 2 ≈ 1.6180339887...
+    euclides_estendido: `# ALGORITMO DE EUCLIDES ESTENDIDO & IDENTIDADE DE BÉZOUT
+# Determina g = mdc(a, b) e coeficientes inteiros (x, y) tais que:
+# a * x + b * y = mdc(a, b)
 
-n_termos = 15
-fib = [1, 1]
+def euclides_estendido(a, b):
+    if b == 0:
+        return a, 1, 0
+    g, x1, y1 = euclides_estendido(b, a % b)
+    x = y1
+    y = x1 - (a // b) * y1
+    return g, x, y
 
-for i in range(2, n_termos):
-    fib.append(fib[-1] + fib[-2])
+def resolver_diofantina(a, b, c):
+    g, x0, y0 = euclides_estendido(abs(a), abs(b))
+    if a < 0: x0 = -x0
+    if b < 0: y0 = -y0
+    
+    print(f"Equacao Diofantina: {a}x + {b}y = {c}")
+    print(f"MDC({a}, {b}) = {g}")
+    if c % g != 0:
+        print(f"Como {c} nao e multiplo de {g}, a equacao NAO possui solucao inteira.")
+        return None
+    
+    k = c // g
+    x_part = x0 * k
+    y_part = y0 * k
+    print(f"Solucao particular: x0 = {x_part}, y0 = {y_part}")
+    print(f"Teste: {a}*({x_part}) + {b}*({y_part}) = {a*x_part + b*y_part}")
+    print(f"Familia geral de solucoes inteiras (para qualquer t em Z):")
+    print(f"  x(t) = {x_part} + ({b // g})t")
+    print(f"  y(t) = {y_part} - ({a // g})t")
+    return x_part, y_part
 
-print("Sequencia de Fibonacci:")
-print(fib)
-print("\\nConvergencia da razao F(n)/F(n-1) para Phi:")
-for i in range(2, n_termos):
-    razao = fib[i] / fib[i-1]
-    print(f"F({i+1})/F({i}) = {fib[i]}/{fib[i-1]} = {razao:.8f}")
+a, b, c = 240, 46, 14
+resolver_diofantina(a, b, c)
+`,
+
+    newton_raphson: `# MÉTODO DE NEWTON-RAPHSON PARA APROXIMAÇÃO DE RAÍZES
+# Iteração: x_{n+1} = x_n - f(x_n) / f'(x_n)
+# Convergência quadrática próxima à raiz simples
+
+def f(x):
+    # Exemplo: f(x) = x³ - 2x - 5 (Raiz real aproximada ≈ 2.0945514815)
+    return x**3 - 2*x - 5
+
+def df(x):
+    # Derivada analítica f'(x) = 3x² - 2
+    return 3*x**2 - 2
+
+def newton_raphson(x0, tol=1e-10, max_iter=20):
+    print("=== MÉTODO DE NEWTON-RAPHSON ===")
+    print("Resolvendo f(x) = x³ - 2x - 5 = 0")
+    print(f"Estimativa inicial: x0 = {x0}")
+    print("-" * 65)
+    print(f"{'n':>3} | {'x_n':>15} | {'f(x_n)':>15} | {'Erro':>18}")
+    print("-" * 65)
+    
+    x = x0
+    for n in range(max_iter):
+        fx = f(x)
+        dfx = df(x)
+        if abs(dfx) < 1e-12:
+            print("Derivada nula. O metodo falhou.")
+            return None
+        
+        x_novo = x - fx / dfx
+        erro = abs(x_novo - x)
+        print(f"{n+1:>3} | {x_novo:15.10f} | {f(x_novo):15.4e} | {erro:18.4e}")
+        
+        if erro < tol or abs(f(x_novo)) < tol:
+            print("-" * 65)
+            print(f"Raiz convergida com sucesso em {n+1} iteracoes: x* ≈ {x_novo:.10f}")
+            return x_novo
+        x = x_novo
+        
+    return x
+
+newton_raphson(x0=2.0)
+`,
+
+    lagrange: `# INTERPOLAÇÃO POLINOMIAL DE LAGRANGE
+# Determina o polinômio P(x) de grau <= n que interpola (x_i, y_i)
+
+def interpolar_lagrange(pontos_x, pontos_y, x_alvo):
+    n = len(pontos_x)
+    resultado = 0.0
+    termos_base = []
+    
+    for i in range(n):
+        termo = 1.0
+        for j in range(n):
+            if i != j:
+                termo *= (x_alvo - pontos_x[j]) / (pontos_x[i] - pontos_x[j])
+        termos_base.append(termo)
+        resultado += pontos_y[i] * termo
+        
+    return resultado, termos_base
+
+xs = [0.0, 1.0, 2.0, 3.0]
+ys = [1.0, 3.0, 2.0, 5.0]
+
+print("=== INTERPOLAÇÃO DE LAGRANGE ===")
+print("Nos de interpolacao (x_i, y_i):")
+for px, py in zip(xs, ys):
+    print(f"  ({px}, {py})")
+
+x_consulta = 1.5
+y_estimado, bases = interpolar_lagrange(xs, ys, x_consulta)
+
+print(f"\\nAvaliando P({x_consulta}):")
+for i, L in enumerate(bases):
+    print(f"  L_{i}({x_consulta}) = {L:+.4f} (peso do no y_{i}={ys[i]})")
+print(f"Valor interpolado exato: P({x_consulta}) = {y_estimado:.6f}")
 `,
 
     euclides: `# ALGORITMO DE EUCLIDES: MDC e MMC

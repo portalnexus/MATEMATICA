@@ -137,6 +137,7 @@
             <button class="tool-tab active" data-tab="combinatoria">COMBINATÓRIA</button>
             <button class="tool-tab" data-tab="pascal">TRIÂNGULO DE PASCAL</button>
             <button class="tool-tab" data-tab="binomial">DISTRIBUIÇÃO BINOMIAL</button>
+            <button class="tool-tab" data-tab="galton">⚪ QUINCUNX DE GALTON</button>
           </div>
 
           <!-- ABA COMBINATÓRIA -->
@@ -194,6 +195,29 @@
 
             <div class="destaque-box teorema" id="binomOutput" style="display: none; margin-top: 1rem;"></div>
           </div>
+
+          <!-- ABA GALTON (QUINCUNX) -->
+          <div id="tabGalton" style="display: none;">
+            <p style="font-size: 0.95rem; color: var(--secondary-text-color);">
+              Simulador da <strong>Máquina de Galton (Quincunx)</strong>. Esferas caem por uma grade de 8 níveis de obstáculos, optando aleatoriamente por esquerda (@p=0{,}5@) ou direita (@p=0{,}5@) a cada nível. O acúmulo nas canaletas ilustra a transição da distribuição Binomial discreta para a Curva Normal de Gauss (Teorema Central do Limite).
+            </p>
+
+            <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+              <button class="btn-action" id="btnDropBalls" style="width: auto; margin-top: 0; padding: 0.6rem 1.2rem;">SOLTAR 100 ESFERAS</button>
+              <button class="btn-action" id="btnResetGalton" style="width: auto; margin-top: 0; padding: 0.6rem 1.2rem; background: rgba(239, 68, 68, 0.7); color: #fff;">ZERAR CONTAGEM</button>
+              <span style="font-size: 0.9rem;">Total de Esferas Acumuladas: <strong id="galtonCount" style="color: var(--link-color);">0</strong></span>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px;">
+              <canvas id="galtonCanvas" style="width: 100%; height: 280px; display: block;"></canvas>
+            </div>
+
+            <div class="destaque-box definicao" style="margin-top: 1rem;">
+              <h4>Fundamentação Matemática do Quincunx:</h4>
+              <p>Para @N = 8@ níveis de pinos, a probabilidade de uma esfera cair na canaleta @k \in \{0, 1, \dots, 8\}@ é exatamente:</p>
+              @@P(X = k) = \binom{8}{k} \left(\frac{1}{2}\right)^8 = \frac{\binom{8}{k}}{256}@@
+            </div>
+          </div>
         </div>
 
         <div style="text-align: center; margin-top: 30px;">
@@ -232,8 +256,10 @@
         document.getElementById('tabCombinatoria').style.display = target === 'combinatoria' ? 'block' : 'none';
         document.getElementById('tabPascal').style.display = target === 'pascal' ? 'block' : 'none';
         document.getElementById('tabBinomial').style.display = target === 'binomial' ? 'block' : 'none';
+        document.getElementById('tabGalton').style.display = target === 'galton' ? 'block' : 'none';
         if (target === 'pascal') generatePascal();
         if (target === 'binomial') calcBinomial();
+        if (target === 'galton') drawGalton();
       });
     });
 
@@ -357,6 +383,105 @@
       });
     }
 
+    // Motor do Quincunx de Galton
+    const galtonBins = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let galtonTotalCount = 0;
+
+    function dropBalls(amount = 100) {
+      for (let b = 0; b < amount; b++) {
+        let k = 0;
+        for (let step = 0; step < 8; step++) {
+          if (Math.random() < 0.5) k++;
+        }
+        galtonBins[k]++;
+        galtonTotalCount++;
+      }
+      document.getElementById('galtonCount').textContent = galtonTotalCount;
+      drawGalton();
+    }
+
+    function resetGalton() {
+      for (let i = 0; i < 9; i++) galtonBins[i] = 0;
+      galtonTotalCount = 0;
+      document.getElementById('galtonCount').textContent = '0';
+      drawGalton();
+    }
+
+    function drawGalton() {
+      const gCanvas = document.getElementById('galtonCanvas');
+      if (!gCanvas) return;
+      const gCtx = gCanvas.getContext('2d');
+      const rect = gCanvas.getBoundingClientRect();
+      gCanvas.width = rect.width * window.devicePixelRatio || 500;
+      gCanvas.height = 280 * window.devicePixelRatio;
+
+      const w = gCanvas.width;
+      const h = gCanvas.height;
+      gCtx.clearRect(0, 0, w, h);
+
+      const levels = 8;
+      const pegSpacingY = 16 * window.devicePixelRatio;
+      const pegSpacingX = 24 * window.devicePixelRatio;
+      const topPegY = 25 * window.devicePixelRatio;
+      const centerX = w / 2;
+
+      // Desenhar pinos triangulares
+      gCtx.fillStyle = '#60a5fa';
+      for (let row = 0; row <= levels; row++) {
+        const rowPegs = row + 1;
+        const startX = centerX - (row * pegSpacingX) / 2;
+        const y = topPegY + row * pegSpacingY;
+        for (let p = 0; p < rowPegs; p++) {
+          const x = startX + p * pegSpacingX;
+          gCtx.beginPath();
+          gCtx.arc(x, y, 2.5 * window.devicePixelRatio, 0, Math.PI * 2);
+          gCtx.fill();
+        }
+      }
+
+      // Desenhar canaletas e histograma empírico
+      const binBottomY = h - 25 * window.devicePixelRatio;
+      const binHeightMax = 90 * window.devicePixelRatio;
+      const binWidth = (w - 60 * window.devicePixelRatio) / 9;
+      const maxVal = Math.max(...galtonBins, 1);
+
+      for (let b = 0; b < 9; b++) {
+        const bx = 30 * window.devicePixelRatio + b * binWidth;
+        const bCount = galtonBins[b];
+        const barH = (bCount / maxVal) * binHeightMax;
+        const by = binBottomY - barH;
+
+        // Barra de acúmulo
+        gCtx.fillStyle = 'rgba(0, 255, 102, 0.35)';
+        gCtx.fillRect(bx + 2, by, binWidth - 4, barH);
+        gCtx.strokeStyle = '#00ff66';
+        gCtx.lineWidth = 1.5;
+        gCtx.strokeRect(bx + 2, by, binWidth - 4, barH);
+
+        // Divisória da canaleta
+        gCtx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+        gCtx.beginPath();
+        gCtx.moveTo(bx, binBottomY);
+        gCtx.lineTo(bx, binBottomY - binHeightMax);
+        gCtx.stroke();
+
+        // Rótulo da canaleta k
+        gCtx.fillStyle = '#94a3b8';
+        gCtx.font = `${10 * window.devicePixelRatio}px monospace`;
+        gCtx.fillText(`k=${b}`, bx + binWidth / 4, h - 8 * window.devicePixelRatio);
+      }
+
+      // Linha do chão
+      gCtx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+      gCtx.beginPath();
+      gCtx.moveTo(20, binBottomY);
+      gCtx.lineTo(w - 20, binBottomY);
+      gCtx.stroke();
+    }
+
+    document.getElementById('btnDropBalls').addEventListener('click', () => dropBalls(100));
+    document.getElementById('btnResetGalton').addEventListener('click', resetGalton);
+
     function renderKatex(elem) {
       if (window.renderMathInElement) {
         renderMathInElement(elem, {
@@ -371,6 +496,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('btnCalcComb').click();
+      drawGalton();
     });
   </script>
 </body>

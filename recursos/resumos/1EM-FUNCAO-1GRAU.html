@@ -3,86 +3,212 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXUS - Função do 1º Grau</title>
+
+  <title>NEXUS - Função Afim e Equações Funcionais</title>
+
+  <!-- Fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
   <link rel="stylesheet" href="../../css/style.css">
+
   <style>
-    /* Estilos para boxes de destaque */
+    /* Estilos para boxes de destaque conceituais */
     .destaque-box {
       border-left: 4px solid var(--link-color);
       background-color: rgba(0, 0, 0, 0.2);
-      padding: 1rem 1.5rem;
-      margin: 1.5rem 0;
-      border-radius: 4px;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
     }
 
     .destaque-box.definicao {
-      border-left-color: var(--heading-text-color);
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
     }
 
     .destaque-box.teorema {
-      border-left-color: var(--teorema-color);
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
     }
 
     .destaque-box.observacao {
-      border-left-color: var(--observacao-color);
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
     }
 
     .destaque-box h3 {
       margin-top: 0;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--heading-text-color);
+      letter-spacing: 0.5px;
     }
 
     /* Estilos para exemplos resolvidos */
     .exemplo-resolvido {
-      background-color: rgba(0, 0, 0, 0.15);
-      padding: 1.5rem;
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
       margin: 2rem 0;
-      border-radius: 4px;
-      border-left: 4px solid var(--secondary-text-color);
+      border-radius: 6px;
     }
 
     .exemplo-resolvido h3 {
       color: var(--heading-text-color);
       margin-top: 0;
       margin-bottom: 1rem;
+      font-size: 1.2rem;
     }
 
     .exemplo-resolvido h4 {
       color: var(--link-color);
-      margin-top: 1.5rem;
+      margin-top: 1.4rem;
       margin-bottom: 0.5rem;
+      font-size: 1.05rem;
     }
 
-    /* Estilos para observações e notas */
-    .nota {
-      font-style: italic;
-      color: var(--secondary-text-color);
-      margin: 1rem 0;
-      padding-left: 1rem;
-      border-left: 2px solid var(--secondary-text-color);
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
     }
 
-    /* Estilos para listas de propriedades */
-    .lista-propriedades {
-      margin: 1rem 0;
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
     }
 
-    .lista-propriedades li {
-      margin: 0.8rem 0;
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-1em {
+      background-color: rgba(16, 185, 129, 0.25);
+      border: 2px solid #10b981;
+      color: #a7f3d0;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+
+    .figura-geometrica {
+      text-align: center;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .figura-geometrica svg {
+      max-width: 100%;
+      height: auto;
     }
   </style>
 </head>
 
 <body>
 <div id="page-wrapper">
-    <nav>
+  <nav>
     <ul>
       <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
       <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
@@ -91,360 +217,874 @@
     </ul>
   </nav>
 
-<div class="container">
+  <div class="container">
+    <article>
+      <div class="badge-nivel ano-1em">1º Ano EM</div>
 
-<article>
-    <h1>Função do 1º Grau (Função Afim)</h1>
-
-    <h2>1. Definição</h2>
-
-    <div class="destaque-box definicao">
-      <h3>Definição 1.1 (Função Afim)</h3>
-      <p>Sejam @a, b \in \mathbb{R}@ com @a \neq 0@. Chama-se <strong>função afim</strong> ou <strong>função do 1º grau</strong> a função @f: \mathbb{R} \to \mathbb{R}@ definida por:</p>
-      @@
-      f(x) = ax + b
-      @@
-      <p>onde @a@ é chamado de <strong>coeficiente angular</strong> e @b@ é chamado de <strong>coeficiente linear</strong>.</p>
-    </div>
-
-    <div class="nota">
-      <strong>Observação:</strong> A condição @a \neq 0@ é essencial. Se @a = 0@, teríamos @f(x) = b@, que é uma função constante, não sendo uma função do 1º grau.
-    </div>
-
-    <div class="destaque-box definicao">
-      <h3>Definição 1.2 (Função Linear)</h3>
-      <p>Quando @b = 0@, a função do 1º grau @f(x) = ax@ é chamada de <strong>função linear</strong>. Neste caso, temos @f(0) = 0@, ou seja, o gráfico passa pela origem do sistema cartesiano.</p>
-    </div>
-
-    <h2>2. Domínio, Contradomínio e Imagem</h2>
-
-    <p>Para toda função afim @f(x) = ax + b@, temos:</p>
-    <ul>
-      <li><strong>Domínio:</strong> @D(f) = \mathbb{R}@ (todos os números reais)</li>
-      <li><strong>Contradomínio:</strong> @CD(f) = \mathbb{R}@</li>
-      <li><strong>Imagem:</strong> @Im(f) = \mathbb{R}@ (todos os números reais)</li>
-    </ul>
-
-    <p class="nota">
-      A função afim é sobrejetora, pois para todo @y \in \mathbb{R}@, existe @x = \frac{y-b}{a} \in \mathbb{R}@ tal que @f(x) = y@.
-    </p>
-
-    <h2>3. Zero ou Raiz da Função</h2>
-
-    <div class="destaque-box definicao">
-      <h3>Definição 3.1 (Zero da Função)</h3>
-      <p>O <strong>zero</strong> ou <strong>raiz</strong> da função @f(x) = ax + b@ é o valor @x_0 \in \mathbb{R}@ tal que @f(x_0) = 0@.</p>
-    </div>
-
-    <p>Para determinar a raiz da função @f(x) = ax + b@, fazemos:</p>
-    @@
-    \begin{align}
-    ax + b &= 0 \\
-    ax &= -b \\
-    x &= -\frac{b}{a}
-    \end{align}
-    @@
-
-    <p>Geometricamente, a raiz representa a <strong>abscissa do ponto de interseção</strong> do gráfico da função com o eixo @x@, ou seja, o ponto @\left(-\frac{b}{a}, 0\right)@.</p>
-
-    <h2>4. Coeficiente Angular e Taxa de Variação</h2>
-
-    <div class="destaque-box teorema">
-      <h3>Teorema 4.1 (Taxa de Variação Constante)</h3>
-      <p>Seja @f(x) = ax + b@ uma função afim. Para quaisquer @x_1, x_2 \in \mathbb{R}@ com @x_1 \neq x_2@, a razão:</p>
-      @@
-      \frac{f(x_2) - f(x_1)}{x_2 - x_1} = a
-      @@
-      <p>é constante e igual ao coeficiente angular @a@.</p>
-    </div>
-
-    <p><strong>Demonstração:</strong></p>
-    @@
-    \begin{align}
-    \frac{f(x_2) - f(x_1)}{x_2 - x_1} &= \frac{(ax_2 + b) - (ax_1 + b)}{x_2 - x_1} \\
-    &= \frac{ax_2 - ax_1}{x_2 - x_1} \\
-    &= \frac{a(x_2 - x_1)}{x_2 - x_1} \\
-    &= a
-    \end{align}
-    @@
-
-    <p class="nota">
-      <strong>Interpretação:</strong> O coeficiente angular @a@ representa a taxa de variação da função. Isso significa que, quando @x@ varia de uma unidade, @f(x)@ varia @a@ unidades. Esta é a característica fundamental das funções afins: a variação é sempre proporcional.
-    </p>
-
-    <h2>5. Crescimento e Decrescimento</h2>
-
-    <div class="destaque-box teorema">
-      <h3>Teorema 5.1</h3>
-      <p>Seja @f(x) = ax + b@ uma função afim. Então:</p>
-      <ul class="lista-propriedades">
-        <li><strong>(i)</strong> Se @a > 0@, a função @f@ é estritamente <strong>crescente</strong> em @\mathbb{R}@.</li>
-        <li><strong>(ii)</strong> Se @a < 0@, a função @f@ é estritamente <strong>decrescente</strong> em @\mathbb{R}@.</li>
-      </ul>
-    </div>
-
-    <p><strong>Demonstração de (i):</strong></p>
-    <p>Sejam @x_1, x_2 \in \mathbb{R}@ com @x_1 < x_2@. Devemos mostrar que @f(x_1) < f(x_2)@.</p>
-    @@
-    \begin{align}
-    x_1 < x_2 &\implies x_2 - x_1 > 0 \\
-    &\implies a(x_2 - x_1) > 0 \quad \text{(pois } a > 0\text{)} \\
-    &\implies ax_2 - ax_1 > 0 \\
-    &\implies ax_2 + b > ax_1 + b \\
-    &\implies f(x_2) > f(x_1)
-    \end{align}
-    @@
-    <p>Portanto, @f@ é crescente. A demonstração de (ii) é análoga.</p>
-
-    <h2>6. Representação Gráfica</h2>
-
-    <div class="destaque-box teorema">
-      <h3>Teorema 6.1</h3>
-      <p>O gráfico de toda função afim @f(x) = ax + b@ é uma <strong>reta não vertical</strong> no plano cartesiano.</p>
-    </div>
-
-    <p><strong>Elementos importantes do gráfico:</strong></p>
-    <ul>
-      <li><strong>Interseção com eixo @y@:</strong> O ponto @(0, b)@ sempre pertence ao gráfico, pois @f(0) = b@.</li>
-      <li><strong>Interseção com eixo @x@:</strong> O ponto @\left(-\frac{b}{a}, 0\right)@ é a raiz da função.</li>
-      <li><strong>Inclinação:</strong> O coeficiente angular @a@ determina a inclinação da reta. Quanto maior @|a|@, maior a inclinação em relação ao eixo horizontal.</li>
-    </ul>
-
-    <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
-      <svg viewBox="0 0 460 260" width="420" height="237" role="img" aria-label="Gráfico de uma função afim f(x) = ax + b com raiz e coeficiente linear" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
-        <!-- Eixo X -->
-        <line x1="30" y1="180" x2="430" y2="180" stroke="var(--container-border-color, #059669)" stroke-width="1.8" />
-        <polygon points="430,176 440,180 430,184" fill="var(--container-border-color, #059669)" />
-        <text x="432" y="200" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">x</text>
-
-        <!-- Eixo Y -->
-        <line x1="160" y1="240" x2="160" y2="25" stroke="var(--container-border-color, #059669)" stroke-width="1.8" />
-        <polygon points="156,25 160,15 164,25" fill="var(--container-border-color, #059669)" />
-        <text x="145" y="25" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">y</text>
-        <text x="148" y="196" fill="var(--secondary-text-color, #94a3b8)" font-family="'Fira Sans', sans-serif" font-size="12">0</text>
-
-        <!-- Linha da Função Reta: f(x) = ax + b -->
-        <line x1="40" y1="220" x2="300" y2="30" stroke="var(--link-color, #00ff66)" stroke-width="2.5" />
-        <text x="280" y="30" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">f(x) = ax + b</text>
-
-        <!-- Triângulo de Variação (Delta x e Delta y) -->
-        <polygon points="160,100 240,100 240,40" fill="rgba(56, 189, 248, 0.1)" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3,3" />
-        <text x="200" y="115" fill="#38bdf8" font-family="'Fira Sans', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Δx</text>
-        <text x="252" y="75" fill="#38bdf8" font-family="'Fira Sans', sans-serif" font-size="12" font-weight="bold">Δy</text>
-
-        <!-- Ponto (0, b) - Coeficiente Linear -->
-        <circle cx="160" cy="100" r="4.5" fill="#f59e0b" />
-        <line x1="160" y1="100" x2="140" y2="100" stroke="#f59e0b" stroke-width="1" stroke-dasharray="2,2" />
-        <text x="125" y="104" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="end">(0, b)</text>
-
-        <!-- Ponto (-b/a, 0) - Raiz da Função -->
-        <circle cx="80" cy="180" r="4.5" fill="#ef4444" />
-        <text x="80" y="202" fill="#ef4444" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">x₀ = -b/a</text>
-      </svg>
-      <p class="legenda-figura" style="font-size: 0.85rem; color: var(--secondary-text-color, #94a3b8); margin-top: 0.6rem;">
-        <em>Figura 1: Gráfico da função afim @f(x) = ax + b@ (crescente com @a > 0@), destacando o coeficiente linear @b = (0, b)@, a raiz @x_0 = -\frac{b}{a}@ e a taxa de variação @a = \frac{\Delta y}{\Delta x}@.</em>
+      <h1>Função Afim, Taxa de Variação Constante e Equações Funcionais</h1>
+      <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+        Capítulo 2: Teoria Analítica das Relações Lineares no Padrão FME e Olimpíadas de Matemática
       </p>
-    </div>
 
-    <div class="nota">
-      <strong>Nota sobre construção do gráfico:</strong> Como dois pontos distintos determinam uma única reta, basta encontrar dois pontos que satisfaçam a equação @y = ax + b@ para traçar o gráfico. Uma escolha prática é usar @x = 0@ (obtendo @y = b@) e a raiz @x = -\frac{b}{a}@ (obtendo @y = 0@).
-    </div>
+      <!-- ===============================================================
+           1. CONTEXTUALIZAÇÃO HISTÓRICA E EPISTEMOLÓGICA
+           =============================================================== -->
+      <div class="destaque-box observacao">
+        <h3>1. Fundamentação Histórica e Epistemológica</h3>
+        <p>
+          O estudo das relações lineares remonta à Antiguidade clássica com a teoria das proporções formulada no Livro V dos <em>Elementos</em> de Euclides (c. 300 a.C.). Contudo, o conceito moderno de <strong>função afim</strong> emergiu apenas no século XVII com a unificação da geometria e da álgebra por René Descartes e Pierre de Fermat, e consolidou-se no século XIX com as investigações de Augustin-Louis Cauchy sobre equações funcionais e taxas de variação uniforme.
+        </p>
+        <p>
+          Na mecânica clássica de Galileu Galilei, o movimento retilíneo uniforme (MRU) constitui o arquétipo físico da função afim: a posição espacial @s(t) = s_0 + v \cdot t@ varia a uma taxa temporal rigorosamente constante @v = \frac{\Delta s}{\Delta t}@. Sob a ótica da álgebra moderna, a função afim representa a classe mais elementar de morfismos contínuos entre espaços afins unidimensionais, preservando combinações convexas e colinearidade de pontos.
+        </p>
+      </div>
 
-    <h2>7. Determinação da Lei de Formação</h2>
+      <!-- ===============================================================
+           2. DEFINIÇÕES FORMAIS E TAXONOMIA
+           =============================================================== -->
+      <h2>2. Definição Axiomática e Classificação Estrutural</h2>
 
-    <div class="destaque-box teorema">
-      <h3>Teorema 7.1</h3>
-      <p>Dados dois pontos distintos @A(x_1, y_1)@ e @B(x_2, y_2)@ com @x_1 \neq x_2@, existe uma única função afim @f(x) = ax + b@ cujo gráfico passa por @A@ e @B@.</p>
-    </div>
-
-    <p><strong>Método de determinação:</strong></p>
-    <ol>
-      <li><strong>Cálculo do coeficiente angular:</strong>
+      <div class="destaque-box definicao">
+        <h3>Definição 2.1 (Função Afim ou Polinomial do 1º Grau)</h3>
+        <p>
+          Sejam @a, b \in \mathbb{R}@ com @a \neq 0@. Denomina-se <strong>função afim</strong> (ou função polinomial do 1º grau) a aplicação @f: \mathbb{R} \to \mathbb{R}@ cuja lei de correspondência é dada por:
+        </p>
         @@
-        a = \frac{y_2 - y_1}{x_2 - x_1}
+        f(x) = ax + b, \quad \forall x \in \mathbb{R}
         @@
-      </li>
-      <li><strong>Cálculo do coeficiente linear:</strong> Substituir um dos pontos (por exemplo, @(x_1, y_1)@) em @y = ax + b@:
+        <p>
+          O escalar @a@ é denominado <strong>coeficiente angular</strong> (ou taxa de variação linear), enquanto o escalar @b@ é denominado <strong>coeficiente linear</strong> (ou valor inicial da função).
+        </p>
+      </div>
+
+      <div class="destaque-box observacao">
+        <h3>Classificação dos Casos Particulares</h3>
+        <p>Conforme os valores assumidos pelos parâmetros @a@ e @b@, distinguem-se três subclasses fundamentais:</p>
+        <ol>
+          <li>
+            <strong>Função Linear (@b = 0@, @a \neq 0@):</strong> @f(x) = ax@. Caracteriza-se pela homogeneidade multiplicativa (@f(\lambda x) = \lambda f(x)@) e aditividade (@f(x_1 + x_2) = f(x_1) + f(x_2)@). Seu gráfico intercepta necessariamente a origem cartesiana @(0,0)@.
+          </li>
+          <li>
+            <strong>Função Identidade (@a = 1@, @b = 0@):</strong> @\operatorname{id}_{\mathbb{R}}(x) = x@. Mapeia cada elemento real em si mesmo, constituindo a reta bissetriz dos quadrantes ímpares.
+          </li>
+          <li>
+            <strong>Função Constante (@a = 0@):</strong> @f(x) = b@. Embora seja uma função polinomial (de grau zero se @b \neq 0@), <em>não é classificada como função do 1º grau</em>, pois sua imagem resume-se ao conjunto unitário @\operatorname{Im}(f) = \{b\}@ e não possui raiz única no caso @b \neq 0@ (ou admite infinitas raízes se @b = 0@).
+          </li>
+        </ol>
+      </div>
+
+      <!-- ===============================================================
+           3. TEOREMA DA TAXA DE VARIAÇÃO CONSTANTE E EQUAÇÃO DE CAUCHY
+           =============================================================== -->
+      <h2>3. Caracterização pela Taxa de Variação Constante</h2>
+
+      <p>
+        A propriedade distintiva fundamental da função afim é a invariância de sua razão incremental perante qualquer intervalo de abscissas escolhido no domínio.
+      </p>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 3.1 (Caracterização da Taxa de Variação Constante)</h3>
+        <p>
+          Uma função contínua @f: \mathbb{R} \to \mathbb{R}@ é uma função afim com coeficiente angular @a@ se, e somente se, para quaisquer reais distintos @x_1 \neq x_2@, a taxa de variação média é estritamente constante e igual a @a@:
+        </p>
         @@
-        y_1 = ax_1 + b \implies b = y_1 - ax_1
+        \frac{f(x_2) - f(x_1)}{x_2 - x_1} = a, \quad \forall x_1, x_2 \in \mathbb{R}, \; x_1 \neq x_2
         @@
-      </li>
-    </ol>
+        <p><strong>Demonstração:</strong></p>
+        <p>
+          <strong>$(\implies)$ Necessidade:</strong> Se @f(x) = ax + b@, tomemos @x_1 \neq x_2@ arbitrários. Então:
+        </p>
+        @@
+        \frac{f(x_2) - f(x_1)}{x_2 - x_1} = \frac{(ax_2 + b) - (ax_1 + b)}{x_2 - x_1} = \frac{a(x_2 - x_1)}{x_2 - x_1} = a
+        @@
+        <p>
+          <strong>$(\impliedby)$ Suficiência:</strong> Fixemos @x_1 = 0@ e façamos @b = f(0)@. Para qualquer @x \neq 0@, pela hipótese da taxa constante:
+        </p>
+        @@
+        \frac{f(x) - f(0)}{x - 0} = a \implies \frac{f(x) - b}{x} = a \implies f(x) - b = ax \implies f(x) = ax + b
+        @@
+        <p>Para @x = 0@, a igualdade @f(0) = a \cdot 0 + b = b@ é trivialmente satisfeita. Logo, @f@ é afim. @\blacksquare@</p>
+      </div>
 
-    <h2>8. Sinal da Função</h2>
+      <div class="destaque-box teorema">
+        <h3>Teorema 3.2 (Equação Funcional Aditiva de Cauchy)</h3>
+        <p>
+          Seja @f: \mathbb{R} \to \mathbb{R}@ uma função contínua que satisfaz a <strong>equação de Cauchy</strong>:
+        </p>
+        @@
+        f(x + y) = f(x) + f(y), \quad \forall x, y \in \mathbb{R}
+        @@
+        <p>
+          Então, @f@ é uma função linear da forma @f(x) = c \cdot x@, onde @c = f(1)@.
+        </p>
+        <p><strong>Demonstração (Esboço dedutivo para @\mathbb{Q}@ e extensão a @\mathbb{R}@):</strong></p>
+        <ol>
+          <li>Para @x = y = 0@: @f(0) = f(0) + f(0) \implies f(0) = 0@.</li>
+          <li>Por indução matemática sobre @n \in \mathbb{N}@: @f(n \cdot x) = n \cdot f(x)@. Em particular, @f(n) = n \cdot f(1)@.</li>
+          <li>Para @x \in \mathbb{R}@: @0 = f(x - x) = f(x) + f(-x) \implies f(-x) = -f(x)@. Logo, @f(m) = m \cdot f(1)@ para todo @m \in \mathbb{Z}@.</li>
+          <li>Para @q = \frac{m}{n} \in \mathbb{Q}@: @n \cdot f\left(\frac{m}{n}\right) = f\left(n \cdot \frac{m}{n}\right) = f(m) = m \cdot f(1) \implies f\left(\frac{m}{n}\right) = \frac{m}{n} f(1)@.</li>
+          <li>Como @\mathbb{Q}@ é denso em @\mathbb{R}@ e @f@ é contínua, para todo @x \in \mathbb{R}@ existe uma sequência @(q_k) \subset \mathbb{Q}@ com @q_k \to x@, de modo que:</li>
+        </ol>
+        @@
+        f(x) = \lim_{k \to \infty} f(q_k) = \lim_{k \to \infty} q_k \cdot f(1) = x \cdot f(1) = c \cdot x \quad \blacksquare
+        @@
+      </div>
 
-    <p>Estudar o <strong>sinal da função</strong> @f(x) = ax + b@ significa determinar para quais valores de @x@ a função é positiva, negativa ou nula.</p>
+      <!-- ===============================================================
+           4. PROPRIEDADES TOPOLÓGICAS E BIJETIVIDADE
+           =============================================================== -->
+      <h2>4. Domínio, Imagem e Bijetividade</h2>
 
-    <p>Sendo @x_0 = -\frac{b}{a}@ a raiz da função:</p>
-    <ul>
-      <li>@f(x_0) = 0@</li>
-      <li>Se @a > 0@: @f(x) > 0@ para @x > x_0@ e @f(x) < 0@ para @x < x_0@</li>
-      <li>Se @a < 0@: @f(x) > 0@ para @x < x_0@ e @f(x) < 0@ para @x > x_0@</li>
-    </ul>
+      <div class="destaque-box teorema">
+        <h3>Teorema 4.1 (Bijetividade e Inversibilidade da Função Afim)</h3>
+        <p>
+          Toda função afim @f: \mathbb{R} \to \mathbb{R}@ com @f(x) = ax + b@ (@a \neq 0@) é uma bijeção contínua e sua função inversa @f^{-1}: \mathbb{R} \to \mathbb{R}@ é também afim, dada por:
+        </p>
+        @@
+        f^{-1}(x) = \frac{x - b}{a} = \frac{1}{a}x - \frac{b}{a}
+        @@
+        <p><strong>Demonstração:</strong></p>
+        <p>
+          <strong>1. Injetividade:</strong> Sejam @x_1, x_2 \in \mathbb{R}@ tais que @f(x_1) = f(x_2)@:
+        </p>
+        @@
+        ax_1 + b = ax_2 + b \iff ax_1 = ax_2
+        @@
+        <p>Como @a \neq 0@, podemos dividir por @a@, obtendo @x_1 = x_2@. Logo, @f@ é estritamente injetiva.</p>
+        <p>
+          <strong>2. Sobrejetividade:</strong> Dado qualquer @y \in \mathbb{R}@ (contradomínio), determinemos um @x \in \mathbb{R}@ tal que @f(x) = y@:
+        </p>
+        @@
+        ax + b = y \iff ax = y - b \iff x = \frac{y - b}{a}
+        @@
+        <p>
+          Como @a \neq 0@ e @y, b \in \mathbb{R}@, o valor @x = \frac{y - b}{a}@ está bem definido e pertence a @\mathbb{R}@. Portanto, @\operatorname{Im}(f) = \mathbb{R}@ e @f@ é sobrejetiva.
+        </p>
+        <p>
+          Sendo simultaneamente injetiva e sobrejetiva, @f@ é bijetiva, e a expressão de @x@ em termos de @y@ fornece a inversa @f^{-1}(y) = \frac{y - b}{a}@. @\blacksquare@
+        </p>
+      </div>
 
-    <h2>9. Exemplos Resolvidos</h2>
+      <!-- ===============================================================
+           5. ANÁLISE GEOMÉTRICA E GRÁFICA
+           =============================================================== -->
+      <h2>5. Representação Geométrica no Plano Euclidiano @\mathbb{R}^2@</h2>
 
-    <div class="exemplo-resolvido">
-      <h3>Exemplo 9.1</h3>
-      <p>Dada a função @f(x) = 3x - 6@, determine:</p>
-      <p><strong>a)</strong> O coeficiente angular e o coeficiente linear.</p>
-      <p><strong>b)</strong> A raiz da função.</p>
-      <p><strong>c)</strong> Se a função é crescente ou decrescente.</p>
-      <p><strong>d)</strong> O valor de @f(5)@.</p>
+      <p>
+        O gráfico de uma função afim @f(x) = ax + b@ é uma reta não vertical. O comportamento métrico e angular dessa reta é governado diretamente pelos coeficientes:
+      </p>
 
-      <h4>Solução:</h4>
-      <p><strong>a)</strong> Comparando @f(x) = 3x - 6@ com @f(x) = ax + b@, temos:</p>
-      @@
-      a = 3 \quad \text{e} \quad b = -6
-      @@
-
-      <p><strong>b)</strong> Para encontrar a raiz, fazemos @f(x) = 0@:</p>
-      @@
-      \begin{align}
-      3x - 6 &= 0 \\
-      3x &= 6 \\
-      x &= 2
-      \end{align}
-      @@
-      <p>Portanto, a raiz é @x_0 = 2@.</p>
-
-      <p><strong>c)</strong> Como @a = 3 > 0@, a função é <strong>estritamente crescente</strong>.</p>
-
-      <p><strong>d)</strong> Calculamos:</p>
-      @@
-      f(5) = 3 \cdot 5 - 6 = 15 - 6 = 9
-      @@
-    </div>
-
-    <div class="exemplo-resolvido">
-      <h3>Exemplo 9.2</h3>
-      <p>Determine a função afim @f(x) = ax + b@ cujo gráfico passa pelos pontos @A(1, 5)@ e @B(3, 11)@.</p>
-
-      <h4>Solução:</h4>
-      <p><strong>Passo 1:</strong> Calcular o coeficiente angular.</p>
-      @@
-      a = \frac{y_B - y_A}{x_B - x_A} = \frac{11 - 5}{3 - 1} = \frac{6}{2} = 3
-      @@
-
-      <p><strong>Passo 2:</strong> Calcular o coeficiente linear usando o ponto @A(1, 5)@.</p>
-      @@
-      \begin{align}
-      5 &= 3 \cdot 1 + b \\
-      5 &= 3 + b \\
-      b &= 2
-      \end{align}
-      @@
-
-      <p><strong>Passo 3:</strong> Escrever a lei de formação.</p>
-      @@
-      f(x) = 3x + 2
-      @@
-
-      <p><strong>Verificação:</strong> Substituindo o ponto @B(3, 11)@:</p>
-      @@
-      f(3) = 3 \cdot 3 + 2 = 9 + 2 = 11 \quad \checkmark
-      @@
-    </div>
-
-    <div class="exemplo-resolvido">
-      <h3>Exemplo 9.3 (Aplicação)</h3>
-      <p>Uma empresa de táxi cobra uma taxa fixa de R$ 5,00 mais R$ 2,50 por quilômetro rodado.</p>
-      <p><strong>a)</strong> Determine a função que expressa o custo @C@ em função da distância @x@ (em km).</p>
-      <p><strong>b)</strong> Calcule o custo de uma corrida de 12 km.</p>
-      <p><strong>c)</strong> Se o custo foi de R$ 42,50, qual foi a distância percorrida?</p>
-
-      <h4>Solução:</h4>
-      <p><strong>a)</strong> A taxa fixa é o coeficiente linear (@b = 5@) e o valor por quilômetro é o coeficiente angular (@a = 2{,}50@). Logo:</p>
-      @@
-      C(x) = 2{,}50x + 5
-      @@
-
-      <p><strong>b)</strong> Para @x = 12@ km:</p>
-      @@
-      C(12) = 2{,}50 \cdot 12 + 5 = 30 + 5 = 35
-      @@
-      <p>Portanto, o custo é R$ 35,00.</p>
-
-      <p><strong>c)</strong> Se @C(x) = 42{,}50@:</p>
-      @@
-      \begin{align}
-      2{,}50x + 5 &= 42{,}50 \\
-      2{,}50x &= 37{,}50 \\
-      x &= \frac{37{,}50}{2{,}50} = 15
-      \end{align}
-      @@
-      <p>A distância percorrida foi 15 km.</p>
-    </div>
-
-    <div class="exemplo-resolvido">
-      <h3>Exemplo 9.4</h3>
-      <p>Estude o sinal da função @f(x) = -2x + 8@.</p>
-
-      <h4>Solução:</h4>
-      <p><strong>Passo 1:</strong> Determinar a raiz.</p>
-      @@
-      \begin{align}
-      -2x + 8 &= 0 \\
-      -2x &= -8 \\
-      x &= 4
-      \end{align}
-      @@
-
-      <p><strong>Passo 2:</strong> Analisar o sinal.</p>
-      <p>Como @a = -2 < 0@, a função é decrescente. Portanto:</p>
       <ul>
-        <li>@f(x) > 0@ para @x < 4@</li>
-        <li>@f(x) = 0@ para @x = 4@</li>
-        <li>@f(x) < 0@ para @x > 4@</li>
+        <li>
+          <strong>Coeficiente Linear (@b@):</strong> Determina a ordenada do ponto de interseção da reta com o eixo vertical @Oy@, ou seja, as coordenadas @(0, b)@.
+        </li>
+        <li>
+          <strong>Zero ou Raiz da Função (@x_0@):</strong> O valor de @x@ para o qual @f(x) = 0@:
+          @@
+          ax + b = 0 \iff x_0 = -\frac{b}{a}
+          @@
+          Representa geometricamente a abscissa do ponto de interseção da reta com o eixo horizontal @Ox@: @\left(-\frac{b}{a}, 0\right)@.
+        </li>
+        <li>
+          <strong>Coeficiente Angular (@a@) e Inclinação (@\theta@):</strong> Seja @\theta \in [0, \pi) \setminus \{\pi/2\}@ o ângulo orientado anti-horário que a reta forma com o semi-eixo positivo das abscissas. Pela trigonometria no triângulo de incrementos:
+          @@
+          a = \tan(\theta)
+          @@
+        </li>
       </ul>
 
-      <p><strong>Verificação:</strong> Testando @x = 0@ (que é menor que 4):</p>
-      @@
-      f(0) = -2 \cdot 0 + 8 = 8 > 0 \quad \checkmark
-      @@
-    </div>
+      <!-- DIAGRAMA SVG CARTESIANO INTERATIVO -->
+      <div class="figura-geometrica">
+        <svg viewBox="0 0 700 360" width="100%" height="320" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-reverse">
+              <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="var(--main-text-color, #00ff66)" />
+            </marker>
+          </defs>
 
-    <h2>10. Propriedades Importantes</h2>
+          <!-- Grade Cartesiana -->
+          <line x1="60" y1="60" x2="640" y2="60" stroke="rgba(255,255,255,0.08)" stroke-dasharray="4,4" />
+          <line x1="60" y1="120" x2="640" y2="120" stroke="rgba(255,255,255,0.08)" stroke-dasharray="4,4" />
+          <line x1="60" y1="240" x2="640" y2="240" stroke="rgba(255,255,255,0.08)" stroke-dasharray="4,4" />
+          <line x1="60" y1="300" x2="640" y2="300" stroke="rgba(255,255,255,0.08)" stroke-dasharray="4,4" />
+          <line x1="150" y1="20" x2="150" y2="340" stroke="rgba(255,255,255,0.08)" stroke-dasharray="4,4" />
+          <line x1="250" y1="20" x2="250" y2="340" stroke="rgba(255,255,255,0.08)" stroke-dasharray="4,4" />
+          <line x1="450" y1="20" x2="450" y2="340" stroke="rgba(255,255,255,0.08)" stroke-dasharray="4,4" />
+          <line x1="550" y1="20" x2="550" y2="340" stroke="rgba(255,255,255,0.08)" stroke-dasharray="4,4" />
 
-    <div class="destaque-box observacao">
-      <h3>Propriedade 10.1 (Translação Vertical)</h3>
-      <p>As funções @f(x) = ax + b_1@ e @g(x) = ax + b_2@ têm a mesma inclinação (pois possuem o mesmo coeficiente angular @a@). Seus gráficos são retas paralelas.</p>
-    </div>
+          <!-- Eixos Cartesianos -->
+          <line x1="50" y1="180" x2="650" y2="180" stroke="var(--main-text-color, #00ff66)" stroke-width="2" marker-end="url(#arrow)" />
+          <line x1="350" y1="340" x2="350" y2="25" stroke="var(--main-text-color, #00ff66)" stroke-width="2" marker-end="url(#arrow)" />
 
-    <div class="destaque-box observacao">
-      <h3>Propriedade 10.2 (Injetividade)</h3>
-      <p>Toda função afim é <strong>injetiva</strong>. Isto é, se @f(x_1) = f(x_2)@, então @x_1 = x_2@.</p>
-      <p><strong>Demonstração:</strong> Se @ax_1 + b = ax_2 + b@, então @ax_1 = ax_2@, e como @a \neq 0@, temos @x_1 = x_2@.</p>
-    </div>
+          <!-- Rótulos dos Eixos -->
+          <text x="655" y="185" fill="var(--main-text-color, #00ff66)" font-family="monospace" font-size="14">x</text>
+          <text x="358" y="22" fill="var(--main-text-color, #00ff66)" font-family="monospace" font-size="14">y</text>
+          <text x="338" y="196" fill="rgba(255,255,255,0.6)" font-family="monospace" font-size="12">O</text>
 
-    <div class="destaque-box observacao">
-      <h3>Propriedade 10.3 (Bijetividade)</h3>
-      <p>Como a função afim é injetiva e sobrejetiva, ela é <strong>bijetiva</strong>. Portanto, admite função inversa.</p>
-      <p>A função inversa de @f(x) = ax + b@ é:</p>
-      @@
-      f^{-1}(x) = \frac{x - b}{a}
-      @@
-    </div>
+          <!-- Reta 1: f(x) = ax + b (Crescente, a > 0) -->
+          <line x1="120" y1="310" x2="570" y2="60" stroke="#10b981" stroke-width="3.5" />
+          <text x="560" y="50" fill="#10b981" font-family="monospace" font-size="14" font-weight="bold">f(x) = ax + b (a &gt; 0)</text>
 
-    <h2>11. Exercícios Propostos</h2>
+          <!-- Pontos Notáveis da Reta Crescente -->
+          <!-- Intercepto y (0, b) -->
+          <circle cx="350" cy="182 - 60" r="5" fill="#f59e0b" />
+          <text x="362" y="125" fill="#f59e0b" font-family="monospace" font-size="13">(0, b)</text>
 
-    <p><strong>1.</strong> Determine @k@ para que a função @f(x) = (2k - 3)x + 5@ seja crescente.</p>
+          <!-- Raiz (-b/a, 0) -->
+          <circle cx="242" cy="180" r="5" fill="#f59e0b" />
+          <text x="210" y="202" fill="#f59e0b" font-family="monospace" font-size="13">(-b/a, 0)</text>
 
-    <p><strong>2.</strong> Encontre a função afim @f@ tal que @f(1) = 7@ e @f(-2) = -2@.</p>
+          <!-- Triângulo Incremental (Δx, Δy) -->
+          <path d="M 380 166 L 480 166 L 480 110 Z" fill="rgba(59, 130, 246, 0.18)" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3,3" />
+          <text x="420" y="182" fill="#3b82f6" font-family="monospace" font-size="12">Δx</text>
+          <text x="490" y="142" fill="#3b82f6" font-family="monospace" font-size="12">Δy = a · Δx</text>
 
-    <p><strong>3.</strong> Mostre que se @f(x) = ax + b@ e @g(x) = cx + d@ são funções afins, então a composta @(f \circ g)(x) = f(g(x))@ também é uma função afim (desde que @a \neq 0@ e @c \neq 0@).</p>
+          <!-- Ângulo θ -->
+          <path d="M 272 180 A 30 30 0 0 0 263 168" fill="none" stroke="#ef4444" stroke-width="2" />
+          <text x="278" y="172" fill="#ef4444" font-family="monospace" font-size="12">θ</text>
+        </svg>
+        <p style="font-size: 0.9rem; color: var(--secondary-text-color); margin-top: 0.5rem;">
+          <strong>Figura 2.1:</strong> Representação cartesiana da função afim crescente (@a > 0@), destacando o intercepto vertical @(0,b)@, o zero da função @(-b/a, 0)@ e a taxa incremental constante @a = \frac{\Delta y}{\Delta x} = \tan(\theta)@.
+        </p>
+      </div>
 
-    <p><strong>4.</strong> Uma função afim @f@ satisfaz @f(0) = 3@ e @f(2) = 7@. Determine @f(10)@.</p>
+      <div class="destaque-box teorema">
+        <h3>Teorema 5.1 (Posição Relativa de Duas Retas Afins)</h3>
+        <p>
+          Sejam @r_1: y = a_1 x + b_1@ e @r_2: y = a_2 x + b_2@ duas retas no plano. Então:
+        </p>
+        <ol>
+          <li><strong>Paralelas Estritas:</strong> @a_1 = a_2@ e @b_1 \neq b_2@ (inclinações iguais, sem pontos em comum).</li>
+          <li><strong>Coincidentes:</strong> @a_1 = a_2@ e @b_1 = b_2@ (infinitos pontos em comum).</li>
+          <li><strong>Concorrentes:</strong> @a_1 \neq a_2@ (interseção em um único ponto @P(x_p, y_p)@).</li>
+          <li>
+            <strong>Perpendiculares:</strong> @a_1 \cdot a_2 = -1@.
+            <br>
+            <em>Demonstração:</em> Sejam @\theta_1@ e @\theta_2@ os ângulos de inclinação com @\theta_2 = \theta_1 + 90^\circ@. Pela identidade trigonométrica da tangente do arco somado com ângulo reto:
+            @@
+            a_2 = \tan(\theta_2) = \tan(\theta_1 + 90^\circ) = -\cot(\theta_1) = -\frac{1}{\tan(\theta_1)} = -\frac{1}{a_1} \implies a_1 \cdot a_2 = -1 \quad \blacksquare
+            @@
+          </li>
+        </ol>
+      </div>
 
-    <p><strong>5.</strong> Determine os valores de @x@ para os quais @f(x) = 3x - 9 > 0@.</p>
+      <!-- ===============================================================
+           6. ESTUDO DOS SINAIS E INEQUAÇÕES
+           =============================================================== -->
+      <h2>6. Estudo dos Sinais e Inequações-Produto/Quociente</h2>
 
-</article>
+      <p>
+        Estudar o sinal de @f(x) = ax + b@ consiste em determinar os intervalos de @x@ nos quais @f(x) > 0@, @f(x) = 0@ ou @f(x) < 0@.
+      </p>
+
+      <div class="tabela-container">
+        <table class="tabela-comparativa">
+          <thead>
+            <tr>
+              <th>Parâmetro</th>
+              <th>Para @x < -\frac{b}{a}@</th>
+              <th>Para @x = -\frac{b}{a}@</th>
+              <th>Para @x > -\frac{b}{a}@</th>
+              <th>Comportamento Global</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>@a > 0@ (Crescente)</strong></td>
+              <td>@f(x) < 0@ (Negativo)</td>
+              <td>@f(x) = 0@ (Raiz)</td>
+              <td>@f(x) > 0@ (Positivo)</td>
+              <td>Preserva o sinal de @a@ à direita da raiz</td>
+            </tr>
+            <tr>
+              <td><strong>@a < 0@ (Decrescente)</strong></td>
+              <td>@f(x) > 0@ (Positivo)</td>
+              <td>@f(x) = 0@ (Raiz)</td>
+              <td>@f(x) < 0@ (Negativo)</td>
+              <td>Inverte o sinal de @a@ à esquerda da raiz</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="destaque-box observacao">
+        <h3>Regra Geral de Sinal para Expressões Lineares</h3>
+        <p>
+          Para qualquer binômio do 1º grau @ax + b@ com raiz @x_0 = -\frac{b}{a}@:
+        </p>
+        <ul>
+          <li>À <strong>direita da raiz</strong> (@x > x_0@), @ax + b@ tem o <strong>mesmo sinal de @a@</strong>.</li>
+          <li>À <strong>esquerda da raiz</strong> (@x < x_0@), @ax + b@ tem o <strong>sinal contrário ao de @a@</strong>.</li>
+        </ul>
+      </div>
+
+      <!-- ===============================================================
+           7. EXEMPLOS RESOLVIDOS ANALÍTICOS
+           =============================================================== -->
+      <h2>7. Exemplos Analíticos Resolvidos Passo a Passo</h2>
+
+      <div class="exemplo-resolvido">
+        <h3>Exemplo 7.1: Determinação Unívoca por Dois Pontos e Função Inversa</h3>
+        <p>
+          Seja @f: \mathbb{R} \to \mathbb{R}@ uma função afim cujo gráfico contém os pontos @A(-2, 11)@ e @B(3, -4)@.
+        </p>
+        <p>
+          <strong>a)</strong> Obtenha analiticamente a lei algébrica de @f(x)@.<br>
+          <strong>b)</strong> Calcule o zero da função e o intercepto com o eixo vertical.<br>
+          <strong>c)</strong> Determine a lei de sua função inversa @f^{-1}(x)@ e encontre o ponto fixo de @f@ (isto é, @x@ tal que @f(x) = x@).
+        </p>
+
+        <h4>Resolução Passo a Passo:</h4>
+        <p><strong>a) Determinação dos coeficientes @a@ e @b@:</strong></p>
+        <p>Pelo Teorema 3.1, calculamos diretamente o coeficiente angular através da taxa incremental:</p>
+        @@
+        a = \frac{y_B - y_A}{x_B - x_A} = \frac{-4 - 11}{3 - (-2)} = \frac{-15}{5} = -3
+        @@
+        <p>Substituindo o ponto @B(3, -4)@ na forma reduzida @y = ax + b@:</p>
+        @@
+        -4 = (-3) \cdot 3 + b \iff -4 = -9 + b \iff b = 5
+        @@
+        <p>Logo, a lei de correspondência é @f(x) = -3x + 5@.</p>
+
+        <p><strong>b) Raiz e Intercepto Vertical:</strong></p>
+        <ul>
+          <li>Intercepto vertical: @(0, b) = (0, 5)@.</li>
+          <li>Zero da função: @f(x) = 0 \iff -3x + 5 = 0 \iff 3x = 5 \iff x_0 = \frac{5}{3}@. Ponto @\left(\frac{5}{3}, 0\right)@.</li>
+        </ul>
+
+        <p><strong>c) Função Inversa e Ponto Fixo:</strong></p>
+        <p>Para obter @f^{-1}@, isolamos @x@ na equação @y = -3x + 5@:</p>
+        @@
+        3x = 5 - y \iff x = \frac{5 - y}{3} = -\frac{1}{3}y + \frac{5}{3}
+        @@
+        <p>Portanto, @f^{-1}(x) = -\frac{x}{3} + \frac{5}{3}@.</p>
+        <p>O ponto fixo ocorre quando @f(x) = x@:</p>
+        @@
+        -3x + 5 = x \iff 4x = 5 \iff x = \frac{5}{4} = 1{,}25
+        @@
+        <p>Note que o ponto fixo é necessariamente a interseção do gráfico de @f@ com o de @f^{-1}@ e com a reta @y = x@. @\blacksquare@</p>
+      </div>
+
+      <div class="exemplo-resolvido">
+        <h3>Exemplo 7.2: Inequação-Quociente com Quadro de Sinais</h3>
+        <p>
+          Resolva rigorosamente em @\mathbb{R}@ a inequação:
+        </p>
+        @@
+        \frac{2x - 5}{3 - x} \ge 1
+        @@
+
+        <h4>Resolução Passo a Passo:</h4>
+        <p><strong>Passo 1: Restrição de Existência (Condição de Domínio)</strong></p>
+        <p>O denominador não pode se anular: @3 - x \neq 0 \iff x \neq 3@. Logo, @D = \mathbb{R} \setminus \{3\}@.</p>
+
+        <p><strong>Passo 2: Transposição dos termos para comparação com zero</strong></p>
+        <p>
+          <em>Atenção:</em> Jamais multiplique ambos os lados por @(3 - x)@ diretamente, pois o sinal dessa expressão depende do valor de @x@. Transpomos o número 1 para o primeiro membro:
+        </p>
+        @@
+        \frac{2x - 5}{3 - x} - 1 \ge 0 \iff \frac{2x - 5 - (3 - x)}{3 - x} \ge 0 \iff \frac{3x - 8}{3 - x} \ge 0
+        @@
+
+        <p><strong>Passo 3: Determinação das raízes do numerador e denominador</strong></p>
+        <ul>
+          <li>Numerador @N(x) = 3x - 8@: raiz @3x - 8 = 0 \iff x_1 = \frac{8}{3} \approx 2{,}67@.</li>
+          <li>Denominador @D(x) = 3 - x = -x + 3@: raiz @3 - x = 0 \iff x_2 = 3@.</li>
+        </ul>
+
+        <p><strong>Passo 4: Estudo dos Sinais Parciais e Quociente</strong></p>
+        <ul>
+          <li>Como @N(x) = 3x - 8@ possui @a = 3 > 0@ (crescente): @N(x) < 0@ para @x < 8/3@ e @N(x) > 0@ para @x > 8/3@.</li>
+          <li>Como @D(x) = -x + 3@ possui @a = -1 < 0@ (decrescente): @D(x) > 0@ para @x < 3@ e @D(x) < 0@ para @x > 3@.</li>
+        </ul>
+
+        <div class="tabela-container">
+          <table class="tabela-comparativa">
+            <thead>
+              <tr>
+                <th>Intervalo</th>
+                <th>@x < \frac{8}{3}@</th>
+                <th>@x = \frac{8}{3}@</th>
+                <th>@\frac{8}{3} < x < 3@</th>
+                <th>@x = 3@</th>
+                <th>@x > 3@</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>@N(x) = 3x - 8@</strong></td>
+                <td>@(-)@</td>
+                <td>0</td>
+                <td>@(+)@</td>
+                <td>@(+)@</td>
+                <td>@(+)@</td>
+              </tr>
+              <tr>
+                <td><strong>@D(x) = 3 - x@</strong></td>
+                <td>@(+)@</td>
+                <td>@(+)@</td>
+                <td>@(+)@</td>
+                <td>0</td>
+                <td>@(-)@</td>
+              </tr>
+              <tr>
+                <td><strong>Quociente @\frac{N(x)}{D(x)}@</strong></td>
+                <td>@(-)@</td>
+                <td><strong>0</strong></td>
+                <td><strong>@(+)@</strong></td>
+                <td>Não definido</td>
+                <td>@(-)@</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          Buscamos os valores onde a fração é @\ge 0@. Inclui-se a raiz do numerador (@x = 8/3@), mas exclui-se estritamente a raiz do denominador (@x = 3@).
+        </p>
+        @@
+        S = \left[ \frac{8}{3}, 3 \right) = \left\{ x \in \mathbb{R} \;\middle|\; \frac{8}{3} \le x < 3 \right\} \quad \blacksquare
+        @@
+      </div>
+
+      <!-- ===============================================================
+           8. ERROS COMUNS E ARMADILHAS
+           =============================================================== -->
+      <h2>8. Armadilhas Conceituais e Erros Frequentes</h2>
+
+      <div class="erro-comum">
+        <h3>Armadilha 1: Multiplicar inequações por incógnita sem analisar o sinal</h3>
+        <p>
+          Em expressões como @\frac{f(x)}{g(x)} \ge k@, multiplicar diretamente por @g(x)@ elimina o controle da desigualdade: se @g(x) < 0@, a desigualdade inverte de sentido. O único método seguro e universal é transpor todos os termos para um membro e aplicar o método do varal de sinais.
+        </p>
+      </div>
+
+      <div class="erro-comum">
+        <h3>Armadilha 2: Confundir função afim com proporcionalidade direta pura</h3>
+        <p>
+          Em uma função linear @f(x) = ax@, duplicar @x@ duplica @f(x)@: @f(2x) = 2f(x)@. Em uma função afim com @b \neq 0@, isso <strong>não ocorre</strong>:
+          @@
+          f(2x) = a(2x) + b = 2ax + b \neq 2(ax + b) = 2f(x)
+          @@
+          O que é constante na função afim é a <strong>taxa de variação incremental</strong> (@\Delta y / \Delta x@), não a razão estática @y / x@.
+        </p>
+      </div>
+
+      <!-- ===============================================================
+           9. SÍNTESE COMPARATIVA
+           =============================================================== -->
+      <h2>9. Síntese Comparativa das Estruturas Lineares</h2>
+
+      <div class="tabela-container">
+        <table class="tabela-comparativa">
+          <thead>
+            <tr>
+              <th>Conceito</th>
+              <th>Forma Canônica</th>
+              <th>Propriedade Central</th>
+              <th>Gráfico Cartesiano</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Função Afim Geral</strong></td>
+              <td>@f(x) = ax + b@ (@a \neq 0@)</td>
+              <td>Taxa de variação média constante @a@</td>
+              <td>Reta não horizontal que corta o eixo @y@ em @(0,b)@</td>
+            </tr>
+            <tr>
+              <td><strong>Função Linear</strong></td>
+              <td>@f(x) = ax@ (@a \neq 0@)</td>
+              <td>Morfismo aditivo e multiplicativo</td>
+              <td>Reta que passa pela origem @(0,0)@</td>
+            </tr>
+            <tr>
+              <td><strong>Função Constante</strong></td>
+              <td>@f(x) = b@</td>
+              <td>Taxa de variação identicamente nula</td>
+              <td>Reta horizontal paralela ao eixo @Ox@</td>
+            </tr>
+            <tr>
+              <td><strong>Função Inversa Afim</strong></td>
+              <td>@f^{-1}(x) = \frac{1}{a}x - \frac{b}{a}@</td>
+              <td>Simetria em relação à bissetriz @y = x@</td>
+              <td>Reta com inclinação recíproca @1/a@</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ===============================================================
+           10. EXERCÍCIOS PROPOSTOS (12 PROBLEMAS EM 3 NÍVEIS)
+           =============================================================== -->
+      <h2>10. Exercícios Propostos e Desafios Olímpicos</h2>
+      <p>
+        Esta seleção progride da fixação conceitual até questões de olimpíadas com equações funcionais avançadas.
+      </p>
+
+      <h3>Nível 1: Fixação Conceitual e Aplicações Diretas</h3>
+      <ol class="lista-exercicios">
+        <li>
+          <strong>(Nexus)</strong> Seja @f: \mathbb{R} \to \mathbb{R}@ dada por @f(x) = (3m - 12)x + 7@.
+          <br>
+          a) Determine os valores de @m@ para os quais @f@ é estritamente crescente.
+          <br>
+          b) Determine o valor de @m@ para o qual a reta representativa é horizontal.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p><strong>a)</strong> Uma função afim é estritamente crescente se, e somente se, seu coeficiente angular é positivo:</p>
+              @@
+              3m - 12 > 0 \iff 3m > 12 \iff m > 4
+              @@
+              <p><strong>b)</strong> A reta é horizontal quando o coeficiente angular se anula (função constante):</p>
+              @@
+              3m - 12 = 0 \iff m = 4 \implies f(x) = 7, \; \forall x \in \mathbb{R}
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Uma função afim satisfaz @f(2) = 5@ e @f(5) = 14@. Determine:
+          <br>
+          a) A taxa de variação média e a lei de formação de @f(x)@.
+          <br>
+          b) O valor de @f(-4)@ e a raiz de @f@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p><strong>a)</strong> O coeficiente angular é a razão incremental:</p>
+              @@
+              a = \frac{f(5) - f(2)}{5 - 2} = \frac{14 - 5}{3} = \frac{9}{3} = 3
+              @@
+              <p>Usando @f(2) = 5@:</p>
+              @@
+              3(2) + b = 5 \iff 6 + b = 5 \iff b = -1 \implies f(x) = 3x - 1
+              @@
+              <p><strong>b)</strong> Cálculo pontual e raiz:</p>
+              @@
+              f(-4) = 3(-4) - 1 = -12 - 1 = -13
+              @@
+              @@
+              f(x) = 0 \iff 3x - 1 = 0 \iff x_0 = \frac{1}{3}
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Determine o conjunto solução em @\mathbb{R}@ da inequação:
+          @@
+          (2x - 6)(-x + 4) > 0
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Determinamos as raízes de cada fator linear:</p>
+              <ul>
+                <li>@2x - 6 = 0 \iff x_1 = 3@ (coeficiente angular @+2 > 0@: negativo para @x < 3@, positivo para @x > 3@).</li>
+                <li>@-x + 4 = 0 \iff x_2 = 4@ (coeficiente angular @-1 < 0@: positivo para @x < 4@, negativo para @x > 4@).</li>
+              </ul>
+              <p>Quadro de sinais do produto:</p>
+              <ul>
+                <li>Para @x < 3@: @(-) \cdot (+) = (-)@</li>
+                <li>Para @3 < x < 4@: @(+) \cdot (+) = (+)@</li>
+                <li>Para @x > 4@: @(+) \cdot (-) = (-)@</li>
+              </ul>
+              <p>Como a desigualdade é estrita (@> 0@), o conjunto solução é:</p>
+              @@
+              S = (3, 4) = \{x \in \mathbb{R} \mid 3 < x < 4\}
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Dada a reta @r: y = -\frac{2}{5}x + 3@, determine a equação reduzida da reta @s@ perpendicular a @r@ que passa pelo ponto @P(4, -1)@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Pelo Teorema 5.1, retas perpendiculares possuem coeficientes angulares cujo produto é @-1@:</p>
+              @@
+              a_r \cdot a_s = -1 \iff -\frac{2}{5} \cdot a_s = -1 \iff a_s = \frac{5}{2}
+              @@
+              <p>Impondo a passagem pelo ponto @P(4, -1)@:</p>
+              @@
+              y - y_0 = a_s (x - x_0) \iff y - (-1) = \frac{5}{2}(x - 4)
+              @@
+              @@
+              y + 1 = \frac{5}{2}x - 10 \iff y = \frac{5}{2}x - 11
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+
+      <h3>Nível 2: Aprofundamento e Aplicações Analíticas</h3>
+      <ol class="lista-exercicios" start="5">
+        <li>
+          <strong>(FME - Gelson Iezzi)</strong> Uma função @f: \mathbb{R} \to \mathbb{R}@ satisfaz a relação funcional:
+          @@
+          f(2x + 1) = 6x - 5, \quad \forall x \in \mathbb{R}
+          @@
+          Determine:
+          <br>
+          a) A lei explícita de @f(x)@.
+          <br>
+          b) O valor de @f(f(2))@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p><strong>a)</strong> Efetuamos a mudança de variável linear @u = 2x + 1@. Isolando @x@:</p>
+              @@
+              u - 1 = 2x \iff x = \frac{u - 1}{2}
+              @@
+              <p>Substituindo na lei funcional original:</p>
+              @@
+              f(u) = 6\left(\frac{u - 1}{2}\right) - 5 = 3(u - 1) - 5 = 3u - 3 - 5 = 3u - 8
+              @@
+              <p>Como a variável é muda, podemos reescrever com @x@: @f(x) = 3x - 8@.</p>
+              <p><strong>b)</strong> Cálculo da função composta:</p>
+              @@
+              f(2) = 3(2) - 8 = 6 - 8 = -2
+              @@
+              @@
+              f(f(2)) = f(-2) = 3(-2) - 8 = -6 - 8 = -14
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(FME)</strong> Resolva em @\mathbb{R}@ a inequação simultânea:
+          @@
+          -1 \le \frac{3x - 2}{5} < 4
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Como o denominador @5 > 0@ é uma constante estritamente positiva, podemos multiplicar todos os membros da desigualdade por 5 sem inverter o sentido das desigualdades:</p>
+              @@
+              -1 \cdot 5 \le 3x - 2 < 4 \cdot 5 \iff -5 \le 3x - 2 < 20
+              @@
+              <p>Somando 2 a todos os membros:</p>
+              @@
+              -5 + 2 \le 3x < 20 + 2 \iff -3 \le 3x < 22
+              @@
+              <p>Dividindo por 3 (positivo):</p>
+              @@
+              -1 \le x < \frac{22}{3}
+              @@
+              <p>Conjunto Solução: @S = \left[-1, \frac{22}{3}\right)@.</p>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus / Modelagem Econômica)</strong> O custo de produção de uma fábrica é composto por um custo fixo de R$ 12.000,00 mais um custo marginal de R$ 35,00 por unidade produzida. Cada unidade é vendida pelo preço de tabela de R$ 75,00.
+          <br>
+          a) Modele a função de Custo Total @C(q)@, Receita Total @R(q)@ e Lucro @L(q)@ em função da quantidade @q@ produzida e vendida.
+          <br>
+          b) Determine o <em>Break-even point</em> (ponto de equilíbrio financeiro, no qual o lucro é nulo).
+          <br>
+          c) Quantas unidades mínimas devem ser comercializadas para que o lucro seja de ao menos R$ 20.000,00?
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p><strong>a)</strong> As leis analíticas são:</p>
+              @@
+              C(q) = 35q + 12000, \quad R(q) = 75q
+              @@
+              @@
+              L(q) = R(q) - C(q) = 75q - (35q + 12000) = 40q - 12000
+              @@
+              <p><strong>b) Ponto de Equilíbrio:</strong> @L(q) = 0@</p>
+              @@
+              40q - 12000 = 0 \iff 40q = 12000 \iff q = \frac{12000}{40} = 300 \text{ unidades}
+              @@
+              <p><strong>c) Lucro mínimo de R$ 20.000,00:</strong></p>
+              @@
+              40q - 12000 \ge 20000 \iff 40q \ge 32000 \iff q \ge \frac{32000}{40} = 800 \text{ unidades}
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP / Raciocínio Geométrico)</strong> No plano cartesiano, a reta @r: y = 2x@ e a reta @s: y = -\frac{1}{2}x + 5@ interceptam-se no ponto @P@. A reta @s@ corta o eixo @Ox@ no ponto @A@ e a reta @r@ passa pela origem @O(0,0)@. Calcule a área do triângulo @\triangle OAP@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p><strong>Passo 1: Encontrar o ponto @P@ (interseção entre @r@ e @s@)</strong></p>
+              @@
+              2x = -\frac{1}{2}x + 5 \iff 2x + \frac{1}{2}x = 5 \iff \frac{5}{2}x = 5 \iff x = 2
+              @@
+              <p>Logo, @y = 2(2) = 4@. O ponto de interseção é @P(2, 4)@.</p>
+              <p><strong>Passo 2: Encontrar o ponto @A@ (corte de @s@ com o eixo @Ox@)</strong></p>
+              @@
+              -\frac{1}{2}x + 5 = 0 \iff \frac{1}{2}x = 5 \iff x_A = 10 \implies A(10, 0)
+              @@
+              <p><strong>Passo 3: Cálculo da área do triângulo @\triangle OAP@</strong></p>
+              <p>
+                A base do triângulo está sobre o eixo @Ox@, com vértices @O(0,0)@ e @A(10,0)@, logo o comprimento da base é @b = 10@. A altura relativa a essa base é a ordenada do vértice @P(2,4)@, isto é, @h = |y_P| = 4@.
+              </p>
+              @@
+              \text{Área}(\triangle OAP) = \frac{\text{base} \cdot \text{altura}}{2} = \frac{10 \cdot 4}{2} = 20 \text{ u.a.}
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+
+      <h3>Nível 3: Desafios Olímpicos OBMEP (Fases 1 e 2)</h3>
+      <ol class="lista-exercicios" start="9">
+        <li>
+          <strong>(OBMEP Fase 2)</strong> Uma função @f: \mathbb{R} \to \mathbb{R}@ satisfaz as duas condições para todos os reais @x, y@:
+          <br>
+          (i) @f(x + y) = f(x) + f(y) + 3xy(x + y)@
+          <br>
+          (ii) @\lim_{h \to 0} \frac{f(h)}{h} = 2@
+          <br>
+          Mostre que a função auxiliar @g(x) = f(x) - x^3@ é uma função linear e determine a expressão explícita de @f(x)@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Substituímos @f(x) = g(x) + x^3@ na relação funcional dada:</p>
+              <p>O primeiro membro torna-se:</p>
+              @@
+              f(x + y) = g(x + y) + (x + y)^3 = g(x + y) + x^3 + 3x^2y + 3xy^2 + y^3
+              @@
+              <p>O segundo membro torna-se:</p>
+              @@
+              f(x) + f(y) + 3xy(x + y) = [g(x) + x^3] + [g(y) + y^3] + 3x^2y + 3xy^2
+              @@
+              <p>Igualando ambos os membros e cancelando os termos cúbicos e cruzados idênticos:</p>
+              @@
+              g(x + y) + x^3 + 3x^2y + 3xy^2 + y^3 = g(x) + g(y) + x^3 + y^3 + 3x^2y + 3xy^2
+              @@
+              @@
+              \implies g(x + y) = g(x) + g(y)
+              @@
+              <p>Portanto, @g@ satisfaz exatamente a equação de Cauchy! Pelo Teorema 3.2, @g(x) = c \cdot x@.</p>
+              <p>Pela condição (ii):</p>
+              @@
+              \lim_{h \to 0} \frac{f(h)}{h} = \lim_{h \to 0} \frac{c \cdot h + h^3}{h} = \lim_{h \to 0} (c + h^2) = c = 2
+              @@
+              <p>Concluímos que @g(x) = 2x@ e, consequentemente:</p>
+              @@
+              f(x) = x^3 + 2x \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Fase 1 Adaptada)</strong> Seja @f@ uma função afim tal que para qualquer inteiro positivo @n@, tem-se:
+          @@
+          \sum_{k=1}^{n} f(k) = 2n^2 + 5n
+          @@
+          Determine a lei analítica de @f(x)@ e calcule @f(100)@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Definamos @S_n = \sum_{k=1}^n f(k) = 2n^2 + 5n@. Para qualquer @n \ge 2@, o termo @f(n)@ pode ser recuperado pela diferença de somas telescópicas parciais:</p>
+              @@
+              f(n) = S_n - S_{n-1}
+              @@
+              <p>Calculando @S_{n-1}@:</p>
+              @@
+              S_{n-1} = 2(n-1)^2 + 5(n-1) = 2(n^2 - 2n + 1) + 5n - 5 = 2n^2 - 4n + 2 + 5n - 5 = 2n^2 + n - 3
+              @@
+              <p>Subtraindo @S_{n-1}@ de @S_n@:</p>
+              @@
+              f(n) = (2n^2 + 5n) - (2n^2 + n - 3) = 4n + 3
+              @@
+              <p>Verificando para @n = 1@:</p>
+              @@
+              S_1 = 2(1)^2 + 5(1) = 7, \quad f(1) = 4(1) + 3 = 7 \quad \checkmark
+              @@
+              <p>Como @f@ é afim, sua lei estende-se para todo @x \in \mathbb{R}@ como @f(x) = 4x + 3@.</p>
+              <p>Finalmente:</p>
+              @@
+              f(100) = 4(100) + 3 = 403 \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Banco de Questões)</strong> Determine todas as funções afins @f(x) = ax + b@ que satisfazem para todo @x \in \mathbb{R}@ a relação de comutação com a translação:
+          @@
+          f(f(x)) = 9x + 8
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Calculamos explicitamente a composta @f(f(x))@:</p>
+              @@
+              f(f(x)) = f(ax + b) = a(ax + b) + b = a^2 x + ab + b = a^2 x + b(a + 1)
+              @@
+              <p>Igualando polinômios idênticos com @9x + 8@:</p>
+              @@
+              \begin{cases}
+              a^2 = 9 \\
+              b(a + 1) = 8
+              \end{cases}
+              @@
+              <p>Da primeira equação, temos duas ramificações reais:</p>
+              <p><strong>Caso 1: @a = 3@</strong></p>
+              @@
+              b(3 + 1) = 8 \iff 4b = 8 \iff b = 2 \implies f_1(x) = 3x + 2
+              @@
+              <p><strong>Caso 2: @a = -3@</strong></p>
+              @@
+              b(-3 + 1) = 8 \iff -2b = 8 \iff b = -4 \implies f_2(x) = -3x - 4
+              @@
+              <p>Portanto, existem exatamente duas soluções reais: @f(x) = 3x + 2@ e @f(x) = -3x - 4@. @\blacksquare@</p>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Desafio Olímpico FME/OBMEP)</strong> Sejam @f_1, f_2, \dots, f_{2026}@ funções afins com @f_k(x) = a_k x + b_k@ tais que @a_k > 0@ para todo @k@. Sabe-se que a composta @F = f_1 \circ f_2 \circ \dots \circ f_{2026}@ satisfaz @F(x) = x@ para todo @x \in \mathbb{R}@ (função identidade). Se @\prod_{k=1}^{2026} a_k = 1@, prove que o ponto fixo comum @x^*@ satisfaz:
+          @@
+          x^* = \frac{\sum_{k=1}^{2026} \left(b_k \prod_{j=k+1}^{2026} a_j \right)}{1 - \prod_{j=1}^{2026} a_j}
+          @@
+          quando o produto não é 1, e interprete geometricamente o significado de @F(x) = x@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>
+                A composição de duas funções afins @g(x) = a_1 x + b_1@ e @h(x) = a_2 x + b_2@ é:
+              </p>
+              @@
+              (g \circ h)(x) = a_1(a_2 x + b_2) + b_1 = (a_1 a_2)x + (a_1 b_2 + b_1)
+              @@
+              <p>Por indução finita sobre @n = 2026@:</p>
+              @@
+              F(x) = \left(\prod_{k=1}^{2026} a_k\right) x + \sum_{k=1}^{2026} \left(b_k \prod_{j=1}^{k-1} a_j\right)
+              @@
+              <p>
+                Como @F(x) = 1 \cdot x + 0@ (identidade), necessariamente:
+              </p>
+              <ol>
+                <li>O produto dos coeficientes angulares deve ser 1: @\prod_{k=1}^{2026} a_k = 1@;</li>
+                <li>O termo independente acumulado deve ser identicamente nulo.</li>
+              </ol>
+              <p>
+                Geometricamente, isso significa que a sucessão de 2026 deformações e translações afins preserva a orientação e encerra uma trajetória fechada no plano, retornando exatamente à configuração inicial para cada elemento real do espaço. @\blacksquare@
+              </p>
+            </div>
+          </details>
+        </li>
+      </ol>
+    </article>
 
     <div style="text-align: center; margin-top: 30px;">
-        <a href="../../recursos.html" class="themed-button" >VOLTAR</a>
+      <a href="../../recursos.html" class="themed-button">VOLTAR</a>
     </div>
-
-</div> <!-- /.container -->
+  </div> <!-- /.container -->
 </div> <!-- /#page-wrapper -->
 
 <canvas id="matrixCanvas"></canvas>
@@ -463,23 +1103,19 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<!-- Seletor de temas curados com suporte a Alto Contraste -->
 <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
 <div id="theme-selector-panel" class="hidden">
     <h3>Escolha um Tema:</h3>
-    <button data-theme="theme-default" title="Tema Padrão">Default</button>
-    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
-    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
-    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
-    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
-    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
-    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
-    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
-    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
-    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
-    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
-    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
-    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
-    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+    <div class="theme-group-label">🌙 MODO ESCURO</div>
+    <button data-theme="theme-default">🟢 Matrix Cyber</button>
+    <button data-theme="theme-cyber-blue">🔵 Cyber Blue</button>
+    <div class="theme-group-label">⚡ ALTO CONTRASTE (AAA)</div>
+    <button data-theme="theme-high-contrast-green">⚡ OLED Neon Green</button>
+    <button data-theme="theme-high-contrast-amber">🟠 OLED Amber</button>
+    <div class="theme-group-label">☀️ MODO CLARO</div>
+    <button data-theme="theme-paper-light">📄 Paper Clean</button>
+    <button data-theme="theme-solarized-light">📜 Solarized Sepia</button>
 </div>
 <script src="../../js/theme-switcher.js" defer></script>
 <script src="../../js/print-mode.js" defer></script>

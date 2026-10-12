@@ -115,6 +115,7 @@
           <div class="trig-tabs">
             <button class="trig-tab active" data-view="ciclo">CICLO TRIGONOMÉTRICO (R=1)</button>
             <button class="trig-tab" data-view="triangulo">TRIÂNGULO RETÂNGULO</button>
+            <button class="trig-tab" data-view="teodolito">🔭 TEODOLITO DO AGRIMENSOR</button>
           </div>
 
           <!-- MODO CICLO -->
@@ -172,6 +173,31 @@
             </div>
 
             <div class="destaque-box teorema" id="triResults"></div>
+          </div>
+
+          <!-- MODO TEODOLITO DO AGRIMENSOR -->
+          <div id="viewTeodolito" style="display: none;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+              <div>
+                <label>Distância da Base @d@ (metros):</label>
+                <input type="number" id="inp_teo_d" value="30" step="1" min="1" style="width:100%; padding:0.6rem; background:rgba(0,0,0,0.5); border:1px solid var(--container-border-color); color:var(--main-text-color); border-radius:6px;">
+              </div>
+              <div>
+                <label>Ângulo de Visada @\alpha@ (graus):</label>
+                <input type="number" id="inp_teo_alpha" value="35" step="1" min="1" max="85" style="width:100%; padding:0.6rem; background:rgba(0,0,0,0.5); border:1px solid var(--container-border-color); color:var(--main-text-color); border-radius:6px;">
+              </div>
+              <div>
+                <label>Altura do Teodolito @h_0@ (metros):</label>
+                <input type="number" id="inp_teo_h0" value="1.6" step="0.1" min="0" style="width:100%; padding:0.6rem; background:rgba(0,0,0,0.5); border:1px solid var(--container-border-color); color:var(--main-text-color); border-radius:6px;">
+              </div>
+            </div>
+
+            <div class="sim-wrapper">
+              <div class="circle-canvas-box" style="border-style: solid;">
+                <canvas id="teodolitoCanvas" style="width:100%; max-width:480px; height:280px; display:block; margin:0 auto;"></canvas>
+              </div>
+              <div class="destaque-box teorema" id="teoResults" style="margin: 0;"></div>
+            </div>
           </div>
         </div>
 
@@ -321,8 +347,30 @@
         <p>@@\\text{tg}(\\alpha) = \\frac{CO}{CA} = \\frac{${co}}{${ca}} = ${tg.toFixed(3)}@@</p>
       `;
 
+    function updateTeodolito() {
+      const d = parseFloat(document.getElementById('inp_teo_d').value) || 30;
+      const alpha = parseFloat(document.getElementById('inp_teo_alpha').value) || 35;
+      const h0 = parseFloat(document.getElementById('inp_teo_h0').value) || 1.6;
+
+      const rad = (alpha * Math.PI) / 180;
+      const tan = Math.tan(rad);
+      const cos = Math.cos(rad);
+      const y = d * tan;
+      const H = h0 + y;
+      const L = d / cos;
+
+      document.getElementById('teoResults').innerHTML = `
+        <h4 style="margin-top:0;">Dedução Analítica da Altura:</h4>
+        <p><strong>Cálculo do Cateto Oposto (@y@):</strong></p>
+        @@y = d \\cdot \\tan(\\alpha) = ${d} \\cdot \\tan(${alpha}^\\circ) = ${d} \\cdot ${tan.toFixed(4)} = ${y.toFixed(2)} \\text{ m}@@
+        <p><strong>Altura Total do Monumento (@H@):</strong></p>
+        @@H = h_0 + y = ${h0.toFixed(2)} + ${y.toFixed(2)} = ${H.toFixed(2)} \\text{ metros}@@
+        <p><strong>Distância da Linha de Visada (@L@):</strong></p>
+        @@L = \\frac{d}{\\cos(${alpha}^\\circ)} = \\frac{${d}}{${cos.toFixed(4)}} = ${L.toFixed(2)} \\text{ m}@@
+      `;
+
       if (window.renderMathInElement) {
-        renderMathInElement(document.getElementById('triResults'), {
+        renderMathInElement(document.getElementById('teoResults'), {
           delimiters: [
             { left: "@@", right: "@@", display: true },
             { left: "@", right: "@", display: false }
@@ -330,11 +378,105 @@
           throwOnError: false
         });
       }
+
+      drawTeodolito(d, alpha, h0, y, H, L);
+    }
+
+    function drawTeodolito(d, alpha, h0, y, H, L) {
+      const teoCanvas = document.getElementById('teodolitoCanvas');
+      if (!teoCanvas) return;
+      const tCtx = teoCanvas.getContext('2d');
+      const rect = teoCanvas.getBoundingClientRect();
+      teoCanvas.width = rect.width * window.devicePixelRatio || 480;
+      teoCanvas.height = 280 * window.devicePixelRatio;
+
+      const w = teoCanvas.width;
+      const h = teoCanvas.height;
+      tCtx.clearRect(0, 0, w, h);
+
+      const groundY = h - 40 * window.devicePixelRatio;
+      const teoX = 60 * window.devicePixelRatio;
+      const towerX = w - 70 * window.devicePixelRatio;
+
+      // Escala vertical
+      const scaleY = Math.min((groundY - 30 * window.devicePixelRatio) / Math.max(H, 10), 10);
+      const teoEyeY = groundY - h0 * scaleY;
+      const towerTopY = groundY - H * scaleY;
+
+      // Linha do solo
+      tCtx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+      tCtx.lineWidth = 2 * window.devicePixelRatio;
+      tCtx.beginPath();
+      tCtx.moveTo(20 * window.devicePixelRatio, groundY);
+      tCtx.lineTo(w - 20 * window.devicePixelRatio, groundY);
+      tCtx.stroke();
+
+      // Teodolito / Tripé
+      tCtx.strokeStyle = '#3b82f6';
+      tCtx.lineWidth = 3 * window.devicePixelRatio;
+      tCtx.beginPath();
+      tCtx.moveTo(teoX - 15 * window.devicePixelRatio, groundY);
+      tCtx.lineTo(teoX, teoEyeY);
+      tCtx.lineTo(teoX + 15 * window.devicePixelRatio, groundY);
+      tCtx.stroke();
+      tCtx.fillStyle = '#60a5fa';
+      tCtx.beginPath();
+      tCtx.arc(teoX, teoEyeY, 6 * window.devicePixelRatio, 0, Math.PI * 2);
+      tCtx.fill();
+
+      // Torre / Monumento
+      tCtx.strokeStyle = '#10b981';
+      tCtx.lineWidth = 4 * window.devicePixelRatio;
+      tCtx.beginPath();
+      tCtx.moveTo(towerX, groundY);
+      tCtx.lineTo(towerX, towerTopY);
+      tCtx.stroke();
+      tCtx.fillStyle = '#34d399';
+      tCtx.beginPath();
+      tCtx.arc(towerX, towerTopY, 6 * window.devicePixelRatio, 0, Math.PI * 2);
+      tCtx.fill();
+
+      // Linha horizontal de referência (visada horizontal)
+      tCtx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+      tCtx.setLineDash([4, 4]);
+      tCtx.beginPath();
+      tCtx.moveTo(teoX, teoEyeY);
+      tCtx.lineTo(towerX, teoEyeY);
+      tCtx.stroke();
+
+      // Linha de Visada (hipotenusa)
+      tCtx.strokeStyle = '#f59e0b';
+      tCtx.lineWidth = 2.5 * window.devicePixelRatio;
+      tCtx.setLineDash([]);
+      tCtx.beginPath();
+      tCtx.moveTo(teoX, teoEyeY);
+      tCtx.lineTo(towerX, towerTopY);
+      tCtx.stroke();
+
+      // Ângulo alfa (arco)
+      tCtx.strokeStyle = '#f43f5e';
+      tCtx.lineWidth = 2 * window.devicePixelRatio;
+      tCtx.beginPath();
+      tCtx.arc(teoX, teoEyeY, 35 * window.devicePixelRatio, -alpha * Math.PI / 180, 0);
+      tCtx.stroke();
+
+      // Textos informativos
+      tCtx.fillStyle = '#f43f5e';
+      tCtx.font = `${11 * window.devicePixelRatio}px sans-serif`;
+      tCtx.fillText(`α = ${alpha}°`, teoX + 42 * window.devicePixelRatio, teoEyeY - 8 * window.devicePixelRatio);
+
+      tCtx.fillStyle = '#ffffff';
+      tCtx.font = `${11 * window.devicePixelRatio}px sans-serif`;
+      tCtx.fillText(`d = ${d}m`, (teoX + towerX) / 2 - 20 * window.devicePixelRatio, groundY + 20 * window.devicePixelRatio);
+      tCtx.fillText(`H = ${H.toFixed(1)}m`, towerX + 8 * window.devicePixelRatio, (groundY + towerTopY) / 2);
     }
 
     slider.addEventListener('input', updateCircle);
     document.getElementById('inp_co').addEventListener('input', updateTriangle);
     document.getElementById('inp_ca').addEventListener('input', updateTriangle);
+    document.getElementById('inp_teo_d').addEventListener('input', updateTeodolito);
+    document.getElementById('inp_teo_alpha').addEventListener('input', updateTeodolito);
+    document.getElementById('inp_teo_h0').addEventListener('input', updateTeodolito);
 
     document.querySelectorAll('.trig-tab').forEach(tab => {
       tab.addEventListener('click', () => {
@@ -343,15 +485,21 @@
         const v = tab.getAttribute('data-view');
         document.getElementById('viewCiclo').style.display = v === 'ciclo' ? 'block' : 'none';
         document.getElementById('viewTriangulo').style.display = v === 'triangulo' ? 'block' : 'none';
+        document.getElementById('viewTeodolito').style.display = v === 'teodolito' ? 'block' : 'none';
         if (v === 'ciclo') updateCircle();
-        else updateTriangle();
+        else if (v === 'triangulo') updateTriangle();
+        else if (v === 'teodolito') updateTeodolito();
       });
     });
 
-    window.addEventListener('resize', updateCircle);
+    window.addEventListener('resize', () => {
+      updateCircle();
+      updateTeodolito();
+    });
     document.addEventListener('DOMContentLoaded', () => {
       updateCircle();
       updateTriangle();
+      updateTeodolito();
     });
   </script>
 </body>

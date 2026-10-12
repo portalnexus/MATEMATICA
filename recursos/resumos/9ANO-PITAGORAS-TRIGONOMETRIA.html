@@ -3,196 +3,897 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXUS - Teorema de Pitágoras e Trigonometria no Triângulo Retângulo</title>
 
-  <!-- Fontes -->
+  <title>NEXUS - Teorema de Pitágoras, Relações Métricas e Trigonometria</title>
+
+  <!-- Fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
 
-  <!-- KaTeX -->
+  <!-- KaTeX para renderização matemática -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
 
-  <!-- CSS Nexus -->
+  <!-- CSS do projeto -->
   <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-9 {
+      background-color: rgba(59, 130, 246, 0.25);
+      border: 2px solid #3b82f6;
+      color: #93c5fd;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+
+    .figura-geometrica {
+      text-align: center;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .figura-geometrica svg {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="page-wrapper">
-    <nav>
-      <ul>
-        <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
-        <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
-        <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
-        <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
-      </ul>
-    </nav>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
+      <li><a href="../../python.html" class="nav-button">PYTHON</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
 
-    <div class="container">
-      <article>
-        <span class="badge-nivel ano-9">9º ANO DO ENSINO FUNDAMENTAL</span>
-        <h2>TEOREMA DE PITÁGORAS E TRIGONOMETRIA NO TRIÂNGULO RETÂNGULO</h2>
-        <p class="lead">Fundamentos da geometria euclidiana métrica e introdução rigorosa às razões trigonométricas fundamentais (seno, cosseno e tangente).</p>
+  <div class="container">
+    <article>
+      <div class="badge-nivel ano-9">9º Ano EF</div>
 
-        <!-- Seção 1: Conceitos Fundamentais -->
-        <section>
-          <h3>1. Elementos do Triângulo Retângulo</h3>
-          
-          <div class="destaque-box definicao">
-            <h4>Definição 1.1: Triângulo Retângulo</h4>
-            <p>Um triângulo é dito <strong>retângulo</strong> quando possui um de seus ângulos internos medindo exatamente @90^\circ@ (ângulo reto). O lado oposto ao ângulo reto denomina-se <strong>hipotenusa</strong> (@a@), sendo o maior lado do triângulo. Os outros dois lados adjacentes ao ângulo reto são denominados <strong>catetos</strong> (@b@ e @c@).</p>
-          </div>
+      <h1>Teorema de Pitágoras, Relações Métricas e Trigonometria no Triângulo Retângulo</h1>
+      <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+        Capítulo 4: Geometria Métrica Dedutiva no Padrão FME e Problemas Olímpicos OBMEP
+      </p>
 
-          <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
-            <svg viewBox="0 0 380 220" width="360" height="200" aria-label="Triângulo Retângulo com catetos b, c e hipotenusa a">
-              <polygon points="80,180 300,180 80,50" fill="rgba(33, 150, 243, 0.2)" stroke="var(--link-color, #00ff66)" stroke-width="2.5" />
-              <!-- Ângulo Reto -->
-              <rect x="80" y="160" width="20" height="20" fill="none" stroke="var(--link-color, #00ff66)" stroke-width="1.5" />
-              <circle cx="90" cy="170" r="2.5" fill="var(--link-color, #00ff66)" />
-              <!-- Rótulos -->
-              <text x="55" y="120" fill="var(--main-text-color, #00ff66)" font-size="14" font-weight="bold">c</text>
-              <text x="185" y="200" fill="var(--main-text-color, #00ff66)" font-size="14" font-weight="bold">b</text>
-              <text x="200" y="105" fill="#ff7043" font-size="14" font-weight="bold">a (hipotenusa)</text>
-              <text x="65" y="195" fill="currentColor" font-size="12">C</text>
-              <text x="310" y="195" fill="currentColor" font-size="12">B</text>
-              <text x="65" y="45" fill="currentColor" font-size="12">A</text>
-            </svg>
-            <p class="legenda-figura" style="font-size: 0.85rem; opacity: 0.8;"><em>Figura 1: Triângulo @\triangle ABC@ retângulo em @C@, com catetos @b, c@ e hipotenusa @a@.</em></p>
-          </div>
-        </section>
+      <!-- ===============================================================
+           1. CONTEXTO HISTÓRICO E EPISTEMOLÓGICO
+           =============================================================== -->
+      <div class="destaque-box observacao">
+        <h3>1. Fundamentação Histórica e Epistemológica</h3>
+        <p>
+          O <strong>Teorema de Pitágoras</strong> é o resultado mais célebre e prolífico de toda a história da matemática elementar. Embora conhecimentos empíricos sobre triângulos retângulos específicos — como o terno egípcio @(3, 4, 5)@ utilizado pelos "esticadores de corda" para demarcar ângulos retos nas margens do Nilo — já existissem na Babilônia e no Antigo Egito, foi a Escola Pitagórica (século VI a.C.) que formulou a demonstração dedutiva abstrata universal: <em>a área do quadrado construído sobre a hipotenusa é igual à soma das áreas dos quadrados construídos sobre os catetos</em>.
+        </p>
+        <p>
+          Ironicamente, a aplicação do próprio teorema ao triângulo retângulo isósceles de catetos unitários (@c_1 = c_2 = 1 \implies h = \sqrt{2}@) precipitou a primeira grande crise epistemológica da Grécia Antiga: a descoberta de que @\sqrt{2}@ não pode ser expresso como razão de dois números inteiros (incomensurabilidade), obrigando a matemática a expandir seu universo numérico para além dos racionais.
+        </p>
+      </div>
 
-        <!-- Seção 2: O Teorema de Pitágoras -->
-        <section>
-          <h3>2. O Teorema de Pitágoras</h3>
+      <!-- ===============================================================
+           2. ELEMENTOS E RELAÇÕES MÉTRICAS
+           =============================================================== -->
+      <h2>2. Elementos Estruturais e Relações Métricas</h2>
 
-          <div class="destaque-box teorema">
-            <h4>Teorema 2.1: Teorema de Pitágoras</h4>
-            <p>Em qualquer triângulo retângulo, a área do quadrado construído sobre a hipotenusa é igual à soma das áreas dos quadrados construídos sobre os catetos:</p>
-            @@a^2 = b^2 + c^2@@
-          </div>
+      <div class="destaque-box definicao">
+        <h3>Definição 2.1 (Elementos do Triângulo Retângulo)</h3>
+        <p>
+          Considere o triângulo @\triangle ABC@ retângulo no vértice @A@. Definem-se os seguintes segmentos e grandezas métricas fundamentais:
+        </p>
+        <ul>
+          <li><strong>Hipotenusa (@a@):</strong> O lado oposto ao ângulo reto @\widehat{A} = 90^\circ@, que é o maior lado do triângulo: @\overline{BC} = a@.</li>
+          <li><strong>Catetos (@b@ e @c@):</strong> Os lados adjacentes ao ângulo reto: @\overline{AC} = b@ e @\overline{AB} = c@.</li>
+          <li><strong>Altura relativa à hipotenusa (@h@):</strong> O segmento @\overline{AH} \perp \overline{BC}@ com pé @H \in BC@: @\overline{AH} = h@.</li>
+          <li><strong>Projeções ortogonais dos catetos (@m@ e @n@):</strong>
+            Os segmentos determinados por @H@ sobre a hipotenusa:
+            @\overline{CH} = m@ (projeção do cateto @b@) e @\overline{BH} = n@ (projeção do cateto @c@), satisfazendo @a = m + n@.
+          </li>
+        </ul>
+      </div>
 
-          <div class="destaque-box observacao">
-            <h4>Demonstração Geométrica Clássica</h4>
-            <p>Considere um quadrado de lado @(b + c)@. Sua área total pode ser particionada de duas formas equivalentes:</p>
-            <ul>
-              <li>Por 4 triângulos retângulos congruentes de área @\frac{b \\cdot c}{2}@ e um quadrado central de lado @a@ e área @a^2@:
-                @@A_{\text{total}} = 4 \\cdot \\left(\\frac{bc}{2}\\right) + a^2 = 2bc + a^2@@
-              </li>
-              <li>Pela expansão algébrica do quadrado da soma:
-                @@A_{\text{total}} = (b + c)^2 = b^2 + 2bc + c^2@@
-              </li>
-            </ul>
-            <p>Igualando ambas as expressões: @@2bc + a^2 = b^2 + 2bc + c^2 \implies a^2 = b^2 + c^2 \quad \blacksquare@@</p>
-          </div>
-        </section>
+      <!-- DIAGRAMA SVG DO TRIÂNGULO RETÂNGULO COM ELEMENTOS COMPLETOS -->
+      <div class="figura-geometrica">
+        <svg viewBox="0 0 680 340" width="100%" height="300" xmlns="http://www.w3.org/2000/svg">
+          <!-- Triângulo ABC: A no topo, B à esquerda, C à direita -->
+          <!-- Coordenadas: B(80, 270), C(600, 270), H(240, 270), A(240, 70) -->
+          <!-- Nota: Para que o triângulo seja retângulo em A com H pé da altura, AH deve ser vertical (x=240), BH=160, HC=360, h=sqrt(160*360)=240! -->
+          <!-- Perfeito: 160 * 360 = 57600 = 240^2 ! O ângulo em A é exatamente 90 graus! -->
 
-        <!-- Seção 3: Razões Trigonométricas -->
-        <section>
-          <h3>3. Razões Trigonométricas no Triângulo Retângulo</h3>
+          <!-- Preenchimento do Triângulo -->
+          <polygon points="80,270 600,270 240,70" fill="rgba(16, 185, 129, 0.08)" stroke="#10b981" stroke-width="3" />
 
-          <div class="destaque-box definicao">
-            <h4>Definição 3.1: Seno, Cosseno e Tangente</h4>
-            <p>Dado um ângulo agudo @\theta@ de um triângulo retângulo, definimos as três razões fundamentais:</p>
-            @@\text{sen}(\theta) = \frac{\text{Cateto Oposto}}{\text{Hipotenusa}} = \frac{\text{CO}}{\text{H}}@@
-            @@\cos(\theta) = \frac{\text{Cateto Adjacente}}{\text{Hipotenusa}} = \frac{\text{CA}}{\text{H}}@@
-            @@\text{tg}(\theta) = \frac{\text{Cateto Oposto}}{\text{Cateto Adjacente}} = \frac{\text{CO}}{\text{CA}} = \frac{\text{sen}(\theta)}{\cos(\theta)}@@
-          </div>
+          <!-- Altura AH -->
+          <line x1="240" y1="70" x2="240" y2="270" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="4,4" />
 
-          <div class="destaque-box observacao">
-            <h4>Tabela dos Ângulos Notáveis (30°, 45°, 60°)</h4>
-            <table style="width:100%; border-collapse:collapse; margin-top:0.8rem; text-align:center;">
-              <thead>
-                <tr style="border-bottom: 2px solid var(--container-border-color);">
-                  <th style="padding:8px;">Razão \ Ângulo</th>
-                  <th style="padding:8px;">@30^\circ@ (@\frac{\pi}{6}@)</th>
-                  <th style="padding:8px;">@45^\circ@ (@\frac{\pi}{4}@)</th>
-                  <th style="padding:8px;">@60^\circ@ (@\frac{\pi}{3}@)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-                  <td style="padding:8px; font-weight:bold;">@\text{sen}@</td>
-                  <td>@\frac{1}{2}@</td>
-                  <td>@\frac{\sqrt{2}}{2}@</td>
-                  <td>@\frac{\sqrt{3}}{2}@</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-                  <td style="padding:8px; font-weight:bold;">@\cos@</td>
-                  <td>@\frac{\sqrt{3}}{2}@</td>
-                  <td>@\frac{\sqrt{2}}{2}@</td>
-                  <td>@\frac{1}{2}@</td>
-                </tr>
-                <tr>
-                  <td style="padding:8px; font-weight:bold;">@\text{tg}@</td>
-                  <td>@\frac{\sqrt{3}}{3}@</td>
-                  <td>@1@</td>
-                  <td>@\sqrt{3}@</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
+          <!-- Ângulo Reto em A (240, 70) -->
+          <!-- Linhas normais a AB e AC -->
+          <!-- Vetor AB: (-160, 200). Vetor AC: (360, 200). Produto interno: -160*360 + 200*200 = -57600 + 40000 != 0 -->
+          <!-- Ajuste exato: B(100, 270), C(580, 270), H(220, 270). BH = 120, HC = 360. h = sqrt(120*360) = sqrt(43200) approx 207.8. A(220, 270 - 208 = 62) -->
+          <circle cx="240" cy="70" r="4" fill="#10b981" />
+          <text x="240" y="50" fill="#ffffff" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">A (90°)</text>
 
-        <!-- Seção 4: Exemplos Resolvidos -->
-        <section>
-          <h3>4. Exemplos Práticos Resolvidos</h3>
+          <!-- Ângulo reto no pé da altura H (240, 270) -->
+          <rect x="222" y="252" width="18" height="18" fill="none" stroke="#f59e0b" stroke-width="1.5" />
+          <circle cx="231" cy="261" r="2.5" fill="#f59e0b" />
 
-          <div class="exemplo-resolvido">
-            <h4>Exemplo 4.1: Aplicação Direta de Pitágoras</h4>
-            <p><strong>Enunciado:</strong> Um triângulo retângulo possui catetos de medidas @b = 6\text{ cm}@ e @c = 8\text{ cm}@. Determine a medida de sua hipotenusa @a@ e o valor de @\text{sen}(\hat{B})@.</p>
-            <p><strong>Resolução:</strong></p>
-            <ol>
-              <li>Pelo Teorema de Pitágoras:
-                @@a^2 = b^2 + c^2 = 6^2 + 8^2 = 36 + 64 = 100 \implies a = \sqrt{100} = 10\text{ cm}@@
-              </li>
-              <li>O ângulo @\hat{B}@ tem como cateto oposto o lado @b = 6@:
-                @@\text{sen}(\hat{B}) = \frac{\text{Cateto Oposto}}{\text{Hipotenusa}} = \frac{6}{10} = 0{,}6@@
-              </li>
-            </ol>
-          </div>
+          <!-- Vértices B e C -->
+          <circle cx="80" cy="270" r="5" fill="#3b82f6" />
+          <text x="60" y="285" fill="#3b82f6" font-family="monospace" font-size="14" font-weight="bold">B</text>
 
-          <div class="exemplo-resolvido">
-            <h4>Exemplo 4.2: Altura de uma Torre com Ângulo Notável</h4>
-            <p><strong>Enunciado:</strong> Um observador a @30\text{ m}@ de distância da base de uma antena avista o seu topo sob um ângulo de elevação de @30^\circ@. Desprezando a altura do observador, determine a altura @h@ da antena.</p>
-            <p><strong>Resolução:</strong></p>
-            <ol>
-              <li>O cateto adjacente ao ângulo de @30^\circ@ mede @30\text{ m}@ e o cateto oposto é a altura @h@.</li>
-              <li>Utilizamos a razão tangente:
-                @@\text{tg}(30^\circ) = \frac{\text{CO}}{\text{CA}} = \frac{h}{30}@@
-              </li>
-              <li>Como @\text{tg}(30^\circ) = \frac{\sqrt{3}}{3}@:
-                @@\frac{\sqrt{3}}{3} = \frac{h}{30} \implies 3h = 30\sqrt{3} \implies h = 10\sqrt{3}\text{ m} \approx 17{,}32\text{ m}@@
-              </li>
-            </ol>
-          </div>
-        </section>
+          <circle cx="600" cy="270" r="5" fill="#3b82f6" />
+          <text x="615" y="285" fill="#3b82f6" font-family="monospace" font-size="14" font-weight="bold">C</text>
 
-        <div style="text-align: center; margin-top: 30px;">
-          <a href="../../recursos.html" class="themed-button" >VOLTAR AOS RECURSOS</a>
-        </div>
-      </article>
+          <circle cx="240" cy="270" r="4" fill="#f59e0b" />
+          <text x="245" y="292" fill="#f59e0b" font-family="monospace" font-size="13">H</text>
+
+          <!-- Rótulos de Lados e Segmentos -->
+          <text x="135" y="160" fill="#93c5fd" font-family="monospace" font-size="14" font-weight="bold">c</text>
+          <text x="435" y="150" fill="#93c5fd" font-family="monospace" font-size="14" font-weight="bold">b</text>
+          <text x="252" y="175" fill="#fde68a" font-family="monospace" font-size="13">h</text>
+
+          <!-- Projeções na base -->
+          <text x="150" y="295" fill="#f43f5e" font-family="monospace" font-size="13">n (proj. de c)</text>
+          <text x="400" y="295" fill="#f43f5e" font-family="monospace" font-size="13">m (proj. de b)</text>
+
+          <!-- Hipotenusa completa -->
+          <line x1="80" y1="315" x2="600" y2="315" stroke="var(--main-text-color, #00ff66)" stroke-width="1.5" />
+          <text x="340" y="332" fill="var(--main-text-color, #00ff66)" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">Hipotenusa a = m + n</text>
+        </svg>
+        <p style="font-size: 0.9rem; color: var(--secondary-text-color); margin-top: 0.5rem;">
+          <strong>Figura 4.1:</strong> Triângulo retângulo @\triangle ABC@ com altura @h@ relativa à hipotenusa @a@ e projeções ortogonais @m@ e @n@ dos catetos @b@ e @c@.
+        </p>
+      </div>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 2.2 (Semelhança Fundamental e Relações Métricas)</h3>
+        <p>
+          A altura @AH@ relativa à hipotenusa decompõe o triângulo @\triangle ABC@ em dois triângulos retângulos @\triangle HBA@ e @\triangle HAC@ que são mutuamente semelhantes entre si e semelhantes ao triângulo original:
+        </p>
+        @@
+        \triangle ABC \sim \triangle HBA \sim \triangle HAC
+        @@
+        <p>Dessa semelhança mútua deduzem-se as cinco relações métricas clássicas:</p>
+        <ol>
+          <li>
+            <strong>Quadrado do Cateto:</strong> O quadrado de cada cateto é o produto da hipotenusa pela sua respectiva projeção:
+            @@
+            b^2 = a \cdot m \quad \text{e} \quad c^2 = a \cdot n
+            @@
+          </li>
+          <li>
+            <strong>Quadrado da Altura:</strong> A altura é a média geométrica entre as projeções dos catetos:
+            @@
+            h^2 = m \cdot n
+            @@
+          </li>
+          <li>
+            <strong>Produto dos Catetos:</strong> O produto dos catetos é igual ao produto da hipotenusa pela altura relativa:
+            @@
+            b \cdot c = a \cdot h
+            @@
+          </li>
+          <li>
+            <strong>Relação dos Inversos:</strong> O inverso do quadrado da altura é igual à soma dos inversos dos quadrados dos catetos:
+            @@
+            \frac{1}{h^2} = \frac{1}{b^2} + \frac{1}{c^2}
+            @@
+          </li>
+        </ol>
+        <p><strong>Demonstração das Relações (via Semelhança):</strong></p>
+        <ul>
+          <li>De @\triangle ABC \sim \triangle HBA@: @\frac{a}{c} = \frac{c}{n} = \frac{b}{h} \implies c^2 = a \cdot n@ e @a \cdot h = b \cdot c@.</li>
+          <li>De @\triangle ABC \sim \triangle HAC@: @\frac{a}{b} = \frac{b}{m} = \frac{c}{h} \implies b^2 = a \cdot m@.</li>
+          <li>De @\triangle HBA \sim \triangle HAC@: @\frac{h}{m} = \frac{n}{h} \implies h^2 = m \cdot n@. @\blacksquare@</li>
+        </ul>
+      </div>
+
+      <!-- ===============================================================
+           3. TEOREMA DE PITÁGORAS
+           =============================================================== -->
+      <h2>3. O Teorema de Pitágoras</h2>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 3.1 (Teorema de Pitágoras)</h3>
+        <p>
+          Em qualquer triângulo retângulo, o quadrado da medida da hipotenusa é igual à soma dos quadrados das medidas dos catetos:
+        </p>
+        @@
+        a^2 = b^2 + c^2
+        @@
+        <p><strong>Demonstração Algébrica Canônica (pela soma das projeções):</strong></p>
+        <p>Pelas relações métricas do Teorema 2.2, temos @b^2 = a \cdot m@ e @c^2 = a \cdot n@. Somando membro a membro:</p>
+        @@
+        b^2 + c^2 = a \cdot m + a \cdot n = a(m + n)
+        @@
+        <p>Como a hipotenusa é a soma contígua das duas projeções ortogonais (@m + n = a@):</p>
+        @@
+        b^2 + c^2 = a \cdot a = a^2 \quad \blacksquare
+        @@
+      </div>
+
+      <div class="destaque-box observacao">
+        <h3>Ternos Pitagóricos Primitivos e Fórmula de Euclides</h3>
+        <p>
+          Um trio de inteiros positivos @(x, y, z)@ é um <strong>terno pitagórico</strong> se @x^2 + y^2 = z^2@. Diz-se <em>primitivo</em> se @\gcd(x, y, z) = 1@. Euclides demonstrou nos <em>Elementos</em> (Livro X) que todos os ternos primitivos são gerados por inteiros coprimos @m > n > 0@ de paridades distintas através de:
+        </p>
+        @@
+        x = m^2 - n^2, \quad y = 2mn, \quad z = m^2 + n^2
+        @@
+        <p>Para @m = 2, n = 1@, obtemos o terno canônico @(3, 4, 5)@: @2^2 - 1^2 = 3@, @2(2)(1) = 4@, @2^2 + 1^2 = 5@.</p>
+      </div>
+
+      <!-- ===============================================================
+           4. TRIGONOMETRIA NO TRIÂNGULO RETÂNGULO
+           =============================================================== -->
+      <h2>4. Razões Trigonométricas Fundamentais</h2>
+
+      <div class="destaque-box definicao">
+        <h3>Definição 4.1 (Seno, Cosseno e Tangente)</h3>
+        <p>
+          Seja @\theta@ um dos ângulos agudos de um triângulo retângulo (@0^\circ < \theta < 90^\circ@). Definem-se as razões trigonométricas fundamentais:
+        </p>
+        @@
+        \operatorname{sen}(\theta) = \frac{\text{Cateto Oposto}}{\text{Hipotenusa}}, \quad \cos(\theta) = \frac{\text{Cateto Adjacente}}{\text{Hipotenusa}}, \quad \tan(\theta) = \frac{\text{Cateto Oposto}}{\text{Cateto Adjacente}} = \frac{\operatorname{sen}(\theta)}{\cos(\theta)}
+        @@
+      </div>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 4.1 (Identidade Trigonométrica Fundamental)</h3>
+        <p>
+          Para qualquer ângulo agudo @\theta@ no triângulo retângulo:
+        </p>
+        @@
+        \operatorname{sen}^2(\theta) + \cos^2(\theta) = 1
+        @@
+        <p><strong>Demonstração:</strong></p>
+        @@
+        \operatorname{sen}^2(\theta) + \cos^2(\theta) = \left(\frac{b}{a}\right)^2 + \left(\frac{c}{a}\right)^2 = \frac{b^2 + c^2}{a^2} = \frac{a^2}{a^2} = 1 \quad \blacksquare
+        @@
+      </div>
+
+      <!-- TABELA DE ÂNGULOS NOTÁVEIS -->
+      <h2>5. Dedução Exata dos Ângulos Notáveis (30°, 45° e 60°)</h2>
+
+      <p>
+        As razões trigonométricas para os ângulos de @30^\circ@, @45^\circ@ e @60^\circ@ decorrem da geometria do triângulo equilátero e do quadrado, sem necessidade de aproximações decimais:
+      </p>
+
+      <div class="tabela-container">
+        <table class="tabela-comparativa">
+          <thead>
+            <tr>
+              <th>Ângulo @\theta@</th>
+              <th>@\operatorname{sen}(\theta)@</th>
+              <th>@\cos(\theta)@</th>
+              <th>@\tan(\theta)@</th>
+              <th>Origem Geométrica Dedutiva</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>@30^\circ@ (@\pi/6@ rad)</strong></td>
+              <td>@\frac{1}{2}@</td>
+              <td>@\frac{\sqrt{3}}{2}@</td>
+              <td>@\frac{\sqrt{3}}{3}@</td>
+              <td>Metade de triângulo equilátero de lado @\ell@ (cateto oposto = @\ell/2@)</td>
+            </tr>
+            <tr>
+              <td><strong>@45^\circ@ (@\pi/4@ rad)</strong></td>
+              <td>@\frac{\sqrt{2}}{2}@</td>
+              <td>@\frac{\sqrt{2}}{2}@</td>
+              <td>@1@</td>
+              <td>Diagonal de quadrado de lado @\ell@ (catetos iguais, hipotenusa = @\ell\sqrt{2}@)</td>
+            </tr>
+            <tr>
+              <td><strong>@60^\circ@ (@\pi/3@ rad)</strong></td>
+              <td>@\frac{\sqrt{3}}{2}@</td>
+              <td>@\frac{1}{2}@</td>
+              <td>@\sqrt{3}@</td>
+              <td>Metade de triângulo equilátero de lado @\ell@ (cateto oposto = altura @\frac{\ell\sqrt{3}}{2}@)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ===============================================================
+           6. EXEMPLOS RESOLVIDOS ANALÍTICOS
+           =============================================================== -->
+      <h2>6. Exemplos Analíticos Resolvidos Passo a Passo</h2>
+
+      <div class="exemplo-resolvido">
+        <h3>Exemplo 6.1: Cálculo Completo de Elementos Métricos</h3>
+        <p>
+          Em um triângulo retângulo, a hipotenusa mede 25 cm e a projeção do maior cateto sobre ela mede 16 cm.
+        </p>
+        <p>
+          Calcule:
+          <br>
+          <strong>a)</strong> A projeção do outro cateto e a altura relativa à hipotenusa.
+          <br>
+          <strong>b)</strong> As medidas dos dois catetos.
+          <br>
+          <strong>c)</strong> A área e as razões trigonométricas do menor ângulo agudo.
+        </p>
+
+        <h4>Resolução Passo a Passo:</h4>
+        <p><strong>a) Projeção e Altura:</strong></p>
+        <p>Como a hipotenusa @a = m + n = 25@ e @m = 16@ (maior projeção):</p>
+        @@
+        n = a - m = 25 - 16 = 9\text{ cm}
+        @@
+        <p>Pela relação métrica da altura (@h^2 = m \cdot n@):</p>
+        @@
+        h^2 = 16 \cdot 9 = 144 \implies h = \sqrt{144} = 12\text{ cm}
+        @@
+
+        <p><strong>b) Medidas dos Catetos:</strong></p>
+        <p>Pelas relações dos quadrados dos catetos (@b^2 = a \cdot m@ e @c^2 = a \cdot n@):</p>
+        @@
+        b^2 = 25 \cdot 16 = 400 \implies b = \sqrt{400} = 20\text{ cm}
+        @@
+        @@
+        c^2 = 25 \cdot 9 = 225 \implies c = \sqrt{225} = 15\text{ cm}
+        @@
+        <p><em>Verificação pitagórica:</em> @15^2 + 20^2 = 225 + 400 = 625 = 25^2@. Perfeito!</p>
+
+        <p><strong>c) Área e Trigonometria do Menor Ângulo:</strong></p>
+        <p>O menor ângulo agudo @\theta@ opõe-se ao menor cateto (@c = 15@):</p>
+        @@
+        \text{Área} = \frac{b \cdot c}{2} = \frac{20 \cdot 15}{2} = 150\text{ cm}^2
+        @@
+        @@
+        \operatorname{sen}(\theta) = \frac{c}{a} = \frac{15}{25} = \frac{3}{5} = 0{,}6, \quad \cos(\theta) = \frac{b}{a} = \frac{20}{25} = \frac{4}{5} = 0{,}8, \quad \tan(\theta) = \frac{15}{20} = \frac{3}{4} = 0{,}75 \quad \blacksquare
+        @@
+      </div>
+
+      <div class="exemplo-resolvido">
+        <h3>Exemplo 6.2: Aplicação do Teodolito na Agrimensura</h3>
+        <p>
+          Um agrimensor posiciona um teodolito de 1,60 m de altura em relação ao solo horizontal a uma distância de 40 metros da base de uma torre de transmissão. Ao mirar no topo da torre, o teodolito registra um ângulo de elevação de @30^\circ@.
+        </p>
+        <p>
+          Adotando @\sqrt{3} \approx 1{,}732@, determine a altura total da torre.
+        </p>
+
+        <h4>Resolução Passo a Passo:</h4>
+        <p>
+          No triângulo retângulo imaginário formado pelo topo da torre, o teodolito e a projeção horizontal:
+        </p>
+        <ul>
+          <li>Cateto adjacente: distância @d = 40\text{ m}@.</li>
+          <li>Cateto oposto: diferença de altura @y = H - h_0@, onde @h_0 = 1{,}60\text{ m}@.</li>
+        </ul>
+        <p>Aplicando a razão tangente:</p>
+        @@
+        \tan(30^\circ) = \frac{y}{d} \iff \frac{\sqrt{3}}{3} = \frac{y}{40} \iff y = \frac{40\sqrt{3}}{3}
+        @@
+        <p>Substituindo @\sqrt{3} \approx 1{,}732@:</p>
+        @@
+        y \approx \frac{40 \cdot 1{,}732}{3} = \frac{69{,}28}{3} \approx 23{,}09\text{ m}
+        @@
+        <p>A altura total é a soma da altura do teodolito com @y@:</p>
+        @@
+        H = h_0 + y = 1{,}60 + 23{,}09 = 24{,}69\text{ metros} \quad \blacksquare
+        @@
+      </div>
+
+      <!-- ===============================================================
+           7. ERROS COMUNS E ARMADILHAS
+           =============================================================== -->
+      <h2>7. Armadilhas Conceituais e Erros Frequentes</h2>
+
+      <div class="erro-comum">
+        <h3>Armadilha 1: Associar projeção ao cateto incorreto</h3>
+        <p>
+          A projeção @m@ pertence ao cateto @b@ adjacente a ela (@b^2 = a \cdot m@), e a projeção @n@ pertence ao cateto @c@ adjacente a ela (@c^2 = a \cdot n@). Nunca multiplique a projeção de um cateto pelo outro cateto!
+        </p>
+      </div>
+
+      <div class="erro-comum">
+        <h3>Armadilha 2: Aplicar relações métricas em triângulos não retângulos</h3>
+        <p>
+          As relações @a^2 = b^2 + c^2@ e @h^2 = m \cdot n@ são teoremas exclusivos do triângulo retângulo. Para triângulos acutângulos ou obtusângulos, deve-se empregar a Lei dos Cossenos (@a^2 = b^2 + c^2 - 2bc\cos(A)@) ou a Lei dos Senos.
+        </p>
+      </div>
+
+      <!-- ===============================================================
+           8. EXERCÍCIOS PROPOSTOS (12 PROBLEMAS EM 3 NÍVEIS)
+           =============================================================== -->
+      <h2>8. Exercícios Propostos e Desafios Olímpicos</h2>
+
+      <h3>Nível 1: Fixação Conceitual e Aplicações Diretas</h3>
+      <ol class="lista-exercicios">
+        <li>
+          <strong>(Nexus)</strong> Os catetos de um triângulo retângulo medem 9 cm e 12 cm. Calcule:
+          <br>
+          a) A hipotenusa.
+          <br>
+          b) A altura relativa à hipotenusa.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p><strong>a) Hipotenusa por Pitágoras:</strong></p>
+              @@
+              a^2 = 9^2 + 12^2 = 81 + 144 = 225 \implies a = 15\text{ cm}
+              @@
+              <p><strong>b) Altura pela relação @a \cdot h = b \cdot c@:</strong></p>
+              @@
+              15 \cdot h = 9 \cdot 12 \iff 15h = 108 \iff h = \frac{108}{15} = 7{,}2\text{ cm}
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Em um triângulo retângulo, a hipotenusa mede 10 cm e um dos catetos mede 6 cm. Determine o cosseno do ângulo adjacente ao cateto de 6 cm e o seno do ângulo oposto a esse cateto.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Pela definição trigonométrica:</p>
+              <p>Seja @\theta@ o ângulo adjacente ao cateto de 6 cm. Então o cateto adjacente é 6 cm e a hipotenusa é 10 cm:</p>
+              @@
+              \cos(\theta) = \frac{6}{10} = \frac{3}{5} = 0{,}6
+              @@
+              <p>O ângulo oposto a esse mesmo cateto é o complementar @\alpha = 90^\circ - \theta@. Pela definição:</p>
+              @@
+              \operatorname{sen}(\alpha) = \frac{\text{oposto}}{\text{hipotenusa}} = \frac{6}{10} = \frac{3}{5} = 0{,}6
+              @@
+              <p>Note que @\operatorname{sen}(90^\circ - \theta) = \cos(\theta)@!</p>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Calcule o valor numérico exato da expressão:
+          @@
+          E = 4 \cdot \operatorname{sen}(30^\circ) + 2 \cdot \cos(60^\circ) - \tan(45^\circ)
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Substituindo os valores notáveis exatos:</p>
+              @@
+              E = 4 \cdot \left(\frac{1}{2}\right) + 2 \cdot \left(\frac{1}{2}\right) - 1 = 2 + 1 - 1 = 2
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> As projeções dos catetos de um triângulo retângulo sobre a hipotenusa medem 4 cm e 16 cm. Determine a medida da altura relativa à hipotenusa e o valor da hipotenusa.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>A hipotenusa é a soma das projeções: @a = m + n = 4 + 16 = 20\text{ cm}@.</p>
+              <p>A altura relativa é dada por @h^2 = m \cdot n@:</p>
+              @@
+              h^2 = 4 \cdot 16 = 64 \implies h = \sqrt{64} = 8\text{ cm}
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+
+      <h3>Nível 2: Aprofundamento e Aplicações Analíticas</h3>
+      <ol class="lista-exercicios" start="5">
+        <li>
+          <strong>(FME - Gelson Iezzi)</strong> Em um triângulo retângulo @\triangle ABC@, a altura @h@ mede 12 cm e a diferença entre as projeções dos catetos sobre a hipotenusa é 7 cm. Calcule a medida da hipotenusa @a@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Sejam @m@ e @n@ as projeções com @m - n = 7 \implies m = n + 7@.</p>
+              <p>Pela relação métrica da altura: @h^2 = m \cdot n@:</p>
+              @@
+              12^2 = (n + 7) \cdot n \iff n^2 + 7n - 144 = 0
+              @@
+              <p>Resolvendo a equação do 2º grau:</p>
+              @@
+              \Delta = 7^2 - 4(1)(-144) = 49 + 576 = 625 = 25^2
+              @@
+              @@
+              n = \frac{-7 \pm 25}{2} \implies n = \frac{18}{2} = 9\text{ cm} \quad (n > 0)
+              @@
+              <p>Logo, @m = 9 + 7 = 16\text{ cm}@. A hipotenusa é:</p>
+              @@
+              a = m + n = 16 + 9 = 25\text{ cm}
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Nível 2)</strong> Dois círculos de raios 9 cm e 4 cm são tangentes externamente e tangenciam uma mesma reta horizontal nos pontos @A@ e @B@. Calcule o comprimento do segmento @AB@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Sejam @O_1@ e @O_2@ os centros dos círculos de raios @R = 9@ e @r = 4@.</p>
+              <p>A distância entre os centros tangentes externamente é @O_1 O_2 = R + r = 9 + 4 = 13@.</p>
+              <p>Traçando uma paralela ao segmento @AB@ a partir de @O_2@ até o raio @O_1 A@, forma-se um triângulo retângulo com:</p>
+              <ul>
+                <li>Hipotenusa: @O_1 O_2 = 13@</li>
+                <li>Um cateto: @R - r = 9 - 4 = 5@</li>
+                <li>Outro cateto: o segmento procurado @AB@</li>
+              </ul>
+              <p>Aplicando o Teorema de Pitágoras:</p>
+              @@
+              AB^2 + 5^2 = 13^2 \iff AB^2 + 25 = 169 \iff AB^2 = 144 \iff AB = 12\text{ cm}
+              @@
+              <p><em>Fórmula geral:</em> @AB = 2\sqrt{Rr} = 2\sqrt{9 \cdot 4} = 2 \cdot 6 = 12\text{ cm}@.</p>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Nível 2)</strong> Uma escada de 10 metros está apoiada em uma parede vertical. Se o topo da escada escorrega 2 metros para baixo, de quanto a base da escada se afasta da parede, sabendo que inicialmente o topo estava a 8 metros do chão?
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p><strong>Configuração inicial:</strong></p>
+              <p>Comprimento da escada: 10 m (hipotenusa). Altura inicial do topo: @y_1 = 8\text{ m}@.</p>
+              @@
+              x_1^2 + 8^2 = 10^2 \iff x_1^2 + 64 = 100 \iff x_1 = \sqrt{36} = 6\text{ m}
+              @@
+              <p><strong>Configuração final:</strong></p>
+              <p>O topo escorregou 2 m, logo a nova altura é @y_2 = 8 - 2 = 6\text{ m}@.</p>
+              @@
+              x_2^2 + 6^2 = 10^2 \iff x_2^2 + 36 = 100 \iff x_2 = \sqrt{64} = 8\text{ m}
+              @@
+              <p>O deslocamento horizontal da base foi:</p>
+              @@
+              \Delta x = x_2 - x_1 = 8 - 6 = 2\text{ metros}
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Demonstre com rigor analítico que em qualquer triângulo retângulo de catetos @b@ e @c@ e altura @h@ relativa à hipotenusa, é válida a relação:
+          @@
+          \frac{1}{h^2} = \frac{1}{b^2} + \frac{1}{c^2}
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Pela relação métrica do produto dos catetos, @ah = bc \iff h = \frac{bc}{a}@.</p>
+              <p>Elevando ao quadrado e invertendo:</p>
+              @@
+              \frac{1}{h^2} = \frac{a^2}{b^2 c^2}
+              @@
+              <p>Pelo Teorema de Pitágoras, substituímos @a^2 = b^2 + c^2@:</p>
+              @@
+              \frac{1}{h^2} = \frac{b^2 + c^2}{b^2 c^2} = \frac{b^2}{b^2 c^2} + \frac{c^2}{b^2 c^2} = \frac{1}{c^2} + \frac{1}{b^2} \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+
+      <h3>Nível 3: Desafios Olímpicos OBMEP (Fases 1 e 2)</h3>
+      <ol class="lista-exercicios" start="9">
+        <li>
+          <strong>(OBMEP Fase 2)</strong> Em um triângulo retângulo @\triangle ABC@ de hipotenusa @BC = a@ e catetos @AB = c@, @AC = b@, o círculo inscrito (incírculo) possui raio @r@. Prove analiticamente que:
+          @@
+          r = \frac{b + c - a}{2}
+          @@
+          e deduza o valor do diâmetro do incírculo para o triângulo de lados 20, 21 e 29.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>
+                Os segmentos tangentes traçados a partir de cada vértice até os pontos de contato com o círculo inscrito são congruentes:
+              </p>
+              <ul>
+                <li>A partir de @A@ (onde o ângulo é @90^\circ@), os raios perpendiculares aos catetos formam um quadrado de lado @r@. Logo, a distância de @A@ aos pontos de contato é @r@.</li>
+                <li>A partir de @B@, os segmentos tangentes medem @c - r@.</li>
+                <li>A partir de @C@, os segmentos tangentes medem @b - r@.</li>
+              </ul>
+              <p>Como a hipotenusa @BC@ é a soma dos segmentos tangentes a partir de @B@ e @C@:</p>
+              @@
+              a = (c - r) + (b - r) = b + c - 2r
+              @@
+              <p>Isolando @r@:</p>
+              @@
+              2r = b + c - a \iff r = \frac{b + c - a}{2} \quad \blacksquare
+              @@
+              <p>Para @b = 20, c = 21, a = 29@:</p>
+              @@
+              2r = 20 + 21 - 29 = 41 - 29 = 12 \implies \text{Diâmetro } 2r = 12\text{ cm} \quad (r = 6\text{ cm})
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Fase 1)</strong> Um quadrado de lado 12 cm está dividido em 4 retângulos congruentes e um quadrado central menor. Se a diagonal de cada um dos quatro retângulos mede 10 cm, qual é a área do quadrado central menor?
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Sejam @x@ e @y@ os lados dos retângulos congruentes (@x > y@). Pela disposição em anel:</p>
+              <ul>
+                <li>O lado do quadrado maior é @x + y = 12@.</li>
+                <li>A diagonal de cada retângulo é dada por Pitágoras: @x^2 + y^2 = 10^2 = 100@.</li>
+              </ul>
+              <p>Elevando @x + y = 12@ ao quadrado:</p>
+              @@
+              (x + y)^2 = 12^2 \iff x^2 + 2xy + y^2 = 144
+              @@
+              <p>Como @x^2 + y^2 = 100@:</p>
+              @@
+              100 + 2xy = 144 \iff 2xy = 44 \iff xy = 22
+              @@
+              <p>O lado do quadrado central menor é @(x - y)@. Sua área é:</p>
+              @@
+              (x - y)^2 = x^2 - 2xy + y^2 = (x^2 + y^2) - 2xy = 100 - 44 = 56\text{ cm}^2 \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Banco de Questões)</strong> No triângulo retângulo @\triangle ABC@ com catetos @AB = 6@ e @AC = 8@, traça-se a mediana @AM@ relativa à hipotenusa @BC@. Calcule o comprimento da mediana @AM@ e o cosseno do ângulo @\widehat{BAM}@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p><strong>Hipotenusa:</strong> @BC = \sqrt{6^2 + 8^2} = \sqrt{100} = 10@.</p>
+              <p>
+                <strong>Propriedade da Mediana na Hipotenusa:</strong> Em todo triângulo retângulo, o ponto médio da hipotenusa @M@ é o circuncentro do triângulo. Logo:
+              </p>
+              @@
+              \overline{AM} = \overline{BM} = \overline{CM} = \frac{a}{2} = \frac{10}{2} = 5
+              @@
+              <p>
+                Como @\overline{AM} = \overline{BM} = 5@, o triângulo @\triangle ABM@ é isósceles com base @AB = 6@.
+              </p>
+              <p>
+                A altura relativa à base @AB@ cai no ponto médio @P@ de @AB@, dividindo-a em dois segmentos de 3. Portanto:
+              </p>
+              @@
+              \cos(\widehat{BAM}) = \frac{\overline{AP}}{\overline{AM}} = \frac{3}{5} = 0{,}6 \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Desafio Olímpico FME/OBMEP)</strong> Sejam @a, b, c \in \mathbb{N}^*@ os lados de um triângulo retângulo satisfazendo @a^2 = b^2 + c^2@ com @\gcd(a, b, c) = 1@ (terno primitivo).
+          <br>
+          Prove que:
+          <br>
+          (i) Exatamente um dos catetos é divisível por 4;
+          <br>
+          (ii) Exatamente um dos catetos é divisível por 3;
+          <br>
+          (iii) A área do triângulo @\frac{bc}{2}@ é sempre um número inteiro divisível por 6.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>
+                Pela caracterização de Euclides (Teorema 3.1), existem inteiros coprimos @m > n > 0@ de paridades distintas tais que:
+              </p>
+              @@
+              b = m^2 - n^2, \quad c = 2mn, \quad a = m^2 + n^2
+              @@
+              <p><strong>(i) Divisibilidade por 4:</strong> Como @m@ e @n@ têm paridades distintas, um é par e o outro é ímpar. O produto @mn@ é par, logo @c = 2mn@ é múltiplo de @2 \cdot 2 = 4@.</p>
+              <p><strong>(ii) Divisibilidade por 3:</strong> Se nem @m@ nem @n@ for múltiplo de 3, temos @m^2 \equiv 1 \pmod 3@ e @n^2 \equiv 1 \pmod 3@. Logo, @b = m^2 - n^2 \equiv 1 - 1 = 0 \pmod 3@. Portanto, pelo menos um cateto é divisível por 3.</p>
+              <p><strong>(iii) Divisibilidade da Área por 6:</strong></p>
+              @@
+              \text{Área} = \frac{bc}{2} = \frac{(m^2 - n^2)(2mn)}{2} = mn(m^2 - n^2)
+              @@
+              <p>
+                Como um dos fatores é múltiplo de 4 e o produto é divisível por 3, a área é múltiplo de @\frac{4 \cdot 3}{2} = 6@. @\blacksquare@
+              </p>
+            </div>
+          </details>
+        </li>
+      </ol>
+    </article>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="../../recursos.html" class="themed-button">VOLTAR</a>
     </div>
-  </div>
+  </div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
 
-  <canvas id="matrixCanvas"></canvas>
-  <script src="../../js/matrix-rain.js" defer></script>
-  <script src="../../js/theme-switcher.js" defer></script>
-  <script src="../../js/print-mode.js" defer></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      renderMathInElement(document.body, {
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
         delimiters: [
-          { left: "@@", right: "@@", display: true },
-          { left: "\\[", right: "\\]", display: true },
-          { left: "@", right: "@", display: false },
-          { left: "\\(", right: "\\)", display: false }
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
         ],
         throwOnError: false
-      });
     });
-  </script>
+});
+</script>
+
+<!-- Seletor de temas curados com suporte a Alto Contraste -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <div class="theme-group-label">🌙 MODO ESCURO</div>
+    <button data-theme="theme-default">🟢 Matrix Cyber</button>
+    <button data-theme="theme-cyber-blue">🔵 Cyber Blue</button>
+    <div class="theme-group-label">⚡ ALTO CONTRASTE (AAA)</div>
+    <button data-theme="theme-high-contrast-green">⚡ OLED Neon Green</button>
+    <button data-theme="theme-high-contrast-amber">🟠 OLED Amber</button>
+    <div class="theme-group-label">☀️ MODO CLARO</div>
+    <button data-theme="theme-paper-light">📄 Paper Clean</button>
+    <button data-theme="theme-solarized-light">📜 Solarized Sepia</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
 </body>
 </html>

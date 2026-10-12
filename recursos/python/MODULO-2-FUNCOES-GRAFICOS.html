@@ -133,7 +133,34 @@ pontos_x = [-<span class="code-num">2</span>, -<span class="code-num">1</span>, 
 
 <span class="code-comment"># Encontrando a raiz de x³ - x - 2 = 0 no intervalo [1, 2]</span>
 raiz = bissecao(<span class="code-keyword">lambda</span> x: x**<span class="code-num">3</span> - x - <span class="code-num">2</span>, <span class="code-num">1</span>, <span class="code-num">2</span>)
-<span class="code-func">print</span>(<span class="code-str">f"Raiz aproximada: {raiz:.6f}"</span>)</code></pre>
+<span class="code-func">print</span>(<span class="code-str">f"Raiz aproximada via Bisseção: {raiz:.6f}"</span>)</code></pre>
+          </div>
+
+          <div class="destaque-box definicao" style="margin-top: 1.5rem;">
+            <h3>Aceleração Numérica: Método de Newton-Raphson</h3>
+            <p>
+              Enquanto a bisseção reduz o erro linearmente (@\frac{b-a}{2^n}@), o método de <strong>Newton-Raphson</strong> possui convergência <strong>quadrática</strong> perto de raízes simples, duplicando o número de dígitos significativos corretos a cada passo:
+              @@x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}@@
+            </p>
+          </div>
+
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre><code><span class="code-keyword">def</span> <span class="code-func">newton_raphson</span>(f, df, x0, tol=<span class="code-num">1e-10</span>, max_iter=<span class="code-num">20</span>):
+    x = x0
+    <span class="code-keyword">for</span> i <span class="code-keyword">in</span> <span class="code-func">range</span>(max_iter):
+        fx = f(x)
+        dfx = df(x)
+        x_novo = x - fx / dfx
+        <span class="code-func">print</span>(<span class="code-str">f"Iter {i+1}: x = {x_novo:.10f}, erro = {abs(x_novo - x):.2e}"</span>)
+        <span class="code-keyword">if</span> <span class="code-func">abs</span>(x_novo - x) < tol:
+            <span class="code-keyword">return</span> x_novo
+        x = x_novo
+    <span class="code-keyword">return</span> x
+
+<span class="code-comment"># f(x) = x³ - x - 2, f'(x) = 3x² - 1</span>
+raiz_newton = newton_raphson(<span class="code-keyword">lambda</span> x: x**<span class="code-num">3</span> - x - <span class="code-num">2</span>, <span class="code-keyword">lambda</span> x: <span class="code-num">3</span>*x**<span class="code-num">2</span> - <span class="code-num">1</span>, <span class="code-num">1.5</span>)
+<span class="code-func">print</span>(<span class="code-str">f"Raiz calculada via Newton: {raiz_newton:.10f}"</span>)</code></pre>
           </div>
         </div>
       </section>

@@ -1,24 +1,214 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS - Teorema de Tales e Semelhança</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
-    <link rel="stylesheet" href="../../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Teorema de Tales, Semelhança de Triângulos e Proporcionalidade Métrica</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-9 {
+      background-color: rgba(59, 130, 246, 0.25);
+      border: 2px solid #3b82f6;
+      color: #93c5fd;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+
+    .figura-geometrica {
+      text-align: center;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .figura-geometrica svg {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 
 <body>
-    <div id="page-wrapper">
-          <nav>
+<div id="page-wrapper">
+  <nav>
     <ul>
       <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
       <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
@@ -26,140 +216,628 @@
       <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
     </ul>
   </nav>
-        <div class="container">
-            <article>
-                <span class="badge-nivel ano-9">9º ANO</span>
-                <h1>Teorema de Tales e Semelhança</h1>
-                <p>A proporcionalidade é um dos pilares da Geometria. Nesta seção, estudaremos como feixes de retas
-                    paralelas e triângulos guardam relações de proporção que nos permitem calcular medidas inacessíveis
-                    diretamente.</p>
 
-                <h2>1. Teorema de Tales</h2>
-                <div class="destaque-box teorema">
-                    <p>Um feixe de retas paralelas corta duas transversais, determinando nelas segmentos proporcionais.
-                    </p>
-                    @@ \frac{a}{b} = \frac{c}{d} @@
-                </div>
-                <p>Imagine três retas paralelas @r, s, t@ sendo cortadas por duas retas transversais @u@ e @v@. Se os
-                    segmentos na transversal @u@ medem @a@ e @b@, e os correspondentes na transversal @v@ medem @c@ e
-                    @d@, a razão entre eles é constante.</p>
+  <div class="container">
+    <article>
+      <div class="badge-nivel ano-9">9º Ano EF</div>
 
-                <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
-                  <svg viewBox="0 0 440 230" width="410" height="214" role="img" aria-label="Feixe de retas paralelas cortadas por retas transversais ilustrando o Teorema de Tales" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
-                    <!-- Reta r (superior) -->
-                    <line x1="30" y1="50" x2="410" y2="50" stroke="var(--link-color, #00ff66)" stroke-width="2" />
-                    <text x="420" y="55" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">r</text>
+      <h1>Teorema de Tales, Semelhança de Triângulos e Proporcionalidade Métrica</h1>
+      <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+        Capítulo 3: Fundamentos da Agrimensura Euclidiana, Geometria Proporcional e Desafios Olímpicos
+      </p>
 
-                    <!-- Reta s (média) -->
-                    <line x1="30" y1="120" x2="410" y2="120" stroke="var(--link-color, #00ff66)" stroke-width="2" />
-                    <text x="420" y="125" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">s</text>
+      <!-- ===============================================================
+           1. CONTEXTUALIZAÇÃO HISTÓRICA E EPISTEMOLÓGICA
+           =============================================================== -->
+      <div class="destaque-box observacao">
+        <h3>1. Fundamentação Histórica e Epistemológica</h3>
+        <p>
+          A tradição atribui a <strong>Tales de Mileto</strong> (c. 624 – 546 a.C.), um dos Sete Sábios da Grécia Antiga, o nascimento do método dedutivo na Geometria. A historiografia clássica (relatada por Plutarco e Diógenes Laércio) registra que Tales assombrou o faraó Amásis ao mensurar com precisão a altura da Grande Pirâmide de Quéops sem qualquer escalada: fincou uma vara vertical no solo arenoso do deserto e aguardou o exato instante em que a sombra da vara igualava o seu comprimento real, concluindo que o mesmo ocorria com a pirâmide. Em termos geométricos modernos, Tales compreendeu a equivalência angular dos raios solares paralelos e a proporcionalidade mútua das sombras geradas.
+        </p>
+        <p>
+          Mais tarde, no Livro VI dos <em>Elementos</em> de Euclides (c. 300 a.C.), a Proposição 2 estabeleceu a formalização axiomática definitiva: retas paralelas interceptando triângulos dividem seus lados em segmentos proporcionais, cuja prova original apoiava-se estritamente na comparação de áreas de triângulos coplanares que compartilham a mesma altura.
+        </p>
+      </div>
 
-                    <!-- Reta t (inferior) -->
-                    <line x1="30" y1="190" x2="410" y2="190" stroke="var(--link-color, #00ff66)" stroke-width="2" />
-                    <text x="420" y="195" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">t</text>
+      <!-- ===============================================================
+           2. TEOREMA DE TALES FORMAL
+           =============================================================== -->
+      <h2>2. O Teorema de Tales nos Feixes de Retas Paralelas</h2>
 
-                    <!-- Transversal u -->
-                    <line x1="160" y1="20" x2="80" y2="215" stroke="#f59e0b" stroke-width="2.5" />
-                    <text x="165" y="25" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">u</text>
+      <div class="destaque-box teorema">
+        <h3>Teorema 2.1 (Teorema de Tales no Feixe de Paralelas)</h3>
+        <p>
+          Seja um feixe de retas coplanares paralelas @r_1 \parallel r_2 \parallel r_3@ cortado por duas retas transversais @u@ e @v@ nos pontos @A, B, C \in u@ e @A', B', C' \in v@, respectivamente. Então, a razão entre quaisquer dois segmentos formados sobre a transversal @u@ é estritamente igual à razão entre os segmentos correspondentes sobre a transversal @v@:
+        </p>
+        @@
+        \frac{\overline{AB}}{\overline{BC}} = \frac{\overline{A'B'}}{\overline{B'C'}} \quad \text{ou, equivalentemente,} \quad \frac{\overline{AB}}{\overline{A'B'}} = \frac{\overline{BC}}{\overline{B'C'}}
+        @@
+        <p><strong>Demonstração Euclidiana por Áreas (Elementos, Livro VI):</strong></p>
+        <p>
+          Traçando os segmentos @A B'@ e @B A'@ no triângulo determinado pelas transversais:
+        </p>
+        <ol>
+          <li>Os triângulos @\triangle A B B'@ e @\triangle B C B'@ possuem suas bases @AB@ e @BC@ situadas na mesma reta @u@ e compartilham o mesmo vértice @B'@, logo possuem a mesma altura @h_u@ relativa a @u@. A razão de suas áreas é:
+            @@
+            \frac{\text{Área}(\triangle A B B')}{\text{Área}(\triangle B C B')} = \frac{\frac{\overline{AB} \cdot h_u}{2}}{\frac{\overline{BC} \cdot h_u}{2}} = \frac{\overline{AB}}{\overline{BC}}
+            @@
+          </li>
+          <li>Analogamente, na transversal @v@, os triângulos @\triangle A' B B'@ e @\triangle B' C' B@ compartilham o vértice @B@ e têm bases sobre @v@ com mesma altura @h_v@, de modo que:
+            @@
+            \frac{\text{Área}(\triangle A' B B')}{\text{Área}(\triangle B' C' B)} = \frac{\overline{A'B'}}{\overline{B'C'}}
+            @@
+          </li>
+          <li>Como as retas são paralelas (@r_1 \parallel r_2@ e @r_2 \parallel r_3@), a distância entre elas é constante. Logo, as áreas correspondentes são iguais, concluindo:
+            @@
+            \frac{\overline{AB}}{\overline{BC}} = \frac{\overline{A'B'}}{\overline{B'C'}} \quad \blacksquare
+            @@
+          </li>
+        </ol>
+      </div>
 
-                    <!-- Transversal v -->
-                    <line x1="250" y1="20" x2="330" y2="215" stroke="#38bdf8" stroke-width="2.5" />
-                    <text x="245" y="25" fill="#38bdf8" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">v</text>
+      <!-- DIAGRAMA SVG DE TALES -->
+      <div class="figura-geometrica">
+        <svg viewBox="0 0 680 320" width="100%" height="280" xmlns="http://www.w3.org/2000/svg">
+          <!-- Retas Paralelas r, s, t -->
+          <line x1="50" y1="60" x2="630" y2="60" stroke="#10b981" stroke-width="2.5" />
+          <line x1="50" y1="160" x2="630" y2="160" stroke="#10b981" stroke-width="2.5" />
+          <line x1="50" y1="260" x2="630" y2="260" stroke="#10b981" stroke-width="2.5" />
 
-                    <!-- Interseções na Transversal u -->
-                    <!-- r: y=50 -> x = 160 - 30/195*80 = 147.7 -->
-                    <circle cx="148" cy="50" r="4" fill="#f59e0b" />
-                    <text x="130" y="45" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">A</text>
-                    <!-- s: y=120 -> x = 160 - 100/195*80 = 119 -->
-                    <circle cx="119" cy="120" r="4" fill="#f59e0b" />
-                    <text x="100" y="115" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">B</text>
-                    <!-- t: y=190 -> x = 160 - 170/195*80 = 90.2 -->
-                    <circle cx="90" cy="190" r="4" fill="#f59e0b" />
-                    <text x="72" y="195" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">C</text>
+          <text x="640" y="65" fill="#10b981" font-family="monospace" font-size="14" font-weight="bold">r₁</text>
+          <text x="640" y="165" fill="#10b981" font-family="monospace" font-size="14" font-weight="bold">r₂</text>
+          <text x="640" y="265" fill="#10b981" font-family="monospace" font-size="14" font-weight="bold">r₃</text>
 
-                    <!-- Interseções na Transversal v -->
-                    <!-- r: y=50 -> x = 250 + 30/195*80 = 262.3 -->
-                    <circle cx="262" cy="50" r="4" fill="#38bdf8" />
-                    <text x="276" y="45" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">A'</text>
-                    <!-- s: y=120 -> x = 250 + 100/195*80 = 291 -->
-                    <circle cx="291" cy="120" r="4" fill="#38bdf8" />
-                    <text x="305" y="115" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">B'</text>
-                    <!-- t: y=190 -> x = 250 + 170/195*80 = 319.8 -->
-                    <circle cx="320" cy="190" r="4" fill="#38bdf8" />
-                    <text x="335" y="195" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">C'</text>
+          <!-- Transversal u -->
+          <line x1="160" y1="20" x2="280" y2="300" stroke="#3b82f6" stroke-width="2.5" />
+          <text x="145" y="30" fill="#3b82f6" font-family="monospace" font-size="14" font-weight="bold">u</text>
 
-                    <!-- Rótulos dos Segmentos a, b, c, d -->
-                    <text x="120" y="82" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">a</text>
-                    <text x="92" y="152" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">b</text>
-                    <text x="288" y="82" fill="#38bdf8" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">c</text>
-                    <text x="318" y="152" fill="#38bdf8" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">d</text>
+          <!-- Transversal v -->
+          <line x1="540" y1="20" x2="380" y2="300" stroke="#f59e0b" stroke-width="2.5" />
+          <text x="545" y="30" fill="#f59e0b" font-family="monospace" font-size="14" font-weight="bold">v</text>
 
-                    <!-- Box Central com a Fórmula -->
-                    <rect x="175" y="85" width="90" height="45" rx="6" fill="rgba(0, 0, 0, 0.5)" stroke="var(--container-border-color, #059669)" stroke-width="1.2" />
-                    <text x="220" y="113" fill="var(--heading-text-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold" text-anchor="middle">a / b = c / d</text>
-                  </svg>
-                  <p class="legenda-figura" style="font-size: 0.85rem; color: var(--secondary-text-color, #94a3b8); margin-top: 0.6rem;">
-                    <em>Figura 1: Teorema de Tales — Três retas paralelas @r \parallel s \parallel t@ determinam nas transversais @u@ e @v@ segmentos de retas proporcionais: @\frac{\overline{AB}}{\overline{BC}} = \frac{\overline{A'B'}}{\overline{B'C'}}@.</em>
-                  </p>
-                </div>
+          <!-- Pontos sobre u -->
+          <circle cx="177" cy="60" r="5" fill="#3b82f6" />
+          <text x="155" y="60" fill="#ffffff" font-family="monospace" font-size="13">A</text>
 
-                <h2>2. Semelhança de Triângulos</h2>
-                <p>Dois triângulos são semelhantes quando possuem ângulos correspondentes congruentes e lados
-                    correspondentes proporcionais.</p>
+          <circle cx="220" cy="160" r="5" fill="#3b82f6" />
+          <text x="198" y="160" fill="#ffffff" font-family="monospace" font-size="13">B</text>
 
-                <div class="destaque-box definicao">
-                    <h3>Critérios de Semelhança</h3>
-                    <ul class="lista-propriedades">
-                        <li><strong>Caso AA (Ângulo-Ângulo):</strong> Se dois triângulos possuem dois ângulos
-                            congruentes, eles são semelhantes.</li>
-                        <li><strong>Caso LAL (Lado-Ângulo-Lado):</strong> Se dois lados são proporcionais e o ângulo
-                            entre eles é congruente.</li>
-                        <li><strong>Caso LLL (Lado-Lado-Lado):</strong> Se os três lados são proporcionais.</li>
-                    </ul>
-                </div>
+          <circle cx="263" cy="260" r="5" fill="#3b82f6" />
+          <text x="241" y="260" fill="#ffffff" font-family="monospace" font-size="13">C</text>
 
-                <div class="destaque-box observacao">
-                    <p><strong>Razão de Semelhança (@k@):</strong> É o valor constante da razão entre os lados
-                        correspondentes.</p>
-                    @@ \frac{a}{a'} = \frac{b}{b'} = \frac{c}{c'} = k @@
-                </div>
+          <!-- Pontos sobre v -->
+          <circle cx="517" cy="60" r="5" fill="#f59e0b" />
+          <text x="530" y="60" fill="#ffffff" font-family="monospace" font-size="13">A'</text>
 
-                <h2>3. Exemplos Resolvidos</h2>
-                <div class="exemplo-resolvido">
-                    <h3>Exemplo 1: Teorema de Tales</h3>
-                    <p>Um feixe de paralelas determina em uma transversal os segmentos 4 cm e 6 cm. Na outra
-                        transversal, o segmento correspondente ao de 4 cm mede 10 cm. Qual a medida do outro segmento?
-                    </p>
-                    <h4>Solução:</h4>
-                    <p>Montamos a proporção: @\frac{4}{6} = \frac{10}{x}@.</p>
-                    <p>@4x = 60 \implies x = 15 \text{ cm}@.</p>
-                </div>
+          <circle cx="460" cy="160" r="5" fill="#f59e0b" />
+          <text x="475" y="160" fill="#ffffff" font-family="monospace" font-size="13">B'</text>
 
-            </article>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="../../recursos.html" class="themed-button"
-                    >VOLTAR</a>
+          <circle cx="403" cy="260" r="5" fill="#f59e0b" />
+          <text x="415" y="260" fill="#ffffff" font-family="monospace" font-size="13">C'</text>
+
+          <!-- Segmentos de texto -->
+          <text x="175" y="115" fill="#93c5fd" font-family="monospace" font-size="12">AB = a</text>
+          <text x="215" y="215" fill="#93c5fd" font-family="monospace" font-size="12">BC = b</text>
+
+          <text x="500" y="115" fill="#fde68a" font-family="monospace" font-size="12">A'B' = c</text>
+          <text x="445" y="215" fill="#fde68a" font-family="monospace" font-size="12">B'C' = d</text>
+        </svg>
+        <p style="font-size: 0.9rem; color: var(--secondary-text-color); margin-top: 0.5rem;">
+          <strong>Figura 3.1:</strong> Feixe de retas paralelas interceptado por transversais: @\frac{a}{b} = \frac{c}{d}@.
+        </p>
+      </div>
+
+      <!-- ===============================================================
+           3. TEOREMAS DAS BISSETRIZES
+           =============================================================== -->
+      <h2>3. Teoremas das Bissetrizes Interna e Externa</h2>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 3.1 (Teorema da Bissetriz Interna)</h3>
+        <p>
+          Em qualquer triângulo @\triangle ABC@, a bissetriz interna @AD@ relativa ao ângulo @\widehat{A}@ divide o lado oposto @BC@ em segmentos proporcionais aos lados adjacentes:
+        </p>
+        @@
+        \frac{\overline{BD}}{\overline{DC}} = \frac{\overline{AB}}{\overline{AC}} = \frac{c}{b}
+        @@
+        <p><strong>Demonstração:</strong></p>
+        <p>
+          Tracemos pelo vértice @C@ uma reta paralela à bissetriz @AD@, que intercepta o prolongamento do lado @AB@ no ponto @E@.
+        </p>
+        <ol>
+          <li>Como @AD \parallel EC@ e @AC@ é transversal, os ângulos alternos internos são congruentes: @\widehat{CAD} = \widehat{ACE}@.</li>
+          <li>Sendo @AE@ transversal ao mesmo feixe paralelo, os ângulos correspondentes são congruentes: @\widehat{BAD} = \widehat{AEC}@.</li>
+          <li>Como @AD@ é bissetriz de @\widehat{A}@, @\widehat{BAD} = \widehat{CAD}@. Consequentemente, @\widehat{ACE} = \widehat{AEC}@, o que prova que o triângulo @\triangle ACE@ é isósceles com @\overline{AE} = \overline{AC} = b@.</li>
+          <li>Pelo Teorema de Tales aplicado ao triângulo @\triangle BCE@ cortado por @AD \parallel EC@:
+            @@
+            \frac{\overline{BD}}{\overline{DC}} = \frac{\overline{AB}}{\overline{AE}} = \frac{\overline{AB}}{\overline{AC}} = \frac{c}{b} \quad \blacksquare
+            @@
+          </li>
+        </ol>
+      </div>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 3.2 (Teorema da Bissetriz Externa)</h3>
+        <p>
+          Seja @\triangle ABC@ com @AB \neq AC@. A bissetriz externa relativa ao ângulo @\widehat{A}@ intercepta a reta suporte do lado @BC@ em um ponto @E@ tal que:
+        </p>
+        @@
+        \frac{\overline{EB}}{\overline{EC}} = \frac{\overline{AB}}{\overline{AC}} = \frac{c}{b}
+        @@
+      </div>
+
+      <!-- ===============================================================
+           4. SEMELHANÇA DE TRIÂNGULOS
+           =============================================================== -->
+      <h2>4. Semelhança de Triângulos no Plano Euclidiano</h2>
+
+      <div class="destaque-box definicao">
+        <h3>Definição 4.1 (Semelhança de Triângulos)</h3>
+        <p>
+          Dois triângulos @\triangle ABC@ e @\triangle A'B'C'@ são ditos <strong>semelhantes</strong> (notação: @\triangle ABC \sim \triangle A'B'C'@) se, e somente se, existe uma bijeção entre seus vértices que satisfaz simultaneamente:
+        </p>
+        <ol>
+          <li>Ângulos homólogos (correspondentes) congruentes:
+            @@
+            \widehat{A} \equiv \widehat{A'}, \quad \widehat{B} \equiv \widehat{B'}, \quad \widehat{C} \equiv \widehat{C'}
+            @@
+          </li>
+          <li>Lados homólogos estritamente proporcionais:
+            @@
+            \frac{\overline{AB}}{\overline{A'B'}} = \frac{\overline{BC}}{\overline{B'C'}} = \frac{\overline{CA}}{\overline{C'A'}} = k \quad (k > 0)
+            @@
+          </li>
+        </ol>
+        <p>A constante real positiva @k@ é denominada <strong>razão de semelhança</strong>.</p>
+      </div>
+
+      <div class="destaque-box teorema">
+        <h3>Critérios Canônicos de Semelhança</h3>
+        <ul>
+          <li><strong>Critério AA (Ângulo-Ângulo):</strong> Se dois ângulos internos de um triângulo são congruentes a dois ângulos internos de outro triângulo, então os triângulos são semelhantes. (Note que a soma dos ângulos internos garante a congruência do terceiro).</li>
+          <li><strong>Critério LAL (Lado-Ângulo-Lado):</strong> Se dois triângulos possuem dois lados homólogos proporcionais (@\frac{a}{a'} = \frac{b}{b'} = k@) e o ângulo formado por esses lados congruente (@\widehat{C} \equiv \widehat{C'}@), então são semelhantes.</li>
+          <li><strong>Critério LLL (Lado-Lado-Lado):</strong> Se os três pares de lados homólogos são proporcionais (@\frac{a}{a'} = \frac{b}{b'} = \frac{c}{c'} = k@), então os triângulos são semelhantes.</li>
+        </ul>
+      </div>
+
+      <!-- ===============================================================
+           5. RAZÃO LINEAR VS. RAZÃO DE ÁREAS
+           =============================================================== -->
+      <h2>5. Razão Linear versus Razão Quadrática de Áreas</h2>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 5.1 (Teorema das Razões Quadráticas em Figuras Semelhantes)</h3>
+        <p>
+          Se dois triângulos @\triangle ABC@ e @\triangle A'B'C'@ são semelhantes com razão de semelhança @k@:
+        </p>
+        @@
+        \frac{\overline{AB}}{\overline{A'B'}} = \frac{\overline{BC}}{\overline{B'C'}} = \frac{\overline{CA}}{\overline{C'A'}} = k
+        @@
+        <p>Então:</p>
+        <ol>
+          <li>Todos os elementos lineares homólogos (alturas @h@, medianas @m@, bissetrizes, perímetros @2p@ e raios inscritos/circunscritos) guardam a mesma razão linear:
+            @@
+            \frac{h}{h'} = \frac{m}{m'} = \frac{2p}{2p'} = k
+            @@
+          </li>
+          <li>A razão entre suas áreas é igual ao <strong>quadrado</strong> da razão linear:
+            @@
+            \frac{\text{Área}(\triangle ABC)}{\text{Área}(\triangle A'B'C')} = k^2
+            @@
+          </li>
+        </ol>
+        <p><strong>Demonstração:</strong></p>
+        @@
+        \frac{\text{Área}(\triangle ABC)}{\text{Área}(\triangle A'B'C')} = \frac{\frac{\overline{BC} \cdot h}{2}}{\frac{\overline{B'C'} \cdot h'}{2}} = \left(\frac{\overline{BC}}{\overline{B'C'}}\right) \cdot \left(\frac{h}{h'}\right) = k \cdot k = k^2 \quad \blacksquare
+        @@
+      </div>
+
+      <!-- ===============================================================
+           6. CONEXÃO OLÍMPICA: TEOREMAS DE CEVA E MENELAUS
+           =============================================================== -->
+      <h2>6. Conexão Olímpica: Teoremas de Menelaus e Ceva</h2>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 6.1 (Teorema de Menelaus)</h3>
+        <p>
+          Seja @\triangle ABC@ um triângulo. Uma reta secante não concorrente com nenhum dos vértices corta as retas suportes dos lados @BC@, @CA@ e @AB@ nos pontos @D, E, F@, respectivamente. Então:
+        </p>
+        @@
+        \frac{\overline{AF}}{\overline{FB}} \cdot \frac{\overline{BD}}{\overline{DC}} \cdot \frac{\overline{CE}}{\overline{EA}} = 1
+        @@
+      </div>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 6.2 (Teorema de Ceva)</h3>
+        <p>
+          Sejam @AX, BY, CZ@ três cevianas do triângulo @\triangle ABC@ concorrentes em um único ponto interior @P@. Então:
+        </p>
+        @@
+        \frac{\overline{AZ}}{\overline{ZB}} \cdot \frac{\overline{BX}}{\overline{XC}} \cdot \frac{\overline{CY}}{\overline{YA}} = 1
+        @@
+      </div>
+
+      <!-- ===============================================================
+           7. EXEMPLOS RESOLVIDOS ANALÍTICOS
+           =============================================================== -->
+      <h2>7. Exemplos Analíticos Resolvidos Passo a Passo</h2>
+
+      <div class="exemplo-resolvido">
+        <h3>Exemplo 7.1: Cálculo de Altura Inacessível por Sombras</h3>
+        <p>
+          Em um dia ensolarado, a sombra projetada por um edifício mede 36 metros. No mesmo instante, uma régua de 1,5 metro de comprimento fincada verticalmente projeta uma sombra de 0,9 metro.
+        </p>
+        <p>
+          Determine com rigor geométrico a altura do edifício.
+        </p>
+
+        <h4>Resolução Passo a Passo:</h4>
+        <p>
+          Os raios de sol, provenientes de uma fonte luminosa praticamente pontual no infinito, atingem a superfície terrestre em trajetórias paralelas. Assim, o ângulo de incidência solar com o solo @\theta@ é idêntico para o edifício e para a régua.
+        </p>
+        <p>
+          Como ambos estão perpendiculares ao solo plano (@90^\circ@), pelo caso <strong>AA~</strong> de semelhança:
+        </p>
+        @@
+        \triangle (\text{Edifício}) \sim \triangle (\text{Régua})
+        @@
+        <p>Estabelecendo a proporcionalidade entre as alturas e as respectivas sombras:</p>
+        @@
+        \frac{H_{\text{edifício}}}{h_{\text{régua}}} = \frac{S_{\text{edifício}}}{s_{\text{régua}}} \implies \frac{H}{1{,}5} = \frac{36}{0{,}9}
+        @@
+        <p>Calculando a razão de semelhança:</p>
+        @@
+        \frac{36}{0{,}9} = \frac{360}{9} = 40 \implies H = 1{,}5 \cdot 40 = 60 \text{ metros} \quad \blacksquare
+        @@
+      </div>
+
+      <div class="exemplo-resolvido">
+        <h3>Exemplo 7.2: Aplicação do Teorema da Bissetriz Interna</h3>
+        <p>
+          Os lados de um triângulo medem @AB = 12\text{ cm}@, @AC = 18\text{ cm}@ e @BC = 20\text{ cm}@. A bissetriz interna @AD@ do ângulo @\widehat{A}@ intercepta o lado @BC@ no ponto @D@.
+        </p>
+        <p>
+          Calcule os comprimentos dos segmentos @BD@ e @DC@.
+        </p>
+
+        <h4>Resolução Passo a Passo:</h4>
+        <p>
+          Pelo Teorema da Bissetriz Interna (Teorema 3.1):
+        </p>
+        @@
+        \frac{\overline{BD}}{\overline{DC}} = \frac{\overline{AB}}{\overline{AC}} = \frac{12}{18} = \frac{2}{3}
+        @@
+        <p>
+          Sendo @D \in BC@, temos @\overline{BD} + \overline{DC} = \overline{BC} = 20@. Seja @\overline{BD} = 2k@ e @\overline{DC} = 3k@:
+        </p>
+        @@
+        2k + 3k = 20 \iff 5k = 20 \iff k = 4
+        @@
+        <p>Substituindo @k = 4@:</p>
+        @@
+        \overline{BD} = 2(4) = 8\text{ cm}, \quad \overline{DC} = 3(4) = 12\text{ cm} \quad \blacksquare
+        @@
+      </div>
+
+      <!-- ===============================================================
+           8. ERROS COMUNS E ARMADILHAS
+           =============================================================== -->
+      <h2>8. Armadilhas Conceituais e Erros Frequentes</h2>
+
+      <div class="erro-comum">
+        <h3>Armadilha 1: Confundir razão linear com razão de áreas</h3>
+        <p>
+          Se as dimensões lineares de um triângulo são triplicadas (@k = 3@), sua área <strong>não é multiplicada por 3</strong>, mas sim por @k^2 = 3^2 = 9@. Em qualquer exame ou olimpíada, confira se o enunciado solicita grandezas lineares (lados, alturas, perímetros) ou quadráticas (áreas, superfícies).
+        </p>
+      </div>
+
+      <div class="erro-comum">
+        <h3>Armadilha 2: Ordenar vértices de forma incorreta na semelhança</h3>
+        <p>
+          A notação @\triangle ABC \sim \triangle DEF@ exige que o vértice @A@ corresponda a @D@, @B@ corresponda a @E@ e @C@ corresponda a @F@. Inverter os vértices acarreta proporções incorretas entre catetos ou lados opostos aos ângulos correspondentes.
+        </p>
+      </div>
+
+      <!-- ===============================================================
+           9. EXERCÍCIOS PROPOSTOS (12 PROBLEMAS EM 3 NÍVEIS)
+           =============================================================== -->
+      <h2>9. Exercícios Propostos e Desafios Olímpicos</h2>
+
+      <h3>Nível 1: Fixação Conceitual e Aplicações Diretas</h3>
+      <ol class="lista-exercicios">
+        <li>
+          <strong>(Nexus)</strong> Três retas paralelas @r, s, t@ são interceptadas por duas transversais. Na primeira transversal, os segmentos medem 6 cm e 14 cm. Na segunda transversal, o menor segmento mede 9 cm. Calcule o comprimento do maior segmento sobre a segunda transversal.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Pelo Teorema de Tales:</p>
+              @@
+              \frac{6}{14} = \frac{9}{x} \iff \frac{3}{7} = \frac{9}{x} \iff 3x = 63 \iff x = 21\text{ cm}
+              @@
             </div>
-        </div>
-    </div>
-    <canvas id="matrixCanvas"></canvas>
-    <script src="../../js/matrix-rain.js" defer></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    { left: "@@", right: "@@", display: true },
-                    { left: "\\[", right: "\\]", display: true },
-                    { left: "@", right: "@", display: false },
-                    { left: "\\(", right: "\\)", display: false }
-                ],
-                throwOnError: false
-            });
-        });
-    </script>
-    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
-    <script src="../../js/theme-switcher.js" defer></script>
-    <script src="../../js/print-mode.js" defer></script>
-</body>
+          </details>
+        </li>
 
+        <li>
+          <strong>(Nexus)</strong> No triângulo @\triangle ABC@, o segmento @DE@ é paralelo à base @BC@, com @D \in AB@ e @E \in AC@. Sabendo que @AD = 8@, @DB = 12@ e @AE = 10@, determine a medida do segmento @EC@ e a razão de semelhança entre @\triangle ADE@ e @\triangle ABC@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Pela consequência do Teorema de Tales no triângulo:</p>
+              @@
+              \frac{AD}{DB} = \frac{AE}{EC} \iff \frac{8}{12} = \frac{10}{EC} \iff \frac{2}{3} = \frac{10}{EC} \iff 2 \cdot EC = 30 \iff EC = 15
+              @@
+              <p>Como @AB = AD + DB = 8 + 12 = 20@, a razão de semelhança é:</p>
+              @@
+              k = \frac{AD}{AB} = \frac{8}{20} = \frac{2}{5}
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Dois triângulos semelhantes possuem perímetros medindo 45 cm e 60 cm, respectivamente. Se o menor lado do primeiro triângulo mede 9 cm, qual é a medida do lado correspondente no segundo triângulo?
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>A razão entre lados homólogos é igual à razão entre perímetros:</p>
+              @@
+              k = \frac{2p_1}{2p_2} = \frac{45}{60} = \frac{3}{4}
+              @@
+              @@
+              \frac{9}{x} = \frac{3}{4} \iff 3x = 36 \iff x = 12\text{ cm}
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> A área de um triângulo é @72\text{ cm}^2@. Um segundo triângulo, semelhante ao primeiro, tem seus lados homólogos reduzidos à metade (@k = 1/2@). Qual é a área do segundo triângulo?
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Pelo Teorema 5.1, a razão entre áreas é o quadrado da razão de semelhança:</p>
+              @@
+              \frac{A_2}{A_1} = k^2 = \left(\frac{1}{2}\right)^2 = \frac{1}{4}
+              @@
+              @@
+              A_2 = \frac{1}{4} \cdot 72 = 18\text{ cm}^2
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+
+      <h3>Nível 2: Aprofundamento e Aplicações Analíticas</h3>
+      <ol class="lista-exercicios" start="5">
+        <li>
+          <strong>(FME - Gelson Iezzi)</strong> No triângulo @\triangle ABC@, a bissetriz do ângulo @\widehat{A}@ corta @BC@ no ponto @D@. Sabendo que @AB = 15@, @AC = 20@ e @BC = 28@, determine o comprimento de @BD@ e @DC@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Pelo Teorema da Bissetriz Interna:</p>
+              @@
+              \frac{BD}{DC} = \frac{AB}{AC} = \frac{15}{20} = \frac{3}{4}
+              @@
+              <p>Como @BD + DC = 28@, definimos @BD = 3k@ e @DC = 4k@:</p>
+              @@
+              3k + 4k = 28 \iff 7k = 28 \iff k = 4
+              @@
+              @@
+              BD = 3(4) = 12, \quad DC = 4(4) = 16
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Nível 2)</strong> Em um trapézio de bases @AB = 18\text{ cm}@ e @CD = 12\text{ cm}@, as diagonais interceptam-se no ponto @O@. Se a altura total do trapézio é de 15 cm, calcule as distâncias do ponto @O@ até cada uma das bases.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Como as bases @AB \parallel CD@ são paralelas, os triângulos @\triangle AOB@ e @\triangle COD@ são semelhantes pelo caso AA~:</p>
+              @@
+              \triangle AOB \sim \triangle COD \implies \frac{h_1}{h_2} = \frac{AB}{CD} = \frac{18}{12} = \frac{3}{2}
+              @@
+              <p>onde @h_1@ é a altura relativa à base maior @AB@ e @h_2@ é a altura relativa à base menor @CD@, com @h_1 + h_2 = 15@:</p>
+              @@
+              \frac{3}{2}h_2 + h_2 = 15 \iff \frac{5}{2}h_2 = 15 \iff h_2 = 6\text{ cm}
+              @@
+              @@
+              h_1 = 15 - 6 = 9\text{ cm}
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Nível 2)</strong> Um retângulo @DEFG@ está inscrito em um triângulo @\triangle ABC@ com base @BC = 24\text{ cm}@ e altura relativa @h = 16\text{ cm}@, de modo que o lado @DE@ do retângulo está sobre a base @BC@. Se a base do retângulo mede o dobro de sua altura, determine as dimensões do retângulo.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Seja @x@ a altura do retângulo. A base do retângulo é @2x@.</p>
+              <p>O triângulo superior @\triangle AFG@ é semelhante ao triângulo todo @\triangle ABC@:</p>
+              <ul>
+                <li>Base de @\triangle AFG = 2x@</li>
+                <li>Altura de @\triangle AFG = 16 - x@</li>
+              </ul>
+              <p>Por semelhança:</p>
+              @@
+              \frac{16 - x}{16} = \frac{2x}{24} \iff \frac{16 - x}{16} = \frac{x}{12}
+              @@
+              <p>Multiplicando em cruz:</p>
+              @@
+              12(16 - x) = 16x \iff 192 - 12x = 16x \iff 28x = 192 \iff x = \frac{192}{28} = \frac{48}{7}\text{ cm}
+              @@
+              <p>A base é @2x = \frac{96}{7}\text{ cm}@.</p>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Em um triângulo retângulo @\triangle ABC@ com ângulo reto em @A@, traça-se a altura @AH@ relativa à hipotenusa @BC@. Prove que os três triângulos @\triangle ABC@, @\triangle HBA@ e @\triangle HAC@ são mutuamente semelhantes e deduza que @\overline{AH}^2 = \overline{BH} \cdot \overline{CH}@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Seja @\widehat{B} = \beta@. Como @\widehat{A} = 90^\circ@, @\widehat{C} = 90^\circ - \beta@.</p>
+              <p>No triângulo @\triangle HBA@ retângulo em @H@: @\widehat{BAH} = 90^\circ - \beta = \widehat{C}@.</p>
+              <p>No triângulo @\triangle HAC@ retângulo em @H@: @\widehat{CAH} = 90^\circ - \widehat{C} = \beta = \widehat{B}@.</p>
+              <p>Pelo critério AA~, os três triângulos possuem os mesmos ângulos @(90^\circ, \beta, 90^\circ - \beta)@, logo:</p>
+              @@
+              \triangle HBA \sim \triangle HAC
+              @@
+              <p>Estabelecendo a proporcionalidade entre catetos homólogos:</p>
+              @@
+              \frac{\overline{AH}}{\overline{CH}} = \frac{\overline{BH}}{\overline{AH}} \iff \overline{AH}^2 = \overline{BH} \cdot \overline{CH} \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+
+      <h3>Nível 3: Desafios Olímpicos OBMEP (Fases 1 e 2)</h3>
+      <ol class="lista-exercicios" start="9">
+        <li>
+          <strong>(OBMEP Fase 2)</strong> Em um triângulo @\triangle ABC@, os pontos @D@ e @E@ pertencem aos lados @AB@ e @AC@, respectivamente, de modo que o segmento @DE@ é paralelo a @BC@. A reta @DE@ divide o triângulo @\triangle ABC@ em duas regiões de mesma área: o triângulo @\triangle ADE@ e o trapézio @BDEC@. Determine a razão @\frac{\overline{AD}}{\overline{AB}}@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Como @DE \parallel BC@, temos @\triangle ADE \sim \triangle ABC@ com razão de semelhança @k = \frac{\overline{AD}}{\overline{AB}}@.</p>
+              <p>Pelo Teorema das Áreas (Teorema 5.1):</p>
+              @@
+              \frac{\text{Área}(\triangle ADE)}{\text{Área}(\triangle ABC)} = k^2
+              @@
+              <p>Como @DE@ divide o triângulo em duas regiões de mesma área, a área de @\triangle ADE@ é exatamente a metade da área total de @\triangle ABC@:</p>
+              @@
+              \text{Área}(\triangle ADE) = \frac{1}{2} \text{Área}(\triangle ABC) \implies k^2 = \frac{1}{2}
+              @@
+              <p>Portanto:</p>
+              @@
+              k = \frac{\overline{AD}}{\overline{AB}} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2} \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Fase 2)</strong> Em um triângulo @\triangle ABC@, traçam-se as medianas @BM@ e @CN@ que se interceptam no baricentro @G@. Prove por semelhança que o baricentro divide cada mediana na razão @2:1@, isto é, @\overline{AG} = 2\overline{GA'}@, @\overline{BG} = 2\overline{GM}@ e @\overline{CG} = 2\overline{GN}@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Conectamos os pontos médios @M@ e @N@ pelo segmento @MN@. Pelo Teorema da Base Média, @MN \parallel BC@ e @\overline{MN} = \frac{1}{2}\overline{BC}@.</p>
+              <p>Considerando os triângulos @\triangle GMN@ e @\triangle GCB@:</p>
+              <ul>
+                <li>Como @MN \parallel BC@, os ângulos alternos internos são congruentes: @\widehat{GMN} = \widehat{GBC}@ e @\widehat{GNM} = \widehat{GCB}@.</li>
+                <li>Os ângulos opostos pelo vértice @\widehat{MGN}@ e @\widehat{BGC}@ são congruentes.</li>
+              </ul>
+              <p>Pelo critério AA~, @\triangle GMN \sim \triangle GCB@ com razão de semelhança:</p>
+              @@
+              k = \frac{\overline{MN}}{\overline{BC}} = \frac{1}{2}
+              @@
+              <p>Portanto:</p>
+              @@
+              \frac{\overline{GM}}{\overline{GB}} = \frac{1}{2} \implies \overline{GB} = 2\overline{GM} \quad \text{e} \quad \frac{\overline{GN}}{\overline{GC}} = \frac{1}{2} \implies \overline{GC} = 2\overline{GN} \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Banco de Questões)</strong> As diagonais de um quadrilátero convexo @ABCD@ cortam-se no ponto @P@. Se as áreas dos triângulos @\triangle APB@, @\triangle BPC@ e @\triangle CPD@ são 12, 18 e 30, respectivamente, determine a área do triângulo @\triangle DPA@ e a área total do quadrilátero.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>
+                Os triângulos @\triangle APB@ e @\triangle BPC@ compartilham a base sobre a diagonal @AC@ e têm o mesmo vértice @B@, logo a razão de suas áreas é igual à razão entre os segmentos da diagonal:
+              </p>
+              @@
+              \frac{\text{Área}(\triangle APB)}{\text{Área}(\triangle BPC)} = \frac{\overline{AP}}{\overline{PC}} = \frac{12}{18} = \frac{2}{3}
+              @@
+              <p>
+                Da mesma forma, os triângulos @\triangle DPA@ e @\triangle CPD@ compartilham a mesma base na diagonal @AC@ com vértice comum @D@:
+              </p>
+              @@
+              \frac{\text{Área}(\triangle DPA)}{\text{Área}(\triangle CPD)} = \frac{\overline{AP}}{\overline{PC}} = \frac{2}{3}
+              @@
+              <p>Como a área de @\triangle CPD = 30@:</p>
+              @@
+              \text{Área}(\triangle DPA) = \frac{2}{3} \cdot 30 = 20
+              @@
+              <p>Área total do quadrilátero:</p>
+              @@
+              \text{Área}(ABCD) = 12 + 18 + 30 + 20 = 80 \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Desafio Olímpico FME/OBMEP)</strong> No triângulo @\triangle ABC@, @AB = c@, @AC = b@ e @BC = a@. Sejam @AD@ a bissetriz interna e @AE@ a bissetriz externa do ângulo @\widehat{A}@, com @D, E@ sobre a reta @BC@. Prove que os pontos @(B, C; D, E)@ formam uma divisão harmônica, isto é:
+          @@
+          \frac{\overline{BD}}{\overline{DC}} = -\frac{\overline{BE}}{\overline{EC}}
+          @@
+          e deduza o comprimento da bissetriz interna @AD@ em termos dos lados @a, b, c@ (Fórmula de Stewart).
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Pelos Teoremas 3.1 e 3.2:</p>
+              @@
+              \frac{\overline{BD}}{\overline{DC}} = \frac{c}{b} \quad \text{e} \quad \frac{\overline{BE}}{\overline{EC}} = \frac{c}{b}
+              @@
+              <p>
+                Como @D@ é interior ao segmento @BC@ e @E@ é exterior ao segmento @BC@, atribuindo orientação de vetores colineares sobre a reta suporte, tem-se a razão harmônica canônica @(B, C; D, E) = -1@.
+              </p>
+              <p>Pelo Teorema de Stewart aplicado à ceviana @AD@:</p>
+              @@
+              b^2 \cdot \overline{BD} + c^2 \cdot \overline{DC} = a(\overline{AD}^2 + \overline{BD} \cdot \overline{DC})
+              @@
+              <p>Sabendo que @\overline{BD} = \frac{ac}{b+c}@ e @\overline{DC} = \frac{ab}{b+c}@, simplificando obtém-se a fórmula de Stewart para a bissetriz:</p>
+              @@
+              \overline{AD}^2 = bc \left[1 - \left(\frac{a}{b+c}\right)^2\right] = bc - \overline{BD} \cdot \overline{DC} \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+    </article>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="../../recursos.html" class="themed-button">VOLTAR</a>
+    </div>
+  </div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas curados com suporte a Alto Contraste -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <div class="theme-group-label">🌙 MODO ESCURO</div>
+    <button data-theme="theme-default">🟢 Matrix Cyber</button>
+    <button data-theme="theme-cyber-blue">🔵 Cyber Blue</button>
+    <div class="theme-group-label">⚡ ALTO CONTRASTE (AAA)</div>
+    <button data-theme="theme-high-contrast-green">⚡ OLED Neon Green</button>
+    <button data-theme="theme-high-contrast-amber">🟠 OLED Amber</button>
+    <div class="theme-group-label">☀️ MODO CLARO</div>
+    <button data-theme="theme-paper-light">📄 Paper Clean</button>
+    <button data-theme="theme-solarized-light">📜 Solarized Sepia</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
 </html>

@@ -135,6 +135,7 @@
             <button class="shape-btn" data-shape="cone">Cone</button>
             <button class="shape-btn" data-shape="esfera">Esfera</button>
             <button class="shape-btn" data-shape="piramide">Pirâmide</button>
+            <button class="shape-btn" data-shape="poliedros3d">🧊 Sólidos Platônicos 3D</button>
           </div>
 
           <div class="input-row" id="inputFields">
@@ -143,6 +144,7 @@
 
           <div class="preview-box">
             <svg id="geoSvg" viewBox="0 0 360 220" width="340" height="200" aria-label="Visualização geométrica da figura"></svg>
+            <canvas id="poly3dCanvas" width="340" height="220" style="display:none; width:100%; max-width:340px; height:200px; margin:0 auto;"></canvas>
           </div>
 
           <button class="calc-btn-action" id="btnCalcular">CALCULAR DIMENSÕES</button>
@@ -351,6 +353,57 @@
                      <line x1="180" y1="40" x2="180" y2="145" stroke="#ff7043" stroke-width="2" stroke-dasharray="3" />
                      <text x="185" y="95" fill="#ff7043" font-size="11">h = ${v.h}</text>
                      <text x="150" y="175" fill="var(--main-text-color, #00ff66)" font-size="11">l = ${v.l}</text>`
+      },
+      poliedros3d: {
+        fields: [
+          { id: 'tipo', label: 'Poliedro (1:Tetra, 2:Cubo, 3:Octa, 4:Dodeca, 5:Icosa)', def: 2 },
+          { id: 'a', label: 'Medida da Aresta (a)', def: 4 }
+        ],
+        calc: (v) => {
+          const a = v.a || 4;
+          const t = Math.max(1, Math.min(5, Math.round(v.tipo || 2)));
+          let nome = 'Hexaedro Regular (Cubo)';
+          let V = 8, A = 12, F = 6, area = 6 * a * a, vol = Math.pow(a, 3);
+          let faceTipo = '6 Quadrados';
+
+          if (t === 1) {
+            nome = 'Tetraedro Regular';
+            V = 4; A = 6; F = 4;
+            area = Math.sqrt(3) * a * a;
+            vol = (Math.sqrt(2) / 12) * Math.pow(a, 3);
+            faceTipo = '4 Triângulos Equiláteros';
+          } else if (t === 3) {
+            nome = 'Octaedro Regular';
+            V = 6; A = 12; F = 8;
+            area = 2 * Math.sqrt(3) * a * a;
+            vol = (Math.sqrt(2) / 3) * Math.pow(a, 3);
+            faceTipo = '8 Triângulos Equiláteros';
+          } else if (t === 4) {
+            nome = 'Dodecaedro Regular';
+            V = 20; A = 30; F = 12;
+            area = 3 * Math.sqrt(25 + 10 * Math.sqrt(5)) * a * a;
+            vol = ((15 + 7 * Math.sqrt(5)) / 4) * Math.pow(a, 3);
+            faceTipo = '12 Pentágonos Regulares';
+          } else if (t === 5) {
+            nome = 'Icosaedro Regular';
+            V = 12; A = 30; F = 20;
+            area = 5 * Math.sqrt(3) * a * a;
+            vol = ((5 * (3 + Math.sqrt(5))) / 12) * Math.pow(a, 3);
+            faceTipo = '20 Triângulos Equiláteros';
+          }
+
+          return {
+            title: nome + ' (Aresta a = ' + a + ')',
+            html: `
+              <p><strong>Elementos Topológicos:</strong> @@V = ${V}, \\quad A = ${A}, \\quad F = ${F}@@</p>
+              <p><strong>Relação de Euler:</strong> @@V - A + F = ${V} - ${A} + ${F} = 2 \\quad \\checkmark@@</p>
+              <p><strong>Configuração das Faces:</strong> ${faceTipo}</p>
+              <p><strong>Área Total:</strong> @@A_T \\approx ${area.toFixed(2)} \\text{ u.a.}@@</p>
+              <p><strong>Volume:</strong> @@V \\approx ${vol.toFixed(2)} \\text{ u.v.}@@</p>
+            `
+          };
+        },
+        draw: () => ''
       }
     };
 
@@ -372,6 +425,93 @@
       updateCalc();
     }
 
+    let angle3d = 0;
+    let anim3dId = null;
+
+    const polyModels = {
+      1: { // Tetraedro
+        v: [[1,1,1], [-1,-1,1], [-1,1,-1], [1,-1,-1]],
+        e: [[0,1],[0,2],[0,3],[1,2],[1,3],[2,3]]
+      },
+      2: { // Cubo
+        v: [[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]],
+        e: [[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]]
+      },
+      3: { // Octaedro
+        v: [[1.3,0,0],[-1.3,0,0],[0,1.3,0],[0,-1.3,0],[0,0,1.3],[0,0,-1.3]],
+        e: [[0,2],[0,3],[0,4],[0,5],[1,2],[1,3],[1,4],[1,5],[2,4],[4,3],[3,5],[5,2]]
+      },
+      4: { // Dodecaedro
+        v: [[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1],
+            [0,-0.6,1.6],[0,0.6,1.6],[0,-0.6,-1.6],[0,0.6,-1.6]],
+        e: [[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,10],[1,10],[2,11],[3,11],[4,8],[5,8],[6,9],[7,9]]
+      },
+      5: { // Icosaedro
+        v: [[0,0.8,1.3],[0,-0.8,1.3],[0,0.8,-1.3],[0,-0.8,-1.3],[0.8,1.3,0],[-0.8,1.3,0],[0.8,-1.3,0],[-0.8,-1.3,0],[1.3,0,0.8],[-1.3,0,0.8],[1.3,0,-0.8],[-1.3,0,-0.8]],
+        e: [[0,1],[0,8],[0,9],[0,4],[0,5],[1,8],[1,9],[1,6],[1,7],[2,3],[2,10],[2,11],[2,4],[2,5],[3,10],[3,11],[3,6],[3,7],[4,5],[6,7],[8,10],[9,11],[4,8],[5,9],[6,8],[7,9],[4,10],[5,11],[6,10],[7,11]]
+      }
+    };
+
+    function start3dAnimation(tipo) {
+      stop3dAnimation();
+      const canvas = document.getElementById('poly3dCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const model = polyModels[tipo] || polyModels[2];
+
+      function loop() {
+        angle3d += 0.015;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const cx = canvas.width / 2;
+        const cy = canvas.height / 2;
+        const scale = 50;
+
+        const cosY = Math.cos(angle3d);
+        const sinY = Math.sin(angle3d);
+        const cosX = Math.cos(angle3d * 0.7);
+        const sinX = Math.sin(angle3d * 0.7);
+
+        const proj = model.v.map(pt => {
+          const x1 = pt[0] * cosY - pt[2] * sinY;
+          const z1 = pt[0] * sinY + pt[2] * cosY;
+          const y2 = pt[1] * cosX - z1 * sinX;
+          return [cx + x1 * scale, cy - y2 * scale];
+        });
+
+        // Arestas
+        ctx.strokeStyle = '#00ff66';
+        ctx.lineWidth = 2;
+        model.e.forEach(edge => {
+          const p1 = proj[edge[0]];
+          const p2 = proj[edge[1]];
+          if (p1 && p2) {
+            ctx.beginPath();
+            ctx.moveTo(p1[0], p1[1]);
+            ctx.lineTo(p2[0], p2[1]);
+            ctx.stroke();
+          }
+        });
+
+        // Vértices
+        ctx.fillStyle = '#60a5fa';
+        proj.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p[0], p[1], 4, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        anim3dId = requestAnimationFrame(loop);
+      }
+      loop();
+    }
+
+    function stop3dAnimation() {
+      if (anim3dId) {
+        cancelAnimationFrame(anim3dId);
+        anim3dId = null;
+      }
+    }
+
     function updateCalc() {
       const def = shapes[currentShape];
       const vals = {};
@@ -379,7 +519,20 @@
         vals[f.id] = parseFloat(document.getElementById(`inp_${f.id}`)?.value) || 0;
       });
 
-      document.getElementById('geoSvg').innerHTML = def.draw(vals);
+      const svgEl = document.getElementById('geoSvg');
+      const c3d = document.getElementById('poly3dCanvas');
+
+      if (currentShape === 'poliedros3d') {
+        svgEl.style.display = 'none';
+        c3d.style.display = 'block';
+        start3dAnimation(Math.max(1, Math.min(5, Math.round(vals.tipo || 2))));
+      } else {
+        stop3dAnimation();
+        svgEl.style.display = 'block';
+        c3d.style.display = 'none';
+        svgEl.innerHTML = def.draw(vals);
+      }
+
       const res = def.calc(vals);
       const panel = document.getElementById('resultsPanel');
       panel.style.display = 'block';

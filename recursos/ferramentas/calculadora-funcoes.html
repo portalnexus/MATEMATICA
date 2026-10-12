@@ -150,6 +150,7 @@
           <div class="fn-selector">
             <button class="fn-btn active" data-type="afim">1º Grau: f(x) = ax + b</button>
             <button class="fn-btn" data-type="quadratica">2º Grau: f(x) = ax² + bx + c</button>
+            <button class="fn-btn" data-type="balistica">🎯 Balística & Otimização</button>
             <button class="fn-btn" data-type="exponencial">Exponencial: f(x) = a · bˣ</button>
             <button class="fn-btn" data-type="logaritmica">Logarítmica: f(x) = a · ln(x) + b</button>
           </div>
@@ -253,6 +254,41 @@
           return { html, roots, vertex: { x: xv, y: yv } };
         }
       },
+      balistica: {
+        fields: [
+          { id: 'v0', label: 'Velocidade v₀ (m/s)', def: 12 },
+          { id: 'theta', label: 'Ângulo θ (graus)', def: 45 },
+          { id: 'g', label: 'Gravidade g (m/s²)', def: 9.8 }
+        ],
+        fn: (v, x) => {
+          const rad = (v.theta * Math.PI) / 180;
+          const cos = Math.cos(rad);
+          if (Math.abs(cos) < 1e-4) return 0;
+          const tan = Math.tan(rad);
+          const quadCoeff = v.g / (2 * v.v0 * v.v0 * cos * cos);
+          const y = tan * x - quadCoeff * x * x;
+          return x >= 0 ? y : NaN;
+        },
+        analyze: (v) => {
+          const rad = (v.theta * Math.PI) / 180;
+          const sin = Math.sin(rad);
+          const cos = Math.cos(rad);
+          const alcance = (v.v0 * v.v0 * Math.sin(2 * rad)) / v.g;
+          const hMax = (v.v0 * v.v0 * sin * sin) / (2 * v.g);
+          const tVoo = (2 * v.v0 * sin) / v.g;
+          const xv = alcance / 2;
+          const yv = hMax;
+
+          let html = `
+            <p><strong>Equação da Trajetória:</strong> @@y(x) = \\tan(\\theta)x - \\frac{g}{2v_0^2\\cos^2(\\theta)}x^2@@</p>
+            <p><strong>Ponto de Altura Máxima (Vértice):</strong> @@V = (${xv.toFixed(2)} \\text{ m}, ${yv.toFixed(2)} \\text{ m})@@</p>
+            <p><strong>Alcance Horizontal Máximo:</strong> @@X_{\\max} = ${alcance.toFixed(2)} \\text{ m}@@</p>
+            <p><strong>Tempo Total de Voo:</strong> @@t_{\\text{voo}} = ${tVoo.toFixed(2)} \\text{ s}@@</p>
+            <p><em>Ângulo de Máximo Alcance no Plano Horizontal:</em> @@\\theta = 45^\\circ@@</p>
+          `;
+          return { html, roots: [0, alcance], vertex: { x: xv, y: yv } };
+        }
+      },
       exponencial: {
         fields: [{ id: 'a', label: 'Fator (a)', def: 1 }, { id: 'b', label: 'Base (b)', def: 2 }],
         fn: (v, x) => v.a * Math.pow(v.b, x),
@@ -315,7 +351,11 @@
 
       // Build table
       let tableHtml = '<table class="table-vals"><thead><tr><th>x</th><th>f(x)</th></tr></thead><tbody>';
-      const sampleX = [-3, -2, -1, 0, 1, 2, 3];
+      let sampleX = [-3, -2, -1, 0, 1, 2, 3];
+      if (currentType === 'balistica') {
+        const xMax = analysis.roots[1] || 15;
+        sampleX = [0, +(xMax * 0.2).toFixed(1), +(xMax * 0.4).toFixed(1), +(xMax * 0.5).toFixed(1), +(xMax * 0.7).toFixed(1), +(xMax * 0.9).toFixed(1), +xMax.toFixed(1)];
+      }
       sampleX.forEach(x => {
         const y = def.fn(vals, x);
         tableHtml += `<tr><td>${x}</td><td>${isNaN(y) ? 'Indef.' : y.toFixed(2)}</td></tr>`;
@@ -346,8 +386,12 @@
       ctx.clearRect(0, 0, w, h);
 
       // System range
-      const xRange = [-8, 8];
-      const yRange = [-8, 8];
+      const xRange = currentType === 'balistica'
+        ? [-2, Math.max(16, (analysis.roots[1] || 10) * 1.15)]
+        : [-8, 8];
+      const yRange = currentType === 'balistica'
+        ? [-2, Math.max(10, ((analysis.vertex?.y || 5) * 1.3))]
+        : [-8, 8];
 
       const toScreenX = (x) => ((x - xRange[0]) / (xRange[1] - xRange[0])) * w;
       const toScreenY = (y) => h - ((y - yRange[0]) / (yRange[1] - yRange[0])) * h;

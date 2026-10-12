@@ -1,24 +1,200 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS - Radiciação e Potenciação</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
-    <link rel="stylesheet" href="../../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Potenciação, Radiciação e Radicais Duplos</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-9 {
+      background-color: rgba(59, 130, 246, 0.25);
+      border: 2px solid #3b82f6;
+      color: #93c5fd;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
 </head>
 
 <body>
-    <div id="page-wrapper">
-          <nav>
+<div id="page-wrapper">
+  <nav>
     <ul>
       <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
       <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
@@ -26,95 +202,579 @@
       <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
     </ul>
   </nav>
-        <div class="container">
-            <article>
-                <span class="badge-nivel ano-9">9º ANO</span>
-                <h1>Radiciação e Potenciação</h1>
-                <p>Nesta seção, exploraremos as propriedades fundamentais das potências e raízes, ferramentas essenciais
-                    para simplificar expressões matemáticas complexas e resolver equações.</p>
 
-                <h2>1. Potenciação</h2>
-                <div class="destaque-box definicao">
-                    <h3>Definição 1.1 (Potência)</h3>
-                    <p>A potência de base @a@ e expoente @n@ (@n \in \mathbb{N}, n \geq 2@) é o produto de @n@ fatores
-                        iguais a @a@:</p>
-                    @@ a^n = \underbrace{a \cdot a \cdot \ldots \cdot a}_{n \text{ fatores}} @@
-                </div>
+  <div class="container">
+    <article>
+      <div class="badge-nivel ano-9">9º Ano EF</div>
 
-                <h3>Propriedades das Potências</h3>
-                <div class="destaque-box teorema">
-                    <ul class="lista-propriedades">
-                        <li><strong>P1. Produto de potências de mesma base:</strong> @a^m \cdot a^n = a^{m+n}@</li>
-                        <li><strong>P2. Divisão de potências de mesma base:</strong> @\frac{a^m}{a^n} = a^{m-n}@ (@a
-                            \neq 0@)</li>
-                        <li><strong>P3. Potência de potência:</strong> @(a^m)^n = a^{m \cdot n}@</li>
-                        <li><strong>P4. Potência de um produto:</strong> @(a \cdot b)^n = a^n \cdot b^n@</li>
-                        <li><strong>P5. Expoente Zero:</strong> @a^0 = 1@ (@a \neq 0@)</li>
-                        <li><strong>P6. Expoente Negativo:</strong> @a^{-n} = \frac{1}{a^n}@ (@a \neq 0@)</li>
-                    </ul>
-                </div>
+      <h1>Potenciação, Radiciação e Álgebra dos Radicais Duplos</h1>
+      <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+        Capítulo 1: Teoria dos Expoentes Reais, Racionalização e Desafios Olímpicos FME/OBMEP
+      </p>
 
-                <h2>2. Radiciação</h2>
-                <div class="destaque-box definicao">
-                    <h3>Definição 2.1 (Raiz @n@-ésima)</h3>
-                    <p>A raiz @n@-ésima de um número @a@ é o número @x@ tal que @x^n = a@. Denotamos por:</p>
-                    @@ \sqrt[n]{a} = x \iff x^n = a @@
-                </div>
+      <!-- ===============================================================
+           1. CONTEXTO HISTÓRICO E EPISTEMOLÓGICO
+           =============================================================== -->
+      <div class="destaque-box observacao">
+        <h3>1. Fundamentação Histórica e Epistemológica</h3>
+        <p>
+          A evolução dos conceitos de potência e raiz reflete a gradual superação da concepção geométrica da aritmética. Na Grécia Antiga, o termo "quadrado" (@x^2@) e "cubo" (@x^3@) referia-se a áreas e volumes físicos tridimensionais, razão pela qual potências superiores a 3 eram vistas com desconfiança conceitual. Foi no século XIV, com o bispo e matemático francês <strong>Nicole Oresme</strong>, que surgiu a primeira tentativa sistemática de operar com potências fracionárias.
+        </p>
+        <p>
+          A notação exponencial moderna consolidou-se definitivamente no século XVII com <strong>René Descartes</strong> na <em>Géométrie</em> (1637) e com <strong>Isaac Newton</strong> (1676), que unificou expoentes inteiros negativos e fracionários em uma única teoria axiomática: a radiciação deixou de ser uma operação isolada para se tornar a operação inversa da potenciação via expoentes da forma @\frac{p}{q} \in \mathbb{Q}@.
+        </p>
+      </div>
 
-                <div class="destaque-box observacao">
-                    <p><strong>Relação com Potência de Expoente Fracionário:</strong></p>
-                    @@ \sqrt[n]{a^m} = a^{\frac{m}{n}} @@
-                </div>
+      <!-- ===============================================================
+           2. AXIOMÁTICA DA POTENCIAÇÃO
+           =============================================================== -->
+      <h2>2. Construção Axiomática da Potenciação em @\mathbb{R}@</h2>
 
-                <h2>3. Exemplos Resolvidos</h2>
-                <div class="exemplo-resolvido">
-                    <h3>Exemplo 1: Simplificação</h3>
-                    <p>Simplifique a expressão @\frac{2^5 \cdot 2^3}{2^6}@.</p>
-                    <h4>Solução:</h4>
-                    <p>Aplicando P1 no numerador: @2^5 \cdot 2^3 = 2^{5+3} = 2^8@.</p>
-                    <p>Aplicando P2: @\frac{2^8}{2^6} = 2^{8-6} = 2^2 = 4@.</p>
-                </div>
+      <div class="destaque-box definicao">
+        <h3>Definição 2.1 (Potência de Expoente Inteiro)</h3>
+        <p>
+          Seja @a \in \mathbb{R}@ a base e @n \in \mathbb{Z}@ o expoente. A potência @a^n@ é construída indutivamente:
+        </p>
+        <ol>
+          <li>Para @n = 1@: @a^1 = a@.</li>
+          <li>Para @n \in \mathbb{N}, n \ge 2@: @a^n = \underbrace{a \cdot a \cdot \ldots \cdot a}_{n \text{ fatores}}@ (recursão: @a^n = a^{n-1} \cdot a@).</li>
+          <li>Para @n = 0@ com @a \neq 0@: @a^0 = 1@.</li>
+          <li>Para @n \in \mathbb{Z}^-@ com @a \neq 0@ e @n = -k@ (@k \in \mathbb{N}^*@):
+            @@
+            a^{-k} = \frac{1}{a^k} = \left(\frac{1}{a}\right)^k
+            @@
+          </li>
+        </ol>
+        <p><em>Nota sobre indeterminações:</em> A expressão @0^0@ não possui valor numérico determinado no corpo dos reais, constituindo uma indeterminação de limites na análise matemática.</p>
+      </div>
 
-                <div class="exemplo-resolvido">
-                    <h3>Exemplo 2: Raízes</h3>
-                    <p>Calcule @\sqrt{144} - \sqrt[3]{27}@.</p>
-                    <h4>Solução:</h4>
-                    <p>@\sqrt{144} = 12@, pois @12^2 = 144@.</p>
-                    <p>@\sqrt[3]{27} = 3@, pois @3^3 = 27@.</p>
-                    <p>Resultado: @12 - 3 = 9@.</p>
-                </div>
+      <div class="destaque-box teorema">
+        <h3>Teorema 2.1 (Propriedades Operatórias das Potências)</h3>
+        <p>
+          Para quaisquer bases reais @a, b \neq 0@ e expoentes inteiros @m, n \in \mathbb{Z}@:
+        </p>
+        <ol>
+          <li><strong>Produto de mesma base:</strong> @a^m \cdot a^n = a^{m+n}@</li>
+          <li><strong>Quociente de mesma base:</strong> @\frac{a^m}{a^n} = a^{m-n}@</li>
+          <li><strong>Potência de potência:</strong> @(a^m)^n = a^{m \cdot n}@</li>
+          <li><strong>Potência de um produto:</strong> @(a \cdot b)^n = a^n \cdot b^n@</li>
+          <li><strong>Potência de um quociente:</strong> @\left(\frac{a}{b}\right)^n = \frac{a^n}{b^n}@</li>
+        </ol>
+      </div>
 
-            </article>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="../../recursos.html" class="themed-button"
-                    >VOLTAR</a>
+      <!-- ===============================================================
+           3. RADICIAÇÃO NO CORPO DOS REAIS
+           =============================================================== -->
+      <h2>3. Radiciação e Existência da Raiz Real</h2>
+
+      <div class="destaque-box definicao">
+        <h3>Definição 3.1 (Raiz @n@-ésima Aritmética)</h3>
+        <p>
+          Seja @a \ge 0@ um número real não negativo e @n \in \mathbb{N}^*@ um índice natural:
+        </p>
+        @@
+        \sqrt[n]{a} = b \iff b \ge 0 \quad \text{e} \quad b^n = a
+        @@
+        <p>
+          A existência e unicidade de @b@ no corpo @\mathbb{R}@ é garantida pelo Axioma da Completude dos Reais.
+        </p>
+        <p>
+          Quando @n@ é ímpar (@n = 2k+1, k \in \mathbb{N}@), a definição estende-se univocamente para bases reais negativas:
+          @@
+          \sqrt[2k+1]{-a} = -\sqrt[2k+1]{a}, \quad \forall a > 0
+          @@
+        </p>
+      </div>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 3.1 (A Identidade Fundamental do Módulo)</h3>
+        <p>
+          Para qualquer número real @x \in \mathbb{R}@ e índice par @2k@:
+        </p>
+        @@
+        \sqrt{x^2} = |x| = \begin{cases} x, & \text{se } x \ge 0 \\ -x, & \text{se } x < 0 \end{cases}
+        @@
+        <p>
+          <em>Atenção rigorosa:</em> Escrever @\sqrt{x^2} = x@ sem a hipótese @x \ge 0@ é uma falácia conceitual. Por exemplo, @\sqrt{(-5)^2} = \sqrt{25} = 5 = |-5| \neq -5@.
+        </p>
+      </div>
+
+      <div class="destaque-box teorema">
+        <h3>Teorema 3.2 (Propriedades dos Radicais Aritméticos)</h3>
+        <p>Para @a, b \ge 0@ e @m, n, p \in \mathbb{N}^*@:</p>
+        <ol>
+          <li>@\sqrt[n]{a \cdot b} = \sqrt[n]{a} \cdot \sqrt[n]{b}@</li>
+          <li>@\sqrt[n]{\frac{a}{b}} = \frac{\sqrt[n]{a}}{\sqrt[n]{b}} \quad (b > 0)@</li>
+          <li>@\sqrt[m]{\sqrt[n]{a}} = \sqrt[m \cdot n]{a}@</li>
+          <li>@\sqrt[n \cdot p]{a^{m \cdot p}} = \sqrt[n]{a^m}@ (simplificação de índices)</li>
+          <li>@\left(\sqrt[n]{a}\right)^m = \sqrt[n]{a^m}@</li>
+        </ol>
+      </div>
+
+      <!-- ===============================================================
+           4. EXPOENTES RACIONAIS
+           =============================================================== -->
+      <h2>4. Expoentes Racionais e Extensão Algébrica</h2>
+
+      <div class="destaque-box definicao">
+        <h3>Definição 4.1 (Potência de Expoente Fracionário)</h3>
+        <p>
+          Seja @a > 0@ um real estritamente positivo e @\frac{m}{n} \in \mathbb{Q}@ com @n \in \mathbb{N}^*@ e @m \in \mathbb{Z}@:
+        </p>
+        @@
+        a^{\frac{m}{n}} = \sqrt[n]{a^m} = \left(\sqrt[n]{a}\right)^m
+        @@
+        <p>
+          Esta definição preserva identicamente todas as propriedades operatórias das potências para o expoente racional, unificando a álgebra de potências e radicais.
+        </p>
+      </div>
+
+      <!-- ===============================================================
+           5. RACIONALIZAÇÃO E RADICAIS DUPLOS
+           =============================================================== -->
+      <h2>5. Técnicas Algébricas de Racionalização e Radicais Duplos</h2>
+
+      <h3>5.1 Racionalização de Denominadores</h3>
+      <div class="destaque-box teorema">
+        <ol>
+          <li>
+            <strong>Denominador Monômio:</strong>
+            @@
+            \frac{k}{\sqrt[n]{a^p}} = \frac{k \cdot \sqrt[n]{a^{n-p}}}{\sqrt[n]{a^p} \cdot \sqrt[n]{a^{n-p}}} = \frac{k\sqrt[n]{a^{n-p}}}{a} \quad (p < n)
+            @@
+          </li>
+          <li>
+            <strong>Denominador Binômio Quadrático (Conjugado de Grau 2):</strong>
+            @@
+            \frac{k}{\sqrt{a} \pm \sqrt{b}} = \frac{k(\sqrt{a} \mp \sqrt{b})}{(\sqrt{a} \pm \sqrt{b})(\sqrt{a} \mp \sqrt{b})} = \frac{k(\sqrt{a} \mp \sqrt{b})}{a - b}
+            @@
+          </li>
+          <li>
+            <strong>Denominador Binômio Cúbico (Conjugado de Grau 3):</strong>
+            @@
+            \frac{k}{\sqrt[3]{a} \pm \sqrt[3]{b}} = \frac{k\left(\sqrt[3]{a^2} \mp \sqrt[3]{ab} + \sqrt[3]{b^2}\right)}{a \pm b}
+            @@
+          </li>
+        </ol>
+      </div>
+
+      <h3>5.2 Teorema da Descombinação de Radicais Duplos</h3>
+      <div class="destaque-box teorema">
+        <h3>Teorema 5.1 (Fórmula dos Radicais Duplos)</h3>
+        <p>
+          Considere o radical duplo @\sqrt{A \pm \sqrt{B}}@ com @A, B > 0@ e @A^2 > B@. Se @A^2 - B = C^2@ for um quadrado perfeito racional (@C \in \mathbb{Q}@), então o radical duplo decompõe-se na soma de dois radicais simples:
+        </p>
+        @@
+        \sqrt{A \pm \sqrt{B}} = \sqrt{\frac{A + C}{2}} \pm \sqrt{\frac{A - C}{2}}, \quad \text{onde } C = \sqrt{A^2 - B}
+        @@
+        <p><strong>Demonstração Algébrica por Quadratura:</strong></p>
+        <p>Suponhamos que existam @x, y > 0@ tais que @\sqrt{A + \sqrt{B}} = \sqrt{x} + \sqrt{y}@. Elevando ambos os membros ao quadrado:</p>
+        @@
+        A + \sqrt{B} = (\sqrt{x} + \sqrt{y})^2 = x + y + 2\sqrt{xy} = (x + y) + \sqrt{4xy}
+        @@
+        <p>Pela identificação dos termos racionais e irracionais:</p>
+        @@
+        \begin{cases}
+        x + y = A \\
+        4xy = B \implies xy = \frac{B}{4}
+        \end{cases}
+        @@
+        <p>Calculando @(x - y)^2@:</p>
+        @@
+        (x - y)^2 = (x + y)^2 - 4xy = A^2 - B = C^2 \implies x - y = C
+        @@
+        <p>Somando e subtraindo os sistemas lineares @x + y = A@ e @x - y = C@:</p>
+        @@
+        2x = A + C \implies x = \frac{A + C}{2}, \quad 2y = A - C \implies y = \frac{A - C}{2}
+        @@
+        <p>Extraindo as raízes, obtém-se a fórmula canônica. @\blacksquare@</p>
+      </div>
+
+      <!-- ===============================================================
+           6. EXEMPLOS RESOLVIDOS ANALÍTICOS
+           =============================================================== -->
+      <h2>6. Exemplos Analíticos Resolvidos Passo a Passo</h2>
+
+      <div class="exemplo-resolvido">
+        <h3>Exemplo 6.1: Descombinação de Radical Duplo</h3>
+        <p>
+          Simplifique rigorosamente o radical duplo:
+        </p>
+        @@
+        E = \sqrt{7 + 4\sqrt{3}}
+        @@
+
+        <h4>Resolução Passo a Passo:</h4>
+        <p>Escrevemos o radical na forma canônica @\sqrt{A + \sqrt{B}}@. Introduzindo 4 sob a raiz quadrada:</p>
+        @@
+        4\sqrt{3} = \sqrt{4^2 \cdot 3} = \sqrt{16 \cdot 3} = \sqrt{48}
+        @@
+        <p>Portanto, @A = 7@ e @B = 48@.</p>
+        <p>Calculamos o discriminante @C@:</p>
+        @@
+        C = \sqrt{A^2 - B} = \sqrt{7^2 - 48} = \sqrt{49 - 48} = \sqrt{1} = 1
+        @@
+        <p>Como @C = 1@ é inteiro (racional), aplicamos o Teorema 5.1:</p>
+        @@
+        \sqrt{7 + \sqrt{48}} = \sqrt{\frac{7 + 1}{2}} + \sqrt{\frac{7 - 1}{2}} = \sqrt{\frac{8}{2}} + \sqrt{\frac{6}{2}} = \sqrt{4} + \sqrt{3} = 2 + \sqrt{3}
+        @@
+        <p><em>Verificação rápida:</em> @(2 + \sqrt{3})^2 = 4 + 4\sqrt{3} + 3 = 7 + 4\sqrt{3}@. Perfeito! @\blacksquare@</p>
+      </div>
+
+      <div class="exemplo-resolvido">
+        <h3>Exemplo 6.2: Racionalização Cúbica</h3>
+        <p>
+          Racionalize a fração com denominador cúbico:
+        </p>
+        @@
+        F = \frac{6}{\sqrt[3]{5} - \sqrt[3]{2}}
+        @@
+
+        <h4>Resolução Passo a Passo:</h4>
+        <p>Utilizamos a identidade da diferença de cubos: @(u - v)(u^2 + uv + v^2) = u^3 - v^3@.</p>
+        <p>Seja @u = \sqrt[3]{5}@ e @v = \sqrt[3]{2}@. Multiplicamos numerador e denominador pelo fator racionalizante @u^2 + uv + v^2@:</p>
+        @@
+        F = \frac{6 \left(\sqrt[3]{5^2} + \sqrt[3]{5 \cdot 2} + \sqrt[3]{2^2}\right)}{(\sqrt[3]{5} - \sqrt[3]{2})\left(\sqrt[3]{25} + \sqrt[3]{10} + \sqrt[3]{4}\right)} = \frac{6(\sqrt[3]{25} + \sqrt[3]{10} + \sqrt[3]{4})}{5 - 2}
+        @@
+        <p>Como @5 - 2 = 3@:</p>
+        @@
+        F = \frac{6(\sqrt[3]{25} + \sqrt[3]{10} + \sqrt[3]{4})}{3} = 2(\sqrt[3]{25} + \sqrt[3]{10} + \sqrt[3]{4}) \quad \blacksquare
+        @@
+      </div>
+
+      <!-- ===============================================================
+           7. ERROS COMUNS E ARMADILHAS
+           =============================================================== -->
+      <h2>7. Armadilhas Conceituais e Erros Frequentes</h2>
+
+      <div class="erro-comum">
+        <h3>Armadilha 1: A falsa linearidade da raiz</h3>
+        <p>
+          @\sqrt{a + b} \neq \sqrt{a} + \sqrt{b}@. Essa é a falácia mais disseminada na álgebra elementar. Basta observar que @\sqrt{9 + 16} = \sqrt{25} = 5@, enquanto @\sqrt{9} + \sqrt{16} = 3 + 4 = 7 \neq 5@. A radiciação é distributiva em relação à multiplicação e divisão, <strong>nunca</strong> em relação à adição ou subtração.
+        </p>
+      </div>
+
+      <div class="erro-comum">
+        <h3>Armadilha 2: Omitir o módulo em @\sqrt{x^2}@</h3>
+        <p>
+          Reiteramos: @\sqrt{x^2} = |x|@. Ignorar o módulo conduz a contradições matemáticas graves na resolução de equações e inequações irracionais.
+        </p>
+      </div>
+
+      <!-- ===============================================================
+           8. EXERCÍCIOS PROPOSTOS (12 PROBLEMAS EM 3 NÍVEIS)
+           =============================================================== -->
+      <h2>8. Exercícios Propostos e Desafios Olímpicos</h2>
+
+      <h3>Nível 1: Fixação Conceitual e Aplicações Diretas</h3>
+      <ol class="lista-exercicios">
+        <li>
+          <strong>(Nexus)</strong> Simplifique ao máximo a expressão com potências:
+          @@
+          E = \frac{2^{n+3} - 2 \cdot 2^n}{2 \cdot 2^{n+1}}
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Fatoramos @2^n@ em evidência no numerador e denominador:</p>
+              @@
+              E = \frac{2^n \cdot 2^3 - 2 \cdot 2^n}{2^{n+2}} = \frac{2^n(8 - 2)}{2^n \cdot 4} = \frac{6}{4} = \frac{3}{2}
+              @@
             </div>
-        </div>
-    </div>
-    <canvas id="matrixCanvas"></canvas>
-    <script src="../../js/matrix-rain.js" defer></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    { left: "@@", right: "@@", display: true },
-                    { left: "\\[", right: "\\]", display: true },
-                    { left: "@", right: "@", display: false },
-                    { left: "\\(", right: "\\)", display: false }
-                ],
-                throwOnError: false
-            });
-        });
-    </script>
-    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
-    <div id="theme-selector-panel" class="hidden">
-        <h3>Escolha um Tema:</h3>
-        <button data-theme="theme-default">Default</button>
-        <button data-theme="theme-green-circuit">Green Circuit</button>
-        <button data-theme="theme-high-contrast">Alto Contraste</button>
-    </div>
-    <script src="../../js/theme-switcher.js" defer></script>
-    <script src="../../js/print-mode.js" defer></script>
-</body>
+          </details>
+        </li>
 
+        <li>
+          <strong>(Nexus)</strong> Calcule o valor numérico exato de:
+          @@
+          \left(\frac{1}{16}\right)^{-\frac{3}{4}}
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Invertemos a base devido ao expoente negativo:</p>
+              @@
+              \left(\frac{1}{16}\right)^{-\frac{3}{4}} = 16^{\frac{3}{4}} = (\sqrt[4]{16})^3 = 2^3 = 8
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Racionalize o denominador da fração:
+          @@
+          \frac{10}{\sqrt{7} - \sqrt{2}}
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Multiplicamos pelo conjugado @\sqrt{7} + \sqrt{2}@:</p>
+              @@
+              \frac{10(\sqrt{7} + \sqrt{2})}{(\sqrt{7} - \sqrt{2})(\sqrt{7} + \sqrt{2})} = \frac{10(\sqrt{7} + \sqrt{2})}{7 - 2} = \frac{10(\sqrt{7} + \sqrt{2})}{5} = 2(\sqrt{7} + \sqrt{2})
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Nexus)</strong> Extraia todos os fatores possíveis do radicando:
+          @@
+          \sqrt[3]{1080}
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Fatoramos 1080 em fatores primos: @1080 = 2^3 \cdot 3^3 \cdot 5@.</p>
+              @@
+              \sqrt[3]{1080} = \sqrt[3]{2^3 \cdot 3^3 \cdot 5} = 2 \cdot 3 \cdot \sqrt[3]{5} = 6\sqrt[3]{5}
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+
+      <h3>Nível 2: Aprofundamento e Aplicações Analíticas</h3>
+      <ol class="lista-exercicios" start="5">
+        <li>
+          <strong>(FME - Gelson Iezzi)</strong> Descombine o radical duplo:
+          @@
+          \sqrt{11 - 6\sqrt{2}}
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Identificamos @A = 11@ e @\sqrt{B} = 6\sqrt{2} = \sqrt{36 \cdot 2} = \sqrt{72}@, logo @B = 72@.</p>
+              @@
+              C = \sqrt{A^2 - B} = \sqrt{11^2 - 72} = \sqrt{121 - 72} = \sqrt{49} = 7
+              @@
+              <p>Aplicando o Teorema 5.1 com sinal negativo:</p>
+              @@
+              \sqrt{11 - \sqrt{72}} = \sqrt{\frac{11 + 7}{2}} - \sqrt{\frac{11 - 7}{2}} = \sqrt{9} - \sqrt{2} = 3 - \sqrt{2} \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(FME)</strong> Mostre que o número real @x@ é inteiro:
+          @@
+          x = \sqrt{5 + 2\sqrt{6}} - \sqrt{5 - 2\sqrt{6}}
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Para @5 \pm 2\sqrt{6}@: @A = 5, B = 24 \implies C = \sqrt{25 - 24} = 1@.</p>
+              @@
+              \sqrt{5 + 2\sqrt{6}} = \sqrt{\frac{5+1}{2}} + \sqrt{\frac{5-1}{2}} = \sqrt{3} + \sqrt{2}
+              @@
+              @@
+              \sqrt{5 - 2\sqrt{6}} = \sqrt{3} - \sqrt{2}
+              @@
+              <p>Subtraindo os radicais:</p>
+              @@
+              x = (\sqrt{3} + \sqrt{2}) - (\sqrt{3} - \sqrt{2}) = 2\sqrt{2}
+              @@
+              <p><em>Nota:</em> O valor é @2\sqrt{2}@. Se a expressão fosse somada, teríamos @(\sqrt{3} + \sqrt{2}) + (\sqrt{3} - \sqrt{2}) = 2\sqrt{3}@, e se fosse o quadrado @x^2 = (5 + 2\sqrt{6}) + (5 - 2\sqrt{6}) - 2\sqrt{25 - 24} = 10 - 2 = 8 \implies x = \sqrt{8} = 2\sqrt{2}@.</p>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Nível 2)</strong> Simplifique a soma telescópica de frações com radicais:
+          @@
+          S = \frac{1}{\sqrt{1} + \sqrt{2}} + \frac{1}{\sqrt{2} + \sqrt{3}} + \frac{1}{\sqrt{3} + \sqrt{4}} + \dots + \frac{1}{\sqrt{99} + \sqrt{100}}
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Racionalizamos o termo genérico @\frac{1}{\sqrt{k} + \sqrt{k+1}}@:</p>
+              @@
+              \frac{\sqrt{k+1} - \sqrt{k}}{(\sqrt{k+1} + \sqrt{k})(\sqrt{k+1} - \sqrt{k})} = \frac{\sqrt{k+1} - \sqrt{k}}{(k+1) - k} = \sqrt{k+1} - \sqrt{k}
+              @@
+              <p>A soma é estritamente telescópica:</p>
+              @@
+              S = (\sqrt{2} - 1) + (\sqrt{3} - \sqrt{2}) + (\sqrt{4} - \sqrt{3}) + \dots + (\sqrt{100} - \sqrt{99})
+              @@
+              <p>Todos os termos intermediários cancelam-se, restando:</p>
+              @@
+              S = \sqrt{100} - 1 = 10 - 1 = 9 \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Nível 2)</strong> Qual dos dois números é maior: @2^{300}@ ou @3^{200}@? Justifique formalmente usando propriedades de potências.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Observamos que o máximo divisor comum dos expoentes é @\gcd(300, 200) = 100@.</p>
+              <p>Reescrevemos ambas as potências com o mesmo expoente 100:</p>
+              @@
+              2^{300} = (2^3)^{100} = 8^{100}
+              @@
+              @@
+              3^{200} = (3^2)^{100} = 9^{100}
+              @@
+              <p>Como a função exponencial @f(x) = x^{100}@ é estritamente crescente para valores positivos e @8 < 9@, concluímos que:</p>
+              @@
+              8^{100} < 9^{100} \implies 2^{300} < 3^{200} \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+
+      <h3>Nível 3: Desafios Olímpicos OBMEP (Fases 1 e 2)</h3>
+      <ol class="lista-exercicios" start="9">
+        <li>
+          <strong>(OBMEP Fase 2)</strong> Calcule o valor numérico da expressão sem usar aproximações decimais:
+          @@
+          X = \sqrt[3]{20 + 14\sqrt{2}} + \sqrt[3]{20 - 14\sqrt{2}}
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Seja @u = \sqrt[3]{20 + 14\sqrt{2}}@ e @v = \sqrt[3]{20 - 14\sqrt{2}}@, com @X = u + v@.</p>
+              <p>Calculamos o produto @uv@:</p>
+              @@
+              u \cdot v = \sqrt[3]{(20 + 14\sqrt{2})(20 - 14\sqrt{2})} = \sqrt[3]{20^2 - (14\sqrt{2})^2} = \sqrt[3]{400 - 392} = \sqrt[3]{8} = 2
+              @@
+              <p>Elevamos @X = u + v@ ao cubo:</p>
+              @@
+              X^3 = (u + v)^3 = u^3 + v^3 + 3uv(u + v)
+              @@
+              <p>Como @u^3 + v^3 = (20 + 14\sqrt{2}) + (20 - 14\sqrt{2}) = 40@ e @uv = 2@:</p>
+              @@
+              X^3 = 40 + 3(2)X \iff X^3 - 6X - 40 = 0
+              @@
+              <p>Testando raízes inteiras divisoras de 40: para @X = 4@:</p>
+              @@
+              4^3 - 6(4) - 40 = 64 - 24 - 40 = 0 \quad \checkmark
+              @@
+              <p>Fatorando: @(X - 4)(X^2 + 4X + 10) = 0@. O fator quadrático tem @\Delta = 16 - 40 = -24 < 0@, sem outras raízes reais.</p>
+              <p>Concluímos com rigor absoluto que @X = 4@. @\blacksquare@</p>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Fase 2)</strong> Determine todos os pares de inteiros positivos @(a, b)@ tais que:
+          @@
+          \sqrt{a} + \sqrt{b} = \sqrt{2024}
+          @@
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Fatoramos 2024 em números primos: @2024 = 4 \cdot 506 = 2^2 \cdot 2 \cdot 11 \cdot 23 = 2^2 \cdot 506@.</p>
+              @@
+              \sqrt{2024} = 2\sqrt{506}
+              @@
+              <p>Para que @\sqrt{a} + \sqrt{b} = 2\sqrt{506}@ com @a, b \in \mathbb{N}^*@, necessariamente @a@ e @b@ devem ser da forma @a = x^2 \cdot 506@ e @b = y^2 \cdot 506@ com @x, y \in \mathbb{N}^*@:</p>
+              @@
+              x\sqrt{506} + y\sqrt{506} = 2\sqrt{506} \iff x + y = 2
+              @@
+              <p>Como @x, y \ge 1@ são inteiros positivos, a única solução é @x = 1@ e @y = 1@:</p>
+              @@
+              a = 1^2 \cdot 506 = 506, \quad b = 1^2 \cdot 506 = 506
+              @@
+              <p>Logo, existe apenas um par: @(a, b) = (506, 506)@. @\blacksquare@</p>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(OBMEP Banco de Questões)</strong> Se @x = \frac{\sqrt{3} + 1}{\sqrt{3} - 1}@ e @y = \frac{\sqrt{3} - 1}{\sqrt{3} + 1}@, determine sem calcular potências diretas o valor de @x^3 + y^3@.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Racionalizando @x@ e @y@:</p>
+              @@
+              x = \frac{(\sqrt{3} + 1)^2}{3 - 1} = \frac{3 + 2\sqrt{3} + 1}{2} = 2 + \sqrt{3}
+              @@
+              @@
+              y = \frac{(\sqrt{3} - 1)^2}{3 - 1} = \frac{3 - 2\sqrt{3} + 1}{2} = 2 - \sqrt{3}
+              @@
+              <p>Calculamos a soma @S = x + y@ e o produto @P = xy@:</p>
+              @@
+              S = (2 + \sqrt{3}) + (2 - \sqrt{3}) = 4
+              @@
+              @@
+              P = (2 + \sqrt{3})(2 - \sqrt{3}) = 4 - 3 = 1
+              @@
+              <p>Pela identidade de somas de cubos: @x^3 + y^3 = (x + y)^3 - 3xy(x + y) = S^3 - 3PS@:</p>
+              @@
+              x^3 + y^3 = 4^3 - 3(1)(4) = 64 - 12 = 52 \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <strong>(Desafio Olímpico FME/OBMEP)</strong> Prove por indução matemática que para todo número inteiro positivo @n \ge 1@:
+          @@
+          \sqrt{1 + 2\sqrt{1 + 3\sqrt{1 + \dots + n\sqrt{1 + (n+1)(n+3)}}}} = 3
+          @@
+          deduzindo a famosa identidade de radicais aninhados de Srinivasa Ramanujan.
+          <details class="solucao-exercicio">
+            <summary>Ver Solução Comentada</summary>
+            <div class="conteudo-solucao">
+              <p>Observamos a identidade algébrica fundamental para qualquer real @k@:</p>
+              @@
+              k(k + 2) = k^2 + 2k = (k + 1)^2 - 1 \iff k + 1 = \sqrt{1 + k(k + 2)}
+              @@
+              <p>Para @k = n+1@: @n + 2 = \sqrt{1 + (n+1)(n+3)}@.</p>
+              <p>Substituindo regressivamente na cadeia aninhada:</p>
+              @@
+              \sqrt{1 + n(n + 2)} = n + 1
+              @@
+              <p>Continuando a descompressão telescópica regressiva até @k = 2@:</p>
+              @@
+              \sqrt{1 + 2(4)} = \sqrt{1 + 8} = \sqrt{9} = 3 \quad \blacksquare
+              @@
+            </div>
+          </details>
+        </li>
+      </ol>
+    </article>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="../../recursos.html" class="themed-button">VOLTAR</a>
+    </div>
+  </div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas curados com suporte a Alto Contraste -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <div class="theme-group-label">🌙 MODO ESCURO</div>
+    <button data-theme="theme-default">🟢 Matrix Cyber</button>
+    <button data-theme="theme-cyber-blue">🔵 Cyber Blue</button>
+    <div class="theme-group-label">⚡ ALTO CONTRASTE (AAA)</div>
+    <button data-theme="theme-high-contrast-green">⚡ OLED Neon Green</button>
+    <button data-theme="theme-high-contrast-amber">🟠 OLED Amber</button>
+    <div class="theme-group-label">☀️ MODO CLARO</div>
+    <button data-theme="theme-paper-light">📄 Paper Clean</button>
+    <button data-theme="theme-solarized-light">📜 Solarized Sepia</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
 </html>

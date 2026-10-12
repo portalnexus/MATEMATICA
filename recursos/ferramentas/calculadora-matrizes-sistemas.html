@@ -352,58 +352,150 @@
       const out = document.getElementById('systemOutput');
       out.style.display = 'block';
 
+      function matrixRank(mat) {
+        const m = mat.length;
+        const n = mat[0].length;
+        const M = mat.map(row => [...row]);
+        let rank = 0;
+        let row = 0;
+        for (let col = 0; col < n && row < m; col++) {
+          let pivot = row;
+          for (let i = row + 1; i < m; i++) {
+            if (Math.abs(M[i][col]) > Math.abs(M[pivot][col])) pivot = i;
+          }
+          if (Math.abs(M[pivot][col]) > 1e-7) {
+            [M[row], M[pivot]] = [M[pivot], M[row]];
+            const val = M[row][col];
+            for (let j = col; j < n; j++) M[row][j] /= val;
+            for (let i = 0; i < m; i++) {
+              if (i !== row) {
+                const factor = M[i][col];
+                for (let j = col; j < n; j++) M[i][j] -= factor * M[row][j];
+              }
+            }
+            rank++;
+            row++;
+          }
+        }
+        return rank;
+      }
+
       if (dim === 2) {
         const D = det2(A);
         const Ax = [[B[0], A[0][1]], [B[1], A[1][1]]];
         const Ay = [[A[0][0], B[0]], [A[1][0], B[1]]];
         const Dx = det2(Ax);
         const Dy = det2(Ay);
+        const aug = [[A[0][0], A[0][1], B[0]], [A[1][0], A[1][1], B[1]]];
+        const pA = matrixRank(A);
+        const pAug = matrixRank(aug);
 
-        if (Math.abs(D) > 1e-9) {
+        if (pA === 2 && pAug === 2) {
           const x = Dx / D;
           const y = Dy / D;
           out.innerHTML = `
-            <h4>Sistema Possível e Determinado (SPD):</h4>
-            <p>@@D = ${D.toFixed(2)}, \\quad D_x = ${Dx.toFixed(2)}, \\quad D_y = ${Dy.toFixed(2)}@@</p>
-            <p><strong>Solução Única:</strong> @@S = \\{(${x.toFixed(2)}, ${y.toFixed(2)})\\}@@</p>
+            <div style="border-left: 4px solid var(--accent-color, #00ff66); padding-left: 1rem;">
+              <h4>✅ Sistema Possível e Determinado (SPD)</h4>
+              <p><strong>Determinantes de Cramer:</strong> @@D = ${D.toFixed(3)}, \\quad D_x = ${Dx.toFixed(3)}, \\quad D_y = ${Dy.toFixed(3)}@@</p>
+              <p><strong>Postos (Rouché-Capelli):</strong> @@p(A) = 2 = p([A|B]) = n \\implies \\text{Solução Única}@@</p>
+              <p><strong>Conjunto Solução:</strong> @@S = \\left\\{ \\left(${x.toFixed(3)}, \\, ${y.toFixed(3)}\\right) \\right\\}@@</p>
+              <p><strong>📍 Classificação Geométrica em $\\mathbb{R}^2$:</strong> As duas retas $r_1$ e $r_2$ são <strong>concorrentes</strong> e se interceptam unicamente no ponto $P(${x.toFixed(2)}, ${y.toFixed(2)})$.</p>
+            </div>
           `;
-        } else if (Math.abs(Dx) < 1e-9 && Math.abs(Dy) < 1e-9) {
-          out.innerHTML = `<h4>Sistema Possível e Indeterminado (SPI):</h4><p>@@D = 0, D_x = 0, D_y = 0@@. Possui infinitas soluções.</p>`;
+        } else if (pA === 1 && pAug === 1) {
+          out.innerHTML = `
+            <div style="border-left: 4px solid #ffcc00; padding-left: 1rem;">
+              <h4>♾️ Sistema Possível e Indeterminado (SPI)</h4>
+              <p><strong>Determinantes:</strong> @@D = 0, \\quad D_x = 0, \\quad D_y = 0@@</p>
+              <p><strong>Postos (Rouché-Capelli):</strong> @@p(A) = 1 = p([A|B]) < n=2 \\implies \\text{Grau de liberdade } = 2 - 1 = 1@@</p>
+              <p><strong>Conjunto Solução:</strong> Infinitas soluções (uma reta paramétrica).</p>
+              <p><strong>📍 Classificação Geométrica em $\\mathbb{R}^2$:</strong> As duas equações representam <strong>retas coincidentes</strong> ($r_1 \\equiv r_2$). Todos os infinitos pontos da reta satisfazem o sistema.</p>
+            </div>
+          `;
         } else {
-          out.innerHTML = `<h4>Sistema Impossível (SI):</h4><p>@@D = 0@@ e determinantes das variáveis não-nulos. Não possui solução.</p>`;
+          out.innerHTML = `
+            <div style="border-left: 4px solid #ff3366; padding-left: 1rem;">
+              <h4>🚫 Sistema Impossível (SI)</h4>
+              <p><strong>Determinantes:</strong> @@D = 0, \\quad (D_x \\neq 0 \\text{ ou } D_y \\neq 0)@@</p>
+              <p><strong>Postos (Rouché-Capelli):</strong> @@p(A) = 1 < p([A|B]) = 2 \\implies \\text{Incompatível}@@</p>
+              <p><strong>Conjunto Solução:</strong> @@S = \\emptyset@@</p>
+              <p><strong>📍 Classificação Geométrica em $\\mathbb{R}^2$:</strong> As retas são <strong>paralelas e distintas</strong> ($r_1 \\parallel r_2, r_1 \\neq r_2$). Não existe ponto de interseção.</p>
+            </div>
+          `;
         }
       } else {
         const D = det3(A);
-        if (Math.abs(D) > 1e-9) {
-          const Ax = [
-            [B[0], A[0][1], A[0][2]],
-            [B[1], A[1][1], A[1][2]],
-            [B[2], A[2][1], A[2][2]]
-          ];
-          const Ay = [
-            [A[0][0], B[0], A[0][2]],
-            [A[1][0], B[1], A[1][2]],
-            [A[2][0], B[2], A[2][2]]
-          ];
-          const Az = [
-            [A[0][0], A[0][1], B[0]],
-            [A[1][0], A[1][1], B[1]],
-            [A[2][0], A[2][1], B[2]]
-          ];
-          const Dx = det3(Ax);
-          const Dy = det3(Ay);
-          const Dz = det3(Az);
+        const Ax = [
+          [B[0], A[0][1], A[0][2]],
+          [B[1], A[1][1], A[1][2]],
+          [B[2], A[2][1], A[2][2]]
+        ];
+        const Ay = [
+          [A[0][0], B[0], A[0][2]],
+          [A[1][0], B[1], A[1][2]],
+          [A[2][0], B[2], A[2][2]]
+        ];
+        const Az = [
+          [A[0][0], A[0][1], B[0]],
+          [A[1][0], A[1][1], B[1]],
+          [A[2][0], A[2][1], B[2]]
+        ];
+        const Dx = det3(Ax);
+        const Dy = det3(Ay);
+        const Dz = det3(Az);
+
+        const aug = [
+          [A[0][0], A[0][1], A[0][2], B[0]],
+          [A[1][0], A[1][1], A[1][2], B[1]],
+          [A[2][0], A[2][1], A[2][2], B[2]]
+        ];
+        const pA = matrixRank(A);
+        const pAug = matrixRank(aug);
+
+        if (pA === 3 && pAug === 3) {
           const x = Dx / D;
           const y = Dy / D;
           const z = Dz / D;
-
           out.innerHTML = `
-            <h4>Sistema 3x3 Possível e Determinado (SPD):</h4>
-            <p>@@D = ${D.toFixed(2)}, \\quad D_x = ${Dx.toFixed(2)}, \\quad D_y = ${Dy.toFixed(2)}, \\quad D_z = ${Dz.toFixed(2)}@@</p>
-            <p><strong>Solução:</strong> @@S = \\{(${x.toFixed(2)}, ${y.toFixed(2)}, ${z.toFixed(2)})\\}@@</p>
+            <div style="border-left: 4px solid var(--accent-color, #00ff66); padding-left: 1rem;">
+              <h4>✅ Sistema 3x3 Possível e Determinado (SPD)</h4>
+              <p><strong>Regra de Cramer:</strong> @@D = ${D.toFixed(3)}, \\quad D_x = ${Dx.toFixed(3)}, \\quad D_y = ${Dy.toFixed(3)}, \\quad D_z = ${Dz.toFixed(3)}@@</p>
+              <p><strong>Postos (Rouché-Capelli):</strong> @@p(A) = 3 = p([A|B]) = n \\implies \\text{Solução Única}@@</p>
+              <p><strong>Solução:</strong> @@S = \\left\\{ \\left(${x.toFixed(3)}, \\, ${y.toFixed(3)}, \\, ${z.toFixed(3)}\\right) \\right\\}@@</p>
+              <p><strong>📍 Geometria no $\\mathbb{R}^3$:</strong> Interseção em um <strong>ponto único</strong> $P(${x.toFixed(2)}, ${y.toFixed(2)}, ${z.toFixed(2)})$. Os três planos $\\pi_1, \\pi_2, \\pi_3$ encontram-se simultaneamente apenas neste vértice no espaço.</p>
+            </div>
+          `;
+        } else if (pA === pAug) {
+          const graus = 3 - pA;
+          const geomDesc = graus === 1
+            ? "Os 3 planos concorrem ao longo de uma <strong>reta comum</strong> no espaço (feixe de planos com eixo comum)."
+            : "Os 3 planos são <strong>coincidentes</strong> ($\\pi_1 \\equiv \\pi_2 \\equiv \\pi_3$), formando o mesmo plano no $\\mathbb{R}^3$.";
+          out.innerHTML = `
+            <div style="border-left: 4px solid #ffcc00; padding-left: 1rem;">
+              <h4>♾️ Sistema 3x3 Possível e Indeterminado (SPI)</h4>
+              <p><strong>Determinantes:</strong> @@D = ${D.toFixed(3)}, \\quad D_x = ${Dx.toFixed(3)}, \\quad D_y = ${Dy.toFixed(3)}, \\quad D_z = ${Dz.toFixed(3)}@@</p>
+              <p><strong>Postos (Rouché-Capelli):</strong> @@p(A) = ${pA} = p([A|B]) < n=3 \\implies ${graus} \\text{ grau(s) de liberdade}@@</p>
+              <p><strong>Conjunto Solução:</strong> Infinitas soluções paramétricas.</p>
+              <p><strong>📍 Geometria no $\\mathbb{R}^3$:</strong> ${geomDesc}</p>
+            </div>
           `;
         } else {
-          out.innerHTML = `<h4>Determinante Principal Nulo (@D = 0@)</h4><p>O sistema é <strong>SPI</strong> (infinitas soluções) ou <strong>SI</strong> (impossível).</p>`;
+          // Incompativel
+          let geomIncomp = "Os 3 planos não possuem interseção comum no $\\mathbb{R}^3$.";
+          if (pA === 2 && pAug === 3) {
+            geomIncomp = "Os 3 planos interceptam-se dois a dois em retas paralelas distintas, configurando as faces laterais de uma <strong>superfície prismática triangular</strong> (sem reta nem ponto em comum aos três).";
+          } else if (pA === 1) {
+            geomIncomp = "Os 3 planos são <strong>paralelos entre si</strong> (com pelo menos dois distintos), não havendo nenhum ponto de interseção.";
+          }
+          out.innerHTML = `
+            <div style="border-left: 4px solid #ff3366; padding-left: 1rem;">
+              <h4>🚫 Sistema 3x3 Impossível (SI)</h4>
+              <p><strong>Determinantes:</strong> @@D = ${D.toFixed(3)}, \\quad D_x = ${Dx.toFixed(3)}, \\quad D_y = ${Dy.toFixed(3)}, \\quad D_z = ${Dz.toFixed(3)}@@</p>
+              <p><strong>Postos (Rouché-Capelli):</strong> @@p(A) = ${pA} < p([A|B]) = ${pAug} \\implies \\text{Inconsistente / Vazio}@@</p>
+              <p><strong>Conjunto Solução:</strong> @@S = \\emptyset@@</p>
+              <p><strong>📍 Geometria no $\\mathbb{R}^3$:</strong> ${geomIncomp}</p>
+            </div>
+          `;
         }
       }
       renderKatex(out);

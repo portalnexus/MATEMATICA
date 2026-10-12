@@ -136,11 +136,29 @@
       <p>Um triângulo é denominado <strong>triângulo retângulo</strong> quando possui um ângulo reto (medindo @90°@ ou @\frac{\pi}{2}@ radianos). Os lados que formam o ângulo reto são chamados de <strong>catetos</strong>, e o lado oposto ao ângulo reto é denominado <strong>hipotenusa</strong>.</p>
     </div>
 
-    <img src="../../recursos/imagens/trigonometria/triangulo-retangulo.png"
-         alt="Triângulo retângulo ABC com ângulo reto em A, hipotenusa BC (rotulada como a), cateto AB (rotulado como c) e cateto AC (rotulado como b)"
-         class="figura"
-         style="max-width: 400px;">
-    <p class="legenda">Figura 1: Triângulo retângulo ABC com catetos b e c, e hipotenusa a</p>
+    <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
+      <svg viewBox="0 0 420 250" width="380" height="226" role="img" aria-label="Triângulo retângulo ABC com ângulo reto em A, catetos b e c, e hipotenusa a" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+        <!-- Triângulo Retângulo -->
+        <polygon points="70,45 70,200 360,200" fill="rgba(0, 255, 102, 0.08)" stroke="var(--link-color, #00ff66)" stroke-width="2.5" />
+        <!-- Símbolo de Ângulo Reto em A(70,200) -->
+        <rect x="70" y="180" width="20" height="20" fill="none" stroke="var(--link-color, #00ff66)" stroke-width="1.5" />
+        <circle cx="80" cy="190" r="2.5" fill="var(--link-color, #00ff66)" />
+        <!-- Vértices -->
+        <circle cx="70" cy="45" r="4" fill="var(--link-color, #00ff66)" />
+        <text x="65" y="32" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold">B</text>
+        <circle cx="70" cy="200" r="4" fill="var(--link-color, #00ff66)" />
+        <text x="48" y="215" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold">A</text>
+        <circle cx="360" cy="200" r="4" fill="var(--link-color, #00ff66)" />
+        <text x="375" y="205" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold">C</text>
+        <!-- Lados / Rótulos -->
+        <text x="32" y="125" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">c (cateto)</text>
+        <text x="215" y="228" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">b (cateto)</text>
+        <text x="225" y="115" fill="#38bdf8" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" transform="rotate(28, 225, 115)" text-anchor="middle">a (hipotenusa)</text>
+      </svg>
+      <p class="legenda-figura" style="font-size: 0.85rem; color: var(--secondary-text-color, #94a3b8); margin-top: 0.6rem;">
+        <em>Figura 1: Triângulo retângulo @ABC@ com ângulo reto em @A@, catetos @b@ e @c@, e hipotenusa @a@.</em>
+      </p>
+    </div>
 
     <p>Na figura acima, temos um triângulo retângulo @ABC@ com:</p>
     <ul>
@@ -161,11 +179,41 @@
     <p><strong>Demonstração (por semelhança de triângulos):</strong></p>
     <p>Considere o triângulo retângulo @ABC@ com ângulo reto em @A@. Trace a altura @h@ relativa à hipotenusa, dividindo-a em dois segmentos @m@ e @n@, onde @m + n = a@.</p>
 
-    <img src="../../recursos/imagens/trigonometria/pitagoras-demonstracao.png"
-         alt="Triângulo retângulo ABC com altura h traçada do vértice A até a hipotenusa BC, dividindo-a em segmentos m e n"
-         class="figura"
-         style="max-width: 450px;">
-    <p class="legenda">Figura 2: Demonstração do Teorema de Pitágoras por semelhança</p>
+    <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
+      <svg viewBox="0 0 440 260" width="410" height="242" role="img" aria-label="Demonstração do Teorema de Pitágoras por semelhança de triângulos" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+        <!-- Triângulo Retângulo ABC com hipotenusa BC na base -->
+        <polygon points="140,50 50,200 390,200" fill="rgba(0, 255, 102, 0.08)" stroke="var(--link-color, #00ff66)" stroke-width="2.5" />
+        <!-- Altura h relativa à hipotenusa -->
+        <line x1="140" y1="50" x2="140" y2="200" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4" />
+        <!-- Ângulo reto no vértice A(140,50) -->
+        <path d="M 128,70 L 148,82 L 160,62" fill="none" stroke="var(--link-color, #00ff66)" stroke-width="1.5" />
+        <!-- Ângulo reto no pé da altura H(140,200) -->
+        <rect x="126" y="186" width="14" height="14" fill="none" stroke="#f59e0b" stroke-width="1.5" />
+        <circle cx="133" cy="193" r="2" fill="#f59e0b" />
+        <!-- Vértices -->
+        <circle cx="140" cy="50" r="4" fill="var(--link-color, #00ff66)" />
+        <text x="140" y="34" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold" text-anchor="middle">A</text>
+        <circle cx="50" cy="200" r="4" fill="var(--link-color, #00ff66)" />
+        <text x="32" y="205" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold">B</text>
+        <circle cx="390" cy="200" r="4" fill="var(--link-color, #00ff66)" />
+        <text x="404" y="205" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold">C</text>
+        <circle cx="140" cy="200" r="3.5" fill="#f59e0b" />
+        <text x="140" y="218" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">H</text>
+        <!-- Rótulos dos Lados e Projeções -->
+        <text x="82" y="115" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">c</text>
+        <text x="280" y="115" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">b</text>
+        <text x="152" y="130" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">h</text>
+        <!-- Cotas das projeções m e n -->
+        <text x="95" y="235" fill="var(--secondary-text-color, #10b981)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">m (proj. c)</text>
+        <text x="265" y="235" fill="var(--secondary-text-color, #10b981)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">n (proj. b)</text>
+        <!-- Cota da hipotenusa total -->
+        <path d="M 50,245 L 390,245" stroke="var(--main-text-color, #e2e8f0)" stroke-width="1" stroke-dasharray="2" />
+        <text x="220" y="258" fill="#38bdf8" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">hipotenusa a = m + n</text>
+      </svg>
+      <p class="legenda-figura" style="font-size: 0.85rem; color: var(--secondary-text-color, #94a3b8); margin-top: 0.6rem;">
+        <em>Figura 2: Demonstração do Teorema de Pitágoras por semelhança: a altura @h@ decompõe @\triangle ABC@ nos triângulos semelhantes @\triangle HBA@ e @\triangle HAC@.</em>
+      </p>
+    </div>
 
     <p>Os triângulos @ABC@, @HBA@ e @HAC@ são semelhantes (possuem os mesmos ângulos). Da semelhança, obtemos as seguintes relações:</p>
     @@
@@ -208,11 +256,39 @@
       </ul>
     </div>
 
-    <img src="../../recursos/imagens/trigonometria/razoes-trigonometricas.png"
-         alt="Triângulo retângulo mostrando ângulo theta, cateto oposto, cateto adjacente e hipotenusa com as fórmulas de seno, cosseno e tangente"
-         class="figura"
-         style="max-width: 500px;">
-    <p class="legenda">Figura 3: Razões trigonométricas no triângulo retângulo</p>
+    <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
+      <svg viewBox="0 0 520 250" width="480" height="230" role="img" aria-label="Razões trigonométricas no triângulo retângulo em relação ao ângulo agudo theta" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+        <!-- Triângulo Retângulo -->
+        <polygon points="70,45 70,200 340,200" fill="rgba(0, 255, 102, 0.08)" stroke="var(--link-color, #00ff66)" stroke-width="2.5" />
+        <!-- Símbolo de Ângulo Reto em A(70,200) -->
+        <rect x="70" y="182" width="18" height="18" fill="none" stroke="var(--link-color, #00ff66)" stroke-width="1.5" />
+        <circle cx="79" cy="191" r="2.5" fill="var(--link-color, #00ff66)" />
+        <!-- Arco do Ângulo Theta em C(340,200) -->
+        <path d="M 290,200 A 50,50 0 0,0 300,177" fill="none" stroke="#a855f7" stroke-width="2.5" />
+        <text x="272" y="188" fill="#c084fc" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold">θ</text>
+        <!-- Vértices -->
+        <circle cx="70" cy="45" r="4" fill="var(--link-color, #00ff66)" />
+        <text x="65" y="32" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">B</text>
+        <circle cx="70" cy="200" r="4" fill="var(--link-color, #00ff66)" />
+        <text x="48" y="215" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">A</text>
+        <circle cx="340" cy="200" r="4" fill="var(--link-color, #00ff66)" />
+        <text x="352" y="215" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">C</text>
+        <!-- Lados Identificados -->
+        <text x="52" y="125" fill="#ef4444" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="end">cateto oposto a</text>
+        <text x="205" y="222" fill="#3b82f6" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">cateto adjacente b</text>
+        <text x="210" y="110" fill="#10b981" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" transform="rotate(29.8, 210, 110)" text-anchor="middle">hipotenusa c</text>
+        <!-- Box com Fórmulas das Razões -->
+        <rect x="375" y="35" width="135" height="175" rx="8" fill="rgba(0, 0, 0, 0.4)" stroke="var(--container-border-color, #059669)" stroke-width="1.5" />
+        <text x="442" y="60" fill="var(--heading-text-color, #00ff66)" font-family="'Press Start 2P', monospace" font-size="10" text-anchor="middle">RAZÕES</text>
+        <line x1="385" y1="70" x2="500" y2="70" stroke="var(--container-border-color, #059669)" stroke-width="1" />
+        <text x="390" y="98" fill="#ef4444" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">sen θ = a / c</text>
+        <text x="390" y="138" fill="#3b82f6" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">cos θ = b / c</text>
+        <text x="390" y="178" fill="#a855f7" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">tan θ = a / b</text>
+      </svg>
+      <p class="legenda-figura" style="font-size: 0.85rem; color: var(--secondary-text-color, #94a3b8); margin-top: 0.6rem;">
+        <em>Figura 3: Razões trigonométricas no triângulo retângulo em relação ao ângulo agudo @\theta@ no vértice @C@.</em>
+      </p>
+    </div>
 
     <p>Na figura acima, considerando o ângulo @\theta@:</p>
     @@
@@ -287,11 +363,35 @@
       <p>Considere um triângulo equilátero de lado @\ell@. Ao traçar a altura relativa a um dos lados, obtemos dois triângulos retângulos congruentes, cada um com ângulos de @30°@, @60°@ e @90°@.</p>
     </div>
 
-    <img src="../../recursos/imagens/trigonometria/triangulo-30-60-90.png"
-         alt="Triângulo equilátero de lado L com altura h traçada, formando dois triângulos retângulos com ângulos 30-60-90"
-         class="figura"
-         style="max-width: 400px;">
-    <p class="legenda">Figura 4: Triângulo 30-60-90 obtido de um triângulo equilátero</p>
+    <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
+      <svg viewBox="0 0 440 250" width="400" height="227" role="img" aria-label="Triângulo 30-60-90 obtido a partir de um triângulo equilátero bissectado" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+        <!-- Metade esquerda do triângulo equilátero (linhas pontilhadas auxiliares) -->
+        <polygon points="200,40 60,200 200,200" fill="none" stroke="var(--secondary-text-color, #10b981)" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.6" />
+        <text x="120" y="222" fill="var(--secondary-text-color, #94a3b8)" font-family="'Fira Sans', sans-serif" font-size="12" text-anchor="middle">ℓ / 2</text>
+        <text x="110" y="110" fill="var(--secondary-text-color, #94a3b8)" font-family="'Fira Sans', sans-serif" font-size="12" text-anchor="middle">ℓ</text>
+
+        <!-- Triângulo retângulo 30-60-90 (destacado) -->
+        <polygon points="200,40 340,200 200,200" fill="rgba(0, 255, 102, 0.08)" stroke="var(--link-color, #00ff66)" stroke-width="2.5" />
+        <!-- Altura h (lado vertical) -->
+        <line x1="200" y1="40" x2="200" y2="200" stroke="#f59e0b" stroke-width="2" />
+        <!-- Ângulo Reto em (200,200) -->
+        <rect x="200" y="184" width="16" height="16" fill="none" stroke="#f59e0b" stroke-width="1.5" />
+        <circle cx="208" cy="192" r="2" fill="#f59e0b" />
+        <!-- Arco do Ângulo 30° no topo -->
+        <path d="M 200,75 A 35,35 0 0,0 218,70" fill="none" stroke="#a855f7" stroke-width="2" />
+        <text x="212" y="96" fill="#c084fc" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">30°</text>
+        <!-- Arco do Ângulo 60° na base -->
+        <path d="M 310,200 A 30,30 0 0,0 325,174" fill="none" stroke="#3b82f6" stroke-width="2" />
+        <text x="296" y="188" fill="#60a5fa" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">60°</text>
+        <!-- Medidas dos Lados -->
+        <text x="285" y="110" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">hipotenusa = ℓ</text>
+        <text x="270" y="222" fill="#3b82f6" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">cateto = ℓ / 2</text>
+        <text x="185" y="125" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="end">altura = ℓ√3 / 2</text>
+      </svg>
+      <p class="legenda-figura" style="font-size: 0.85rem; color: var(--secondary-text-color, #94a3b8); margin-top: 0.6rem;">
+        <em>Figura 4: Triângulo retângulo 30°-60°-90° obtido pela bissecção de um triângulo equilátero de lado @\ell@.</em>
+      </p>
+    </div>
 
     <p>Neste triângulo retângulo:</p>
     <ul>
@@ -313,11 +413,31 @@
       <p>Considere um triângulo retângulo isósceles com catetos iguais a @\ell@. Os ângulos agudos medem ambos @45°@, e a hipotenusa mede @\ell\sqrt{2}@ (pelo Teorema de Pitágoras).</p>
     </div>
 
-    <img src="../../recursos/imagens/trigonometria/triangulo-45-45-90.png"
-         alt="Triângulo retângulo isósceles com catetos iguais a L e hipotenusa L√2, mostrando ângulos de 45°"
-         class="figura"
-         style="max-width: 350px;">
-    <p class="legenda">Figura 5: Triângulo 45-45-90 (triângulo retângulo isósceles)</p>
+    <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
+      <svg viewBox="0 0 380 240" width="350" height="221" role="img" aria-label="Triângulo retângulo isósceles 45-45-90 obtido a partir de um quadrado bissectado" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+        <!-- Quadrado auxiliar complementar pontilhado -->
+        <polygon points="100,50 240,50 240,190" fill="none" stroke="var(--secondary-text-color, #10b981)" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.6" />
+        
+        <!-- Triângulo retângulo isósceles 45-45-90 (destacado) -->
+        <polygon points="100,50 100,190 240,190" fill="rgba(0, 255, 102, 0.08)" stroke="var(--link-color, #00ff66)" stroke-width="2.5" />
+        <!-- Ângulo Reto em A(100,190) -->
+        <rect x="100" y="172" width="18" height="18" fill="none" stroke="var(--link-color, #00ff66)" stroke-width="1.5" />
+        <circle cx="109" cy="181" r="2.5" fill="var(--link-color, #00ff66)" />
+        <!-- Arco 45° no vértice B(100,50) -->
+        <path d="M 100,85 A 35,35 0 0,0 125,75" fill="none" stroke="#a855f7" stroke-width="2" />
+        <text x="115" y="105" fill="#c084fc" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">45°</text>
+        <!-- Arco 45° no vértice C(240,190) -->
+        <path d="M 205,190 A 35,35 0 0,0 215,165" fill="none" stroke="#a855f7" stroke-width="2" />
+        <text x="185" y="180" fill="#c084fc" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">45°</text>
+        <!-- Medidas dos Lados -->
+        <text x="75" y="125" fill="#3b82f6" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="end">cateto = ℓ</text>
+        <text x="170" y="215" fill="#3b82f6" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">cateto = ℓ</text>
+        <text x="185" y="110" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" transform="rotate(45, 185, 110)" text-anchor="middle">hipotenusa = ℓ√2</text>
+      </svg>
+      <p class="legenda-figura" style="font-size: 0.85rem; color: var(--secondary-text-color, #94a3b8); margin-top: 0.6rem;">
+        <em>Figura 5: Triângulo 45°-45°-90° (triângulo retângulo isósceles resultante da diagonal de um quadrado de lado @\ell@).</em>
+      </p>
+    </div>
 
     <p>As razões trigonométricas para @45°@ são:</p>
     @@
@@ -371,11 +491,41 @@
 
     <p>Além do Teorema de Pitágoras, existem outras relações importantes entre os elementos de um triângulo retângulo.</p>
 
-    <img src="../../recursos/imagens/trigonometria/relacoes-metricas.png"
-         alt="Triângulo retângulo ABC com altura h relativa à hipotenusa, dividindo-a em segmentos m e n, mostrando todos os elementos (catetos b e c, hipotenusa a)"
-         class="figura"
-         style="max-width: 450px;">
-    <p class="legenda">Figura 6: Elementos do triângulo retângulo para relações métricas</p>
+    <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
+      <svg viewBox="0 0 460 270" width="430" height="252" role="img" aria-label="Elementos do triângulo retângulo para relações métricas: catetos, hipotenusa, altura e projeções" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+        <!-- Triângulo Retângulo ABC -->
+        <polygon points="150,35 50,195 410,195" fill="rgba(0, 255, 102, 0.08)" stroke="var(--link-color, #00ff66)" stroke-width="2.5" />
+        <!-- Altura h relativa à hipotenusa -->
+        <line x1="150" y1="35" x2="150" y2="195" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4" />
+        <!-- Símbolo de Ângulo Reto em A(150,35) -->
+        <path d="M 137,55 L 157,68 L 170,48" fill="none" stroke="var(--link-color, #00ff66)" stroke-width="1.5" />
+        <!-- Símbolo de Ângulo Reto em H(150,195) -->
+        <rect x="134" y="179" width="16" height="16" fill="none" stroke="#f59e0b" stroke-width="1.5" />
+        <circle cx="142" cy="187" r="2" fill="#f59e0b" />
+        <!-- Vértices -->
+        <circle cx="150" cy="35" r="4" fill="var(--link-color, #00ff66)" />
+        <text x="150" y="20" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold" text-anchor="middle">A</text>
+        <circle cx="50" cy="195" r="4" fill="var(--link-color, #00ff66)" />
+        <text x="32" y="200" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold">B</text>
+        <circle cx="410" cy="195" r="4" fill="var(--link-color, #00ff66)" />
+        <text x="425" y="200" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold">C</text>
+        <circle cx="150" cy="195" r="3.5" fill="#f59e0b" />
+        <text x="150" y="214" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">H</text>
+        <!-- Rótulos dos Catetos e Altura -->
+        <text x="88" y="105" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold" text-anchor="middle">c</text>
+        <text x="295" y="105" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold" text-anchor="middle">b</text>
+        <text x="162" y="125" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">h</text>
+        <!-- Projeções m e n -->
+        <text x="100" y="230" fill="#38bdf8" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">m</text>
+        <text x="280" y="230" fill="#38bdf8" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">n</text>
+        <!-- Cota da Hipotenusa Total a -->
+        <path d="M 50,245 L 410,245" stroke="var(--main-text-color, #e2e8f0)" stroke-width="1.2" stroke-dasharray="3,3" />
+        <text x="230" y="260" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">hipotenusa total a = m + n</text>
+      </svg>
+      <p class="legenda-figura" style="font-size: 0.85rem; color: var(--secondary-text-color, #94a3b8); margin-top: 0.6rem;">
+        <em>Figura 6: Elementos e relações métricas do triângulo retângulo: catetos @b@ e @c@, hipotenusa @a@, altura @h@ e projeções @m@ e @n@.</em>
+      </p>
+    </div>
 
     <p>Considere um triângulo retângulo @ABC@ com:</p>
     <ul>

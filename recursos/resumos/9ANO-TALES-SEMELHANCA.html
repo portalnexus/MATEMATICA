@@ -44,6 +44,65 @@
                     segmentos na transversal @u@ medem @a@ e @b@, e os correspondentes na transversal @v@ medem @c@ e
                     @d@, a razão entre eles é constante.</p>
 
+                <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
+                  <svg viewBox="0 0 440 230" width="410" height="214" role="img" aria-label="Feixe de retas paralelas cortadas por retas transversais ilustrando o Teorema de Tales" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+                    <!-- Reta r (superior) -->
+                    <line x1="30" y1="50" x2="410" y2="50" stroke="var(--link-color, #00ff66)" stroke-width="2" />
+                    <text x="420" y="55" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">r</text>
+
+                    <!-- Reta s (média) -->
+                    <line x1="30" y1="120" x2="410" y2="120" stroke="var(--link-color, #00ff66)" stroke-width="2" />
+                    <text x="420" y="125" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">s</text>
+
+                    <!-- Reta t (inferior) -->
+                    <line x1="30" y1="190" x2="410" y2="190" stroke="var(--link-color, #00ff66)" stroke-width="2" />
+                    <text x="420" y="195" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">t</text>
+
+                    <!-- Transversal u -->
+                    <line x1="160" y1="20" x2="80" y2="215" stroke="#f59e0b" stroke-width="2.5" />
+                    <text x="165" y="25" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">u</text>
+
+                    <!-- Transversal v -->
+                    <line x1="250" y1="20" x2="330" y2="215" stroke="#38bdf8" stroke-width="2.5" />
+                    <text x="245" y="25" fill="#38bdf8" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold">v</text>
+
+                    <!-- Interseções na Transversal u -->
+                    <!-- r: y=50 -> x = 160 - 30/195*80 = 147.7 -->
+                    <circle cx="148" cy="50" r="4" fill="#f59e0b" />
+                    <text x="130" y="45" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">A</text>
+                    <!-- s: y=120 -> x = 160 - 100/195*80 = 119 -->
+                    <circle cx="119" cy="120" r="4" fill="#f59e0b" />
+                    <text x="100" y="115" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">B</text>
+                    <!-- t: y=190 -> x = 160 - 170/195*80 = 90.2 -->
+                    <circle cx="90" cy="190" r="4" fill="#f59e0b" />
+                    <text x="72" y="195" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">C</text>
+
+                    <!-- Interseções na Transversal v -->
+                    <!-- r: y=50 -> x = 250 + 30/195*80 = 262.3 -->
+                    <circle cx="262" cy="50" r="4" fill="#38bdf8" />
+                    <text x="276" y="45" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">A'</text>
+                    <!-- s: y=120 -> x = 250 + 100/195*80 = 291 -->
+                    <circle cx="291" cy="120" r="4" fill="#38bdf8" />
+                    <text x="305" y="115" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">B'</text>
+                    <!-- t: y=190 -> x = 250 + 170/195*80 = 319.8 -->
+                    <circle cx="320" cy="190" r="4" fill="#38bdf8" />
+                    <text x="335" y="195" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold">C'</text>
+
+                    <!-- Rótulos dos Segmentos a, b, c, d -->
+                    <text x="120" y="82" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">a</text>
+                    <text x="92" y="152" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">b</text>
+                    <text x="288" y="82" fill="#38bdf8" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">c</text>
+                    <text x="318" y="152" fill="#38bdf8" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">d</text>
+
+                    <!-- Box Central com a Fórmula -->
+                    <rect x="175" y="85" width="90" height="45" rx="6" fill="rgba(0, 0, 0, 0.5)" stroke="var(--container-border-color, #059669)" stroke-width="1.2" />
+                    <text x="220" y="113" fill="var(--heading-text-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="15" font-weight="bold" text-anchor="middle">a / b = c / d</text>
+                  </svg>
+                  <p class="legenda-figura" style="font-size: 0.85rem; color: var(--secondary-text-color, #94a3b8); margin-top: 0.6rem;">
+                    <em>Figura 1: Teorema de Tales — Três retas paralelas @r \parallel s \parallel t@ determinam nas transversais @u@ e @v@ segmentos de retas proporcionais: @\frac{\overline{AB}}{\overline{BC}} = \frac{\overline{A'B'}}{\overline{B'C'}}@.</em>
+                  </p>
+                </div>
+
                 <h2>2. Semelhança de Triângulos</h2>
                 <p>Dois triângulos são semelhantes quando possuem ângulos correspondentes congruentes e lados
                     correspondentes proporcionais.</p>

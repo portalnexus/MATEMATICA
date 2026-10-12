@@ -2,7 +2,7 @@
 .dashboard-grid,
 .dashboard-grid h3,
 .area-title {
-    font-family: var(--font-family-headings, 'Cambria Math', Cambria, serif);
+    font-family: var(--font-family-headings, 'Press Start 2P', monospace);
 }
 
 #user-name,
@@ -10,7 +10,7 @@
 .trofeu-box,
 [data-tooltip]::after,
 #progress-bar-text {
-    font-family: var(--font-family-body, 'Cambria Math', Cambria, serif);
+    font-family: var(--font-family-body, 'Fira Sans', sans-serif);
 }
 
 /* --- Estrutura e Layout --- */
@@ -1114,8 +1114,8 @@
 
 .etapa-btn {
     padding: 8px 16px;
-    font-family: var(--font-family-headings, 'Cambria Math', Cambria, serif);
-    font-weight: 600;
+    font-family: var(--font-family-headings, 'Press Start 2P', monospace);
+    font-weight: 400;
     font-size: 0.85rem;
     color: var(--secondary-text-color);
     background-color: rgba(0, 0, 0, 0.4);
@@ -1303,14 +1303,14 @@
 }
 
 #professor-filter label {
-    font-family: var(--font-family-headings, 'Cambria Math', Cambria, serif);
+    font-family: var(--font-family-headings, 'Press Start 2P', monospace);
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--link-color);
 }
 
 #professor-turma-select {
-    font-family: var(--font-family-body, 'Cambria Math', Cambria, serif);
+    font-family: var(--font-family-body, 'Fira Sans', sans-serif);
     font-size: 1rem;
     padding: 8px 12px;
     background-color: var(--content-box-bg-color);
@@ -1353,14 +1353,14 @@
 }
 
 #ranking-table th {
-    font-family: var(--font-family-headings, 'Cambria Math', Cambria, serif);
+    font-family: var(--font-family-headings, 'Press Start 2P', monospace);
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--link-color);
 }
 
 #ranking-table td {
-    font-family: var(--font-family-body, 'Cambria Math', Cambria, serif);
+    font-family: var(--font-family-body, 'Fira Sans', sans-serif);
     font-size: 0.95rem;
 }
 

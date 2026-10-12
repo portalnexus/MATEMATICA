@@ -61,27 +61,21 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (document.body.classList.contains('theme-solarized-light')) {
-            ctx.fillStyle = 'rgba(251, 241, 199, 0.16)';
-        } else if (document.body.classList.contains('theme-paper-light')) {
-            ctx.fillStyle = 'rgba(248, 250, 252, 0.16)';
-        } else if (document.body.classList.contains('theme-dark-graphite')) {
-            ctx.fillStyle = 'rgba(18, 18, 20, 0.08)';
-        } else if (document.body.classList.contains('theme-matrix-retro') || document.body.classList.contains('theme-green-circuit')) {
-            ctx.fillStyle = 'rgba(10, 14, 20, 0.08)';
-        } else if (document.body.classList.contains('theme-high-contrast')) {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+        if (document.body.classList.contains('theme-paper-light')) {
+            ctx.fillStyle = 'rgba(241, 245, 249, 0.15)';
+        } else if (document.body.classList.contains('theme-solarized-light')) {
+            ctx.fillStyle = 'rgba(251, 241, 199, 0.15)';
         } else {
-            // Padrão Neutro Slate
-            ctx.fillStyle = 'rgba(15, 23, 42, 0.08)';
+            // Para temas escuros (Matrix Cyber, Cyber Blue, OLED):
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.06)';
         }
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // Get Text Color from CSS Variable
         const computedStyle = getComputedStyle(canvas);
-        const matrixTextColor = computedStyle.getPropertyValue('--matrix-rain-actual-color').trim() || '#38bdf8';
+        const matrixTextColor = computedStyle.getPropertyValue('--matrix-rain-actual-color').trim() || '#00ff66';
         ctx.fillStyle = matrixTextColor;
-        ctx.font = fontSize + 'px "Cambria Math", "Fira Code", monospace';
+        ctx.font = fontSize + 'px "Fira Code", monospace';
 
         // Loop through the columns
         for (let i = 0; i < columns; i++) {

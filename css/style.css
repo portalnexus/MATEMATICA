@@ -1,53 +1,122 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Press+Start+2P&family=Fira+Code:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap');
-
 html {
     font-size: clamp(14px, 12px + 0.5vw, 18px); /* Base for rem units */
 }
 /* 
 ================================================================================
-  1. DEFINIÇÃO DAS VARIÁVEIS DE COR (7 TEMAS CURADOS)
-  - Temas Comuns possuem chuva de Matrix matemática ativa
-  - Tema 'Limpo & Impressão' (Clean Paper) desativa a chuva de Matrix e oferece
-    fundo branco e leitura sem distrações
+  1. DEFINIÇÃO DAS VARIÁVEIS DE COR (6 TEMAS CURADOS)
+  - 4 Opções Dark (2 Padrão/Moderno + 2 Alto Contraste WCAG AAA)
+  - 2 Opções Claras (1 Paper Minimalista + 1 Sépia Pergaminho)
 ================================================================================
 */
 
-/* TEMA 1 (PADRÃO): Neutro Slate (Dark Sóbrio com Chuva Matrix Celeste) */
+/* TEMA 1 (PADRÃO): Matrix Cyber (Verde Terminal Cyberpunk) */
 :root,
 body.theme-default {
-    --primary-bg-color: #0f172a;               /* Slate 900 profundo e neutro */
-    --content-box-bg-color: rgba(30, 41, 59, 0.94); /* Slate 800 sólido e limpo */
-    --main-text-color: #f1f5f9;                 /* Slate 100 com excelente legibilidade */
-    --secondary-text-color: #94a3b8;            /* Slate 400 discreto e equilibrado */
-    --heading-text-color: #ffffff;              /* Branco puro para títulos destacados */
-    --container-border-color: #334155;          /* Slate 700 borda fina e sutil */
-    --link-color: #38bdf8;                      /* Sky Blue acadêmico e claro */
-    --link-hover-color: #7dd3fc;                /* Sky Blue hover */
-    --matrix-rain-actual-color: #38bdf8;        /* Chuva Matrix matemática azul celeste */
-    --katex-text-color: #f8fafc;                /* KaTeX nítido e sem coloração neon */
-    --katex-text-shadow-color: transparent;     /* SEM sombra ou desfoque */
+    --primary-bg-color: #0a0e14;
+    --content-box-bg-color: rgba(13, 20, 32, 0.90);
+    --main-text-color: #e2e8f0;
+    --secondary-text-color: #10b981;
+    --heading-text-color: #00ff66;
+    --container-border-color: #059669;
+    --link-color: #00ff66;
+    --link-hover-color: #6ee7b7;
+    --matrix-rain-actual-color: #00ff66;
+    --katex-text-color: #00ff66;
+    --katex-text-shadow-color: rgba(0, 255, 102, 0.4);
 
-    --theme-selector-bg-color: #1e293b;
-    --theme-selector-text-color: #f1f5f9;
-    --theme-selector-hover-bg-color: #38bdf8;
-    --theme-selector-hover-text-color: #0f172a;
+    --theme-selector-bg-color: #0a0e14;
+    --theme-selector-text-color: #e2e8f0;
+    --theme-selector-hover-bg-color: #00ff66;
+    --theme-selector-hover-text-color: #0a0e14;
 
     --teorema-color: #10b981;
     --observacao-color: #8b5cf6;
     --dica-color: #f59e0b;
 }
 
-/* TEMA 2: Neutro Claro (Paper Clean Diurno com Chuva Matrix Suave) */
+/* TEMA 2: Cyber Blue (Azul Espacial & Ciano Moderno) */
+body.theme-cyber-blue {
+    --primary-bg-color: #080d1a;
+    --content-box-bg-color: rgba(15, 23, 42, 0.90);
+    --main-text-color: #e2e8f0;
+    --secondary-text-color: #38bdf8;
+    --heading-text-color: #60a5fa;
+    --container-border-color: #1e40af;
+    --link-color: #38bdf8;
+    --link-hover-color: #93c5fd;
+    --matrix-rain-actual-color: #38bdf8;
+    --katex-text-color: #38bdf8;
+    --katex-text-shadow-color: rgba(56, 189, 248, 0.4);
+
+    --theme-selector-bg-color: #080d1a;
+    --theme-selector-text-color: #e2e8f0;
+    --theme-selector-hover-bg-color: #38bdf8;
+    --theme-selector-hover-text-color: #080d1a;
+
+    --teorema-color: #38bdf8;
+    --observacao-color: #a855f7;
+    --dica-color: #fbbf24;
+}
+
+/* TEMA 3: OLED Neon Green (Alto Contraste AAA - Contraste > 18:1) */
+body.theme-high-contrast-green {
+    --primary-bg-color: #000000;
+    --content-box-bg-color: #000000;
+    --main-text-color: #ffffff;
+    --secondary-text-color: #00ff00;
+    --heading-text-color: #00ff00;
+    --container-border-color: #00ff00;
+    --link-color: #00ff00;
+    --link-hover-color: #ffffff;
+    --matrix-rain-actual-color: #00ff00;
+    --katex-text-color: #00ff00;
+    --katex-text-shadow-color: transparent;
+
+    --theme-selector-bg-color: #000000;
+    --theme-selector-text-color: #ffffff;
+    --theme-selector-hover-bg-color: #00ff00;
+    --theme-selector-hover-text-color: #000000;
+
+    --teorema-color: #00ff00;
+    --observacao-color: #ffff00;
+    --dica-color: #00ffff;
+}
+
+/* TEMA 4: OLED Amber (Alto Contraste Fósforo Âmbar VT220 AAA) */
+body.theme-high-contrast-amber {
+    --primary-bg-color: #000000;
+    --content-box-bg-color: #000000;
+    --main-text-color: #ffffff;
+    --secondary-text-color: #ffb000;
+    --heading-text-color: #ffc107;
+    --container-border-color: #ffb000;
+    --link-color: #ffb000;
+    --link-hover-color: #ffffff;
+    --matrix-rain-actual-color: #ffb000;
+    --katex-text-color: #ffc107;
+    --katex-text-shadow-color: transparent;
+
+    --theme-selector-bg-color: #000000;
+    --theme-selector-text-color: #ffffff;
+    --theme-selector-hover-bg-color: #ffb000;
+    --theme-selector-hover-text-color: #000000;
+
+    --teorema-color: #ffb000;
+    --observacao-color: #ff8c00;
+    --dica-color: #ffd700;
+}
+
+/* TEMA 5: Paper Clean (Modo Claro Minimalista Diurno) */
 body.theme-paper-light {
-    --primary-bg-color: #f8fafc;               /* Slate 50 ultra limpo */
-    --content-box-bg-color: rgba(255, 255, 255, 0.94); /* Branco puro translúcido */
-    --main-text-color: #0f172a;                 /* Slate 900 para máxima legibilidade */
-    --secondary-text-color: #475569;            /* Slate 600 */
-    --heading-text-color: #0f172a;              /* Slate 900 */
-    --container-border-color: #cbd5e1;          /* Slate 300 borda suave */
-    --link-color: #0284c7;                      /* Azul clássico */
+    --primary-bg-color: #f1f5f9;
+    --content-box-bg-color: rgba(255, 255, 255, 0.96);
+    --main-text-color: #0f172a;
+    --secondary-text-color: #475569;
+    --heading-text-color: #0369a1;
+    --container-border-color: #cbd5e1;
+    --link-color: #0284c7;
     --link-hover-color: #0369a1;
-    --matrix-rain-actual-color: #0284c7;        /* Chuva Matrix azul clássico */
+    --matrix-rain-actual-color: #94a3b8;
     --katex-text-color: #0f172a;
     --katex-text-shadow-color: transparent;
 
@@ -61,17 +130,17 @@ body.theme-paper-light {
     --dica-color: #d97706;
 }
 
-/* TEMA 3: Sépia Acadêmico (Pergaminho Quente com Chuva Matrix Âmbar) */
+/* TEMA 6: Solarized Sepia (Modo Claro Pergaminho Quente Anti-Ofuscamento) */
 body.theme-solarized-light {
     --primary-bg-color: #fbf1c7;
-    --content-box-bg-color: rgba(253, 246, 227, 0.95);
+    --content-box-bg-color: rgba(253, 246, 227, 0.96);
     --main-text-color: #282828;
     --secondary-text-color: #7c6f64;
     --heading-text-color: #af3a03;
     --container-border-color: #d5c4a1;
     --link-color: #b57614;
     --link-hover-color: #d65d0e;
-    --matrix-rain-actual-color: #b57614;        /* Chuva Matrix âmbar quente */
+    --matrix-rain-actual-color: #bdae93;
     --katex-text-color: #af3a03;
     --katex-text-shadow-color: transparent;
 
@@ -83,107 +152,6 @@ body.theme-solarized-light {
     --teorema-color: #b57614;
     --observacao-color: #8f3f71;
     --dica-color: #d79921;
-}
-
-/* TEMA 4: Dark Grafite (Carvão Minimalista com Chuva Matrix Azulada) */
-body.theme-dark-graphite,
-body.theme-cyber-blue {
-    --primary-bg-color: #121214;
-    --content-box-bg-color: rgba(24, 24, 27, 0.94);
-    --main-text-color: #e4e4e7;
-    --secondary-text-color: #a1a1aa;
-    --heading-text-color: #ffffff;
-    --container-border-color: #27272a;
-    --link-color: #60a5fa;
-    --link-hover-color: #93c5fd;
-    --matrix-rain-actual-color: #60a5fa;        /* Chuva Matrix azul grafite */
-    --katex-text-color: #fafafa;
-    --katex-text-shadow-color: transparent;
-
-    --theme-selector-bg-color: #18181b;
-    --theme-selector-text-color: #e4e4e7;
-    --theme-selector-hover-bg-color: #60a5fa;
-    --theme-selector-hover-text-color: #121214;
-
-    --teorema-color: #38bdf8;
-    --observacao-color: #a855f7;
-    --dica-color: #fbbf24;
-}
-
-/* TEMA 5: Alto Contraste AAA (Acessibilidade Preto & Branco com Chuva Matrix Branca) */
-body.theme-high-contrast,
-body.theme-high-contrast-green,
-body.theme-high-contrast-amber {
-    --primary-bg-color: #000000;
-    --content-box-bg-color: rgba(0, 0, 0, 0.96);
-    --main-text-color: #ffffff;
-    --secondary-text-color: #facc15;
-    --heading-text-color: #ffffff;
-    --container-border-color: #ffffff;
-    --link-color: #38bdf8;
-    --link-hover-color: #ffffff;
-    --matrix-rain-actual-color: #ffffff;        /* Chuva Matrix branca pura */
-    --katex-text-color: #ffffff;
-    --katex-text-shadow-color: transparent;
-
-    --theme-selector-bg-color: #000000;
-    --theme-selector-text-color: #ffffff;
-    --theme-selector-hover-bg-color: #ffffff;
-    --theme-selector-hover-text-color: #000000;
-
-    --teorema-color: #4ade80;
-    --observacao-color: #facc15;
-    --dica-color: #38bdf8;
-}
-
-/* TEMA 6: Matrix Retrô (Terminal Verde Cyberpunk Clássico) */
-body.theme-matrix-retro,
-body.theme-matrix-cyber,
-body.theme-green-circuit {
-    --primary-bg-color: #0a0e14;
-    --content-box-bg-color: rgba(13, 20, 32, 0.92);
-    --main-text-color: #e2e8f0;
-    --secondary-text-color: #10b981;
-    --heading-text-color: #00ff66;
-    --container-border-color: #059669;
-    --link-color: #00ff66;
-    --link-hover-color: #6ee7b7;
-    --matrix-rain-actual-color: #00ff66;        /* Chuva Matrix verde clássico */
-    --katex-text-color: #00ff66;
-    --katex-text-shadow-color: transparent;
-
-    --theme-selector-bg-color: #0a0e14;
-    --theme-selector-text-color: #e2e8f0;
-    --theme-selector-hover-bg-color: #00ff66;
-    --theme-selector-hover-text-color: #0a0e14;
-
-    --teorema-color: #10b981;
-    --observacao-color: #8b5cf6;
-    --dica-color: #f59e0b;
-}
-
-/* TEMA 7: Limpo & Formato Impressão (Clean Paper / Sem Chuva de Matrix) */
-body.theme-clean-print {
-    --primary-bg-color: #ffffff;
-    --content-box-bg-color: #ffffff;
-    --main-text-color: #111827;
-    --secondary-text-color: #4b5563;
-    --heading-text-color: #000000;
-    --container-border-color: #d1d5db;
-    --link-color: #1d4ed8;
-    --link-hover-color: #1e40af;
-    --matrix-rain-actual-color: transparent;    /* Chuva Matrix desabilitada */
-    --katex-text-color: #000000;
-    --katex-text-shadow-color: transparent;
-
-    --theme-selector-bg-color: #ffffff;
-    --theme-selector-text-color: #111827;
-    --theme-selector-hover-bg-color: #f3f4f6;
-    --theme-selector-hover-text-color: #000000;
-
-    --teorema-color: #047857;
-    --observacao-color: #6d28d9;
-    --dica-color: #b45309;
 }
 
 /* Compatibilidade com seletores e contrastes em temas claros */
@@ -208,14 +176,12 @@ body.theme-solarized-light table {
 */
 :root {
     --font-family-headings: 'Press Start 2P', monospace;
-    --font-family-body: 'Fira Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-family-base: 'Fira Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-family-monospace: 'Fira Code', 'Courier New', monospace;
-    --font-family-math: 'Cambria Math', 'STIX Two Text', 'KaTeX_Main', serif;
-    --container-padding: 32px;
-    --container-border-radius: 8px;
-    --container-max-width: 1060px;
-    --container-margin-top-bottom: 35px;
+    --font-family-body: 'Fira Sans', sans-serif;
+    --font-family-monospace: monospace;
+    --container-padding: 25px;
+    --container-border-radius: 5px;
+    --container-max-width: 960px;
+    --container-margin-top-bottom: 40px;
 }
 
 /*
@@ -303,14 +269,14 @@ body.print-mode .erro-comum h4 {
 
 .badge-nivel {
     display: inline-block;
-    padding: 0.35rem 0.75rem;
-    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
     font-family: var(--font-family-headings);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: bold;
     margin-bottom: 1rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 1px;
 }
 
 /* 9º ano - Azul */
@@ -449,92 +415,21 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    display: block; /* Ativo por padrão em todos os temas comuns */
+    display: block;
     background-color: var(--primary-bg-color);
     transition: background-color 0.3s ease;
 }
-
-body.theme-clean-print #matrixCanvas,
-body.print-mode #matrixCanvas {
-    display: none !important; /* Desativa a chuva de matrix no tema limpo/impressão */
-}
-
 .container {
-    width: 88%;
+    width: 80%;
     max-width: var(--container-max-width);
     margin: var(--container-margin-top-bottom) auto;
     padding: var(--container-padding);
     background-color: var(--content-box-bg-color);
-    border: 1px solid var(--container-border-color);
+    border: 2px solid var(--container-border-color, var(--matrix-rain-actual-color));
     border-radius: var(--container-border-radius);
     color: var(--main-text-color);
     font-family: var(--font-family-body);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-/* --- Regras do Tema Limpo & Formato Impressão (Clean Paper / Sem Matrix) --- */
-body.theme-clean-print {
-    background-color: #ffffff !important;
-}
-
-body.theme-clean-print #page-wrapper {
-    background-color: #ffffff !important;
-}
-
-body.theme-clean-print .container {
-    background-color: #ffffff !important;
-    border: 1px solid #e5e7eb !important;
-    box-shadow: none !important;
-}
-
-body.theme-clean-print nav {
-    background-color: #f9fafb !important;
-    border-bottom: 1px solid #e5e7eb !important;
-}
-
-body.theme-clean-print .nav-button,
-body.theme-clean-print .themed-button {
-    background-color: #f3f4f6 !important;
-    color: #111827 !important;
-    border: 1px solid #d1d5db !important;
-    box-shadow: none !important;
-}
-
-body.theme-clean-print .nav-button:hover,
-body.theme-clean-print .themed-button:hover {
-    background-color: #e5e7eb !important;
-    color: #000000 !important;
-    border-color: #9ca3af !important;
-}
-
-body.theme-clean-print .destaque-box {
-    box-shadow: none !important;
-}
-
-body.theme-clean-print .destaque-box.definicao {
-    background-color: #f0f7ff !important;
-    border-left: 4px solid #2563eb !important;
-}
-
-body.theme-clean-print .destaque-box.teorema {
-    background-color: #f0fdf4 !important;
-    border-left: 4px solid #16a34a !important;
-}
-
-body.theme-clean-print .destaque-box.observacao {
-    background-color: #faf5ff !important;
-    border-left: 4px solid #7c3aed !important;
-}
-
-body.theme-clean-print .exemplo-resolvido {
-    background-color: #fffbeb !important;
-    border-left: 4px solid #d97706 !important;
-    box-shadow: none !important;
-}
-
-body.theme-clean-print .katex {
-    color: #000000 !important;
 }
 /* 
 ================================================================================
@@ -544,37 +439,24 @@ body.theme-clean-print .katex {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-headings);
     color: var(--heading-text-color);
-    line-height: 1.5;
+    line-height: 1.3;
     text-align: center;
     margin-bottom: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
 }
-h1 { font-size: clamp(1.2rem, 2.2vw + 0.5rem, 1.75rem); line-height: 1.5; }
-h2 { font-size: clamp(1rem, 1.6vw + 0.35rem, 1.35rem); line-height: 1.5; }
-h3 { font-size: clamp(0.85rem, 1.2vw + 0.25rem, 1.1rem); line-height: 1.5; }
-h4, h5, h6 { font-size: 0.9rem; line-height: 1.4; }
-
-/* Fórmulas Matemáticas: uso exclusivo de Cambria Math / STIX Two Text */
-.katex,
-.katex-display,
-.math,
-.katex-html {
-    font-family: var(--font-family-math) !important;
-}
-
+h1 { font-size: 2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+h4, h5, h6 { font-size: 1.25rem; }
 p, li, table, td, th {
     font-family: var(--font-family-body);
     color: var(--main-text-color);
-    font-size: 1.02rem;
-    line-height: 1.75;
 }
 p {
     text-align: justify;
     hyphens: auto;
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 a {
     color: var(--link-color);
@@ -590,41 +472,10 @@ strong, b {
 }
 ul, ol {
     padding-left: 1.5rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 li {
-    margin-bottom: 0.6rem;
-}
-
-/* Espaçamento elegante para problemas graduados (evita sensação de espremido) */
-ol > li {
-    margin-bottom: 1.8rem;
-    padding-bottom: 1.2rem;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
-    line-height: 1.75;
-}
-
-ol > li:last-child {
-    border-bottom: none;
     margin-bottom: 0.5rem;
-    padding-bottom: 0;
-}
-
-ol > li > p {
-    margin-top: 0.4rem;
-    margin-bottom: 0.6rem;
-    font-size: 1.05rem;
-}
-
-/* Base de caixas didáticas */
-.destaque-box {
-    padding: 1.3rem 1.6rem;
-    margin: 1.8rem 0;
-    border-radius: 6px;
-    line-height: 1.75;
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--container-border-color);
-}
 }
 /* 
 ================================================================================
@@ -669,18 +520,16 @@ nav a:hover {
 /* Botões de navegação estilizados */
 .nav-button {
     display: inline-block;
-    padding: 0.5rem 1.1rem;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--container-border-color);
+    padding: 0.6rem 1.2rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--link-color);
     border-radius: 6px;
-    color: var(--main-text-color) !important;
-    font-family: var(--font-family-headings) !important;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+    color: var(--link-color) !important;
+    font-family: var(--font-family-headings);
+    font-size: 0.875rem;
     text-transform: uppercase;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
 }
 
@@ -688,15 +537,15 @@ nav a:hover {
     background-color: var(--link-color);
     color: var(--primary-bg-color) !important;
     border-color: var(--link-hover-color);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .nav-button.active {
     background-color: var(--link-color) !important;
     color: var(--primary-bg-color) !important;
     border-color: var(--link-color) !important;
-    box-shadow: none;
+    box-shadow: 0 0 12px var(--link-color);
 }
 
 /* --- Seletor de Turma --- */
@@ -796,11 +645,11 @@ footer p {
 }
 .katex {
     font-size: 1.1em;
-    color: var(--katex-text-color, inherit);
-    text-shadow: none !important;
+    color: var(--katex-text-color, var(--link-color));
+    text-shadow: 1px 1px 3px var(--katex-text-shadow-color, rgba(0,0,0,0.4));
 }
 .katex .frac-line {
-    border-bottom-color: var(--katex-text-color, currentColor);
+    border-bottom-color: var(--katex-text-color, var(--link-color));
 }
 /* 
 ================================================================================
@@ -819,7 +668,6 @@ footer p {
     border-radius: 50%;
     cursor: pointer;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 #theme-config-icon:hover {
@@ -831,13 +679,13 @@ footer p {
     position: fixed;
     bottom: 5rem;
     right: 1.25rem;
-    width: 15rem;
-    background-color: var(--content-box-bg-color);
+    width: 14rem;
+    background-color: var(--primary-bg-color);
     border: 1px solid var(--container-border-color);
     border-radius: var(--container-border-radius);
     padding: 1rem;
     z-index: 999;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -847,8 +695,7 @@ footer p {
 #theme-selector-panel h3 {
     margin-top: 0;
     margin-bottom: 0.8rem;
-    font-size: 0.95rem;
-    font-weight: 700;
+    font-size: 0.85rem;
     color: var(--heading-text-color);
     font-family: var(--font-family-headings);
     text-align: center;
@@ -856,29 +703,28 @@ footer p {
 
 .theme-group-label {
     font-family: var(--font-family-headings);
-    font-size: 0.7rem;
-    font-weight: 700;
+    font-size: 0.55rem;
     color: var(--secondary-text-color);
     margin: 0.8rem 0 0.4rem 0;
     padding-bottom: 0.25rem;
     border-bottom: 1px dashed var(--container-border-color);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.5px;
     text-align: left;
 }
 #theme-selector-panel button {
     display: block;
     width: 100%;
-    padding: 0.6rem 0.8rem;
-    margin-bottom: 0.4rem;
-    border: 1px solid var(--container-border-color);
-    background-color: rgba(255, 255, 255, 0.03);
-    color: var(--main-text-color);
+    padding: 0.6rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--secondary-text-color);
+    background-color: transparent;
+    color: var(--link-color);
     font-family: var(--font-family-body);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     cursor: pointer;
     text-align: left;
-    border-radius: 6px;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    border-radius: 3px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 #theme-selector-panel button:hover {
     background-color: var(--theme-selector-hover-bg-color, var(--link-color));
@@ -903,55 +749,47 @@ footer p {
     gap: 1.5rem; 
 }
 .quick-link-button {
-    font-family: var(--font-family-headings) !important; 
-    font-weight: 400;
+    font-family: var(--font-family-headings); 
     color: var(--link-color);                 
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--container-border-color);    
-    padding: 0.65rem 1rem;               
+    background-color: transparent;
+    border: 2px solid var(--link-color);    
+    padding: 0.75rem 1.25rem;               
     text-decoration: none;
     text-transform: uppercase;
-    border-radius: 6px; 
-    transition: all 0.2s ease;
+    border-radius: var(--container-border-radius, 5px); 
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
     display: inline-block; 
-    font-size: 0.72rem; 
-    letter-spacing: 0.02em; 
-    line-height: 1.45;
+    font-size: 0.8rem; 
+    letter-spacing: 1px; 
 }
 .quick-link-button:hover,
 .quick-link-button:focus {
     background-color: var(--link-color);   
     color: var(--primary-bg-color);          
-    border-color: var(--link-color);
-    transform: translateY(-1px); 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.3); 
 }
 /* General Themed Button Style */
 .themed-button {
-    font-family: var(--font-family-headings) !important;
-    font-size: 0.75rem;
-    font-weight: 400;
+    font-family: var(--font-family-body);
+    font-size: 0.9rem;
     color: var(--link-color);
     background-color: transparent;
-    border: 1px solid var(--container-border-color); 
+    border: 1px solid var(--link-color); 
     padding: 0.6rem 1.2rem; 
     text-transform: uppercase;
-    letter-spacing: 0.03em;
-    border-radius: 6px;
+    border-radius: var(--container-border-radius);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     text-decoration: none; 
     display: inline-block; 
     margin: 0.25rem; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .themed-button:hover,
 .themed-button:focus {
     background-color: var(--link-color);
     color: var(--primary-bg-color); 
     border-color: var(--link-color); 
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /*
@@ -1512,13 +1350,13 @@ body.print-mode #return-normal-mode {
     gap: 6px;
 }
 .problema-meta .topico {
-    background-color: rgba(56, 189, 248, 0.15);
+    background-color: rgba(0, 255, 102, 0.15);
     color: var(--link-color);
     padding: 2px 7px;
     border-radius: 4px;
     font-size: 0.75rem;
     font-style: italic;
-    border: 1px solid rgba(56, 189, 248, 0.3);
+    border: 1px solid rgba(0, 255, 102, 0.3);
 }
 .dificuldade {
     padding: 2px 7px;
@@ -1554,4 +1392,3 @@ body.print-mode #return-normal-mode {
     border-left: 3px solid var(--link-color);
     line-height: 1.6;
 }
-

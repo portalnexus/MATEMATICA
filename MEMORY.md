@@ -7,25 +7,25 @@ Este arquivo é a fonte primordial de continuidade para o **Antigravity** e qual
 
 ## 🎯 1. Princípios e Regras Fundamentais
 
-## 🎯 1. Princípios e Regras Fundamentais
-
-1. **Tipografia Acadêmica de Excelência (Cambria Math & Equivalentes)**:
-   - **Tipografia Principal**: `Cambria Math` e `Cambria`, emparelhadas com `Caladea` (clone métrico aberto do Cambria no Google Fonts) e `STIX Two Text` (fonte científica de referência). Para código e valores monospaçados, utiliza-se `Fira Code`.
-   - Essa escolha confere harmonia total entre o texto corrido e as fórmulas em KaTeX (que utilizam tipos serifados como Computer Modern).
-2. **Chuva de Matrix Matemática (Essencial)**:
-   - O canvas `#matrixCanvas` com caracteres matemáticos (`∫`, `Σ`, `π`, `√`, `α`, `β`, `∇`, `ħ`, etc.) é **essencial** e fica **ativo por padrão em todos os temas comuns** (`display: block`).
-   - Cada tema possui sua própria cor temática de rastro para a chuva (ex: azul celeste no Slate, azul no Paper Claro, âmbar no Sépia, verde no Retrô).
-3. **Tema "Limpo & Impressão" (`theme-clean-print`)**:
-   - Disponível na lista de seleção de temas como alternativa minimalista.
-   - Inspirado no formato para impressão das páginas de recursos: fundo branco puro (`#ffffff`), texto preto (`#000000`), sem sombras e **com a chuva de matrix desabilitada** (`#matrixCanvas { display: none !important; }`), interrompendo o ciclo de renderização no script para economia e foco absoluto.
-4. **Paleta de 7 Temas Curados**:
-   - 🔘 Neutro Slate (Padrão + Matrix)
-   - 🖨️ Limpo & Impressão (Clean Paper / Sem Matrix)
-   - ☀️ Neutro Claro (Paper + Matrix)
-   - 📜 Sépia Acadêmico (+ Matrix)
-   - 🌑 Dark Grafite (+ Matrix)
-   - ⚡ Alto Contraste AAA (+ Matrix)
-   - 🟢 Matrix Retrô Cyber (+ Matrix)
+1. **Identidade Visual Autêntica e Tema Padrão (Matrix Cyber)**:
+   - O tema padrão oficial do Portal Nexus é o **Matrix Cyber**: fundo `#0a0e14`, acentos verde neon `#00ff66`, links `#00ff66`, hover `#6ee7b7` e chuva de matrix com caracteres matemáticos verde neon.
+2. **Tipografia Oficial Unificada**:
+   - **Títulos, HUD, Botões e Badges**: `'Press Start 2P', monospace`.
+   - **Corpo do Texto e Leitura Didática**: `'Fira Sans', sans-serif`.
+   - **Código e Terminais**: `'Fira Code', monospace`.
+   - **Fórmulas KaTeX**: Notação matemática pura nativa do KaTeX (Computer Modern), com cores que acompanham as variáveis do tema (`var(--link-color)` ou contraste nítido), **sem uso de Cambria Math ou Caladea**.
+3. **Chuva de Matrix Matemática (Essencial)**:
+   - O canvas `#matrixCanvas` com caracteres matemáticos (`∫`, `Σ`, `π`, `√`, `α`, `β`, `∇`, `ħ`, etc.) é ativo por padrão (`display: block`) com fonte `'Fira Code', monospace`.
+4. **Paleta dos 6 Temas Curados**:
+   - 🟢 Matrix Cyber (Dark Padrão)
+   - 🔵 Cyber Blue (Dark Moderno)
+   - ⚡ OLED Neon Green (Alto Contraste AAA)
+   - 🟠 OLED Amber (Fósforo Âmbar VT220 AAA)
+   - 📄 Paper Clean (Modo Claro Minimalista Diurno)
+   - 📜 Solarized Sepia (Modo Claro Pergaminho Quente)
+5. **Gráficos e Visualizações (Zero Imagens com Texto Aéreo)**:
+   - Utilizar exclusivamente **SVG vetorial nativo** (`.figura-geometrica svg`) e **HTML5 Canvas vanilla**, reagindo dinamicamente às variáveis CSS do tema.
+   - Proibido o uso de imagens rasterizadas com fundos brancos opacos e caixas de texto flutuantes soltas pelo diagrama.
 5. **Rigor Matemático & Didático**:
    - Padrão FME (Fundamentos de Matemática Elementar - Iezzi) e OBMEP.
    - Notação matemática via **KaTeX** com delimitadores específicos:
@@ -241,7 +241,7 @@ O Portal Nexus opera com a garantia de que **todo tópico** possui o quarteto fo
 3. Tipografia e Rigor Visual:
    - Títulos, botões HUD e badges: `'Press Start 2P', monospace`.
    - Corpo do texto e leitura didática: `'Fira Sans', sans-serif`.
-   - Fórmulas matemáticas: `'Cambria Math', 'STIX Two Text', serif` estritamente nas expressões KaTeX (`.katex`, `.math`).
+   - Fórmulas matemáticas: Notação nativa limpa do KaTeX (Computer Modern), sem fontes externas conflitantes.
 4. Pasta `ARQUIVO-X/`:
    - Conteúdo de referência didática pesada e confidencial (FME 1 a 11, MD, TURBINA SESI).
    - **NUNCA** rastrear, estagiar ou comitar arquivos de `ARQUIVO-X/` no Git.

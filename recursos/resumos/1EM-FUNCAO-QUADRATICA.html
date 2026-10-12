@@ -510,6 +510,50 @@
       </ul>
     </div>
 
+    <div class="figura-geometrica" style="text-align: center; margin: 1.5rem 0;">
+      <svg viewBox="0 0 460 280" width="430" height="262" role="img" aria-label="Gráfico da parábola com vértice, raízes, intercepto e eixo de simetria" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+        <!-- Eixo X -->
+        <line x1="30" y1="170" x2="430" y2="170" stroke="var(--container-border-color, #059669)" stroke-width="1.8" />
+        <polygon points="430,166 440,170 430,174" fill="var(--container-border-color, #059669)" />
+        <text x="432" y="190" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">x</text>
+
+        <!-- Eixo Y -->
+        <line x1="120" y1="260" x2="120" y2="25" stroke="var(--container-border-color, #059669)" stroke-width="1.8" />
+        <polygon points="116,25 120,15 124,25" fill="var(--container-border-color, #059669)" />
+        <text x="105" y="25" fill="var(--main-text-color, #e2e8f0)" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">y</text>
+        <text x="108" y="186" fill="var(--secondary-text-color, #94a3b8)" font-family="'Fira Sans', sans-serif" font-size="12">0</text>
+
+        <!-- Eixo de Simetria x = xv -->
+        <line x1="240" y1="25" x2="240" y2="255" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="4,4" />
+        <text x="245" y="40" fill="#c084fc" font-family="'Fira Sans', sans-serif" font-size="12" font-weight="bold">eixo de simetria: x = xᵥ</text>
+
+        <!-- Parábola (Curva de Bézier quadrática com vértice em 240, 220) -->
+        <path d="M 80,30 Q 240,410 400,30" fill="none" stroke="var(--link-color, #00ff66)" stroke-width="2.5" />
+        <text x="375" y="55" fill="var(--link-color, #00ff66)" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">y = ax² + bx + c</text>
+
+        <!-- Projeções do Vértice V(xv, yv) -->
+        <line x1="240" y1="220" x2="240" y2="170" stroke="#f59e0b" stroke-width="1" stroke-dasharray="2,2" />
+        <line x1="240" y1="220" x2="120" y2="220" stroke="#f59e0b" stroke-width="1" stroke-dasharray="2,2" />
+        <circle cx="240" cy="220" r="5" fill="#f59e0b" />
+        <text x="252" y="235" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">V(xᵥ, yᵥ)</text>
+        <text x="240" y="162" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">xᵥ = -b/2a</text>
+        <text x="110" y="224" fill="#f59e0b" font-family="'Fira Sans', sans-serif" font-size="12" font-weight="bold" text-anchor="end">yᵥ = -Δ/4a</text>
+
+        <!-- Raízes x1 e x2 -->
+        <circle cx="158" cy="170" r="4.5" fill="#ef4444" />
+        <text x="158" y="190" fill="#ef4444" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">x₁</text>
+        <circle cx="322" cy="170" r="4.5" fill="#ef4444" />
+        <text x="322" y="190" fill="#ef4444" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">x₂</text>
+
+        <!-- Intercepto (0, c) -->
+        <circle cx="120" cy="108" r="4.5" fill="#38bdf8" />
+        <text x="105" y="112" fill="#38bdf8" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="end">(0, c)</text>
+      </svg>
+      <p class="legenda-figura" style="font-size: 0.85rem; color: var(--secondary-text-color, #94a3b8); margin-top: 0.6rem;">
+        <em>Figura 1: Representação gráfica da parábola @f(x) = ax^2 + bx + c@ (@a > 0@) com o vértice de ponto de mínimo @V(x_v, y_v)@, raízes @x_1, x_2@, intercepto vertical @(0, c)@ e o eixo de simetria vertical.</em>
+      </p>
+    </div>
+
     <h4>Demonstração Analítica Rigorosa (Método Fundamental sem Cálculo Diferencial):</h4>
     <p>
       Recorremos mais uma vez à forma canônica estabelecida no Teorema 2.1:

@@ -1,24 +1,226 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS - Conjuntos Numéricos</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
-    <link rel="stylesheet" href="../../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Conjuntos Numéricos e Topologia da Reta Real</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-1em {
+      background-color: rgba(16, 185, 129, 0.25);
+      border: 2px solid #10b981;
+      color: #a7f3d0;
+    }
+
+    /* Figuras geométricas e diagramas SVG */
+    .figura-geometrica {
+      text-align: center;
+      margin: 2rem auto;
+      padding: 1.2rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--container-border-color, rgba(255, 255, 255, 0.1));
+      border-radius: 8px;
+      max-width: 720px;
+    }
+
+    .figura-geometrica svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .legenda-figura {
+      font-size: 0.85rem;
+      color: var(--secondary-text-color);
+      margin-top: 0.8rem;
+      font-style: italic;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
 </head>
 
 <body>
-    <div id="page-wrapper">
-          <nav>
+<div id="page-wrapper">
+  <nav>
     <ul>
       <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
       <li><a href="../../recursos.html" class="nav-button active">RECURSOS</a></li>
@@ -26,74 +228,1052 @@
       <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
     </ul>
   </nav>
-        <div class="container">
-            <article>
-                <span class="badge-nivel ano-1em">1º Ano EM</span>
-                <h1>Conjuntos Numéricos e Intervalos</h1>
-                <p>Os conjuntos numéricos são agrupamentos de números que possuem características semelhantes. No Ensino
-                    Médio, aprofundamos o estudo dos números Reais e suas representações em intervalos.</p>
 
-                <h2>1. Os Conjuntos Fundamentais</h2>
-                <div class="destaque-box definicao">
-                    <ul class="lista-propriedades">
-                        <li><strong>Naturais (@\mathbb{N}@):</strong> @\{0, 1, 2, 3, \ldots\}@</li>
-                        <li><strong>Inteiros (@\mathbb{Z}@):</strong> @\{\ldots, -2, -1, 0, 1, 2, \ldots\}@</li>
-                        <li><strong>Racionais (@\mathbb{Q}@):</strong> Números que podem ser escritos como @\frac{a}{b}@
-                            (@a, b \in \mathbb{Z}, b \neq 0@). Inclui decimais exatos e dízimas periódicas.</li>
-                        <li><strong>Irracionais (@\mathbb{I}@):</strong> Decimais infinitos e não periódicos (@\pi,
-                            \sqrt{2}, e@).</li>
-                        <li><strong>Reais (@\mathbb{R}@):</strong> A união dos Racionais com os Irracionais (@\mathbb{Q}
-                            \cup \mathbb{I}@).</li>
-                    </ul>
-                </div>
+<div class="container">
 
-                <h2>2. Intervalos Reais</h2>
-                <p>Intervalos são subconjuntos dos números reais que podem ser representados geometricamente na reta
-                    numérica.</p>
-                <div class="destaque-box teorema">
-                    <h3>Notações Principais</h3>
-                    <ul class="lista-propriedades">
-                        <li><strong>Fechado:</strong> @[a, b] = \{x \in \mathbb{R} | a \leq x \leq b\}@</li>
-                        <li><strong>Aberto:</strong> @(a, b) = ]a, b[ = \{x \in \mathbb{R} | a < x < b\}@</li>
-                        <li><strong>Semi-aberto à direita:</strong> @[a, b[ = \{x \in \mathbb{R} | a \leq x < b\}@</li>
-                    </ul>
-                </div>
+<article>
+  <div class="badge-nivel ano-1em">1º Ano EM</div>
 
-                <h2>3. Operações com Intervalos</h2>
-                <div class="exemplo-resolvido">
-                    <h3>Exemplo: União e Intersecção</h3>
-                    <p>Dados @A = [2, 5]@ e @B = [4, 8]@, determine @A \cup B@ e @A \cap B@.</p>
-                    <h4>Solução:</h4>
-                    <p><strong>União (@A \cup B@):</strong> Pegamos todos os elementos de ambos. @A \cup B = [2, 8]@.
-                    </p>
-                    <p><strong>Intersecção (@A \cap B@):</strong> Pegamos apenas o que é comum. @A \cap B = [4, 5]@.</p>
-                </div>
+  <h1>Conjuntos Numéricos e Topologia da Reta Real</h1>
+  <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+    Capítulo 1: "Realidade aumentada: números por todo lado"
+  </p>
 
-            </article>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="../../recursos.html" class="themed-button"
-                    >VOLTAR</a>
-            </div>
+  <!-- ===============================================================
+       PRÉ-REQUISITOS E CONTEXTO HISTÓRICO-EPISTEMOLÓGICO
+       =============================================================== -->
+  <div class="destaque-box observacao">
+    <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+    <p>Para o domínio analítico integral deste compêndio, estruturado no rigor formal dos <em>Fundamentos de Matemática Elementar</em> (Gelson Iezzi) e dos módulos olímpicos da OBMEP, o estudante deve mobilizar:</p>
+    <ul>
+      <li><strong>Teoria Elementar dos Conjuntos:</strong> pertinência (@\in@), inclusão (@\subseteq@, @\subset@), união (@\cup@), interseção (@\cap@), diferença (@\setminus@) e complementaridade.</li>
+      <li><strong>Aritmética e Teoria dos Números:</strong> algoritmo da divisão euclidiana, critérios de divisibilidade, números primos e o Teorema Fundamental da Aritmética (fatoração única).</li>
+      <li><strong>Geometria Plana Euclidiana Básica:</strong> Teorema de Pitágoras no triângulo retângulo e construções geométricas com régua e compasso.</li>
+      <li><strong>Álgebra Elementar:</strong> manipulação de potências de expoente inteiro e fracionário, produtos notáveis e fatoração de polinômios.</li>
+    </ul>
+  </div>
+
+  <p>
+    A história do conceito de número reflete uma das mais fascinantes revoluções epistemológicas do pensamento humano. Para a confraria pitagórica da Grécia Antiga (século VI a.C.), o dogma fundamental rezava que <em>"tudo é número"</em> — entendendo por "número" estritamente os inteiros positivos (@1, 2, 3, \ldots@) e suas razões comensuráveis (@p/q@). Qualquer par de grandezas geométricas no universo físico deveria, por hipótese filosófica, admitir uma medida comum elementar.
+  </p>
+  <p>
+    Essa visão de mundo ruiu com a descoberta da <strong>incomensurabilidade</strong> da diagonal do quadrado unitário em relação ao seu lado. Ao aplicar o Teorema de Pitágoras, constatou-se que a diagonal @d@ satisfaz @d^2 = 1^2 + 1^2 = 2@, ou seja, @d = \sqrt{2}@. A demonstração de que @\sqrt{2}@ não pode ser expresso como razão de dois inteiros provocou o que os historiadores denominam a <em>primeira crise dos fundamentos da matemática</em>.
+  </p>
+  <p>
+    Foram necessários mais de dois milênios até que a matemática atingisse maturidade lógica para construir formalmente o contínuo numérico. No final do século XIX, com os trabalhos de <strong>Giuseppe Peano</strong> (axiomatização dos naturais), <strong>Richard Dedekind</strong> (cortes de Dedekind), <strong>Georg Cantor</strong> (sequências fundamentais de Cauchy e cardinalidade de infinitos) e <strong>Karl Weierstrass</strong> (aritmetização da análise), a reta real foi finalmente assentada sobre alicerces lógicos inabaláveis: os números reais não são apenas pontos empíricos numa linha, mas o único <strong>corpo ordenado completo arquimediano</strong> (a menos de isomorfismo).
+  </p>
+
+  <!-- ===============================================================
+       PARTE 1: CONSTRUÇÃO AXIOMÁTICA DE N, Z E Q
+       =============================================================== -->
+  <h2>1. A Construção Axiomática dos Conjuntos Numéricos Discretos e Fracionários</h2>
+
+  <p>
+    Seguindo a estrutura dedutiva formal, partimos do conjunto mais primitivo de contagem até o corpo ordenado dos números racionais, identificando as limitações operatórias de cada estrutura algébrica.
+  </p>
+
+  <div class="destaque-box definicao">
+    <h3>Definição 1.1 (Os Axiomas de Peano para os Números Naturais @\mathbb{N}@)</h3>
+    <p>
+      O conjunto dos números naturais @\mathbb{N}@ é definido formalmente por um conjunto não vazio provido de um elemento distinguido @0 \in \mathbb{N}@ (ou @1@, conforme a convenção axiológica) e de uma função unária injetiva @s: \mathbb{N} \to \mathbb{N}@, denominada <em>função sucessor</em> (onde @s(n) = n + 1@), satisfazendo aos seguintes cinco postulados de Peano (1889):
+    </p>
+    <ol>
+      <li><strong>Existência do Zero:</strong> @0 \in \mathbb{N}@.</li>
+      <li><strong>Injetividade do Sucessor:</strong> Para quaisquer @a, b \in \mathbb{N}@, se @s(a) = s(b)@, então @a = b@.</li>
+      <li><strong>Origem Irredutível:</strong> Não existe nenhum elemento @n \in \mathbb{N}@ tal que @s(n) = 0@ (o zero não é sucessor de nenhum natural).</li>
+      <li><strong>Fechamento:</strong> Para todo @n \in \mathbb{N}@, @s(n) \in \mathbb{N}@.</li>
+      <li>
+        <strong>Axioma da Indução Matemática (PIM):</strong> Se um subconjunto @S \subseteq \mathbb{N}@ satisfaz:
+        <br>(i) @0 \in S@; e
+        <br>(ii) para todo @k \in S@, tem-se @s(k) \in S@;
+        <br>então @S = \mathbb{N}@.
+      </li>
+    </ol>
+  </div>
+
+  <p>
+    A partir do PIM deduz-se o <strong>Princípio da Boa Ordenação (PBO)</strong>: todo subconjunto não vazio de @\mathbb{N}@ possui um elemento mínimo. Em @\mathbb{N} = \{0, 1, 2, 3, \ldots\}@, as operações de adição e multiplicação são fechadas e comutativas, mas a subtração não é fechada (a equação @x + b = a@ não admite solução em @\mathbb{N}@ quando @a < b@).
+  </p>
+
+  <div class="destaque-box definicao">
+    <h3>Definição 1.2 (Construção Formal dos Inteiros @\mathbb{Z}@ via Pares Ordenados)</h3>
+    <p>
+      Para viabilizar a simetrização aditiva, define-se o conjunto dos inteiros @\mathbb{Z}@ como o espaço quociente do produto cartesiano @\mathbb{N} \times \mathbb{N}@ sob a seguinte relação de equivalência @\sim@:
+    </p>
+    @@(a, b) \sim (c, d) \iff a + d = b + c@@
+    <p>
+      Cada par ordenado @(a, b)@ representa heuristicamente a diferença @a - b@. A classe de equivalência @[(a,b)]@ identifica:
+    </p>
+    <ul>
+      <li>Um inteiro estritamente positivo quando @a > b@;</li>
+      <li>O elemento neutro @0 = [(a,a)]@ quando @a = b@;</li>
+      <li>Um inteiro estritamente negativo quando @a < b@.</li>
+    </ul>
+    <p>
+      Munido das operações bem-definidas de adição e multiplicação, @(\mathbb{Z}, +, \cdot)@ constitui uma estrutura algébrica de <strong>anel comutativo com unidade e integridade</strong> (sem divisores de zero). Denotamos @\mathbb{Z} = \{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\}@.
+    </p>
+  </div>
+
+  <div class="destaque-box definicao">
+    <h3>Definição 1.3 (O Corpo dos Números Racionais @\mathbb{Q}@)</h3>
+    <p>
+      O anel @\mathbb{Z}@ não é fechado em relação à divisão por elementos não nulos (equações do tipo @b \cdot x = a@, com @b \neq 0@, nem sempre possuem raiz inteira). Constrói-se então o <strong>corpo de frações</strong> de @\mathbb{Z}@, denominado conjunto dos números racionais @\mathbb{Q}@:
+    </p>
+    @@\mathbb{Q} = \left\{ \frac{p}{q} \;\middle|\; p \in \mathbb{Z}, \; q \in \mathbb{Z}^*, \; \operatorname{mdc}(p, q) = 1 \right\}@@
+    <p>
+      Formalmente, @\mathbb{Q}@ é o quociente de @\mathbb{Z} \times (\mathbb{Z} \setminus \{0\})@ sob a relação @(p_1, q_1) \sim (p_2, q_2) \iff p_1 \cdot q_2 = p_2 \cdot q_1@. A estrutura @(\mathbb{Q}, +, \cdot, \leq)@ é um <strong>corpo ordenado arquimediano</strong>: todo elemento não nulo possui inverso multiplicativo.
+    </p>
+  </div>
+
+  <!-- DÍZIMAS PERIÓDICAS E SÉRIES -->
+  <div class="destaque-box teorema">
+    <h3>Teorema 1.1 (Representação Decimal e Dízimas Periódicas via Séries Geométricas)</h3>
+    <p>
+      Todo número racional @x = \frac{p}{q}@ admite uma expansão decimal que é ou <em>finita</em> (decimal exato) ou <em>infinita periódica</em> (dízima periódica simples ou composta). Reciprocamente, toda dízima periódica converge para um número racional estrito dado pela soma de uma série geométrica infinita.
+    </p>
+
+    <p><strong>Demonstração Rigorosa (Passo a Passo):</strong></p>
+    <p>
+      <strong>1. Dízima Periódica Simples:</strong> Seja @x = 0,a_1 a_2 \dots a_p a_1 a_2 \dots a_p \dots@ uma dízima periódica simples de período @P = \overline{a_1 a_2 \dots a_p}@ com comprimento de período @p \in \mathbb{N}^*@. Podemos decompor @x@ como uma soma infinita de potências de base @10^{-p}@:
+    </p>
+    @@x = \frac{P}{10^p} + \frac{P}{10^{2p}} + \frac{P}{10^{3p}} + \cdots = \sum_{k=1}^\infty \frac{P}{(10^p)^k}@@
+    <p>
+      Esta é uma progressão geométrica infinita com primeiro termo @a_1' = \frac{P}{10^p}@ e razão constante @q = \frac{1}{10^p}@. Como @p \geq 1@, temos @0 < q < 1@, garantindo a convergência absoluta da série:
+    </p>
+    @@S = \frac{a_1'}{1 - q} = \frac{\frac{P}{10^p}}{1 - \frac{1}{10^p}} = \frac{\frac{P}{10^p}}{\frac{10^p - 1}{10^p}} = \frac{P}{10^p - 1}@@
+    <p>
+      O denominador @10^p - 1@ é composto exatamente por @p@ algarismos @9@ seguidos (@\underbrace{99\dots9}_{p\text{ noves}}@). Como @P \in \mathbb{Z}@ e @(10^p - 1) \in \mathbb{Z}^*@, temos @x \in \mathbb{Q}@.
+    </p>
+    <p>
+      <strong>2. Dízima Periódica Composta:</strong> Seja @y = 0,c_1 c_2 \dots c_m a_1 a_2 \dots a_p a_1 a_2 \dots a_p \dots@ com antiperíodo @C = \overline{c_1 \dots c_m}@ de comprimento @m@ e período @P@ de comprimento @p@. Multiplicando @y@ por @10^m@:
+    </p>
+    @@10^m y = C + 0,\overline{P} = C + \frac{P}{10^p - 1} = \frac{C(10^p - 1) + P}{10^p - 1}@@
+    <p>
+      Dividindo ambos os membros por @10^m@:
+    </p>
+    @@y = \frac{C \cdot 10^p - C + P}{10^m(10^p - 1)} = \frac{(C \cdot 10^p + P) - C}{10^m(10^p - 1)} = \frac{\text{Parte Não Periódica e Período} - \text{Parte Não Periódica}}{\underbrace{99\dots9}_{p\text{ noves}}\underbrace{00\dots0}_{m\text{ zeros}}}@@
+    <p>
+      Como o numerador e o denominador são inteiros não nulos, concluímos que @y \in \mathbb{Q}@. @\blacksquare@
+    </p>
+  </div>
+
+  <!-- FIGURA 1: DIAGRAMA DE VENN DOS CONJUNTOS NUMÉRICOS -->
+  <div class="figura-geometrica">
+    <svg viewBox="0 0 680 340" width="640" height="320" role="img" aria-label="Diagrama hierárquico dos conjuntos numéricos: Naturais, Inteiros, Racionais, Irracionais e Reais">
+      <!-- Fundo Geral: Reais R -->
+      <rect x="20" y="20" width="640" height="300" rx="14" fill="rgba(0, 0, 0, 0.45)" stroke="var(--link-color, #00ff66)" stroke-width="2.5" />
+      <text x="45" y="55" fill="var(--link-color, #00ff66)" font-family="'Press Start 2P', monospace" font-size="14" font-weight="bold">ℝ (Números Reais)</text>
+
+      <!-- Região dos Irracionais I (lado direito) -->
+      <rect x="420" y="70" width="220" height="230" rx="10" fill="rgba(139, 92, 246, 0.12)" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6,4" />
+      <text x="435" y="100" fill="#a78bfa" font-family="'Press Start 2P', monospace" font-size="11" font-weight="bold">𝕀 = ℝ \ ℚ (Irracionais)</text>
+      <text x="450" y="140" fill="#c4b5fd" font-size="14">√2 ≈ 1,4142...</text>
+      <text x="450" y="175" fill="#c4b5fd" font-size="14">π ≈ 3,14159...</text>
+      <text x="450" y="210" fill="#c4b5fd" font-size="14">e ≈ 2,71828...</text>
+      <text x="450" y="245" fill="#c4b5fd" font-size="14">ϕ = (1+√5)/2</text>
+      <text x="450" y="280" fill="#c4b5fd" font-size="14">∛5, ln(2)</text>
+
+      <!-- Conjunto dos Racionais Q (lado esquerdo) -->
+      <rect x="40" y="70" width="360" height="230" rx="10" fill="rgba(59, 130, 246, 0.1)" stroke="#3b82f6" stroke-width="2" />
+      <text x="55" y="100" fill="#60a5fa" font-family="'Press Start 2P', monospace" font-size="11" font-weight="bold">ℚ (Racionais)</text>
+      <text x="60" y="130" fill="#93c5fd" font-size="13">-3/4 = -0,75</text>
+      <text x="60" y="155" fill="#93c5fd" font-size="13">0,333... = 1/3</text>
+      <text x="60" y="180" fill="#93c5fd" font-size="13">2,1666... = 13/6</text>
+
+      <!-- Conjunto dos Inteiros Z (aninhado em Q) -->
+      <rect x="180" y="110" width="205" height="175" rx="8" fill="rgba(16, 185, 129, 0.12)" stroke="#10b981" stroke-width="2" />
+      <text x="195" y="135" fill="#34d399" font-family="'Press Start 2P', monospace" font-size="10" font-weight="bold">ℤ (Inteiros)</text>
+      <text x="195" y="165" fill="#6ee7b7" font-size="13">-1, -7, -42</text>
+
+      <!-- Conjunto dos Naturais N (aninhado em Z) -->
+      <rect x="230" y="180" width="140" height="90" rx="6" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="2" />
+      <text x="245" y="205" fill="#fbbf24" font-family="'Press Start 2P', monospace" font-size="9" font-weight="bold">ℕ (Naturais)</text>
+      <text x="250" y="235" fill="#fde68a" font-size="13">0, 1, 2, 7, 100</text>
+    </svg>
+    <p class="legenda-figura">
+      Figura 1: Estrutura canônica de inclusão dos conjuntos numéricos: @\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}@ com partição disjunta @\mathbb{R} = \mathbb{Q} \cup \mathbb{I}@ e @\mathbb{Q} \cap \mathbb{I} = \emptyset@.
+    </p>
+  </div>
+
+  <!-- ===============================================================
+       PARTE 2: INCOMENSURABILIDADE E OS NÚMEROS IRRACIONAIS
+       =============================================================== -->
+  <h2>2. Incomensurabilidade e a Existência dos Irracionais (@\mathbb{I}@)</h2>
+
+  <p>
+    A descoberta pitagórica da incomensurabilidade entre o lado e a diagonal do quadrado é formalizada aritmeticamente através da impossibilidade de expressar raízes de inteiros livres de quadrados sob a forma de frações ordinárias.
+  </p>
+
+  <div class="destaque-box teorema">
+    <h3>Teorema 2.1 (Teorema de Euclides: Irracionalidade de @\sqrt{2}@)</h3>
+    <p>
+      O número real positivo @x@ que satisfaz @x^2 = 2@ não é um número racional:
+    </p>
+    @@\sqrt{2} \notin \mathbb{Q}@@
+
+    <p><strong>Demonstração Rigorosa por Redução ao Absurdo (Reductio ad Absurdum):</strong></p>
+    <p>
+      <strong>Passo 1 (Hipótese de Contradição):</strong> Suponha, por absurdo, que @\sqrt{2}@ seja racional. Então existem inteiros positivos coprimos @a, b \in \mathbb{Z}^*@ tais que:
+    </p>
+    @@\sqrt{2} = \frac{a}{b} \quad \text{com} \quad \operatorname{mdc}(a, b) = 1@@
+    <p>
+      onde @\operatorname{mdc}(a, b) = 1@ denota que a fração @\frac{a}{b}@ está expressa em sua forma <em>irredutível</em> (isto é, @a@ e @b@ não compartilham fatores primos comuns).
+    </p>
+
+    <p>
+      <strong>Passo 2 (Elevação ao quadrado e paridade de @a@):</strong> Elevando ambos os membros da igualdade ao quadrado:
+    </p>
+    @@2 = \frac{a^2}{b^2} \implies a^2 = 2b^2@@
+    <p>
+      Como @b \in \mathbb{Z}@, @2b^2@ é um múltiplo inteiro de 2, logo @a^2@ é necessariamente par. Pelo <em>Lema de Euclides</em> (se um número primo @p@ divide @n^2@, então @p@ divide @n@):
+    </p>
+    @@2 \mid a^2 \implies 2 \mid a@@
+    <p>
+      Portanto, existe um inteiro @k \in \mathbb{Z}@ tal que @a = 2k@.
+    </p>
+
+    <p>
+      <strong>Passo 3 (Substituição e paridade de @b@):</strong> Substituindo @a = 2k@ na equação original:
+    </p>
+    @@(2k)^2 = 2b^2 \implies 4k^2 = 2b^2 \implies b^2 = 2k^2@@
+    <p>
+      Pelo mesmo raciocínio, @b^2@ é par, o que acarreta invariavelmente que @b@ também é par:
+    </p>
+    @@2 \mid b^2 \implies 2 \mid b@@
+
+    <p>
+      <strong>Passo 4 (Contradição Lógica e Conclusão):</strong> Provamos que @2 \mid a@ e @2 \mid b@, o que implica diretamente que @2@ é um divisor comum de @a@ e @b@:
+    </p>
+    @@\operatorname{mdc}(a, b) \geq 2@@
+    <p>
+      Isto contradiz frontalmente a premissa fundamental de que a fração era irredutível (@\operatorname{mdc}(a, b) = 1@). Logo, a hipótese de que @\sqrt{2} \in \mathbb{Q}@ é falsa, concluindo-se inevitavelmente que:
+    </p>
+    @@\sqrt{2} \in \mathbb{I} = \mathbb{R} \setminus \mathbb{Q} \quad \blacksquare@@
+  </div>
+
+  <!-- FIGURA 2: CONSTRUÇÃO GEOMÉTRICA DE SQRT(2) NA RETA -->
+  <div class="figura-geometrica">
+    <svg viewBox="0 0 680 260" width="640" height="245" role="img" aria-label="Construção geométrica com compasso de raiz quadrada de 2 na reta numérica a partir do triângulo retângulo unitário">
+      <!-- Linha da reta real -->
+      <line x1="40" y1="200" x2="640" y2="200" stroke="var(--main-text-color, #e0e6ed)" stroke-width="2.5" />
+      <polygon points="635,195 645,200 635,205" fill="var(--main-text-color, #e0e6ed)" />
+      <text x="640" y="225" fill="var(--main-text-color, #e0e6ed)" font-size="14" font-weight="bold">ℝ</text>
+
+      <!-- Marcas da régua -->
+      <!-- Origem 0: x = 120 -->
+      <line x1="120" y1="192" x2="120" y2="208" stroke="var(--main-text-color, #e0e6ed)" stroke-width="2" />
+      <text x="115" y="228" fill="var(--main-text-color, #e0e6ed)" font-size="15" font-weight="bold">0</text>
+
+      <!-- Ponto 1: x = 280 (delta = 160 px = 1 unidade) -->
+      <line x1="280" y1="192" x2="280" y2="208" stroke="var(--main-text-color, #e0e6ed)" stroke-width="2" />
+      <text x="275" y="228" fill="var(--main-text-color, #e0e6ed)" font-size="15" font-weight="bold">1</text>
+
+      <!-- Ponto sqrt(2) ≈ 1.414: x = 120 + 160 * 1.4142 = 346.3 px -->
+      <line x1="346" y1="190" x2="346" y2="210" stroke="#10b981" stroke-width="3" />
+      <circle cx="346" cy="200" r="5" fill="#10b981" />
+      <text x="325" y="235" fill="#10b981" font-size="15" font-weight="bold">√2 ≈ 1,414</text>
+
+      <!-- Ponto 2: x = 440 -->
+      <line x1="440" y1="192" x2="440" y2="208" stroke="var(--main-text-color, #e0e6ed)" stroke-width="2" />
+      <text x="435" y="228" fill="var(--main-text-color, #e0e6ed)" font-size="15" font-weight="bold">2</text>
+
+      <!-- Triângulo Retângulo Unitário sobre [0, 1] -->
+      <!-- Cateto base: de (120, 200) a (280, 200) -->
+      <!-- Cateto vertical: de (280, 200) a (280, 40) (altura = 160 px = 1 un) -->
+      <line x1="280" y1="200" x2="280" y2="40" stroke="#3b82f6" stroke-width="2.5" />
+      <text x="290" y="125" fill="#3b82f6" font-size="14" font-weight="bold">1 u.c.</text>
+
+      <!-- Ângulo reto -->
+      <rect x="265" y="185" width="15" height="15" fill="none" stroke="#3b82f6" stroke-width="1.5" />
+      <circle cx="272" cy="192" r="2" fill="#3b82f6" />
+
+      <!-- Hipotenusa: de (120, 200) a (280, 40) -->
+      <line x1="120" y1="200" x2="280" y2="40" stroke="#f59e0b" stroke-width="3" />
+      <text x="160" y="110" fill="#f59e0b" font-size="14" font-weight="bold">d = √2 u.c.</text>
+
+      <!-- Arco de compasso pontilhado ligando (280, 40) ao ponto (346, 200) com centro em (120, 200) -->
+      <!-- Raio R = 160 * sqrt(2) ≈ 226.27 px -->
+      <path d="M 280 40 A 226.27 226.27 0 0 1 346 200" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="6,4" />
+
+      <!-- Raio pontilhado indicando o compasso -->
+      <line x1="120" y1="200" x2="346" y2="200" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3,3" />
+      <text x="180" y="190" fill="#a7f3d0" font-size="12">abertura do compasso = √2</text>
+    </svg>
+    <p class="legenda-figura">
+      Figura 2: Projeção euclidiana de @\sqrt{2}@ na reta numérica: a hipotenusa do triângulo retângulo isósceles unitário @(1^2 + 1^2 = 2)@ rebatida via compasso com centro na origem.
+    </p>
+  </div>
+
+  <div class="destaque-box teorema">
+    <h3>Teorema 2.2 (Generalização da Irracionalidade das Raízes)</h3>
+    <p>
+      Seja @n \in \mathbb{N}^*@ um número natural. O número @\sqrt[k]{n}@ (com @k \geq 2@) é racional se, e somente se, @n@ for uma potência @k@-ésima perfeita de um inteiro. Em particular:
+    </p>
+    @@\sqrt{n} \in \mathbb{Q} \iff \exists m \in \mathbb{N} \text{ tal que } n = m^2@@
+    <p>
+      Se @n@ não é um quadrado perfeito (@n \in \{2, 3, 5, 6, 7, 8, 10, 11, \ldots\}@), então @\sqrt{n}@ é estritamente irracional.
+    </p>
+  </div>
+
+  <div class="destaque-box definicao">
+    <h3>Definição 2.1 (Irracionais Algébricos versus Transcendentes)</h3>
+    <p>
+      O conjunto dos números irracionais @\mathbb{I}@ particiona-se em duas naturezas analíticas distintas:
+    </p>
+    <ul>
+      <li>
+        <strong>Irracionais Algébricos:</strong> São números irracionais que constituem raiz de um polinômio não nulo de coeficientes inteiros:
+        @@P(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 = 0 \quad (a_i \in \mathbb{Z}, a_n \neq 0)@@
+        <em>Exemplos:</em> @\sqrt{2}@ (raiz de @x^2 - 2 = 0@); a Razão Áurea @\phi = \frac{1 + \sqrt{5}}{2}@ (raiz de @x^2 - x - 1 = 0@); e @\sqrt[3]{5} - 1@ (raiz de @(x+1)^3 - 5 = 0@).
+      </li>
+      <li>
+        <strong>Irracionais Transcendentes:</strong> Números que <em>não</em> são raiz de nenhuma equação algébrica polinomial com coeficientes inteiros ou racionais.
+        <br><em>Exemplos Fundamentais:</em>
+        <ul>
+          <li>A constante circular @\pi \approx 3{,}14159265\dots@ (razão perímetro/diâmetro, transcendência provada por Ferdinand von Lindemann em 1882);</li>
+          <li>A base dos logaritmos naturais @e \approx 2{,}71828182\dots@ (provada transcendente por Charles Hermite em 1873);</li>
+          <li>A constante de Euler-Mascheroni @\gamma@ e números construídos como o número de Liouville @\sum_{n=1}^\infty 10^{-n!}@.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="destaque-box teorema">
+    <h3>Teorema 2.3 (Álgebra dos Irracionais e Propriedades Operatórias Mistas)</h3>
+    <ol>
+      <li>
+        <strong>Não-Fechamento de @\mathbb{I}@:</strong> O conjunto dos irracionais <em>não</em> é fechado em relação a nenhuma das quatro operações fundamentais. A soma, subtração, produto ou quociente de dois números irracionais pode resultar em um número racional:
+        @@\sqrt{2} + (-\sqrt{2}) = 0 \in \mathbb{Q}, \quad (3 - \sqrt{5}) + \sqrt{5} = 3 \in \mathbb{Q}, \quad \sqrt{2} \cdot \sqrt{8} = \sqrt{16} = 4 \in \mathbb{Q}, \quad \frac{\sqrt{18}}{\sqrt{2}} = \sqrt{9} = 3 \in \mathbb{Q}@@
+      </li>
+      <li>
+        <strong>Operações Mistas (Racional não nulo com Irracional):</strong> Sejam @q \in \mathbb{Q}@ com @q \neq 0@ e @\alpha \in \mathbb{I}@. Então:
+        @@(q + \alpha) \in \mathbb{I} \quad \text{e} \quad (q \cdot \alpha) \in \mathbb{I}@@
+        <em>Demonstração da Adição:</em> Se @q + \alpha = r \in \mathbb{Q}@, teríamos @\alpha = r - q@. Como @\mathbb{Q}@ é fechado na subtração, teríamos @\alpha \in \mathbb{Q}@, contradizendo @\alpha \in \mathbb{I}@. Logo, @q + \alpha \in \mathbb{I}@. @\blacksquare@
+      </li>
+    </ol>
+  </div>
+
+  <!-- ===============================================================
+       PARTE 3: O CORPO DOS REAIS E O AXIOMA DA COMPLETEZA
+       =============================================================== -->
+  <h2>3. O Corpo dos Números Reais (@\mathbb{R}@) e o Axioma da Completeza</h2>
+
+  <p>
+    Embora @\mathbb{Q}@ seja denso (entre dois racionais há sempre outro racional), ele possui "lacunas" ou "buracos". O conjunto dos números reais @\mathbb{R}@ é formalmente a extensão de @\mathbb{Q}@ que preenche todas as lacunas da reta, tornando o contínuo geométrico e analítico completo.
+  </p>
+
+  <div class="destaque-box definicao">
+    <h3>Definição 3.1 (Majorante, Minorante, Supremo e Ínfimo)</h3>
+    <p>
+      Seja @S \subset \mathbb{R}@ um subconjunto não vazio de números reais:
+    </p>
+    <ul>
+      <li>Dizemos que @S@ é <strong>limitado superiormente</strong> se existe @M \in \mathbb{R}@ tal que @x \leq M@ para todo @x \in S@. O número @M@ é dito <em>majorante</em> (ou cota superior) de @S@.</li>
+      <li>Dizemos que @S@ é <strong>limitado inferiormente</strong> se existe @m \in \mathbb{R}@ tal que @x \geq m@ para todo @x \in S@. O número @m@ é dito <em>minorante</em> (ou cota inferior) de @S@.</li>
+      <li>
+        O <strong>Supremo</strong> de @S@, denotado por @\sup(S)@, é a <em>menor das cotas superiores</em> de @S@. Ele satisfaz:
+        <br>(i) @\forall x \in S \implies x \leq \sup(S)@; e
+        <br>(ii) @\forall \varepsilon > 0, \; \exists x_0 \in S \text{ tal que } x_0 > \sup(S) - \varepsilon@.
+      </li>
+      <li>
+        O <strong>Ínfimo</strong> de @S@, denotado por @\inf(S)@, é a <em>maior das cotas inferiores</em> de @S@.
+      </li>
+      <li>Se @\sup(S) \in S@, o supremo coincide com o <strong>máximo</strong> de @S@ (@\max(S)@). Se @\inf(S) \in S@, o ínfimo coincide com o <strong>mínimo</strong> de @S@ (@\min(S)@).</li>
+    </ul>
+  </div>
+
+  <div class="destaque-box teorema">
+    <h3>Teorema 3.1 (O Axioma da Completeza / Princípio do Supremo de Dedekind)</h3>
+    <p>
+      Todo subconjunto não vazio @S \subset \mathbb{R}@ que é limitado superiormente possui, obrigatoriamente, supremo em @\mathbb{R}@:
+    </p>
+    @@\emptyset \neq S \subset \mathbb{R} \quad \text{e} \quad \exists M \in \mathbb{R} \; (\forall x \in S, x \leq M) \implies \exists s = \sup(S) \in \mathbb{R}@@
+
+    <p><strong>A Falha Estrutural dos Racionais:</strong></p>
+    <p>
+      Em @\mathbb{Q}@, o Axioma do Supremo <em>falha</em>. Considere o conjunto:
+    </p>
+    @@A = \{x \in \mathbb{Q} \mid x > 0 \text{ e } x^2 < 2\}@@
+    <p>
+      O conjunto @A@ é limitado superiormente em @\mathbb{Q}@ (por exemplo, por @1{,}5@ ou @2@). Contudo, a menor das cotas superiores seria um número @s@ tal que @s^2 = 2@. Como provamos no Teorema 2.1 que @\sqrt{2} \notin \mathbb{Q}@, o conjunto @A@ <strong>não possui supremo em @\mathbb{Q}@</strong>! Em @\mathbb{R}@, todavia, @\sup(A) = \sqrt{2} \in \mathbb{R}@ existe perfeitamente.
+    </p>
+  </div>
+
+  <div class="destaque-box teorema">
+    <h3>Teorema 3.2 (Teorema da Densidade de @\mathbb{Q}@ e de @\mathbb{I}@ em @\mathbb{R}@)</h3>
+    <p>
+      Entre quaisquer dois números reais distintos @a, b \in \mathbb{R}@ com @a < b@, existem:
+    </p>
+    <ol>
+      <li>Infinitos números racionais (@q \in \mathbb{Q}@ tal que @a < q < b@);</li>
+      <li>Infinitos números irracionais (@\alpha \in \mathbb{I}@ tal que @a < \alpha < b@).</li>
+    </ol>
+    <p><strong>Demonstração Construtiva (Esboço):</strong></p>
+    <p>
+      Como @b - a > 0@, pela Propriedade Arquimediana existe @n \in \mathbb{N}^*@ tal que @n(b - a) > 1@, ou seja, @\frac{1}{n} < b - a@. Tomando @m = \lfloor n a \rfloor + 1@, temos @m - 1 \leq na < m@, logo @a < \frac{m}{n} \leq a + \frac{1}{n} < a + (b - a) = b@. Assim, @q = \frac{m}{n} \in \mathbb{Q}@ satisfaz @a < q < b@.
+      <br>Para o caso irracional, considere @a' = a - \sqrt{2}@ e @b' = b - \sqrt{2}@; pelo resultado anterior existe @q' \in \mathbb{Q}@ tal que @a' < q' < b'@, donde @a < q' + \sqrt{2} < b@, sendo @\alpha = q' + \sqrt{2} \in \mathbb{I}@ pelo Teorema 2.3. @\blacksquare@
+    </p>
+  </div>
+
+  <!-- ===============================================================
+       PARTE 4: TOPOLOGIA ELEMENTAR DOS INTERVALOS NA RETA REAL
+       =============================================================== -->
+  <h2>4. Topologia Elementar dos Intervalos na Reta Real</h2>
+
+  <p>
+    A reta real @\mathbb{R}@ é munida naturalmente de uma estrutura métrica dada pela distância euclidiana unidimensional @d(x, y) = |x - y|@. A partir dessa métrica, desenvolve-se a topologia elementar que fundamenta a teoria de intervalos e o cálculo diferencial e integral.
+  </p>
+
+  <div class="destaque-box definicao">
+    <h3>Definição 4.1 (Vizinhança Esférica / Bola Aberta)</h3>
+    <p>
+      Dado um ponto @x_0 \in \mathbb{R}@ e um raio @\varepsilon > 0@, a <strong>vizinhança de raio @\varepsilon@</strong> em torno de @x_0@ (denotada por @V_\varepsilon(x_0)@ ou @B_\varepsilon(x_0)@) é o intervalo aberto:
+    </p>
+    @@V_\varepsilon(x_0) = \{x \in \mathbb{R} \mid |x - x_0| < \varepsilon\} = (x_0 - \varepsilon, \; x_0 + \varepsilon)@@
+  </div>
+
+  <div class="destaque-box definicao">
+    <h3>Definição 4.2 (Classificação Topológica de Pontos e Conjuntos)</h3>
+    <p>Seja @X \subseteq \mathbb{R}@ um subconjunto e @p \in \mathbb{R}@:</p>
+    <ul>
+      <li><strong>Ponto Interior:</strong> @p \in X@ é ponto interior de @X@ se existe @\varepsilon > 0@ tal que @V_\varepsilon(p) \subseteq X@. O conjunto de todos os pontos interiores é o <em>interior</em> de @X@, denotado por @\operatorname{int}(X)@ ou @X^\circ@.</li>
+      <li><strong>Conjunto Aberto:</strong> Um conjunto @A \subseteq \mathbb{R}@ é <em>aberto</em> se todos os seus pontos são pontos interiores (@\operatorname{int}(A) = A@).</li>
+      <li><strong>Conjunto Fechado:</strong> Um conjunto @F \subseteq \mathbb{R}@ é <em>fechado</em> se o seu complementar @\mathbb{R} \setminus F@ for um conjunto aberto. Equivalentemente, @F@ contém todos os seus pontos de fronteira e pontos de acumulação.</li>
+      <li><strong>Ponto de Fronteira:</strong> @p@ é ponto de fronteira de @X@ se toda vizinhança @V_\varepsilon(p)@ intersecta tanto @X@ quanto o complementar @\mathbb{R} \setminus X@. A fronteira de @X@ é denotada por @\partial X@.</li>
+    </ul>
+  </div>
+
+  <div class="destaque-box definicao">
+    <h3>Definição 4.3 (Tipologia Canônica dos Intervalos Reais)</h3>
+    <p>
+      Um subconjunto @I \subseteq \mathbb{R}@ é denominado <strong>intervalo</strong> se, para quaisquer @x, y \in I@ e todo @z \in \mathbb{R}@ tal que @x < z < y@, tem-se obrigatoriamente @z \in I@ (propriedade da conexidade de @\mathbb{R}@).
+    </p>
+  </div>
+
+  <div class="tabela-container">
+    <table class="tabela-comparativa">
+      <thead>
+        <tr>
+          <th>Classificação</th>
+          <th>Notação de Intervalo</th>
+          <th>Notação de Conjunto</th>
+          <th>Topologia</th>
+          <th>Comprimento (@\ell@)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Aberto Limitado</strong></td>
+          <td>@(a, b) = {]}a, b{[}@</td>
+          <td>@\{x \in \mathbb{R} \mid a < x < b\}@</td>
+          <td>Aberto, não fechado</td>
+          <td>@b - a@</td>
+        </tr>
+        <tr>
+          <td><strong>Fechado Limitado (Compacto)</strong></td>
+          <td>@[a, b]@</td>
+          <td>@\{x \in \mathbb{R} \mid a \leq x \leq b\}@</td>
+          <td>Fechado e limitado</td>
+          <td>@b - a@</td>
+        </tr>
+        <tr>
+          <td><strong>Semiaberto à Direita</strong></td>
+          <td>@[a, b) = [a, b{[}@</td>
+          <td>@\{x \in \mathbb{R} \mid a \leq x < b\}@</td>
+          <td>Nem aberto, nem fechado</td>
+          <td>@b - a@</td>
+        </tr>
+        <tr>
+          <td><strong>Semiaberto à Esquerda</strong></td>
+          <td>@(a, b] = {]}a, b]@</td>
+          <td>@\{x \in \mathbb{R} \mid a < x \leq b\}@</td>
+          <td>Nem aberto, nem fechado</td>
+          <td>@b - a@</td>
+        </tr>
+        <tr>
+          <td><strong>Semirreta Fechada à Esquerda</strong></td>
+          <td>@[a, +\infty)@</td>
+          <td>@\{x \in \mathbb{R} \mid x \geq a\}@</td>
+          <td>Fechado, ilimitado</td>
+          <td>@+\infty@</td>
+        </tr>
+        <tr>
+          <td><strong>Semirreta Aberta à Esquerda</strong></td>
+          <td>@(a, +\infty)@</td>
+          <td>@\{x \in \mathbb{R} \mid x > a\}@</td>
+          <td>Aberto, ilimitado</td>
+          <td>@+\infty@</td>
+        </tr>
+        <tr>
+          <td><strong>Semirreta Fechada à Direita</strong></td>
+          <td>@(-\infty, b]@</td>
+          <td>@\{x \in \mathbb{R} \mid x \leq b\}@</td>
+          <td>Fechado, ilimitado</td>
+          <td>@+\infty@</td>
+        </tr>
+        <tr>
+          <td><strong>Semirreta Aberta à Direita</strong></td>
+          <td>@(-\infty, b)@</td>
+          <td>@\{x \in \mathbb{R} \mid x < b\}@</td>
+          <td>Aberto, ilimitado</td>
+          <td>@+\infty@</td>
+        </tr>
+        <tr>
+          <td><strong>Reta Inteira</strong></td>
+          <td>@(-\infty, +\infty) = \mathbb{R}@</td>
+          <td>@\mathbb{R}@</td>
+          <td>Aberto e Fechado (clopen)</td>
+          <td>@+\infty@</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FIGURA 3: TOPOLOGIA DE INTERVALOS NA RETA -->
+  <div class="figura-geometrica">
+    <svg viewBox="0 0 680 260" width="640" height="245" role="img" aria-label="Representação gráfica de intervalos na reta real demonstrando convenções de bolinhas abertas e fechadas">
+      <!-- RETA 1: Intervalo Fechado [a, b] = [-2, 3] -->
+      <line x1="40" y1="50" x2="640" y2="50" stroke="var(--main-text-color, #e0e6ed)" stroke-width="1.8" />
+      <polygon points="635,46 645,50 635,54" fill="var(--main-text-color, #e0e6ed)" />
+      <!-- Segmento destacado [-2, 3] de x=180 a x=440 -->
+      <line x1="180" y1="50" x2="440" y2="50" stroke="#10b981" stroke-width="5" />
+      <!-- Círculos cheios (fechado) -->
+      <circle cx="180" cy="50" r="6" fill="#10b981" stroke="var(--main-text-color, #fff)" stroke-width="1.5" />
+      <circle cx="440" cy="50" r="6" fill="#10b981" stroke="var(--main-text-color, #fff)" stroke-width="1.5" />
+      <text x="172" y="75" fill="#10b981" font-size="14" font-weight="bold">a</text>
+      <text x="435" y="75" fill="#10b981" font-size="14" font-weight="bold">b</text>
+      <text x="500" y="55" fill="#10b981" font-family="'Press Start 2P', monospace" font-size="9">[a, b] (fechado)</text>
+
+      <!-- RETA 2: Intervalo Aberto (c, d) -->
+      <line x1="40" y1="130" x2="640" y2="130" stroke="var(--main-text-color, #e0e6ed)" stroke-width="1.8" />
+      <polygon points="635,126 645,130 635,134" fill="var(--main-text-color, #e0e6ed)" />
+      <!-- Segmento destacado (c, d) de x=220 a x=480 -->
+      <line x1="220" y1="130" x2="480" y2="130" stroke="#3b82f6" stroke-width="5" />
+      <!-- Círculos vazados (aberto) -->
+      <circle cx="220" cy="130" r="6" fill="var(--bg-color, #0a0e14)" stroke="#3b82f6" stroke-width="2.5" />
+      <circle cx="480" cy="130" r="6" fill="var(--bg-color, #0a0e14)" stroke="#3b82f6" stroke-width="2.5" />
+      <text x="214" y="155" fill="#3b82f6" font-size="14" font-weight="bold">c</text>
+      <text x="475" y="155" fill="#3b82f6" font-size="14" font-weight="bold">d</text>
+      <text x="500" y="135" fill="#3b82f6" font-family="'Press Start 2P', monospace" font-size="9">(c, d) (aberto)</text>
+
+      <!-- RETA 3: Semiaberto [e, f) -->
+      <line x1="40" y1="210" x2="640" y2="210" stroke="var(--main-text-color, #e0e6ed)" stroke-width="1.8" />
+      <polygon points="635,206 645,210 635,214" fill="var(--main-text-color, #e0e6ed)" />
+      <!-- Segmento destacado [e, f) de x=150 a x=390 -->
+      <line x1="150" y1="210" x2="390" y2="210" stroke="#f59e0b" stroke-width="5" />
+      <!-- Círculo cheio à esquerda, vazado à direita -->
+      <circle cx="150" cy="210" r="6" fill="#f59e0b" stroke="var(--main-text-color, #fff)" stroke-width="1.5" />
+      <circle cx="390" cy="210" r="6" fill="var(--bg-color, #0a0e14)" stroke="#f59e0b" stroke-width="2.5" />
+      <text x="144" y="235" fill="#f59e0b" font-size="14" font-weight="bold">e</text>
+      <text x="385" y="235" fill="#f59e0b" font-size="14" font-weight="bold">f</text>
+      <text x="500" y="215" fill="#f59e0b" font-family="'Press Start 2P', monospace" font-size="9">[e, f) (semiaberto)</text>
+    </svg>
+    <p class="legenda-figura">
+      Figura 3: Convenções gráficas na reta real: bolinha preenchida denota inclusão da fronteira (@\leq@ ou @\geq@); bolinha vazada denota exclusão da fronteira (@<@ ou @>@).
+    </p>
+  </div>
+
+  <!-- ===============================================================
+       PARTE 5: EXEMPLOS RESOLVIDOS ANALÍTICOS (PADRÃO FME & OBMEP)
+       =============================================================== -->
+  <h2>5. Exemplos Resolvidos Analíticos</h2>
+
+  <!-- EXEMPLO 1 -->
+  <div class="exemplo-resolvido">
+    <h3>Exemplo 5.1 (Dedução de Fração Geratriz de Dízima Composta via Séries e Álgebra)</h3>
+    <p>
+      Determine a fração geratriz irredutível da dízima periódica composta @x = 2{,}13444\dots = 2{,}13\overline{4}@ utilizando:
+      <br><strong>(a)</strong> O método algébrico de potências de 10;
+      <br><strong>(b)</strong> O limite da série geométrica infinita associada.
+    </p>
+
+    <h4>Solução Analítica:</h4>
+    <p><strong>(a) Método Algébrico das Potências de 10:</strong></p>
+    <p>Identificamos o antiperíodo de 2 casas (@13@) e o período de 1 casa (@4@). Multiplicamos @x@ pelas potências adequadas para isolar o período:</p>
+    @@\begin{align}
+    100x &= 213{,}4444\dots \quad \text{(desloca a vírgula após o antiperíodo)} \\
+    1000x &= 2134{,}4444\dots \quad \text{(desloca a vírgula após o primeiro período)}
+    \end{align}@@
+    <p>Subtraindo a primeira equação da segunda para eliminar a cauda decimal infinita:</p>
+    @@1000x - 100x = 2134{,}4444\dots - 213{,}4444\dots@@
+    @@900x = 2134 - 213 = 1921 \implies x = \frac{1921}{900}@@
+    <p>Verificando a irredutibilidade: a soma dos algarismos de @1921@ é @1 + 9 + 2 + 1 = 13@ (não divisível por 3), e @1921@ não termina em 0 ou 5, nem é par. Como @900 = 2^2 \cdot 3^2 \cdot 5^2@, temos @\operatorname{mdc}(1921, 900) = 1@.</p>
+
+    <p><strong>(b) Método da Série Geométrica Infinita:</strong></p>
+    <p>Decompomos @x@ na soma da parte inteira e decimal finita com a cauda geométrica:</p>
+    @@x = 2 + \frac{13}{100} + \sum_{k=1}^\infty \frac{4}{10^{2+k}} = \frac{213}{100} + \frac{4}{1000} \sum_{j=0}^\infty \left(\frac{1}{10}\right)^j@@
+    <p>A soma da PG infinita com razão @q = \frac{1}{10}@ é @S = \frac{1}{1 - 1/10} = \frac{1}{9/10} = \frac{10}{9}@:</p>
+    @@x = \frac{213}{100} + \frac{4}{1000} \cdot \frac{10}{9} = \frac{213}{100} + \frac{4}{900} = \frac{213 \cdot 9 + 4}{900} = \frac{1917 + 4}{900} = \frac{1921}{900}@@
+    <p><strong>Resposta:</strong> @x = \frac{1921}{900}@.</p>
+  </div>
+
+  <!-- EXEMPLO 2 -->
+  <div class="exemplo-resolvido">
+    <h3>Exemplo 5.2 (Demonstração Rigorosa de Irracionalidade: @\sqrt{2} + \sqrt{3}@)</h3>
+    <p>
+      Demonstre analiticamente que o número @\alpha = \sqrt{2} + \sqrt{3}@ é irracional (@\alpha \in \mathbb{I}@).
+    </p>
+
+    <h4>Solução Analítica (Redução ao Absurdo):</h4>
+    <p><strong>Passo 1 (Hipótese de contradição):</strong> Suponha, por absurdo, que @\alpha = \sqrt{2} + \sqrt{3} \in \mathbb{Q}@. Como @\sqrt{2} > 0@ e @\sqrt{3} > 0@, certamente @\alpha > 0@.</p>
+    <p><strong>Passo 2 (Elevação ao quadrado):</strong> Elevando ambos os membros ao quadrado:</p>
+    @@\alpha^2 = (\sqrt{2} + \sqrt{3})^2 = 2 + 2\sqrt{2}\sqrt{3} + 3 = 5 + 2\sqrt{6}@@
+    <p><strong>Passo 3 (Isolamento do radical):</strong> Isolando o termo @\sqrt{6}@:</p>
+    @@\alpha^2 - 5 = 2\sqrt{6} \implies \sqrt{6} = \frac{\alpha^2 - 5}{2}@@
+    <p><strong>Passo 4 (Análise de Fechamento):</strong> Como supusemos que @\alpha \in \mathbb{Q}@, e o corpo @\mathbb{Q}@ é fechado sob potenciação, subtração e divisão por racionais não nulos, o membro direito da igualdade satisfaz:</p>
+    @@\frac{\alpha^2 - 5}{2} \in \mathbb{Q} \implies \sqrt{6} \in \mathbb{Q}@@
+    <p><strong>Passo 5 (Contradição):</strong> Todavia, @6 = 2 \cdot 3@ é livre de quadrados perfeitos. Pelo Teorema 2.2, @\sqrt{6}@ é sabidamente irracional (@\sqrt{6} \notin \mathbb{Q}@). Chegamos a uma contradição lógica insustentável (@\text{irracional} = \text{racional}@).</p>
+    <p><strong>Conclusão:</strong> A hipótese de que @\alpha \in \mathbb{Q}@ é falsa. Portanto, @\sqrt{2} + \sqrt{3} \in \mathbb{I}@. @\blacksquare@</p>
+  </div>
+
+  <!-- EXEMPLO 3 -->
+  <div class="exemplo-resolvido">
+    <h3>Exemplo 5.3 (Álgebra de Intervalos Paramétricos)</h3>
+    <p>
+      Sejam os intervalos @A = [2k - 1, \; 3k + 5]@ e @B = (4, \; 12]@ definidos para @k \in \mathbb{R}@.
+      <br><strong>(a)</strong> Determine a condição necessária e suficiente sobre @k@ para que o intervalo @A@ seja não degenerado (isto é, contenha mais de um ponto).
+      <br><strong>(b)</strong> Supondo a condição de (a), determine os valores de @k@ para os quais @A \cap B \neq \emptyset@.
+    </p>
+
+    <h4>Solução Analítica:</h4>
+    <p><strong>(a) Condição de Não Degenerescência de @A@:</strong></p>
+    <p>Para que o intervalo fechado @[2k - 1, 3k + 5]@ seja válido e não degenerado, o extremo inferior deve ser estritamente menor que o extremo superior:</p>
+    @@2k - 1 < 3k + 5 \implies -1 - 5 < 3k - 2k \implies k > -6@@
+
+    <p><strong>(b) Condição para Interseção Não Vazia (@A \cap B \neq \emptyset@):</strong></p>
+    <p>Para dois intervalos @A = [a_1, a_2]@ e @B = (b_1, b_2]@ terem interseção não vazia na reta real, é necessário e suficiente que:</p>
+    @@a_1 \leq b_2 \quad \text{e} \quad a_2 > b_1@@
+    <p>Substituindo os valores numéricos e expressões:</p>
+    <ol>
+      <li>
+        @a_1 \leq b_2 \implies 2k - 1 \leq 12 \implies 2k \leq 13 \implies k \leq \frac{13}{2} = 6{,}5@.
+      </li>
+      <li>
+        @a_2 > b_1 \implies 3k + 5 > 4 \implies 3k > -1 \implies k > -\frac{1}{3}@.
+      </li>
+    </ol>
+    <p>Fazendo a interseção das condições com a condição de existência @k > -6@:</p>
+    @@\left( k > -6 \right) \cap \left( k > -\frac{1}{3} \right) \cap \left( k \leq \frac{13}{2} \right) \iff -\frac{1}{3} < k \leq \frac{13}{2}@@
+    <p><strong>Resposta:</strong> (a) @k > -6@; (b) @k \in \left(-\frac{1}{3}, \; \frac{13}{2}\right]@.</p>
+  </div>
+
+  <!-- EXEMPLO 4 -->
+  <div class="exemplo-resolvido">
+    <h3>Exemplo 5.4 (Determinação Rigorosa de Supremo, Ínfimo, Máximo e Mínimo)</h3>
+    <p>
+      Considere o conjunto @S = \left\{ \frac{2n - 1}{n + 1} \;\middle|\; n \in \mathbb{N}^* = \{1, 2, 3, \ldots\} \right\}@.
+      <br>Determine, com fundamentação lógica, @\inf(S)@, @\sup(S)@, e avalie se existem @\min(S)@ e @\max(S)@.
+    </p>
+
+    <h4>Solução Analítica:</h4>
+    <p><strong>Passo 1 (Reescrita da expressão geral):</strong> Efetuamos a divisão polinomial do termo geral:</p>
+    @@a_n = \frac{2n - 1}{n + 1} = \frac{2(n + 1) - 3}{n + 1} = 2 - \frac{3}{n + 1}@@
+    <p><strong>Passo 2 (Monotonia da sequência):</strong> Conforme @n \geq 1@ cresce, o denominador @n + 1@ cresce estritamente, logo @\frac{3}{n + 1}@ decresce estritamente, o que faz @a_n = 2 - \frac{3}{n + 1}@ ser <strong>estritamente crescente</strong>:</p>
+    @@a_1 = \frac{2(1)-1}{1+1} = \frac{1}{2}, \quad a_2 = \frac{3}{3} = 1, \quad a_3 = \frac{5}{4} = 1{,}25, \quad \dots \quad a_n < 2@@
+
+    <p><strong>Passo 3 (Ínfimo e Mínimo):</strong> Como a sequência é estritamente crescente e começa em @n = 1@, o menor valor é atingido no primeiro elemento:</p>
+    @@a_1 = \frac{1}{2} \leq a_n \quad (\forall n \in \mathbb{N}^*)@@
+    <p>Portanto, @\inf(S) = \frac{1}{2}@. E como @\frac{1}{2} \in S@ (obtido para @n=1@), temos @\min(S) = \frac{1}{2}@.</p>
+
+    <p><strong>Passo 4 (Supremo e Máximo):</strong> Mostraremos que @\sup(S) = 2@.</p>
+    <ol>
+      <li><em>Majorante:</em> Para todo @n \geq 1@, @\frac{3}{n+1} > 0 \implies a_n = 2 - \frac{3}{n+1} < 2@. Logo, @2@ é uma cota superior de @S@.</li>
+      <li><em>Menor das cotas:</em> Dado qualquer @\varepsilon > 0@, queremos encontrar @n \in \mathbb{N}^*@ tal que @a_n > 2 - \varepsilon@:
+        @@2 - \frac{3}{n+1} > 2 - \varepsilon \iff \frac{3}{n+1} < \varepsilon \iff n + 1 > \frac{3}{\varepsilon} \iff n > \frac{3}{\varepsilon} - 1@@
+        Pela Propriedade Arquimediana de @\mathbb{R}@, tal @n@ sempre existe. Logo, @2@ é a menor das cotas superiores: @\sup(S) = 2@.
+      </li>
+    </ol>
+    <p>Existe @\max(S)@? Para que existisse máximo, deveríamos ter @a_n = 2@ para algum @n@: @2 - \frac{3}{n+1} = 2 \implies \frac{3}{n+1} = 0@, o que é impossível para qualquer @n \in \mathbb{N}^*@. Logo, <strong>não existe @\max(S)@</strong>.</p>
+    <p><strong>Resposta:</strong> @\inf(S) = \min(S) = \frac{1}{2}@; @\sup(S) = 2@; @\max(S)@ não existe.</p>
+  </div>
+
+  <!-- ===============================================================
+       PARTE 6: ERROS COMUNS E ARMADILHAS CONCEITUAIS
+       =============================================================== -->
+  <h2>6. Erros Conceituais Frequentes e Armadilhas</h2>
+
+  <div class="erro-comum">
+    <h3>⚠️ Erro Crítico 1: A Simplificação Incorreta @\sqrt{x^2} = x@</h3>
+    <p>
+      Um dos erros mais disseminados no Ensino Médio é supor que @\sqrt{x^2}@ é identicamente igual a @x@ para qualquer número real. A definição formal de raiz quadrada aritmética exige que o radicando e o resultado sejam não negativos.
+    </p>
+    <p><strong>Correção Rigorosa:</strong> Para todo @x \in \mathbb{R}@:</p>
+    @@\sqrt{x^2} = |x| = \begin{cases} x, & \text{se } x \geq 0 \\ -x, & \text{se } x < 0 \end{cases}@@
+    <p><em>Contraexemplo canônico:</em> Se @x = -5@, temos @\sqrt{(-5)^2} = \sqrt{25} = 5 = |-5| \neq -5@.</p>
+  </div>
+
+  <div class="erro-comum">
+    <h3>⚠️ Erro Crítico 2: Supor que a Soma de Irracionais é Sempre Irracional</h3>
+    <p>
+      Muitos estudantes extrapolam indevidamente a propriedade das operações mistas e acreditam que a soma de dois irracionais nunca pode ser racional.
+    </p>
+    <p><strong>Correção Rigorosa:</strong> O conjunto @\mathbb{I}@ não é fechado sob adição. Por exemplo, @x = 4 + \sqrt{7} \in \mathbb{I}@ e @y = 1 - \sqrt{7} \in \mathbb{I}@. Sua soma resulta em:</p>
+    @@x + y = (4 + \sqrt{7}) + (1 - \sqrt{7}) = 5 \in \mathbb{Q}@@
+  </div>
+
+  <div class="erro-comum">
+    <h3>⚠️ Erro Crítico 3: Rejeitar a Identidade Real @0{,}999\dots = 1@</h3>
+    <p>
+      É comum haver resistência intuitiva em aceitar que a dízima periódica @0{,}\overline{9}@ é <em>rigorosamente idêntica</em> ao número inteiro @1@, supondo equivocadamente que ela seria apenas "infinitamente próxima de 1".
+    </p>
+    <p><strong>Demonstração Analítica Formal:</strong></p>
+    @@0{,}999\dots = \sum_{k=1}^\infty \frac{9}{10^k} = \frac{9}{10} \sum_{j=0}^\infty \left(\frac{1}{10}\right)^j = \frac{9}{10} \cdot \frac{1}{1 - 1/10} = \frac{9}{10} \cdot \frac{10}{9} = 1@@
+    <p>No corpo dos números reais @\mathbb{R}@, dois números @a@ e @b@ são iguais se, e somente se, não existe nenhum número real entre eles. Como @|1 - 0{,}999\dots| < \varepsilon@ para todo @\varepsilon > 0@, conclui-se que @0{,}999\dots \equiv 1@.</p>
+  </div>
+
+  <!-- ===============================================================
+       PARTE 7: EXERCÍCIOS PROPOSTOS E DESAFIOS OBMEP
+       =============================================================== -->
+  <h2>7. Exercícios Propostos e Desafios de Nível OBMEP</h2>
+
+  <ol class="lista-exercicios">
+
+    <!-- EXERCÍCIO 1 -->
+    <li>
+      <strong>(Classificação e Pertinência em Conjuntos Numéricos)</strong>
+      Considere o conjunto de números reais:
+      @@S = \left\{ -4, \; \sqrt{\frac{49}{4}}, \; 0{,}121212\dots, \; \sqrt{8}, \; \pi, \; 1 - \sqrt{2}, \; \frac{\sqrt{18}}{\sqrt{2}}, \; 0 \right\}@@
+      Determine formalmente quais elementos de @S@ pertencem a cada um dos seguintes conjuntos:
+      <br><strong>(a)</strong> @\mathbb{N}@;
+      <br><strong>(b)</strong> @\mathbb{Z} \setminus \mathbb{N}@;
+      <br><strong>(c)</strong> @\mathbb{Q} \setminus \mathbb{Z}@;
+      <br><strong>(d)</strong> @\mathbb{R} \setminus \mathbb{Q}@.
+      <details class="solucao-exercicio">
+        <summary>Ver Solução Comentada</summary>
+        <div class="conteudo-solucao">
+          <p>Simplificamos previamente cada elemento numérico de @S@:</p>
+          <ul>
+            <li>@-4 \in \mathbb{Z}@;</li>
+            <li>@\sqrt{\frac{49}{4}} = \frac{7}{2} = 3{,}5 \in \mathbb{Q}@;</li>
+            <li>@0{,}121212\dots = \frac{12}{99} = \frac{4}{33} \in \mathbb{Q}@;</li>
+            <li>@\sqrt{8} = 2\sqrt{2} \in \mathbb{I}@ (pois 8 não é quadrado perfeito);</li>
+            <li>@\pi \in \mathbb{I}@ (transcendente);</li>
+            <li>@1 - \sqrt{2} \in \mathbb{I}@ (operação mista de racional com irracional);</li>
+            <li>@\frac{\sqrt{18}}{\sqrt{2}} = \sqrt{\frac{18}{2}} = \sqrt{9} = 3 \in \mathbb{N}@;</li>
+            <li>@0 \in \mathbb{N}@.</li>
+          </ul>
+          <p><strong>Respostas:</strong></p>
+          <p><strong>(a)</strong> @S \cap \mathbb{N} = \{0, \; 3\}@;</p>
+          <p><strong>(b)</strong> @S \cap (\mathbb{Z} \setminus \mathbb{N}) = \{-4\}@;</p>
+          <p><strong>(c)</strong> @S \cap (\mathbb{Q} \setminus \mathbb{Z}) = \left\{\frac{7}{2}, \; \frac{4}{33}\right\}@;</p>
+          <p><strong>(d)</strong> @S \cap (\mathbb{R} \setminus \mathbb{Q}) = \{2\sqrt{2}, \; \pi, \; 1 - \sqrt{2}\}@.</p>
         </div>
-    </div>
-    <canvas id="matrixCanvas"></canvas>
-    <script src="../../js/matrix-rain.js" defer></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    { left: "@@", right: "@@", display: true },
-                    { left: "\\[", right: "\\]", display: true },
-                    { left: "@", right: "@", display: false },
-                    { left: "\\(", right: "\\)", display: false }
-                ],
-                throwOnError: false
-            });
-        });
-    </script>
-    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
-    <script src="../../js/theme-switcher.js" defer></script>
-    <script src="../../js/print-mode.js" defer></script>
-</body>
+      </details>
+    </li>
 
+    <!-- EXERCÍCIO 2 -->
+    <li>
+      <strong>(Fração Geratriz e Simplificação Exata)</strong>
+      Calcule o valor numérico exato da expressão algébrica:
+      @@E = \frac{0{,}666\dots + 1{,}25}{0{,}8333\dots - 0{,}5}@@
+      apresentando o resultado final na forma de uma fração irredutível @\frac{p}{q}@ com @p, q \in \mathbb{Z}^*@.
+      <details class="solucao-exercicio">
+        <summary>Ver Solução Comentada</summary>
+        <div class="conteudo-solucao">
+          <p>Convertemos cada termo decimal em sua respectiva fração geratriz irredutível:</p>
+          <ol>
+            <li>@0{,}666\dots = \frac{6}{9} = \frac{2}{3}@;</li>
+            <li>@1{,}25 = \frac{125}{100} = \frac{5}{4}@;</li>
+            <li>@0{,}8333\dots = \frac{83 - 8}{90} = \frac{75}{90} = \frac{5}{6}@;</li>
+            <li>@0{,}5 = \frac{1}{2} = \frac{3}{6}@.</li>
+          </ol>
+          <p>Calculamos o numerador de @E@:</p>
+          @@\text{Numerador} = \frac{2}{3} + \frac{5}{4} = \frac{8 + 15}{12} = \frac{23}{12}@@
+          <p>Calculamos o denominador de @E@:</p>
+          @@\text{Denominador} = \frac{5}{6} - \frac{3}{6} = \frac{2}{6} = \frac{1}{3} = \frac{4}{12}@@
+          <p>Efetuamos a divisão de frações:</p>
+          @@E = \frac{\frac{23}{12}}{\frac{1}{3}} = \frac{23}{12} \times \frac{3}{1} = \frac{23 \times 1}{4 \times 1} = \frac{23}{4}@@
+          <p><strong>Resposta:</strong> @E = \frac{23}{4}@.</p>
+        </div>
+      </details>
+    </li>
+
+    <!-- EXERCÍCIO 3 -->
+    <li>
+      <strong>(Operações Booleanas com Intervalos Reais)</strong>
+      Dados os intervalos reais @A = [-3, \; 5)@, @B = (1, \; 7]@ e @C = (-\infty, \; 2]@:
+      <br><strong>(a)</strong> Determine @A \cap B@;
+      <br><strong>(b)</strong> Determine @(A \cup B) \setminus C@;
+      <br><strong>(c)</strong> Determine o complementar @C_{\mathbb{R}}(A) = \mathbb{R} \setminus A@.
+      <details class="solucao-exercicio">
+        <summary>Ver Solução Comentada</summary>
+        <div class="conteudo-solucao">
+          <p><strong>(a) @A \cap B@:</strong></p>
+          <p>@A = \{x \in \mathbb{R} \mid -3 \leq x < 5\}@ e @B = \{x \in \mathbb{R} \mid 1 < x \leq 7\}@. A região simultaneamente coberta pelos dois intervalos é @(1, 5)@.</p>
+          <p><strong>(b) @(A \cup B) \setminus C@:</strong></p>
+          <p>Primeiro, calculamos @A \cup B = [-3, 7]@. Como @C = (-\infty, 2]@, remover @C@ de @A \cup B@ equivale a excluir todos os números menores ou iguais a 2:</p>
+          @@[-3, 7] \setminus (-\infty, 2] = (2, 7]@@
+          <p><strong>(c) Complementar @\mathbb{R} \setminus A@:</strong></p>
+          <p>O complementar de @[-3, 5)@ na reta real é a união disjunta das duas semirretas externas:</p>
+          @@\mathbb{R} \setminus [-3, 5) = (-\infty, -3) \cup [5, +\infty)@@
+          <p><strong>Respostas:</strong> (a) @(1, 5)@; (b) @(2, 7]@; (c) @(-\infty, -3) \cup [5, +\infty)@.</p>
+        </div>
+      </details>
+    </li>
+
+    <!-- EXERCÍCIO 4 -->
+    <li>
+      <strong>(Inequação com Módulo e Intervalos)</strong>
+      Determine o conjunto solução em @\mathbb{R}@ da inequação:
+      @@|2x - 5| \leq 7@@
+      Apresente a solução na forma de notação de intervalo e na forma de representação por compreensão.
+      <details class="solucao-exercicio">
+        <summary>Ver Solução Comentada</summary>
+        <div class="conteudo-solucao">
+          <p>Pela propriedade fundamental de desigualdades modulares (@|u| \leq c \iff -c \leq u \leq c@ para @c \geq 0@):</p>
+          @@-7 \leq 2x - 5 \leq 7@@
+          <p>Somamos 5 a todos os membros da desigualdade dupla:</p>
+          @@-7 + 5 \leq 2x \leq 7 + 5 \implies -2 \leq 2x \leq 12@@
+          <p>Dividindo todos os membros por 2 (que é positivo, preservando o sentido das desigualdades):</p>
+          @@-1 \leq x \leq 6@@
+          <p><strong>Resposta:</strong> Intervalo fechado @[-1, 6]@ ou @S = \{x \in \mathbb{R} \mid -1 \leq x \leq 6\}@.</p>
+        </div>
+      </details>
+    </li>
+
+    <!-- EXERCÍCIO 5 -->
+    <li>
+      <strong>(Irracionalidade de Raízes Cúbicas)</strong>
+      Demonstre analiticamente, por redução ao absurdo, que @\sqrt[3]{2}@ é um número irracional (@\sqrt[3]{2} \notin \mathbb{Q}@).
+      <details class="solucao-exercicio">
+        <summary>Ver Solução Comentada</summary>
+        <div class="conteudo-solucao">
+          <p><strong>Hipótese de contradição:</strong> Suponha que @\sqrt[3]{2} = \frac{p}{q}@ com @p, q \in \mathbb{Z}^*@ e @\operatorname{mdc}(p, q) = 1@.</p>
+          <p>Elevando ambos os membros ao cubo:</p>
+          @@2 = \frac{p^3}{q^3} \implies p^3 = 2q^3@@
+          <p>Como @2 \mid 2q^3@, temos que @p^3@ é par. Como 2 é primo, pelo Lema de Euclides temos @2 \mid p@. Logo, @p = 2k@ para algum @k \in \mathbb{Z}@.</p>
+          <p>Substituindo @p = 2k@:</p>
+          @@(2k)^3 = 2q^3 \implies 8k^3 = 2q^3 \implies q^3 = 4k^3 = 2(2k^3)@@
+          <p>Assim, @q^3@ é par, o que implica que @q@ também é par (@2 \mid q@).</p>
+          <p>Chegamos à conclusão de que @2 \mid p@ e @2 \mid q@, contrariando @\operatorname{mdc}(p, q) = 1@. Logo, @\sqrt[3]{2} \in \mathbb{I}@. @\blacksquare@</p>
+        </div>
+      </details>
+    </li>
+
+    <!-- EXERCÍCIO 6 -->
+    <li>
+      <strong>(Supremo e Ínfimo de Conjuntos Alternantes)</strong>
+      Considere o conjunto:
+      @@A = \left\{ (-1)^n + \frac{1}{n} \;\middle|\; n \in \mathbb{N}^* \right\}@@
+      <br><strong>(a)</strong> Liste os quatro primeiros elementos do conjunto para @n = 1, 2, 3, 4@.
+      <br><strong>(b)</strong> Determine @\inf(A)@, @\sup(A)@, @\min(A)@ e @\max(A)@ (se existirem).
+      <details class="solucao-exercicio">
+        <summary>Ver Solução Comentada</summary>
+        <div class="conteudo-solucao">
+          <p><strong>(a) Primeiros quatro elementos:</strong></p>
+          <ul>
+            <li>Para @n = 1@: @(-1)^1 + \frac{1}{1} = -1 + 1 = 0@;</li>
+            <li>Para @n = 2@: @(-1)^2 + \frac{1}{2} = 1 + \frac{1}{2} = \frac{3}{2} = 1{,}5@;</li>
+            <li>Para @n = 3@: @(-1)^3 + \frac{1}{3} = -1 + \frac{1}{3} = -\frac{2}{3} \approx -0{,}667@;</li>
+            <li>Para @n = 4@: @(-1)^4 + \frac{1}{4} = 1 + \frac{1}{4} = \frac{5}{4} = 1{,}25@.</li>
+          </ul>
+          <p><strong>(b) Supremo e Ínfimo:</strong></p>
+          <p>Separamos o conjunto em termos pares e ímpares:</p>
+          <ul>
+            <li>Para @n@ par (@n = 2k@): @x_{2k} = 1 + \frac{1}{2k}@. Esta subsequência é decrescente e seu valor máximo ocorre em @k = 1@ (@n = 2@), sendo @\frac{3}{2}@. Para todo @n@, @x_n \leq \frac{3}{2}@. Logo, @\sup(A) = \frac{3}{2}@ e, como @\frac{3}{2} \in A@, @\max(A) = \frac{3}{2}@.</li>
+            <li>Para @n@ ímpar (@n = 2k - 1@): @x_{2k-1} = -1 + \frac{1}{2k-1}@. Esta subsequência decresce para @-1@ conforme @k \to \infty@, mas @-1 + \frac{1}{2k-1} > -1@ para todo @k@ finito. Logo, @-1@ é cota inferior. Como @\lim_{k \to \infty} x_{2k-1} = -1@, temos @\inf(A) = -1@. Não existe elemento em @A@ igual a @-1@, portanto @\min(A)@ não existe.</li>
+          </ul>
+          <p><strong>Resposta:</strong> @\sup(A) = \max(A) = \frac{3}{2}@; @\inf(A) = -1@; @\min(A)@ não existe.</p>
+        </div>
+      </details>
+    </li>
+
+    <!-- EXERCÍCIO 7 -->
+    <li>
+      <strong>(Desafio Clássico: Soma Telescópica de Radicais)</strong>
+      Calcule o valor exato da soma finita de radicais irracionais:
+      @@S = \frac{1}{1 + \sqrt{2}} + \frac{1}{\sqrt{2} + \sqrt{3}} + \frac{1}{\sqrt{3} + \sqrt{4}} + \cdots + \frac{1}{\sqrt{99} + \sqrt{100}}@@
+      O resultado final @S@ é um número racional ou irracional? Justifique.
+      <details class="solucao-exercicio">
+        <summary>Ver Solução Comentada</summary>
+        <div class="conteudo-solucao">
+          <p>Racionalizamos o termo geral @T_k = \frac{1}{\sqrt{k} + \sqrt{k+1}}@ multiplicando numerador e denominador pelo seu conjugado @\sqrt{k+1} - \sqrt{k}@:</p>
+          @@T_k = \frac{\sqrt{k+1} - \sqrt{k}}{(\sqrt{k+1} + \sqrt{k})(\sqrt{k+1} - \sqrt{k})} = \frac{\sqrt{k+1} - \sqrt{k}}{(k+1) - k} = \sqrt{k+1} - \sqrt{k}@@
+          <p>Expandindo a soma @S = \sum_{k=1}^{99} (\sqrt{k+1} - \sqrt{k})@:</p>
+          @@S = (\sqrt{2} - 1) + (\sqrt{3} - \sqrt{2}) + (\sqrt{4} - \sqrt{3}) + \cdots + (\sqrt{100} - \sqrt{99})@@
+          <p>Observamos o cancelamento telescópico de todos os termos intermediários:</p>
+          @@S = \sqrt{100} - 1 = 10 - 1 = 9@@
+          <p>Como @9 = \frac{9}{1}@, o resultado é um número <strong>natural e estritamente racional</strong> (@S \in \mathbb{N} \subset \mathbb{Q}@), demonstrando de forma espetacular como a soma de 99 números irracionais pode convergir para um número inteiro.</p>
+          <p><strong>Resposta:</strong> @S = 9 \in \mathbb{Q}@.</p>
+        </div>
+      </details>
+    </li>
+
+    <!-- EXERCÍCIO 8 -->
+    <li>
+      <strong>(Propriedade da Densidade Construtiva)</strong>
+      Encontre, de forma explícita e construtiva:
+      <br><strong>(a)</strong> Um número estritamente racional @q \in \mathbb{Q}@ situado no intervalo @(\sqrt{5}, \; \sqrt{6})@;
+      <br><strong>(b)</strong> Um número estritamente irracional @\alpha \in \mathbb{I}@ situado no intervalo @(3{,}14, \; 3{,}15)@.
+      <details class="solucao-exercicio">
+        <summary>Ver Solução Comentada</summary>
+        <div class="conteudo-solucao">
+          <p><strong>(a) Racional em @(\sqrt{5}, \sqrt{6})@:</strong></p>
+          <p>Sabemos que @5 < q^2 < 6@. Testamos decimais simples: @(2{,}3)^2 = 5{,}29@. Como @5 < 5{,}29 < 6@, extraindo a raiz quadrada temos @\sqrt{5} < 2{,}3 < \sqrt{6}@. O número @2{,}3 = \frac{23}{10}@ é estritamente racional.</p>
+          <p><strong>(b) Irracional em @(3{,}14, 3{,}15)@:</strong></p>
+          <p>Sabemos que @\frac{\sqrt{2}}{1000} \approx \frac{1{,}414}{1000} = 0{,}001414\dots \in \mathbb{I}@. Somando ao racional @3{,}141 \in \mathbb{Q}@:</p>
+          @@\alpha = 3{,}141 + \frac{\sqrt{2}}{1000} \approx 3{,}141 + 0{,}001414 = 3{,}142414\dots@@
+          <p>Pelo Teorema 2.3, a soma de um racional não nulo com um irracional é estritamente irracional. E como @3{,}14 < 3{,}1424\dots < 3{,}15@, o número @\alpha@ atende perfeitamente ao enunciado.</p>
+          <p><strong>Resposta:</strong> (a) @q = \frac{23}{10} = 2{,}3@; (b) @\alpha = 3{,}141 + \frac{\sqrt{2}}{1000}@.</p>
+        </div>
+      </details>
+    </li>
+
+    <!-- EXERCÍCIO 9 -->
+    <li>
+      <strong>(Desafio OBMEP Nível 2: Dízima e Fração com Período de Dois Algarismos)</strong>
+      Um número racional positivo @x@ tem representação decimal @0{,}ababb\dots@, ou seja, @x = 0{,}\overline{ab}@ com @a, b \in \{0, 1, 2, \ldots, 9\}@ e @a \neq b@.
+      <br>Sabendo que @x = \frac{1}{n}@ para algum número natural @n \in \mathbb{N}^*@, determine todos os pares ordenados @(a, b)@ possíveis e os respectivos valores de @n@.
+      <details class="solucao-exercicio">
+        <summary>Ver Solução Comentada</summary>
+        <div class="conteudo-solucao">
+          <p>Pela fórmula da fração geratriz de dízima periódica simples:</p>
+          @@x = \frac{\overline{ab}}{99} = \frac{10a + b}{99}@@
+          <p>Como @x = \frac{1}{n}@, temos:</p>
+          @@\frac{10a + b}{99} = \frac{1}{n} \implies (10a + b) \cdot n = 99@@
+          <p>Portanto, o número de dois algarismos @\overline{ab} = 10a + b@ deve ser um divisor natural de 99. Fatorando 99 em fatores primos:</p>
+          @@99 = 3^2 \times 11@@
+          <p>Os divisores naturais de 99 são: @\{1, 3, 9, 11, 33, 99\}@.</p>
+          <p>Avaliamos os candidatos para @\overline{ab}@ (com @a \neq b@ para período de comprimento 2):</p>
+          <ul>
+            <li>Se @\overline{ab} = 01@: @a=0, b=1 \implies a \neq b@. Temos @n = \frac{99}{1} = 99@. @(0{,}0101\dots = 1/99)@.</li>
+            <li>Se @\overline{ab} = 03@: @a=0, b=3 \implies a \neq b@. Temos @n = \frac{99}{3} = 33@. @(0{,}0303\dots = 1/33)@.</li>
+            <li>Se @\overline{ab} = 09@: @a=0, b=9 \implies a \neq b@. Temos @n = \frac{99}{9} = 11@. @(0{,}0909\dots = 1/11)@.</li>
+            <li>Se @\overline{ab} = 11@: aqui @a = b = 1@, o que reduz o período a 1 algarismo (@0{,}111\dots = 0{,}\overline{1}@). Descartado por violar @a \neq b@.</li>
+            <li>Se @\overline{ab} = 33@: @a = b = 3@, descartado por violar @a \neq b@.</li>
+            <li>Se @\overline{ab} = 99@: @a = b = 9@, descartado por violar @a \neq b@.</li>
+          </ul>
+          <p><strong>Resposta:</strong> Os pares válidos são @(0, 1)@ com @n = 99@; @(0, 3)@ com @n = 33@; e @(0, 9)@ com @n = 11@.</p>
+        </div>
+      </details>
+    </li>
+
+    <!-- EXERCÍCIO 10 -->
+    <li>
+      <strong>(Desafio OBMEP Nível 2 / Fase 2: Frações Irredutíveis em Intervalo Unitário)</strong>
+      Quantas frações irredutíveis da forma @\frac{m}{2024}@ pertencem ao intervalo aberto @(0, 1)@?
+      <details class="solucao-exercicio">
+        <summary>Ver Solução Comentada</summary>
+        <div class="conteudo-solucao">
+          <p>Para que @\frac{m}{2024} \in (0, 1)@, devemos ter @1 \leq m \leq 2023@ com @m \in \mathbb{N}@. Para que a fração seja irredutível, é necessário e suficiente que @\operatorname{mdc}(m, 2024) = 1@.</p>
+          <p>A quantidade de inteiros no conjunto @\{1, 2, \dots, 2024\}@ que são primos entre si com 2024 é dada pela <strong>Função Totiente de Euler @\varphi(2024)@</strong>.</p>
+          <p>Fatorando 2024 em fatores primos:</p>
+          @@2024 = 2^3 \times 11 \times 23@@
+          <p>Aplicando a fórmula da função totiente de Euler:</p>
+          @@\varphi(2024) = 2024 \times \left(1 - \frac{1}{2}\right) \times \left(1 - \frac{1}{11}\right) \times \left(1 - \frac{1}{23}\right)@@
+          @@\varphi(2024) = 2024 \times \frac{1}{2} \times \frac{10}{11} \times \frac{22}{23}@@
+          <p>Calculando passo a passo:</p>
+          @@\frac{2024}{2 \times 11 \times 23} = \frac{2024}{506} = 4@@
+          @@\varphi(2024) = 4 \times 1 \times 10 \times 22 = 880@@
+          <p>Como @\operatorname{mdc}(2024, 2024) = 2024 \neq 1@, o valor @m = 2024@ não foi contabilizado, logo todos os 880 coprimos estão estritamente contidos em @\{1, 2, \dots, 2023\}@.</p>
+          <p><strong>Resposta:</strong> Existem exatamente @880@ frações irredutíveis.</p>
+        </div>
+      </details>
+    </li>
+
+    <!-- EXERCÍCIO 11 -->
+    <li>
+      <strong>(Desafio Clássico de Análise: Equação com Irracionais Exponenciais)</strong>
+      Prove que a equação @2^x + 3^x = 5^x@ possui exatamente uma única solução real e determine se essa solução é um número racional ou irracional.
+      <details class="solucao-exercicio">
+        <summary>Ver Solução Comentada</summary>
+        <div class="conteudo-solucao">
+          <p><strong>Passo 1 (Existência e Unicidade):</strong> Dividindo toda a equação por @5^x > 0@:</p>
+          @@\left(\frac{2}{5}\right)^x + \left(\frac{3}{5}\right)^x = 1@@
+          <p>Defina a função @f(x) = \left(\frac{2}{5}\right)^x + \left(\frac{3}{5}\right)^x@. Como as bases @\frac{2}{5} < 1@ e @\frac{3}{5} < 1@ são estritamente menores que 1, as funções exponenciais são estritamente decrescentes em toda a reta real @\mathbb{R}@. A soma de duas funções estritamente decrescentes é estritamente decrescente.</p>
+          <p>Para @x = 1@:</p>
+          @@f(1) = \frac{2}{5} + \frac{3}{5} = \frac{5}{5} = 1@@
+          <p>Como @f@ é estritamente decrescente, ela é injetiva e pode intersectar o valor constante 1 em no máximo um ponto. Portanto, @x = 1@ é a <strong>única solução real</strong>.</p>
+          <p><strong>Passo 2 (Classificação):</strong> A solução encontrada é @x = 1@, que é um número natural e, por conseguinte, estritamente <strong>racional</strong> (@1 = \frac{1}{1} \in \mathbb{Q}@).</p>
+          <p><strong>Resposta:</strong> Solução única @x = 1@, que é um número racional.</p>
+        </div>
+      </details>
+    </li>
+
+    <!-- EXERCÍCIO 12 -->
+    <li>
+      <strong>(Desafio OBMEP Fase 2 / FME: Irracionalidade de @\log_{10}(2)@)</strong>
+      Demonstre rigorosamente por redução ao absurdo que @\log_{10}(2)@ é um número irracional.
+      <details class="solucao-exercicio">
+        <summary>Ver Solução Comentada</summary>
+        <div class="conteudo-solucao">
+          <p><strong>Passo 1 (Hipótese de Contradição):</strong> Suponha, por absurdo, que @\log_{10}(2)@ seja um número racional. Como @10^0 = 1 < 2 < 10 = 10^1@, sabemos que @0 < \log_{10}(2) < 1@. Logo, podemos escrevê-lo como:</p>
+          @@\log_{10}(2) = \frac{p}{q} \quad \text{com} \quad p, q \in \mathbb{N}^* \quad (p < q)@@
+          <p><strong>Passo 2 (Aplicação da Definição de Logaritmo):</strong> Pela definição de logaritmo na base 10:</p>
+          @@10^{p/q} = 2@@
+          <p>Elevando ambos os membros à potência inteira positiva @q@:</p>
+          @@10^p = 2^q@@
+          <p><strong>Passo 3 (Decomposição em Fatores Primos):</strong> Como @10 = 2 \times 5@:</p>
+          @@(2 \times 5)^p = 2^q \implies 2^p \times 5^p = 2^q \implies 5^p = 2^{q - p}@@
+          <p>Como @p < q@, o expoente @q - p@ é um inteiro estritamente positivo (@q - p \in \mathbb{N}^*@).</p>
+          <p><strong>Passo 4 (Contradição com o Teorema Fundamental da Aritmética):</strong></p>
+          <ul>
+            <li>O membro esquerdo @5^p@ é um número ímpar divisível apenas por potências de 5 (termina em 5 para todo @p \geq 1@).</li>
+            <li>O membro direito @2^{q-p}@ é um número estritamente par divisível por 2 (não possui nenhum fator 5).</li>
+          </ul>
+          <p>Pela unicidade da fatoração em números primos (Teorema Fundamental da Aritmética), é impossível que uma potência positiva de 5 seja igual a uma potência positiva de 2.</p>
+          <p><strong>Conclusão:</strong> A contradição demonstra que a hipótese inicial é falsa. Logo, @\log_{10}(2) \in \mathbb{I}@. @\blacksquare@</p>
+        </div>
+      </details>
+    </li>
+
+  </ol>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 35px; margin-bottom: 25px;">
+  <a href="../../recursos.html" class="themed-button">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas completo -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+    <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
 </html>

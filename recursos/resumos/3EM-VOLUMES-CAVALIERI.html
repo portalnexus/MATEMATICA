@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Arquimedes e Cavalieri: Volumes e Corpos Redondos</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar 3º EM */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-3em {
+      background-color: rgba(239, 68, 68, 0.25);
+      border: 2px solid #ef4444;
+      color: #fee2e2;
+    }
+
+    /* Soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-3em">3º Ano EM</div>
+
+    <h1>Arquimedes e Cavalieri: Volumes e Corpos Redondos</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 5: "Arquimedes e Cavalieri: Volumes e Corpos Redondos"
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E FUNDAMENTAÇÃO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para o domínio integral e rigoroso deste módulo (baseado nas obras clássicas de Arquimedes de Siracusa e na formulação de Bonaventura Cavalieri, além de <em>FME Vol. 10 - Geometria Espacial</em>), é essencial dominar:</p>
+      <ul>
+        <li><strong>Geometria Plana Circular:</strong> cálculo do comprimento da circunferência (@C = 2\pi r@), área do círculo (@A = \pi r^2@), setores e coroas circulares.</li>
+        <li><strong>Poliedros e Pirâmides:</strong> cálculo de volumes de prismas e pirâmides regulares (@V = \frac{1}{3} A_{\text{base}} h@).</li>
+        <li><strong>Semelhança Geométrica:</strong> razão de semelhança linear @k@, razão de áreas @k^2@ e razão de volumes @k^3@.</li>
+      </ul>
+    </div>
+
+    <p>
+      A determinação do volume de figuras com superfícies curvas representou um dos maiores desafios intelectuais da história da humanidade. Desde o pioneiro <em>Método da Exaustão</em> de Eudoxo e Arquimedes no século III a.C. até a consolidação dos <em>indivisíveis</em> pelo matemático italiano Bonaventura Cavalieri no século XVII, a geometria desenvolveu métodos exatos para calcular o espaço tridimensional contido em cilindros, cones, troncos e esferas sem depender de aproximações empíricas.
+    </p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: O PRINCÍPIO DE CAVALIERI
+         =============================================================== -->
+    <h2>1. O Princípio de Cavalieri</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.1 (Princípio de Cavalieri para Volumes)</h3>
+      <p>
+        Sejam @S_1@ e @S_2@ dois sólidos contidos inteiramente entre dois planos paralelos @\alpha@ e @\beta@ separados por uma distância @h@.
+      </p>
+      <p>
+        Se todo plano @\pi_z@ paralelo a @\alpha@ e @\beta@ que intercepta os dois sólidos determina secções transversais @A_1(z) = S_1 \cap \pi_z@ e @A_2(z) = S_2 \cap \pi_z@ de <strong>mesma área</strong> para todas as cotas @z \in [0, h]@:
+      </p>
+      @@ \text{Área}(A_1(z)) = \text{Área}(A_2(z)), \quad \forall z \in [0, h] @@
+      <p>
+        então os dois sólidos possuem rigorosamente o <strong>mesmo volume</strong>:
+      </p>
+      @@ \operatorname{Vol}(S_1) = \operatorname{Vol}(S_2) @@
+      <h4>Conexão com o Cálculo Integral Moderno:</h4>
+      <p>
+        Se interpretarmos o volume de um sólido como o somatório infinitesimal (integral de Riemann) das áreas de suas lâminas transversais infinitesimais de espessura @dz@:
+      </p>
+      @@ \operatorname{Vol}(S_1) = \int_0^h \text{Área}(A_1(z))\,dz = \int_0^h \text{Área}(A_2(z))\,dz = \operatorname{Vol}(S_2) @@
+      <p>
+        O Princípio de Cavalieri antecipou em quase meio século o Teorema Fundamental do Cálculo de Newton e Leibniz.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: CILINDRO CIRCULAR
+         =============================================================== -->
+    <h2>2. Cilindro Circular Reto e Oblíquo</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Cilindro Circular)</h3>
+      <p>
+        Um <strong>cilindro circular</strong> é o sólido formado pela reunião de todos os segmentos de reta congruentes e paralelos a um segmento gerador @g@, que unem os pontos de um círculo contido em um plano @\alpha@ a um círculo congruente contido em um plano paralelo @\beta@.
+      </p>
+      <ul>
+        <li><strong>Cilindro Reto (ou de revolução):</strong> As geratrizes são perpendiculares aos planos das bases (@g = h@). É gerado pela revolução de @360^\circ@ de um retângulo em torno de um de seus lados.</li>
+        <li><strong>Cilindro Oblíquo:</strong> As geratrizes formam um ângulo oblíquo com as bases (@g > h@).</li>
+        <li><strong>Cilindro Equilátero:</strong> É o cilindro circular reto cuja secção meridiana (interseção com plano que contém o eixo) é um quadrado, ou seja, @h = 2r@.</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Áreas e Volume do Cilindro)</h3>
+      <p>Para um cilindro circular reto de raio de base @r@ e altura @h@:</p>
+      <ul>
+        <li><strong>Área da Base:</strong> @A_{\text{base}} = \pi r^2@</li>
+        <li><strong>Área Lateral:</strong> A superfície lateral retificada é um retângulo de dimensões @2\pi r \times h@:
+          @@ A_{\text{lat}} = 2\pi r h @@
+        </li>
+        <li><strong>Área Total:</strong> Reunião da área lateral com as duas bases circulares:
+          @@ A_{\text{total}} = A_{\text{lat}} + 2 A_{\text{base}} = 2\pi r h + 2\pi r^2 = 2\pi r (r + h) @@
+        </li>
+        <li><strong>Volume:</strong> Pelo Princípio de Cavalieri (comparado a um paralelepípedo retângulo de mesma base e altura):
+          @@ V = A_{\text{base}} \cdot h = \pi r^2 h @@
+        </li>
+      </ul>
+      <p>
+        <em>No cilindro equilátero (@h = 2r@):</em>
+        @@ A_{\text{lat}} = 4\pi r^2, \quad A_{\text{total}} = 6\pi r^2, \quad V = 2\pi r^3 @@
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: CONE CIRCULAR E TRONCO DE CONE
+         =============================================================== -->
+    <h2>3. Cone Circular e Tronco de Cone</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Cone Circular Reto)</h3>
+      <p>
+        Um <strong>cone circular reto</strong> é o sólido obtido pela revolução completa de @360^\circ@ de um triângulo retângulo em torno de um de seus catetos. O vértice é @V@, a base é um círculo de raio @r@, a altura é @h@ e a hipotenusa do triângulo gera a <strong>geratriz</strong> @g@:
+      </p>
+      @@ g^2 = h^2 + r^2 @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Métricas do Cone Circular Reto)</h3>
+      <ul>
+        <li><strong>Área Lateral:</strong> O desenvolvimento plano da superfície lateral é um <em>setor circular</em> de raio @g@ e comprimento de arco @2\pi r@. O ângulo central do setor é:
+          @@ \theta = 2\pi \cdot \frac{r}{g} \text{ (radianos)} \quad \text{ou} \quad \theta = 360^\circ \cdot \frac{r}{g} @@
+          A área do setor circular é:
+          @@ A_{\text{lat}} = \frac{1}{2} \cdot (2\pi r) \cdot g = \pi r g @@
+        </li>
+        <li><strong>Área Total:</strong>
+          @@ A_{\text{total}} = A_{\text{lat}} + A_{\text{base}} = \pi r g + \pi r^2 = \pi r (g + r) @@
+        </li>
+        <li><strong>Volume:</strong> Comparado a uma pirâmide reta de mesma base e mesma altura via Princípio de Cavalieri:
+          @@ V_{\text{cone}} = \frac{1}{3} A_{\text{base}} \cdot h = \frac{1}{3} \pi r^2 h @@
+        </li>
+        <li><strong>Cone Equilátero:</strong> Ocorre quando a geratriz é igual ao diâmetro da base (@g = 2r@). Sua secção meridiana é um triângulo equilátero, de modo que a altura vale @h = r\sqrt{3}@ e o ângulo da planificação lateral é @\theta = 180^\circ@ (um semicírculo).</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.2 (Tronco de Cone de Bases Paralelas)</h3>
+      <p>
+        Seccionando um cone reto de raio @R@ por um plano paralelo à base a uma distância @h@ desta, obtém-se uma base menor de raio @r@.
+      </p>
+      <p>
+        A geratriz do tronco @g_{\text{tronco}}@ satisfaz pelo Teorema de Pitágoras no trapézio retângulo meridiano:
+      </p>
+      @@ g_{\text{tronco}} = \sqrt{h^2 + (R - r)^2} @@
+      <p>
+        As áreas do tronco são:
+      </p>
+      @@ A_{\text{lat}} = \pi (R + r) g_{\text{tronco}}, \quad A_{\text{total}} = \pi R^2 + \pi r^2 + \pi (R + r) g_{\text{tronco}} @@
+      <p>
+        O <strong>volume do tronco de cone</strong> é dado por:
+      </p>
+      @@ V_{\text{tronco}} = \frac{\pi h}{3} \left( R^2 + R r + r^2 \right) @@
+
+      <h4>Dedução Rigorosa por Semelhança Espacial:</h4>
+      <p>
+        Seja @H@ a altura do cone original completo. O cone menor destacado possui altura @H' = H - h@ e raio @r@. Pela semelhança de triângulos retângulos:
+      </p>
+      @@ \frac{r}{R} = \frac{H - h}{H} \implies r H = R H - R h \implies H(R - r) = R h \implies H = \frac{R h}{R - r} @@
+      <p>
+        Analogamente, para o cone menor: @H' = H - h = \frac{R h}{R - r} - h = \frac{r h}{R - r}@.
+      </p>
+      <p>
+        O volume do tronco é a diferença entre os dois cones:
+      </p>
+      @@
+      V_{\text{tronco}} = \frac{1}{3}\pi R^2 H - \frac{1}{3}\pi r^2 H' = \frac{\pi}{3} \left( R^2 \cdot \frac{R h}{R - r} - r^2 \cdot \frac{r h}{R - r} \right)
+      @@
+      @@
+      V_{\text{tronco}} = \frac{\pi h}{3 (R - r)} \left( R^3 - r^3 \right)
+      @@
+      <p>
+        Utilizando a identidade algébrica de fatoração da diferença de dois cubos, @R^3 - r^3 = (R - r)(R^2 + Rr + r^2)@:
+      </p>
+      @@
+      V_{\text{tronco}} = \frac{\pi h}{3 (R - r)} (R - r)(R^2 + Rr + r^2) = \frac{\pi h}{3} \left( R^2 + Rr + r^2 \right) \quad \blacksquare
+      @@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: ESFERA E SUAS PARTES (ARQUIMEDES)
+         =============================================================== -->
+    <h2>4. A Esfera e a Dedução Clássica de Arquimedes</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (A Anticlepsidra de Cavalieri e o Volume da Esfera)</h3>
+      <p>
+        Arquimedes de Siracusa considerava a dedução do volume e da área da esfera sua maior obra, ordenando que uma esfera inscrita em um cilindro fosse gravada em sua lápide.
+      </p>
+      <p>
+        Consideremos, sobre um mesmo plano de referência @\pi_0@, dois sólidos de altura @R@:
+      </p>
+      <ol>
+        <li>Uma <strong>semiesfera</strong> de raio @R@ apoiada sobre sua base plana circular.</li>
+        <li>Um <strong>cilindro reto</strong> de raio de base @R@ e altura @R@ do qual se escavou um <strong>cone reto invertido</strong> de raio de base @R@ e vértice na base inferior do cilindro (figura denominada <em>anticlepsidra</em>).</li>
+      </ol>
+      <p>
+        Seccionemos ambos os sólidos por um plano horizontal @\pi_z@ a uma altura arbitrária @z@ do plano base (@0 \leq z \leq R@):
+      </p>
+      <ul>
+        <li>
+          <strong>Secção na semiesfera:</strong> O triângulo retângulo formado pelo centro da esfera, a cota @z@ e a borda da secção tem hipotenusa @R@. O raio da secção circular é @\rho = \sqrt{R^2 - z^2}@. Logo:
+          @@ A_{\text{esfera}}(z) = \pi \rho^2 = \pi (R^2 - z^2) = \pi R^2 - \pi z^2 @@
+        </li>
+        <li>
+          <strong>Secção na anticlepsidra:</strong> O plano @\pi_z@ intercepta o cilindro num círculo de raio @R@ e o cone interno num círculo de raio @r_{\text{cone}} = z@ (pois o cone tem geratriz a @45^\circ@, já que raio da base = altura = @R@). A secção resultante é uma <em>coroa circular</em> de raio externo @R@ e raio interno @z@:
+          @@ A_{\text{anti}}(z) = \pi R^2 - \pi z^2 @@
+        </li>
+      </ul>
+      <p>
+        Como @A_{\text{esfera}}(z) = A_{\text{anti}}(z) = \pi(R^2 - z^2)@ para todo @z \in [0, R]@, pelo <strong>Princípio de Cavalieri</strong>, os dois sólidos têm exatamente o mesmo volume:
+      </p>
+      @@
+      V_{\text{semiesfera}} = V_{\text{cilindro}} - V_{\text{cone}} = \pi R^2 \cdot R - \frac{1}{3}\pi R^2 \cdot R = \frac{2}{3}\pi R^3
+      @@
+      <p>
+        Multiplicando por 2, obtemos a fórmula exata do volume da esfera completa:
+      </p>
+      @@ V_{\text{esfera}} = \frac{4}{3} \pi R^3 @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.2 (Área da Superfície Esférica)</h3>
+      <p>
+        A área da superfície de uma esfera de raio @R@ é dada por:
+      </p>
+      @@ A_{\text{esfera}} = 4\pi R^2 @@
+      <h4>Demonstração Heurística por Pirâmides Infinitesimais:</h4>
+      <p>
+        Considere a superfície da esfera subdividida em @N@ pequenos polígonos de áreas @\Delta A_i@. Unindo cada vértice desses polígonos ao centro da esfera, forma-se um conjunto de @N@ pirâmides com vértices no centro e bases sobre a superfície. A altura de cada pirâmide aproxima-se do raio @R@. O volume total é a soma dos volumes das pirâmides:
+      </p>
+      @@
+      V = \sum_{i=1}^N \frac{1}{3} \Delta A_i \cdot R = \frac{R}{3} \sum_{i=1}^N \Delta A_i = \frac{R}{3} \cdot A_{\text{esfera}}
+      @@
+      <p>
+        Substituindo o volume @V = \frac{4}{3}\pi R^3@:
+      </p>
+      @@
+      \frac{4}{3}\pi R^3 = \frac{R}{3} \cdot A_{\text{esfera}} \implies A_{\text{esfera}} = 4\pi R^2 \quad \blacksquare
+      @@
+      <p>
+        <em>Nota de Cálculo:</em> Note que @\frac{d}{dR}\left(\frac{4}{3}\pi R^3\right) = 4\pi R^2@, revelando que a taxa de variação volumétrica com relação ao raio é a própria área superficial da casca esférica.
+      </p>
+    </div>
+
+    <!-- Partes da Esfera -->
+    <h3>Partes Notáveis da Esfera</h3>
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Elemento</th>
+            <th>Definição Geométrica</th>
+            <th>Fórmula da Área</th>
+            <th>Fórmula do Volume</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Fuso Esférico</strong></td>
+            <td>Porção da superfície esférica entre dois semicírculos máximos (diedro de ângulo @\alpha@).</td>
+            <td>@A = \frac{\alpha}{2\pi} \cdot 4\pi R^2 = 2\alpha R^2@<br><small>(@\alpha@ em radianos)</small></td>
+            <td><em>Não aplicável (superfície)</em></td>
+          </tr>
+          <tr>
+            <td><strong>Cunha Esférica</strong></td>
+            <td>Sólido compreendido entre dois semicírculos máximos de mesmo diâmetro.</td>
+            <td>@A_{\text{total}} = 2\alpha R^2 + \pi R^2@</td>
+            <td>@V = \frac{\alpha}{2\pi} \cdot \frac{4}{3}\pi R^3 = \frac{2}{3}\alpha R^3@<br><small>(@\alpha@ em radianos)</small></td>
+          </tr>
+          <tr>
+            <td><strong>Calota Esférica</strong></td>
+            <td>Região da superfície esférica cortada por um plano secante a distância @d@ do centro (altura @h = R - d@).</td>
+            <td>@A = 2\pi R h@</td>
+            <td><em>Superfície curva</em></td>
+          </tr>
+          <tr>
+            <td><strong>Segmento Esférico</strong></td>
+            <td>Sólido delimitado pela calota e pelo plano secante.</td>
+            <td>@A_{\text{total}} = 2\pi R h + \pi r_{\text{base}}^2@</td>
+            <td>@V = \frac{\pi h^2}{3}(3R - h)@</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: TRANSLADO, IMERSÃO E EMPUXO GEOMÉTRICO
+         =============================================================== -->
+    <h2>5. Fenômenos de Imersão, Transbordamento e Sólidos Compostos</h2>
+
+    <p>
+      Quando um sólido impermeável é imerso completamente em um fluido contido em um vaso cilíndrico reto de raio de base @r_{\text{cil}}@ sem transbordar, o volume do sólido introduzido equivale precisamente ao volume da coluna líquida adicional deslocada:
+    </p>
+    @@ V_{\text{solido}} = V_{\text{deslocado}} = A_{\text{base}} \cdot \Delta h = \pi r_{\text{cil}}^2 \cdot \Delta h @@
+    <p>onde @\Delta h@ é a elevação observada no nível da superfície livre do líquido.</p>
+
+    <!-- ===============================================================
+         SEÇÃO 6: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>6. Exemplos Resolvidos Passo a Passo</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 (A Célebre Proporção de Arquimedes)</h3>
+      <p>
+        Uma esfera de raio @R@ é inscrita perfeitamente em um cilindro circular reto equilátero. Calcule:
+      </p>
+      <ol>
+        <li>A razão entre o volume da esfera e o volume do cilindro circunscrito.</li>
+        <li>A razão entre a área da superfície esférica e a área total do cilindro circunscrito.</li>
+      </ol>
+
+      <h4>Resolução:</h4>
+      <p>Para a esfera estar inscrita no cilindro, o raio do cilindro deve ser @r = R@ e sua altura deve ser o diâmetro da esfera, @h = 2R@ (cilindro equilátero).</p>
+      <p><strong>1. Razão de Volumes:</strong></p>
+      @@ V_{\text{esfera}} = \frac{4}{3}\pi R^3 @@
+      @@ V_{\text{cilindro}} = \pi r^2 h = \pi R^2 (2R) = 2\pi R^3 @@
+      @@ \frac{V_{\text{esfera}}}{V_{\text{cilindro}}} = \frac{\frac{4}{3}\pi R^3}{2\pi R^3} = \frac{4}{6} = \frac{2}{3} @@
+
+      <p><strong>2. Razão de Áreas:</strong></p>
+      @@ A_{\text{esfera}} = 4\pi R^2 @@
+      @@ A_{\text{total, cil}} = 2\pi r(r + h) = 2\pi R(R + 2R) = 2\pi R(3R) = 6\pi R^2 @@
+      @@ \frac{A_{\text{esfera}}}{A_{\text{total, cil}}} = \frac{4\pi R^2}{6\pi R^2} = \frac{2}{3} @@
+      <p>
+        <em>Conclusão Histórica:</em> Tanto o volume quanto a área total da esfera equivalem exatamente a @\frac{2}{3}@ dos valores do cilindro equilátero circunscrito. Esse resultado comoveu Arquimedes a ponto de figurar em seu epitáfio em Siracusa.
+      </p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 (Cálculo de Tronco de Cone e Nível de Líquido)</h3>
+      <p>
+        Um balde tem a forma de um tronco de cone circular reto com raios das bases @R = 15\text{ cm}@ (boca superior), @r = 9\text{ cm}@ (fundo) e altura @h = 24\text{ cm}@.
+      </p>
+      <p>Calcule a capacidade volumétrica máxima desse balde em litros (adote @\pi \approx 3{,}14@).</p>
+
+      <h4>Resolução:</h4>
+      <p>Aplicando a fórmula do volume do tronco de cone de bases paralelas:</p>
+      @@ V = \frac{\pi h}{3} \left( R^2 + R r + r^2 \right) @@
+      <p>Substituindo os valores numéricos:</p>
+      @@ R^2 = 15^2 = 225 @@
+      @@ R \cdot r = 15 \cdot 9 = 135 @@
+      @@ r^2 = 9^2 = 81 @@
+      @@ R^2 + Rr + r^2 = 225 + 135 + 81 = 441 @@
+      <p>Portanto:</p>
+      @@ V = \frac{\pi \cdot 24}{3} \cdot 441 = 8\pi \cdot 441 = 3528\pi \text{ cm}^3 @@
+      <p>Utilizando a aproximação @\pi \approx 3{,}14@:</p>
+      @@ V \approx 3528 \cdot 3{,}14 = 11077{,}92 \text{ cm}^3 @@
+      <p>Como @1 \text{ litro} = 1000 \text{ cm}^3@:</p>
+      @@ V \approx \frac{11077{,}92}{1000} \approx 11{,}08 \text{ litros.} @@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 7: EXERCÍCIOS CONCEITUAIS
+         =============================================================== -->
+    <h2>7. Exercícios Conceituais e de Fixação Rápida</h2>
+
+    <ol class="lista-exercicios">
+      <!-- Ex 1 -->
+      <li>
+        <strong>(Cilindro Equilátero e Razão Métrica)</strong>
+        Um cilindro equilátero tem volume igual a @54\pi \text{ cm}^3@. Determine a área total da sua superfície externa.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>No cilindro equilátero, a altura é o dobro do raio: @h = 2r@.</p>
+            <p>O volume é dado por: @V = \pi r^2 h = \pi r^2 (2r) = 2\pi r^3@.</p>
+            <p>Igualando ao volume fornecido:</p>
+            @@ 2\pi r^3 = 54\pi \implies r^3 = 27 \implies r = 3 \text{ cm.} @@
+            <p>A altura é @h = 2(3) = 6 \text{ cm}@.</p>
+            <p>A área total é:</p>
+            @@ A_{\text{total}} = 6\pi r^2 = 6\pi (3^2) = 6\pi \cdot 9 = 54\pi \text{ cm}^2. @@
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 2 -->
+      <li>
+        <strong>(Cone Circular Reto e Setor de Planificação)</strong>
+        A planificação lateral de um cone circular reto é um semicírculo de raio @12\text{ cm}@. Determine a altura e o volume desse cone.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>O raio do setor circular planificado é a geratriz do cone: @g = 12\text{ cm}@.</p>
+            <p>Como o setor é um semicírculo, seu ângulo central é @\theta = 180^\circ = \pi@ radianos.</p>
+            <p>Pela relação angular da planificação: @\theta = 2\pi \cdot \frac{r}{g} \implies \pi = 2\pi \frac{r}{12} \implies r = 6\text{ cm}@.</p>
+            <p>Calculando a altura @h@ pelo Teorema de Pitágoras:</p>
+            @@ h = \sqrt{g^2 - r^2} = \sqrt{12^2 - 6^2} = \sqrt{144 - 36} = \sqrt{108} = 6\sqrt{3}\text{ cm.} @@
+            <p>O volume do cone é:</p>
+            @@ V = \frac{1}{3}\pi r^2 h = \frac{1}{3}\pi (6^2) (6\sqrt{3}) = \frac{1}{3}\pi \cdot 36 \cdot 6\sqrt{3} = 72\sqrt{3}\pi \text{ cm}^3. @@
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 3 -->
+      <li>
+        <strong>(Imersão em Proveta Cilíndrica)</strong>
+        Uma proveta cilíndrica de raio interior @4\text{ cm}@ contém água. Uma esfera maciça de aço de raio @3\text{ cm}@ é totalmente mergulhada na água, sem transbordamento. Qual é o aumento @\Delta h@ no nível da água da proveta?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Pelo Princípio de Arquimedes, o volume deslocado de água é igual ao volume da esfera imersa:</p>
+            @@ V_{\text{esfera}} = \frac{4}{3}\pi R^3 = \frac{4}{3}\pi (3^3) = \frac{4}{3}\pi \cdot 27 = 36\pi \text{ cm}^3. @@
+            <p>Esse volume corresponde a um cilindro de raio @r = 4\text{ cm}@ e altura @\Delta h@:</p>
+            @@ V_{\text{deslocado}} = \pi r^2 \Delta h = \pi (4^2) \Delta h = 16\pi \Delta h. @@
+            <p>Igualando os volumes:</p>
+            @@ 16\pi \Delta h = 36\pi \implies \Delta h = \frac{36}{16} = \frac{9}{4} = 2{,}25\text{ cm.} @@
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 4 -->
+      <li>
+        <strong>(Fuso e Cunha Esféricos)</strong>
+        Uma laranja esférica de raio @6\text{ cm}@ é dividida em 12 gomos idênticos congruentes. Calcule a área da casca e o volume de um único gomo.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Cada gomo representa uma cunha esférica cujo fuso esférico tem ângulo diedro @\alpha = \frac{360^\circ}{12} = 30^\circ = \frac{\pi}{6}@ radianos.</p>
+            <p><strong>Área da casca (área do fuso):</strong></p>
+            @@ A_{\text{fuso}} = \frac{1}{12} \cdot A_{\text{esfera}} = \frac{1}{12} \cdot 4\pi R^2 = \frac{4\pi (6^2)}{12} = \frac{144\pi}{12} = 12\pi \text{ cm}^2. @@
+            <p><strong>Volume do gomo (cunha esférica):</strong></p>
+            @@ V_{\text{cunha}} = \frac{1}{12} \cdot V_{\text{esfera}} = \frac{1}{12} \cdot \frac{4}{3}\pi R^3 = \frac{4\pi (216)}{36} = 24\pi \text{ cm}^3. @@
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 5 -->
+      <li>
+        <strong>(Princípio de Cavalieri Aplicado a Secções Elípticas)</strong>
+        Dois sólidos possuem a mesma altura @h = 10@ e estão apoiados no mesmo plano horizontal. A cada cota @z \in [0, 10]@, o primeiro sólido tem secção transversal quadrada de lado @\sqrt{\pi} (10 - z)@ e o segundo tem secção elíptica com semieixos @a(z) = 10 - z@ e @b(z) = 10 - z@ (ou seja, circular de raio @10 - z@). Verifique se possuem o mesmo volume e determine esse valor.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Calculando as áreas a uma altura genérica @z@:</p>
+            @@ A_1(z) = [\sqrt{\pi}(10 - z)]^2 = \pi (10 - z)^2 @@
+            @@ A_2(z) = \pi [r(z)]^2 = \pi (10 - z)^2 @@
+            <p>Como @A_1(z) = A_2(z) = \pi(10 - z)^2@ para todo @z \in [0, 10]@, pelo <strong>Princípio de Cavalieri</strong>, os dois sólidos têm rigorosamente o mesmo volume.</p>
+            <p>Trata-se de um cone de raio de base @10@ e altura @10@ (ou pirâmide equivalente):</p>
+            @@ V = \frac{1}{3} A_{\text{base}} \cdot h = \frac{1}{3} (\pi \cdot 10^2) \cdot 10 = \frac{1000\pi}{3}. @@
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 6 -->
+      <li>
+        <strong>(Tronco de Cone e Proporcionalidade)</strong>
+        Um cone de altura @12\text{ cm}@ e raio de base @8\text{ cm}@ é seccionado por um plano paralelo à base a meia altura (@h = 6\text{ cm}@ da base). Determine a razão entre o volume do tronco de cone inferior e o volume do cone original.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>O cone superior gerado tem altura @H' = 12 - 6 = 6\text{ cm}@.</p>
+            <p>A razão de semelhança linear entre o cone superior e o original é @k = \frac{H'}{H} = \frac{6}{12} = \frac{1}{2}@.</p>
+            <p>A razão entre seus volumes é o cubo da razão linear:</p>
+            @@ \frac{V_{\text{superior}}}{V_{\text{original}}} = k^3 = \left(\frac{1}{2}\right)^3 = \frac{1}{8}. @@
+            <p>O tronco inferior corresponde à porção restante:</p>
+            @@ V_{\text{tronco}} = V_{\text{original}} - V_{\text{superior}} = V_{\text{original}} - \frac{1}{8}V_{\text{original}} = \frac{7}{8}V_{\text{original}}. @@
+            <p>Portanto, a razão entre o volume do tronco e o cone original é @\frac{7}{8}@ (ou @87{,}5\%@).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 7 -->
+      <li>
+        <strong>(Calota Esférica)</strong>
+        Uma esfera de raio @R = 10\text{ cm}@ é cortada por um plano que dista @6\text{ cm}@ do seu centro. Calcule a área da menor calota esférica determinada e o raio da sua base plana circular.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>A distância do plano ao centro é @d = 6\text{ cm}@. A altura da menor calota é:</p>
+            @@ h = R - d = 10 - 6 = 4\text{ cm.} @@
+            <p>A área da calota esférica é dada por:</p>
+            @@ A_{\text{calota}} = 2\pi R h = 2\pi (10) (4) = 80\pi \text{ cm}^2. @@
+            <p>O raio da base circular da calota é obtido por Pitágoras no triângulo retângulo:</p>
+            @@ r_{\text{base}} = \sqrt{R^2 - d^2} = \sqrt{10^2 - 6^2} = \sqrt{100 - 36} = \sqrt{64} = 8\text{ cm.} @@
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 8 -->
+      <li>
+        <strong>(Sólido Composto - Cápsula Farmacêutica)</strong>
+        Uma cápsula farmacêutica tem o formato de um cilindro circular reto com duas semiesferas acopladas exatamente em suas extremidades. O comprimento total da cápsula é de @20\text{ mm}@ e o diâmetro externo é de @6\text{ mm}@. Calcule o volume total interno da cápsula.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>O diâmetro é @6\text{ mm}@, logo o raio das semiesferas e do cilindro é @r = 3\text{ mm}@.</p>
+            <p>As duas semiesferas formam juntas uma esfera completa de raio @r = 3\text{ mm}@:</p>
+            @@ V_{\text{esfera}} = \frac{4}{3}\pi r^3 = \frac{4}{3}\pi (3^3) = 36\pi \text{ mm}^3. @@
+            <p>A extensão ocupada pelas duas semiesferas é @2r = 2(3) = 6\text{ mm}@.</p>
+            <p>Portanto, a altura do cilindro central é @h_{\text{cil}} = 20 - 6 = 14\text{ mm}@.</p>
+            <p>O volume do cilindro é:</p>
+            @@ V_{\text{cilindro}} = \pi r^2 h_{\text{cil}} = \pi (3^2)(14) = 9 \cdot 14 \cdot \pi = 126\pi \text{ mm}^3. @@
+            <p>O volume total da cápsula é a soma dos dois componentes:</p>
+            @@ V_{\text{total}} = V_{\text{esfera}} + V_{\text{cilindro}} = 36\pi + 126\pi = 162\pi \text{ mm}^3 \approx 508{,}94 \text{ mm}^3. @@
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 9 -->
+      <li>
+        <strong>(Cone Inscrito em Esfera)</strong>
+        Um cone circular reto está inscrito em uma esfera de raio @R@ de tal modo que o centro da esfera coincide com o centro da base do cone. Determine a razão entre o volume da esfera e o volume do cone.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Como o centro da esfera é o centro da base do cone, a base do cone é um círculo máximo da esfera, com raio @r = R@.</p>
+            <p>O vértice do cone pertence à superfície da esfera e está sobre o eixo perpendicular à base, logo a altura do cone é @h = R@.</p>
+            <p>Calculando os volumes:</p>
+            @@ V_{\text{cone}} = \frac{1}{3}\pi r^2 h = \frac{1}{3}\pi R^2 (R) = \frac{1}{3}\pi R^3 @@
+            @@ V_{\text{esfera}} = \frac{4}{3}\pi R^3 @@
+            <p>A razão entre o volume da esfera e o do cone é:</p>
+            @@ \frac{V_{\text{esfera}}}{V_{\text{cone}}} = \frac{\frac{4}{3}\pi R^3}{\frac{1}{3}\pi R^3} = 4. @@
+            <p>O volume da esfera é exatamente o quádruplo do volume do cone.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 10 -->
+      <li>
+        <strong>(Tronco de Pirâmide vs Tronco de Cone por Cavalieri)</strong>
+        Mostre que a fórmula do tronco de cone @V = \frac{\pi h}{3}(R^2 + Rr + r^2)@ é uma aplicação direta da fórmula geral de troncos de bases paralelas @V = \frac{h}{3}(A_B + \sqrt{A_B A_b} + A_b)@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>As áreas das bases maior e menor do tronco de cone circular são @A_B = \pi R^2@ e @A_b = \pi r^2@.</p>
+            <p>A média geométrica das duas áreas é:</p>
+            @@ \sqrt{A_B \cdot A_b} = \sqrt{(\pi R^2)(\pi r^2)} = \sqrt{\pi^2 R^2 r^2} = \pi R r @@
+            <p>Substituindo na fórmula geral de troncos de Cavalieri:</p>
+            @@ V = \frac{h}{3} \left( \pi R^2 + \pi R r + \pi r^2 \right) = \frac{\pi h}{3} \left( R^2 + Rr + r^2 \right) \quad \blacksquare @@
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 11 -->
+      <li>
+        <strong>(Variação Dimensional e Derivadas Geométricas)</strong>
+        Explique matematicamente por que a derivada do volume da esfera @V(R) = \frac{4}{3}\pi R^3@ em relação ao raio fornece exatamente a área da superfície esférica @A(R) = 4\pi R^2@, mas para o quadrado de lado @L@ (@A = L^2@), a derivada em relação ao lado @\frac{dA}{dL} = 2L@ fornece apenas metade do perímetro (@P = 4L@).
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>O raio @R@ da esfera mede a distância do <strong>centro de simetria</strong> até a fronteira externa em <em>todas</em> as direções radialmente uniformes. Um acréscimo @\Delta R@ expande a casca superficial uniformemente em toda a extensão do bordo tridimensional, de modo que @\Delta V \approx A(R) \cdot \Delta R \implies \frac{dV}{dR} = A(R)@.</p>
+            <p>No quadrado, se medirmos a distância do centro até os lados (o apótema @a = L/2@), a área em função de @a@ é @A(a) = (2a)^2 = 4a^2@. Derivando em relação a essa distância radial uniforme @a@:</p>
+            @@ \frac{dA}{da} = 8a = 8\left(\frac{L}{2}\right) = 4L = \text{Perímetro!} @@
+            <p>Portanto, quando a variável representa o raio de expansão a partir do centroide de simetria, a derivada do volume/área em relação ao raio é sempre a medida da hipersuperfície de contorno.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 12 -->
+      <li>
+        <strong>(Desafio OBMEP/Vestibular Militar - Anel de Guardanapo de Napier)</strong>
+        Perfurando-se uma esfera de raio desconhecido @R@ por um orifício cilíndrico centrado que deixa uma faixa esférica restante (anel esférico) de altura vertical fixa @h = 6\text{ cm}@, calcule o volume de material restante no anel. O resultado depende do raio @R@ da esfera original?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Seja @r_{\text{cil}}@ o raio do orifício cilíndrico. O anel tem altura @h@ estendendo-se de @z = -h/2@ até @z = +h/2@.</p>
+            <p>No ponto mais alto da perfuração cilíndrica, a distância à origem é @R@, logo pelo Teorema de Pitágoras: @R^2 = r_{\text{cil}}^2 + (h/2)^2 \implies r_{\text{cil}}^2 = R^2 - \frac{h^2}{4}@.</p>
+            <p>Para qualquer cota horizontal @z \in [-h/2, h/2]@, a secção do anel é uma coroa circular entre a casca da esfera (raio @\rho(z) = \sqrt{R^2 - z^2}@) e a parede do cilindro (raio @r_{\text{cil}}@):</p>
+            @@ A_{\text{anel}}(z) = \pi [\rho(z)]^2 - \pi r_{\text{cil}}^2 = \pi (R^2 - z^2) - \pi \left( R^2 - \frac{h^2}{4} \right) = \pi \left( \frac{h^2}{4} - z^2 \right) @@
+            <p>Observe que o raio @R@ cancelou-se completamente! A área transversal @A_{\text{anel}}(z)@ depende <em>unicamente</em> de @h@ e @z@.</p>
+            <p>Pelo Princípio de Cavalieri, o volume do anel é idêntico ao de uma esfera pura de diâmetro @h@ (raio @h/2@):</p>
+            @@ V = \frac{4}{3}\pi \left(\frac{h}{2}\right)^3 = \frac{\pi h^3}{6} @@
+            <p>Substituindo @h = 6\text{ cm}@:</p>
+            @@ V = \frac{\pi (6^3)}{6} = \frac{216\pi}{6} = 36\pi \text{ cm}^3 \approx 113{,}1 \text{ cm}^3. @@
+            <p>O volume independe totalmente do raio da esfera original!</p>
+          </div>
+        </details>
+      </li>
+    </ol>
+</article>
+
+</div><!-- /container -->
+</div><!-- /page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

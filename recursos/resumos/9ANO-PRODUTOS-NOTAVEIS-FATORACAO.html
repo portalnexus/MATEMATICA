@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Produtos Notáveis e Fatoração</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+                <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+                <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <article>
+                <span class="badge-nivel ano-9">9º ANO</span>
+                <h1>Produtos Notáveis e Fatoração</h1>
+                <p>Desenvolver a habilidade de manipular expressões algébricas é fundamental para resolver equações
+                    complexas e simplificar problemas matemáticos. Nesta seção, estudaremos os padrões mais comuns em
+                    multiplicações e como "desfazer" essas operações através da fatoração.</p>
+
+                <h2>1. Produtos Notáveis</h2>
+                <p>Produtos notáveis são multiplicações de expressões algébricas que seguem um padrão fixo,
+                    permitindo-nos obter o resultado sem realizar todas as etapas da distributiva.</p>
+
+                <div class="destaque-box teorema">
+                    <h3>P1. Quadrado da Soma de Dois Termos</h3>
+                    @@ (a + b)^2 = a^2 + 2ab + b^2 @@
+                    <p><em>O quadrado do primeiro, mais duas vezes o primeiro pelo segundo, mais o quadrado do
+                            segundo.</em></p>
+                </div>
+
+                <div class="destaque-box teorema">
+                    <h3>P2. Quadrado da Diferença de Dois Termos</h3>
+                    @@ (a - b)^2 = a^2 - 2ab + b^2 @@
+                </div>
+
+                <div class="destaque-box teorema">
+                    <h3>P3. Produto da Soma pela Diferença</h3>
+                    @@ (a + b)(a - b) = a^2 - b^2 @@
+                </div>
+
+                <h2>2. Fatoração</h2>
+                <p>Fatorar uma expressão significa escrevê-la como um produto de fatores. É o processo inverso dos
+                    produtos notáveis.</p>
+
+                <div class="destaque-box definicao">
+                    <h3>Fator Comum em Evidência</h3>
+                    <p>Identificamos o que se repete em todos os termos e "colocamos para fora" dos parênteses.</p>
+                    @@ ax + ay = a(x + y) @@
+                </div>
+
+                <div class="destaque-box definicao">
+                    <h3>Diferença de Dois Quadrados</h3>
+                    @@ a^2 - b^2 = (a + b)(a - b) @@
+                </div>
+
+                <div class="destaque-box definicao">
+                    <h3>Trinômio Quadrado Perfeito</h3>
+                    @@ a^2 \pm 2ab + b^2 = (a \pm b)^2 @@
+                </div>
+
+                <h2>3. Exemplos Resolvidos</h2>
+                <div class="exemplo-resolvido">
+                    <h3>Exemplo 1: Desenvolvendo</h3>
+                    <p>Desenvolva @(x + 5)^2@.</p>
+                    <h4>Solução:</h4>
+                    <p>Aplicando P1: @x^2 + 2 \cdot x \cdot 5 + 5^2@</p>
+                    <p>Resultado: @x^2 + 10x + 25@.</p>
+                </div>
+
+                <div class="exemplo-resolvido">
+                    <h3>Exemplo 2: Fatorando</h3>
+                    <p>Fatore a expressão @x^2 - 16@.</p>
+                    <h4>Solução:</h4>
+                    <p>Identificamos uma diferença de dois quadrados: @x^2 - 4^2@.</p>
+                    <p>Resultado: @(x + 4)(x - 4)@.</p>
+                </div>
+
+            </article>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="../../recursos.html" class="themed-button"
+                    style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+            </div>
+        </div>
+    </div>
+    <canvas id="matrixCanvas"></canvas>
+    <script src="../../js/matrix-rain.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "@@", right: "@@", display: true },
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "@", right: "@", display: false },
+                    { left: "\\(", right: "\\)", display: false }
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+    <script src="../../js/theme-switcher.js" defer></script>
+    <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

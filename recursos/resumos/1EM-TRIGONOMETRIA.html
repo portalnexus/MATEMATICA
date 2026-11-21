@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Transformações Geométricas e Trigonometria</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-1em {
+      background-color: rgba(16, 185, 129, 0.25);
+      border: 2px solid #10b981;
+      color: #a7f3d0;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-1em">1º Ano EM</div>
+
+    <h1>Transformações Geométricas e Trigonometria</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 5: "Simetrizando e trigonometrizando"
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E CONTEXTO HISTÓRICO-EPISTEMOLÓGICO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para a assimilação deste compêndio com o rigor axiomático dos <em>Fundamentos de Matemática Elementar</em> (Gelson Iezzi), o estudante deve dominar:</p>
+      <ul>
+        <li><strong>Geometria Euclidiana Plana:</strong> congruência e semelhança de triângulos (casos LAL, LLL, ALA, AA), Teorema de Tales e Teorema de Pitágoras.</li>
+        <li><strong>Geometria Analítica Básica:</strong> representação de pontos no plano cartesiano @\mathbb{R}^2@, distância euclidiana entre dois pontos e equações de retas.</li>
+        <li><strong>Álgebra Elementar e Teoria de Funções:</strong> bijeções, composição de funções (@f \circ g@), inversão e resolução de sistemas lineares.</li>
+      </ul>
+    </div>
+
+    <p>
+      A Geometria Moderna não é apenas o inventário estático de figuras, mas a ciência das <strong>transformações e invariantes</strong>. No célebre <em>Programa de Erlangen</em> (1872), o matemático alemão <strong>Felix Klein</strong> revolucionou a epistemologia geométrica ao postular que cada ramo da geometria caracteriza-se pelo grupo de transformações sob o qual certas propriedades das figuras permanecem inalteradas. 
+    </p>
+    <p>
+      Quando as distâncias entre quaisquer pares de pontos são rigorosamente conservadas, temos as <strong>isometrias</strong> (translações, rotações e reflexões); quando os comprimentos escalam proporcionalmente por uma razão @k@ conservando ângulos e formas, ingressamos nas <strong>homotetias</strong>. Ao transportar essas noções para o triângulo retângulo e para a circunferência unitária centrada na origem, as razões métricas transformam-se na <strong>Trigonometria</strong> &mdash; do grego <em>trígonon</em> (triângulo) e <em>metron</em> (medida) &mdash;, a ferramenta seminal construída por Hiparco de Niceia, Ptolomeu e aperfeiçoada por Leonhard Euler que conecta geometria métrica, rotações angulares e análise funcional periódica.
+    </p>
+
+    <!-- ===============================================================
+         PARTE 1: TRANSFORMAÇÕES GEOMÉTRICAS NO PLANO
+         =============================================================== -->
+    <h2>1. Transformações Geométricas no Plano (@\mathbb{R}^2@)</h2>
+
+    <p>
+      Consideremos o plano euclidiano @\Pi@ identificado com o espaço vetorial @\mathbb{R}^2@ munido do produto escalar usual e da métrica euclidiana:
+    </p>
+    @@
+    d(P, Q) = \sqrt{(x_Q - x_P)^2 + (y_Q - y_P)^2}
+    @@
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Transformação Geométrica Plana)</h3>
+      <p>
+        Uma <strong>transformação geométrica</strong> do plano é uma aplicação bijetora @T: \Pi \to \Pi@ que associa a cada ponto @P(x, y)@ um único ponto imagem @P'(x', y') = T(P)@, de modo que todo ponto do plano é imagem de um único ponto de partida.
+      </p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Isometria Plana)</h3>
+      <p>
+        Uma transformação @T: \Pi \to \Pi@ denomina-se <strong>isometria</strong> (ou transformação rígida) se, e somente se, preserva rigorosamente a distância euclidiana entre quaisquer dois pontos do plano:
+      </p>
+      @@
+      \forall P, Q \in \Pi, \quad d\big(T(P), T(Q)\big) = d(P, Q)
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.1 (Invariantes Universais das Isometrias)</h3>
+      <p>Toda isometria no plano euclidiano satisfaz necessariamente:</p>
+      <ol>
+        <li><strong>Preservação de Colinearidade:</strong> Transforma retas em retas. Se @P, Q, R@ são colineares, então @T(P), T(Q), T(R)@ são colineares.</li>
+        <li><strong>Preservação de Ângulos:</strong> Se duas semi-retas formam um ângulo com vértice @V@ de abertura @\alpha@, as semi-retas imagens formam um ângulo de mesma abertura @\alpha@.</li>
+        <li><strong>Preservação de Áreas e Perímetros:</strong> Para qualquer polígono ou região mensurável @\mathcal{S}@, @\text{Área}(T(\mathcal{S})) = \text{Área}(\mathcal{S})@ e @\text{Perímetro}(T(\mathcal{S})) = \text{Perímetro}(\mathcal{S})@.</li>
+        <li><strong>Classificação quanto à Orientação:</strong>
+          <ul>
+            <li><strong>Isometria Direta:</strong> Preserva o sentido de percurso dos vértices (horário/anti-horário). Exemplos: <em>Translações</em> e <em>Rotações</em>.</li>
+            <li><strong>Isometria Inversa:</strong> Inverte a orientação dos vértices (efeito espelho). Exemplos: <em>Reflexões Axiais</em> e <em>Reflexões com Deslizamento</em>.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <h3>1.1 Translações</h3>
+    <p>
+      Seja @\vec{v} = (u, v) \in \mathbb{R}^2@ um vetor fixo. A <strong>translação</strong> associada ao vetor @\vec{v}@, denotada por @T_{\vec{v}}@, é a transformação que desloca cada ponto @P(x, y)@ paralelamente a @\vec{v}@ pelo comprimento @\|\vec{v}\|@:
+    </p>
+    @@
+    T_{\vec{v}}(x, y) = (x + u, \, y + v)
+    @@
+    <p>
+      <strong>Propriedades:</strong>
+    </p>
+    <ul>
+      <li>É uma isometria direta: @d(T_{\vec{v}}(P), T_{\vec{v}}(Q)) = \sqrt{((x_Q+u)-(x_P+u))^2 + ((y_Q+v)-(y_P+v))^2} = d(P, Q)@.</li>
+      <li>Se @\vec{v} \neq \vec{0}@, a translação <strong>não possui pontos fixos</strong> (@T(P) \neq P@ para todo @P@).</li>
+      <li>A inversa de @T_{\vec{v}}@ é @T_{-\vec{v}}@. A composição de duas translações é a translação da soma vetorial: @T_{\vec{u}} \circ T_{\vec{v}} = T_{\vec{u} + \vec{v}}@.</li>
+    </ul>
+
+    <h3>1.2 Reflexões Axiais (Simetria em Relação a uma Reta)</h3>
+    <p>
+      Dada uma reta fixa @r \subset \Pi@ (denominada <em>eixo de reflexão</em>), a <strong>reflexão axial</strong> @S_r@ associa a cada ponto @P@ um ponto @P'@ tal que:
+    </p>
+    <ul>
+      <li>Se @P \in r@, então @S_r(P) = P@ (todo ponto sobre o eixo é um ponto fixo).</li>
+      <li>Se @P \notin r@, a reta @r@ é a <strong>mediatriz</strong> do segmento @\overline{PP'}@ (isto é, @r \perp \overline{PP'}@ no ponto médio de @\overline{PP'}@).</li>
+    </ul>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.2 (Equações das Reflexões Canônicas no Plano Cartesiano)</h3>
+      <p>No sistema cartesiano ortogonal:</p>
+      <ul>
+        <li><strong>Reflexão em relação ao eixo das abscissas (@Ox@, reta @y = 0@):</strong>
+          @@
+          S_{Ox}(x, y) = (x, -y)
+          @@
+        </li>
+        <li><strong>Reflexão em relação ao eixo das ordenadas (@Oy@, reta @x = 0@):</strong>
+          @@
+          S_{Oy}(x, y) = (-x, y)
+          @@
+        </li>
+        <li><strong>Reflexão em relação à bissetriz dos quadrantes ímpares (reta @y = x@):</strong>
+          @@
+          S_{y=x}(x, y) = (y, x)
+          @@
+        </li>
+      </ul>
+      <p>Toda reflexão axial é uma <strong>involução</strong>: @S_r \circ S_r = \text{Id}@ (aplicar o espelhamento duas vezes restaura a figura original). Além disso, inverte a orientação (isometria inversa).</p>
+    </div>
+
+    <h3>1.3 Reflexões Centrais (Simetria Pontual)</h3>
+    <p>
+      Dado um ponto fixo @C(x_0, y_0)@ (denominado <em>centro de simetria</em>), a reflexão central @S_C@ associa a cada ponto @P(x, y)@ o ponto @P'(x', y')@ tal que @C@ seja o ponto médio exato de @\overline{PP'}@:
+    </p>
+    @@
+    \frac{x + x'}{2} = x_0 \implies x' = 2x_0 - x \quad \text{e} \quad \frac{y + y'}{2} = y_0 \implies y' = 2y_0 - y
+    @@
+    <p>
+      Em particular, quando o centro é a <strong>origem</strong> @O(0, 0)@:
+    </p>
+    @@
+    S_O(x, y) = (-x, -y)
+    @@
+    <div class="destaque-box observacao">
+      <h3>Conexão Estrutural: Reflexão Central versus Rotação</h3>
+      <p>
+        A reflexão central @S_O@ coincide perfeitamente com a <strong>rotação de @180^\circ@ (@\pi@ radianos)</strong> em torno de @O@. Portanto, embora envolva inversão de coordenadas algébricas, a reflexão central no plano é uma <strong>isometria direta</strong> (preserva a orientação de figuras fechadas).
+      </p>
+    </div>
+
+    <h3>1.4 Rotações no Plano</h3>
+    <p>
+      Fixado um centro @O(0, 0)@ e um ângulo orientado @\theta@ (adotando a convenção trigonométrica: positivo no sentido anti-horário), a <strong>rotação</strong> @R_{(O, \theta)}@ preserva a distância à origem (@d(O, P') = d(O, P)@) e incrementa o ângulo polar de @P@ por @\theta@.
+    </p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.3 (Dedução das Equações Analíticas da Rotação)</h3>
+      <p>
+        Seja @P(x, y)@ com coordenadas polares @x = r \cos \alpha@ e @y = r \sin \alpha@, onde @r = \sqrt{x^2+y^2}@. A rotação de ângulo @\theta@ produz o ponto @P'(x', y')@ com coordenadas @x' = r \cos(\alpha + \theta)@ e @y' = r \sin(\alpha + \theta)@.
+      </p>
+      <p>Expandindo pelas fórmulas da adição de arcos:</p>
+      @@
+      \begin{aligned}
+      x' &= r \big(\cos \alpha \cos \theta - \sin \alpha \sin \theta\big) = (r \cos \alpha)\cos \theta - (r \sin \alpha)\sin \theta = x \cos \theta - y \sin \theta \\
+      y' &= r \big(\sin \alpha \cos \theta + \cos \alpha \sin \theta\big) = (r \cos \alpha)\sin \theta + (r \sin \alpha)\cos \theta = x \sin \theta + y \cos \theta
+      \end{aligned}
+      @@
+      <p>Na representação matricial linear:</p>
+      @@
+      \begin{pmatrix} x' \\ y' \end{pmatrix} = \begin{pmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}
+      @@
+      <p><strong>Propriedades:</strong> @R_{(O, \theta)}@ é isometria direta. O único ponto fixo (para @\theta \not\equiv 0 \pmod{2\pi}@) é a origem @O@. A composição de duas rotações em torno do mesmo centro satisfaz @R_{(O, \theta_1)} \circ R_{(O, \theta_2)} = R_{(O, \theta_1 + \theta_2)}@.</p>
+    </div>
+
+    <h3>1.5 Homotetias (Ampliação e Redução com Razão @k@)</h3>
+    <p>
+      Nem todas as transformações geométricas conservam distâncias. Quando preservamos a forma de uma figura e multiplicamos todas as suas dimensões lineares por uma constante não nula @k \in \mathbb{R}^*@, entramos na classe das <strong>transformações de semelhança</strong>.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Homotetia com Centro @O@ e Razão @k@)</h3>
+      <p>
+        Dado um ponto fixo @O \in \Pi@ (centro de homotetia) e um número real @k \neq 0@ (razão de homotetia), a <strong>homotetia</strong> @H_{(O, k)}@ é a transformação que associa a cada ponto @P@ o ponto @P'@ tal que:
+      </p>
+      @@
+      \vec{OP'} = k \cdot \vec{OP}
+      @@
+      <p>Se o centro é a origem @O(0, 0)@:</p>
+      @@
+      H_{(O, k)}(x, y) = (k \cdot x, \, k \cdot y)
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.4 (Propriedades Estruturais da Homotetia)</h3>
+      <ol>
+        <li><strong>Classificação geométrica:</strong>
+          <ul>
+            <li>Se @|k| > 1@: <em>ampliação</em> da figura original.</li>
+            <li>Se @0 < |k| < 1@: <em>redução</em> da figura original.</li>
+            <li>Se @k = 1@: aplicação identidade (@H_{(O, 1)} = \text{Id}@).</li>
+            <li>Se @k = -1@: reflexão central em relação a @O@.</li>
+          </ul>
+        </li>
+        <li><strong>Sinal da Razão:</strong>
+          <ul>
+            <li>Se @k > 0@: <em>homotetia direta</em>. @P@ e @P'@ situam-se na mesma semi-reta originada em @O@.</li>
+            <li>Se @k < 0@: <em>homotetia inversa</em>. @P@ e @P'@ situam-se em semi-retas opostas relativamente a @O@.</li>
+          </ul>
+        </li>
+        <li><strong>Dilatação Linear e Invariância Angular:</strong> A homotetia conserva ângulos e colinearidade. Para quaisquer pontos @P, Q@:
+          @@
+          d\big(H(P), H(Q)\big) = |k| \cdot d(P, Q)
+          @@
+        </li>
+        <li><strong>Teorema da Escala de Áreas:</strong> Se @\mathcal{S}@ é uma região poligonal de área @A@, a área de sua imagem @\mathcal{S}' = H_{(O, k)}(\mathcal{S})@ é dada por:
+          @@
+          \text{Área}(\mathcal{S}') = k^2 \cdot \text{Área}(\mathcal{S})
+          @@
+        </li>
+      </ol>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 2: TRIGONOMETRIA NO TRIÂNGULO RETÂNGULO
+         =============================================================== -->
+    <h2>2. Trigonometria no Triângulo Retângulo</h2>
+
+    <p>
+      A base de toda a trigonometria repousa na constatação de que, em um triângulo retângulo, as razões entre os comprimentos dos lados dependem <strong>exclusivamente</strong> da amplitude dos ângulos internos, sendo absolutamente independentes da escala dos triângulos.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Razões Trigonométricas Fundamentais)</h3>
+      <p>
+        Considere um triângulo retângulo @\triangle ABC@, reto no vértice @A@, com hipotenusa de comprimento @a@ e catetos @b = AC@ (oposto a @\hat{B}@) e @c = AB@ (adjacente a @\hat{B}@). Denotando @\theta = \hat{B}@ (@0 < \theta < 90^\circ@ ou @0 < \theta < \frac{\pi}{2}@ rad):
+      </p>
+      @@
+      \sin \theta = \frac{\text{cateto oposto}}{\text{hipotenusa}} = \frac{b}{a}
+      @@
+      @@
+      \cos \theta = \frac{\text{cateto adjacente}}{\text{hipotenusa}} = \frac{c}{a}
+      @@
+      @@
+      \tan \theta = \frac{\text{cateto oposto}}{\text{cateto adjacente}} = \frac{b}{c} = \frac{\sin \theta}{\cos \theta}
+      @@
+      <p>Definem-se ainda as razões recíprocas:</p>
+      @@
+      \cot \theta = \frac{1}{\tan \theta} = \frac{c}{b}, \quad \sec \theta = \frac{1}{\cos \theta} = \frac{a}{c}, \quad \csc \theta = \frac{1}{\sin \theta} = \frac{a}{b}
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Independência de Escala via Semelhança de Triângulos)</h3>
+      <p>
+        Sejam @\triangle ABC@ e @\triangle A'B'C'@ dois triângulos retângulos com @\hat{A} = \hat{A}' = 90^\circ@ e @\hat{B} = \hat{B}' = \theta@. Pelo critério de semelhança Ângulo-Ângulo (AA), temos @\triangle ABC \sim \triangle A'B'C'@. Consequentemente:
+      </p>
+      @@
+      \frac{a}{a'} = \frac{b}{b'} = \frac{c}{c'} = k \implies \frac{b}{a} = \frac{b'}{a'} \quad (\sin \theta \text{ é invariante})
+      @@
+      <p>Logo, o seno, cosseno e tangente são <em>invariantes adimensionais</em> que caracterizam univocamente a classe de equivalência dos triângulos sob homotetias.</p>
+    </div>
+
+    <h3>2.1 Dedução Rigorosa dos Ângulos Notáveis (@30^\circ, 45^\circ, 60^\circ@)</h3>
+
+    <h4>A. Os Ângulos de @30^\circ@ e @60^\circ@ via Triângulo Equilátero</h4>
+    <p>
+      Considere um triângulo equilátero @\triangle ABC@ de lado de comprimento @\ell@. Todos os seus ângulos internos medem @60^\circ@. Traçando a bissetriz relativa ao vértice @A@, esta é simultaneamente altura e mediatriz da base @\overline{BC}@:
+    </p>
+    <ul>
+      <li>O pé da altura divide a base em dois segmentos de medida @\frac{\ell}{2}@.</li>
+      <li>O triângulo retângulo resultante possui ângulos agudos de @30^\circ@ e @60^\circ@, com hipotenusa @\ell@ e cateto adjacente a @60^\circ@ medindo @\frac{\ell}{2}@.</li>
+      <li>Pelo Teorema de Pitágoras, a altura @h@ satisfaz:
+        @@
+        h^2 + \left(\frac{\ell}{2}\right)^2 = \ell^2 \implies h^2 = \ell^2 - \frac{\ell^2}{4} = \frac{3\ell^2}{4} \implies h = \frac{\ell\sqrt{3}}{2}
+        @@
+      </li>
+    </ul>
+    <p>Aplicando as definições:</p>
+    @@
+    \sin 30^\circ = \frac{\ell/2}{\ell} = \frac{1}{2}, \quad \cos 30^\circ = \frac{\ell\sqrt{3}/2}{\ell} = \frac{\sqrt{3}}{2}, \quad \tan 30^\circ = \frac{\ell/2}{\ell\sqrt{3}/2} = \frac{1}{\sqrt{3}} = \frac{\sqrt{3}}{3}
+    @@
+    @@
+    \sin 60^\circ = \frac{\ell\sqrt{3}/2}{\ell} = \frac{\sqrt{3}}{2}, \quad \cos 60^\circ = \frac{\ell/2}{\ell} = \frac{1}{2}, \quad \tan 60^\circ = \frac{\ell\sqrt{3}/2}{\ell/2} = \sqrt{3}
+    @@
+
+    <h4>B. O Ângulo de @45^\circ@ via Quadrado</h4>
+    <p>
+      Considere um quadrado @\text{ABCD}@ de lado @\ell@. Traçando a diagonal @\overline{AC}@, decompõe-se o quadrado em dois triângulos retângulos isósceles cujos ângulos agudos medem @45^\circ@:
+    </p>
+    <ul>
+      <li>Catetos: @b = c = \ell@.</li>
+      <li>Hipotenusa @d@ calculada por Pitágoras: @d^2 = \ell^2 + \ell^2 = 2\ell^2 \implies d = \ell\sqrt{2}@.</li>
+    </ul>
+    <p>Calculando as razões:</p>
+    @@
+    \sin 45^\circ = \frac{\ell}{\ell\sqrt{2}} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}, \quad \cos 45^\circ = \frac{\ell}{\ell\sqrt{2}} = \frac{\sqrt{2}}{2}, \quad \tan 45^\circ = \frac{\ell}{\ell} = 1
+    @@
+
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Ângulo (@\theta@)</th>
+            <th>Radianos</th>
+            <th>@\sin \theta@</th>
+            <th>@\cos \theta@</th>
+            <th>@\tan \theta@</th>
+            <th>@\csc \theta@</th>
+            <th>@\sec \theta@</th>
+            <th>@\cot \theta@</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>@30^\circ@</strong></td>
+            <td>@\frac{\pi}{6}@</td>
+            <td>@\frac{1}{2}@</td>
+            <td>@\frac{\sqrt{3}}{2}@</td>
+            <td>@\frac{\sqrt{3}}{3}@</td>
+            <td>@2@</td>
+            <td>@\frac{2\sqrt{3}}{3}@</td>
+            <td>@\sqrt{3}@</td>
+          </tr>
+          <tr>
+            <td><strong>@45^\circ@</strong></td>
+            <td>@\frac{\pi}{4}@</td>
+            <td>@\frac{\sqrt{2}}{2}@</td>
+            <td>@\frac{\sqrt{2}}{2}@</td>
+            <td>@1@</td>
+            <td>@\sqrt{2}@</td>
+            <td>@\sqrt{2}@</td>
+            <td>@1@</td>
+          </tr>
+          <tr>
+            <td><strong>@60^\circ@</strong></td>
+            <td>@\frac{\pi}{3}@</td>
+            <td>@\frac{\sqrt{3}}{2}@</td>
+            <td>@\frac{1}{2}@</td>
+            <td>@\sqrt{3}@</td>
+            <td>@\frac{2\sqrt{3}}{3}@</td>
+            <td>@2@</td>
+            <td>@\frac{\sqrt{3}}{3}@</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Relações entre Ângulos Complementares)</h3>
+      <p>
+        Em qualquer triângulo retângulo, a soma dos dois ângulos agudos é @90^\circ@ (@\frac{\pi}{2}@ rad). Se @\alpha + \beta = 90^\circ@, então o cateto oposto a @\alpha@ é o cateto adjacente a @\beta@. Logo:
+      </p>
+      @@
+      \sin(90^\circ - \theta) = \cos \theta \quad \text{e} \quad \cos(90^\circ - \theta) = \sin \theta
+      @@
+      @@
+      \tan(90^\circ - \theta) = \cot \theta = \frac{1}{\tan \theta}
+      @@
+    </div>
+
+    <!-- ===============================================================
+         PARTE 3: O CICLO TRIGONOMÉTRICO E A GENERALIZAÇÃO FUNCIONAL
+         =============================================================== -->
+    <h2>3. O Ciclo Trigonométrico e a Generalização Funcional</h2>
+
+    <p>
+      A trigonometria restrita ao triângulo retângulo padece de uma limitação fundamental: é incapaz de operar com ângulos obtusos (@> 90^\circ@), nulos, retos, rasos, côncavos ou negativos. Para generalizar o seno e o cosseno para qualquer número real @\theta \in \mathbb{R}@, introduz-se a <strong>circunferência trigonométrica</strong>.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Unidades de Medida Angular: Grau e Radiano)</h3>
+      <p>
+        <strong>Grau (@^\circ@):</strong> Unidade obtida dividindo-se a circunferência completa em @360@ arcos congruentes. Assim, @1^\circ = \frac{1}{360}@ da volta completa.
+      </p>
+      <p>
+        <strong>Radiano (@\text{rad}@):</strong> É a medida do ângulo central que subtende um arco cujo comprimento retificado @s@ é rigorosamente igual ao raio @r@ da circunferência:
+      </p>
+      @@
+      \theta = \frac{s}{r} \implies s = r \cdot \theta \quad (\theta \text{ em radianos})
+      @@
+      <p>
+        Como o perímetro de uma circunferência de raio @r@ é @C = 2\pi r@, uma volta completa (@360^\circ@) corresponde a:
+      </p>
+      @@
+      2\pi \text{ rad} = 360^\circ \iff \pi \text{ rad} = 180^\circ \iff 1 \text{ rad} = \frac{180^\circ}{\pi} \approx 57{,}29578^\circ
+      @@
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.2 (A Circunferência Trigonométrica Unitária)</h3>
+      <p>
+        Chama-se <strong>ciclo trigonométrico</strong> a circunferência orientada @\mathcal{C}@ no plano cartesiano @\mathbb{R}^2@ que satisfaz cumulativamente:
+      </p>
+      <ol>
+        <li>Centro localizado na origem do plano cartesiano: @O(0, 0)@;</li>
+        <li>Raio unitário: @R = 1@, cuja equação cartesiana é @x^2 + y^2 = 1@;</li>
+        <li>Ponto origem dos arcos convencionado em @A(1, 0)@;</li>
+        <li>Orientação de percurso: sentido <strong>anti-horário como positivo</strong> e sentido <strong>horário como negativo</strong>.</li>
+      </ol>
+    </div>
+
+    <h3>3.1 Eixos Trigonométricos e Coordenadas</h3>
+    <p>
+      A cada número real @\theta \in \mathbb{R}@ associa-se um único ponto móvel @P(\theta)@ sobre o ciclo unitário, obtido percorrendo um comprimento @|\theta|@ a partir de @A(1,0)@ (no sentido anti-horário se @\theta \ge 0@ ou horário se @\theta < 0@):
+    </p>
+    <ul>
+      <li><strong>Cosseno (@\cos \theta@):</strong> É definido como a <strong>abscissa</strong> (@x@) do ponto @P@. O eixo @Ox@ é o <em>eixo dos cossenos</em>:
+        @@
+        \cos \theta = x_P
+        @@
+      </li>
+      <li><strong>Seno (@\sin \theta@):</strong> É definido como a <strong>ordenada</strong> (@y@) do ponto @P@. O eixo @Oy@ é o <em>eixo dos senos</em>:
+        @@
+        \sin \theta = y_P
+        @@
+      </li>
+      <li><strong>Ponto Imagem do Arco:</strong> @P(\theta) = (\cos \theta, \, \sin \theta)@.</li>
+      <li><strong>Eixo das Tangentes:</strong> É a reta vertical @x = 1@, tangente ao ciclo no ponto @A(1, 0)@. Prolongando o segmento @\overline{OP}@ até interceptar a reta @x = 1@ no ponto @T(1, t)@, a ordenada de @T@ é a tangente:
+        @@
+        \tan \theta = t_T = \frac{\sin \theta}{\cos \theta} \quad \left(\theta \neq \frac{\pi}{2} + k\pi, \, k \in \mathbb{Z}\right)
+        @@
+      </li>
+    </ul>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (A Relação Fundamental da Trigonometria)</h3>
+      <p>Para todo número real @\theta \in \mathbb{R}@, vigoram categoricamente:</p>
+      @@
+      \sin^2 \theta + \cos^2 \theta = 1
+      @@
+      <h4>Demonstração Rigorosa:</h4>
+      <p>
+        O ponto @P(\theta) = (\cos \theta, \sin \theta)@ pertence à circunferência unitária de centro @(0,0)@ e raio @1@. A equação da circunferência no plano cartesiano é:
+      </p>
+      @@
+      (x - 0)^2 + (y - 0)^2 = 1^2 \implies x^2 + y^2 = 1
+      @@
+      <p>Substituindo @x = \cos \theta@ e @y = \sin \theta@, obtém-se diretamente:</p>
+      @@
+      \cos^2 \theta + \sin^2 \theta = 1 \quad \forall \theta \in \mathbb{R} \quad \blacksquare
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.2 (Identidades Derivadas Fundamentais)</h3>
+      <p>A partir da relação fundamental, dividindo sucessivamente por @\cos^2 \theta@ e @\sin^2 \theta@:</p>
+      <ol>
+        <li>Dividindo por @\cos^2 \theta \neq 0@:
+          @@
+          \frac{\sin^2 \theta}{\cos^2 \theta} + \frac{\cos^2 \theta}{\cos^2 \theta} = \frac{1}{\cos^2 \theta} \implies \tan^2 \theta + 1 = \sec^2 \theta
+          @@
+        </li>
+        <li>Dividindo por @\sin^2 \theta \neq 0@:
+          @@
+          \frac{\sin^2 \theta}{\sin^2 \theta} + \frac{\cos^2 \theta}{\sin^2 \theta} = \frac{1}{\sin^2 \theta} \implies 1 + \cot^2 \theta = \csc^2 \theta
+          @@
+        </li>
+      </ol>
+    </div>
+
+    <h3>3.2 Estudo de Sinais nos Quatro Quadrantes</h3>
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Quadrante</th>
+            <th>Intervalo de @\theta@</th>
+            <th>Sinal do Seno (@y@)</th>
+            <th>Sinal do Cosseno (@x@)</th>
+            <th>Sinal da Tangente (@y/x@)</th>
+            <th>Posição no Plano</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1º Quadrante</strong></td>
+            <td>@0 < \theta < \frac{\pi}{2}@</td>
+            <td><strong>@+@ (positivo)</strong></td>
+            <td><strong>@+@ (positivo)</strong></td>
+            <td><strong>@+@ (positivo)</strong></td>
+            <td>Superior Direito (@x > 0, y > 0@)</td>
+          </tr>
+          <tr>
+            <td><strong>2º Quadrante</strong></td>
+            <td>@\frac{\pi}{2} < \theta < \pi@</td>
+            <td><strong>@+@ (positivo)</strong></td>
+            <td><strong>@-@ (negativo)</strong></td>
+            <td><strong>@-@ (negativo)</strong></td>
+            <td>Superior Esquerdo (@x < 0, y > 0@)</td>
+          </tr>
+          <tr>
+            <td><strong>3º Quadrante</strong></td>
+            <td>@\pi < \theta < \frac{3\pi}{2}@</td>
+            <td><strong>@-@ (negativo)</strong></td>
+            <td><strong>@-@ (negativo)</strong></td>
+            <td><strong>@+@ (positivo)</strong></td>
+            <td>Inferior Esquerdo (@x < 0, y < 0@)</td>
+          </tr>
+          <tr>
+            <td><strong>4º Quadrante</strong></td>
+            <td>@\frac{3\pi}{2} < \theta < 2\pi@</td>
+            <td><strong>@-@ (negativo)</strong></td>
+            <td><strong>@+@ (positivo)</strong></td>
+            <td><strong>@-@ (negativo)</strong></td>
+            <td>Inferior Direito (@x > 0, y < 0@)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 4: SIMETRIAS NO CÍRCULO E REDUÇÃO AO 1º QUADRANTE
+         =============================================================== -->
+    <h2>4. Simetrias no Ciclo Unitário e Redução ao 1º Quadrante</h2>
+
+    <p>
+      As transformações geométricas estudadas na Seção 1 manifestam-se com esplendor nas simetrias do ciclo trigonométrico. Qualquer arco situado no 2º, 3º ou 4º quadrante pode ser reduzido a um arco congruente do 1º quadrante mediante reflexões axiais e centrais.
+    </p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Simetrias e Fórmulas de Redução ao 1º Quadrante)</h3>
+      <p>Seja @\theta \in \left]0, \frac{\pi}{2}\right[@ um arco agudo do primeiro quadrante:</p>
+      
+      <h4>1. Arcos Suplementares (2º Quadrante: @x = \pi - \theta@ ou @180^\circ - \theta@)</h4>
+      <p>
+        Corresponde à <strong>reflexão axial em relação ao eixo das ordenadas (@Oy@)</strong>: @(x_P, y_P) \mapsto (-x_P, y_P)@.
+      </p>
+      @@
+      \sin(\pi - \theta) = \sin \theta, \quad \cos(\pi - \theta) = -\cos \theta, \quad \tan(\pi - \theta) = -\tan \theta
+      @@
+
+      <h4>2. Arcos que Diferem de @\pi@ (3º Quadrante: @x = \pi + \theta@ ou @180^\circ + \theta@)</h4>
+      <p>
+        Corresponde à <strong>reflexão central em relação à origem @O(0, 0)@</strong> (ou rotação de @180^\circ@): @(x_P, y_P) \mapsto (-x_P, -y_P)@.
+      </p>
+      @@
+      \sin(\pi + \theta) = -\sin \theta, \quad \cos(\pi + \theta) = -\cos \theta, \quad \tan(\pi + \theta) = \tan \theta
+      @@
+
+      <h4>3. Arcos Opostos / Replementares (4º Quadrante: @x = 2\pi - \theta@ ou @-\theta@)</h4>
+      <p>
+        Corresponde à <strong>reflexão axial em relação ao eixo das abscissas (@Ox@)</strong>: @(x_P, y_P) \mapsto (x_P, -y_P)@.
+      </p>
+      @@
+      \sin(-\theta) = -\sin \theta \quad \text{(Função Ímpar)}
+      @@
+      @@
+      \cos(-\theta) = \cos \theta \quad \text{(Função Par)}
+      @@
+      @@
+      \tan(-\theta) = -\tan \theta \quad \text{(Função Ímpar)}
+      @@
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.1 (Arcos Côngruos e Primeira Determinação Positiva)</h3>
+      <p>
+        Dois arcos com medidas @\alpha@ e @\beta@ dizem-se <strong>côngruos</strong> se possuem a mesma extremidade no ciclo trigonométrico. Isso ocorre se, e somente se, a diferença entre eles for um múltiplo inteiro de voltas completas:
+      </p>
+      @@
+      \alpha \equiv \beta \pmod{2\pi} \iff \alpha - \beta = 2k\pi \quad (k \in \mathbb{Z})
+      @@
+      @@
+      \text{Em graus: } \alpha - \beta = k \cdot 360^\circ \quad (k \in \mathbb{Z})
+      @@
+      <p>
+        Para qualquer @\alpha \in \mathbb{R}@, existe um único @\theta_0 \in [0, 2\pi[@ (ou @[0^\circ, 360^\circ[@) denominado <strong>primeira determinação positiva</strong> tal que @\alpha = \theta_0 + 2k\pi@, com @k = \lfloor \frac{\alpha}{2\pi} \rfloor@.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         EXEMPLOS RESOLVIDOS PASSO A PASSO
+         =============================================================== -->
+    <h2>5. Exemplos Resolvidos Passo a Passo</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 5.1 &mdash; Composição de Transformações Geométricas no Plano</h3>
+      <p>
+        Um triângulo tem vértices em @A(1, 2)@, @B(4, 2)@ e @C(1, 6)@. Aplica-se ao triângulo uma translação pelo vetor @\vec{v} = (-2, 1)@ obtendo o triângulo @A'B'C'@. Em seguida, aplica-se a @A'B'C'@ uma rotação de @90^\circ@ no sentido anti-horário em torno da origem @O(0,0)@, gerando o triângulo @A''B''C''@. 
+        <br><strong>Pede-se:</strong> Determinar as coordenadas dos vértices finais @A'', B'', C''@ e comprovar analiticamente que @\text{Área}(\triangle A''B''C'') = \text{Área}(\triangle ABC)@.
+      </p>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Passo 1: Aplicação da translação @T_{\vec{v}}(x, y) = (x - 2, y + 1)@:</strong></p>
+      <ul>
+        <li>@A' = T(1, 2) = (1 - 2, 2 + 1) = (-1, 3)@</li>
+        <li>@B' = T(4, 2) = (4 - 2, 2 + 1) = (2, 3)@</li>
+        <li>@C' = T(1, 6) = (1 - 2, 6 + 1) = (-1, 7)@</li>
+      </ul>
+      <p><strong>Passo 2: Aplicação da rotação @R_{(O, 90^\circ)}@:</strong></p>
+      <p>Pelas equações de rotação deduzidas no Teorema 1.3 com @\theta = 90^\circ@ (@\cos 90^\circ = 0@, @\sin 90^\circ = 1@):</p>
+      @@
+      x'' = x' \cos 90^\circ - y' \sin 90^\circ = -y' \quad \text{e} \quad y'' = x' \sin 90^\circ + y' \cos 90^\circ = x'
+      @@
+      <p>Logo, a transformação é dada por @R_{90^\circ}(x', y') = (-y', x')@. Aplicando aos pontos:</p>
+      <ul>
+        <li>@A'' = R(-1, 3) = (-3, -1)@</li>
+        <li>@B'' = R(2, 3) = (-3, 2)@</li>
+        <li>@C'' = R(-1, 7) = (-7, -1)@</li>
+      </ul>
+      <p><strong>Passo 3: Verificação de conservação de área:</strong></p>
+      <p>O triângulo inicial @\triangle ABC@ é retângulo em @A@, pois os catetos são paralelos aos eixos (@\overline{AB}@ horizontal de medida @|4 - 1| = 3@ e @\overline{AC}@ vertical de medida @|6 - 2| = 4@):</p>
+      @@
+      \text{Área}(\triangle ABC) = \frac{\text{base} \times \text{altura}}{2} = \frac{3 \times 4}{2} = 6
+      @@
+      <p>Para @\triangle A''B''C''@, os catetos são @A''(-3, -1)@ a @B''(-3, 2)@ (vertical, comprimento @|2 - (-1)| = 3@) e @A''(-3, -1)@ a @C''(-7, -1)@ (horizontal, comprimento @|-7 - (-3)| = 4@). Logo:</p>
+      @@
+      \text{Área}(\triangle A''B''C'') = \frac{3 \times 4}{2} = 6
+      @@
+      <p>Como ambas as operações são isometrias (diretas), a distância entre os pontos e a área foram estritamente preservadas. @\blacksquare@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 5.2 &mdash; Homotetia com Razão Negativa e Relação de Áreas</h3>
+      <p>
+        Seja um triângulo @\triangle PQR@ com vértices @P(2, 4)@, @Q(6, 4)@ e @R(2, 7)@. Aplica-se uma homotetia @H_{(O, k)}@ com centro na origem @O(0, 0)@ e razão @k = -2@. 
+        <br><strong>Pede-se:</strong> 
+        a) Encontrar os novos vértices @P', Q', R'@; 
+        b) Calcular o comprimento do segmento @P'Q'@; 
+        c) Calcular a área da imagem e compará-la com a área original.
+      </p>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Passo 1: Determinação dos vértices homotéticos:</strong></p>
+      <p>Como a razão é @k = -2@, cada coordenada é multiplicada por @-2@ (homotetia inversa):</p>
+      <ul>
+        <li>@P' = H(2, 4) = (-2 \cdot 2, -2 \cdot 4) = (-4, -8)@</li>
+        <li>@Q' = H(6, 4) = (-2 \cdot 6, -2 \cdot 4) = (-12, -8)@</li>
+        <li>@R' = H(2, 7) = (-2 \cdot 2, -2 \cdot 7) = (-4, -14)@</li>
+      </ul>
+      <p><strong>Passo 2: Comprimento de @P'Q'@:</strong></p>
+      @@
+      d(P, Q) = \sqrt{(6-2)^2 + (4-4)^2} = \sqrt{16} = 4
+      @@
+      @@
+      d(P', Q') = \sqrt{(-12 - (-4))^2 + (-8 - (-8))^2} = \sqrt{(-8)^2} = 8
+      @@
+      <p>Observa-se que @d(P', Q') = |-2| \cdot d(P, Q) = 2 \times 4 = 8@, confirmando o Teorema 1.4.</p>
+      <p><strong>Passo 3: Comparação de áreas:</strong></p>
+      @@
+      \text{Área}(\triangle PQR) = \frac{\text{base} \times \text{altura}}{2} = \frac{PQ \times PR}{2} = \frac{4 \times (7-4)}{2} = \frac{4 \times 3}{2} = 6
+      @@
+      @@
+      \text{Área}(\triangle P'Q'R') = \frac{P'Q' \times P'R'}{2} = \frac{8 \times |-14 - (-8)|}{2} = \frac{8 \times 6}{2} = 24
+      @@
+      <p>Verificando a razão teórica das áreas:</p>
+      @@
+      \frac{\text{Área}(\triangle P'Q'R')}{\text{Área}(\triangle PQR)} = \frac{24}{6} = 4 = (-2)^2 = k^2
+      @@
+      <p>A área foi quadruplicada (@k^2 = 4@) e a figura foi invertida relativamente à origem. @\blacksquare@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 5.3 &mdash; Agrimensura e Dupla Visada Angular no Triângulo Retângulo</h3>
+      <p>
+        Para determinar a altura @h@ de uma torre de transmissão situada em terreno plano horizontal sem acesso à sua base, um topógrafo instala um teodolito em um ponto @A@ e avista o topo da torre sob um ângulo de elevação de @30^\circ@. Caminhando @60\text{ m}@ em linha reta em direção à torre até o ponto @B@, o novo ângulo de elevação passa a ser de @45^\circ@. Desprezando a altura do teodolito, calcule a altura exata da torre @h@ e seu valor aproximado considerando @\sqrt{3} \approx 1{,}732@.
+      </p>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Passo 1: Modelagem geométrica dos triângulos:</strong></p>
+      <p>Seja @T@ o topo da torre, @P@ a base da torre no solo (com @\hat{P} = 90^\circ@) e @d@ a distância de @B@ até @P@. Então a distância de @A@ até @P@ é @d + 60@.</p>
+      <p>No triângulo retângulo @\triangle BPT@ com ângulo de @45^\circ@:</p>
+      @@
+      \tan 45^\circ = \frac{h}{d} \implies 1 = \frac{h}{d} \implies d = h
+      @@
+      <p>No triângulo retângulo @\triangle APT@ com ângulo de @30^\circ@:</p>
+      @@
+      \tan 30^\circ = \frac{h}{d + 60} \implies \frac{\sqrt{3}}{3} = \frac{h}{h + 60}
+      @@
+      <p><strong>Passo 2: Resolução algébrica para isolar @h@:</strong></p>
+      @@
+      \sqrt{3}(h + 60) = 3h \implies 60\sqrt{3} = 3h - \sqrt{3}h = h(3 - \sqrt{3})
+      @@
+      @@
+      h = \frac{60\sqrt{3}}{3 - \sqrt{3}}
+      @@
+      <p>Racionalizando o denominador multiplicando por @(3 + \sqrt{3})@:</p>
+      @@
+      h = \frac{60\sqrt{3}(3 + \sqrt{3})}{3^2 - (\sqrt{3})^2} = \frac{60(3\sqrt{3} + 3)}{9 - 3} = \frac{60(3\sqrt{3} + 3)}{6} = 10(3\sqrt{3} + 3) = 30(\sqrt{3} + 1)\text{ m}
+      @@
+      <p><strong>Passo 3: Cálculo numérico:</strong></p>
+      @@
+      h = 30(1{,}732 + 1) = 30 \times 2{,}732 = 81{,}96\text{ metros}
+      @@
+      <p><strong>Resposta:</strong> A altura exata da torre é @30(\sqrt{3} + 1)\text{ m}@ (@\approx 81{,}96\text{ m}@). @\blacksquare@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 5.4 &mdash; Relação Fundamental e Simetrias no 2º Quadrante</h3>
+      <p>
+        Sabendo que @\theta@ é um arco pertencente ao segundo quadrante (@\frac{\pi}{2} < \theta < \pi@) e que @\cos \theta = -\frac{5}{13}@, determine os valores exatos de @\sin \theta@, @\tan \theta@, @\sec \theta@ e @\csc \theta@.
+      </p>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Passo 1: Aplicação da Relação Fundamental da Trigonometria:</strong></p>
+      @@
+      \sin^2 \theta + \cos^2 \theta = 1 \implies \sin^2 \theta + \left(-\frac{5}{13}\right)^2 = 1
+      @@
+      @@
+      \sin^2 \theta + \frac{25}{169} = 1 \implies \sin^2 \theta = 1 - \frac{25}{169} = \frac{144}{169}
+      @@
+      <p>Extraindo a raiz quadrada:</p>
+      @@
+      \sin \theta = \pm \sqrt{\frac{144}{169}} = \pm \frac{12}{13}
+      @@
+      <p>Como @\theta@ situa-se no 2º quadrante, a ordenada no ciclo unitário é estritamente positiva (@\sin \theta > 0@). Portanto:</p>
+      @@
+      \sin \theta = +\frac{12}{13}
+      @@
+      <p><strong>Passo 2: Cálculo das demais razões trigonométricas:</strong></p>
+      <ul>
+        <li>Tangente:
+          @@
+          \tan \theta = \frac{\sin \theta}{\cos \theta} = \frac{\frac{12}{13}}{-\frac{5}{13}} = -\frac{12}{5}
+          @@
+        </li>
+        <li>Secante:
+          @@
+          \sec \theta = \frac{1}{\cos \theta} = \frac{1}{-\frac{5}{13}} = -\frac{13}{5}
+          @@
+        </li>
+        <li>Cossecante:
+          @@
+          \csc \theta = \frac{1}{\sin \theta} = \frac{1}{\frac{12}{13}} = \frac{13}{12}
+          @@
+        </li>
+      </ul>
+      <p><strong>Verificação de consistência:</strong> @1 + \tan^2 \theta = 1 + \left(-\frac{12}{5}\right)^2 = 1 + \frac{144}{25} = \frac{169}{25} = \left(-\frac{13}{5}\right)^2 = \sec^2 \theta@. Perfeito! @\blacksquare@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 5.5 &mdash; Simplificação com Redução de Quadrantes e Arcos Negativos</h3>
+      <p>
+        Calcule o valor exato da expressão numérica:
+      </p>
+      @@
+      E = \frac{\sin(150^\circ) + \cos(225^\circ) - \tan(300^\circ)}{\cos(-300^\circ) + \sin(-45^\circ)}
+      @@
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Passo 1: Redução individual de cada termo ao 1º quadrante:</strong></p>
+      <ul>
+        <li><strong>@\sin(150^\circ)@:</strong> @150^\circ@ está no 2º quadrante (@180^\circ - 30^\circ@). No 2ºQ, seno é positivo:
+          @@
+          \sin(150^\circ) = \sin(180^\circ - 30^\circ) = \sin(30^\circ) = \frac{1}{2}
+          @@
+        </li>
+        <li><strong>@\cos(225^\circ)@:</strong> @225^\circ@ está no 3º quadrante (@180^\circ + 45^\circ@). No 3ºQ, cosseno é negativo:
+          @@
+          \cos(225^\circ) = -\cos(225^\circ - 180^\circ) = -\cos(45^\circ) = -\frac{\sqrt{2}}{2}
+          @@
+        </li>
+        <li><strong>@\tan(300^\circ)@:</strong> @300^\circ@ está no 4º quadrante (@360^\circ - 60^\circ@). No 4ºQ, tangente é negativa:
+          @@
+          \tan(300^\circ) = -\tan(360^\circ - 300^\circ) = -\tan(60^\circ) = -\sqrt{3}
+          @@
+        </li>
+        <li><strong>@\cos(-300^\circ)@:</strong> Cosseno é função par (@\cos(-x) = \cos x@). Logo @\cos(-300^\circ) = \cos(300^\circ)@. No 4ºQ cosseno é positivo:
+          @@
+          \cos(300^\circ) = \cos(360^\circ - 60^\circ) = \cos(60^\circ) = \frac{1}{2}
+          @@
+        </li>
+        <li><strong>@\sin(-45^\circ)@:</strong> Seno é função ímpar (@\sin(-x) = -\sin x@):
+          @@
+          \sin(-45^\circ) = -\sin(45^\circ) = -\frac{\sqrt{2}}{2}
+          @@
+        </li>
+      </ul>
+      <p><strong>Passo 2: Montagem do numerador e denominador:</strong></p>
+      @@
+      \text{Numerador} = \frac{1}{2} + \left(-\frac{\sqrt{2}}{2}\right) - (-\sqrt{3}) = \frac{1 - \sqrt{2} + 2\sqrt{3}}{2}
+      @@
+      @@
+      \text{Denominador} = \frac{1}{2} + \left(-\frac{\sqrt{2}}{2}\right) = \frac{1 - \sqrt{2}}{2}
+      @@
+      <p><strong>Passo 3: Divisão e racionalização:</strong></p>
+      @@
+      E = \frac{\frac{1 - \sqrt{2} + 2\sqrt{3}}{2}}{\frac{1 - \sqrt{2}}{2}} = \frac{(1 - \sqrt{2}) + 2\sqrt{3}}{1 - \sqrt{2}} = 1 + \frac{2\sqrt{3}}{1 - \sqrt{2}}
+      @@
+      <p>Racionalizando o termo fracionário multiplicando numerador e denominador por @(1 + \sqrt{2})@:</p>
+      @@
+      \frac{2\sqrt{3}(1 + \sqrt{2})}{(1 - \sqrt{2})(1 + \sqrt{2})} = \frac{2\sqrt{3} + 2\sqrt{6}}{1 - 2} = -(2\sqrt{3} + 2\sqrt{6})
+      @@
+      @@
+      E = 1 - 2\sqrt{3} - 2\sqrt{6}
+      @@
+      <p><strong>Resposta:</strong> @E = 1 - 2\sqrt{3} - 2\sqrt{6}@. @\blacksquare@</p>
+    </div>
+
+    <!-- ===============================================================
+         EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO COM GABARITO COMENTADO
+         =============================================================== -->
+    <h2>6. Exercícios Conceituais de Fixação Rápida</h2>
+
+    <ol class="lista-exercicios">
+
+      <!-- EXERCÍCIO 1 -->
+      <li>
+        <strong>(Classificação de Transformações)</strong> Considere as três transformações no plano @\mathbb{R}^2@:
+        <br>@T_1(x, y) = (x + 5, y - 3)@
+        <br>@T_2(x, y) = (-y, x)@
+        <br>@T_3(x, y) = (2x, 2y)@
+        <br>Classifique cada transformação em isometria (direta ou inversa) ou não-isometria, justificando rigorosamente.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <ul>
+              <li><strong>@T_1(x, y) = (x + 5, y - 3)@:</strong> É uma <strong>translação</strong> pelo vetor @\vec{v} = (5, -3)@. Como toda translação preserva distâncias e não altera a orientação dos vértices, trata-se de uma <strong>isometria direta</strong>.</li>
+              <li><strong>@T_2(x, y) = (-y, x)@:</strong> Comparando com a matriz de rotação @(x \cos\theta - y\sin\theta, x\sin\theta + y\cos\theta)@ para @\theta = 90^\circ@, temos @\cos 90^\circ = 0@ e @\sin 90^\circ = 1@, gerando exatamente @(-y, x)@. Trata-se de uma <strong>rotação de 90° anti-horária</strong>, que é uma <strong>isometria direta</strong>.</li>
+              <li><strong>@T_3(x, y) = (2x, 2y)@:</strong> É uma <strong>homotetia</strong> com centro na origem e razão @k = 2@. Como a distância entre quaisquer dois pontos é multiplicada por @|k| = 2 \neq 1@, as distâncias não são conservadas. Logo, <strong>não é uma isometria</strong> (é uma transformação de semelhança que quadruplica áreas).</li>
+            </ul>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 2 -->
+      <li>
+        <strong>(Homotetia e Escala de Áreas)</strong> Uma planta arquitetônica de um terreno triangular de área @150\text{ m}^2@ é desenhada em escala @1:50@. 
+        <br>a) Qual é a razão de homotetia @k@ da planta em relação ao terreno real?
+        <br>b) Qual é a área do triângulo desenhado na folha de papel, em centímetros quadrados (@\text{cm}^2@)?
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p><strong>a)</strong> A razão linear da planta para o real é @k = \frac{1}{50}@.</p>
+            <p><strong>b)</strong> Pelo Teorema 1.4, a razão entre as áreas é @k^2 = \left(\frac{1}{50}\right)^2 = \frac{1}{2500}@.</p>
+            <p>Convertendo a área real para centímetros quadrados:</p>
+            @@
+            1\text{ m}^2 = 10\,000\text{ cm}^2 \implies 150\text{ m}^2 = 150 \times 10\,000 = 1\,500\,000\text{ cm}^2
+            @@
+            <p>Calculando a área na folha de papel:</p>
+            @@
+            \text{Área}_{\text{folha}} = \frac{1\,500\,000\text{ cm}^2}{2500} = \frac{15\,000}{25} = 600\text{ cm}^2
+            @@
+            <p><strong>Resposta:</strong> @a) \; k = \frac{1}{50}@; @b) \; 600\text{ cm}^2@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 3 -->
+      <li>
+        <strong>(Composição de Reflexões Axiais Perpendiculares)</strong> Sejam @r@ a reta @y = 0@ (eixo @Ox@) e @s@ a reta @x = 0@ (eixo @Oy@). Mostre algebricamente que a composição de reflexões @S_s \circ S_r@ equivale a uma reflexão central em relação à origem @O(0, 0)@ e a uma rotação de @180^\circ@.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Demonstração:</strong></p>
+            <p>Dado um ponto arbitrário @P(x, y)@:</p>
+            <p>1. A reflexão no eixo @Ox@ produz: @S_r(x, y) = (x, -y)@.</p>
+            <p>2. Aplicando a reflexão no eixo @Oy@ sobre o resultado: @S_s\big(S_r(x, y)\big) = S_s(x, -y) = (-x, -y)@.</p>
+            <p>3. Pela Definição 1.3, a reflexão central na origem é dada por @S_O(x, y) = (-x, -y)@.</p>
+            <p>4. Além disso, pela rotação de @\theta = 180^\circ@:</p>
+            @@
+            R_{180^\circ}(x, y) = (x \cos 180^\circ - y \sin 180^\circ, x \sin 180^\circ + y \cos 180^\circ) = (-x, -y)
+            @@
+            <p>Portanto, @S_s \circ S_r = S_O = R_{(O, 180^\circ)}@. Como a composição de duas isometrias inversas é uma isometria direta, a reflexão central preserva a orientação. @\blacksquare@</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 4 -->
+      <li>
+        <strong>(Trigonometria no Triângulo Retângulo &mdash; Rampa de Acesso)</strong> Uma rampa de acessibilidade deve vencer um desnível vertical de @1{,}5\text{ m}@. Por normas técnicas de acessibilidade, o ângulo máximo de inclinação da rampa com o solo deve ser de @30^\circ@. 
+        <br>a) Qual deve ser o comprimento mínimo da superfície da rampa (hipotenusa)?
+        <br>b) Qual será a extensão horizontal ocupada pela base da rampa no solo?
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p><strong>a)</strong> No triângulo retângulo formado pela rampa, o cateto oposto ao ângulo de @30^\circ@ é a altura @h = 1{,}5\text{ m}@ e a hipotenusa é o comprimento da rampa @L@:</p>
+            @@
+            \sin 30^\circ = \frac{\text{cateto oposto}}{\text{hipotenusa}} \implies \frac{1}{2} = \frac{1{,}5}{L} \implies L = 3{,}0\text{ metros}
+            @@
+            <p><strong>b)</strong> A extensão horizontal @d@ é o cateto adjacente ao ângulo de @30^\circ@:</p>
+            @@
+            \cos 30^\circ = \frac{d}{L} \implies \frac{\sqrt{3}}{2} = \frac{d}{3} \implies d = \frac{3\sqrt{3}}{2} \approx 2{,}598\text{ metros}
+            @@
+            <p><strong>Resposta:</strong> Comprimento de @3\text{ m}@ e extensão horizontal de @\frac{3\sqrt{3}}{2}\text{ m} \approx 2{,}60\text{ m}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 5 -->
+      <li>
+        <strong>(Identidade Trigonométrica Algébrica)</strong> Prove formalmente que, para todo @x \in \mathbb{R}@ no qual a expressão esteja bem definida, vale a identidade:
+        @@
+        \frac{1 - \sin x}{\cos x} = \frac{\cos x}{1 + \sin x}
+        @@
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Demonstração:</strong></p>
+            <p>Tomando o membro esquerdo e multiplicando numerador e denominador pelo conjugado @(1 + \sin x)@ (com @\cos x \neq 0@ e @\sin x \neq -1@):</p>
+            @@
+            \frac{1 - \sin x}{\cos x} \cdot \frac{1 + \sin x}{1 + \sin x} = \frac{1 - \sin^2 x}{\cos x (1 + \sin x)}
+            @@
+            <p>Pela Relação Fundamental da Trigonometria (@\sin^2 x + \cos^2 x = 1 \iff 1 - \sin^2 x = \cos^2 x@):</p>
+            @@
+            = \frac{\cos^2 x}{\cos x(1 + \sin x)} = \frac{\cos x}{1 + \sin x} \quad \blacksquare
+            @@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 6 -->
+      <li>
+        <strong>(Conversão Angular e Determinação Principal)</strong> Determine a primeira determinação positiva e o quadrante a que pertence o arco de medida:
+        <br>a) @\alpha = 1590^\circ@
+        <br>b) @\beta = \frac{31\pi}{4}\text{ rad}@
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p><strong>a) Para @1590^\circ@:</strong></p>
+            <p>Dividindo @1590@ por @360@:</p>
+            @@
+            1590 = 4 \times 360 + 150
+            @@
+            <p>O arco dá @4@ voltas completas e para em @\theta_0 = 150^\circ@. Como @90^\circ < 150^\circ < 180^\circ@, o arco pertence ao <strong>2º Quadrante</strong>.</p>
+            <p><strong>b) Para @\frac{31\pi}{4}@:</strong></p>
+            <p>Dividindo a fração com divisor @2\pi = \frac{8\pi}{4}@:</p>
+            @@
+            \frac{31\pi}{4} = \frac{24\pi + 7\pi}{4} = 3 \times (2\pi) + \frac{7\pi}{4}
+            @@
+            <p>A primeira determinação positiva é @\theta_0 = \frac{7\pi}{4}@ radianos (@315^\circ@). Como @\frac{3\pi}{2} < \frac{7\pi}{4} < 2\pi@, pertence ao <strong>4º Quadrante</strong>.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 7 -->
+      <li>
+        <strong>(Estudo de Sinal de Expressões no Ciclo)</strong> Determine o sinal (positivo ou negativo) da expressão:
+        @@
+        K = \sin(200^\circ) \cdot \cos(310^\circ) \cdot \tan(130^\circ)
+        @@
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p>Analisando os quadrantes de cada fator:</p>
+            <ul>
+              <li>@200^\circ \in \text{3ºQ}@: o seno no 3º quadrante é <strong>negativo</strong> (@\sin(200^\circ) < 0@).</li>
+              <li>@310^\circ \in \text{4ºQ}@: o cosseno no 4º quadrante é <strong>positivo</strong> (@\cos(310^\circ) > 0@).</li>
+              <li>@130^\circ \in \text{2ºQ}@: a tangente no 2º quadrante é <strong>negativa</strong> (@\tan(130^\circ) < 0@).</li>
+            </ul>
+            <p>Multiplicando os sinais:</p>
+            @@
+            \text{Sinal}(K) = (-) \cdot (+) \cdot (-) = +
+            @@
+            <p><strong>Resposta:</strong> A expressão @K@ é estritamente <strong>positiva (@K > 0@)</strong>.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 8 -->
+      <li>
+        <strong>(Redução ao 1º Quadrante &mdash; 3º Quadrante)</strong> Se @\tan x = \frac{3}{4}@ e @x \in \left]\pi, \frac{3\pi}{2}\right[@ (3º quadrante), calcule o valor de @\sin x + \cos x@.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p>Pela identidade @\sec^2 x = 1 + \tan^2 x@:</p>
+            @@
+            \sec^2 x = 1 + \left(\frac{3}{4}\right)^2 = 1 + \frac{9}{16} = \frac{25}{16} \implies \sec x = \pm \frac{5}{4}
+            @@
+            <p>No 3º quadrante, o cosseno e a secante são negativos:</p>
+            @@
+            \sec x = -\frac{5}{4} \implies \cos x = -\frac{4}{5}
+            @@
+            <p>Usando @\tan x = \frac{\sin x}{\cos x}@:</p>
+            @@
+            \sin x = \tan x \cdot \cos x = \left(\frac{3}{4}\right) \left(-\frac{4}{5}\right) = -\frac{3}{5}
+            @@
+            <p>Calculando a soma requerida:</p>
+            @@
+            \sin x + \cos x = -\frac{3}{5} + \left(-\frac{4}{5}\right) = -\frac{7}{5}
+            @@
+            <p><strong>Resposta:</strong> @-\frac{7}{5}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 9 -->
+      <li>
+        <strong>(Equação Trigonométrica Fundamental)</strong> Determine todas as soluções reais da equação @\sin x = \frac{1}{2}@ no intervalo fundamental @[0, 2\pi[@.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p>Sabemos que no 1º quadrante @\sin\left(\frac{\pi}{6}\right) = \frac{1}{2}@.</p>
+            <p>Pela simetria axial no ciclo trigonométrico em relação ao eixo @Oy@ (arcos suplementares), o seno também é positivo e igual a @\frac{1}{2}@ no 2º quadrante:</p>
+            @@
+            x_2 = \pi - \frac{\pi}{6} = \frac{5\pi}{6}
+            @@
+            <p>Nos quadrantes 3 e 4 o seno é estritamente negativo. Logo, no intervalo @[0, 2\pi[@ temos exatamente duas soluções:</p>
+            @@
+            S = \left\{ \frac{\pi}{6}, \, \frac{5\pi}{6} \right\} \quad \text{ou em graus: } \{30^\circ, 150^\circ\}
+            @@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 10 -->
+      <li>
+        <strong>(Equação Redutível com Fatoração)</strong> Resolva no intervalo @[0, 2\pi[@ a equação trigonométrica:
+        @@
+        2\cos^2 x - \cos x - 1 = 0
+        @@
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p>Substituindo @u = \cos x@ com a restrição de domínio @-1 \le u \le 1@:</p>
+            @@
+            2u^2 - u - 1 = 0
+            @@
+            <p>Pela fórmula de Bhaskara:</p>
+            @@
+            \Delta = (-1)^2 - 4(2)(-1) = 1 + 8 = 9
+            @@
+            @@
+            u = \frac{1 \pm 3}{4} \implies u_1 = \frac{4}{4} = 1 \quad \text{ou} \quad u_2 = -\frac{2}{4} = -\frac{1}{2}
+            @@
+            <p>Resolvendo para @\cos x@ no ciclo trigonométrico no intervalo @[0, 2\pi[@:</p>
+            <ul>
+              <li><strong>Caso 1 (@\cos x = 1@):</strong> O único ponto no ciclo com abscissa @1@ é a origem dos arcos @x = 0@.</li>
+              <li><strong>Caso 2 (@\cos x = -\frac{1}{2}@):</strong> No 1ºQ temos @\cos(60^\circ) = \frac{1}{2}@. Como o cosseno é negativo nos quadrantes 2 e 3:
+                <ul>
+                  <li>2º Quadrante: @x = \pi - \frac{\pi}{3} = \frac{2\pi}{3}@ (@120^\circ@)</li>
+                  <li>3º Quadrante: @x = \pi + \frac{\pi}{3} = \frac{4\pi}{3}@ (@240^\circ@)</li>
+                </ul>
+              </li>
+            </ul>
+            <p><strong>Resposta:</strong> @S = \left\{ 0, \, \frac{2\pi}{3}, \, \frac{4\pi}{3} \right\}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 11 -->
+      <li>
+        <strong>(Projeção e Homotetia das Sombras)</strong> Um poste vertical de @4\text{ m}@ de altura projeta no solo plano uma sombra de @4\sqrt{3}\text{ m}@. 
+        <br>a) Determine o ângulo de elevação do Sol acima do horizonte.
+        <br>b) No mesmo instante e local, qual será o comprimento da sombra projetada por um edifício de @32\text{ m}@ de altura?
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p><strong>a)</strong> No triângulo retângulo formado pelo poste, sua sombra e os raios solares:</p>
+            @@
+            \tan \theta = \frac{\text{altura}}{\text{sombra}} = \frac{4}{4\sqrt{3}} = \frac{1}{\sqrt{3}} = \frac{\sqrt{3}}{3}
+            @@
+            <p>Como @\theta@ é agudo, @\theta = 30^\circ@.</p>
+            <p><strong>b)</strong> Como os raios solares chegam paralelamente à Terra, os triângulos formados pelo poste e pelo edifício são homotéticos com centro no infinito (ou semelhantes por AA):</p>
+            @@
+            k = \frac{\text{Altura}_{\text{edifício}}}{\text{Altura}_{\text{poste}}} = \frac{32}{4} = 8
+            @@
+            <p>Pela razão de homotetia @k = 8@:</p>
+            @@
+            \text{Sombra}_{\text{edifício}} = 8 \times \text{Sombra}_{\text{poste}} = 8 \times 4\sqrt{3} = 32\sqrt{3}\text{ metros}
+            @@
+            <p><strong>Resposta:</strong> @a) \; 30^\circ@; @b) \; 32\sqrt{3}\text{ m} \approx 55{,}43\text{ m}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 12 -->
+      <li>
+        <strong>(Rigor Formal nas Reduções Trigonométricas)</strong> Simplifique a expressão para todo @x@ onde esteja definida:
+        @@
+        M(x) = \frac{\sin(\pi - x) \cdot \cos(\pi + x) \cdot \tan\left(\frac{\pi}{2} - x\right)}{\cos(-x) \cdot \sin\left(\frac{\pi}{2} - x\right)}
+        @@
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p>Aplicando as identidades de simetria do ciclo e de ângulos complementares:</p>
+            <ul>
+              <li>@\sin(\pi - x) = \sin x@ (arcos suplementares)</li>
+              <li>@\cos(\pi + x) = -\cos x@ (arcos que diferem de @\pi@)</li>
+              <li>@\tan\left(\frac{\pi}{2} - x\right) = \cot x = \frac{\cos x}{\sin x}@ (arcos complementares)</li>
+              <li>@\cos(-x) = \cos x@ (paridade do cosseno)</li>
+              <li>@\sin\left(\frac{\pi}{2} - x\right) = \cos x@ (arcos complementares)</li>
+            </ul>
+            <p>Substituindo cada termo na expressão @M(x)@:</p>
+            @@
+            M(x) = \frac{(\sin x) \cdot (-\cos x) \cdot \left(\frac{\cos x}{\sin x}\right)}{(\cos x) \cdot (\cos x)}
+            @@
+            <p>Simplificando @\sin x@ no numerador:</p>
+            @@
+            \text{Numerador} = -\cos^2 x
+            @@
+            <p>Simplificando o denominador:</p>
+            @@
+            \text{Denominador} = \cos^2 x
+            @@
+            <p>Dividindo:</p>
+            @@
+            M(x) = \frac{-\cos^2 x}{\cos^2 x} = -1
+            @@
+            <p><strong>Resposta:</strong> @M(x) = -1@ para todo @x \neq \frac{k\pi}{2}@. @\blacksquare@</p>
+          </div>
+        </details>
+      </li>
+
+    </ol>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 35px; margin-bottom: 25px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+    <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

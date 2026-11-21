@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Geometria Espacial: Poliedros, Pirâmides e Troncos</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: left;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar 2º EM */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-2em {
+      background-color: rgba(245, 158, 11, 0.25);
+      border: 2px solid #f59e0b;
+      color: #fef3c7;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-2em">2º Ano EM</div>
+
+    <h1>Geometria Espacial: Poliedros, Pirâmides e Troncos</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 2: "Todo mundo tem medo do tempo, mas o tempo tem medo das pirâmides"
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E INTRODUÇÃO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para o aproveitamento com pleno rigor acadêmico deste conteúdo, o estudante deve dominar:</p>
+      <ul>
+        <li><strong>Geometria Plana Euclidiana:</strong> propriedades de triângulos retângulos (Teorema de Pitágoras e relações métricas), semelhança de triângulos e Teorema de Tales.</li>
+        <li><strong>Polígonos Regulares:</strong> cálculo do apótema, do raio circunscrito e da área de triângulos equiláteros, quadrados e hexágonos regulares.</li>
+        <li><strong>Postulados Fundamentais do Espaço:</strong> determinação de retas e planos, paralelismo e perpendicularidade no espaço tridimensional @\mathbb{R}^3@.</li>
+        <li><strong>Princípio de Cavalieri:</strong> equivalência volumétrica por secções transversais coplanares de mesma área.</li>
+      </ul>
+    </div>
+
+    <p>
+      O provérbio árabe clássico <em>"Todo mundo tem medo do tempo, mas o tempo tem medo das pirâmides"</em> sintetiza o espanto da humanidade perante os sólidos geométricos cuja estabilidade gravitacional e perfeição formal desafiaram os milênios. Das arestas ciclopéicas de Gizé aos sólidos fundamentais da cosmologia de Platão, a passagem da geometria plana para a <strong>Geometria Espacial</strong> exige a modelagem rigorosa de poliedros fechados, pirâmides e seus truncamentos.
+    </p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: POLIEDROS CONVEXOS E RELAÇÃO DE EULER
+         =============================================================== -->
+    <h2>1. Teoria Geral dos Poliedros Convexos</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Poliedro Convexo)</h3>
+      <p>
+        Denomina-se <strong>poliedro</strong> a reunião de um número finito de polígonos planos fechados chamados <strong>faces</strong>, dispostos no espaço tridimensional de tal forma que:
+      </p>
+      <ol>
+        <li>Dois polígonos distintos só podem se interceptar segundo uma aresta comum ou um vértice comum (ou serem disjuntos).</li>
+        <li>Cada aresta é lado comum a exatamente duas faces.</li>
+        <li>Em cada vértice concorrem três ou mais arestas.</li>
+      </ol>
+      <p>
+        Um poliedro é dito <strong>convexo</strong> se o sólido estiver inteiramente contido em um dos semi-espaços fechados determinados pelo plano de qualquer uma de suas faces. Equivalentemente: dados quaisquer dois pontos @P_1, P_2@ do poliedro, o segmento fechado @\overline{P_1 P_2}@ está inteiramente contido no poliedro.
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.1 (Relação de Incidência Arestas-Faces e Arestas-Vértices)</h3>
+      <p>Seja um poliedro com @V@ vértices, @A@ arestas e @F@ faces:</p>
+      <ol>
+        <li>
+          Se o poliedro é constituído por @F_3@ faces triangulares, @F_4@ faces quadrangulares, ..., @F_n@ faces @n@-gonais, a contagem de arestas satisfaz:
+          @@
+          2A = 3F_3 + 4F_4 + 5F_5 + \dots + nF_n = \sum_{k \ge 3} k \cdot F_k
+          @@
+          <em>Demonstração:</em> Cada face @k@-gonal possui @k@ lados. Ao somarmos todos os lados de todas as faces, cada aresta do poliedro é percorrida exatamente duas vezes (uma para cada face adjacente). Logo, a soma é @2A@.
+        </li>
+        <li>
+          Se em @V_3@ vértices concorrem 3 arestas, em @V_4@ vértices concorrem 4 arestas, ..., em @V_m@ vértices concorrem @m@ arestas:
+          @@
+          2A = 3V_3 + 4V_4 + 5V_5 + \dots + mV_m = \sum_{m \ge 3} m \cdot V_m
+          @@
+          <em>Demonstração:</em> Cada aresta liga exatamente dois vértices. Ao somarmos os graus de todos os vértices, cada aresta é computada duplamente nos seus dois extremos.
+        </li>
+      </ol>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.2 (Relação de Euler para Poliedros Convexos)</h3>
+      <p>
+        Em todo poliedro convexo fechado com @V@ vértices, @A@ arestas e @F@ faces, vigora invariavelmente a igualdade:
+      </p>
+      @@
+      V - A + F = 2
+      @@
+      <p>
+        O número @\chi = V - A + F@ é a chamada <strong>característica de Euler-Poincaré</strong> do poliedro. Para poliedros convexos (homeomorfos à esfera @S^2@), tem-se rigorosamente @\chi = 2@.
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.3 (Soma dos Ângulos das Faces de um Poliedro Convexo)</h3>
+      <p>
+        A soma @S@ das medidas de todos os ângulos internos de todas as faces de um poliedro convexo depende exclusivamente do seu número de vértices @V@ e é dada por:
+      </p>
+      @@
+      S = (V - 2) \cdot 360^\circ
+      @@
+      <p><strong>Demonstração Rigorosa:</strong></p>
+      <ol>
+        <li>Considere um poliedro convexo com @F@ faces: @f_1, f_2, \dots, f_F@. Seja @n_i@ o número de lados da face @f_i@.</li>
+        <li>Pela geometria euclidiana plana, a soma dos ângulos internos de um polígono convexo de @n_i@ lados é:
+          @@
+          S_i = (n_i - 2) \cdot 180^\circ
+          @@
+        </li>
+        <li>A soma @S@ de todos os ângulos de todas as faces do poliedro é a somatória de @S_i@ para @i = 1@ até @F@:
+          @@
+          S = \sum_{i=1}^F (n_i - 2) \cdot 180^\circ = 180^\circ \sum_{i=1}^F n_i - 180^\circ \sum_{i=1}^F 2
+          @@
+        </li>
+        <li>Pelo Teorema 1.1, @\sum_{i=1}^F n_i = 2A@. Além disso, @\sum_{i=1}^F 2 = 2F@. Substituindo:
+          @@
+          S = 180^\circ(2A) - 180^\circ(2F) = 360^\circ(A - F)
+          @@
+        </li>
+        <li>Pela Relação de Euler (@V - A + F = 2@), isolamos @A - F = V - 2@. Substituindo diretamente na expressão anterior:
+          @@
+          S = 360^\circ(V - 2) = (V - 2) \cdot 360^\circ \quad \blacksquare
+          @@
+        </li>
+      </ol>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: POLIEDROS REGULARES DE PLATÃO
+         =============================================================== -->
+    <h2>2. Poliedros de Platão e os Cinco Sólidos Regulares</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Poliedro de Platão e Poliedro Regular)</h3>
+      <p>Um poliedro é dito <strong>poliedro de Platão</strong> se satisfaz simultaneamente a três condições:</p>
+      <ol>
+        <li>Todas as suas faces têm o mesmo número @n@ de arestas (@n \ge 3@).</li>
+        <li>De cada um dos seus vértices parte o mesmo número @m@ de arestas (@m \ge 3@).</li>
+        <li>Vigora a Relação de Euler: @V - A + F = 2@.</li>
+      </ol>
+      <p>
+        Um poliedro de Platão é denominado <strong>poliedro regular</strong> se todas as suas faces forem polígonos regulares congruentes entre si e todos os seus ângulos poliédricos forem congruentes.
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Existência Exclusiva dos Cinco Poliedros de Platão)</h3>
+      <p>
+        No espaço euclidiano tridimensional @\mathbb{R}^3@, existem <strong>exatamente cinco</strong> e apenas cinco poliedros regulares de Platão.
+      </p>
+      <p><strong>Demonstração Analítica:</strong></p>
+      <ol>
+        <li>Seja um poliedro com faces @n@-gonais e vértices de grau @m@. Temos @nF = 2A \implies F = \frac{2A}{n}@ e @mV = 2A \implies V = \frac{2A}{m}@.</li>
+        <li>Substituindo na Relação de Euler (@V - A + F = 2@):
+          @@
+          \frac{2A}{m} - A + \frac{2A}{n} = 2 \iff 2A \left( \frac{1}{m} + \frac{1}{n} - \frac{1}{2} \right) = 2
+          @@
+        </li>
+        <li>Como o número de arestas é estritamente positivo (@A > 0@), o termo entre parênteses deve ser estritamente maior que zero:
+          @@
+          \frac{1}{m} + \frac{1}{n} - \frac{1}{2} > 0 \iff \frac{1}{m} + \frac{1}{n} > \frac{1}{2}
+          @@
+          com as restrições inteiras @n \ge 3@ e @m \ge 3@.
+        </li>
+        <li>Analisemos exaustivamente os valores possíveis de @n@:
+          <ul>
+            <li><strong>Se @n = 3@ (faces triangulares equiláteras):</strong><br>
+              @\frac{1}{m} + \frac{1}{3} > \frac{1}{2} \implies \frac{1}{m} > \frac{1}{6} \implies m < 6@.<br>
+              Como @m \ge 3@, temos três possibilidades inteiras para @m \in \{3, 4, 5\}@:
+              <ul>
+                <li>@m = 3 \implies \frac{1}{3} + \frac{1}{3} - \frac{1}{2} = \frac{1}{6} \implies A = 6, F = 4, V = 4@ &rarr; <strong>Tetraedro Regular</strong>.</li>
+                <li>@m = 4 \implies \frac{1}{4} + \frac{1}{3} - \frac{1}{2} = \frac{1}{12} \implies A = 12, F = 8, V = 6@ &rarr; <strong>Octaedro Regular</strong>.</li>
+                <li>@m = 5 \implies \frac{1}{5} + \frac{1}{3} - \frac{1}{2} = \frac{1}{30} \implies A = 30, F = 20, V = 12@ &rarr; <strong>Icosaedro Regular</strong>.</li>
+              </ul>
+            </li>
+            <li><strong>Se @n = 4@ (faces quadradas):</strong><br>
+              @\frac{1}{m} + \frac{1}{4} > \frac{1}{2} \implies \frac{1}{m} > \frac{1}{4} \implies m < 4@.<br>
+              Como @m \ge 3@, a única solução inteira é @m = 3@:
+              <ul>
+                <li>@m = 3 \implies \frac{1}{3} + \frac{1}{4} - \frac{1}{2} = \frac{1}{12} \implies A = 12, F = 6, V = 8@ &rarr; <strong>Hexaedro Regular (Cubo)</strong>.</li>
+              </ul>
+            </li>
+            <li><strong>Se @n = 5@ (faces pentagonais regulares):</strong><br>
+              @\frac{1}{m} + \frac{1}{5} > \frac{1}{2} \implies \frac{1}{m} > \frac{3}{10} \implies m < \frac{10}{3} \approx 3{,}33@.<br>
+              A única solução inteira é @m = 3@:
+              <ul>
+                <li>@m = 3 \implies \frac{1}{3} + \frac{1}{5} - \frac{1}{2} = \frac{1}{30} \implies A = 30, F = 12, V = 20@ &rarr; <strong>Dodecaedro Regular</strong>.</li>
+              </ul>
+            </li>
+            <li><strong>Se @n \ge 6@:</strong><br>
+              Como @m \ge 3@, teríamos @\frac{1}{m} + \frac{1}{n} \le \frac{1}{3} + \frac{1}{6} = \frac{1}{2}@, o que contradiz a inequação estrita @\frac{1}{m} + \frac{1}{n} > \frac{1}{2}@. Logo, não existem poliedros de Platão com faces hexagonais ou superiores.
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <p>Portanto, existem rigorosamente cinco e apenas cinco classes de poliedros regulares. @\blacksquare@</p>
+    </div>
+
+    <!-- TABELA DOS POLIEDROS DE PLATÃO -->
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Poliedro</th>
+            <th>Formato das Faces (@n@)</th>
+            <th>Grau do Vértice (@m@)</th>
+            <th>Vértices (@V@)</th>
+            <th>Arestas (@A@)</th>
+            <th>Faces (@F@)</th>
+            <th>Poliedro Dual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Tetraedro</strong></td>
+            <td>Triângulos (@n = 3@)</td>
+            <td>@m = 3@</td>
+            <td>4</td>
+            <td>6</td>
+            <td>4</td>
+            <td>Autodual (Tetraedro)</td>
+          </tr>
+          <tr>
+            <td><strong>Hexaedro (Cubo)</strong></td>
+            <td>Quadrados (@n = 4@)</td>
+            <td>@m = 3@</td>
+            <td>8</td>
+            <td>12</td>
+            <td>6</td>
+            <td>Octaedro</td>
+          </tr>
+          <tr>
+            <td><strong>Octaedro</strong></td>
+            <td>Triângulos (@n = 3@)</td>
+            <td>@m = 4@</td>
+            <td>6</td>
+            <td>12</td>
+            <td>8</td>
+            <td>Hexaedro (Cubo)</td>
+          </tr>
+          <tr>
+            <td><strong>Dodecaedro</strong></td>
+            <td>Pentágonos (@n = 5@)</td>
+            <td>@m = 3@</td>
+            <td>20</td>
+            <td>30</td>
+            <td>12</td>
+            <td>Icosaedro</td>
+          </tr>
+          <tr>
+            <td><strong>Icosaedro</strong></td>
+            <td>Triângulos (@n = 3@)</td>
+            <td>@m = 5@</td>
+            <td>12</td>
+            <td>30</td>
+            <td>20</td>
+            <td>Dodecaedro</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: TEORIA DAS PIRÂMIDES
+         =============================================================== -->
+    <h2>3. Teoria das Pirâmides: Elementos Métricos e Relações Pitagóricas</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Pirâmide e Pirâmide Regular)</h3>
+      <p>
+        Seja um polígono convexo @P_1 P_2 \dots P_n@ contido em um plano @\alpha@ e um ponto @V \notin \alpha@ denominado <strong>vértice principal</strong>. Denomina-se <strong>pirâmide</strong> a reunião de todos os segmentos com uma extremidade em @V@ e a outra no polígono da base.
+      </p>
+      <p>Uma pirâmide é classificada como <strong>regular</strong> se e somente se:</p>
+      <ol>
+        <li>Sua <strong>base é um polígono regular</strong> (equilátero e equiângulo).</li>
+        <li>A projeção ortogonal do vértice @V@ sobre o plano da base coincide precisamente com o <strong>centro geométrico da base</strong> (@O@).</li>
+      </ol>
+      <p>
+        <em>Consequências imediatas da regularidade:</em> Todas as arestas laterais são congruentes entre si (@l_1 = l_2 = \dots = l_n = l@) e todas as faces laterais são triângulos isósceles mutuamente congruentes.
+      </p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.2 (Elementos Métricos da Pirâmide Regular)</h3>
+      <ul>
+        <li><strong>Altura da pirâmide (@h@):</strong> a distância perpendicular do vértice @V@ ao centro @O@ da base: @h = \overline{VO}@.</li>
+        <li><strong>Aresta da base (@a@):</strong> a medida dos lados do polígono regular da base.</li>
+        <li><strong>Aresta lateral (@l@):</strong> o comprimento dos segmentos que unem o vértice @V@ aos vértices da base.</li>
+        <li><strong>Apótema da pirâmide (@g@):</strong> a altura de cada uma das faces laterais triangulares isósceles em relação ao lado da base. Liga o vértice @V@ ao ponto médio @M@ de uma aresta da base.</li>
+        <li><strong>Apótema da base (@m@):</strong> a distância ortogonal do centro @O@ da base ao ponto médio @M@ de qualquer aresta da base.</li>
+        <li><strong>Raio da base (@R@):</strong> o raio da circunferência circunscrita ao polígono da base, ligando o centro @O@ a qualquer vértice da base.</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (As Quatro Relações Pitagóricas Fundamentais da Pirâmide Regular)</h3>
+      <p>
+        No interior e na superfície de toda pirâmide regular emergem quatro triângulos retângulos canônicos, regidos pelo Teorema de Pitágoras:
+      </p>
+      <ol>
+        <li>
+          <strong>Triângulo Retângulo Central (Vértice &ndash; Centro da Base &ndash; Ponto Médio da Aresta):</strong><br>
+          Com catetos formados pela altura @h@ e pelo apótema da base @m@, e hipotenusa igual ao apótema da pirâmide @g@:
+          @@
+          g^2 = h^2 + m^2
+          @@
+        </li>
+        <li>
+          <strong>Triângulo Retângulo Vértice-Raio (Vértice &ndash; Centro da Base &ndash; Vértice da Base):</strong><br>
+          Com catetos formados pela altura @h@ e pelo raio da base @R@, e hipotenusa igual à aresta lateral @l@:
+          @@
+          l^2 = h^2 + R^2
+          @@
+        </li>
+        <li>
+          <strong>Triângulo Retângulo da Face Lateral (Vértice &ndash; Ponto Médio da Aresta &ndash; Vértice da Base):</strong><br>
+          Com catetos formados pelo apótema da pirâmide @g@ e pela metade da aresta da base @\frac{a}{2}@, e hipotenusa igual à aresta lateral @l@:
+          @@
+          l^2 = g^2 + \left(\frac{a}{2}\right)^2
+          @@
+        </li>
+        <li>
+          <strong>Triângulo Retângulo no Plano da Base (Centro da Base &ndash; Ponto Médio da Aresta &ndash; Vértice da Base):</strong><br>
+          Com catetos formados pelo apótema da base @m@ e pela metade da aresta da base @\frac{a}{2}@, e hipotenusa igual ao raio da base @R@:
+          @@
+          R^2 = m^2 + \left(\frac{a}{2}\right)^2
+          @@
+        </li>
+      </ol>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>📐 Síntese das Constantes dos Polígonos da Base</h3>
+      <p>Para agilidade analítica em provas de excelência (FME/OBMEP), memorize as relações do apótema da base @m@ e do raio circunscrito @R@ em função do lado @a@:</p>
+      <ul>
+        <li><strong>Base Triangular Equilátera:</strong> @m = \frac{a\sqrt{3}}{6}@, \quad @R = \frac{a\sqrt{3}}{3}@, \quad @A_b = \frac{a^2\sqrt{3}}{4}@.</li>
+        <li><strong>Base Quadrangular:</strong> @m = \frac{a}{2}@, \quad @R = \frac{a\sqrt{2}}{2}@, \quad @A_b = a^2@.</li>
+        <li><strong>Base Hexagonal Regular:</strong> @m = \frac{a\sqrt{3}}{2}@, \quad @R = a@, \quad @A_b = \frac{3a^2\sqrt{3}}{2}@.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: ÁREAS E VOLUME DA PIRÂMIDE
+         =============================================================== -->
+    <h2>4. Áreas e Volume da Pirâmide</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.1 (Área Lateral e Área Total)</h3>
+      <p>Para uma pirâmide regular de @n@ faces laterais com aresta da base @a@ e apótema da pirâmide @g@:</p>
+      <ul>
+        <li>
+          <strong>Área Lateral (@A_l@):</strong> A soma das áreas dos @n@ triângulos isósceles idênticos:
+          @@
+          A_l = n \cdot \left( \frac{a \cdot g}{2} \right) = \left(\frac{n \cdot a}{2}\right) \cdot g = p_{\text{base}} \cdot g
+          @@
+          onde @p_{\text{base}} = \frac{2p_{\text{base}}}{2}@ é o <strong>semiperímetro</strong> da base.
+        </li>
+        <li>
+          <strong>Área Total (@A_t@):</strong> A soma da área lateral com a área do polígono da base:
+          @@
+          A_t = A_b + A_l = A_b + p_{\text{base}} \cdot g
+          @@
+        </li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Fórmula do Volume da Pirâmide)</h3>
+      <p>
+        O volume @V@ de qualquer pirâmide (regular ou oblíqua) de área da base @A_b@ e altura ortogonal @h@ é exatamente um terço do produto da área da base pela altura:
+      </p>
+      @@
+      V = \frac{1}{3} \cdot A_b \cdot h
+      @@
+      <p><strong>Demonstração Euclidiana por Decomposição de Prisma (Elementos de Euclides, Livro XII):</strong></p>
+      <ol>
+        <li>Considere um prisma triangular reto ou oblíquo com base triangular de área @A_b@ e altura @h@, cujo volume é sabidamente @V_{\text{prisma}} = A_b \cdot h@.</li>
+        <li>É possível decompor geometricamente esse prisma triangular em <strong>três pirâmides triangulares (tetraedros)</strong>: @T_1, T_2@ e @T_3@.</li>
+        <li>Comparando @T_1@ e @T_2@: eles compartilham bases congruentes e a mesma altura relativa, possuindo secções transversais coplanares de áreas iguais. Pelo Princípio de Cavalieri, seus volumes são idênticos: @\text{Vol}(T_1) = \text{Vol}(T_2)@.</li>
+        <li>Analogamente, comparando @T_2@ e @T_3@: eles possuem bases congruentes sobre as faces laterais do prisma e a mesma altura correspondente em relação a seus vértices opostos, logo @\text{Vol}(T_2) = \text{Vol}(T_3)@.</li>
+        <li>Portanto, os três tetraedros têm volumes rigorosamente equivalentes:
+          @@
+          \text{Vol}(T_1) = \text{Vol}(T_2) = \text{Vol}(T_3) = \frac{1}{3} V_{\text{prisma}} = \frac{1}{3} A_b \cdot h
+          @@
+        </li>
+        <li>Como qualquer polígono de @n@ lados da base pode ser triangulado na união de @n-2@ triângulos disjuntos, toda pirâmide de base poligonal arbitrária decompõe-se na soma de pirâmides triangulares de mesma altura @h@. Logo, a fórmula @V = \frac{1}{3} A_b h@ é universal. @\blacksquare@</li>
+      </ol>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.2 (O Tetraedro Regular)</h3>
+      <p>
+        O tetraedro regular é uma pirâmide triangular regular cujas 4 faces são triângulos equiláteros congruentes de aresta @a@. Seus parâmetros fundamentais são:
+      </p>
+      <ul>
+        <li>
+          <strong>Altura (@h@):</strong>
+          @@
+          h = \frac{a\sqrt{6}}{3}
+          @@
+          <em>Demonstração:</em> O apótema da base é @m = \frac{a\sqrt{3}}{6}@ e o apótema da pirâmide é a altura da face @g = \frac{a\sqrt{3}}{2}@. Pela relação pitagórica:
+          @@
+          h = \sqrt{g^2 - m^2} = \sqrt{\left(\frac{a\sqrt{3}}{2}\right)^2 - \left(\frac{a\sqrt{3}}{6}\right)^2} = \sqrt{\frac{3a^2}{4} - \frac{3a^2}{36}} = \sqrt{\frac{27a^2 - 3a^2}{36}} = \sqrt{\frac{24a^2}{36}} = \frac{a \cdot 2\sqrt{6}}{6} = \frac{a\sqrt{6}}{3}
+          @@
+        </li>
+        <li>
+          <strong>Área Total (@A_t@):</strong>
+          @@
+          A_t = 4 \cdot \left(\frac{a^2\sqrt{3}}{4}\right) = a^2\sqrt{3}
+          @@
+        </li>
+        <li>
+          <strong>Volume (@V@):</strong>
+          @@
+          V = \frac{1}{3} \cdot A_b \cdot h = \frac{1}{3} \cdot \left(\frac{a^2\sqrt{3}}{4}\right) \cdot \left(\frac{a\sqrt{6}}{3}\right) = \frac{a^3 \sqrt{18}}{36} = \frac{3a^3\sqrt{2}}{36} = \frac{a^3\sqrt{2}}{12}
+          @@
+        </li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: TRONCO DE PIRÂMIDE DE BASES PARALELAS
+         =============================================================== -->
+    <h2>5. Tronco de Pirâmide de Bases Paralelas</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 5.1 (Construção do Tronco por Secção Transversal)</h3>
+      <p>
+        Seja uma pirâmide de vértice @V@, base maior de área @A_B@ e altura total @h@. Seccionando essa pirâmide por um plano @\beta@ paralelo ao plano da base a uma distância @d = h'@ do vértice @V@, a pirâmide é dividida em dois sólidos:
+      </p>
+      <ol>
+        <li>Uma pirâmide menor superior, com base de área @A_b@ e altura @h'@.</li>
+        <li>O <strong>tronco de pirâmide de bases paralelas</strong>, compreendido entre os planos paralelos, cuja altura é dada por @H = h - h'@.</li>
+      </ol>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.1 (Propriedades da Secção Transversal e Semelhança)</h3>
+      <p>A secção transversal plana paralela à base produz polígonos estritamente semelhantes, gerando as seguintes razões de escala:</p>
+      <ul>
+        <li>
+          <strong>Razão Linear (@k@):</strong> A razão entre quaisquer comprimentos homólogos (alturas, arestas ou apótemas) é constante:
+          @@
+          k = \frac{h'}{h} = \frac{a_b}{a_B} = \frac{g'}{g} = \frac{l'}{l}
+          @@
+        </li>
+        <li>
+          <strong>Razão de Áreas (@k^2@):</strong> A razão entre as áreas das bases é o quadrado da razão linear:
+          @@
+          \frac{A_b}{A_B} = k^2 = \left(\frac{h'}{h}\right)^2 \iff \frac{h'}{h} = \sqrt{\frac{A_b}{A_B}} = \frac{\sqrt{A_b}}{\sqrt{A_B}}
+          @@
+        </li>
+        <li>
+          <strong>Razão de Volumes (@k^3@):</strong> A razão entre o volume da pirâmide menor @v@ e o da pirâmide original @V_{\text{orig}}@ é:
+          @@
+          \frac{v}{V_{\text{orig}}} = k^3 = \left(\frac{h'}{h}\right)^3
+          @@
+        </li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.2 (Fórmula do Volume do Tronco de Pirâmide &ndash; Heron)</h3>
+      <p>
+        O volume @V_T@ de um tronco de pirâmide de bases paralelas, com altura @H@, área da base maior @A_B@ e área da base menor @A_b@, é dado rigorosamente por:
+      </p>
+      @@
+      V_T = \frac{H}{3} \left( A_B + \sqrt{A_B \cdot A_b} + A_b \right)
+      @@
+      <p><strong>Demonstração Rigorosa:</strong></p>
+      <ol>
+        <li>O volume do tronco é a diferença entre os volumes da pirâmide original total e da pirâmide superior destacada:
+          @@
+          V_T = V_{\text{orig}} - v = \frac{1}{3} A_B \cdot h - \frac{1}{3} A_b \cdot h' = \frac{1}{3} (A_B \cdot h - A_b \cdot h')
+          @@
+        </li>
+        <li>Pelo Teorema 5.1, @\frac{h'}{h} = \frac{\sqrt{A_b}}{\sqrt{A_B}} \implies h' = h \cdot \frac{\sqrt{A_b}}{\sqrt{A_B}}@.</li>
+        <li>A altura do tronco é @H = h - h'@. Substituindo @h'@:
+          @@
+          H = h - h \cdot \frac{\sqrt{A_b}}{\sqrt{A_B}} = h \left( \frac{\sqrt{A_B} - \sqrt{A_b}}{\sqrt{A_B}} \right) \implies h = \frac{H \sqrt{A_B}}{\sqrt{A_B} - \sqrt{A_b}}
+          @@
+        </li>
+        <li>Consequentemente, para a altura da pirâmide menor @h'@:
+          @@
+          h' = h - H = \frac{H \sqrt{A_B}}{\sqrt{A_B} - \sqrt{A_b}} - H = \frac{H \sqrt{A_b}}{\sqrt{A_B} - \sqrt{A_b}}
+          @@
+        </li>
+        <li>Substituindo @h@ e @h'@ na expressão do volume do tronco @V_T@:
+          @@
+          V_T = \frac{1}{3} \left[ A_B \left( \frac{H \sqrt{A_B}}{\sqrt{A_B} - \sqrt{A_b}} \right) - A_b \left( \frac{H \sqrt{A_b}}{\sqrt{A_B} - \sqrt{A_b}} \right) \right] = \frac{H}{3} \cdot \left[ \frac{A_B \sqrt{A_B} - A_b \sqrt{A_b}}{\sqrt{A_B} - \sqrt{A_b}} \right]
+          @@
+        </li>
+        <li>Note que @A_B \sqrt{A_B} = (\sqrt{A_B})^3@ e @A_b \sqrt{A_b} = (\sqrt{A_b})^3@. Aplicamos o produto notável da diferença de dois cubos @x^3 - y^3 = (x - y)(x^2 + xy + y^2)@ com @x = \sqrt{A_B}@ e @y = \sqrt{A_b}@:
+          @@
+          (\sqrt{A_B})^3 - (\sqrt{A_b})^3 = (\sqrt{A_B} - \sqrt{A_b}) \left( (\sqrt{A_B})^2 + \sqrt{A_B}\sqrt{A_b} + (\sqrt{A_b})^2 \right)
+          @@
+          @@
+          (\sqrt{A_B})^3 - (\sqrt{A_b})^3 = (\sqrt{A_B} - \sqrt{A_b}) \left( A_B + \sqrt{A_B \cdot A_b} + A_b \right)
+          @@
+        </li>
+        <li>Substituindo essa fatoração algébrica no numerador, o termo @(\sqrt{A_B} - \sqrt{A_b})@ simplifica-se perfeitamente com o denominador:
+          @@
+          V_T = \frac{H}{3} \cdot \frac{(\sqrt{A_B} - \sqrt{A_b}) (A_B + \sqrt{A_B \cdot A_b} + A_b)}{\sqrt{A_B} - \sqrt{A_b}} = \frac{H}{3} \left( A_B + \sqrt{A_B \cdot A_b} + A_b \right) \quad \blacksquare
+          @@
+        </li>
+      </ol>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.3 (Métricas do Tronco de Pirâmide Regular)</h3>
+      <p>Em um tronco de pirâmide regular de @n@ faces laterais com aresta da base maior @a_B@, aresta da base menor @a_b@ e altura @H@:</p>
+      <ul>
+        <li>Cada face lateral é um <strong>trapézio isósceles</strong> de bases @a_B@ e @a_b@ e altura igual ao <strong>apótema do tronco</strong> (@g_t@).</li>
+        <li>Relação pitagórica fundamental do tronco:
+          @@
+          g_t^2 = H^2 + (m_B - m_b)^2
+          @@
+          onde @m_B@ e @m_b@ são os apótemas das bases maior e menor, respectivamente.
+        </li>
+        <li>Área lateral do tronco:
+          @@
+          A_l = n \cdot \left[ \frac{(a_B + a_b) \cdot g_t}{2} \right] = (p_B + p_b) \cdot g_t
+          @@
+          onde @p_B@ e @p_b@ são os semiperímetros das bases maior e menor.
+        </li>
+        <li>Área total do tronco: @A_t = A_B + A_b + A_l@.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: EXEMPLOS RESOLVIDOS PASSO A PASSO
+         =============================================================== -->
+    <h2>6. Exemplos Resolvidos Passo a Passo</h2>
+
+    <!-- EXEMPLO 1 -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1: Poliedro Convexo Misto e Soma Angular</h3>
+      <p>
+        <strong>Problema:</strong> Um poliedro convexo fechado possui exatamente @6@ faces triangulares e @8@ faces quadrangulares.
+      </p>
+      <p>
+        (a) Determine o número total de arestas (@A@) e de vértices (@V@) desse poliedro.<br>
+        (b) Calcule a soma de todos os ângulos internos de todas as suas faces.
+      </p>
+
+      <h4>Resolução Detalhada:</h4>
+      <p><strong>Item (a):</strong> O número total de faces é:</p>
+      @@
+      F = F_3 + F_4 = 6 + 8 = 14 \text{ faces}
+      @@
+      <p>Pelo Teorema de Incidência (Teorema 1.1), cada face triangular tem 3 arestas e cada face quadrangular tem 4 arestas:</p>
+      @@
+      2A = 3 \cdot F_3 + 4 \cdot F_4 = 3(6) + 4(8) = 18 + 32 = 50 \implies A = \frac{50}{2} = 25 \text{ arestas}
+      @@
+      <p>Aplicando a Relação de Euler (@V - A + F = 2@):</p>
+      @@
+      V - 25 + 14 = 2 \implies V - 11 = 2 \implies V = 13 \text{ vértices}
+      @@
+
+      <p><strong>Item (b):</strong> Pelo Teorema 1.3, a soma dos ângulos das faces é:</p>
+      @@
+      S = (V - 2) \cdot 360^\circ = (13 - 2) \cdot 360^\circ = 11 \cdot 360^\circ = 3.960^\circ
+      @@
+      <p><em>Verificação direta pelas faces:</em></p>
+      @@
+      S = 6 \cdot 180^\circ + 8 \cdot 360^\circ = 1.080^\circ + 2.880^\circ = 3.960^\circ
+      @@
+      <p>Os resultados coincidem com absoluto rigor.</p>
+    </div>
+
+    <!-- EXEMPLO 2 -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2: Análise Geométrica Completa de uma Pirâmide Quadrangular</h3>
+      <p>
+        <strong>Problema:</strong> Uma pirâmide quadrangular regular tem aresta da base medindo @a = 12\text{ cm}@ e aresta lateral medindo @l = 10\text{ cm}@. Calcule:
+      </p>
+      <p>
+        (a) O apótema da base (@m@) e o raio da base circunscrita (@R@).<br>
+        (b) O apótema da pirâmide (@g@) e a altura da pirâmide (@h@).<br>
+        (c) A área lateral (@A_l@), a área total (@A_t@) e o volume (@V@) da pirâmide.
+      </p>
+
+      <h4>Resolução Detalhada:</h4>
+      <p><strong>Item (a):</strong> Como a base é um quadrado de lado @a = 12\text{ cm}@:</p>
+      @@
+      m = \frac{a}{2} = \frac{12}{2} = 6\text{ cm}
+      @@
+      @@
+      R = \frac{a\sqrt{2}}{2} = \frac{12\sqrt{2}}{2} = 6\sqrt{2}\text{ cm}
+      @@
+
+      <p><strong>Item (b):</strong> No triângulo da face lateral, pela relação pitagórica @l^2 = g^2 + \left(\frac{a}{2}\right)^2@:</p>
+      @@
+      10^2 = g^2 + 6^2 \implies 100 = g^2 + 36 \implies g^2 = 64 \implies g = 8\text{ cm}
+      @@
+      <p>Para determinar a altura @h@, utilizamos o triângulo central @g^2 = h^2 + m^2@:</p>
+      @@
+      8^2 = h^2 + 6^2 \implies 64 = h^2 + 36 \implies h^2 = 28 \implies h = \sqrt{28} = 2\sqrt{7}\text{ cm}
+      @@
+      <p><em>Verificação alternativa com o raio:</em> @l^2 = h^2 + R^2 \implies 100 = h^2 + (6\sqrt{2})^2 = h^2 + 72 \implies h^2 = 28@ (confirmado!).</p>
+
+      <p><strong>Item (c):</strong> Cálculo das áreas e volume:</p>
+      <ul>
+        <li>Área da base: @A_b = a^2 = 12^2 = 144\text{ cm}^2@.</li>
+        <li>Área lateral: @A_l = 4 \cdot \left(\frac{a \cdot g}{2}\right) = 4 \cdot \left(\frac{12 \cdot 8}{2}\right) = 4 \cdot 48 = 192\text{ cm}^2@.</li>
+        <li>Área total: @A_t = A_b + A_l = 144 + 192 = 336\text{ cm}^2@.</li>
+        <li>Volume:
+          @@
+          V = \frac{1}{3} A_b \cdot h = \frac{1}{3} \cdot 144 \cdot 2\sqrt{7} = 48 \cdot 2\sqrt{7} = 96\sqrt{7}\text{ cm}^3
+          @@
+        </li>
+      </ul>
+    </div>
+
+    <!-- EXEMPLO 3 -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3: Tronco de Pirâmide Hexagonal Regular</h3>
+      <p>
+        <strong>Problema:</strong> As bases de um tronco de pirâmide regular de bases paralelas são hexágonos regulares cujos lados medem @a_B = 6\text{ cm}@ e @a_b = 2\text{ cm}@. A altura do tronco é @H = 4\text{ cm}@.
+      </p>
+      <p>
+        (a) Calcule as áreas das bases @A_B@ e @A_b@.<br>
+        (b) Determine o volume do tronco através da Fórmula de Heron.<br>
+        (c) Calcule a altura @h@ da pirâmide original que gerou o tronco.
+      </p>
+
+      <h4>Resolução Detalhada:</h4>
+      <p><strong>Item (a):</strong> A área de um hexágono regular de lado @a@ é @A = \frac{3a^2\sqrt{3}}{2}@:</p>
+      @@
+      A_B = \frac{3 \cdot 6^2 \sqrt{3}}{2} = \frac{3 \cdot 36 \sqrt{3}}{2} = 54\sqrt{3}\text{ cm}^2
+      @@
+      @@
+      A_b = \frac{3 \cdot 2^2 \sqrt{3}}{2} = \frac{3 \cdot 4 \sqrt{3}}{2} = 6\sqrt{3}\text{ cm}^2
+      @@
+
+      <p><strong>Item (b):</strong> Aplicando a Fórmula de Heron para o volume do tronco:</p>
+      @@
+      V_T = \frac{H}{3} \left( A_B + \sqrt{A_B \cdot A_b} + A_b \right)
+      @@
+      <p>Calculando o termo geométrico central @\sqrt{A_B \cdot A_b}@:</p>
+      @@
+      \sqrt{54\sqrt{3} \cdot 6\sqrt{3}} = \sqrt{324 \cdot 3} = \sqrt{972} = 18\sqrt{3}
+      @@
+      <p>Substituindo na equação:</p>
+      @@
+      V_T = \frac{4}{3} \left( 54\sqrt{3} + 18\sqrt{3} + 6\sqrt{3} \right) = \frac{4}{3} \left( 78\sqrt{3} \right) = 4 \cdot 26\sqrt{3} = 104\sqrt{3}\text{ cm}^3
+      @@
+
+      <p><strong>Item (c):</strong> Razão de semelhança linear @k@:</p>
+      @@
+      k = \frac{a_b}{a_B} = \frac{2}{6} = \frac{1}{3} = \frac{h'}{h} \implies h = 3h'
+      @@
+      <p>Como a altura do tronco é @H = h - h' = 4@:</p>
+      @@
+      3h' - h' = 4 \implies 2h' = 4 \implies h' = 2\text{ cm} \implies h = 3(2) = 6\text{ cm}
+      @@
+      <p>A pirâmide original possuía altura de @6\text{ cm}@.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 7: 12 EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO RÁPIDA
+         =============================================================== -->
+    <h2>7. Exercícios Conceituais de Fixação Rápida</h2>
+
+    <ol class="lista-exercicios">
+      <!-- EXERCÍCIO 1 -->
+      <li>
+        <strong>Relação de Euler e Grau dos Vértices:</strong><br>
+        Um poliedro convexo possui 12 faces, todas pentagonais. Determine o número de arestas e o número de vértices desse sólido. Qual é a denominação geométrica clássica desse poliedro?
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Determinar o número de arestas pela relação de incidência:</p>
+            @@
+            2A = 5 \cdot F_5 = 5 \cdot 12 = 60 \implies A = 30 \text{ arestas}
+            @@
+            <p><strong>Passo 2:</strong> Aplicar a Relação de Euler @V - A + F = 2@:</p>
+            @@
+            V - 30 + 12 = 2 \implies V - 18 = 2 \implies V = 20 \text{ vértices}
+            @@
+            <p><strong>Conclusão:</strong> Trata-se do <strong>Dodecaedro Regular</strong> (um dos cinco sólidos de Platão).</p>
+            <p><strong>Resposta:</strong> @A = 30@ arestas, @V = 20@ vértices. É o Dodecaedro Regular.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 2 -->
+      <li>
+        <strong>Soma dos Ângulos das Faces de um Icosaedro:</strong><br>
+        O icosaedro regular possui 20 faces triangulares equiláteras. Calcule a soma de todos os ângulos internos de todas as suas faces: (a) por contagem direta das faces; (b) aplicando o Teorema da Soma Angular @S = (V - 2) \cdot 360^\circ@.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Por contagem direta:</strong><br>
+            Cada face é um triângulo equilátero cuja soma dos ângulos é @180^\circ@. Como há 20 faces:</p>
+            @@
+            S = 20 \cdot 180^\circ = 3.600^\circ
+            @@
+            <p><strong>(b) Pela fórmula de Euler @S = (V - 2) \cdot 360^\circ@:</strong><br>
+            No icosaedro, @F = 20@ e @2A = 20 \cdot 3 = 60 \implies A = 30@.<br>
+            Pela Relação de Euler: @V - 30 + 20 = 2 \implies V = 12@ vértices.<br>
+            Substituindo na fórmula angular:</p>
+            @@
+            S = (12 - 2) \cdot 360^\circ = 10 \cdot 360^\circ = 3.600^\circ
+            @@
+            <p><strong>Resposta:</strong> @S = 3.600^\circ@ (em ambos os métodos).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 3 -->
+      <li>
+        <strong>Existência de Poliedro com Faces Hexagonais:</strong><br>
+        Mostre, utilizando as relações de incidência e a Relação de Euler, por que é impossível construir um poliedro de Platão cujas faces sejam todas hexágonos regulares.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Demonstração Angular e Topológica:</strong></p>
+            <p>1. O ângulo interno de um hexágono regular é @\alpha = \frac{(6-2) \cdot 180^\circ}{6} = \frac{720^\circ}{6} = 120^\circ@.</p>
+            <p>2. Para formar um ângulo poliédrico no espaço tridimensional, devem concorrer ao menos @m \ge 3@ faces em cada vértice, e a soma de seus ângulos planos deve ser estritamente menor que @360^\circ@ (condição de convexidade de Descartes):</p>
+            @@
+            \sum \theta < 360^\circ \implies m \cdot 120^\circ < 360^\circ \implies m < 3
+            @@
+            <p>3. Isto é uma contradição flagrante com o axioma poliédrico @m \ge 3@. Com @m = 3@ hexágonos, @3 \cdot 120^\circ = 360^\circ@, obtém-se uma pavimentação plana (ladrilhamento do plano euclidiano), tornando impossível o fechamento tridimensional de uma curvatura convexa positiva.</p>
+            <p><strong>Resposta:</strong> Impossível, pois @3 \times 120^\circ = 360^\circ@, impedindo a formação de um vértice tridimensional fechado.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 4 -->
+      <li>
+        <strong>Volume e Altura do Tetraedro Regular:</strong><br>
+        Calcule a altura e o volume de um tetraedro regular cuja aresta mede @a = 6\text{ cm}@.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Aplicar a fórmula deduzida da altura do tetraedro regular @h = \frac{a\sqrt{6}}{3}@:</p>
+            @@
+            h = \frac{6\sqrt{6}}{3} = 2\sqrt{6}\text{ cm}
+            @@
+            <p><strong>Passo 2:</strong> Aplicar a fórmula deduzida do volume @V = \frac{a^3\sqrt{2}}{12}@:</p>
+            @@
+            V = \frac{6^3 \sqrt{2}}{12} = \frac{216\sqrt{2}}{12} = 18\sqrt{2}\text{ cm}^3
+            @@
+            <p><strong>Resposta:</strong> @h = 2\sqrt{6}\text{ cm}@ e @V = 18\sqrt{2}\text{ cm}^3@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 5 -->
+      <li>
+        <strong>Pirâmide Quadrangular Regular com Apótema:</strong><br>
+        Uma pirâmide quadrangular regular tem altura @h = 4\text{ cm}@ e apótema da pirâmide @g = 5\text{ cm}@. Determine:
+        (a) a medida da aresta da base;
+        (b) o volume da pirâmide.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Aresta da base (@a@):</strong><br>
+            Pelo triângulo retângulo interno central @g^2 = h^2 + m^2@:</p>
+            @@
+            5^2 = 4^2 + m^2 \implies 25 = 16 + m^2 \implies m^2 = 9 \implies m = 3\text{ cm}
+            @@
+            <p>Na base quadrada, o apótema da base é a metade do lado: @m = \frac{a}{2}@:</p>
+            @@
+            3 = \frac{a}{2} \implies a = 6\text{ cm}
+            @@
+            <p><strong>(b) Volume da pirâmide (@V@):</strong><br>
+            Área da base: @A_b = a^2 = 6^2 = 36\text{ cm}^2@.</p>
+            @@
+            V = \frac{1}{3} A_b \cdot h = \frac{1}{3} \cdot 36 \cdot 4 = 12 \cdot 4 = 48\text{ cm}^3
+            @@
+            <p><strong>Resposta:</strong> (a) @a = 6\text{ cm}@; (b) @V = 48\text{ cm}^3@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 6 -->
+      <li>
+        <strong>Área Lateral e Total de Pirâmide Hexagonal:</strong><br>
+        Uma pirâmide hexagonal regular possui aresta da base @a = 4\text{ cm}@ e apótema da pirâmide @g = 10\text{ cm}@. Calcule a sua área lateral e a sua área total.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> O semiperímetro da base hexagonal de lado @a = 4@ é:</p>
+            @@
+            p_{\text{base}} = \frac{6 \cdot 4}{2} = 12\text{ cm}
+            @@
+            <p><strong>Passo 2:</strong> Área lateral @A_l = p_{\text{base}} \cdot g@:</p>
+            @@
+            A_l = 12 \cdot 10 = 120\text{ cm}^2
+            @@
+            <p><strong>Passo 3:</strong> Área da base hexagonal regular:</p>
+            @@
+            A_b = \frac{3a^2\sqrt{3}}{2} = \frac{3 \cdot 16 \sqrt{3}}{2} = 24\sqrt{3}\text{ cm}^2
+            @@
+            <p><strong>Passo 4:</strong> Área total:</p>
+            @@
+            A_t = A_b + A_l = 24\sqrt{3} + 120 = 24(\sqrt{3} + 5)\text{ cm}^2
+            @@
+            <p><strong>Resposta:</strong> @A_l = 120\text{ cm}^2@ e @A_t = (120 + 24\sqrt{3})\text{ cm}^2@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 7 -->
+      <li>
+        <strong>Secção Transversal e Proporção Volumétrica:</strong><br>
+        Uma pirâmide de volume @V = 648\text{ cm}^3@ e altura @h = 18\text{ cm}@ é seccionada por um plano paralelo à base a uma distância de @6\text{ cm}@ do vértice. Determine o volume da pirâmide menor destacada superior e o volume do tronco resultante.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Calcular a razão linear de semelhança @k@:</p>
+            @@
+            k = \frac{h'}{h} = \frac{6}{18} = \frac{1}{3}
+            @@
+            <p><strong>Passo 2:</strong> A razão volumétrica é o cubo da razão linear @k^3@:</p>
+            @@
+            \frac{v}{V} = k^3 = \left(\frac{1}{3}\right)^3 = \frac{1}{27}
+            @@
+            <p><strong>Passo 3:</strong> Calcular o volume da pirâmide menor @v@:</p>
+            @@
+            v = \frac{V}{27} = \frac{648}{27} = 24\text{ cm}^3
+            @@
+            <p><strong>Passo 4:</strong> Volume do tronco @V_T@:</p>
+            @@
+            V_T = V - v = 648 - 24 = 624\text{ cm}^3
+            @@
+            <p><strong>Resposta:</strong> Pirâmide menor: @24\text{ cm}^3@; Tronco: @624\text{ cm}^3@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 8 -->
+      <li>
+        <strong>Volume do Tronco de Pirâmide Quadrangular:</strong><br>
+        Um vaso em formato de tronco de pirâmide quadrangular regular tem altura @H = 12\text{ cm}@. As bases maior e menor têm arestas medindo @10\text{ cm}@ e @4\text{ cm}@, respectivamente. Calcule o volume desse vaso em @\text{cm}^3@.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Calcular as áreas das bases quadradas:</p>
+            @@
+            A_B = 10^2 = 100\text{ cm}^2, \quad A_b = 4^2 = 16\text{ cm}^2
+            @@
+            <p><strong>Passo 2:</strong> Calcular a média geométrica das bases:</p>
+            @@
+            \sqrt{A_B \cdot A_b} = \sqrt{100 \cdot 16} = \sqrt{1.600} = 40\text{ cm}^2
+            @@
+            <p><strong>Passo 3:</strong> Aplicar a Fórmula de Heron:</p>
+            @@
+            V_T = \frac{H}{3} \left( A_B + \sqrt{A_B \cdot A_b} + A_b \right) = \frac{12}{3} \left( 100 + 40 + 16 \right)
+            @@
+            @@
+            V_T = 4 \cdot 156 = 624\text{ cm}^3
+            @@
+            <p><strong>Resposta:</strong> @V_T = 624\text{ cm}^3@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 9 -->
+      <li>
+        <strong>Apótema do Tronco de Pirâmide Regular:</strong><br>
+        Em um tronco de pirâmide quadrangular regular, as arestas das bases medem @a_B = 14\text{ cm}@ e @a_b = 6\text{ cm}@, e a altura do tronco é @H = 3\text{ cm}@. Calcule o apótema do tronco (@g_t@) e a área lateral do tronco.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Calcular os apótemas das bases quadradas:</p>
+            @@
+            m_B = \frac{a_B}{2} = \frac{14}{2} = 7\text{ cm}, \quad m_b = \frac{a_b}{2} = \frac{6}{2} = 3\text{ cm}
+            @@
+            <p><strong>Passo 2:</strong> Aplicar a relação pitagórica no trapézio retângular interno do tronco:</p>
+            @@
+            g_t^2 = H^2 + (m_B - m_b)^2 = 3^2 + (7 - 3)^2 = 3^2 + 4^2 = 9 + 16 = 25 \implies g_t = 5\text{ cm}
+            @@
+            <p><strong>Passo 3:</strong> Calcular a área lateral formada por 4 trapézios isósceles:</p>
+            @@
+            A_l = 4 \cdot \left[ \frac{(a_B + a_b) \cdot g_t}{2} \right] = 4 \cdot \left[ \frac{(14 + 6) \cdot 5}{2} \right] = 4 \cdot \left[ \frac{20 \cdot 5}{2} \right] = 4 \cdot 50 = 200\text{ cm}^2
+            @@
+            <p><strong>Resposta:</strong> @g_t = 5\text{ cm}@ e @A_l = 200\text{ cm}^2@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 10 -->
+      <li>
+        <strong>Inscrição da Esfera no Tetraedro Regular:</strong><br>
+        O raio @r@ da esfera inscrita em um tetraedro regular de aresta @a@ é igual a um quarto de sua altura (@r = \frac{h}{4}@). Sendo @h = \frac{a\sqrt{6}}{3}@, determine o volume dessa esfera inscrita em função da aresta @a@.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Calcular o raio @r@ em função de @a@:</p>
+            @@
+            r = \frac{1}{4} h = \frac{1}{4} \cdot \left(\frac{a\sqrt{6}}{3}\right) = \frac{a\sqrt{6}}{12}
+            @@
+            <p><strong>Passo 2:</strong> Aplicar a fórmula do volume da esfera @V_{\text{esfera}} = \frac{4}{3} \pi r^3@:</p>
+            @@
+            r^3 = \left(\frac{a\sqrt{6}}{12}\right)^3 = \frac{a^3 \cdot 6\sqrt{6}}{1.728} = \frac{a^3 \sqrt{6}}{288}
+            @@
+            @@
+            V_{\text{esfera}} = \frac{4}{3} \pi \cdot \frac{a^3 \sqrt{6}}{288} = \frac{\pi a^3 \sqrt{6}}{216}
+            @@
+            <p><strong>Resposta:</strong> @V_{\text{esfera}} = \frac{\pi a^3 \sqrt{6}}{216}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 11 -->
+      <li>
+        <strong>Octaedro Regular Visto como Duas Pirâmides:</strong><br>
+        Um octaedro regular de aresta @a@ pode ser decomposto em duas pirâmides quadrangulares regulares idênticas unidas pela base comum de lado @a@. Mostre que o volume total do octaedro regular é @V = \frac{a^3\sqrt{2}}{3}@.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Demonstração:</strong></p>
+            <p>1. A base comum das duas pirâmides é um quadrado de lado @a@, logo a área da base é @A_b = a^2@.</p>
+            <p>2. A diagonal desse quadrado é @d = a\sqrt{2}@. A distância do centro ao vértice superior é a altura @h@ da pirâmide. Como a aresta lateral é @a@ e o raio da base é @R = \frac{a\sqrt{2}}{2}@:</p>
+            @@
+            h = \sqrt{a^2 - R^2} = \sqrt{a^2 - \left(\frac{a\sqrt{2}}{2}\right)^2} = \sqrt{a^2 - \frac{a^2}{2}} = \sqrt{\frac{a^2}{2}} = \frac{a\sqrt{2}}{2}
+            @@
+            <p>3. O volume de uma pirâmide é:</p>
+            @@
+            V_{\text{pirâmide}} = \frac{1}{3} A_b \cdot h = \frac{1}{3} \cdot a^2 \cdot \frac{a\sqrt{2}}{2} = \frac{a^3\sqrt{2}}{6}
+            @@
+            <p>4. O volume total do octaedro é o dobro do volume dessa pirâmide:</p>
+            @@
+            V_{\text{octaedro}} = 2 \cdot V_{\text{pirâmide}} = 2 \cdot \frac{a^3\sqrt{2}}{6} = \frac{a^3\sqrt{2}}{3} \quad \blacksquare
+            @@
+            <p><strong>Resposta:</strong> @V = \frac{a^3\sqrt{2}}{3}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 12 -->
+      <li>
+        <strong>Equivalência Volumétrica entre Cilindro e Tronco de Pirâmide:</strong><br>
+        Um bloco maciço metálico no formato de tronco de pirâmide regular de bases quadradas (@a_B = 8\text{ cm}@, @a_b = 2\text{ cm}@ e @H = 6\text{ cm}@) é fundido e remodelado sem perdas na forma de um cilindro circular reto de raio @r = 4\text{ cm}@. Adotando @\pi \approx 3@, determine a altura @h_{\text{cil}}@ desse cilindro.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Passo 1:</strong> Calcular o volume do tronco de pirâmide:</p>
+            @@
+            A_B = 8^2 = 64\text{ cm}^2, \quad A_b = 2^2 = 4\text{ cm}^2
+            @@
+            @@
+            \sqrt{A_B \cdot A_b} = \sqrt{64 \cdot 4} = \sqrt{256} = 16\text{ cm}^2
+            @@
+            @@
+            V_T = \frac{6}{3} (64 + 16 + 4) = 2 \cdot 84 = 168\text{ cm}^3
+            @@
+            <p><strong>Passo 2:</strong> Igualar ao volume do cilindro circular reto @V_{\text{cil}} = \pi r^2 h_{\text{cil}}@:</p>
+            @@
+            168 = \pi \cdot (4)^2 \cdot h_{\text{cil}} \implies 168 = 3 \cdot 16 \cdot h_{\text{cil}} = 48 \cdot h_{\text{cil}}
+            @@
+            @@
+            h_{\text{cil}} = \frac{168}{48} = \frac{21}{6} = 3{,}5\text{ cm}
+            @@
+            <p><strong>Resposta:</strong> @h_{\text{cil}} = 3{,}5\text{ cm}@.</p>
+          </div>
+        </details>
+      </li>
+    </ol>
+
+    <div style="margin: 2.5rem 0; text-align: center;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+    </div>
+
+</article>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

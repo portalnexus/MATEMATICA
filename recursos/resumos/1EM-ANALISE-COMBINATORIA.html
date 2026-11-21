@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Análise Combinatória</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>Análise Combinatória</h1>
+
+    <p>A <strong>Análise Combinatória</strong> é o ramo da matemática que estuda métodos de contagem. Seus princípios fundamentais permitem determinar o número de possibilidades em situações envolvendo escolhas, arranjos e agrupamentos, com aplicações em probabilidade, estatística, teoria dos jogos e computação.</p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: CONCEITOS FUNDAMENTAIS
+         =============================================================== -->
+    <h2>1. Conceitos Fundamentais</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Princípio Fundamental da Contagem - PFC)</h3>
+      <p>Se um evento @E_1@ pode ocorrer de @n_1@ maneiras diferentes e, para cada uma dessas maneiras, um evento @E_2@ pode ocorrer de @n_2@ maneiras diferentes, então o número total de maneiras de ocorrer @E_1@ seguido de @E_2@ é dado por:</p>
+      @@
+      n_1 \times n_2
+      @@
+      <p>Generalizando, se há @k@ eventos consecutivos @E_1, E_2, \ldots, E_k@ que podem ocorrer de @n_1, n_2, \ldots, n_k@ maneiras respectivamente, então o número total de possibilidades é:</p>
+      @@
+      n_1 \times n_2 \times n_3 \times \cdots \times n_k
+      @@
+    </div>
+
+    <p><strong>Exemplos:</strong></p>
+    <ul>
+      <li>Quantas placas de carro existem no formato ABC-1234 (3 letras seguidas de 4 dígitos)? Temos @26 \times 26 \times 26 \times 10 \times 10 \times 10 \times 10 = 175.760.000@ possibilidades.</li>
+      <li>Um restaurante oferece 4 entradas, 6 pratos principais e 3 sobremesas. O número de refeições completas distintas é @4 \times 6 \times 3 = 72@.</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Princípio Aditivo)</h3>
+      <p>Se dois eventos @A@ e @B@ são <strong>mutuamente exclusivos</strong> (não podem ocorrer simultaneamente), sendo que @A@ pode ocorrer de @m@ maneiras e @B@ pode ocorrer de @n@ maneiras, então o número de maneiras de ocorrer @A@ ou @B@ é:</p>
+      @@
+      m + n
+      @@
+    </div>
+
+    <p><strong>Exemplo:</strong> Uma biblioteca tem 15 livros de ficção e 20 de não-ficção. De quantas maneiras podemos escolher um livro? Como só podemos escolher ficção OU não-ficção, temos @15 + 20 = 35@ opções.</p>
+
+    <div class="nota">
+      <strong>Observação:</strong> O Princípio Multiplicativo (PFC) é usado quando os eventos ocorrem EM SEQUÊNCIA, enquanto o Princípio Aditivo é usado quando temos ALTERNATIVAS MUTUAMENTE EXCLUSIVAS.
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Fatorial)</h3>
+      <p>Dado @n \in \mathbb{N}@ com @n \geq 1@, definimos o <strong>fatorial de @n@</strong>, denotado por @n!@, como o produto de todos os números naturais de 1 até @n@:</p>
+      @@
+      n! = n \times (n-1) \times (n-2) \times \cdots \times 2 \times 1
+      @@
+      <p>Por convenção, definimos @0! = 1@.</p>
+    </div>
+
+    <p><strong>Exemplos de cálculo:</strong></p>
+    <ul>
+      <li>@5! = 5 \times 4 \times 3 \times 2 \times 1 = 120@</li>
+      <li>@7! = 7 \times 6 \times 5 \times 4 \times 3 \times 2 \times 1 = 5040@</li>
+      <li>@10! = 3.628.800@</li>
+    </ul>
+
+    <h3>Propriedades do Fatorial</h3>
+
+    <ul class="lista-propriedades">
+      <li><strong>(i)</strong> @n! = n \times (n-1)!@ para todo @n \geq 1@</li>
+      <li><strong>(ii)</strong> @\frac{n!}{(n-k)!} = n \times (n-1) \times (n-2) \times \cdots \times (n-k+1)@ (produto de @k@ fatores decrescentes a partir de @n@)</li>
+      <li><strong>(iii)</strong> O crescimento de @n!@ é extremamente rápido: @13! = 6.227.020.800@ já ultrapassa 6 bilhões</li>
+    </ul>
+
+    <div class="nota">
+      <strong>Curiosidade:</strong> O símbolo @!@ foi introduzido pelo matemático Christian Kramp em 1808. A função fatorial cresce mais rapidamente que qualquer função exponencial @a^n@.
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: ARRANJOS E PERMUTAÇÕES
+         =============================================================== -->
+    <h2>2. Arranjos e Permutações</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Arranjo Simples)</h3>
+      <p>Dado um conjunto com @n@ elementos distintos, chamamos de <strong>arranjo simples de @n@ elementos tomados @p@ a @p@</strong> (com @p \leq n@) qualquer sequência ordenada de @p@ elementos distintos escolhidos dentre os @n@ elementos.</p>
+      <p>O número de arranjos simples de @n@ elementos tomados @p@ a @p@ é denotado por @A_{n,p}@ ou @A_n^p@.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Fórmula do Arranjo Simples)</h3>
+      <p>O número de arranjos simples de @n@ elementos tomados @p@ a @p@ é dado por:</p>
+      @@
+      A_{n,p} = \frac{n!}{(n-p)!} = n \times (n-1) \times (n-2) \times \cdots \times (n-p+1)
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Para formar um arranjo de @p@ elementos:</p>
+    <ul>
+      <li>O 1º elemento pode ser escolhido de @n@ maneiras</li>
+      <li>O 2º elemento pode ser escolhido de @(n-1)@ maneiras (excluindo o primeiro)</li>
+      <li>O 3º elemento pode ser escolhido de @(n-2)@ maneiras</li>
+      <li>@\vdots@</li>
+      <li>O @p@-ésimo elemento pode ser escolhido de @(n-p+1)@ maneiras</li>
+    </ul>
+    <p>Pelo Princípio Fundamental da Contagem:</p>
+    @@
+    A_{n,p} = n \times (n-1) \times (n-2) \times \cdots \times (n-p+1)
+    @@
+    <p>Multiplicando e dividindo por @(n-p)!@:</p>
+    @@
+    A_{n,p} = \frac{n \times (n-1) \times \cdots \times (n-p+1) \times (n-p)!}{(n-p)!} = \frac{n!}{(n-p)!}
+    @@
+
+    <div class="nota">
+      <strong>Importante:</strong> Em arranjos, a <strong>ordem importa</strong>. Por exemplo, as sequências (A, B, C) e (C, B, A) são arranjos diferentes.
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.2 (Permutação Simples)</h3>
+      <p>Chamamos de <strong>permutação simples de @n@ elementos</strong> qualquer arranjo de @n@ elementos tomados @n@ a @n@, isto é, qualquer ordenação de todos os @n@ elementos.</p>
+      <p>O número de permutações simples de @n@ elementos é denotado por @P_n@.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Fórmula da Permutação Simples)</h3>
+      @@
+      P_n = n!
+      @@
+      <p><strong>Justificativa:</strong> Trata-se do caso particular @A_{n,n} = \frac{n!}{(n-n)!} = \frac{n!}{0!} = \frac{n!}{1} = n!@</p>
+    </div>
+
+    <p><strong>Exemplo:</strong> O número de anagramas (reordenações das letras) da palavra AMOR é @P_4 = 4! = 24@.</p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.3 (Permutação com Repetição)</h3>
+      <p>Considere um conjunto com @n@ elementos onde há @n_1@ elementos iguais de um tipo, @n_2@ elementos iguais de outro tipo, ..., @n_k@ elementos iguais de um @k@-ésimo tipo, com @n_1 + n_2 + \cdots + n_k = n@.</p>
+      <p>O número de permutações distintas desses @n@ elementos é:</p>
+      @@
+      P_n^{n_1, n_2, \ldots, n_k} = \frac{n!}{n_1! \times n_2! \times \cdots \times n_k!}
+      @@
+    </div>
+
+    <p><strong>Exemplo:</strong> Quantos anagramas distintos possui a palavra MATEMÁTICA (10 letras: M-2, A-3, T-2, E-1, I-1, C-1)?</p>
+    @@
+    P_{10}^{2,3,2,1,1,1} = \frac{10!}{2! \times 3! \times 2! \times 1! \times 1! \times 1!} = \frac{3.628.800}{2 \times 6 \times 2} = \frac{3.628.800}{24} = 151.200
+    @@
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.4 (Permutação Circular)</h3>
+      <p>Uma <strong>permutação circular</strong> é uma disposição de @n@ elementos distintos em círculo. Duas permutações circulares são consideradas iguais se uma pode ser obtida da outra por rotação.</p>
+      <p>O número de permutações circulares de @n@ elementos é denotado por @P_{circ}(n)@ ou @PC_n@.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.3 (Fórmula da Permutação Circular)</h3>
+      @@
+      P_{circ}(n) = (n-1)!
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Em uma permutação linear, temos @n!@ arranjos. Porém, em uma disposição circular, cada configuração pode ser rotacionada de @n@ maneiras diferentes, gerando a mesma permutação circular.</p>
+    <p>Por exemplo, as disposições lineares (A,B,C), (B,C,A) e (C,A,B) correspondem à mesma disposição circular.</p>
+    <p>Logo, devemos dividir o total de permutações lineares pelo número de rotações:</p>
+    @@
+    P_{circ}(n) = \frac{P_n}{n} = \frac{n!}{n} = (n-1)!
+    @@
+
+    <div class="nota">
+      <strong>Aplicação prática:</strong> O número de maneiras de sentar @n@ pessoas em uma mesa redonda é @(n-1)!@, pois não há uma "primeira" posição fixa.
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: COMBINAÇÕES
+         =============================================================== -->
+    <h2>3. Combinações</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Combinação Simples)</h3>
+      <p>Dado um conjunto com @n@ elementos distintos, chamamos de <strong>combinação simples de @n@ elementos tomados @p@ a @p@</strong> (com @p \leq n@) qualquer subconjunto de @p@ elementos escolhidos dentre os @n@ elementos, <strong>sem considerar a ordem</strong>.</p>
+      <p>O número de combinações simples de @n@ elementos tomados @p@ a @p@ é denotado por @C_{n,p}@, @C_n^p@ ou @\binom{n}{p}@ (lê-se "@n@ escolha @p@").</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Relação entre Arranjo e Combinação)</h3>
+      <p>O número de arranjos de @n@ elementos tomados @p@ a @p@ relaciona-se com o número de combinações pela fórmula:</p>
+      @@
+      A_{n,p} = C_{n,p} \times p!
+      @@
+      <p>Portanto:</p>
+      @@
+      C_{n,p} = \frac{A_{n,p}}{p!} = \frac{n!}{p! \times (n-p)!}
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong></p>
+    <p>Cada combinação de @p@ elementos pode ser permutada de @p!@ maneiras diferentes, gerando @p!@ arranjos distintos. Logo, se dividimos o número total de arranjos @A_{n,p}@ pelo número de permutações de cada grupo @p!@, obtemos o número de combinações:</p>
+    @@
+    C_{n,p} = \frac{A_{n,p}}{p!} = \frac{n!/(n-p)!}{p!} = \frac{n!}{p! \times (n-p)!}
+    @@
+
+    <div class="nota">
+      <strong>Diferença fundamental:</strong> Em combinações, a ordem NÃO importa. Os conjuntos @\{A, B, C\}@ e @\{C, B, A\}@ representam a mesma combinação.
+    </div>
+
+    <h3>Propriedades das Combinações</h3>
+
+    <ul class="lista-propriedades">
+      <li><strong>(P1)</strong> @C_{n,0} = C_{n,n} = 1@ para todo @n \in \mathbb{N}@
+        <p><em>Justificativa:</em> @C_{n,0} = \frac{n!}{0! \times n!} = 1@ e @C_{n,n} = \frac{n!}{n! \times 0!} = 1@</p>
+      </li>
+
+      <li><strong>(P2)</strong> @C_{n,1} = C_{n,n-1} = n@
+        <p><em>Justificativa:</em> @C_{n,1} = \frac{n!}{1! \times (n-1)!} = n@</p>
+      </li>
+
+      <li><strong>(P3) Propriedade da Simetria:</strong> @C_{n,p} = C_{n,n-p}@
+        <p><em>Justificativa:</em> Escolher @p@ elementos é equivalente a escolher quais @(n-p)@ elementos ficarão de fora.</p>
+        @@
+        C_{n,n-p} = \frac{n!}{(n-p)! \times (n-(n-p))!} = \frac{n!}{(n-p)! \times p!} = C_{n,p}
+        @@
+      </li>
+
+      <li><strong>(P4) Relação de Stifel:</strong> @C_{n,p} = C_{n-1,p} + C_{n-1,p-1}@
+        <p><em>Demonstração:</em> Fixe um elemento específico @x@ do conjunto. As combinações de @n@ elementos tomados @p@ a @p@ dividem-se em dois grupos mutuamente exclusivos:</p>
+        <ul>
+          <li>Combinações que NÃO contêm @x@: @C_{n-1,p}@ (escolher @p@ dos @(n-1)@ restantes)</li>
+          <li>Combinações que CONTÊM @x@: @C_{n-1,p-1}@ (escolher @(p-1)@ dos @(n-1)@ restantes)</li>
+        </ul>
+        <p>Pelo Princípio Aditivo: @C_{n,p} = C_{n-1,p} + C_{n-1,p-1}@</p>
+      </li>
+    </ul>
+
+    <div class="destaque-box observacao">
+      <h3>Triângulo de Pascal</h3>
+      <p>A relação de Stifel permite construir o <strong>Triângulo de Pascal</strong>, onde cada número é a soma dos dois números imediatamente acima:</p>
+      <pre style="text-align: center; font-family: monospace; line-height: 1.6;">
+                1
+              1   1
+            1   2   1
+          1   3   3   1
+        1   4   6   4   1
+      1   5  10  10   5   1
+    1   6  15  20  15   6   1
+      </pre>
+      <p>Cada linha @n@ contém os valores de @C_{n,0}, C_{n,1}, C_{n,2}, \ldots, C_{n,n}@.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.2 (Binômio de Newton)</h3>
+      <p>Para quaisquer @a, b \in \mathbb{R}@ e @n \in \mathbb{N}@, a expansão de @(a+b)^n@ é dada por:</p>
+      @@
+      (a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k = \binom{n}{0}a^n + \binom{n}{1}a^{n-1}b + \binom{n}{2}a^{n-2}b^2 + \cdots + \binom{n}{n}b^n
+      @@
+      <p>Os coeficientes @\binom{n}{k}@ são chamados de <strong>coeficientes binomiais</strong> e coincidem com os números do Triângulo de Pascal.</p>
+    </div>
+
+    <p><strong>Exemplo:</strong> Expansão de @(x+y)^4@:</p>
+    @@
+    \begin{align}
+    (x+y)^4 &= \binom{4}{0}x^4 + \binom{4}{1}x^3y + \binom{4}{2}x^2y^2 + \binom{4}{3}xy^3 + \binom{4}{4}y^4 \\
+    &= 1 \cdot x^4 + 4x^3y + 6x^2y^2 + 4xy^3 + 1 \cdot y^4 \\
+    &= x^4 + 4x^3y + 6x^2y^2 + 4xy^3 + y^4
+    \end{align}
+    @@
+
+    <div class="nota">
+      <strong>Conexão histórica:</strong> O Triângulo de Pascal já era conhecido por matemáticos chineses e persas séculos antes de Blaise Pascal (1623-1662) sistematizá-lo. Na China, era chamado de "Triângulo de Yang Hui" (século XIII).
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>4. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Aplicação do Princípio Fundamental da Contagem</h3>
+      <p><strong>Enunciado:</strong> Um sistema de senha exige 1 letra maiúscula seguida de 3 dígitos (0-9) e termina com uma letra minúscula. Quantas senhas diferentes podem ser criadas?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar as escolhas independentes:</p>
+      <ul>
+        <li>1ª posição (letra maiúscula): 26 opções</li>
+        <li>2ª posição (dígito): 10 opções</li>
+        <li>3ª posição (dígito): 10 opções</li>
+        <li>4ª posição (dígito): 10 opções</li>
+        <li>5ª posição (letra minúscula): 26 opções</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Aplicar o PFC multiplicando todas as opções:</p>
+      @@
+      26 \times 10 \times 10 \times 10 \times 26 = 26^2 \times 10^3 = 676 \times 1000 = 676.000
+      @@
+
+      <p><strong>Resposta:</strong> Podem ser criadas 676.000 senhas diferentes.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Arranjo Simples</h3>
+      <p><strong>Enunciado:</strong> Uma competição tem 10 finalistas. De quantas maneiras distintas podem ser escolhidos e ordenados os 3 primeiros colocados (ouro, prata e bronze)?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Análise:</strong> Queremos escolher 3 pessoas dentre 10 E a ordem importa (pois ouro ≠ prata ≠ bronze). Logo, trata-se de um arranjo.</p>
+
+      <p><strong>Cálculo:</strong></p>
+      @@
+      A_{10,3} = \frac{10!}{(10-3)!} = \frac{10!}{7!} = 10 \times 9 \times 8 = 720
+      @@
+
+      <p><strong>Resposta:</strong> Há 720 maneiras diferentes de ordenar os 3 primeiros colocados.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - Permutação Simples (Anagramas)</h3>
+      <p><strong>Enunciado:</strong> Quantos anagramas (reordenações) podem ser formados com as letras da palavra BRASIL?</p>
+
+      <h4>Solução:</h4>
+      <p>A palavra BRASIL possui 6 letras distintas. O número de anagramas é o número de permutações de 6 elementos:</p>
+      @@
+      P_6 = 6! = 720
+      @@
+
+      <p><strong>Resposta:</strong> 720 anagramas.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Permutação com Repetição</h3>
+      <p><strong>Enunciado:</strong> Quantos anagramas distintos podem ser formados com as letras da palavra MISSISSIPPI?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Contar as letras e suas repetições:</p>
+      <ul>
+        <li>Total de letras: 11</li>
+        <li>M: 1 vez</li>
+        <li>I: 4 vezes</li>
+        <li>S: 4 vezes</li>
+        <li>P: 2 vezes</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Aplicar a fórmula de permutação com repetição:</p>
+      @@
+      P_{11}^{1,4,4,2} = \frac{11!}{1! \times 4! \times 4! \times 2!} = \frac{39.916.800}{1 \times 24 \times 24 \times 2} = \frac{39.916.800}{1152} = 34.650
+      @@
+
+      <p><strong>Resposta:</strong> 34.650 anagramas distintos.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Permutação Circular</h3>
+      <p><strong>Enunciado:</strong> De quantas maneiras 8 pessoas podem se sentar em uma mesa redonda?</p>
+
+      <h4>Solução:</h4>
+      <p>Como a mesa é redonda, não há uma posição "inicial" fixa. Usamos permutação circular:</p>
+      @@
+      P_{circ}(8) = (8-1)! = 7! = 5.040
+      @@
+
+      <p><strong>Resposta:</strong> 5.040 maneiras diferentes.</p>
+
+      <div class="nota">
+        <strong>Observação:</strong> Se as pessoas tivessem que sentar em cadeiras numeradas (mesa linear), o resultado seria @8! = 40.320@.
+      </div>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Combinação Simples</h3>
+      <p><strong>Enunciado:</strong> Uma comissão de 5 membros será formada a partir de um grupo de 12 voluntários. De quantas maneiras diferentes a comissão pode ser escolhida?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Análise:</strong> A ordem de escolha não importa (uma comissão com as mesmas pessoas é a mesma, independentemente da ordem). Logo, trata-se de uma combinação.</p>
+
+      <p><strong>Cálculo:</strong></p>
+      @@
+      C_{12,5} = \binom{12}{5} = \frac{12!}{5! \times 7!} = \frac{12 \times 11 \times 10 \times 9 \times 8}{5 \times 4 \times 3 \times 2 \times 1} = \frac{95.040}{120} = 792
+      @@
+
+      <p><strong>Resposta:</strong> 792 comissões diferentes podem ser formadas.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 7 - Problema Misto (Arranjo + Combinação)</h3>
+      <p><strong>Enunciado:</strong> Um grupo de 7 atletas (4 homens e 3 mulheres) disputará uma corrida. De quantas maneiras podemos escolher 2 homens e 2 mulheres para formar uma equipe de revezamento, sendo que a ordem de chegada na equipe importa?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Escolher 2 homens dentre 4 (ordem não importa na seleção):</p>
+      @@
+      C_{4,2} = \binom{4}{2} = \frac{4!}{2! \times 2!} = 6
+      @@
+
+      <p><strong>Passo 2:</strong> Escolher 2 mulheres dentre 3:</p>
+      @@
+      C_{3,2} = \binom{3}{2} = 3
+      @@
+
+      <p><strong>Passo 3:</strong> Ordenar os 4 atletas escolhidos (ordem de corrida importa):</p>
+      @@
+      P_4 = 4! = 24
+      @@
+
+      <p><strong>Passo 4:</strong> Multiplicar todas as escolhas (eventos consecutivos):</p>
+      @@
+      6 \times 3 \times 24 = 432
+      @@
+
+      <p><strong>Resposta:</strong> 432 maneiras diferentes.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 8 - Binômio de Newton</h3>
+      <p><strong>Enunciado:</strong> Determine o coeficiente do termo @x^5y^3@ na expansão de @(x+y)^8@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar a forma geral do termo na expansão:</p>
+      @@
+      (x+y)^8 = \sum_{k=0}^{8} \binom{8}{k} x^{8-k} y^k
+      @@
+
+      <p><strong>Passo 2:</strong> Queremos o termo com @x^5y^3@, logo @8-k = 5@, o que implica @k=3@.</p>
+
+      <p><strong>Passo 3:</strong> Calcular o coeficiente @\binom{8}{3}@:</p>
+      @@
+      \binom{8}{3} = \frac{8!}{3! \times 5!} = \frac{8 \times 7 \times 6}{3 \times 2 \times 1} = \frac{336}{6} = 56
+      @@
+
+      <p><strong>Resposta:</strong> O coeficiente de @x^5y^3@ é 56, ou seja, o termo é @56x^5y^3@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 9 - Problema de Distribuição</h3>
+      <p><strong>Enunciado:</strong> (OBM - Adaptado) De quantas maneiras podemos dividir 9 bolas idênticas em 3 caixas distintas, permitindo que algumas caixas fiquem vazias?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Técnica:</strong> Este é um problema clássico de "barras e estrelas" (stars and bars). Queremos distribuir @n=9@ objetos idênticos em @k=3@ grupos.</p>
+
+      <p><strong>Modelagem:</strong> Imagine 9 estrelas (★) e 2 barras (|) para separar as 3 caixas. Por exemplo:</p>
+      <p style="text-align: center;">★★★ | ★★ | ★★★★ representa (3, 2, 4)</p>
+
+      <p>O problema se reduz a permutar 9+2 = 11 objetos, onde 9 são idênticos (★) e 2 são idênticos (|):</p>
+      @@
+      P_{11}^{9,2} = \frac{11!}{9! \times 2!} = \frac{11 \times 10}{2} = 55
+      @@
+
+      <p>Alternativamente, usando combinação (escolher 2 posições dentre 11 para as barras):</p>
+      @@
+      C_{11,2} = \binom{11}{2} = 55
+      @@
+
+      <p><strong>Resposta:</strong> 55 maneiras diferentes.</p>
+
+      <div class="nota">
+        <strong>Fórmula geral:</strong> Distribuir @n@ objetos idênticos em @k@ grupos: @\binom{n+k-1}{k-1} = \binom{n+k-1}{n}@
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: EXERCÍCIOS
+         =============================================================== -->
+    <h2>5. Exercícios</h2>
+
+    <ol>
+      <li>Quantos números de 4 algarismos distintos podem ser formados com os dígitos 1, 2, 3, 4, 5, 6, 7?</li>
+
+      <li>De quantas maneiras 5 homens e 4 mulheres podem se sentar em uma fila se os homens devem ficar juntos?</li>
+
+      <li>Calcule o valor de @\frac{A_{8,3}}{C_{8,3}}@.</li>
+
+      <li>Quantos anagramas da palavra BANANA começam com B?</li>
+
+      <li>Uma prova tem 10 questões de múltipla escolha, cada uma com 5 alternativas. De quantas maneiras um aluno pode preencher o gabarito?</li>
+
+      <li>De quantas maneiras podemos escolher 3 livros de matemática e 2 livros de física dentre 7 livros de matemática e 5 livros de física?</li>
+
+      <li>Resolva a equação @C_{n,2} = 21@.</li>
+
+      <li>De quantas maneiras 6 casais podem se sentar em uma mesa circular de modo que nenhum casal fique junto?</li>
+
+      <li>Determine o número de soluções inteiras não-negativas da equação @x_1 + x_2 + x_3 + x_4 = 10@.</li>
+
+      <li>Quantos números de 5 algarismos distintos são divisíveis por 5?</li>
+
+      <li>Calcule o coeficiente de @x^7@ na expansão de @(2x - 3)^{10}@.</li>
+
+      <li>De quantas maneiras podemos formar uma comissão de 6 pessoas a partir de 10 homens e 8 mulheres, de modo que a comissão tenha pelo menos 2 mulheres?</li>
+
+      <li>Quantos anagramas da palavra MATEMATICA têm as vogais em ordem alfabética?</li>
+
+      <li>(OBMEP) Um tabuleiro @4 \times 4@ será pintado com 4 cores, de modo que cada linha e cada coluna tenham as 4 cores. De quantas maneiras isso pode ser feito? (Problema simplificado: considere apenas a primeira linha fixada com as cores na ordem 1-2-3-4)</li>
+
+      <li>(IME) Determine o número de permutações de (1, 2, 3, 4, 5, 6, 7) onde nenhum número está em sua posição original.</li>
+
+      <li>Prove que @C_{n,k} = C_{n-1,k} + C_{n-1,k-1}@ usando a fórmula de combinações (demonstração algébrica).</li>
+
+      <li>Quantos triângulos podem ser formados com 10 pontos, sendo que 4 deles são colineares?</li>
+
+      <li>(OBM) De quantas maneiras podemos colocar 8 torres em um tabuleiro de xadrez @8 \times 8@ de modo que nenhuma torre ataque outra?</li>
+
+      <li>Mostre que @\sum_{k=0}^{n} \binom{n}{k} = 2^n@ usando o Binômio de Newton.</li>
+
+      <li>(Desafio - Princípio da Inclusão-Exclusão) Quantos números entre 1 e 1000 são divisíveis por 2, 3 ou 5?</li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+    1. A₇,₄ = 7×6×5×4 = 840 números
+
+    2. Trate os 5 homens como um bloco único. Temos 5 elementos para permutar (bloco + 4 mulheres) = 5! = 120
+       Os homens dentro do bloco podem permutar de 5! = 120 maneiras
+       Total: 120 × 120 = 14.400
+
+    3. A₈,₃/C₈,₃ = (8×7×6)/(8×7×6/3!) = 3! = 6
+
+    4. Fixando B no início, permutamos as 5 letras restantes (A-3, N-2):
+       P₅^(3,2) = 5!/(3!×2!) = 120/12 = 10
+
+    5. Pelo PFC: 5¹⁰ = 9.765.625
+
+    6. C₇,₃ × C₅,₂ = 35 × 10 = 350
+
+    7. C_{n,2} = n(n-1)/2 = 21 ⟹ n² - n - 42 = 0 ⟹ n = 7 (n > 0)
+
+    8. Problema complexo de permutação com restrições. Princípio da Inclusão-Exclusão.
+       Resposta: 13.824 (cálculo via derangement adaptado)
+
+    9. Técnica barras e estrelas: C₁₃,₃ = C₁₃,₁₀ = 286
+
+    10. Para ser divisível por 5, deve terminar em 0 ou 5.
+        Caso 1 (termina em 0): A₉,₄ = 9×8×7×6 = 3.024
+        Caso 2 (termina em 5, não começa com 0): 8×A₈,₃ = 8×8×7×6 = 2.688
+        Total: 5.712
+
+    11. Termo geral: C₁₀,ₖ × (2x)^(10-k) × (-3)^k
+        Para x⁷: 10-k = 7 ⟹ k = 3
+        Coeficiente: C₁₀,₃ × 2⁷ × (-3)³ = 120 × 128 × (-27) = -414.720
+
+    12. Total - (comissões com 0 ou 1 mulher):
+        C₁₈,₆ - [C₁₀,₆×C₈,₀ + C₁₀,₅×C₈,₁] = 18.564 - [210 + 2.016] = 16.338
+
+    13. Total de anagramas: P₁₀^(2,3,2) = 10!/(2!×3!×2!) = 151.200
+        As 4 vogais (A-3, I-1, E-1) devem estar em ordem alfabética: dividir por P₄^(3,1) = 4
+        Resposta: 151.200/4 = 37.800
+
+    14. Problema de permutação de quadrados latinos. Resposta simplificada com primeira linha fixa: 576
+
+    15. Número de derangements D(7) = 7! × Σ((-1)^k/k!, k=0..7) = 1.854
+
+    16. Demonstração algébrica:
+        C_{n-1,k} + C_{n-1,k-1} = (n-1)!/[k!(n-1-k)!] + (n-1)!/[(k-1)!(n-k)!]
+        = (n-1)!×(n-k)/[k!(n-k)!] + (n-1)!×k/[k!(n-k)!]
+        = (n-1)!×n/[k!(n-k)!] = n!/[k!(n-k)!] = C_{n,k}
+
+    17. Total com 10 pontos: C₁₀,₃ = 120
+        Triângulos impossíveis (3 pontos colineares): C₄,₃ = 4
+        Resposta: 120 - 4 = 116
+
+    18. A₈,₈ = 8! = 40.320 (permutar linhas após fixar uma configuração inicial)
+
+    19. No binômio (1+1)ⁿ = Σ C_{n,k}×1^(n-k)×1^k = Σ C_{n,k} = 2ⁿ
+
+    20. |A∪B∪C| = |A| + |B| + |C| - |A∩B| - |A∩C| - |B∩C| + |A∩B∩C|
+        = 500 + 333 + 200 - 166 - 100 - 66 + 33 = 734
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

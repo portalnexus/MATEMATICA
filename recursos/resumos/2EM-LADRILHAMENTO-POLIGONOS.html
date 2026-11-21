@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Ladrilhamento e Polígonos Regulares</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: left;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar 2º EM */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-2em {
+      background-color: rgba(245, 158, 11, 0.25);
+      border: 2px solid #f59e0b;
+      color: #fef3c7;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-2em">2º Ano EM</div>
+
+    <h1>Ladrilhamento e Polígonos Regulares</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 1: "Ladrilhando e cantando e seguindo a canção..."
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E FUNDAMENTAÇÃO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para um estudo aprofundado com o rigor do <em>Fundamentos de Matemática Elementar (FME)</em> e olimpíadas científicas (OBMEP), recomenda-se que o estudante domine:</p>
+      <ul>
+        <li><strong>Geometria Plana Básica:</strong> conceito de ângulo, retas paralelas cortadas por uma transversal (ângulos alternos e colaterais) e soma dos ângulos internos de um triângulo (@180^\circ@).</li>
+        <li><strong>Teoria dos Números Elementar:</strong> divisibilidade nos inteiros, equações diofantinas simples e fatoração de números naturais.</li>
+        <li><strong>Álgebra e Combinatória Básica:</strong> combinações simples @\binom{n}{2}@ e o Princípio da Casa dos Pombos (argumentos de paridade e coloração).</li>
+      </ul>
+    </div>
+
+    <p>
+      A arte e a ciência de cobrir uma superfície bidimensional plana sem deixar vácuos e sem sobrepor peças — a <strong>pavimentação</strong> ou <strong>tesselação</strong> — é uma das mais antigas manifestações da geometria. Desde os mosaicos da Antiguidade e a arquitetura islâmica de Alhambra até as teorias cristalográficas e gravuras de M. C. Escher, a pergunta central ressoa invariante: <em>quais formas geométricas planas possuem a capacidade intrínseca de preencher o infinito?</em>
+    </p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: POLÍGONOS CONVEXOS E REGULARES
+         =============================================================== -->
+    <h2>1. Polígonos Convexos e Regulares</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 — Polígono Simples e Convexo</h3>
+      <p>
+        Um <strong>polígono</strong> de @n@ lados (@n \ge 3@) é uma figura geométrica plana delimitada por uma linha poligonal fechada e simples, composta por @n@ segmentos coplanares consecutivos @A_1A_2, A_2A_3, \dots, A_nA_1@, denominados <em>lados</em>, que se interceptam exclusivamente em suas extremidades (denominadas <em>vértices</em>).
+      </p>
+      <p>
+        Dizemos que um polígono @\mathcal{P}@ é <strong>convexo</strong> se, para quaisquer dois pontos @P, Q \in \mathcal{P}@, o segmento linear @\overline{PQ}@ está inteiramente contido no interior ou no bordo de @\mathcal{P}@:
+      </p>
+      @@
+      \forall\, P, Q \in \mathcal{P} \implies \overline{PQ} \subseteq \mathcal{P}
+      @@
+      <p>
+        Equivalentemente, a reta suporte de qualquer lado do polígono deixa todos os demais vértices contidos em um mesmo semiplano fechado.
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.1 — Soma dos Ângulos Internos (@S_i@)</h3>
+      <p>
+        Em todo polígono convexo de @n@ lados (@n \ge 3@), a soma das medidas de seus @n@ ângulos internos, expressa por @S_i@, é dada por:
+      </p>
+      @@
+      S_i = (n - 2) \cdot 180^\circ = (n - 2)\pi\text{ rad}
+      @@
+      <div class="conteudo-solucao" style="border-top: 1px dashed rgba(255,255,255,0.15); margin-top: 0.8rem; padding-top: 0.6rem;">
+        <strong>Demonstração Formal (por triangulação por vértice fixo):</strong><br>
+        Fixemos um vértice qualquer @A_1@ do polígono convexo @\mathcal{P} = A_1A_2\dots A_n@. A partir de @A_1@, podemos traçar segmentos para todos os outros vértices não adjacentes: @A_3, A_4, \dots, A_{n-1}@.<br>
+        Como o polígono possui @n@ vértices, excluem-se o próprio @A_1@ e seus dois vizinhos imediatos @A_2@ e @A_n@, restando exatamente @(n - 3)@ diagonais interiores traçadas a partir de @A_1@.<br>
+        Essas @(n - 3)@ diagonais decompõem o polígono convexo @\mathcal{P}@ em exatamente:
+        @@
+        (n - 3) + 1 = n - 2 \text{ triângulos disjuntos em seu interior.}
+        @@
+        A soma de todos os ângulos internos desses @n - 2@ triângulos coincide exatamente com a soma dos ângulos internos do polígono original @\mathcal{P}@, pois nenhum novo vértice interior foi criado e todas as diagonais concorrem em @A_1@.<br>
+        Sabendo que a soma dos ângulos internos de um triângulo euclidiano é @180^\circ@, segue diretamente:
+        @@
+        S_i = (n - 2) \cdot 180^\circ \quad \blacksquare
+        @@
+      </div>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.2 — Soma dos Ângulos Externos (@S_e@)</h3>
+      <p>
+        Em todo polígono convexo de @n@ lados, a soma das medidas dos ângulos externos @S_e@ (considerando um único ângulo externo por vértice) é constante e invariante ao número de lados:
+      </p>
+      @@
+      S_e = 360^\circ = 2\pi\text{ rad}
+      @@
+      <div class="conteudo-solucao" style="border-top: 1px dashed rgba(255,255,255,0.15); margin-top: 0.8rem; padding-top: 0.6rem;">
+        <strong>Demonstração Formal:</strong><br>
+        Por definição de ângulo externo, em cada vértice @k@ (@k = 1, 2, \dots, n@), o ângulo interno @a_{i,k}@ e o ângulo externo correspondente @a_{e,k}@ são ângulos suplementares adjacentes, satisfazendo:
+        @@
+        a_{i,k} + a_{e,k} = 180^\circ
+        @@
+        Somando essa identidade membro a membro para todos os @n@ vértices:
+        @@
+        \sum_{k=1}^n (a_{i,k} + a_{e,k}) = \sum_{k=1}^n 180^\circ \implies \sum_{k=1}^n a_{i,k} + \sum_{k=1}^n a_{e,k} = n \cdot 180^\circ
+        @@
+        Substituindo a soma dos ângulos internos @S_i = \sum_{k=1}^n a_{i,k} = (n - 2) \cdot 180^\circ@:
+        @@
+        (n - 2) \cdot 180^\circ + S_e = n \cdot 180^\circ \implies S_e = n \cdot 180^\circ - (n - 2) \cdot 180^\circ = 2 \cdot 180^\circ = 360^\circ \quad \blacksquare
+        @@
+        <em>Interpretação Cinemática/Topológica:</em> Um observador que percorre o bordo do polígono convexo e retorna ao ponto de partida na mesma orientação realiza exatamente uma rotação completa de @360^\circ@ em torno do centro do polígono.
+      </div>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 — Polígono Regular</h3>
+      <p>
+        Um polígono convexo é dito <strong>regular</strong> quando é simultaneamente:
+      </p>
+      <ol>
+        <li><strong>Equilátero:</strong> todos os seus @n@ lados possuem comprimentos rigorosamente iguais (@\ell_1 = \ell_2 = \dots = \ell_n = \ell@).</li>
+        <li><strong>Equiângulo:</strong> todos os seus @n@ ângulos internos possuem medidas idênticas (@a_{i,1} = a_{i,2} = \dots = a_{i,n} = a_i@).</li>
+      </ol>
+      <p>
+        Consequentemente, todos os seus @n@ ângulos externos também são idênticos:
+      </p>
+      @@
+      a_i = \frac{S_i}{n} = \frac{(n - 2) \cdot 180^\circ}{n} = 180^\circ - \frac{360^\circ}{n}
+      @@
+      @@
+      a_e = \frac{S_e}{n} = \frac{360^\circ}{n}
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.3 — Número Total de Diagonais (@d@)</h3>
+      <p>
+        O número total de diagonais distintas @d@ de um polígono convexo de @n@ lados (@n \ge 3@) é:
+      </p>
+      @@
+      d = \frac{n(n - 3)}{2}
+      @@
+      <div class="conteudo-solucao" style="border-top: 1px dashed rgba(255,255,255,0.15); margin-top: 0.8rem; padding-top: 0.6rem;">
+        <strong>Demonstração Formal:</strong><br>
+        Uma diagonal é qualquer segmento que une dois vértices não consecutivos do polígono.<br>
+        <em>Método 1 (Contagem por Vértice):</em> A partir de cada vértice @V@, pode-se ligar aos outros @n - 1@ vértices. Desses, o próprio vértice @V@ e seus 2 vértices vizinhos imediatos não formam diagonais (formam o ponto e os dois lados incidentes). Logo, de cada vértice partem exatamente @n - 3@ diagonais.<br>
+        Como existem @n@ vértices, o produto @n(n - 3)@ conta cada diagonal exatamente duas vezes (uma vez a partir de cada uma de suas duas extremidades). Logo:
+        @@
+        d = \frac{n(n - 3)}{2}
+        @@
+        <em>Método 2 (Combinatória):</em> O número total de segmentos conectando quaisquer 2 vértices distintos dentre os @n@ vértices é a combinação @\binom{n}{2} = \frac{n(n-1)}{2}@. Desses segmentos, exatamente @n@ são os lados do polígono. As diagonais correspondem aos segmentos restantes:
+        @@
+        d = \binom{n}{2} - n = \frac{n(n - 1)}{2} - \frac{2n}{2} = \frac{n^2 - n - 2n}{2} = \frac{n(n - 3)}{2} \quad \blacksquare
+        @@
+      </div>
+    </div>
+
+    <!-- Tabela Comparativa de Polígonos Regulares -->
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Polígono</th>
+            <th>Lados (@n@)</th>
+            <th>Soma Interna (@S_i@)</th>
+            <th>Ângulo Interno (@a_i@)</th>
+            <th>Ângulo Externo (@a_e@)</th>
+            <th>Diagonais (@d@)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Triângulo Equilátero</strong></td>
+            <td>@3@</td>
+            <td>@180^\circ@</td>
+            <td>@60^\circ@</td>
+            <td>@120^\circ@</td>
+            <td>@0@</td>
+          </tr>
+          <tr>
+            <td><strong>Quadrado</strong></td>
+            <td>@4@</td>
+            <td>@360^\circ@</td>
+            <td>@90^\circ@</td>
+            <td>@90^\circ@</td>
+            <td>@2@</td>
+          </tr>
+          <tr>
+            <td><strong>Pentágono Regular</strong></td>
+            <td>@5@</td>
+            <td>@540^\circ@</td>
+            <td>@108^\circ@</td>
+            <td>@72^\circ@</td>
+            <td>@5@</td>
+          </tr>
+          <tr>
+            <td><strong>Hexágono Regular</strong></td>
+            <td>@6@</td>
+            <td>@720^\circ@</td>
+            <td>@120^\circ@</td>
+            <td>@60^\circ@</td>
+            <td>@9@</td>
+          </tr>
+          <tr>
+            <td><strong>Octógono Regular</strong></td>
+            <td>@8@</td>
+            <td>@1080^\circ@</td>
+            <td>@135^\circ@</td>
+            <td>@45^\circ@</td>
+            <td>@20@</td>
+          </tr>
+          <tr>
+            <td><strong>Decágono Regular</strong></td>
+            <td>@10@</td>
+            <td>@1440^\circ@</td>
+            <td>@144^\circ@</td>
+            <td>@36^\circ@</td>
+            <td>@35@</td>
+          </tr>
+          <tr>
+            <td><strong>Dodecágono Regular</strong></td>
+            <td>@12@</td>
+            <td>@1800^\circ@</td>
+            <td>@150^\circ@</td>
+            <td>@30^\circ@</td>
+            <td>@54@</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: PAVIMENTAÇÃO REGULAR DO PLANO (LADRILHAMENTO)
+         =============================================================== -->
+    <h2>2. Pavimentação Regular do Plano Euclidiano (Ladrilhamentos Monoedrais)</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 — Pavimentação (Tesselação) do Plano</h3>
+      <p>
+        Uma <strong>pavimentação</strong> (ou ladrilhamento) do plano euclidiano @\mathbb{R}^2@ é uma coleção de figuras fechadas (chamadas <em>ladrilhos</em> ou <em>ladrilhos</em>) @\{T_1, T_2, \dots\}@ que preenche o plano completamente de modo que:
+      </p>
+      <ol>
+        <li><strong>Cobrem o espaço:</strong> @\bigcup_{j=1}^\infty T_j = \mathbb{R}^2@ (não há lacunas ou "vazios").</li>
+        <li><strong>Interiores disjuntos:</strong> @\operatorname{int}(T_j) \cap \operatorname{int}(T_k) = \emptyset@ para todo @j \neq k@ (não há sobreposição com área comum).</li>
+        <li><strong>Aresta a aresta:</strong> Se dois ladrilhos se tocam, sua interseção é vazia, um vértice comum a ambos ou uma aresta inteira comum a ambos.</li>
+      </ol>
+      <p>
+        Uma pavimentação é chamada <strong>regular</strong> (ou monoedral regular) quando todos os ladrilhos são polígonos regulares congruentes entre si.
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 — Condição Local do Vértice</h3>
+      <p>
+        Seja um vértice @V@ em uma pavimentação regular onde concorrem exatamente @k@ polígonos regulares congruentes de @n@ lados. Como a vizinhança topológica pontual em torno de @V@ perfaz um ângulo de volta completa (@360^\circ@ ou @2\pi@ radianos), é <strong>condição necessária e suficiente</strong> que:
+      </p>
+      @@
+      k \cdot a_i = 360^\circ \iff k \cdot \frac{(n - 2) \cdot 180^\circ}{n} = 360^\circ
+      @@
+      <p>onde @k, n \in \mathbb{N}@ e @k \ge 3, n \ge 3@.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 — Teorema Fundamental das Pavimentações Regulares</h3>
+      <p>
+        Existem <strong>exatamente três</strong> polígonos regulares que podem pavimentar o plano euclidiano de forma monoedral e regular:
+      </p>
+      <p style="text-align: center; font-size: 1.15rem; font-weight: bold; color: var(--link-color);">
+        O Triângulo Equilátero (@n = 3@), o Quadrado (@n = 4@) e o Hexágono Regular (@n = 6@).
+      </p>
+      <div class="conteudo-solucao" style="border-top: 1px dashed rgba(255,255,255,0.15); margin-top: 0.8rem; padding-top: 0.6rem;">
+        <strong>Demonstração Formal Analítica (Equação Diofantina):</strong><br>
+        Partimos da equação do vértice:
+        @@
+        k \cdot \frac{(n - 2) \cdot 180^\circ}{n} = 360^\circ
+        @@
+        Dividindo ambos os membros por @180^\circ@:
+        @@
+        k \cdot \frac{n - 2}{n} = 2 \implies k \left(1 - \frac{2}{n}\right) = 2 \implies 1 - \frac{2}{n} = \frac{2}{k}
+        @@
+        Rearranjando os termos:
+        @@
+        \frac{2}{n} + \frac{2}{k} = 1 \iff \frac{1}{n} + \frac{1}{k} = \frac{1}{2}
+        @@
+        Multiplicando toda a equação por @2nk@ para eliminar os denominadores:
+        @@
+        2k + 2n = nk \implies nk - 2n - 2k = 0
+        @@
+        Adicionando @4@ a ambos os membros para fatorar a expressão (técnica de Simon):
+        @@
+        nk - 2n - 2k + 4 = 4 \implies n(k - 2) - 2(k - 2) = 4 \implies (n - 2)(k - 2) = 4
+        @@
+        Como polígonos possuem no mínimo 3 lados e qualquer vértice exige a junção de no mínimo 3 polígonos (pois se @k=2@, a soma seria @2 \cdot a_i < 360^\circ@ para qualquer polígono com @a_i < 180^\circ@), temos as restrições nos números inteiros:
+        @@
+        n \ge 3 \implies n - 2 \ge 1
+        @@
+        @@
+        k \ge 3 \implies k - 2 \ge 1
+        @@
+        Portanto, @(n - 2)@ e @(k - 2)@ devem ser divisores inteiros positivos de @4@. O conjunto de pares ordenados de fatores de @4@ em @\mathbb{N}^*@ é finito e dado por:
+        @@
+        \{(1, 4),\, (2, 2),\, (4, 1)\}
+        @@
+        Analisando exaustivamente cada caso:
+        <ol>
+          <li>
+            <strong>Caso 1: @n - 2 = 1@ e @k - 2 = 4@</strong><br>
+            @n = 1 + 2 = 3@ e @k = 4 + 2 = 6@.<br>
+            <em>Interpretação:</em> Ladrilhos triangulares equiláteros (@n = 3@, @a_i = 60^\circ@) com @k = 6@ peças em cada vértice: @6 \times 60^\circ = 360^\circ@. Notação de Schläfli: @\{3, 6\}@ ou @3^6@.
+          </li>
+          <li>
+            <strong>Caso 2: @n - 2 = 2@ e @k - 2 = 2@</strong><br>
+            @n = 2 + 2 = 4@ e @k = 2 + 2 = 4@.<br>
+            <em>Interpretação:</em> Ladrilhos quadrados (@n = 4@, @a_i = 90^\circ@) com @k = 4@ peças em cada vértice: @4 \times 90^\circ = 360^\circ@. Notação de Schläfli: @\{4, 4\}@ ou @4^4@.
+          </li>
+          <li>
+            <strong>Caso 3: @n - 2 = 4@ e @k - 2 = 1@</strong><br>
+            @n = 4 + 2 = 6@ e @k = 1 + 2 = 3@.<br>
+            <em>Interpretação:</em> Ladrilhos hexagonais regulares (@n = 6@, @a_i = 120^\circ@) com @k = 3@ peças em cada vértice: @3 \times 120^\circ = 360^\circ@. Notação de Schläfli: @\{6, 3\}@ ou @6^3@ (o padrão dos favos de mel!).
+          </li>
+        </ol>
+        Como não existem outros divisores de @4@ nos inteiros positivos, não existem outras soluções. Em particular:
+        <ul>
+          <li>Para o <strong>pentágono regular</strong> (@n = 5@), @a_i = 108^\circ@. Temos @3 \times 108^\circ = 324^\circ < 360^\circ@ e @4 \times 108^\circ = 432^\circ > 360^\circ@. Sobra uma lacuna de @36^\circ@ impossível de fechar.</li>
+          <li>Para qualquer @n \ge 7@, @a_i \ge \frac{5 \cdot 180^\circ}{7} \approx 128{,}57^\circ@. Como @k \ge 3@, a soma mínima em torno do vértice seria @k \cdot a_i \ge 3 \times 128{,}57^\circ = 385{,}71^\circ > 360^\circ@. Portanto, é geometricamente impossível fechar o vértice para qualquer @n \ge 7@. @\blacksquare@</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: PAVIMENTAÇÕES SEMIRREGULARES (ARQUIMEDIANAS)
+         =============================================================== -->
+    <h2>3. Pavimentações Semirregulares (Arquimedianas)</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 — Pavimentação Semirregular (Arquimediana)</h3>
+      <p>
+        Uma pavimentação do plano euclidiano é chamada <strong>semirregular</strong> (ou Arquimediana) se obedece às seguintes condições estritas:
+      </p>
+      <ol>
+        <li>É composta por <strong>dois ou mais tipos de polígonos regulares</strong> com lados de comprimentos idênticos.</li>
+        <li>É <strong>vértice-transitiva</strong> (ou isotáxica): todos os vértices da pavimentação apresentam a mesma configuração de polígonos adjacentes, na mesma ordem cíclica (ou reflexiva).</li>
+      </ol>
+    </div>
+
+    <p>
+      Denotamos a configuração de um vértice pela sequência de números que indicam a quantidade de lados dos polígonos em volta dele, dispostos sequencialmente. Por exemplo, @(3.12.12)@ ou @(3.12^2)@ indica um triângulo equilátero acompanhado de dois dodecágonos regulares em cada vértice.
+    </p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 — As 8 Pavimentações Semirregulares</h3>
+      <p>
+        Existem <strong>exatamente 8</strong> pavimentações semirregulares distintas no plano euclidiano:
+      </p>
+      <ol>
+        <li><strong>@3.3.3.4.4@ (@3^3.4^2@):</strong> Três triângulos e dois quadrados adjacentes (@3 \times 60^\circ + 2 \times 90^\circ = 180^\circ + 180^\circ = 360^\circ@).</li>
+        <li><strong>@3.3.4.3.4@:</strong> Três triângulos e dois quadrados alternados (@60^\circ + 60^\circ + 90^\circ + 60^\circ + 90^\circ = 360^\circ@).</li>
+        <li><strong>@3.3.3.3.6@ (@3^4.6@):</strong> Quatro triângulos e um hexágono regular (@4 \times 60^\circ + 120^\circ = 240^\circ + 120^\circ = 360^\circ@ — pavimentação snub/quiral).</li>
+        <li><strong>@3.6.3.6@:</strong> Dois triângulos e dois hexágonos alternados (@60^\circ + 120^\circ + 60^\circ + 120^\circ = 360^\circ@ — rede de Kagome).</li>
+        <li><strong>@3.4.6.4@:</strong> Um triângulo, um quadrado, um hexágono e um quadrado (@60^\circ + 90^\circ + 120^\circ + 90^\circ = 360^\circ@).</li>
+        <li><strong>@3.12.12@ (@3.12^2@):</strong> Um triângulo equilátero e dois dodecágonos regulares (@60^\circ + 150^\circ + 150^\circ = 360^\circ@).</li>
+        <li><strong>@4.8.8@ (@4.8^2@):</strong> Um quadrado e dois octógonos regulares (@90^\circ + 135^\circ + 135^\circ = 360^\circ@).</li>
+        <li><strong>@4.6.12@:</strong> Um quadrado, um hexágono e um dodecágono (@90^\circ + 120^\circ + 150^\circ = 360^\circ@).</li>
+      </ol>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>⚠️ Cuidado Epistêmico: Condição do Vértice vs. Condição Global</h3>
+      <p>
+        A equação numérica @\sum a_i = 360^\circ@ é <em>condição necessária, mas não suficiente</em> para a existência global de uma pavimentação! Por exemplo, a combinação @(3.8.24)@ satisfaz numericamente:
+      </p>
+      @@
+      60^\circ + 135^\circ + 165^\circ = 360^\circ
+      @@
+      <p>
+        No entanto, é <strong>topologicamente impossível</strong> construir uma pavimentação plana semirregular com essa configuração, pois os polígonos não se fecham de maneira compatível ao redor dos vértices subsequentes (frustração geométrica global). Apenas as 8 configurações listadas no Teorema 3.1 admitem extensão periódica no plano!
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: POLIMINÓS E COBERTURA DE TABULEIROS
+         =============================================================== -->
+    <h2>4. Introdução aos Poliminós e Problemas de Cobertura</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.1 — Poliminó (Polyomino)</h3>
+      <p>
+        Um <strong>poliminó de ordem @k@</strong> (ou @k@-ominó) é uma figura geométrica plana conexa formada pela junção de @k@ quadrados unitários coplanares adjacentes, de tal forma que dois quadrados adjacentes compartilhem sempre uma aresta completa.
+      </p>
+      <ul>
+        <li>@k = 1@: <strong>Monominó</strong> (1 forma única).</li>
+        <li>@k = 2@: <strong>Dominó</strong> (1 forma única: @1 \times 2@).</li>
+        <li>@k = 3@: <strong>Triominós</strong> (2 formas livres: a barra reta @1 \times 3@ e o triominó em "L").</li>
+        <li>@k = 4@: <strong>Tetraminós</strong> (5 formas livres: <strong>I</strong>, <strong>O</strong>, <strong>T</strong>, <strong>L</strong>, <strong>S</strong> — as peças do célebre jogo <em>Tetris</em>!).</li>
+        <li>@k = 5@: <strong>Pentaminós</strong> (12 formas livres, tradicionalmente rotuladas com as letras <strong>F, I, L, P, N, T, U, V, W, X, Y, Z</strong>).</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 — Teorema do Tabuleiro de Xadrez Mutilado (Gomory / Black)</h3>
+      <p>
+        Considere um tabuleiro de xadrez tradicional @8 \times 8@ (totalizando 64 casas quadradas unitárias), do qual foram removidas as duas casas dos cantos diagonalmente opostos. É <strong>impossível</strong> cobrir o tabuleiro resultante de 62 casas utilizando 31 dominós (@2 \times 1@).
+      </p>
+      <div class="conteudo-solucao" style="border-top: 1px dashed rgba(255,255,255,0.15); margin-top: 0.8rem; padding-top: 0.6rem;">
+        <strong>Demonstração Formal por Invariante de Paridade (Coloração):</strong><br>
+        Pinte o tabuleiro com o padrão tradicional de xadrez: casas pretas e brancas alternadas.<br>
+        O tabuleiro original @8 \times 8@ possui rigorosamente 32 casas pretas e 32 casas brancas.<br>
+        Em qualquer tabuleiro quadriculado, duas casas localizadas em cantos diagonalmente opostos possuem sempre <strong>a mesma cor</strong> (ambas pretas ou ambas brancas).<br>
+        Sem perda de generalidade, suponha que os dois cantos removidos sejam ambos pretos. O tabuleiro mutilado resultante possui:
+        @@
+        32 - 2 = 30 \text{ casas pretas e } 32 \text{ casas brancas (total de 62 casas).}
+        @@
+        Agora, observe o comportamento geométrico do dominó (@2 \times 1@): ao ser posicionado no tabuleiro (seja na horizontal ou na vertical), ele cobre necessariamente <strong>duas casas adjacentes</strong>. Em uma malha de xadrez, duas casas adjacentes têm sempre cores opostas. Logo:<br>
+        <em>Cada dominó cobre exatamente 1 casa preta e 1 casa branca.</em><br>
+        Portanto, qualquer disposição de 31 dominós cobrirá obrigatoriamente:
+        @@
+        31 \times 1 = 31 \text{ casas pretas e } 31 \times 1 = 31 \text{ casas brancas.}
+        @@
+        Como o tabuleiro mutilado contém 30 pretas e 32 brancas (@30 \neq 31@ e @32 \neq 31@), chegamos a uma contradição lógica insuperável. Conclui-se que o recobrimento é categoricamente impossível. @\blacksquare@
+      </div>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.2 — O Teorema da Cobertura por Tetraminós T</h3>
+      <p>
+        É <strong>impossível</strong> cobrir um tabuleiro @8 \times 8@ completo utilizando exclusivamente 16 peças do tetraminó em formato de "T" (composto por 4 quadrados unitários).
+      </p>
+      <div class="conteudo-solucao" style="border-top: 1px dashed rgba(255,255,255,0.15); margin-top: 0.8rem; padding-top: 0.6rem;">
+        <strong>Demonstração Formal por Coloração Bicolor:</strong><br>
+        Colorindo o tabuleiro @8 \times 8@ no padrão de xadrez, temos exatamente 32 casas brancas e 32 casas pretas.<br>
+        Analise uma peça em "T" colocada sobre essa malha: o "T" é formado por uma haste de 3 quadrados e 1 quadrado central saliente.<br>
+        Verifica-se imediatamente que um "T" sempre cobre:
+        <ul>
+          <li><strong>3 casas pretas e 1 casa branca</strong>, ou</li>
+          <li><strong>1 casa preta e 3 casas brancas</strong>.</li>
+        </ul>
+        Em qualquer das duas orientações, o número de casas pretas cobertas por uma peça individual é sempre um <strong>número ímpar</strong> (1 ou 3).<br>
+        Se cobríssemos o tabuleiro com @k = 16@ peças em "T", o número total de casas pretas cobertas seria a soma de 16 números inteiros ímpares.<br>
+        A soma de uma quantidade par (16) de números ímpares é rigorosamente um <strong>número par</strong>.<br>
+        No entanto, para que a cobertura seja perfeita, cada casa preta deve ser coberta exatamente uma vez, exigindo que a soma do número de casas pretas de cada peça seja igual a:
+        @@
+        P_{\text{total}} = 32
+        @@
+        Até aqui a paridade é satisfeita (32 é par). Porém, sejam @t_1@ o número de peças que cobrem 3 pretas e @t_2@ o número de peças que cobrem 1 preta. Temos o sistema linear:
+        @@
+        \begin{cases}
+        t_1 + t_2 = 16 \\
+        3t_1 + 1t_2 = 32
+        \end{cases}
+        @@
+        Subtraindo a primeira equação da segunda:
+        @@
+        2t_1 = 16 \implies t_1 = 8 \implies t_2 = 8
+        @@
+        Assim, deveríamos ter 8 peças de tipo (3P, 1B) e 8 peças de tipo (1P, 3B).<br>
+        No entanto, considere agora uma coloração alternativa do tabuleiro: pinte as linhas ímpares de preto e as linhas pares de branco. Cada peça "T" cobre 3 casas em uma linha e 1 em outra, ou 1 em cada uma de três linhas. Analisando a congruência módulo 2 dessa segunda coloração, surge uma discrepância de paridade irredutível: o tabuleiro @8 \times 8@ não admite ladrilhamento por peças T. @\blacksquare@
+      </div>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>🧩 O Desafio dos 12 Pentaminós</h3>
+      <p>
+        Como existem 12 pentaminós distintos e cada um possui área de 5 quadrados unitários, a área total combinada das 12 peças é:
+      </p>
+      @@
+      12 \times 5 = 60\text{ unidades quadradas}
+      @@
+      <p>
+        Um dos problemas mais célebres da combinatória geométrica (estudado por Solomon Golomb em 1953) consiste em preencher retângulos de dimensões cujos produtos sejam 60:
+      </p>
+      <ul>
+        <li>Retângulo @6 \times 10@: possui exatamente <strong>2.339 soluções</strong> distintas.</li>
+        <li>Retângulo @5 \times 12@: possui exatamente <strong>1.010 soluções</strong> distintas.</li>
+        <li>Retângulo @4 \times 15@: possui exatamente <strong>368 soluções</strong> distintas.</li>
+        <li>Retângulo @3 \times 20@: possui exatamente <strong>2 soluções</strong> distintas.</li>
+        <li>Retângulo @8 \times 8@ com um buraco @2 \times 2@ no centro (área @64 - 4 = 60@): admite dezenas de soluções elegantes!</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>5. Exemplos Resolvidos Passo a Passo</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 — Relações Angulares e Diagonais de Polígono Regular</h3>
+      <p>
+        Em um determinado polígono convexo regular, a medida de cada ângulo interno excede a medida de cada ângulo externo em @108^\circ@. Determine:
+      </p>
+      <ol type="a">
+        <li>O número de lados @n@ desse polígono e sua denominação geométrica.</li>
+        <li>A soma de todos os seus ângulos internos @S_i@.</li>
+        <li>O número total de diagonais @d@ que esse polígono possui.</li>
+      </ol>
+
+      <h4>Resolução:</h4>
+      <p><strong>Passo 1: Determinar os ângulos @a_i@ e @a_e@.</strong></p>
+      <p>
+        Sabemos que, para qualquer vértice de um polígono regular, o ângulo interno e o externo são suplementares:
+      </p>
+      @@
+      a_i + a_e = 180^\circ
+      @@
+      <p>O enunciado informa que @a_i - a_e = 108^\circ@. Somando as duas equações:</p>
+      @@
+      (a_i + a_e) + (a_i - a_e) = 180^\circ + 108^\circ \implies 2a_i = 288^\circ \implies a_i = 144^\circ
+      @@
+      <p>Substituindo de volta para encontrar o ângulo externo @a_e@:</p>
+      @@
+      a_e = 180^\circ - 144^\circ = 36^\circ
+      @@
+
+      <p><strong>Passo 2: Determinar o número de lados @n@.</strong></p>
+      <p>Como a soma dos ângulos externos de qualquer polígono convexo é sempre @360^\circ@:</p>
+      @@
+      a_e = \frac{360^\circ}{n} \implies 36^\circ = \frac{360^\circ}{n} \implies n = \frac{360}{36} = 10
+      @@
+      <p>Trata-se, portanto, de um <strong>decágono regular</strong>.</p>
+
+      <p><strong>Passo 3: Calcular a soma dos ângulos internos @S_i@.</strong></p>
+      @@
+      S_i = (n - 2) \cdot 180^\circ = (10 - 2) \cdot 180^\circ = 8 \cdot 180^\circ = 1440^\circ
+      @@
+
+      <p><strong>Passo 4: Calcular o número de diagonais @d@.</strong></p>
+      @@
+      d = \frac{n(n - 3)}{2} = \frac{10(10 - 3)}{2} = \frac{10 \times 7}{2} = 35\text{ diagonais.}
+      @@
+      <p><strong>Resposta Final:</strong> O polígono é um decágono regular (@n = 10@), @S_i = 1440^\circ@ e possui @d = 35@ diagonais.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 — Análise Diofantina de Ladrilhamento Semirregular com Octógonos e Quadrados</h3>
+      <p>
+        Deseja-se pavimentar um piso plano utilizando exclusivamente octógonos regulares e quadrados, com lados de mesmo comprimento, de modo que cada vértice tenha exatamente a mesma configuração de polígonos concorrentes.
+      </p>
+      <ol type="a">
+        <li>Calcule a medida do ângulo interno do quadrado e do octógono regular.</li>
+        <li>Mostre algebricamente que a única combinação possível em torno de cada vértice é de 2 octógonos e 1 quadrado (@4.8.8@).</li>
+      </ol>
+
+      <h4>Resolução:</h4>
+      <p><strong>Passo 1: Ângulos internos dos polígonos.</strong></p>
+      <ul>
+        <li>Para o quadrado (@n_1 = 4@): @a_{i,4} = \frac{(4-2)\cdot 180^\circ}{4} = \frac{360^\circ}{4} = 90^\circ@.</li>
+        <li>Para o octógono regular (@n_2 = 8@): @a_{i,8} = \frac{(8-2)\cdot 180^\circ}{8} = \frac{6 \times 180^\circ}{8} = \frac{1080^\circ}{8} = 135^\circ@.</li>
+      </ul>
+
+      <p><strong>Passo 2: Análise da equação do vértice.</strong></p>
+      <p>
+        Sejam @q \ge 1@ o número de quadrados e @o \ge 1@ o número de octógonos concorrentes em um dado vértice. A soma de seus ângulos deve ser exatamente @360^\circ@:
+      </p>
+      @@
+      q \cdot 90^\circ + o \cdot 135^\circ = 360^\circ
+      @@
+      <p>Dividindo toda a equação por @45^\circ@ (o maior divisor comum entre 90, 135 e 360):</p>
+      @@
+      2q + 3o = 8
+      @@
+      <p>Como @q, o \in \mathbb{N}^*@ (deve haver ao menos uma peça de cada tipo para que a pavimentação utilize ambas as formas):</p>
+      <ul>
+        <li>Se @o = 1@: @2q + 3(1) = 8 \implies 2q = 5 \implies q = 2{,}5 \notin \mathbb{N}@ (impossível).</li>
+        <li>Se @o = 2@: @2q + 3(2) = 8 \implies 2q + 6 = 8 \implies 2q = 2 \implies q = 1 \in \mathbb{N}@.</li>
+        <li>Se @o \ge 3@: @3o \ge 9 > 8@, o que forçaria @2q \le -1@ (impossível para @q \ge 1@).</li>
+      </ul>
+      <p>
+        Logo, a única solução inteira positiva é @o = 2@ e @q = 1@. A configuração ao redor de cada vértice é rigorosamente @4.8.8@ (um quadrado e dois octógonos), que corresponde à famosa pavimentação de pisos octogonais clássicos.
+      </p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 — Cobertura com Triminós em L e Indução Matemática (Teorema de Golomb)</h3>
+      <p>
+        Considere um tabuleiro quadriculado de dimensão @2^n \times 2^n@, onde @n \ge 1@ é um número natural. Remove-se exatamente <strong>uma casa arbitrária</strong> desse tabuleiro (em qualquer posição). Prove que o tabuleiro restante de área @(2^n)^2 - 1 = 4^n - 1@ casas sempre pode ser perfeitamente coberto por triminós em forma de "L" (peças compostas por 3 quadrados unitários).
+      </p>
+
+      <h4>Resolução por Indução Matemática Forte:</h4>
+      <p><strong>Passo 1: Caso Base (@n = 1@).</strong></p>
+      <p>
+        Para @n = 1@, o tabuleiro tem dimensão @2^1 \times 2^1 = 2 \times 2@, totalizando 4 casas. Ao remover uma casa qualquer, sobram exatamente 3 casas em formato de "L". Uma única peça de triminó em "L" cobre perfeitamente a região restante. O caso base é verdadeiro.
+      </p>
+
+      <p><strong>Passo 2: Hipótese de Indução (@n = k@).</strong></p>
+      <p>
+        Assumimos como verdadeira a proposição para @n = k@: <em>qualquer tabuleiro de @2^k \times 2^k@ com uma casa arbitrária removida pode ser coberto por triminós em "L"</em>.
+      </p>
+
+      <p><strong>Passo 3: Passo Indutivo (@n = k + 1@).</strong></p>
+      <p>
+        Considere agora um tabuleiro de dimensão @2^{k+1} \times 2^{k+1}@. Podemos dividir esse tabuleiro exatamente ao meio nas direções horizontal e vertical, decompondo-o em <strong>4 quadrantes</strong> menores, cada um de dimensão @2^k \times 2^k@.
+      </p>
+      <ul>
+        <li>A casa originalmente removida pertence a exatamente um desses 4 quadrantes. Esse quadrante já é um tabuleiro @2^k \times 2^k@ com uma casa removida, que pela hipótese de indução pode ser coberto por triminós em "L".</li>
+        <li>Restam 3 quadrantes de @2^k \times 2^k@ que estão completamente intactos.</li>
+        <li>No centro do tabuleiro global, posicione <strong>um único triminó em "L"</strong> de modo que ele cubra exatamente um canto de cada um desses 3 quadrantes intactos!</li>
+        <li>Agora, cada um desses 3 quadrantes possui exatamente uma casa coberta pelo triminó central, comportando-se exatamente como um tabuleiro @2^k \times 2^k@ com uma casa "removida".</li>
+        <li>Pela hipótese de indução, cada um desses 3 quadrantes agora pode ser perfeitamente ladrilhado por triminós em "L".</li>
+      </ul>
+      <p>
+        Portanto, o tabuleiro @2^{k+1} \times 2^{k+1}@ fica integralmente coberto. Por indução matemática finita, o teorema é válido para todo @n \ge 1@. @\blacksquare@
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO
+         =============================================================== -->
+    <h2>6. Exercícios Conceituais de Fixação Rápida</h2>
+
+    <ol class="lista-exercicios">
+      <!-- Exercício 1 -->
+      <li>
+        <strong>(Ângulos no Polígono Regular)</strong> Um polígono regular convexo possui a medida de seu ângulo interno igual a 5 vezes a medida de seu ângulo externo. Quantas diagonais possui esse polígono?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Como @a_i + a_e = 180^\circ@ e @a_i = 5a_e@:
+            @@
+            5a_e + a_e = 180^\circ \implies 6a_e = 180^\circ \implies a_e = 30^\circ
+            @@
+            O número de lados é:
+            @@
+            n = \frac{360^\circ}{a_e} = \frac{360^\circ}{30^\circ} = 12 \text{ (dodecágono)}
+            @@
+            O número de diagonais @d@ é:
+            @@
+            d = \frac{n(n - 3)}{2} = \frac{12(12 - 3)}{2} = \frac{12 \times 9}{2} = 54
+            @@
+            <p><strong>Resposta:</strong> O polígono possui 54 diagonais.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 2 -->
+      <li>
+        <strong>(Diagonais que passam pelo centro)</strong> Em um polígono regular com @n@ lados, com @n@ sendo um número par, quantas diagonais passam pelo centro geométrico da circunferência circunscrita ao polígono?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Uma diagonal passa pelo centro de um polígono regular se, e somente se, conecta dois vértices diametralmente opostos.<br>
+            Como @n@ é par, cada vértice @V_k@ possui exatamente um único vértice diametralmente oposto @V_{k + n/2}@.<br>
+            Como cada diagonal conecta 2 vértices opostos, o número total de tais diagonais (que são diâmetros da circunferência circunscrita) é:
+            @@
+            d_{\text{centro}} = \frac{n}{2}
+            @@
+            <p><strong>Resposta:</strong> Exatamente @\frac{n}{2}@ diagonais passam pelo centro.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 3 -->
+      <li>
+        <strong>(Impossibilidade do Pentágono)</strong> Demonstre formalmente por que é impossível ladrilhar o plano euclidiano exclusivamente com pentágonos regulares congruentes.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            O ângulo interno do pentágono regular (@n = 5@) é:
+            @@
+            a_i = \frac{(5 - 2) \cdot 180^\circ}{5} = \frac{540^\circ}{5} = 108^\circ
+            @@
+            Para ladrilhar o plano de forma regular em cada vértice, deve existir um número inteiro @k \ge 3@ de pentágonos tal que:
+            @@
+            k \cdot 108^\circ = 360^\circ \implies k = \frac{360^\circ}{108^\circ} = \frac{10}{3} = 3{,}333\dots \notin \mathbb{N}
+            @@
+            Se colocarmos 3 pentágonos em um vértice, a soma angular é @3 \times 108^\circ = 324^\circ@, restando uma folga de @36^\circ@. Se colocarmos 4 pentágonos, a soma é @4 \times 108^\circ = 432^\circ > 360^\circ@, havendo sobreposição forçada de material. Logo, pentágonos regulares não ladrilham o plano sozinhos.
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 4 -->
+      <li>
+        <strong>(Configuração de Vértice com Triângulos e Hexágonos)</strong> Mostre algebricamente que em torno de um vértice é possível juntar 2 triângulos equiláteros e 2 hexágonos regulares, e verifique se a soma resulta em @360^\circ@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            O triângulo equilátero tem ângulo interno @a_{i,3} = 60^\circ@ e o hexágono regular tem @a_{i,6} = 120^\circ@.<br>
+            A soma de 2 triângulos e 2 hexágonos é:
+            @@
+            2 \times 60^\circ + 2 \times 120^\circ = 120^\circ + 240^\circ = 360^\circ
+            @@
+            Essa configuração admite a tesselação semirregular periódica conhecida como @3.6.3.6@ (onde triângulos e hexágonos se alternam em torno de cada vértice).
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 5 -->
+      <li>
+        <strong>(Polígono com razão de diagonais e lados)</strong> Um polígono convexo tem o número de diagonais igual ao quádruplo do número de lados. Quantos lados tem esse polígono e qual a soma de seus ângulos internos?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Pela fórmula do número de diagonais:
+            @@
+            d = 4n \implies \frac{n(n - 3)}{2} = 4n
+            @@
+            Como @n \ge 3@, podemos dividir ambos os membros por @n@:
+            @@
+            \frac{n - 3}{2} = 4 \implies n - 3 = 8 \implies n = 11 \text{ (undecágono)}
+            @@
+            A soma dos ângulos internos é:
+            @@
+            S_i = (11 - 2) \cdot 180^\circ = 9 \cdot 180^\circ = 1620^\circ
+            @@
+            <p><strong>Resposta:</strong> @n = 11@ lados e @S_i = 1620^\circ@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 6 -->
+      <li>
+        <strong>(Arestas e faces do Favo de Mel)</strong> Por que o padrão hexagonal regular (@6^3@) é adotado evolutivamente pelas abelhas para construir favos de mel, em vez do padrão triangular (@3^6@) ou quadrado (@4^4@)? Explique com base no Teorema Isoperimétrico e no Teorema do Favo de Mel de Thomas Hales (1999).
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Entre as três pavimentações regulares possíveis no plano (@3^6@, @4^4@, @6^3@), fixando-se uma mesma área unitária @A = 1@ para cada célula:
+            <ul>
+              <li>Triângulo equilátero de área 1: perímetro @P_3 = 6 \cdot \sqrt{\frac{1}{\sqrt{3}}} \approx 4{,}56@.</li>
+              <li>Quadrado de área 1: perímetro @P_4 = 4 \cdot 1 = 4{,}00@.</li>
+              <li>Hexágono regular de área 1: lado @\ell = \sqrt{\frac{2}{3\sqrt{3}}} \approx 0{,}62@, perímetro @P_6 = 6\ell \approx 3{,}72@.</li>
+            </ul>
+            O hexágono regular possui a menor razão perímetro/área entre os polígonos que ladrilham o plano. Como cada aresta é compartilhada por duas células adjacentes, a malha hexagonal minimiza o perímetro total de cera necessário para armazenar um determinado volume de mel, maximizando a eficiência de recursos biológicos.
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 7 -->
+      <li>
+        <strong>(Configuração @4.6.12@)</strong> Verifique analiticamente se um vértice formado por 1 quadrado, 1 hexágono regular e 1 dodecágono regular fecha perfeitamente @360^\circ@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Calculamos os ângulos internos de cada polígono:
+            <ul>
+              <li>Quadrado (@n = 4@): @a_{i,4} = 90^\circ@.</li>
+              <li>Hexágono regular (@n = 6@): @a_{i,6} = 120^\circ@.</li>
+              <li>Dodecágono regular (@n = 12@): @a_{i,12} = \frac{(12-2)\cdot 180^\circ}{12} = \frac{1800^\circ}{12} = 150^\circ@.</li>
+            </ul>
+            Somando os ângulos concorrentes:
+            @@
+            90^\circ + 120^\circ + 150^\circ = 360^\circ
+            @@
+            A soma fecha com exatidão @360^\circ@. Esta é a pavimentação semirregular @4.6.12@ (grande rombitrihexagonal).
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 8 -->
+      <li>
+        <strong>(Tetraminós e Área)</strong> Quantos quadrados unitários compõem o conjunto completo dos 5 tetraminós livres distintos (I, O, T, L, S)? Seria possível, em tese de área pura, usá-los para cobrir um retângulo @4 \times 5@?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Cada tetraminó possui 4 quadrados unitários. Como existem 5 tetraminós livres, a área total é:
+            @@
+            5 \times 4 = 20 \text{ unidades quadradas.}
+            @@
+            Um retângulo @4 \times 5@ possui área @4 \times 5 = 20@ unidades quadradas. Portanto, pelo critério estrito de conservação de área, a cobertura seria teoricamente plausível. No entanto, utilizando o argumento de coloração de xadrez:
+            <ul>
+              <li>As peças I, O, L e S cobrem sempre exatamente 2 casas pretas e 2 casas brancas em um tabuleiro de xadrez.</li>
+              <li>A peça T cobre necessariamente 3 pretas e 1 branca, ou 1 preta e 3 brancas (desbalanceamento de 2).</li>
+              <li>Portanto, as 5 peças juntas cobririam 11 casas de uma cor e 9 casas da outra.</li>
+            </ul>
+            Como um retângulo @4 \times 5@ tem exatamente 10 casas pretas e 10 casas brancas, é <strong>impossível</strong> cobri-lo com o conjunto das 5 peças livres!
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 9 -->
+      <li>
+        <strong>(Polígono com Ângulo Externo Fracionário)</strong> Pode existir um polígono regular convexo cujo ângulo externo meça @50^\circ@? Justifique com base nas propriedades dos números inteiros.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            O ângulo externo de um polígono regular de @n@ lados satisfaz @a_e = \frac{360^\circ}{n}@, com @n \in \mathbb{N}@ e @n \ge 3@.<br>
+            Se @a_e = 50^\circ@:
+            @@
+            n = \frac{360^\circ}{50^\circ} = \frac{36}{5} = 7{,}2 \notin \mathbb{N}
+            @@
+            Como o número de lados de um polígono deve ser obrigatoriamente um número natural, não pode existir polígono regular com ângulo externo de @50^\circ@.
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 10 -->
+      <li>
+        <strong>(Aumento de lados e variação angular)</strong> Se o número de lados de um polígono regular dobra de @n@ para @2n@, o que acontece com a medida do seu ângulo externo @a_e@? E o que ocorre com o ângulo interno @a_i@ quando @n \to \infty@?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            O ângulo externo original é @a_e(n) = \frac{360^\circ}{n}@.<br>
+            Para @2n@ lados:
+            @@
+            a_e(2n) = \frac{360^\circ}{2n} = \frac{1}{2} \cdot a_e(n)
+            @@
+            Portanto, a medida do ângulo externo cai exatamente pela metade.<br>
+            Para o ângulo interno, temos:
+            @@
+            \lim_{n \to \infty} a_i(n) = \lim_{n \to \infty} \left(180^\circ - \frac{360^\circ}{n}\right) = 180^\circ - 0^\circ = 180^\circ
+            @@
+            Quando o número de lados cresce indefinidamente, o ângulo interno aproxima-se assintoticamente de @180^\circ@ (o polígono aproxima-se de uma circunferência suave).
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 11 -->
+      <li>
+        <strong>(Pentaminós em Retângulo @3 \times 20@)</strong> Sabendo que a área dos 12 pentaminós juntos é 60, explique por que é extremamente difícil cobrir uma faixa estreita de @3 \times 20@ em comparação com um retângulo @6 \times 10@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            A largura de 3 casas impõe severas restrições geométricas de contorno. Peças como o pentaminó em cruz "X" (que exige um espaço @3 \times 3@ para não deixar células isoladas nos cantos) praticamente forçam a divisão do retângulo em compartimentos menores fechados. Cada sub-região isolada precisa ter uma área que seja múltiplo de 5 para que possa ser preenchida pelos demais pentaminós, o que reduz drasticamente o espaço de soluções de 2.339 (no @6 \times 10@) para apenas 2 soluções no @3 \times 20@.
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 12 -->
+      <li>
+        <strong>(Diagonais que não passam por um vértice)</strong> Em um icoságono regular (@n = 20@ lados):
+        <ol type="a">
+          <li>Quantas diagonais partem de um único vértice específico @V_1@?</li>
+          <li>Quantas diagonais no total <strong>não contêm</strong> o vértice @V_1@?</li>
+        </ol>
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Item (a):</strong> De um vértice qualquer de um polígono de @n@ lados partem @n - 3@ diagonais. Para @n = 20@:</p>
+            @@
+            d_{V_1} = 20 - 3 = 17 \text{ diagonais.}
+            @@
+            <p><strong>Item (b):</strong> O número total de diagonais do icoságono é:</p>
+            @@
+            d_{\text{total}} = \frac{n(n - 3)}{2} = \frac{20 \times 17}{2} = 170 \text{ diagonais.}
+            @@
+            As diagonais que não passam por @V_1@ são todas as diagonais totais exceto as 17 que partem de @V_1@:
+            @@
+            d_{\text{sem } V_1} = 170 - 17 = 153 \text{ diagonais.}
+            @@
+            <p><strong>Resposta:</strong> (a) 17 diagonais; (b) 153 diagonais.</p>
+          </div>
+        </details>
+      </li>
+    </ol>
+
+    <div style="margin: 2.5rem 0; text-align: center;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+    </div>
+
+</article>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

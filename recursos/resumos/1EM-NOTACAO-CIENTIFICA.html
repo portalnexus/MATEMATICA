@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Notação Científica, Ordem de Grandeza e Teoria de Algarismos Significativos</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-1em {
+      background-color: rgba(16, 185, 129, 0.25);
+      border: 2px solid #10b981;
+      color: #a7f3d0;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-1em">1º Ano EM</div>
+
+    <h1>Notação Científica, Ordem de Grandeza e Algarismos Significativos</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 10: "Do micro ao macro"
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E CONTEXTO HISTÓRICO-EPISTEMOLÓGICO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para o domínio analítico formal deste compêndio de acordo com os <em>Fundamentos de Matemática Elementar</em> (FME) e exigências dos vestibulares mais concorridos (Fuvest, Unicamp, ITA) e da OBMEP, o estudante deve mobilizar:</p>
+      <ul>
+        <li><strong>Potenciação e Propriedades Operatórias:</strong> produtos e quocientes de mesma base, potências de potências e expoentes inteiros negativos (@10^{-n} = \frac{1}{10^n}@).</li>
+        <li><strong>Logaritmos Decimais e Escalas Exponenciais:</strong> propriedades da função @f(x) = \log_{10}(x)@, ponto médio logarítmico e média geométrica.</li>
+        <li><strong>Teoria Elementar de Erros e Medições:</strong> precisão, exatidão instrumental e incerteza associada à última casa decimal avaliada.</li>
+      </ul>
+    </div>
+
+    <p>
+      No século III a.C., <strong>Arquimedes de Siracusa</strong> escreveu uma de suas obras mais surpreendentes: <em>Arenarius</em> (O Contador de Areia), endereçada ao rei Gelão II. Na época, acreditava-se vulgarmente que o número de grãos de areia existentes nas praias do mundo era infinito ou inalcançável pelo intelecto humano. Arquimedes não apenas refutou tal crença, mas construiu um sistema de potências de miríades (@10^4@) para calcular um limite superior para a quantidade de grãos de areia necessários para preencher inteiramente o Universo esférico de Aristarco de Samos (cerca de @10^{63}@ grãos).
+    </p>
+    <p>
+      Com a gênese da mecânica quântica e da astrofísica observacional moderna no século XX, o ser humano deparou-se com amplitudes escalares que transcendem a imaginação intuitiva cotidiana em dezenas de ordens de magnitude: desde a escala atômica de comprimento de Planck (@10^{-35}\text{ m}@) até o raio do horizonte cosmológico observável (@10^{26}\text{ m}@). Para descrever tais extremos sem ambiguidades ortográficas ou falsas ilusões de precisão, foram consolidadas três ferramentas complementares e cruciais: a <strong>Notação Científica Normalizada</strong>, a <strong>Ordem de Grandeza com Média Geométrica</strong> e a <strong>Teoria dos Algarismos Significativos</strong>.
+    </p>
+
+    <!-- ===============================================================
+         PARTE 1: DEFINIÇÃO FORMAL DE NOTAÇÃO CIENTÍFICA
+         =============================================================== -->
+    <h2>1. Definição Formal e Álgebra da Notação Científica</h2>
+
+    <p>
+      No sistema de numeração posicional decimal, números reais positivos ou negativos arbitrários com valores absolutos extremamente grandes ou diminutos tornam-se de difícil leitura se grafados por extenso (ex.: @0{,}0000000000000000001602\text{ C}@ ou @1989000000000000000000000000000\text{ kg}@).
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Notação Científica Normalizada)</h3>
+      <p>
+        Diz-se que um número real não-nulo @N \in \mathbb{R}^*@ está expresso em <strong>notação científica normalizada</strong> se, e somente se, estiver escrito na forma canônica:
+      </p>
+      @@N = m \times 10^k@@
+      <p>onde:</p>
+      <ul>
+        <li><strong>@m \in \mathbb{R}@ é a mantissa</strong> (ou significando / coeficiente), satisfazendo a condição estrita de normalização:
+          @@1 \le |m| < 10@@
+        </li>
+        <li><strong>@k \in \mathbb{Z}@ é a ordem</strong> (ou expoente inteiro da base 10).</li>
+      </ul>
+      <p>
+        Se @N > 0@, @1 \le m < 10@. Se @N < 0@, @-10 < m \le -1@.
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.1 (Propriedades Operatórias com Notação Científica)</h3>
+      <p>
+        Sejam @N_1 = a \times 10^p@ e @N_2 = b \times 10^q@ dois números em notação científica (@1 \le a, b < 10@). Suas operações fundamentais obedecem às seguintes regras algébricas:
+      </p>
+
+      <ol>
+        <li>
+          <strong>Multiplicação:</strong>
+          @@N_1 \times N_2 = (a \cdot b) \times 10^{p + q}@@
+          <p><em>Renormação:</em> Como @1 \le a, b < 10@, o produto @a \cdot b \in [1, 100)@. Se @a \cdot b \ge 10@, divide-se a mantissa por 10 e incrementa-se 1 ao expoente:</p>
+          @@a \cdot b \ge 10 \implies N_1 \times N_2 = \left(\frac{a \cdot b}{10}\right) \times 10^{p + q + 1}@@
+        </li>
+        <li>
+          <strong>Divisão:</strong>
+          @@\frac{N_1}{N_2} = \left(\frac{a}{b}\right) \times 10^{p - q}@@
+          <p><em>Renormação:</em> O quociente @\frac{a}{b} \in (0{,}1; 10)@. Se @\frac{a}{b} < 1@, multiplica-se a mantissa por 10 e subtrai-se 1 do expoente:</p>
+          @@\frac{a}{b} < 1 \implies \frac{N_1}{N_2} = \left(10 \cdot \frac{a}{b}\right) \times 10^{p - q - 1}@@
+        </li>
+        <li>
+          <strong>Adição e Subtração (Equalização de Expoentes):</strong>
+          <p>Para somar ou subtrair, deve-se fatorar a potência de maior (ou igual) expoente:</p>
+          @@N_1 \pm N_2 = a \cdot 10^p \pm b \cdot 10^q = \left(a + b \cdot 10^{q - p}\right) \times 10^p \quad (\text{para } p \ge q)@@
+        </li>
+        <li>
+          <strong>Potenciação e Radiciação (@n \in \mathbb{N}^*@):</strong>
+          @@(a \times 10^p)^n = a^n \times 10^{p \cdot n}@@
+          @@\sqrt[n]{a \times 10^p} = \sqrt[n]{a \times 10^r \times 10^{p - r}} = \sqrt[n]{a \cdot 10^r} \times 10^{(p-r)/n}@@
+          <p>onde @r \in \{0, 1, \dots, n-1\}@ é escolhido de forma que @(p - r)@ seja perfeitamente divisível por @n@.</p>
+        </li>
+      </ol>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 2: CONCEITO RIGOROSO DE ORDEM DE GRANDEZA
+         =============================================================== -->
+    <h2>2. Teoria Rigorosa da Ordem de Grandeza (O Critério da Média Geométrica)</h2>
+
+    <p>
+      Em muitas situações da física pura, da engenharia e da astrofísica, não se deseja ou não é possível conhecer um valor com alta precisão decimal; o que se busca é estimar a <strong>ordem de grandeza</strong> da grandeza (isto é, a potência de 10 mais próxima do valor real).
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Ordem de Grandeza em Escala Logarítmica)</h3>
+      <p>
+        Seja @N > 0@ um número real positivo expresso na forma normalizada @N = m \times 10^k@ com @1 \le m < 10@ e @k \in \mathbb{Z}@.
+      </p>
+      <p>
+        O número @N@ situa-se no intervalo fechado @[10^k, 10^{k+1}]@. Define-se a <strong>Ordem de Grandeza</strong> de @N@, denotada por @\text{OG}(N)@, como sendo a potência inteira de dez (@10^k@ ou @10^{k+1}@) cuja distância métrica a @N@ é <strong>mínima em uma escala logarítmica decimal</strong>.
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Dedução Formal da Fronteira da Média Geométrica @\sqrt{10} \approx 3{,}162@)</h3>
+      <p>
+        A fronteira de decisão que determina se @\text{OG}(m \times 10^k) = 10^k@ ou @\text{OG}(m \times 10^k) = 10^{k+1}@ é dada exatamente pela média geométrica dos extremos @1@ e @10@, ou seja, pelo número irracional:
+      </p>
+      @@m^* = \sqrt{1 \times 10} = \sqrt{10} \approx 3{,}16227766...@@
+
+      <p><strong>Demonstração Rigorosa:</strong></p>
+      <ol>
+        <li>
+          Na física e na natureza, grandezas escalares (frequência auditiva, terremotos na escala Richter, brilho estelar, pH químico) variam <em>multiplicativamente</em> (progressão geométrica), e não aditivamente. Portanto, o espaço métrico adequado para mensurar proximidade entre magnitudes é a <strong>reta real logarítmica</strong>:
+          @@x \mapsto y = \log_{10}(x)@@
+        </li>
+        <li>
+          Sob esse homeomorfismo, o intervalo @[10^k, 10^{k+1}]@ é mapeado no intervalo métrico euclidiano @[k, k+1]@:
+          @@\log_{10}(10^k) = k \quad \text{e} \quad \log_{10}(10^{k+1}) = k+1@@
+        </li>
+        <li>
+          O ponto médio euclidiano exato entre @k@ e @k+1@ na reta logarítmica é:
+          @@y^* = \frac{k + (k+1)}{2} = k + \frac{1}{2} = k + 0{,}5@@
+        </li>
+        <li>
+          Retornando à escala linear pela função inversa exponencial @10^y@, encontramos o valor limítrofe @x^*@:
+          @@x^* = 10^{y^*} = 10^{k + 0{,}5} = 10^k \times 10^{0{,}5} = 10^k \times \sqrt{10}@@
+        </li>
+        <li>
+          Como @N = m \times 10^k@:
+          <ul>
+            <li>Se @m < \sqrt{10}@: a distância @|\log_{10} N - k| < |\log_{10} N - (k+1)|@, logo @N@ está logaritmicamente mais próximo de @10^k@.</li>
+            <li>Se @m \ge \sqrt{10}@: a distância até @k+1@ é menor ou igual, logo @N@ está mais próximo de @10^{k+1}@.</li>
+          </ul>
+        </li>
+      </ol>
+      <p><strong>Critério Oficial de Decisão:</strong></p>
+      @@\text{OG}(m \times 10^k) = \begin{cases}
+      10^k, & \text{se } 1 \le m < \sqrt{10} \approx 3{,}162 \\
+      10^{k+1}, & \text{se } \sqrt{10} \le m < 10
+      \end{cases}@@
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>⚠️ O Confronto entre Critérios: @\sqrt{10} \approx 3{,}162@ versus @5{,}5@</h3>
+      <p>
+        Historicamente, alguns livros didáticos elementares adotavam o critério simplista da média aritmética linear (@\frac{1 + 10}{2} = 5{,}5@ ou @5@). Esse critério ingênuo é conceitualmente errôneo do ponto de vista epistemológico:
+      </p>
+      <ul>
+        <li>Considere o número @N = 4 \times 10^3 = 4000@.</li>
+        <li>Pelo critério aritmético antiquado (@m < 5{,}5@), sua ordem de grandeza seria @10^3 = 1000@. Contudo, em termos de proporção, @\frac{4000}{1000} = 4@ vezes maior, enquanto @\frac{10000}{4000} = 2{,}5@ vezes menor! Ou seja, 4000 está geometricamente <strong>muito mais perto de 10.000 do que de 1000</strong>!</li>
+        <li>Pelo critério da média geométrica (@4 > 3{,}162@), a ordem de grandeza correta é @10^4@, refletindo com precisão matemática a escala física. Vestibulares de ponta (Fuvest, Unicamp, ITA) e as Olimpíadas de Física e Matemática adotam estritamente o critério de <strong>@\sqrt{10}@</strong>.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 3: TEORIA DOS ALGARISMOS SIGNIFICATIVOS
+         =============================================================== -->
+    <h2>3. Teoria de Algarismos Significativos e Propagação de Incertezas</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Algarismos Corretos e Algarismo Duvidoso)</h3>
+      <p>
+        Em qualquer mensuração experimental concreta, o resultado numérico é sempre limitado pela resolução finita do instrumento utilizado. Denomina-se <strong>algarismos significativos</strong> de uma medida o conjunto formado por todos os <strong>dígitos exatos (corretos)</strong> garantidos pelo instrumento, adicionados de <strong>um único dígito estimado (duvidoso ou incerto)</strong>:
+      </p>
+      @@\text{Algarismos Significativos} = (\text{Dígitos Corretos}) + 1 \text{ Dígito Duvidoso}@@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Regras Axiomáticas de Contagem de Significativos)</h3>
+      <ol>
+        <li><strong>Dígitos não-nulos (1 a 9):</strong> São sempre significativos. (Ex.: @428@ tem 3 sign.).</li>
+        <li><strong>Zeros entre dígitos não-nulos:</strong> São sempre significativos. (Ex.: @5008@ tem 4 sign.; @3{,}04@ tem 3 sign.).</li>
+        <li><strong>Zeros à esquerda do primeiro dígito não-nulo:</strong> <em>NUNCA</em> são significativos. Eles atuam unicamente como marcadores posicionais da vírgula. (Ex.: @0{,}0072@ tem <strong>2</strong> significativos: apenas o 7 e o 2!).</li>
+        <li><strong>Zeros à direita da vírgula e após dígitos não-nulos:</strong> <em>SEMPRE</em> são significativos, pois expressam a resolução física do instrumento. (Ex.: @4{,}50\text{ cm}@ tem <strong>3</strong> significativos; @4{,}5000\text{ cm}@ tem <strong>5</strong> significativos).</li>
+        <li><strong>Zeros finais em números inteiros (ambiguidade clássica):</strong> Um valor como @3000\text{ m}@ pode ter 1, 2, 3 ou 4 algarismos significativos. <strong>A única maneira formal e inequívoca de expressar a precisão é a notação científica:</strong>
+          <ul>
+            <li>@3 \times 10^3\text{ m}@: 1 algarismo significativo (duvidoso no milhar).</li>
+            <li>@3{,}0 \times 10^3\text{ m}@: 2 algarismos significativos (duvidoso na centena).</li>
+            <li>@3{,}000 \times 10^3\text{ m}@: 4 algarismos significativos (duvidoso na unidade).</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.2 (Regras de Arredondamento Norma ABNT NBR 5891 / ISO)</h3>
+      <p>
+        Ao reduzir o número de casas decimais para descartar dígitos além do último algarismo significativo:
+      </p>
+      <ul>
+        <li><strong>Menor que 5:</strong> Se o primeiro dígito a ser eliminado for @< 5@, o último dígito mantido permanece inalterado. (Ex.: @7{,}34@ com 2 sign. @\to 7{,}3@).</li>
+        <li><strong>Maior que 5:</strong> Se o primeiro dígito a ser eliminado for @> 5@ (ou 5 seguido de outros dígitos não-nulos), o último dígito mantido é acrescido de 1. (Ex.: @7{,}38 \to 7{,}4@; @7{,}351 \to 7{,}4@).</li>
+        <li><strong>Caso do 5 seguido apenas de zeros (Regra de Paridade / Arredondamento Gaussiano):</strong>
+          <br>Se o dígito a ser eliminado for <em>exatamente 5 seguido unicamente de zeros</em>:
+          <ul>
+            <li>Se o dígito anterior for <strong>ímpar</strong>, arredonda-se para cima (torna-se par): @6{,}350 \to 6{,}4@.</li>
+            <li>Se o dígito anterior for <strong>par</strong>, mantém-se inalterado: @6{,}250 \to 6{,}2@.</li>
+          </ul>
+          <em>Justificativa Estatística:</em> Em grandes processamentos numéricos, essa regra garante que exatamente 50% dos casos limítrofes arredondem para cima e 50% para baixo, eliminando o viés cumulativo positivo das regras ingênuas.
+        </li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.3 (Propagação de Algarismos Significativos em Operações)</h3>
+      <ol>
+        <li>
+          <strong>Adição e Subtração:</strong> O resultado final não pode ter mais casas decimais do que a parcela componente que apresentar a <strong>menor quantidade de casas decimais</strong>:
+          @@12{,}11\text{ cm} + 0{,}223\text{ cm} + 3{,}1\text{ cm} = 15{,}433\text{ cm} \xrightarrow{\text{arredondamento}} 15{,}4\text{ cm}@@
+          <em>Motivo:</em> Como @3{,}1@ é incerto na primeira casa decimal, qualquer dígito somado nas casas centesimal e milesimal torna-se completamente sem sentido físico.
+        </li>
+        <li>
+          <strong>Multiplicação e Divisão:</strong> O resultado final deve ser expresso com o mesmo número de <strong>algarismos significativos do fator que possuir a menor quantidade de algarismos significativos</strong>:
+          @@A = (4{,}52\text{ cm}) \times (1{,}2\text{ cm}) = 5{,}424\text{ cm}^2 \xrightarrow{\text{arredondamento (2 sign.)}} 5{,}4\text{ cm}^2@@
+        </li>
+      </ol>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 4: ESCALAS EXTREMAS DA NATUREZA
+         =============================================================== -->
+    <h2>4. Escalas Extremas da Natureza: O Macrocosmo e o Microcosmo</h2>
+
+    <p>
+      A tabela a seguir contrasta as ordens de magnitude extremas que estruturam a física contemporânea:
+    </p>
+
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Domínio</th>
+            <th>Grandeza Física / Constante Fundamental</th>
+            <th>Símbolo</th>
+            <th>Valor Numérico no SI</th>
+            <th>Ordem de Grandeza (@\sqrt{10}@)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- MACRO -->
+          <tr>
+            <td rowspan="6"><strong>Astrofísica e Cosmologia (Macrocosmo)</strong></td>
+            <td>Raio do Universo Observável</td>
+            <td>@R_u@</td>
+            <td>@4{,}4 \times 10^{26}\text{ m}@</td>
+            <td>@10^{27}\text{ m}@ (pois @4{,}4 \ge 3{,}16@)</td>
+          </tr>
+          <tr>
+            <td>Ano-luz (distância percorrida pela luz em 1 ano)</td>
+            <td>@\text{al}@</td>
+            <td>@9{,}461 \times 10^{15}\text{ m}@</td>
+            <td>@10^{16}\text{ m}@</td>
+          </tr>
+          <tr>
+            <td>Unidade Astronômica (distância média Terra-Sol)</td>
+            <td>@\text{UA}@</td>
+            <td>@1{,}496 \times 10^{11}\text{ m}@</td>
+            <td>@10^{11}\text{ m}@ (pois @1{,}496 < 3{,}16@)</td>
+          </tr>
+          <tr>
+            <td>Massa do Sol</td>
+            <td>@M_{\odot}@</td>
+            <td>@1{,}989 \times 10^{30}\text{ kg}@</td>
+            <td>@10^{30}\text{ kg}@</td>
+          </tr>
+          <tr>
+            <td>Massa do Planeta Terra</td>
+            <td>@M_{\oplus}@</td>
+            <td>@5{,}972 \times 10^{24}\text{ kg}@</td>
+            <td>@10^{25}\text{ kg}@</td>
+          </tr>
+          <tr>
+            <td>Idade do Universo desde o Big Bang</td>
+            <td>@T_u@</td>
+            <td>@13{,}8 \times 10^9\text{ anos} \approx 4{,}35 \times 10^{17}\text{ s}@</td>
+            <td>@10^{18}\text{ s}@</td>
+          </tr>
+
+          <!-- MICRO -->
+          <tr>
+            <td rowspan="6"><strong>Física Quântica e Atômica (Microcosmo)</strong></td>
+            <td>Constante de Planck</td>
+            <td>@h@</td>
+            <td>@6{,}62607 \times 10^{-34}\text{ J}\cdot\text{s}@</td>
+            <td>@10^{-33}\text{ J}\cdot\text{s}@</td>
+          </tr>
+          <tr>
+            <td>Massa de Repouso do Elétron</td>
+            <td>@m_e@</td>
+            <td>@9{,}10938 \times 10^{-31}\text{ kg}@</td>
+            <td>@10^{-30}\text{ kg}@</td>
+          </tr>
+          <tr>
+            <td>Massa de Repouso do Próton</td>
+            <td>@m_p@</td>
+            <td>@1{,}67262 \times 10^{-27}\text{ kg}@</td>
+            <td>@10^{-27}\text{ kg}@</td>
+          </tr>
+          <tr>
+            <td>Carga Elementar Fundamental</td>
+            <td>@e@</td>
+            <td>@1{,}60218 \times 10^{-19}\text{ C}@</td>
+            <td>@10^{-19}\text{ C}@</td>
+          </tr>
+          <tr>
+            <td>Raio Atômico de Bohr (átomo de Hidrogênio)</td>
+            <td>@a_0@</td>
+            <td>@5{,}29177 \times 10^{-11}\text{ m}@</td>
+            <td>@10^{-10}\text{ m}@</td>
+          </tr>
+          <tr>
+            <td>Constante de Avogadro</td>
+            <td>@N_A@</td>
+            <td>@6{,}02214 \times 10^{23}\text{ mol}^{-1}@</td>
+            <td>@10^{24}\text{ mol}^{-1}@</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 5: EXEMPLOS RESOLVIDOS PASSO A PASSO
+         =============================================================== -->
+    <h2>5. Exemplos Resolvidos Passo a Passo</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5.1 (Operações com Notação Científica e Incertezas)</h3>
+      <p>
+        Em um acelerador de partículas, dois feixes colidem. O primeiro feixe contém @N_1 = 3{,}40 \times 10^{12}@ pósitrons e o segundo feixe contém @N_2 = 8{,}5 \times 10^{11}@ pósitrons.
+      </p>
+      <p><strong>(a)</strong> Calcule o número total @N_{\text{total}} = N_1 + N_2@ em notação científica rigorosa.</p>
+      <p><strong>(b)</strong> Calcule a razão @\frac{N_1}{N_2}@ respeitando a regra de algarismos significativos.</p>
+
+      <h4>Resolução:</h4>
+      <p><strong>(a) Adição:</strong> Equalizamos os expoentes na maior potência (@10^{12}@):</p>
+      @@N_2 = 8{,}5 \times 10^{11} = 0{,}85 \times 10^{12}@@
+      @@N_{\text{total}} = (3{,}40 \times 10^{12}) + (0{,}85 \times 10^{12}) = (3{,}40 + 0{,}85) \times 10^{12} = 4{,}25 \times 10^{12}\text{ pósitrons}@@
+      <p>Como a mantissa @4{,}25@ está no intervalo @[1, 10)@, a notação já está normalizada.</p>
+
+      <p><strong>(b) Razão:</strong></p>
+      @@\frac{N_1}{N_2} = \frac{3{,}40 \times 10^{12}}{8{,}5 \times 10^{11}} = \left(\frac{3{,}40}{8{,}5}\right) \times 10^{12 - 11} = 0{,}40 \times 10^1 = 4{,}0@@
+      <p>Observe que @N_2@ possui 2 algarismos significativos (@8{,}5@). Portanto, o quociente deve ser expresso rigorosamente com 2 significativos: <strong>@4{,}0@</strong>.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5.2 (Determinação Comparativa da Ordem de Grandeza em Casos Limítrofes)</h3>
+      <p>
+        Determine a ordem de grandeza formal (pelo critério da média geométrica @\sqrt{10}@) para os seguintes números:
+      </p>
+      <p><strong>(a)</strong> População do Brasil estimada em @213\,000\,000@ habitantes.</p>
+      <p><strong>(b)</strong> Constante solar de radiação média incidente @1361\text{ W/m}^2@.</p>
+      <p><strong>(c)</strong> Comprimento de onda de um laser: @0{,}000000310\text{ m}@.</p>
+      <p><strong>(d)</strong> Comprimento de onda de outro laser: @0{,}000000320\text{ m}@.</p>
+
+      <h4>Resolução:</h4>
+      <p><strong>(a)</strong> @213\,000\,000 = 2{,}13 \times 10^8@. Como a mantissa @2{,}13 < \sqrt{10} \approx 3{,}162@:</p>
+      @@\text{OG} = 10^8\text{ habitantes}@@
+      <p><strong>(b)</strong> @1361 = 1{,}361 \times 10^3@. Como @1{,}361 < 3{,}162@:</p>
+      @@\text{OG} = 10^3\text{ W/m}^2@@
+      <p><strong>(c)</strong> @0{,}000000310 = 3{,}10 \times 10^{-7}\text{ m}@. Como @3{,}10 < 3{,}162@:</p>
+      @@\text{OG} = 10^{-7}\text{ m}@@
+      <p><strong>(d)</strong> @0{,}000000320 = 3{,}20 \times 10^{-7}\text{ m}@. Como @3{,}20 \ge 3{,}162@:</p>
+      @@\text{OG} = 10^{-7 + 1} = 10^{-6}\text{ m}@@
+      <p><em>Lição Crucial:</em> Uma diferença minúscula entre @3{,}10@ e @3{,}20@ altera a ordem de grandeza de @10^{-7}@ para @10^{-6}@, pois ultrapassa exatamente a fronteira logarítmica de @\sqrt{10}@!</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5.3 (Problema de Estimativa de Fermi: Batimentos Cardíacos ao Longo da Vida)</h3>
+      <p>
+        O físico Enrico Fermi ficou célebre por estimar ordens de grandeza de fenômenos complexos a partir de hipóteses físicas razoáveis (os "Problemas de Fermi"). Estime a ordem de grandeza da quantidade de batimentos cardíacos que o coração de um ser humano realiza ao longo de toda a sua vida biológica.
+      </p>
+
+      <h4>Resolução:</h4>
+      <p><strong>Passo 1: Premissas biológicas fundamentadas:</strong></p>
+      <ul>
+        <li>Frequência cardíaca média de repouso: @f \approx 70\text{ batimentos/min}@.</li>
+        <li>Expectativa de vida média contemporânea: @T \approx 75\text{ anos}@.</li>
+      </ul>
+      <p><strong>Passo 2: Conversão de tempo para minutos:</strong></p>
+      @@1\text{ ano} \approx 365{,}25\text{ dias} \times 24\frac{\text{h}}{\text{dia}} \times 60\frac{\text{min}}{\text{h}} = 525\,960\text{ min} \approx 5{,}26 \times 10^5\text{ min}@@
+      @@\Delta t_{\text{vida}} = 75 \times 5{,}2596 \times 10^5\text{ min} \approx 3{,}94 \times 10^7\text{ min}@@
+      <p><strong>Passo 3: Número total de batimentos:</strong></p>
+      @@N = f \times \Delta t_{\text{vida}} = 70 \times (3{,}94 \times 10^7) \approx 2{,}76 \times 10^9\text{ batimentos}@@
+      <p><strong>Passo 4: Ordem de Grandeza:</strong></p>
+      <p>Como a mantissa @2{,}76 < \sqrt{10} \approx 3{,}162@:</p>
+      @@\text{OG}(N) = 10^9\text{ batimentos}@@
+      <p>Conclui-se que o coração humano bate na magnitude de <strong>bilhões de vezes</strong> (aproximadamente @3\text{ bilhões}@ de batimentos).</p>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 6: EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO
+         =============================================================== -->
+    <h2>6. Exercícios Conceituais de Fixação</h2>
+    <p>
+      Teste sua destreza e rigor conceitual resolvendo os 12 problemas a seguir. Após desenvolver a resposta detalhada, abra o gabarito para analisar a resolução comentada passo a passo.
+    </p>
+
+    <ol class="lista-exercicios">
+
+      <!-- EXERCÍCIO 1 -->
+      <li>
+        <strong>(Contagem Rigorosa de Algarismos Significativos)</strong>
+        Determine a quantidade de algarismos significativos em cada uma das seguintes medidas experimentais:
+        <br><strong>(a)</strong> @0{,}000450\text{ kg}@
+        <br><strong>(b)</strong> @205{,}080\text{ m}@
+        <br><strong>(c)</strong> @7{,}300 \times 10^8\text{ s}@
+        <br><strong>(d)</strong> @0{,}050\text{ A}@
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <ul>
+              <li><strong>(a) @0{,}000450\text{ kg}@:</strong> Possui <strong>3</strong> algarismos significativos (@4, 5, 0@). Os quatro zeros à esquerda da vírgula e antes do 4 são puramente posicionais. O zero à direita após o 5 indica precisão de medição e é significativo.</li>
+              <li><strong>(b) @205{,}080\text{ m}@:</strong> Possui <strong>6</strong> algarismos significativos (@2, 0, 5, 0, 8, 0@). Todos os dígitos entre dígitos não-nulos são significativos, e o zero após a vírgula à direita também o é.</li>
+              <li><strong>(c) @7{,}300 \times 10^8\text{ s}@:</strong> Possui <strong>4</strong> algarismos significativos (@7, 3, 0, 0@). Na mantissa da notação científica, todos os dígitos grafados contam diretamente.</li>
+              <li><strong>(d) @0{,}050\text{ A}@:</strong> Possui <strong>2</strong> algarismos significativos (@5, 0@). Os zeros à esquerda não contam.</li>
+            </ul>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 2 -->
+      <li>
+        <strong>(Radiciação em Notação Científica)</strong>
+        Calcule o valor exato em notação científica normalizada da seguinte expressão:
+        @@E = \sqrt[3]{2{,}7 \times 10^{-20}}@@
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>O expoente @-20@ não é divisível por 3. Devemos reescrever a mantissa para tornar o expoente um múltiplo de 3:</p>
+            @@-20 = -21 + 1 \implies 10^{-20} = 10^1 \times 10^{-21} = 10 \times 10^{-21}@@
+            <p>Substituindo na raiz:</p>
+            @@2{,}7 \times 10^{-20} = 27 \times 10^{-21}@@
+            <p>Agora extraímos a raiz cúbica:</p>
+            @@E = \sqrt[3]{27 \times 10^{-21}} = \sqrt[3]{27} \times 10^{-21/3} = 3 \times 10^{-7}@@
+            <p>Como @3 \in [1, 10)@, o resultado normalizado é <strong>@3 \times 10^{-7}@</strong>.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 3 -->
+      <li>
+        <strong>(Ordem de Grandeza do Raio do Átomo versus Raio do Núcleo)</strong>
+        O diâmetro típico de um átomo é de @d_{\text{átomo}} \approx 1 \times 10^{-10}\text{ m}@ (1 Angstrom), enquanto o diâmetro do seu núcleo atômico é de aproximadamente @d_{\text{núcleo}} \approx 2 \times 10^{-15}\text{ m}@ (2 femtômetros).
+        <br><strong>(a)</strong> Determine a razão volumétrica entre o átomo e seu núcleo: @\frac{V_{\text{átomo}}}{V_{\text{núcleo}}}@.
+        <br><strong>(b)</strong> Qual a ordem de grandeza dessa razão volumétrica?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Razão dos volumes (esferas proporcionais ao cubo dos diâmetros):</strong></p>
+            @@\frac{V_{\text{átomo}}}{V_{\text{núcleo}}} = \left(\frac{d_{\text{átomo}}}{d_{\text{núcleo}}}\right)^3 = \left(\frac{1 \times 10^{-10}}{2 \times 10^{-15}}\right)^3 = \left(0{,}5 \times 10^5\right)^3 = \left(5 \times 10^4\right)^3@@
+            @@5^3 \times 10^{12} = 125 \times 10^{12} = 1{,}25 \times 10^{14}@@
+            <p><strong>(b) Ordem de Grandeza:</strong></p>
+            <p>Na forma normalizada @1{,}25 \times 10^{14}@, temos @1{,}25 < \sqrt{10} \approx 3{,}162@.</p>
+            @@\text{OG} = 10^{14}@@
+            <p>O volume do átomo é da ordem de <strong>cem trilhões de vezes maior</strong> que o de seu núcleo, provando que a matéria ordinária é quase que inteiramente espaço vazio.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 4 -->
+      <li>
+        <strong>(Arredondamento e Propagação em Adição)</strong>
+        Três barras metálicas são unidas em linha reta. As medidas de seus comprimentos obtidas por instrumentos distintos foram @L_1 = 12{,}4\text{ m}@, @L_2 = 3{,}1416\text{ m}@ e @L_3 = 0{,}085\text{ m}@.
+        <br>Determine o comprimento total @L = L_1 + L_2 + L_3@ aplicando estritamente as regras de algarismos significativos.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Calculamos a soma aritmética direta:</p>
+            @@L = 12{,}4 + 3{,}1416 + 0{,}085 = 15{,}6266\text{ m}@@
+            <p>Análise de casas decimais:</p>
+            <ul>
+              <li>@12{,}4@ possui 1 casa decimal (incerteza nos décimos).</li>
+              <li>@3{,}1416@ possui 4 casas decimais.</li>
+              <li>@0{,}085@ possui 3 casas decimais.</li>
+            </ul>
+            <p>A parcela limitante é @12{,}4@ (1 casa decimal). Portanto, o resultado deve ser arredondado para 1 casa decimal:</p>
+            <p>O primeiro dígito a descartar é 2 (< 5). Logo, mantemos inalterado:</p>
+            @@L \approx 15{,}6\text{ m}@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 5 -->
+      <li>
+        <strong>(Cálculo de Área e Algarismos em Multiplicação)</strong>
+        Uma chapa retangular de silício utilizada na fabricação de microchips possui comprimento @a = 15{,}3\text{ cm}@ e largura @b = 4{,}2\text{ cm}@.
+        <br>Calcule a área da chapa expressando o resultado com o número correto de algarismos significativos.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Multiplicação aritmética:</p>
+            @@A = 15{,}3 \times 4{,}2 = 64{,}26\text{ cm}^2@@
+            <p>Análise de significativos:</p>
+            <ul>
+              <li>@15{,}3@ tem 3 algarismos significativos.</li>
+              <li>@4{,}2@ tem <strong>2 algarismos significativos</strong> (fator limitante).</li>
+            </ul>
+            <p>O resultado deve ser arredondado para 2 algarismos significativos:</p>
+            <p>Em @64{,}26@, os dois primeiros dígitos são 6 e 4. O primeiro a ser descartado é 2 (< 5).</p>
+            @@A \approx 64\text{ cm}^2@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 6 -->
+      <li>
+        <strong>(Ordem de Grandeza da Distância em Anos-Luz)</strong>
+        A distância da Terra até a estrela mais próxima do Sistema Solar (<em>Próxima Centauri</em>) é de aproximadamente @4{,}24\text{ anos-luz}@. Sabendo que a velocidade da luz é @c \approx 3{,}00 \times 10^8\text{ m/s}@ e que 1 ano possui aproximadamente @3{,}156 \times 10^7\text{ s}@:
+        <br><strong>(a)</strong> Calcule essa distância em metros na forma normalizada @m \times 10^k@.
+        <br><strong>(b)</strong> Determine a ordem de grandeza dessa distância pelo critério de @\sqrt{10}@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Distância em metros:</strong></p>
+            <p>1 ano-luz em metros:</p>
+            @@1\text{ al} = c \times \Delta t = (3{,}00 \times 10^8\text{ m/s}) \times (3{,}156 \times 10^7\text{ s}) = 9{,}468 \times 10^{15}\text{ m}@@
+            <p>Distância até Próxima Centauri:</p>
+            @@d = 4{,}24 \times (9{,}468 \times 10^{15}\text{ m}) \approx 40{,}144 \times 10^{15}\text{ m} = 4{,}014 \times 10^{16}\text{ m}@@
+            <p><strong>(b) Ordem de Grandeza:</strong></p>
+            <p>Como a mantissa @4{,}014 \ge \sqrt{10} \approx 3{,}162@:</p>
+            @@\text{OG}(d) = 10^{16 + 1} = 10^{17}\text{ m}@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 7 -->
+      <li>
+        <strong>(Arredondamento pela Regra da Paridade ABNT)</strong>
+        Aplique a regra formal de arredondamento da ABNT/ISO para reduzir cada um dos seguintes números a exatamente 3 algarismos significativos:
+        <br><strong>(a)</strong> @4{,}8250@
+        <br><strong>(b)</strong> @4{,}8350@
+        <br><strong>(c)</strong> @4{,}8251@
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <ul>
+              <li><strong>(a) @4{,}8250@:</strong> Deseja-se manter 3 dígitos (@4, 8, 2@). O dígito a eliminar é exatamente 5 seguido de zero. O dígito precedente é 2 (<strong>par</strong>). Pela regra da paridade de Gauss/ABNT, o dígito par é mantido:
+                @@4{,}8250 \to 4{,}82@@
+              </li>
+              <li><strong>(b) @4{,}8350@:</strong> O dígito precedente ao 5 é 3 (<strong>ímpar</strong>). Pela regra da paridade, arredonda-se para cima para torná-lo par:
+                @@4{,}8350 \to 4{,}84@@
+              </li>
+              <li><strong>(c) @4{,}8251@:</strong> O dígito 5 é seguido por um dígito não-nulo (1). Neste caso, 51 é estritamente maior que 50, portanto arredonda-se compulsoriamente para cima, independentemente da paridade:
+                @@4{,}8251 \to 4{,}83@@
+              </li>
+            </ul>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 8 -->
+      <li>
+        <strong>(Ordem de Grandeza da Quantidade de Moléculas de Água em um Copo)</strong>
+        Um copo de água contém uma massa de @m = 180\text{ gramas}@ de água (@\text{H}_2\text{O}@). Sabendo que a massa molar da água é @M = 18\text{ g/mol}@ e que a constante de Avogadro vale @N_A = 6{,}02 \times 10^{23}\text{ moléculas/mol}@:
+        <br><strong>(a)</strong> Calcule o número exato de moléculas de água contidas no copo.
+        <br><strong>(b)</strong> Determine a ordem de grandeza desse número.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Número de mols:</strong></p>
+            @@n = \frac{m}{M} = \frac{180\text{ g}}{18\text{ g/mol}} = 10\text{ mols}@@
+            <p>Número de moléculas @N@:</p>
+            @@N = n \times N_A = 10 \times (6{,}02 \times 10^{23}) = 6{,}02 \times 10^{24}\text{ moléculas}@@
+            <p><strong>(b) Ordem de Grandeza:</strong></p>
+            <p>Como a mantissa @6{,}02 \ge \sqrt{10} \approx 3{,}162@:</p>
+            @@\text{OG}(N) = 10^{24 + 1} = 10^{25}\text{ moléculas}@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 9 -->
+      <li>
+        <strong>(Razão de Massas: Próton versus Elétron)</strong>
+        A massa de repouso de um próton é @m_p \approx 1{,}67 \times 10^{-27}\text{ kg}@ e a de um elétron é @m_e \approx 9{,}11 \times 10^{-31}\text{ kg}@.
+        <br>Calcule a razão @\frac{m_p}{m_e}@ com 3 algarismos significativos e determine sua ordem de grandeza.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Divisão em notação científica:</p>
+            @@\frac{m_p}{m_e} = \frac{1{,}67 \times 10^{-27}}{9{,}11 \times 10^{-31}} = \left(\frac{1{,}67}{9{,}11}\right) \times 10^{-27 - (-31)} = 0{,}183315 \times 10^4 = 1{,}833 \times 10^3@@
+            <p>Com 3 algarismos significativos:</p>
+            @@\frac{m_p}{m_e} \approx 1{,}83 \times 10^3 \quad (\approx 1830\text{ vezes maior})@@
+            <p>Ordem de grandeza: como @1{,}83 < \sqrt{10} \approx 3{,}162@:</p>
+            @@\text{OG} = 10^3@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 10 -->
+      <li>
+        <strong>(Frequência e Comprimento de Onda Quântica: Fóton)</strong>
+        A relação de Planck-Einstein estabelece que a energia de um fóton de raios X é @E = 4{,}0 \times 10^{-15}\text{ J}@. Adotando a constante de Planck @h \approx 6{,}63 \times 10^{-34}\text{ J}\cdot\text{s}@ e a velocidade da luz @c = 3{,}00 \times 10^8\text{ m/s}@:
+        <br><strong>(a)</strong> Calcule a frequência @\nu@ dessa radiação em hertz (@\text{Hz}@).
+        <br><strong>(b)</strong> Calcule o comprimento de onda @\lambda = \frac{c}{\nu}@ em metros e indique sua ordem de grandeza.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Frequência (@E = h\nu \implies \nu = E/h@):</strong></p>
+            @@\nu = \frac{4{,}0 \times 10^{-15}\text{ J}}{6{,}63 \times 10^{-34}\text{ J}\cdot\text{s}} = \left(\frac{4{,}0}{6{,}63}\right) \times 10^{19}\text{ Hz} \approx 0{,}6033 \times 10^{19}\text{ Hz} = 6{,}0 \times 10^{18}\text{ Hz}@@
+            <p><strong>(b) Comprimento de onda:</strong></p>
+            @@\lambda = \frac{c}{\nu} = \frac{3{,}00 \times 10^8\text{ m/s}}{6{,}033 \times 10^{18}\text{ s}^{-1}} \approx 0{,}497 \times 10^{-10}\text{ m} = 4{,}97 \times 10^{-11}\text{ m} \approx 5{,}0 \times 10^{-11}\text{ m}@@
+            <p>Ordem de grandeza: como @5{,}0 \ge \sqrt{10} \approx 3{,}162@:</p>
+            @@\text{OG}(\lambda) = 10^{-11 + 1} = 10^{-10}\text{ m}@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 11 -->
+      <li>
+        <strong>(Problema de Fermi: Grãos de Areia na Terra)</strong>
+        Suponha que todas as praias do planeta Terra somem aproximadamente @1 \times 10^6\text{ km}@ de extensão litorânea, com largura média de @50\text{ m}@ e profundidade de areia de @2\text{ m}@. Se cada grão de areia for aproximado por um cubo de aresta @0{,}5\text{ mm}@:
+        <br>Determine a ordem de grandeza da quantidade total de grãos de areia nas praias terrestres.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>1. Volume total de areia das praias:</strong></p>
+            <p>Extensão em metros: @L = 1 \times 10^6\text{ km} = 10^9\text{ m}@.</p>
+            @@V_{\text{praias}} = (10^9\text{ m}) \times (50\text{ m}) \times (2\text{ m}) = 100 \times 10^9\text{ m}^3 = 10^{11}\text{ m}^3@@
+            <p><strong>2. Volume de um único grão de areia:</strong></p>
+            <p>Aresta: @a = 0{,}5\text{ mm} = 5 \times 10^{-4}\text{ m}@.</p>
+            @@V_{\text{grão}} = a^3 = (5 \times 10^{-4}\text{ m})^3 = 125 \times 10^{-12}\text{ m}^3 = 1{,}25 \times 10^{-10}\text{ m}^3@@
+            <p><strong>3. Número total de grãos @N@:</strong></p>
+            @@N = \frac{V_{\text{praias}}}{V_{\text{grão}}} = \frac{10^{11}}{1{,}25 \times 10^{-10}} = \left(\frac{1}{1{,}25}\right) \times 10^{21} = 0{,}8 \times 10^{21} = 8 \times 10^{20}\text{ grãos}@@
+            <p><strong>4. Ordem de Grandeza:</strong></p>
+            <p>Como a mantissa @8 \ge \sqrt{10} \approx 3{,}162@:</p>
+            @@\text{OG}(N) = 10^{20 + 1} = 10^{21}\text{ grãos de areia}@@
+            <p><em>Curiosidade Astronômica:</em> Estima-se que existam cerca de @10^{22}@ a @10^{24}@ estrelas no Universo observável. Portanto, há mais estrelas no cosmos do que grãos de areia em todas as praias da Terra!</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 12 -->
+      <li>
+        <strong>(Propagação de Incerteza Composta na Densidade de um Cilindro)</strong>
+        Um estudante de física mede a massa e as dimensões de um cilindro metálico maciço com paquímetro e balança digital analítica, registrando:
+        <ul>
+          <li>Massa: @m = 53{,}20\text{ g}@ (4 algarismos significativos)</li>
+          <li>Raio da base: @r = 1{,}20\text{ cm}@ (3 algarismos significativos)</li>
+          <li>Altura: @h = 4{,}50\text{ cm}@ (3 algarismos significativos)</li>
+        </ul>
+        Adotando @\pi \approx 3{,}1416@:
+        <br><strong>(a)</strong> Calcule o volume @V = \pi r^2 h@ do cilindro respeitando os significativos.
+        <br><strong>(b)</strong> Calcule a densidade volumétrica @\rho = \frac{m}{V}@ em @\text{g/cm}^3@ com a precisão física permitida.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a) Volume do cilindro:</strong></p>
+            @@V = \pi r^2 h = 3{,}1416 \times (1{,}20)^2 \times 4{,}50 = 3{,}1416 \times 1{,}44 \times 4{,}50 \approx 20{,}3575\text{ cm}^3@@
+            <p>Como as medidas de @r@ e @h@ possuem 3 algarismos significativos, o volume resultante deve ter 3 algarismos significativos:</p>
+            @@V \approx 20{,}4\text{ cm}^3@@
+            <p><strong>(b) Densidade volumétrica (@\rho = m / V@):</strong></p>
+            <p>Dividindo os valores não-arredondados intermediários para evitar acúmulo de erro numérico:</p>
+            @@\rho = \frac{53{,}20\text{ g}}{20{,}3575\text{ cm}^3} \approx 2{,}61328\text{ g/cm}^3@@
+            <p>O fator limitante é o volume (3 significativos), pois a massa possui 4 significativos. Arredondando para 3 algarismos significativos:</p>
+            @@\rho \approx 2{,}61\text{ g/cm}^3@@
+            <p>(Valor compatível com a densidade típica da liga de alumínio: @\approx 2{,}7\text{ g/cm}^3@).</p>
+          </div>
+        </details>
+      </li>
+
+    </ol>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 35px; margin-bottom: 25px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+    <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

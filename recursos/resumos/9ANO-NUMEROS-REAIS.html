@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Números Reais</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #4a9eff;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2ecc71;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #9b59b6;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(255, 193, 7, 0.1);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid #ffc107;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para erros comuns */
+    .erro-comum {
+      background-color: rgba(231, 76, 60, 0.1);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid #e74c3c;
+    }
+
+    .erro-comum h3 {
+      color: #e74c3c;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+
+    /* Badge de nível */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .badge-nivel.ano-9 {
+      background-color: #3498db;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>Números Reais</h1>
+
+    <span class="badge-nivel ano-9">9º Ano</span>
+
+    <!-- ===============================================================
+         SEÇÃO 0: PRÉ-REQUISITOS
+         =============================================================== -->
+    <h2>📌 Pré-requisitos</h2>
+    <p>Antes de estudar este tópico, certifique-se de dominar:</p>
+    <ul>
+      <li><strong>Operações fundamentais</strong>: adição, subtração, multiplicação e divisão com números inteiros e frações</li>
+      <li><strong>Frações e números decimais</strong>: conversão entre frações e decimais, operações com frações</li>
+      <li><strong>Potenciação e radiciação básica</strong>: potências com expoentes inteiros, raiz quadrada de quadrados perfeitos</li>
+      <li><strong>Noção de conjuntos</strong>: pertinência, operações básicas entre conjuntos (união, interseção)</li>
+    </ul>
+
+    <!-- ===============================================================
+         SEÇÃO 1: CONCEITOS FUNDAMENTAIS - CONJUNTOS NUMÉRICOS
+         =============================================================== -->
+    <h2>1. Conjuntos Numéricos</h2>
+
+    <p>Os números reais são formados pela união de diferentes conjuntos numéricos que você já conhece. Vamos entender cada um deles de forma precisa.</p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Conjunto dos Números Naturais)</h3>
+      <p>O conjunto dos <strong>números naturais</strong>, denotado por @\mathbb{N}@, é formado pelos números utilizados para contagem:</p>
+      @@
+      \mathbb{N} = \{0, 1, 2, 3, 4, 5, 6, \ldots\}
+      @@
+    </div>
+
+    <p><strong>Exemplos de números naturais:</strong></p>
+    <ul>
+      <li>@0@ (zero é natural)</li>
+      <li>@42@ (quantidade de alunos)</li>
+      <li>@1000@ (mil)</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Conjunto dos Números Inteiros)</h3>
+      <p>O conjunto dos <strong>números inteiros</strong>, denotado por @\mathbb{Z}@, é formado pelos números naturais e seus opostos (negativos):</p>
+      @@
+      \mathbb{Z} = \{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\}
+      @@
+    </div>
+
+    <p><strong>Exemplos de números inteiros:</strong></p>
+    <ul>
+      <li>@-5@ (cinco graus abaixo de zero)</li>
+      <li>@0@ (zero é inteiro)</li>
+      <li>@127@ (inteiro positivo)</li>
+    </ul>
+
+    <div class="nota">
+      <strong>Observação:</strong> Todo número natural é também um número inteiro, ou seja, @\mathbb{N} \subset \mathbb{Z}@ (lê-se: "N está contido em Z").
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Conjunto dos Números Racionais)</h3>
+      <p>O conjunto dos <strong>números racionais</strong>, denotado por @\mathbb{Q}@, é formado por todos os números que podem ser escritos como uma fração @\frac{a}{b}@, onde @a@ e @b@ são inteiros e @b \neq 0@:</p>
+      @@
+      \mathbb{Q} = \left\{ \frac{a}{b} \mid a, b \in \mathbb{Z} \text{ e } b \neq 0 \right\}
+      @@
+    </div>
+
+    <p><strong>Exemplos de números racionais:</strong></p>
+    <ul>
+      <li>@\frac{3}{4}@ (fração própria)</li>
+      <li>@-\frac{7}{2} = -3{,}5@ (fração negativa)</li>
+      <li>@0{,}333\ldots = \frac{1}{3}@ (dízima periódica)</li>
+      <li>@2 = \frac{2}{1}@ (todo inteiro é racional)</li>
+      <li>@0{,}75 = \frac{3}{4}@ (decimal exato)</li>
+    </ul>
+
+    <div class="nota">
+      <strong>Observação:</strong> Os números racionais incluem os inteiros e naturais: @\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q}@.
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.4 (Representação Decimal de Racionais)</h3>
+      <p>Todo número racional possui uma representação decimal que é <strong>finita</strong> (decimal exato) ou <strong>infinita periódica</strong> (dízima periódica).</p>
+      <p><strong>Decimal exato:</strong> @\frac{1}{4} = 0{,}25@</p>
+      <p><strong>Dízima periódica:</strong> @\frac{2}{3} = 0{,}666\ldots = 0{,}\overline{6}@</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.5 (Conjunto dos Números Irracionais)</h3>
+      <p>O conjunto dos <strong>números irracionais</strong>, denotado por @\mathbb{I}@, é formado pelos números que <strong>não podem</strong> ser escritos como fração de inteiros. Sua representação decimal é <strong>infinita e não periódica</strong>.</p>
+    </div>
+
+    <p><strong>Exemplos de números irracionais:</strong></p>
+    <ul>
+      <li>@\sqrt{2} = 1{,}41421356\ldots@ (raiz quadrada de 2)</li>
+      <li>@\sqrt{3} = 1{,}73205080\ldots@ (raiz quadrada de 3)</li>
+      <li>@\pi = 3{,}14159265\ldots@ (pi, razão entre circunferência e diâmetro)</li>
+      <li>@e = 2{,}71828182\ldots@ (número de Euler, base dos logaritmos naturais)</li>
+      <li>@\sqrt{5} = 2{,}23606797\ldots@ (raiz quadrada de 5)</li>
+    </ul>
+
+    <div class="nota">
+      <strong>Observação importante:</strong> Nem toda raiz é irracional! Por exemplo, @\sqrt{4} = 2@ é racional, pois 2 é inteiro. Uma raiz @\sqrt{n}@ é irracional quando @n@ não é um quadrado perfeito.
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.6 (Conjunto dos Números Reais)</h3>
+      <p>O conjunto dos <strong>números reais</strong>, denotado por @\mathbb{R}@, é formado pela união dos números racionais com os irracionais:</p>
+      @@
+      \mathbb{R} = \mathbb{Q} \cup \mathbb{I}
+      @@
+      <p>Todo número real pode ser representado por um ponto na <strong>reta numérica</strong>.</p>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Diagrama de Conjuntos Numéricos</h3>
+      <p>A relação de inclusão entre os conjuntos numéricos pode ser representada por:</p>
+      @@
+      \mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}
+      @@
+      <p>E temos que @\mathbb{Q} \cap \mathbb{I} = \emptyset@ (racionais e irracionais não têm elementos em comum).</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: PROPRIEDADES E OPERAÇÕES
+         =============================================================== -->
+    <h2>2. Propriedades das Operações em ℝ</h2>
+
+    <p>Os números reais obedecem a propriedades fundamentais que garantem a consistência das operações matemáticas.</p>
+
+    <div class="destaque-box teorema">
+      <h3>Propriedade 2.1 (Fechamento)</h3>
+      <p>O conjunto @\mathbb{R}@ é <strong>fechado</strong> para as operações de adição e multiplicação, isto é:</p>
+      <ul class="lista-propriedades">
+        <li>Se @a, b \in \mathbb{R}@, então @a + b \in \mathbb{R}@</li>
+        <li>Se @a, b \in \mathbb{R}@, então @a \cdot b \in \mathbb{R}@</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Propriedade 2.2 (Comutativa)</h3>
+      <p>Para quaisquer @a, b \in \mathbb{R}@:</p>
+      @@
+      \begin{align}
+      a + b &= b + a \quad \text{(comutativa da adição)} \\
+      a \cdot b &= b \cdot a \quad \text{(comutativa da multiplicação)}
+      \end{align}
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Propriedade 2.3 (Associativa)</h3>
+      <p>Para quaisquer @a, b, c \in \mathbb{R}@:</p>
+      @@
+      \begin{align}
+      (a + b) + c &= a + (b + c) \quad \text{(associativa da adição)} \\
+      (a \cdot b) \cdot c &= a \cdot (b \cdot c) \quad \text{(associativa da multiplicação)}
+      \end{align}
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Propriedade 2.4 (Elementos Neutros)</h3>
+      <p>Existem elementos especiais em @\mathbb{R}@:</p>
+      <ul class="lista-propriedades">
+        <li><strong>Elemento neutro da adição:</strong> @0@, pois @a + 0 = a@ para todo @a \in \mathbb{R}@</li>
+        <li><strong>Elemento neutro da multiplicação:</strong> @1@, pois @a \cdot 1 = a@ para todo @a \in \mathbb{R}@</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Propriedade 2.5 (Distributiva)</h3>
+      <p>Para quaisquer @a, b, c \in \mathbb{R}@:</p>
+      @@
+      a \cdot (b + c) = a \cdot b + a \cdot c
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Propriedade 2.6 (Densidade dos Racionais e Irracionais)</h3>
+      <p>Entre dois números reais distintos quaisquer, sempre existem:</p>
+      <ul class="lista-propriedades">
+        <li>Infinitos números racionais</li>
+        <li>Infinitos números irracionais</li>
+      </ul>
+      <p>Isso significa que os conjuntos @\mathbb{Q}@ e @\mathbb{I}@ são <strong>densos</strong> em @\mathbb{R}@.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>3. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Classificação de Números em Conjuntos</h3>
+      <p><strong>Enunciado:</strong> Classifique cada número abaixo indicando a qual(is) conjunto(s) ele pertence (ℕ, ℤ, ℚ, 𝕀, ℝ):</p>
+      <p>(a) @-7@ &nbsp;&nbsp; (b) @\frac{5}{2}@ &nbsp;&nbsp; (c) @\sqrt{16}@ &nbsp;&nbsp; (d) @\sqrt{7}@ &nbsp;&nbsp; (e) @0{,}\overline{3}@</p>
+
+      <h4>Solução:</h4>
+      <p><strong>(a) @-7@:</strong></p>
+      <p>É um número negativo, portanto não é natural. É inteiro: @-7 \in \mathbb{Z}@</p>
+      <p>Todo inteiro é racional: @-7 = \frac{-7}{1} \in \mathbb{Q}@</p>
+      <p>Todo racional é real: @-7 \in \mathbb{R}@</p>
+      <p><strong>Resposta:</strong> @\mathbb{Z}, \mathbb{Q}, \mathbb{R}@</p>
+
+      <p><strong>(b) @\frac{5}{2} = 2{,}5@:</strong></p>
+      <p>Já está na forma de fração, portanto é racional: @\frac{5}{2} \in \mathbb{Q}@</p>
+      <p>Não é inteiro (tem parte decimal), portanto @\frac{5}{2} \notin \mathbb{Z}@</p>
+      <p><strong>Resposta:</strong> @\mathbb{Q}, \mathbb{R}@</p>
+
+      <p><strong>(c) @\sqrt{16} = 4@:</strong></p>
+      <p>A raiz quadrada de 16 é 4, que é um número natural.</p>
+      <p><strong>Resposta:</strong> @\mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R}@</p>
+
+      <p><strong>(d) @\sqrt{7}@:</strong></p>
+      <p>7 não é um quadrado perfeito, logo @\sqrt{7}@ não pode ser escrito como fração.</p>
+      <p>Portanto é irracional: @\sqrt{7} \in \mathbb{I}@</p>
+      <p><strong>Resposta:</strong> @\mathbb{I}, \mathbb{R}@</p>
+
+      <p><strong>(e) @0{,}\overline{3} = 0{,}333\ldots@:</strong></p>
+      <p>É uma dízima periódica, portanto pode ser escrita como fração: @0{,}\overline{3} = \frac{1}{3} \in \mathbb{Q}@</p>
+      <p><strong>Resposta:</strong> @\mathbb{Q}, \mathbb{R}@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Identificando Números Irracionais</h3>
+      <p><strong>Enunciado:</strong> Determine quais dos seguintes números são irracionais:</p>
+      <p>(a) @\sqrt{25}@ &nbsp;&nbsp; (b) @\sqrt{10}@ &nbsp;&nbsp; (c) @\frac{\sqrt{9}}{3}@ &nbsp;&nbsp; (d) @\sqrt{2} + \sqrt{8}@</p>
+
+      <h4>Solução:</h4>
+      <p><strong>(a) @\sqrt{25} = 5@:</strong></p>
+      <p>Como 25 é quadrado perfeito, @\sqrt{25} = 5@ é racional.</p>
+      <p><strong>Resposta:</strong> Racional</p>
+
+      <p><strong>(b) @\sqrt{10}@:</strong></p>
+      <p>10 não é quadrado perfeito (@3^2 = 9@ e @4^2 = 16@), logo @\sqrt{10}@ é irracional.</p>
+      <p><strong>Resposta:</strong> Irracional</p>
+
+      <p><strong>(c) @\frac{\sqrt{9}}{3} = \frac{3}{3} = 1@:</strong></p>
+      <p>Como @\sqrt{9} = 3@, temos que o resultado é 1, que é racional.</p>
+      <p><strong>Resposta:</strong> Racional</p>
+
+      <p><strong>(d) @\sqrt{2} + \sqrt{8}@:</strong></p>
+      <p>Simplificando: @\sqrt{8} = \sqrt{4 \cdot 2} = 2\sqrt{2}@</p>
+      <p>Logo: @\sqrt{2} + \sqrt{8} = \sqrt{2} + 2\sqrt{2} = 3\sqrt{2}@</p>
+      <p>Como @\sqrt{2}@ é irracional, @3\sqrt{2}@ também é irracional (múltiplo de irracional por racional não nulo).</p>
+      <p><strong>Resposta:</strong> Irracional</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - Conversão de Dízima Periódica em Fração</h3>
+      <p><strong>Enunciado:</strong> Converta a dízima periódica @0{,}\overline{45}@ em fração.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Seja @x = 0{,}\overline{45} = 0{,}454545\ldots@</p>
+
+      <p><strong>Passo 2:</strong> Multiplicamos por 100 (pois o período tem 2 dígitos):</p>
+      @@
+      100x = 45{,}454545\ldots
+      @@
+
+      <p><strong>Passo 3:</strong> Subtraímos a equação original da nova equação:</p>
+      @@
+      \begin{align}
+      100x - x &= 45{,}454545\ldots - 0{,}454545\ldots \\
+      99x &= 45 \\
+      x &= \frac{45}{99}
+      \end{align}
+      @@
+
+      <p><strong>Passo 4:</strong> Simplificamos a fração dividindo numerador e denominador por 9:</p>
+      @@
+      x = \frac{45 \div 9}{99 \div 9} = \frac{5}{11}
+      @@
+
+      <p><strong>Resposta:</strong> @0{,}\overline{45} = \frac{5}{11}@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Operações com Radicais</h3>
+      <p><strong>Enunciado:</strong> Simplifique a expressão: @\sqrt{50} + \sqrt{32} - \sqrt{8}@</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Fatoramos cada radicando em fatores primos:</p>
+      @@
+      \begin{align}
+      50 &= 2 \cdot 25 = 2 \cdot 5^2 \\
+      32 &= 2^5 = 2^4 \cdot 2 = 16 \cdot 2 \\
+      8 &= 2^3 = 4 \cdot 2
+      \end{align}
+      @@
+
+      <p><strong>Passo 2:</strong> Simplificamos cada radical:</p>
+      @@
+      \begin{align}
+      \sqrt{50} &= \sqrt{25 \cdot 2} = 5\sqrt{2} \\
+      \sqrt{32} &= \sqrt{16 \cdot 2} = 4\sqrt{2} \\
+      \sqrt{8} &= \sqrt{4 \cdot 2} = 2\sqrt{2}
+      \end{align}
+      @@
+
+      <p><strong>Passo 3:</strong> Substituímos na expressão original:</p>
+      @@
+      \sqrt{50} + \sqrt{32} - \sqrt{8} = 5\sqrt{2} + 4\sqrt{2} - 2\sqrt{2}
+      @@
+
+      <p><strong>Passo 4:</strong> Somamos os termos semelhantes:</p>
+      @@
+      5\sqrt{2} + 4\sqrt{2} - 2\sqrt{2} = (5 + 4 - 2)\sqrt{2} = 7\sqrt{2}
+      @@
+
+      <p><strong>Resposta:</strong> @7\sqrt{2}@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Localização na Reta Numérica</h3>
+      <p><strong>Enunciado:</strong> Ordene os números @\sqrt{5}@, @2{,}3@ e @\frac{9}{4}@ em ordem crescente.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Convertemos todos os números para a forma decimal (aproximada quando necessário):</p>
+      @@
+      \begin{align}
+      \sqrt{5} &\approx 2{,}236\ldots \\
+      2{,}3 &= 2{,}300\ldots \\
+      \frac{9}{4} &= 2{,}25
+      \end{align}
+      @@
+
+      <p><strong>Passo 2:</strong> Comparamos os valores decimais:</p>
+      <p>@2{,}236 < 2{,}25 < 2{,}3@</p>
+
+      <p><strong>Passo 3:</strong> Escrevemos em ordem crescente:</p>
+      @@
+      \sqrt{5} < \frac{9}{4} < 2{,}3
+      @@
+
+      <p><strong>Resposta:</strong> @\sqrt{5} < \frac{9}{4} < 2{,}3@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Racionalização de Denominadores</h3>
+      <p><strong>Enunciado:</strong> Racionalize o denominador da fração @\frac{6}{\sqrt{3}}@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Para eliminar a raiz do denominador, multiplicamos numerador e denominador por @\sqrt{3}@:</p>
+      @@
+      \frac{6}{\sqrt{3}} = \frac{6}{\sqrt{3}} \cdot \frac{\sqrt{3}}{\sqrt{3}}
+      @@
+
+      <p><strong>Passo 2:</strong> Efetuamos as multiplicações:</p>
+      @@
+      \frac{6}{\sqrt{3}} \cdot \frac{\sqrt{3}}{\sqrt{3}} = \frac{6\sqrt{3}}{\sqrt{3} \cdot \sqrt{3}} = \frac{6\sqrt{3}}{3}
+      @@
+
+      <p><strong>Passo 3:</strong> Simplificamos dividindo por 3:</p>
+      @@
+      \frac{6\sqrt{3}}{3} = 2\sqrt{3}
+      @@
+
+      <p><strong>Resposta:</strong> @\frac{6}{\sqrt{3}} = 2\sqrt{3}@</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3.5: ERROS COMUNS
+         =============================================================== -->
+    <h2>⚠️ Erros Comuns</h2>
+    <p>Fique atento aos seguintes equívocos frequentes ao trabalhar com números reais:</p>
+
+    <div class="erro-comum">
+      <h3>Erro Comum 1: Confundir Dízima Periódica com Número Irracional</h3>
+      <p><strong>❌ Erro:</strong> Afirmar que @0{,}777\ldots@ é irracional porque tem infinitas casas decimais.</p>
+      @@
+      0{,}777\ldots \text{ é irracional (INCORRETO)}
+      @@
+      <p><strong>💡 Por que está errado:</strong> Um número é irracional quando sua representação decimal é infinita E não periódica. A dízima @0{,}777\ldots = 0{,}\overline{7}@ é periódica (o algarismo 7 se repete), portanto é racional.</p>
+      <p><strong>✅ Forma correta:</strong></p>
+      @@
+      0{,}\overline{7} = \frac{7}{9} \in \mathbb{Q} \text{ (é racional)}
+      @@
+    </div>
+
+    <div class="erro-comum">
+      <h3>Erro Comum 2: Somar Radicais com Radicandos Diferentes</h3>
+      <p><strong>❌ Erro:</strong> Somar @\sqrt{2} + \sqrt{3} = \sqrt{5}@</p>
+      @@
+      \sqrt{2} + \sqrt{3} = \sqrt{5} \quad \text{(INCORRETO)}
+      @@
+      <p><strong>💡 Por que está errado:</strong> Radicais só podem ser somados quando têm o mesmo radicando (semelhantes). @\sqrt{2}@ e @\sqrt{3}@ não são semelhantes.</p>
+      <p><strong>✅ Forma correta:</strong></p>
+      @@
+      \sqrt{2} + \sqrt{3} \text{ não pode ser simplificado (fica como está)}
+      @@
+      <p>Podemos apenas aproximar: @\sqrt{2} + \sqrt{3} \approx 1{,}414 + 1{,}732 = 3{,}146@</p>
+      <p>Note que @\sqrt{5} \approx 2{,}236@, confirmando que @\sqrt{2} + \sqrt{3} \neq \sqrt{5}@</p>
+    </div>
+
+    <div class="erro-comum">
+      <h3>Erro Comum 3: Afirmar que Toda Raiz é Irracional</h3>
+      <p><strong>❌ Erro:</strong> @\sqrt{36}@ é irracional porque é uma raiz.</p>
+      @@
+      \sqrt{36} \in \mathbb{I} \quad \text{(INCORRETO)}
+      @@
+      <p><strong>💡 Por que está errado:</strong> Uma raiz quadrada @\sqrt{n}@ só é irracional quando @n@ não é um quadrado perfeito. Se @n@ é quadrado perfeito, a raiz é um número natural (portanto racional).</p>
+      <p><strong>✅ Forma correta:</strong></p>
+      @@
+      \sqrt{36} = 6 \in \mathbb{N} \subset \mathbb{Q} \quad \text{(é racional)}
+      @@
+      <p><strong>Exemplos:</strong></p>
+      <ul>
+        <li>@\sqrt{4} = 2@ (racional)</li>
+        <li>@\sqrt{9} = 3@ (racional)</li>
+        <li>@\sqrt{5}@ (irracional, pois 5 não é quadrado perfeito)</li>
+      </ul>
+    </div>
+
+    <div class="erro-comum">
+      <h3>Erro Comum 4: Simplificar Radicais Incorretamente</h3>
+      <p><strong>❌ Erro:</strong> @\sqrt{16 + 9} = \sqrt{16} + \sqrt{9} = 4 + 3 = 7@</p>
+      @@
+      \sqrt{a + b} = \sqrt{a} + \sqrt{b} \quad \text{(INCORRETO)}
+      @@
+      <p><strong>💡 Por que está errado:</strong> A raiz quadrada não distribui sobre a adição. Devemos primeiro somar dentro da raiz.</p>
+      <p><strong>✅ Forma correta:</strong></p>
+      @@
+      \sqrt{16 + 9} = \sqrt{25} = 5
+      @@
+      <p>Note que @5 \neq 7@, comprovando o erro.</p>
+      <p><strong>Regra geral:</strong> @\sqrt{a + b} \neq \sqrt{a} + \sqrt{b}@</p>
+      <p><strong>O que funciona:</strong> @\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}@ (a raiz distribui sobre a multiplicação)</p>
+    </div>
+
+    <div class="erro-comum">
+      <h3>Erro Comum 5: Confundir Zero com Conjunto Vazio</h3>
+      <p><strong>❌ Erro:</strong> Afirmar que @0 \notin \mathbb{N}@ ou que zero não existe.</p>
+      <p><strong>💡 Por que está errado:</strong> O zero é um número natural (por convenção moderna adotada no Brasil) e pertence a todos os conjuntos numéricos maiores. Não devemos confundir o número @0@ com o conjunto vazio @\emptyset@.</p>
+      <p><strong>✅ Forma correta:</strong></p>
+      @@
+      0 \in \mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}
+      @@
+      <p>Zero é o elemento neutro da adição e é fundamental na matemática.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: EXERCÍCIOS PROPOSTOS
+         =============================================================== -->
+    <h2>4. Exercícios</h2>
+
+    <ol>
+      <li>Classifique cada número indicando a qual(is) conjunto(s) ele pertence (ℕ, ℤ, ℚ, 𝕀, ℝ):
+        <br>(a) @-15@ &nbsp; (b) @\sqrt{81}@ &nbsp; (c) @\pi@ &nbsp; (d) @\frac{2}{7}@ &nbsp; (e) @0@
+      </li>
+
+      <li>Determine quais dos seguintes números são irracionais:
+        <br>(a) @\sqrt{49}@ &nbsp; (b) @\sqrt{11}@ &nbsp; (c) @\sqrt{100}@ &nbsp; (d) @\sqrt{2} \cdot \sqrt{8}@
+      </li>
+
+      <li>Converta as seguintes dízimas periódicas em frações:
+        <br>(a) @0{,}\overline{6}@ &nbsp; (b) @0{,}\overline{27}@ &nbsp; (c) @1{,}\overline{2}@
+      </li>
+
+      <li>Simplifique as expressões:
+        <br>(a) @\sqrt{12} + \sqrt{27}@ &nbsp; (b) @\sqrt{98} - \sqrt{32}@
+      </li>
+
+      <li>Racionalize os denominadores:
+        <br>(a) @\frac{10}{\sqrt{5}}@ &nbsp; (b) @\frac{15}{\sqrt{3}}@
+      </li>
+
+      <li>Ordene em ordem crescente: @\sqrt{7}@, @2{,}5@, @\frac{8}{3}@</li>
+
+      <li>Verdadeiro ou Falso? Justifique.
+        <br>(a) Todo número natural é inteiro.
+        <br>(b) Todo número inteiro é natural.
+        <br>(c) @\sqrt{2} + 3@ é irracional.
+        <br>(d) A soma de dois números irracionais é sempre irracional.
+      </li>
+
+      <li>Calcule @\sqrt{75} + \sqrt{48} - \sqrt{12}@</li>
+
+      <li>Determine o valor de @x@ na equação: @\sqrt{x + 5} = 4@</li>
+
+      <li>Entre quais dois números inteiros consecutivos está localizado @\sqrt{50}@?</li>
+
+      <li>Mostre que @0{,}999\ldots = 1@ convertendo a dízima em fração.</li>
+
+      <li>Simplifique: @\frac{\sqrt{72}}{\sqrt{8}}@</li>
+
+      <li>Qual é o menor número natural que, multiplicado por @\sqrt{18}@, resulta em um número natural?</li>
+
+      <li>Insira um número racional e um número irracional entre 2 e 3.</li>
+
+      <li>Calcule o valor de @(\sqrt{5} + \sqrt{5})^2@</li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+    1. (a) ℤ, ℚ, ℝ   (b) ℕ, ℤ, ℚ, ℝ   (c) 𝕀, ℝ   (d) ℚ, ℝ   (e) ℕ, ℤ, ℚ, ℝ
+
+    2. (a) Racional (√49 = 7)   (b) Irracional   (c) Racional (√100 = 10)   (d) Racional (√2 · √8 = √16 = 4)
+
+    3. (a) 0,6̄ = 6/9 = 2/3   (b) 0,27̄ = 27/99 = 3/11   (c) 1,2̄ = (12-1)/9 = 11/9
+
+    4. (a) √12 + √27 = 2√3 + 3√3 = 5√3   (b) √98 - √32 = 7√2 - 4√2 = 3√2
+
+    5. (a) 10/√5 = 10√5/5 = 2√5   (b) 15/√3 = 15√3/3 = 5√3
+
+    6. √7 < 2,5 < 8/3   (pois √7 ≈ 2,646, 2,5 = 2,5, 8/3 ≈ 2,667)
+
+    7. (a) V   (b) F (exemplo: -5 é inteiro mas não natural)   (c) V (soma de racional com irracional é irracional)   (d) F (exemplo: √2 + (-√2) = 0, que é racional)
+
+    8. √75 + √48 - √12 = 5√3 + 4√3 - 2√3 = 7√3
+
+    9. √(x+5) = 4 → x+5 = 16 → x = 11
+
+    10. √50 está entre 7 e 8 (pois 7² = 49 e 8² = 64)
+
+    11. Seja x = 0,999..., então 10x = 9,999... → 10x - x = 9 → 9x = 9 → x = 1
+
+    12. √72/√8 = √(72/8) = √9 = 3
+
+    13. √18 = 3√2, logo precisamos multiplicar por √2 para obter 3·2 = 6. Resposta: √2 (ou 2 se considerar apenas naturais explícitos, pois √18·√2 = 6)
+
+    14. Racional: 2,5 (ou 5/2);  Irracional: √7 (≈ 2,646)
+
+    15. (√5 + √5)² = (2√5)² = 4·5 = 20
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

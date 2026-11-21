@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Sistemas Lineares e Matrizes</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar 3º EM */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-3em {
+      background-color: rgba(239, 68, 68, 0.25);
+      border: 2px solid #ef4444;
+      color: #fee2e2;
+    }
+
+    /* Soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-3em">3º Ano EM</div>
+
+    <h1>Sistemas de Equações Lineares e Matrizes</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 4: "Culpa do(s) sistema(s): Matrizes e Sistemas Lineares"
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E FUNDAMENTAÇÃO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para a compreensão rigorosa e axiomática deste capítulo (no padrão <em>Fundamentos de Matemática Elementar</em>, Vol. 4), o estudante deve dominar:</p>
+      <ul>
+        <li><strong>Álgebra Matricial:</strong> operações de adição, multiplicação por escalar, produto matricial e transposição em @\mathcal{M}_{m \times n}(\mathbb{R})@.</li>
+        <li><strong>Determinantes:</strong> propriedades de linearidade, Teorema de Laplace, Teorema de Binet (@\det(AB) = \det(A)\det(B)@) e Teorema de Jacobi.</li>
+        <li><strong>Espaços Vetoriais e Vetores em @\mathbb{R}^n@:</strong> combinações lineares, dependência/independência linear (LI/LD) e subespaços gerados.</li>
+      </ul>
+    </div>
+
+    <p>
+      Na modelagem de fenômenos naturais, tecnológicos e econômicos, dificilmente uma variável atua de maneira isolada. Circuitos elétricos complexos, fluxos em redes de transporte, equilíbrios macroeconômicos e conservações de estequiometria química traduzem-se em coleções de vínculos lineares simultâneos. A teoria dos <strong>Sistemas Lineares</strong> organiza esses vínculos através da linguagem elegante das matrizes, permitindo classificar a existência de equilíbrio e determinar estados estacionários ou graus de indeterminação.
+    </p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: DEFINIÇÃO FORMAL E FORMA MATRICIAL
+         =============================================================== -->
+    <h2>1. Sistemas Lineares @m \times n@ e Representação Matricial</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Equação Linear sobre @\mathbb{R}@)</h3>
+      <p>
+        Uma <strong>equação linear</strong> nas @n@ incógnitas @x_1, x_2, \dots, x_n@ sobre o corpo dos números reais @\mathbb{R}@ é uma equação da forma:
+      </p>
+      @@ a_1 x_1 + a_2 x_2 + \dots + a_n x_n = b @@
+      <p>
+        onde @a_1, a_2, \dots, a_n \in \mathbb{R}@ são denominados <strong>coeficientes</strong> e @b \in \mathbb{R}@ é o <strong>termo independente</strong>. Se @b = 0@, a equação é dita <em>linear homogênea</em>.
+      </p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Sistema Linear @m \times n@)</h3>
+      <p>
+        Um <strong>sistema linear</strong> de @m@ equações com @n@ incógnitas é um conjunto de equações lineares simultâneas da forma:
+      </p>
+      @@
+      \begin{cases}
+      a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n = b_1 \\
+      a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n = b_2 \\
+      \quad \vdots \\
+      a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n = b_m
+      \end{cases}
+      @@
+      <p>
+        Em notação compacta de somatório: @\sum_{j=1}^{n} a_{ij}x_j = b_i@ para todo @i \in \{1, 2, \dots, m\}@.
+      </p>
+    </div>
+
+    <p>
+      Utilizando a definição de produto entre matrizes, o sistema linear pode ser reescrito na <strong>forma matricial canônica</strong>:
+    </p>
+    @@ A \cdot X = B @@
+    <p>onde:</p>
+    <ul>
+      <li>@A = [a_{ij}] \in \mathcal{M}_{m \times n}(\mathbb{R})@ é a <strong>matriz incompleta</strong> (ou matriz dos coeficientes).</li>
+      <li>@X = \begin{bmatrix} x_1 & x_2 & \dots & x_n \end{bmatrix}^T \in \mathcal{M}_{n \times 1}(\mathbb{R})@ é a <strong>matriz coluna das incógnitas</strong>.</li>
+      <li>@B = \begin{bmatrix} b_1 & b_2 & \dots & b_m \end{bmatrix}^T \in \mathcal{M}_{m \times 1}(\mathbb{R})@ é a <strong>matriz coluna dos termos independentes</strong>.</li>
+    </ul>
+
+    <p>
+      Agregando o vetor @B@ à matriz @A@ como sua @(n+1)@-ésima coluna, define-se a <strong>matriz aumentada</strong> (ou matriz completa) do sistema:
+    </p>
+    @@
+    [A \mid B] = \begin{bmatrix}
+    a_{11} & a_{12} & \dots & a_{1n} & \bigm| & b_1 \\
+    a_{21} & a_{22} & \dots & a_{2n} & \bigm| & b_2 \\
+    \vdots & \vdots & \ddots & \vdots & \bigm| & \vdots \\
+    a_{m1} & a_{m2} & \dots & a_{mn} & \bigm| & b_m
+    \end{bmatrix} \in \mathcal{M}_{m \times (n+1)}(\mathbb{R})
+    @@
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Solução e Conjunto Solução)</h3>
+      <p>
+        Uma sequência ordenada de @n@ escalares @(s_1, s_2, \dots, s_n) \in \mathbb{R}^n@ é dita <strong>solução</strong> do sistema linear @A \cdot X = B@ se, ao substituirmos @x_j = s_j@ (@j = 1, \dots, n@), todas as @m@ igualdades forem simultaneamente verificadas.
+      </p>
+      <p>
+        O conjunto de todas as soluções é denominado <strong>conjunto solução</strong> (ou conjunto verdade), denotado por @S \subseteq \mathbb{R}^n@:
+      </p>
+      @@ S = \{ X \in \mathbb{R}^n \mid A \cdot X = B \} @@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: CLASSIFICAÇÃO RIGOROSA
+         =============================================================== -->
+    <h2>2. Classificação Qualitativa dos Sistemas Lineares</h2>
+
+    <p>
+      Quanto à cardinalidade do conjunto solução @S@, todo sistema linear sobre @\mathbb{R}@ enquadra-se exclusivamente em uma das três categorias fundamentais:
+    </p>
+
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Classificação</th>
+            <th>Sigla</th>
+            <th>Cardinalidade de @S@</th>
+            <th>Interpretação Geométrica (@\mathbb{R}^2@ ou @\mathbb{R}^3@)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sistema Possível e Determinado</strong></td>
+            <td><strong>SPD</strong></td>
+            <td>@|S| = 1@ (Solução única)</td>
+            <td>Interseção pontual única entre retas ou planos.</td>
+          </tr>
+          <tr>
+            <td><strong>Sistema Possível e Indeterminado</strong></td>
+            <td><strong>SPI</strong></td>
+            <td>@|S| = \infty@ (Infinitas soluções)</td>
+            <td>Coincidência ou interseção contínua (reta ou plano comum).</td>
+          </tr>
+          <tr>
+            <td><strong>Sistema Impossível (ou Incompatível)</strong></td>
+            <td><strong>SI</strong></td>
+            <td>@|S| = 0@ (@S = \emptyset@)</td>
+            <td>Retas paralelas distintas, planos paralelos ou sem ponto comum.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Grau de Indeterminação e Variáveis Livres)</h3>
+      <p>
+        Em um sistema <strong>SPI</strong> com @n@ incógnitas e posto @p@ (@p < n@), a diferença:
+      </p>
+      @@ g = n - p @@
+      <p>
+        é chamada de <strong>grau de indeterminação</strong> (ou grau de liberdade) do sistema. O número @g@ indica exatamente quantas incógnitas podem assumir valores arbitrários (parâmetros livres @\alpha, \beta, \dots \in \mathbb{R}@) para parametrizar todas as soluções possíveis.
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Sistemas Lineares Homogêneos)</h3>
+      <p>
+        Seja o sistema linear homogêneo @A \cdot X = 0@ (@B = 0@). Então:
+      </p>
+      <ol>
+        <li>O sistema é <strong>sempre compatível</strong> (possível), pois a @n@-upla nula @(0, 0, \dots, 0)@ sempre satisfaz todas as equações. Esta é a <strong>solução trivial</strong>.</li>
+        <li>O sistema admite soluções não triviais (soluções próprias) se, e somente se, for um <strong>SPI</strong>.</li>
+        <li>Em particular, se @A@ for quadrada de ordem @n@, o sistema homogêneo admite soluções não triviais se, e somente se:
+          @@ \det(A) = 0 @@
+        </li>
+      </ol>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: TEOREMA DE ROUCHÉ-CAPELLI
+         =============================================================== -->
+    <h2>3. O Critério de Compatibilidade de Rouché-Capelli</h2>
+
+    <p>
+      O Teorema de Rouché-Capelli (também creditado a Eugène Rouché e Alfredo Capelli, bem como a Ferdinand Georg Frobenius) constitui o resultado central definitivo para a classificação de qualquer sistema linear arbitrário @m \times n@.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Posto e Nulidade de uma Matriz)</h3>
+      <p>
+        O <strong>posto</strong> (ou característica) de uma matriz @M@, denotado por @\operatorname{posto}(M)@ ou @\operatorname{car}(M)@, é a dimensão do subespaço gerado por suas linhas (ou colunas).
+      </p>
+      <p>
+        Operacionalmente, @\operatorname{posto}(M)@ é igual ao <strong>número de linhas não nulas</strong> da matriz após a sua redução à forma escalonada por linhas (ou a ordem do maior menor principal com determinante diferente de zero).
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Teorema de Rouché-Capelli)</h3>
+      <p>
+        Um sistema linear @A \cdot X = B@ com @n@ incógnitas é <strong>compatível</strong> (possível) se, e somente se, o posto da matriz incompleta @A@ é igual ao posto da matriz aumentada @[A \mid B]@:
+      </p>
+      @@ \text{Sistema Compatível} \iff \operatorname{posto}(A) = \operatorname{posto}([A \mid B]) @@
+      <p>Dessa forma:</p>
+      <ul>
+        <li><strong>Sistema Impossível (SI):</strong>
+          @@ \operatorname{posto}(A) < \operatorname{posto}([A \mid B]) @@
+        </li>
+        <li><strong>Sistema Possível e Determinado (SPD):</strong>
+          @@ \operatorname{posto}(A) = \operatorname{posto}([A \mid B]) = n @@
+        </li>
+        <li><strong>Sistema Possível e Indeterminado (SPI):</strong>
+          @@ \operatorname{posto}(A) = \operatorname{posto}([A \mid B]) = p < n @@
+          com grau de indeterminação @g = n - p@ variáveis livres.
+        </li>
+      </ul>
+      <h4>Demonstração:</h4>
+      <p>
+        Escrevendo o sistema linear na forma de combinação linear dos vetores coluna @C_1, C_2, \dots, C_n@ de @A@:
+      </p>
+      @@ x_1 C_1 + x_2 C_2 + \dots + x_n C_n = B @@
+      <p>
+        Existir uma solução @(s_1, \dots, s_n)@ equivale a dizer que o vetor @B@ pertence ao subespaço gerado pelas colunas de @A@:
+      </p>
+      @@ B \in \operatorname{span}(C_1, C_2, \dots, C_n) @@
+      <p>
+        Se @B \in \operatorname{span}(C_1, \dots, C_n)@, adicionar a coluna @B@ não expande a dimensão do espaço gerado, ou seja, @\dim(\operatorname{span}(C_1, \dots, C_n, B)) = \dim(\operatorname{span}(C_1, \dots, C_n))@, donde @\operatorname{posto}([A \mid B]) = \operatorname{posto}(A)@.
+      </p>
+      <p>
+        Reciprocamente, se @B \notin \operatorname{span}(C_1, \dots, C_n)@, o vetor @B@ é linearmente independente do conjunto de colunas, de modo que o posto da matriz aumentada cresce estritamente em uma unidade: @\operatorname{posto}([A \mid B]) = \operatorname{posto}(A) + 1@, tornando impossível qualquer combinação linear igual a @B@ (Sistema Impossível). @\blacksquare@
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: ESCALONAMENTO GAUSSIANO
+         =============================================================== -->
+    <h2>4. O Método do Escalonamento Gaussiano</h2>
+
+    <p>
+      O método da eliminação gaussiana transforma a matriz aumentada @[A \mid B]@ em uma matriz equivalente por linhas na <strong>forma escalonada</strong>, a partir da qual a resolução por retro-substituição é imediata.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.1 (Operações Elementares sobre Linhas)</h3>
+      <p>São permitidas três transformações elementares sobre as linhas @L_i@ de uma matriz:</p>
+      <ol>
+        <li><strong>Permutação de duas linhas:</strong> @L_i \leftrightarrow L_j@.</li>
+        <li><strong>Multiplicação de uma linha por escalar não nulo:</strong> @L_i \leftarrow k L_i \quad (k \neq 0)@.</li>
+        <li><strong>Substituição de uma linha pela sua soma com múltiplo escalar de outra:</strong> @L_i \leftarrow L_i + k L_j \quad (j \neq i)@.</li>
+      </ol>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Invariância do Conjunto Solução)</h3>
+      <p>
+        Se uma matriz aumentada @[A' \mid B']@ é obtida de @[A \mid B]@ por meio de uma sucessão finita de operações elementares sobre linhas, então os sistemas lineares correspondentes são <strong>estritamente equivalentes</strong>:
+      </p>
+      @@ S_{[A \mid B]} = S_{[A' \mid B']} @@
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>📌 Estratégia da Pivotação Parcial</h3>
+      <p>
+        Ao escolher o elemento @a_{kk}@ para anular as entradas inferiores da coluna @k@ (denominado <strong>pivô</strong>), seleciona-se, dentre os candidatos da coluna na linha @k@ ou abaixo dela, aquele com o <strong>maior valor absoluto</strong>:
+      </p>
+      @@ |a_{pk}| = \max \{ |a_{ik}| \mid i \geq k \} @@
+      <p>
+        Executa-se a troca de linhas @L_k \leftrightarrow L_p@. Esse procedimento mitiga erros numéricos de arredondamento em ponto flutuante e impede divisões por zero ou por números próximos de zero.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: REGRA DE CRAMER E SUAS LIMITAÇÕES
+         =============================================================== -->
+    <h2>5. Regra de Cramer para Sistemas Quadrados (@n \times n@)</h2>
+
+    <p>
+      Para sistemas lineares com o mesmo número de equações e incógnitas (@m = n@), Gabriel Cramer formulou em 1750 uma regra explícita baseada em determinantes.
+    </p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.1 (Teorema de Cramer)</h3>
+      <p>
+        Considere o sistema linear quadrado @A \cdot X = B@, onde @A \in \mathcal{M}_{n \times n}(\mathbb{R})@. Seja @D = \det(A)@ o determinante da matriz dos coeficientes.
+      </p>
+      <p>
+        Sejam @D_{x_j}@ os determinantes das matrizes @A_j@ obtidas substituindo-se a @j@-ésima coluna de @A@ pela coluna dos termos independentes @B@:
+      </p>
+      @@
+      D_{x_j} = \det \begin{bmatrix}
+      a_{11} & \dots & b_1 & \dots & a_{1n} \\
+      a_{21} & \dots & b_2 & \dots & a_{2n} \\
+      \vdots & \ddots & \vdots & \ddots & \vdots \\
+      a_{n1} & \dots & b_n & \dots & a_{nn}
+      \end{bmatrix}
+      @@
+      <p>
+        Se @D \neq 0@, o sistema é <strong>SPD</strong> (possível e determinado) e a única solução é dada por:
+      </p>
+      @@ x_j = \frac{D_{x_j}}{D}, \quad \forall j \in \{1, 2, \dots, n\} @@
+    </div>
+
+    <div class="erro-comum">
+      <h3>⚠️ Limitações Fundamentais e Armadilhas da Regra de Cramer</h3>
+      <p>Muitos estudantes memorizam regras errôneas sobre a Regra de Cramer. Atenção máxima aos seguintes fatos demonstrados:</p>
+      <ol>
+        <li><strong>Inaplicabilidade dimensional:</strong> A Regra de Cramer só se aplica a sistemas com matriz de coeficientes estritamente <strong>quadrada</strong> (@m = n@). Não pode ser aplicada diretamente se @m \neq n@.</li>
+        <li><strong>A Falha Diagnóstica quando @D = 0@:</strong>
+          <ul>
+            <li>Se @D = 0@ e pelo menos um @D_{x_j} \neq 0@, o sistema é indubitavelmente <strong>Impossível (SI)</strong>.</li>
+            <li><strong>CUIDADO:</strong> Se @D = 0@ e <em>todos</em> os @D_{x_j} = 0@, o sistema <strong>NÃO É OBRIGATORIAMENTE SPI</strong>! Ele pode ser <strong>SPI</strong> ou <strong>SI</strong>!</li>
+          </ul>
+          <p>
+            <em>Contraexemplo clássico:</em>
+          </p>
+          @@
+          \begin{cases}
+          x + y = 1 \\
+          2x + 2y = 3
+          \end{cases}
+          @@
+          <p>
+            Calculando os determinantes: @D = \begin{vmatrix} 1 & 1 \\ 2 & 2 \end{vmatrix} = 0@; @D_x = \begin{vmatrix} 1 & 1 \\ 3 & 2 \end{vmatrix} = -1 \neq 0@ (impossível). Mas no sistema 3x3 abaixo:
+          </p>
+          @@
+          \begin{cases}
+          x + y + z = 1 \\
+          2x + 2y + 2z = 2 \\
+          3x + 3y + 3z = 5
+          \end{cases}
+          @@
+          <p>
+            Tem-se @D = 0@, @D_x = 0@, @D_y = 0@, @D_z = 0@ (pois há linhas proporcionais), mas a primeira e terceira equações são mutuamente incompatíveis (@1 \neq 5/3@), logo o sistema é <strong>SI</strong>! Para diagnosticar sistemas com @D = 0@, deve-se <strong>sempre recorrer ao escalonamento ou a Rouché-Capelli</strong>.
+          </p>
+        </li>
+        <li><strong>Inviabilidade Computacional:</strong> O cálculo de determinantes por Laplace para ordem @n@ possui complexidade fatorial @\mathcal{O}((n+1)!)@. Para resolver um sistema @20 \times 20@ por Cramer, seriam necessários mais de @10^{18}@ anos no supercomputador mais veloz da Terra, enquanto o escalonamento gaussiano resolve em menos de @1@ milissegundo (@\mathcal{O}(n^3)@).</li>
+      </ol>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: APLICAÇÕES PRÁTICAS
+         =============================================================== -->
+    <h2>6. Modelagem e Aplicações Práticas</h2>
+
+    <h3>6.1 Circuitos Elétricos e Leis de Kirchhoff</h3>
+    <p>
+      Na análise nodal e de malhas em eletrodinâmica, as Leis de Gustav Kirchhoff estabelecem vínculos lineares estritos:
+    </p>
+    <ul>
+      <li><strong>Lei dos Nós (LKC):</strong> Conservação de carga elétrica: @\sum I_{\text{entra}} = \sum I_{\text{sai}}@.</li>
+      <li><strong>Lei das Malhas (LKV):</strong> Conservação de energia potencial: @\sum \mathcal{E} - \sum R_k I_k = 0@ ao longo de qualquer percurso fechado.</li>
+    </ul>
+    <p>
+      Isso gera um sistema linear @R \cdot I = V@ onde a matriz de resistências @R@ é invertível para redes físicas passivas reais, garantindo solução única (SPD).
+    </p>
+
+    <h3>6.2 Balanceamento de Reações Químicas (Estequiometria)</h3>
+    <p>
+      Pela Lei de Conservação das Massas (Lavoisier), a quantidade de átomos de cada elemento químico antes e depois da reação deve ser estritamente invariante.
+    </p>
+    <p>
+      Seja a queima completa de um hidrocarboneto genérico @\text{C}_a\text{H}_b@:
+    </p>
+    @@ x_1 \text{C}_a\text{H}_b + x_2 \text{O}_2 \longrightarrow x_3 \text{CO}_2 + x_4 \text{H}_2\text{O} @@
+    <p>
+      O balanço atômico gera o sistema linear homogêneo:
+    </p>
+    @@
+    \begin{cases}
+    \text{Carbono (C):} & a x_1 - x_3 = 0 \\
+    \text{Hidrogênio (H):} & b x_1 - 2x_4 = 0 \\
+    \text{Oxigênio (O):} & 2 x_2 - 2x_3 - x_4 = 0
+    \end{cases}
+    @@
+    <p>
+      Como se trata de um sistema homogêneo com 3 equações e 4 incógnitas (@m < n@), o sistema é necessariamente um <strong>SPI</strong> com @g \geq 1@ grau de liberdade. A menor solução inteira positiva não trivial @(x_1, x_2, x_3, x_4) \in \mathbb{N}^*@ fornece os coeficientes estequiométricos estáticos.
+    </p>
+
+    <h3>6.3 O Modelo de Insumo-Produto de Leontief (Economia)</h3>
+    <p>
+      Wassily Leontief (Prêmio Nobel de Economia de 1973) modelou economias com @n@ setores interdependentes. Cada setor @j@ consome uma fração @a_{ij}@ da produção do setor @i@ para produzir uma unidade de seu próprio bem:
+    </p>
+    @@ X = A \cdot X + D \iff (I - A) X = D @@
+    <p>
+      onde @A@ é a <em>matriz de coeficientes técnicos</em>, @X@ é o vetor de produção bruta total e @D@ é o vetor de demanda final de consumo. Se todos os autovalores de @A@ estiverem dentro do círculo unitário (Condições de Hawkins-Simon), a matriz @(I - A)@ é invertível e existe um plano de produção @X \geq 0@ viável dado por @X = (I - A)^{-1} D@.
+    </p>
+
+    <!-- ===============================================================
+         SEÇÃO 7: EXEMPLOS RESOLVIDOS PASSO A PASSO
+         =============================================================== -->
+    <h2>7. Exemplos Resolvidos Passo a Passo</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 (Discussão Completa de Sistema com Parâmetro)</h3>
+      <p>
+        Classifique o sistema linear abaixo em função do parâmetro real @k \in \mathbb{R}@:
+      </p>
+      @@
+      \begin{cases}
+      x + y + z = 2 \\
+      x + 2y + 3z = 5 \\
+      2x + 3y + kz = k^2
+      \end{cases}
+      @@
+
+      <h4>Passo 1: Montagem da matriz aumentada</h4>
+      @@
+      [A \mid B] = \begin{bmatrix}
+      1 & 1 & 1 & \bigm| & 2 \\
+      1 & 2 & 3 & \bigm| & 5 \\
+      2 & 3 & k & \bigm| & k^2
+      \end{bmatrix}
+      @@
+
+      <h4>Passo 2: Eliminação gaussiana nas linhas</h4>
+      <p>Operações: @L_2 \leftarrow L_2 - L_1@ e @L_3 \leftarrow L_3 - 2L_1@:</p>
+      @@
+      \begin{bmatrix}
+      1 & 1 & 1 & \bigm| & 2 \\
+      0 & 1 & 2 & \bigm| & 3 \\
+      0 & 1 & k-2 & \bigm| & k^2 - 4
+      \end{bmatrix}
+      @@
+      <p>Operação: @L_3 \leftarrow L_3 - L_2@:</p>
+      @@
+      \begin{bmatrix}
+      1 & 1 & 1 & \bigm| & 2 \\
+      0 & 1 & 2 & \bigm| & 3 \\
+      0 & 0 & k - 4 & \bigm| & k^2 - 7
+      \end{bmatrix}
+      @@
+
+      <h4>Passo 3: Análise das linhas e postos</h4>
+      <ul>
+        <li><strong>Caso 1: @k - 4 \neq 0 \iff k \neq 4@:</strong><br>
+          O terceiro pivô é não nulo (@a'_{33} = k - 4 \neq 0@). Logo, @\operatorname{posto}(A) = 3@ e @\operatorname{posto}([A \mid B]) = 3@. Como @n = 3@ incógnitas, o sistema é <strong>SPD</strong> (possui solução única).
+        </li>
+        <li><strong>Caso 2: @k = 4@:</strong><br>
+          Substituindo @k = 4@ na última linha:<br>
+          @a'_{33} = 4 - 4 = 0@ e o termo independente torna-se @k^2 - 7 = 4^2 - 7 = 16 - 7 = 9@.<br>
+          A linha 3 expressa a equação:
+          @@ 0x + 0y + 0z = 9 \implies 0 = 9 \quad (\text{Absurdo!}) @@
+          Neste caso, @\operatorname{posto}(A) = 2@ enquanto @\operatorname{posto}([A \mid B]) = 3@. Pelo Teorema de Rouché-Capelli, o sistema é <strong>SI (Impossível)</strong>.
+        </li>
+      </ul>
+      <p><strong>Conclusão:</strong> Para @k \neq 4@ o sistema é SPD; para @k = 4@ o sistema é SI. (Não existe valor de @k@ que torne o sistema SPI).</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 (Balanceamento de Reação por Sistema Homogêneo)</h3>
+      <p>
+        Determine os menores coeficientes inteiros para o balanceamento da queima completa do gás propano:
+        @x_1 \text{C}_3\text{H}_8 + x_2 \text{O}_2 \longrightarrow x_3 \text{CO}_2 + x_4 \text{H}_2\text{O}@.
+      </p>
+
+      <h4>Resolução:</h4>
+      <p>Montamos as equações de conservação para cada espécie atômica:</p>
+      <ul>
+        <li>Carbono (C): @3x_1 = x_3 \implies 3x_1 - x_3 = 0@</li>
+        <li>Hidrogênio (H): @8x_1 = 2x_4 \implies 4x_1 - x_4 = 0@</li>
+        <li>Oxigênio (O): @2x_2 = 2x_3 + x_4 \implies 2x_2 - 2x_3 - x_4 = 0@</li>
+      </ul>
+      <p>Expressando todas as variáveis em função do parâmetro livre @x_1 = t \in \mathbb{R}^*@:</p>
+      @@
+      x_3 = 3t, \quad x_4 = 4t
+      @@
+      <p>Substituindo na equação do oxigênio:</p>
+      @@ 2x_2 = 2(3t) + (4t) = 6t + 4t = 10t \implies x_2 = 5t @@
+      <p>O vetor solução geral é:</p>
+      @@ \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix} = t \begin{bmatrix} 1 \\ 5 \\ 3 \\ 4 \end{bmatrix} @@
+      <p>Para obter os menores inteiros estequiométricos positivos, tomamos @t = 1@:</p>
+      @@ \mathbf{1} \, \text{C}_3\text{H}_8 + \mathbf{5} \, \text{O}_2 \longrightarrow \mathbf{3} \, \text{CO}_2 + \mathbf{4} \, \text{H}_2\text{O} @@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 8: EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO
+         =============================================================== -->
+    <h2>8. Exercícios Conceituais e de Fixação Rápida</h2>
+
+    <ol class="lista-exercicios">
+      <!-- Ex 1 -->
+      <li>
+        <strong>(Classificação com Parâmetro)</strong>
+        Considere o sistema linear nas variáveis reais @x@ e @y@:
+        @@
+        \begin{cases}
+        ax + y = 1 \\
+        x + ay = 1
+        \end{cases}
+        @@
+        Determine todos os valores reais de @a@ para os quais o sistema é: (a) SPD, (b) SPI e (c) SI.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Calculamos o determinante principal @D@:</p>
+            @@ D = \begin{vmatrix} a & 1 \\ 1 & a \end{vmatrix} = a^2 - 1 = (a - 1)(a + 1) @@
+            <ul>
+              <li><strong>(a) SPD:</strong> Ocorre quando @D \neq 0 \iff a \neq 1@ e @a \neq -1@.</li>
+              <li><strong>Para @a = 1@:</strong> O sistema torna-se @\begin{cases} x + y = 1 \\ x + y = 1 \end{cases}@, cujas equações são idênticas. Portanto, para @a = 1@ o sistema é <strong>SPI</strong> (com infinitas soluções @y = 1 - x@).</li>
+              <li><strong>Para @a = -1@:</strong> O sistema torna-se @\begin{cases} -x + y = 1 \\ x - y = 1 \end{cases}@. Somando as duas equações: @0x + 0y = 2@ (impossível). Logo, para @a = -1@ o sistema é <strong>SI</strong>.</li>
+            </ul>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 2 -->
+      <li>
+        <strong>(Rouché-Capelli e Grau de Liberdade)</strong>
+        Um sistema linear com 5 equações e 7 incógnitas possui matriz dos coeficientes @A@ com @\operatorname{posto}(A) = 4@ e matriz aumentada @[A \mid B]@ com @\operatorname{posto}([A \mid B]) = 4@. Classifique o sistema e determine o número de variáveis livres.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Pelo Teorema de Rouché-Capelli, como @\operatorname{posto}(A) = \operatorname{posto}([A \mid B]) = 4@, o sistema é compatível (possível).</p>
+            <p>Como o número de incógnitas é @n = 7@ e o posto comum é @p = 4 < n@, o sistema é <strong>Possível e Indeterminado (SPI)</strong>.</p>
+            <p>O número de variáveis livres (grau de indeterminação) é dado por:</p>
+            @@ g = n - p = 7 - 4 = 3 \text{ variáveis livres.} @@
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 3 -->
+      <li>
+        <strong>(Escalonamento de Sistema 3x3)</strong>
+        Resolva pelo método de eliminação gaussiana o sistema linear:
+        @@
+        \begin{cases}
+        x + 2y - z = 2 \\
+        2x + 5y + z = 9 \\
+        x + 3y + 2z = 7
+        \end{cases}
+        @@
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Escrevendo a matriz aumentada e aplicando as operações elementares:</p>
+            @@
+            \begin{bmatrix}
+            1 & 2 & -1 & \bigm| & 2 \\
+            2 & 5 & 1 & \bigm| & 9 \\
+            1 & 3 & 2 & \bigm| & 7
+            \end{bmatrix}
+            \xrightarrow[L_3 \leftarrow L_3 - L_1]{L_2 \leftarrow L_2 - 2L_1}
+            \begin{bmatrix}
+            1 & 2 & -1 & \bigm| & 2 \\
+            0 & 1 & 3 & \bigm| & 5 \\
+            0 & 1 & 3 & \bigm| & 5
+            \end{bmatrix}
+            \xrightarrow{L_3 \leftarrow L_3 - L_2}
+            \begin{bmatrix}
+            1 & 2 & -1 & \bigm| & 2 \\
+            0 & 1 & 3 & \bigm| & 5 \\
+            0 & 0 & 0 & \bigm| & 0
+            \end{bmatrix}
+            @@
+            <p>A linha nula indica que o sistema é <strong>SPI</strong> com @\operatorname{posto}(A) = \operatorname{posto}([A \mid B]) = 2 < 3@.</p>
+            <p>Fixando @z = t \in \mathbb{R}@ como parâmetro livre:</p>
+            @@ y + 3t = 5 \implies y = 5 - 3t @@
+            @@ x = 2 - 2y + z = 2 - 2(5 - 3t) + t = 2 - 10 + 6t + t = -8 + 7t @@
+            <p>Conjunto solução: @S = \{ (-8 + 7t, 5 - 3t, t) \mid t \in \mathbb{R} \}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 4 -->
+      <li>
+        <strong>(Sistema Homogêneo e Solução Não Trivial)</strong>
+        Determine os valores de @m \in \mathbb{R}@ para os quais o sistema linear homogêneo admite soluções além da solução trivial @(0,0,0)@:
+        @@
+        \begin{cases}
+        x + y + z = 0 \\
+        2x + my + z = 0 \\
+        3x + 2y + 4z = 0
+        \end{cases}
+        @@
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Um sistema homogêneo quadrado @n \times n@ admite soluções não triviais se, e somente se, o determinante de sua matriz de coeficientes for nulo (@\det(A) = 0@):</p>
+            @@
+            \det(A) = \begin{vmatrix}
+            1 & 1 & 1 \\
+            2 & m & 1 \\
+            3 & 2 & 4
+            \end{vmatrix} = 1 \cdot (4m - 2) - 1 \cdot (8 - 3) + 1 \cdot (4 - 3m)
+            @@
+            @@ \det(A) = (4m - 2) - 5 + (4 - 3m) = m - 3 @@
+            <p>Igualando a zero:</p>
+            @@ m - 3 = 0 \implies m = 3 @@
+            <p>Portanto, o sistema admite soluções não triviais se, e somente se, @m = 3@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 5 -->
+      <li>
+        <strong>(A Pegadinha dos Determinantes Nulos)</strong>
+        Considere o sistema:
+        @@
+        \begin{cases}
+        x + y = 2 \\
+        2x + 2y = 5
+        \end{cases}
+        @@
+        Calcule @D@, @D_x@ e @D_y@. Explique por que a constatação @D = 0@ não permite afirmar isoladamente se o sistema é SPI ou SI.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Calculando os determinantes:</p>
+            @@ D = \begin{vmatrix} 1 & 1 \\ 2 & 2 \end{vmatrix} = 2 - 2 = 0 @@
+            @@ D_x = \begin{vmatrix} 2 & 1 \\ 5 & 2 \end{vmatrix} = 4 - 5 = -1 \neq 0 @@
+            @@ D_y = \begin{vmatrix} 1 & 2 \\ 2 & 5 \end{vmatrix} = 5 - 4 = 1 \neq 0 @@
+            <p>
+              Como @D = 0@ e @D_x \neq 0@, o sistema é <strong>SI (Impossível)</strong>. A regra de Cramer diz que quando @D \neq 0@ temos SPD. Quando @D = 0@, só haveria possibilidade de ser SPI se <em>todos</em> os determinantes secundários fossem nulos, mas mesmo nesse caso poderia ser SI (como visto na seção teórica). Aqui, bastou @D_x \neq 0@ para garantir impossibilidade.
+            </p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 6 -->
+      <li>
+        <strong>(Redes de Correntes de Kirchhoff)</strong>
+        Num circuito com duas malhas, as correntes @I_1@, @I_2@ e @I_3@ (em amperes) satisfazem o sistema linear:
+        @@
+        \begin{cases}
+        I_1 - I_2 - I_3 = 0 \\
+        2I_1 + 4I_2 = 12 \\
+        4I_2 - 6I_3 = 0
+        \end{cases}
+        @@
+        Calcule a corrente @I_2@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Da terceira equação: @4I_2 = 6I_3 \implies I_3 = \frac{2}{3} I_2@.</p>
+            <p>Da primeira equação: @I_1 = I_2 + I_3 = I_2 + \frac{2}{3} I_2 = \frac{5}{3} I_2@.</p>
+            <p>Substituindo @I_1@ na segunda equação:</p>
+            @@ 2 \left(\frac{5}{3} I_2\right) + 4I_2 = 12 \implies \frac{10}{3} I_2 + \frac{12}{3} I_2 = 12 @@
+            @@ \frac{22}{3} I_2 = 12 \implies 22 I_2 = 36 \implies I_2 = \frac{36}{22} = \frac{18}{11} \text{ A} \approx 1{,}636 \text{ A} @@
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 7 -->
+      <li>
+        <strong>(Modelo de Insumo-Produto Simplificado)</strong>
+        Em uma economia fictícia de dois setores, a matriz de insumo é @A = \begin{bmatrix} 0{,}2 & 0{,}4 \\ 0{,}3 & 0{,}1 \end{bmatrix}@ e a demanda final externa é @D = \begin{bmatrix} 180 \\ 90 \end{bmatrix}@. Encontre o vetor de produção bruta @X = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>A equação fundamental de Leontief é @(I - A)X = D@:</p>
+            @@ I - A = \begin{bmatrix} 1 - 0{,}2 & -0{,}4 \\ -0{,}3 & 1 - 0{,}1 \end{bmatrix} = \begin{bmatrix} 0{,}8 & -0{,}4 \\ -0{,}3 & 0{,}9 \end{bmatrix} @@
+            <p>O sistema linear associado é:</p>
+            @@
+            \begin{cases}
+            0{,}8 x_1 - 0{,}4 x_2 = 180 \\
+            -0{,}3 x_1 + 0{,}9 x_2 = 90
+            \end{cases}
+            @@
+            <p>Multiplicando por 10 para eliminar decimais:</p>
+            @@
+            \begin{cases}
+            8x_1 - 4x_2 = 1800 \implies 2x_1 - x_2 = 450 \implies x_2 = 2x_1 - 450 \\
+            -3x_1 + 9x_2 = 900 \implies -x_1 + 3x_2 = 300
+            \end{cases}
+            @@
+            <p>Substituindo @x_2@ na segunda:</p>
+            @@ -x_1 + 3(2x_1 - 450) = 300 \implies -x_1 + 6x_1 - 1350 = 300 \implies 5x_1 = 1650 \implies x_1 = 330 @@
+            <p>E portanto: @x_2 = 2(330) - 450 = 660 - 450 = 210@.</p>
+            <p>O vetor de produção bruta total necessário é @X = \begin{bmatrix} 330 \\ 210 \end{bmatrix}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 8 -->
+      <li>
+        <strong>(Posto e Incompatibilidade)</strong>
+        Considere a matriz aumentada @[A \mid B] = \begin{bmatrix} 1 & 2 & 1 & 4 \\ 0 & 1 & 3 & 1 \\ 0 & 0 & a-2 & b-5 \end{bmatrix}@.
+        Identifique as condições sobre @a@ e @b@ para que o sistema associado seja:
+        (a) SPD; (b) SPI; (c) SI.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>A matriz já se encontra na forma triangular/escalonada:</p>
+            <ul>
+              <li><strong>(a) SPD:</strong> É necessário que @\operatorname{posto}(A) = \operatorname{posto}([A \mid B]) = 3@. Isso exige @a - 2 \neq 0 \iff a \neq 2@ (qualquer que seja o valor de @b \in \mathbb{R}@).</li>
+              <li><strong>(b) SPI:</strong> É necessário que @\operatorname{posto}(A) = \operatorname{posto}([A \mid B]) < 3@. Para zerar toda a última linha, devemos ter @a - 2 = 0@ e @b - 5 = 0 \iff a = 2@ e @b = 5@.</li>
+              <li><strong>(c) SI:</strong> É necessário que @\operatorname{posto}(A) = 2 < \operatorname{posto}([A \mid B]) = 3@. Isso exige a linha @[0 \quad 0 \quad 0 \mid \neq 0]@, ou seja, @a = 2@ e @b \neq 5@.</li>
+            </ul>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 9 -->
+      <li>
+        <strong>(Estrutura Afim do Conjunto Solução)</strong>
+        Seja @X_0@ uma solução particular do sistema não homogêneo @A \cdot X = B@ e seja @W = \{ Y \in \mathbb{R}^n \mid A \cdot Y = 0 \}@ o conjunto solução do sistema homogêneo associado (o núcleo de @A@). Demonstre que qualquer solução @X@ pode ser escrita como @X = X_0 + Y@ para algum @Y \in W@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Seja @X@ uma solução arbitrária de @A \cdot X = B@. Considere a diferença @Y = X - X_0@. Aplicando a distributividade da multiplicação matricial:</p>
+            @@ A \cdot Y = A \cdot (X - X_0) = A \cdot X - A \cdot X_0 @@
+            <p>Como @X@ e @X_0@ são ambas soluções do sistema não homogêneo, temos @A \cdot X = B@ e @A \cdot X_0 = B@. Logo:</p>
+            @@ A \cdot Y = B - B = 0 @@
+            <p>Isso prova que @Y \in W = \ker(A)@. Consequentemente, @X = X_0 + Y@, o que demonstra que o conjunto solução @S@ é uma variedade afim paralela ao subespaço vetorial @\ker(A)@: @S = X_0 + \ker(A)@. @\blacksquare@</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 10 -->
+      <li>
+        <strong>(Soma dos Coeficientes e Interpretação Matricial)</strong>
+        No sistema linear @\begin{cases} 2x + 3y + z = 11 \\ x - y + 2z = 5 \\ 3x + 2y + 3z = 16 \end{cases}@, determine o valor da soma @x + y + z@ sem calcular explicitamente os valores individuais de cada incógnita.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Observe atentamente as relações de dependência linear entre as equações:</p>
+            <p>Somando a equação 1 e a equação 2:</p>
+            @@ (2x + 3y + z) + (x - y + 2z) = 3x + 2y + 3z @@
+            <p>Do lado direito: @11 + 5 = 16@, o que é identicamente a equação 3! Logo, a equação 3 é redundante (@L_3 = L_1 + L_2@).</p>
+            <p>Subtraindo a equação 2 da equação 1:</p>
+            @@ (2x + 3y + z) - (x - y + 2z) = 11 - 5 @@
+            @@ x + 4y - z = 6 @@
+            <p>Somando a equação 1 multiplicada por 1 com a equação 2 multiplicada por 2:</p>
+            @@ (2x + 3y + z) + 2(x - y + 2z) = 11 + 10 \implies 4x + y + 5z = 21 @@
+            <p>Se somarmos a equação 1 e a equação 2 divididas por 3:</p>
+            @@ \frac{(2x + 3y + z) + (x - y + 2z)}{?} \dots @@
+            <p>Mais diretamente, como o sistema é SPI com posto 2 e 3 incógnitas, parametrizando @z = t@:</p>
+            @@ \begin{cases} 2x + 3y = 11 - t \\ x - y = 5 - 2t \end{cases} @@
+            <p>Multiplicando a segunda por 3 e somando: @5x = 11 - t + 15 - 6t = 26 - 7t \implies x = \frac{26 - 7t}{5}@.</p>
+            <p>E @y = x - 5 + 2t = \frac{26 - 7t}{5} - \frac{25 - 10t}{5} = \frac{1 + 3t}{5}@.</p>
+            <p>Calculando a soma @x + y + z@:</p>
+            @@ x + y + z = \frac{26 - 7t}{5} + \frac{1 + 3t}{5} + \frac{5t}{5} = \frac{27 + t}{5} @@
+            <p>Para cada valor de @t \in \mathbb{R}@ a soma varia linearmente, confirmando que @x + y + z@ depende do parâmetro livre escolhido.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 11 -->
+      <li>
+        <strong>(Combinação Linear e Inexistência de Solução)</strong>
+        Prove vetorialmente que o sistema @\begin{cases} x + 2y = 3 \\ 2x + 4y = 7 \end{cases}@ não tem solução utilizando o conceito de espaço coluna.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>A representação vetorial em colunas é:</p>
+            @@ x \begin{bmatrix} 1 \\ 2 \end{bmatrix} + y \begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 3 \\ 7 \end{bmatrix} @@
+            <p>O vetor coluna @C_2 = \begin{bmatrix} 2 \\ 4 \end{bmatrix} = 2 \begin{bmatrix} 1 \\ 2 \end{bmatrix} = 2 C_1@ é colinear a @C_1@.</p>
+            <p>Logo, o espaço coluna é a reta gerada por @\begin{bmatrix} 1 \\ 2 \end{bmatrix}@: @\operatorname{Col}(A) = \{ k \begin{bmatrix} 1 \\ 2 \end{bmatrix} \mid k \in \mathbb{R} \}@.</p>
+            <p>Para que o vetor independente @B = \begin{bmatrix} 3 \\ 7 \end{bmatrix}@ pertença a @\operatorname{Col}(A)@, deveria existir @k@ tal que @1k = 3@ e @2k = 7@, donde @k = 3@ e @k = 3{,}5@, o que é uma contradição evidente. Portanto, @B \notin \operatorname{Col}(A)@ e o sistema é impossível (SI). @\blacksquare@</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 12 -->
+      <li>
+        <strong>(Desafio FME / ITA - Determinante e Posto Paramétrico)</strong>
+        Considere o sistema nas incógnitas @x, y, z@:
+        @@
+        \begin{cases}
+        x + y + z = 1 \\
+        x + a y + z = a \\
+        x + y + a z = a^2
+        \end{cases}
+        @@
+        Determine todos os valores de @a \in \mathbb{R}@ para os quais o sistema admite infinitas soluções (SPI).
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Escalonamos a matriz aumentada subtraindo a linha 1 das demais:</p>
+            @@
+            [A \mid B] = \begin{bmatrix}
+            1 & 1 & 1 & \bigm| & 1 \\
+            1 & a & 1 & \bigm| & a \\
+            1 & 1 & a & \bigm| & a^2
+            \end{bmatrix}
+            \xrightarrow[L_3 \leftarrow L_3 - L_1]{L_2 \leftarrow L_2 - L_1}
+            \begin{bmatrix}
+            1 & 1 & 1 & \bigm| & 1 \\
+            0 & a-1 & 0 & \bigm| & a-1 \\
+            0 & 0 & a-1 & \bigm| & a^2 - 1
+            \end{bmatrix}
+            @@
+            <p>Para que o sistema seja <strong>SPI</strong>, o número de linhas não nulas da matriz escalonada deve ser estritamente menor que 3, e o sistema deve ser compatível.</p>
+            <p>Se @a = 1@, a segunda e a terceira linha tornam-se inteiramente constituídas por zeros: @[0 \quad 0 \quad 0 \mid 0]@.</p>
+            <p>Nesse caso, @\operatorname{posto}(A) = 1@ e @\operatorname{posto}([A \mid B]) = 1@. Como @p = 1 < n = 3@, o sistema é <strong>SPI</strong> com @3 - 1 = 2@ graus de liberdade!</p>
+            <p>Se @a \neq 1@, podemos dividir as linhas 2 e 3 por @(a - 1)@, obtendo @y = 1@ e @z = a + 1@, e @x = 1 - 1 - (a+1) = -(a+1)@ (solução única, SPD).</p>
+            <p>Portanto, o sistema admite infinitas soluções se, e somente se, @\mathbf{a = 1}@.</p>
+          </div>
+        </details>
+      </li>
+    </ol>
+</article>
+
+</div><!-- /container -->
+</div><!-- /page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

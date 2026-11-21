@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Finanças e a Dinâmica das Progressões</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: left;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar 2º EM */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-2em {
+      background-color: rgba(245, 158, 11, 0.25);
+      border: 2px solid #f59e0b;
+      color: #fef3c7;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-2em">2º Ano EM</div>
+
+    <h1>Finanças e a Dinâmica das Progressões</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 4: "Variou o preço, estou presente. Quem sou eu?"
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E INTRODUÇÃO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para uma apreensão profunda e com rigor formal deste módulo, o estudante deve ter domínio sólido de:</p>
+      <ul>
+        <li><strong>Sequências Numéricas:</strong> definição de sequências como funções @a: \mathbb{N} \to \mathbb{R}@, termo geral e soma de Progressões Aritméticas (PA) e Geométricas (PG).</li>
+        <li><strong>Cálculo Algébrico e Funções Reais:</strong> função afim (@f(x) = ax + b@), função exponencial (@f(x) = b \cdot a^x@) e logaritmos com suas propriedades operatórias.</li>
+        <li><strong>Conceitos Básicos de Porcentagem:</strong> fatores multiplicativos de acréscimo (@1 + i@) e de desconto (@1 - i@).</li>
+      </ul>
+    </div>
+
+    <p>
+      A Matemática Financeira não constitui um corpo isolado de fórmulas utilitárias; sob a perspectiva do <em>Fundamentos de Matemática Elementar</em>, ela é a <strong>manifestação fenomenológica das estruturas funcionais discretas e contínuas</strong>. A dinâmica de preços, fluxos de capitais e decisões de mercado repousa inteiramente sobre o paralelismo elegante entre duas famílias fundamentais: o crescimento aditivo linear (Progressões Aritméticas e Funções Afins) e o crescimento multiplicativo exponencial (Progressões Geométricas e Funções Exponenciais).
+    </p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: CONEXÃO ESTRUTURAL ENTRE PROGRESSÕES E FUNÇÕES
+         =============================================================== -->
+    <h2>1. A Conexão Estrutural Profunda: Progressões @\leftrightarrow@ Funções</h2>
+
+    <p>
+      Uma sequência numérica @(a_n)_{n \in \mathbb{N}_0}@ nada mais é do que uma função real restrita ao domínio discreto dos números inteiros não negativos: @a: \mathbb{N}_0 \to \mathbb{R}@, onde denotamos @a(n) \equiv a_n@. Quando estendemos o domínio para a reta contínua dos números reais @t \in [0, +\infty)@, revelam-se as pontes estruturais entre o discreto e o contínuo.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 — Regime Linear: Juros Simples @\leftrightarrow@ Função Afim @\leftrightarrow@ PA</h3>
+      <p>
+        No regime de <strong>Juros Simples</strong>, o juro produzido em cada intervalo unitário de tempo incide <em>exclusivamente</em> sobre o capital inicial @C@, a uma taxa constante @i@.
+      </p>
+      <ul>
+        <li><strong>No Domínio Discreto (@n \in \mathbb{N}_0@):</strong> O montante ao término do período @n@ é dado por:
+          @@
+          M_n = C + n \cdot (C \cdot i)
+          @@
+          Isto é rigorosamente o termo geral de uma <strong>Progressão Aritmética (PA)</strong> cujo primeiro termo é @a_0 = C@ e cuja razão constante é @r = C \cdot i@:
+          @@
+          M_n - M_{n-1} = C \cdot i = r \quad (\forall\, n \ge 1)
+          @@
+        </li>
+        <li><strong>No Domínio Contínuo (@t \in \mathbb{R}^+@):</strong> A função montante @M(t)@ assume a forma analítica:
+          @@
+          M(t) = (C \cdot i) \cdot t + C
+          @@
+          Trata-se de uma <strong>Função Afim</strong> (@f(t) = mt + b@), com taxa de crescimento instantânea (coeficiente angular / derivada) estritamente constante:
+          @@
+          \frac{dM}{dt} = C \cdot i = \text{constante}
+          @@
+        </li>
+      </ul>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 — Regime Exponencial: Juros Compostos @\leftrightarrow@ Função Exponencial @\leftrightarrow@ PG</h3>
+      <p>
+        No regime de <strong>Juros Compostos</strong> (anatocismo), os juros gerados ao final de cada período são incorporados ao capital acumulado do período anterior, passando a render juros no período subsequente.
+      </p>
+      <ul>
+        <li><strong>No Domínio Discreto (@n \in \mathbb{N}_0@):</strong> O montante após @n@ períodos é recursivamente definido por @M_n = M_{n-1} \cdot (1 + i)@, com @M_0 = C@. A resolução por recorrência resulta em:
+          @@
+          M_n = C \cdot (1 + i)^n
+          @@
+          Isto é rigorosamente o termo geral de uma <strong>Progressão Geométrica (PG)</strong> com termo inicial @g_0 = C@ e razão constante @q = 1 + i@:
+          @@
+          \frac{M_n}{M_{n-1}} = 1 + i = q \quad (\forall\, n \ge 1)
+          @@
+        </li>
+        <li><strong>No Domínio Contínuo (@t \in \mathbb{R}^+@):</strong> O montante modela-se como uma <strong>Função Exponencial</strong>:
+          @@
+          M(t) = C \cdot (1 + i)^t = C \cdot e^{t \cdot \ln(1 + i)}
+          @@
+          onde a taxa de variação relativa (taxa específica de crescimento) é rigorosamente invariante no tempo:
+          @@
+          \frac{1}{M(t)} \frac{dM(t)}{dt} = \ln(1 + i) = \text{constante}
+          @@
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tabela Comparativa Estrutural -->
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Propriedade Estrutural</th>
+            <th>Modelo Linear (Juros Simples / PA)</th>
+            <th>Modelo Exponencial (Juros Compostos / PG)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Definição Recurrente</strong></td>
+            <td>@M_n = M_{n-1} + C \cdot i@</td>
+            <td>@M_n = M_{n-1} \cdot (1 + i)@</td>
+          </tr>
+          <tr>
+            <td><strong>Equação do Montante</strong></td>
+            <td>@M(t) = C(1 + it) = (Ci)t + C@</td>
+            <td>@M(t) = C(1 + i)^t@</td>
+          </tr>
+          <tr>
+            <td><strong>Estrutura Discreta</strong></td>
+            <td>PA de razão @r = C \cdot i@</td>
+            <td>PG de razão @q = 1 + i@</td>
+          </tr>
+          <tr>
+            <td><strong>Estrutura Contínua</strong></td>
+            <td>Função Afim com coeficiente linear @C@</td>
+            <td>Função Exponencial com valor inicial @C@</td>
+          </tr>
+          <tr>
+            <td><strong>Taxa de Variação Absoluta (@\Delta M@)</strong></td>
+            <td>Constante: @\Delta M = C \cdot i@</td>
+            <td>Crescente: @\Delta M_n = C \cdot i \cdot (1 + i)^{n-1}@</td>
+          </tr>
+          <tr>
+            <td><strong>Geometria do Gráfico</strong></td>
+            <td>Reta com declividade @m = C \cdot i@</td>
+            <td>Curva convexa com concavidade positiva (@\frac{d^2M}{dt^2} > 0@)</td>
+          </tr>
+          <tr>
+            <td><strong>Comportamento para @t \in (0, 1)@</strong></td>
+            <td>@M_{\text{simples}}(t) > M_{\text{composto}}(t)@</td>
+            <td>@M_{\text{composto}}(t) < M_{\text{simples}}(t)@</td>
+          </tr>
+          <tr>
+            <td><strong>Ponto de Equivalência (@t = 1@)</strong></td>
+            <td>@M_{\text{simples}}(1) = C(1 + i)@</td>
+            <td>@M_{\text{composto}}(1) = C(1 + i)@</td>
+          </tr>
+          <tr>
+            <td><strong>Comportamento para @t > 1@</strong></td>
+            <td>Crescimento subexponencial dominado</td>
+            <td>@M_{\text{composto}}(t) \gg M_{\text{simples}}(t)@ para @t \to \infty@</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: TAXAS PROPORCIONAIS, EQUIVALENTES E NOMINAIS
+         =============================================================== -->
+    <h2>2. Aritmética das Taxas: Proporcionais, Equivalentes e Reais</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 — Taxas Proporcionais vs. Taxas Equivalentes</h3>
+      <p>
+        Sejam duas taxas de juros @i_1@ e @i_2@ referenciadas a unidades temporais distintas (por exemplo, ao mês e ao ano), onde @k@ é o fator de conversão do período maior para o menor (@k = 12@ meses/ano, @k = 4@ trimestres/ano, etc.):
+      </p>
+      <ol>
+        <li>
+          <strong>Taxas Proporcionais (Regime Simples):</strong> Duas taxas são proporcionais se mantêm a mesma razão direta dos respectivos períodos temporais:
+          @@
+          i_1 = k \cdot i_2 \iff \frac{i_1}{k} = i_2
+          @@
+        </li>
+        <li>
+          <strong>Taxas Equivalentes (Regime Composto):</strong> Duas taxas são equivalentes quando, aplicadas a um mesmo capital inicial @C@ durante um mesmo intervalo de tempo total, geram rigorosamente o mesmo montante final:
+          @@
+          (1 + i_1) = (1 + i_2)^k \iff i_2 = \sqrt[k]{1 + i_1} - 1
+          @@
+        </li>
+      </ol>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>⚠️ Taxa Nominal versus Taxa Efetiva</h3>
+      <p>
+        Uma <strong>taxa nominal</strong> é aquela em que o período de capitalização dos juros não coincide com a unidade de tempo na qual a taxa é divulgada. Por convenção bancária, a taxa nominal é convertida para o período de capitalização por simples proporcionalidade (juros simples), mas a capitalização efetiva ocorre a juros compostos:
+      </p>
+      @@
+      i_{\text{efetiva por período}} = \frac{i_{\text{nominal}}}{k}
+      @@
+      @@
+      i_{\text{efetiva anual}} = \left(1 + \frac{i_{\text{nominal}}}{k}\right)^k - 1 > i_{\text{nominal}} \quad (\text{para } k > 1)
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 — Equação de Fisher e Taxa Real de Juros</h3>
+      <p>
+        A inflação corrói o poder de compra da moeda ao longo do tempo. Seja @i_{\text{ap}}@ a taxa aparente (nominal observada no contrato), @I@ a taxa de inflação do período e @i_r@ a <strong>taxa real</strong> (o ganho efetivo de poder de compra). A relação multiplicativa exata de Irving Fisher é dada por:
+      </p>
+      @@
+      (1 + i_{\text{ap}}) = (1 + i_r) \cdot (1 + I)
+      @@
+      <p>Isolando a taxa real @i_r@:</p>
+      @@
+      i_r = \frac{1 + i_{\text{ap}}}{1 + I} - 1 = \frac{i_{\text{ap}} - I}{1 + I}
+      @@
+      <div class="conteudo-solucao" style="border-top: 1px dashed rgba(255,255,255,0.15); margin-top: 0.8rem; padding-top: 0.6rem;">
+        <strong>Análise Crítica da Aproximação Linear:</strong><br>
+        Muitos investidores cometem o erro grave de calcular a taxa real por subtração simples: @i_r \approx i_{\text{ap}} - I@.<br>
+        Expandindo a relação exata:
+        @@
+        1 + i_{\text{ap}} = 1 + i_r + I + i_r \cdot I \implies i_r = i_{\text{ap}} - I - i_r \cdot I
+        @@
+        A aproximação @i_r \approx i_{\text{ap}} - I@ só é razoável quando o termo cruzado @i_r \cdot I \approx 0@ (isto é, em cenários de inflação insignificante). Em economias emergentes com inflações de @8\%@ a @15\%@, a diferença entre a fórmula exata e a subtração ingênua é substancial!
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: TAXAS CONTÍNUAS E O NÚMERO DE EULER
+         =============================================================== -->
+    <h2>3. Capitalização Contínua e o Número de Euler (@e@)</h2>
+
+    <p>
+      O que ocorre com o montante financeiro se dividirmos o ano em @m@ intervalos infinitesimais de capitalização (@m \to \infty@)?
+    </p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 — Limite Fundamental da Capitalização Contínua</h3>
+      <p>
+        Seja uma taxa nominal anual @r@ capitalizada @m@ vezes ao ano. O montante após @t@ anos sob capitalização contínua (@m \to \infty@) converge para:
+      </p>
+      @@
+      M(t) = \lim_{m \to \infty} C \left(1 + \frac{r}{m}\right)^{m \cdot t} = C \left[ \lim_{m \to \infty} \left(1 + \frac{r}{m}\right)^{\frac{m}{r}} \right]^{r \cdot t} = C \cdot e^{r \cdot t}
+      @@
+      <p>
+        onde @e = \lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^x \approx 2{,}7182818\dots@ é o <strong>número de Euler</strong>.
+      </p>
+      <div class="conteudo-solucao" style="border-top: 1px dashed rgba(255,255,255,0.15); margin-top: 0.8rem; padding-top: 0.6rem;">
+        Esta equação diferencial ordinária subjacente @\frac{dM}{dt} = r \cdot M@ descreve o crescimento orgânico contínuo em modelos de precificação de derivativos financeiros (como a equação de Black-Scholes), dinâmica populacional e decaimento radioativo.
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: ELASTICIDADE-PREÇO DA DEMANDA
+         =============================================================== -->
+    <h2>4. Dinâmica de Mercado: Elasticidade-Preço da Demanda</h2>
+
+    <p>
+      O subtítulo do nosso capítulo — <em>"Variou o preço, estou presente. Quem sou eu?"</em> — aponta diretamente para o conceito econômico e matemático fundamental da <strong>Elasticidade</strong>. No mercado, preços e quantidades demandadas variam de forma acoplada, regidos pela <em>Lei Geral da Demanda</em> (em geral, aumentos no preço provocam retração na quantidade consumida, @\Delta Q / \Delta P < 0@).
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.1 — Coeficiente de Elasticidade-Preço da Demanda (@\varepsilon_d@)</h3>
+      <p>
+        A <strong>Elasticidade-Preço da Demanda</strong> mede a sensibilidade percentual relativa da quantidade demandada @Q@ em resposta a uma variação percentual no preço @P@ do bem. Matematicamente, define-se:
+      </p>
+      @@
+      \varepsilon_d = - \frac{\% \Delta Q}{\% \Delta P} = - \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}} = - \frac{\Delta Q}{\Delta P} \cdot \frac{P}{Q}
+      @@
+      <p>
+        No limite infinitesimal de variações contínuas, expressa-se pela derivada da função de demanda @Q(P)@:
+      </p>
+      @@
+      \varepsilon_d(P) = - \frac{dQ}{dP} \cdot \frac{P}{Q(P)}
+      @@
+      <p>
+        <em>Convenção de sinal:</em> Adota-se o sinal negativo para que o coeficiente @\varepsilon_d@ seja expresso como uma grandeza estritamente positiva, visto que @\frac{\Delta Q}{\Delta P} < 0@ para bens comuns.
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 — Classificação Econômica e Impacto na Receita Total</h3>
+      <p>
+        A <strong>Receita Total</strong> arrecadada por um produtor é o produto do preço unitário pela quantidade vendida: @R(P) = P \cdot Q(P)@. A resposta da receita total a variações no preço depende exclusivamente do valor de @\varepsilon_d@:
+      </p>
+      <div class="tabela-container">
+        <table class="tabela-comparativa">
+          <thead>
+            <tr>
+              <th>Classificação</th>
+              <th>Valor de @\varepsilon_d@</th>
+              <th>Comportamento dos Consumidores</th>
+              <th>Se o Preço @P@ Sobe @\uparrow@</th>
+              <th>Se o Preço @P@ Desce @\downarrow@</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Demanda Elástica</strong></td>
+              <td>@\varepsilon_d > 1@</td>
+              <td>Altamente sensível a preço (bens supérfluos com muitos substitutos).</td>
+              <td>A Receita Total <strong>diminui</strong> (@R \downarrow@)</td>
+              <td>A Receita Total <strong>aumenta</strong> (@R \uparrow@)</td>
+            </tr>
+            <tr>
+              <td><strong>Elasticidade Unitária</strong></td>
+              <td>@\varepsilon_d = 1@</td>
+              <td>A variação percentual na quantidade compensa perfeitamente a variação no preço.</td>
+              <td>A Receita Total <strong>permanece máxima/constante</strong></td>
+              <td>A Receita Total <strong>permanece máxima/constante</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Demanda Inelástica</strong></td>
+              <td>@0 \le \varepsilon_d < 1@</td>
+              <td>Pouco sensível a preço (bens essenciais: insulina, água, energia, sal).</td>
+              <td>A Receita Total <strong>aumenta</strong> (@R \uparrow@)</td>
+              <td>A Receita Total <strong>diminui</strong> (@R \downarrow@)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="conteudo-solucao" style="border-top: 1px dashed rgba(255,255,255,0.15); margin-top: 0.8rem; padding-top: 0.6rem;">
+        <strong>Demonstração Analítica via Diferenciação da Receita:</strong><br>
+        Derivando a Receita @R(P) = P \cdot Q(P)@ em relação ao preço @P@ pela regra do produto:
+        @@
+        \frac{dR}{dP} = \frac{d}{dP}[P \cdot Q(P)] = 1 \cdot Q(P) + P \cdot \frac{dQ}{dP} = Q(P) \left[ 1 + \frac{P}{Q(P)} \frac{dQ}{dP} \right]
+        @@
+        Como @\varepsilon_d = - \frac{P}{Q}\frac{dQ}{dP}@, segue a célebre relação de Amoroso-Robinson:
+        @@
+        \frac{dR}{dP} = Q(P) \cdot [1 - \varepsilon_d]
+        @@
+        Como a quantidade vendida @Q(P) > 0@:
+        <ul>
+          <li>Se @\varepsilon_d < 1 \implies 1 - \varepsilon_d > 0 \implies \frac{dR}{dP} > 0@: elevar o preço aumenta a receita total!</li>
+          <li>Se @\varepsilon_d > 1 \implies 1 - \varepsilon_d < 0 \implies \frac{dR}{dP} < 0@: elevar o preço destrói a receita total!</li>
+          <li>Se @\varepsilon_d = 1 \implies \frac{dR}{dP} = 0@: a receita atinge seu ponto crítico de máximo estrito! @\blacksquare@</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>5. Exemplos Resolvidos Passo a Passo</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 — Comparação Analítica e Gráfica entre Juros Simples e Compostos</h3>
+      <p>
+        Um capital de @C = \text{R\$\,} 10.000{,}00@ é aplicado à taxa de @20\%@ ao ano (@i = 0{,}20@).
+      </p>
+      <ol type="a">
+        <li>Determine a equação do montante simples @M_s(t)@ e composto @M_c(t)@ em função dos anos @t@.</li>
+        <li>Calcule os montantes em @t = 0{,}5@ ano (6 meses), @t = 1@ ano, @t = 2@ anos e @t = 5@ anos.</li>
+        <li>Explique analiticamente por que o regime simples rende mais do que o composto no intervalo @0 < t < 1@.</li>
+      </ol>
+
+      <h4>Resolução:</h4>
+      <p><strong>Passo 1: Expressões funcionais dos montantes.</strong></p>
+      <ul>
+        <li>Regime Simples (Função Afim / PA):
+          @@
+          M_s(t) = 10000 \cdot (1 + 0{,}20 \cdot t) = 2000t + 10000
+          @@
+          (PA com @a_0 = 10000@ e razão @r = 2000@).
+        </li>
+        <li>Regime Composto (Função Exponencial / PG):
+          @@
+          M_c(t) = 10000 \cdot (1 + 0{,}20)^t = 10000 \cdot (1{,}20)^t
+          @@
+          (PG com @g_0 = 10000@ e razão @q = 1{,}20@).
+        </li>
+      </ul>
+
+      <p><strong>Passo 2: Avaliação nos instantes solicitados.</strong></p>
+      <ul>
+        <li>Para @t = 0{,}5@ ano:
+          @@
+          M_s(0{,}5) = 10000 \cdot (1 + 0{,}20 \times 0{,}5) = 10000 \cdot 1{,}10 = \text{R\$\,} 11.000{,}00
+          @@
+          @@
+          M_c(0{,}5) = 10000 \cdot (1{,}20)^{0{,}5} = 10000 \cdot \sqrt{1{,}20} \approx 10000 \cdot 1{,}095445 = \text{R\$\,} 10.954{,}45
+          @@
+          <em>Observe que @M_s(0{,}5) > M_c(0{,}5)@!</em>
+        </li>
+        <li>Para @t = 1@ ano:
+          @@
+          M_s(1) = 10000 \cdot (1 + 0{,}20) = \text{R\$\,} 12.000{,}00
+          @@
+          @@
+          M_c(1) = 10000 \cdot (1{,}20)^1 = \text{R\$\,} 12.000{,}00
+          @@
+          <em>No período @t = 1@, os regimes são rigorosamente equivalentes.</em>
+        </li>
+        <li>Para @t = 2@ anos:
+          @@
+          M_s(2) = 10000 + 2000 \times 2 = \text{R\$\,} 14.000{,}00
+          @@
+          @@
+          M_c(2) = 10000 \cdot (1{,}20)^2 = 10000 \cdot 1{,}44 = \text{R\$\,} 14.400{,}00
+          @@
+        </li>
+        <li>Para @t = 5@ anos:
+          @@
+          M_s(5) = 10000 + 2000 \times 5 = \text{R\$\,} 20.000{,}00
+          @@
+          @@
+          M_c(5) = 10000 \cdot (1{,}20)^5 = 10000 \cdot 2{,}48832 = \text{R\$\,} 24.883{,}20
+          @@
+        </li>
+      </ul>
+
+      <p><strong>Passo 3: Justificativa geométrica e analítica para @0 < t < 1@.</strong></p>
+      <p>
+        A função exponencial @f(t) = (1 + i)^t@ é estritamente côncava para cima (convexa), pois @f''(t) = [\ln(1+i)]^2 (1+i)^t > 0@. A reta secante que une os pontos @(0, 1)@ e @(1, 1+i)@ é precisamente a reta dos juros simples @g(t) = 1 + it@. Pela definição matemática de função estritamente convexa, a corda linear situa-se <strong>estritamente acima</strong> do arco da curva no interior do intervalo @(0, 1)@:
+      </p>
+      @@
+      (1 + i)^t < 1 + it \quad \forall\, t \in (0, 1)
+      @@
+      <p>
+        Logo, para qualquer fração de período menor que 1, os juros simples rendem mais do que os compostos!
+      </p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 — Equação de Fisher e a Armadilha da Subtração Ingênua</h3>
+      <p>
+        Uma instituição financeira oferece um Certificado de Depósito Bancário (CDB) pré-fixado com rentabilidade aparente de @15{,}5\%@ ao ano. No mesmo período de um ano, o índice oficial de inflação (IPCA) foi medido em @8{,}0\%@.
+      </p>
+      <ol type="a">
+        <li>Calcule a taxa real de juros @i_r@ exata obtida pelo aplicador utilizando a Equação de Fisher.</li>
+        <li>Compare o resultado com a subtração ingênua @i_{\text{ap}} - I@ e quantifique a distorção relativa.</li>
+      </ol>
+
+      <h4>Resolução:</h4>
+      <p><strong>Passo 1: Aplicação da Equação de Fisher.</strong></p>
+      <p>Temos @i_{\text{ap}} = 0{,}155@ e @I = 0{,}08@. Pela relação:</p>
+      @@
+      (1 + i_{\text{ap}}) = (1 + i_r)(1 + I) \implies 1 + i_r = \frac{1 + 0{,}155}{1 + 0{,}08} = \frac{1{,}155}{1{,}08}
+      @@
+      <p>Efetuando a divisão com rigor decimal:</p>
+      @@
+      \frac{1{,}155}{1{,}08} = \frac{1155}{1080} = \frac{77}{72} \approx 1{,}069444\dots
+      @@
+      @@
+      i_r = 1{,}069444 - 1 = 0{,}069444 \approx 6{,}944\% \text{ ao ano.}
+      @@
+
+      <p><strong>Passo 2: Comparação com a subtração linear ingênua.</strong></p>
+      <p>A subtração ingênua produziria:</p>
+      @@
+      i_{r,\text{ingênuo}} = 15{,}5\% - 8{,}0\% = 7{,}50\%
+      @@
+      <p>Calculando o erro absoluto de sobrestimação:</p>
+      @@
+      \text{Erro} = 7{,}50\% - 6{,}944\% = 0{,}556\% \text{ (ou cerca de 55,6 pontos-base)}
+      @@
+      <p>
+        A distorção relativa é de @\frac{0{,}556}{6{,}944} \approx 8{,}01\%@ a mais do que o rendimento real efetivo! Isso demonstra que a subtração ignora que o rendimento nominal de @15{,}5\%@ também sofre erosão inflacionária de @8\%@ sobre sua própria parcela de ganho.
+      </p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 — Elasticidade-Preço e Maximização de Receita em Demanda Linear</h3>
+      <p>
+        A demanda de mercado por um software educativo obedece à equação linear:
+      </p>
+      @@
+      Q(P) = 1200 - 40P \quad (\text{para } 0 \le P \le 30)
+      @@
+      <ol type="a">
+        <li>Encontre a expressão da Elasticidade-Preço da Demanda @\varepsilon_d(P)@ em função do preço @P@.</li>
+        <li>Determine o preço para o qual a demanda apresenta elasticidade unitária (@\varepsilon_d = 1@).</li>
+        <li>Determine a função da Receita Total @R(P)@ e demonstre que seu ponto de máximo estrito coincide exatamente com o ponto onde @\varepsilon_d = 1@.</li>
+      </ol>
+
+      <h4>Resolução:</h4>
+      <p><strong>Passo 1: Expressão da Elasticidade.</strong></p>
+      <p>A derivada da função de demanda em relação ao preço é @\frac{dQ}{dP} = -40@. Aplicando a definição:</p>
+      @@
+      \varepsilon_d(P) = - \frac{dQ}{dP} \cdot \frac{P}{Q(P)} = -(-40) \cdot \frac{P}{1200 - 40P} = \frac{40P}{40(30 - P)} = \frac{P}{30 - P}
+      @@
+
+      <p><strong>Passo 2: Preço com Elasticidade Unitária (@\varepsilon_d = 1@).</strong></p>
+      @@
+      \frac{P}{30 - P} = 1 \implies P = 30 - P \implies 2P = 30 \implies P = \text{R\$\,} 15{,}00
+      @@
+      <p>Para este preço, a quantidade demandada é @Q(15) = 1200 - 40(15) = 1200 - 600 = 600@ unidades.</p>
+
+      <p><strong>Passo 3: Receita Total e Ponto de Máximo.</strong></p>
+      <p>A Receita Total é dada por:</p>
+      @@
+      R(P) = P \cdot Q(P) = P \cdot (1200 - 40P) = -40P^2 + 1200P
+      @@
+      <p>
+        Esta é uma <strong>Função Quadrática</strong> com concavidade voltada para baixo (@a = -40 < 0@). As raízes são @P = 0@ e @P = 30@. O vértice da parábola, que fornece o ponto de máximo absoluto da receita, é:
+      </p>
+      @@
+      P_v = -\frac{b}{2a} = -\frac{1200}{2(-40)} = \frac{1200}{80} = \text{R\$\,} 15{,}00
+      @@
+      <p>
+        A receita máxima arrecadada é:
+      </p>
+      @@
+      R(15) = 15 \times 600 = \text{R\$\,} 9.000{,}00
+      @@
+      <p>
+        Fica provado analiticamente que o ponto de máximo da receita ocorre <em>precisamente</em> quando a elasticidade é unitária (@P = 15@, @\varepsilon_d = 1@). Para @P < 15@, a demanda é inelástica (@\varepsilon_d < 1@); para @P > 15@, a demanda é elástica (@\varepsilon_d > 1@).
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO
+         =============================================================== -->
+    <h2>6. Exercícios Conceituais de Fixação Rápida</h2>
+
+    <ol class="lista-exercicios">
+      <!-- Exercício 1 -->
+      <li>
+        <strong>(Progressão Aritmética e Juros Simples)</strong> Um capital de @C = \text{R\$\,} 5.000{,}00@ é aplicado a juros simples de @2\%@ ao mês durante 24 meses. Identifique o termo inicial e a razão da PA que descreve a evolução mensal dos montantes e calcule o montante final @M_{24}@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            A razão da PA é o juro periódico fixo:
+            @@
+            r = C \cdot i = 5000 \times 0{,}02 = \text{R\$\,} 100{,}00
+            @@
+            O termo inicial é @a_0 = C = 5000@. O montante ao fim de 24 meses é:
+            @@
+            M_{24} = a_0 + 24 \cdot r = 5000 + 24 \times 100 = 5000 + 2400 = \text{R\$\,} 7.400{,}00
+            @@
+            <p><strong>Resposta:</strong> Termo inicial @a_0 = 5000@, razão @r = 100@ e montante final @M_{24} = \text{R\$\,} 7.400{,}00@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 2 -->
+      <li>
+        <strong>(Progressão Geométrica e Duplicação de Capital)</strong> Um capital é aplicado a juros compostos com uma taxa de @10\%@ ao ano (@i = 0{,}10@). Utilizando a aproximação @\log_{10}(2) \approx 0{,}3010@ e @\log_{10}(1{,}10) \approx 0{,}0414@, calcule o número inteiro mínimo de anos necessários para que o montante acumulado seja pelo menos o dobro do capital inicial.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Queremos @M_n \ge 2C \implies C(1{,}10)^n \ge 2C \implies (1{,}10)^n \ge 2@.<br>
+            Aplicando o logaritmo decimal em ambos os membros:
+            @@
+            n \cdot \log_{10}(1{,}10) \ge \log_{10}(2) \implies n \ge \frac{0{,}3010}{0{,}0414} \approx 7{,}27\text{ anos.}
+            @@
+            Como o número de períodos é inteiro na capitalização anual, são necessários no mínimo <strong>8 anos</strong> para ultrapassar o dobro.
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 3 -->
+      <li>
+        <strong>(Taxas Equivalentes)</strong> Qual é a taxa de juros trimestral equivalente à taxa composta de @44\%@ em 6 meses (dois trimestres)?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Seja @i_t@ a taxa trimestral. Em 2 trimestres:
+            @@
+            (1 + i_t)^2 = 1 + i_s = 1 + 0{,}44 = 1{,}44
+            @@
+            Extraindo a raiz quadrada:
+            @@
+            1 + i_t = \sqrt{1{,}44} = 1{,}20 \implies i_t = 0{,}20 = 20\% \text{ ao trimestre.}
+            @@
+            <p><strong>Resposta:</strong> @20\%@ ao trimestre.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 4 -->
+      <li>
+        <strong>(Taxa Efetiva vs. Nominal)</strong> Um banco anuncia um empréstimo com taxa nominal de @24\%@ ao ano com capitalização mensal. Qual é a taxa efetiva anual cobrada? (Dado: @1{,}02^{12} \approx 1{,}26824@).
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            A taxa mensal proporcional é:
+            @@
+            i_m = \frac{24\%}{12} = 2\% \text{ ao mês} = 0{,}02
+            @@
+            A taxa efetiva anual @i_{\text{ef}}@ sob capitalização mensal é:
+            @@
+            1 + i_{\text{ef}} = (1 + 0{,}02)^{12} = 1{,}26824 \implies i_{\text{ef}} \approx 26{,}82\% \text{ ao ano.}
+            @@
+            <p><strong>Resposta:</strong> A taxa efetiva anual é de aproximadamente @26{,}82\%@, sensivelmente superior à taxa nominal declarada de @24\%@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 5 -->
+      <li>
+        <strong>(Perda do Poder de Compra por Inflação)</strong> Uma inflação acumulada de @25\%@ em um período reduz o poder de compra de uma quantia fixa de dinheiro em exatamente quantos por cento?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Se o índice de preços sobe para @P' = P(1 + 0{,}25) = 1{,}25P@, o poder de compra da unidade monetária passa a ser:
+            @@
+            \text{Poder de compra} = \frac{1}{1 + I} = \frac{1}{1{,}25} = \frac{4}{5} = 0{,}80 = 80\%
+            @@
+            A perda no poder de compra é:
+            @@
+            1 - 0{,}80 = 0{,}20 = 20\%
+            @@
+            <p><strong>Resposta:</strong> A perda no poder de compra é de @20\%@ (e não de @25\%@!).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 6 -->
+      <li>
+        <strong>(Crescimento Contínuo com Euler)</strong> Um fundo de alta frequência capitaliza continuamente juros a uma taxa nominal instantânea de @r = 8\%@ ao ano. Qual o montante gerado após 3 anos para um investimento inicial de @\text{R\$\,} 10.000{,}00@? (Dado: @e^{0{,}24} \approx 1{,}27125@).
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Pela fórmula de capitalização contínua:
+            @@
+            M(t) = C \cdot e^{rt} = 10000 \cdot e^{0{,}08 \times 3} = 10000 \cdot e^{0{,}24} \approx 10000 \times 1{,}27125 = \text{R\$\,} 12.712{,}50
+            @@
+            <p><strong>Resposta:</strong> @\text{R\$\,} 12.712{,}50@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 7 -->
+      <li>
+        <strong>(Elasticidade em Ponto Específico)</strong> Um posto de combustíveis vende @20.000@ litros de gasolina por dia quando o preço é @\text{R\$\,} 5{,}00@. Ao subir o preço para @\text{R\$\,} 5{,}50@ (aumento de @10\%@), o volume vendido cai para @19.000@ litros (redução de @5\%@). Calcule o coeficiente de elasticidade-preço da demanda e classifique-a.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Temos:
+            @@
+            \% \Delta P = \frac{5{,}50 - 5{,}00}{5{,}00} = +0{,}10 = +10\%
+            @@
+            @@
+            \% \Delta Q = \frac{19000 - 20000}{20000} = -0{,}05 = -5\%
+            @@
+            O coeficiente de elasticidade é:
+            @@
+            \varepsilon_d = - \frac{\% \Delta Q}{\% \Delta P} = - \frac{-5\%}{+10\%} = 0{,}5
+            @@
+            Como @\varepsilon_d = 0{,}5 < 1@, a demanda é <strong>inelástica</strong>.
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 8 -->
+      <li>
+        <strong>(Estratégia de Receita com Demanda Inelástica)</strong> Com base no exercício anterior, calcule a receita total do posto antes e depois do reajuste de preço e conclua por que o aumento de preço foi vantajoso financeiramente para o revendedor.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <ul>
+              <li>Receita inicial: @R_1 = 5{,}00 \times 20.000 = \text{R\$\,} 100.000{,}00@ por dia.</li>
+              <li>Receita final: @R_2 = 5{,}50 \times 19.000 = \text{R\$\,} 104.500{,}00@ por dia.</li>
+            </ul>
+            Houve um aumento líquido de @\text{R\$\,} 4.500{,}00@ diários na Receita Total. Isso ocorre porque, quando @\varepsilon_d < 1@ (demanda inelástica), o ganho percentual obtido em cada unidade vendida (@+10\%@) supera a retração percentual na quantidade comercializada (@-5\%@).
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 9 -->
+      <li>
+        <strong>(Desconto "Comercial" vs. Desconto "Racional")</strong> Em termos de funções, o desconto racional (por dentro) a juros simples corresponde a encontrar o valor presente @V_p = \frac{N}{1 + it}@, enquanto o desconto bancário comercial (por fora) adota @V_c = N(1 - it)@. Mostre algebricamente que @V_p > V_c@ para qualquer @t > 0@ e @i > 0@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Multiplicando @V_c = N(1 - it)@ por @\frac{1 + it}{1 + it}@:
+            @@
+            V_c = \frac{N(1 - it)(1 + it)}{1 + it} = \frac{N(1 - i^2 t^2)}{1 + it}
+            @@
+            Comparando com @V_p = \frac{N}{1 + it}@:
+            @@
+            V_p - V_c = \frac{N - N(1 - i^2 t^2)}{1 + it} = \frac{N \cdot i^2 t^2}{1 + it} > 0
+            @@
+            Como @N, i, t > 0@, essa diferença é estritamente positiva, provando que o valor creditado no desconto comercial é sempre estritamente menor (ou seja, a taxa real embutida no desconto bancário comercial é maior do que a taxa nominal declarada).
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 10 -->
+      <li>
+        <strong>(Soma dos Termos de PG em Finanças)</strong> Um investidor decide aplicar @R = \text{R\$\,} 1.000{,}00@ no final de cada mês, durante 3 meses, em uma aplicação que rende @1\%@ ao mês (@i = 0{,}01@) a juros compostos. Calcule o saldo acumulado total ao término do 3º mês utilizando a soma de uma PG finita.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Os montantes gerados por cada depósito formam os termos de uma PG:
+            <ul>
+              <li>1º depósito (capitaliza por 2 meses): @1000 \cdot (1{,}01)^2@.</li>
+              <li>2º depósito (capitaliza por 1 mês): @1000 \cdot (1{,}01)^1@.</li>
+              <li>3º depósito (feito na data focal final): @1000 \cdot (1{,}01)^0 = 1000@.</li>
+            </ul>
+            A soma dos 3 termos da PG de razão @q = 1{,}01@ é:
+            @@
+            S_3 = 1000 \cdot \frac{(1{,}01)^3 - 1}{1{,}01 - 1} = 1000 \cdot \frac{1{,}030301 - 1}{0{,}01} = 1000 \cdot \frac{0{,}030301}{0{,}01} = 1000 \times 3{,}0301 = \text{R\$\,} 3.030{,}10
+            @@
+            <p><strong>Resposta:</strong> @\text{R\$\,} 3.030{,}10@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 11 -->
+      <li>
+        <strong>(Taxa Real Negativa)</strong> Um investimento em poupança rendeu @6{,}0\%@ ao ano em um período em que a inflação oficial foi de @10{,}0\%@ ao ano. Calcule a taxa real de retorno exata e explique o significado econômico de um retorno real negativo.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Pela Equação de Fisher:
+            @@
+            1 + i_r = \frac{1 + 0{,}06}{1 + 0{,}10} = \frac{1{,}06}{1{,}10} \approx 0{,}963636\dots
+            @@
+            @@
+            i_r \approx 0{,}963636 - 1 = -0{,}03636 = -3{,}64\% \text{ ao ano.}
+            @@
+            Embora o saldo na conta bancária tenha aumentado numericamente (@+6\%@), o aplicador perdeu aproximadamente @3{,}64\%@ do seu poder real de compra: ao fim do ano, seu dinheiro compra menos bens e serviços do que no início da aplicação.
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 12 -->
+      <li>
+        <strong>(Sensibilidade e Elasticidade Cruzada)</strong> Se a função de demanda for perfeitamente inelástica (@\varepsilon_d = 0@), qual é a forma geométrica de sua curva no plano cartesiano @(P, Q)@? Dê um exemplo prático de um produto com essa característica extrema.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Se @\varepsilon_d = 0@, a quantidade demandada @Q@ é absolutamente constante e indiferente a qualquer variação no preço @P@: @Q(P) = Q_0 = \text{constante}@.<br>
+            No plano @(P, Q)@ (com @Q@ na horizontal e @P@ na vertical), a curva é uma <strong>reta vertical</strong> perfeitamente rígida.<br>
+            Exemplo prático: medicamentos insubstituíveis e vitais em doses fixas diárias (como a insulina para diabéticos do tipo 1), nos quais o paciente consome estritamente a quantidade prescrita, independentemente de oscilações no preço.
+          </div>
+        </details>
+      </li>
+    </ol>
+
+    <div style="margin: 2.5rem 0; text-align: center;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+    </div>
+
+</article>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

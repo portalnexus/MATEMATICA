@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - A Beleza nos Olhos: Proporção, Porcentagem e Matemática Comercial</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-3em {
+      background-color: rgba(239, 68, 68, 0.3);
+      border: 2px solid #ef4444;
+      color: #fee2e2;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-3em">3º Ano EM</div>
+
+    <h1>A Beleza nos Olhos: Proporção, Porcentagem e Matemática Comercial</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 3: "A beleza nos olhos: Proporção, Porcentagem e Matemática Comercial" &mdash; Rigor FME e Aplicações Econômicas
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E CONTEXTO HISTÓRICO-EPISTEMOLÓGICO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para o domínio formal deste compêndio, estruturado sob a referência clássica dos <em>Fundamentos de Matemática Elementar (FME - Vol. 11: Matemática Financeira)</em> e os padrões analíticos da OBMEP, o estudante deve mobilizar:</p>
+      <ul>
+        <li><strong>Aritmética e Álgebra Fundamental:</strong> razões e proporções elementares, propriedade fundamental das proporções (@\frac{a}{b} = \frac{c}{d} \iff ad = bc@) e equações quadráticas.</li>
+        <li><strong>Sequências Numéricas e Limites:</strong> relações de recorrência lineares de 2ª ordem, limites de sequências reais (@\lim_{n \to \infty} a_n@) e convergência.</li>
+        <li><strong>Equações Exponenciais e Logarítmicas:</strong> juros compostos, fatores multiplicadores acumulados (@\prod@) e manipulação algébrica de taxas fracionárias.</li>
+      </ul>
+    </div>
+
+    <p>
+      Desde os primórdios da civilização helênica com os pitagóricos, a <strong>proporção</strong> (<em>analogia</em>) foi compreendida como a essência oculta do cosmos: "tudo é número e proporção". No Livro VI dos <em>Elementos</em> de Euclides (c. 300 a.C.), a célebre divisão de um segmento em "extrema e média razão" inaugurou o estudo sistemático do número de ouro (@\Phi@).
+    </p>
+    <p>
+      No século XIII, <strong>Leonardo de Pisa (Fibonacci)</strong> publicou o <em>Liber Abaci</em> (1202), revolucionando tanto a modelagem biológica do crescimento populacional quanto a aritmética comercial do comércio mediterrâneo. Hoje, a matemática das proporções e porcentagens forma o alicerce indispensável da economia, dos mercados de capitais, da precificação estratégica de ativos e da proteção contra a corrosão inflacionária da moeda.
+    </p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: TEORIA DAS PROPORÇÕES E A RAZÃO ÁUREA
+         =============================================================== -->
+    <h2>1. Teoria das Proporções, a Razão Áurea (@\Phi@) e a Sequência de Fibonacci</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Divisão em Extrema e Média Razão de Euclides)</h3>
+      <p>
+        Diz-se que um segmento de reta contínuo @AB@ de comprimento @a + b@ é dividido por um ponto interno em <strong>extrema e média razão</strong> quando a razão entre o comprimento total e a parte maior (@a@) é exatamente igual à razão entre a parte maior (@a@) e a parte menor (@b@):
+      </p>
+      @@\frac{a + b}{a} = \frac{a}{b} = \Phi, \quad \text{onde } a > b > 0@@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.1 (Determinação Algébrica Exata do Número Áureo @\Phi@)</h3>
+      <p>A partir da definição de extrema e média razão:</p>
+      @@\frac{a + b}{a} = \frac{a}{b} \iff 1 + \frac{b}{a} = \frac{a}{b}@@
+      <p>Definindo @\Phi = \frac{a}{b}@, temos que @\frac{b}{a} = \frac{1}{\Phi}@. Substituindo:</p>
+      @@1 + \frac{1}{\Phi} = \Phi \iff \Phi + 1 = \Phi^2 \iff \Phi^2 - \Phi - 1 = 0@@
+      <p>Aplicando a fórmula quadrática com @a = 1, b = -1, c = -1@:</p>
+      @@\Phi = \frac{-(-1) \pm \sqrt{(-1)^2 - 4(1)(-1)}}{2(1)} = \frac{1 \pm \sqrt{5}}{2}@@
+      <p>Como comprimentos são grandezas estritamente positivas, descartamos a raiz negativa e obtemos a <strong>Razão Áurea Canônica</strong>:</p>
+      @@\Phi = \frac{1 + \sqrt{5}}{2} \approx 1{,}618033988749895\dots@@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.2 (Propriedades Algébricas Notáveis de @\Phi@)</h3>
+      <ol>
+        <li><strong>Potência Quadrática e Recíproco:</strong>
+          @@\Phi^2 = \Phi + 1 \approx 2{,}6180339887\dots@@
+          @@\frac{1}{\Phi} = \Phi - 1 = \frac{\sqrt{5} - 1}{2} \approx 0{,}6180339887\dots@@
+          <em>(@\Phi@ é o único número real positivo cuja parte decimal coincide perfeitamente com a de seu inverso multiplicativo!).</em>
+        </li>
+        <li><strong>Fração Contínua Simples Infinita:</strong> Substituindo recursivamente @\Phi = 1 + \frac{1}{\Phi}@:
+          @@\Phi = 1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{\ddots}}}} = [1; 1, 1, 1, \dots]@@
+          Pelo Teorema de Hurwitz na Teoria dos Números, @\Phi@ é formalmente classificado como o <em>número irracional mais nobre</em> (o mais resistente e lento a aproximações diofantinas por frações racionais).
+        </li>
+        <li><strong>Radical Infinito Aninhado:</strong> De @\Phi^2 = 1 + \Phi \implies \Phi = \sqrt{1 + \Phi}@:
+          @@\Phi = \sqrt{1 + \sqrt{1 + \sqrt{1 + \sqrt{1 + \cdots}}}}@@
+        </li>
+      </ol>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.3 (A Sequência de Fibonacci e a Fórmula de Binet)</h3>
+      <p>
+        A <strong>sequência de Fibonacci</strong> @(F_n)_{n \geq 0}@ é definida recursivamente por:
+      </p>
+      @@F_0 = 0, \quad F_1 = 1, \quad F_n = F_{n-1} + F_{n-2} \quad (\forall n \geq 2)@@
+      <p>Os primeiros termos são: @0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, \dots@</p>
+      <p><strong>Fórmula Fechada de Jacques Binet (1843):</strong></p>
+      @@F_n = \frac{1}{\sqrt{5}} \left[ \left(\frac{1 + \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^n \right] = \frac{\Phi^n - (-\Phi)^{-n}}{\sqrt{5}}@@
+      <p><strong>Limite das Razões Consecutivas:</strong></p>
+      @@\lim_{n \to \infty} \frac{F_{n+1}}{F_n} = \Phi = \frac{1 + \sqrt{5}}{2}@@
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>A Espiral Logarítmica Equiangular na Natureza e na Arte</h3>
+      <p>
+        Construindo quadrados sucessivos com lados iguais aos números de Fibonacci (@1, 1, 2, 3, 5, 8, \dots@) e traçando arcos de circunferência circulares de @90^\circ@ em cada um, gera-se a <em>Espiral de Fibonacci</em>, que aproxima assintoticamente a <strong>Espiral Logarítmica Equiangular</strong>:
+      </p>
+      @@r(\theta) = a \cdot e^{b\theta}@@
+      <p>
+        Essa curva possui a propriedade de auto-similaridade invariante por escala: ampliações geométricas conservam perfeitamente o ângulo @\alpha@ constante entre o raio vetor e o vetor tangente. Esse padrão emerge inevitavelmente:
+      </p>
+      <ul>
+        <li><strong>Na Biologia:</strong> Na filotaxia botânica (distribuição angular de sementes no miolo de girassóis e brácteas de pinhas no ângulo áureo @\theta_{\text{áureo}} \approx 137{,}5^\circ@ para empacotamento volumétrico máximo sem auto-sombreamento) e nas câmaras do molusco marinho <em>Nautilus pompilius</em>.</li>
+        <li><strong>Na Astrofísica:</strong> Na estrutura dos braços estelares de galáxias espirais (como a Via Láctea e Andrômeda).</li>
+        <li><strong>Na Arquitetura e Pintura:</strong> Nas proporções da fachada do Partenon em Atenas, no Homem Vitruviano desenhado por Leonardo da Vinci e na grade de composição modulor do arquiteto moderno Le Corbusier.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: PORCENTAGEM E VARIAÇÕES SUCESSIVAS
+         =============================================================== -->
+    <h2>2. Porcentagem, Fatores de Multiplicação e Variações Sucessivas</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Taxa Percentual e Fatores de Atualização)</h3>
+      <p>
+        Uma porcentagem @p\%@ representa a fração centesimal @i = \frac{p}{100}@. Quando um capital ou valor inicial @V_0@ sofre uma alteração percentual:
+      </p>
+      <ul>
+        <li><strong>Acréscimo de @p\%@ (Taxa @+i@):</strong>
+          @@V_1 = V_0 + i \cdot V_0 = V_0(1 + i)@@
+          O termo @(1 + i)@ é o <strong>Fator de Multiplicação de Aumento</strong> (@F > 1@).
+        </li>
+        <li><strong>Decréscimo de @p\%@ (Taxa @-i@):</strong>
+          @@V_1 = V_0 - i \cdot V_0 = V_0(1 - i)@@
+          O termo @(1 - i)@ é o <strong>Fator de Multiplicação de Desconto</strong> (@0 < F < 1@).
+        </li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Variações Percentuais Sucessivas e Taxa Acumulada)</h3>
+      <p>
+        Se um valor inicial @V_0@ é submetido a uma sequência de @n@ variações percentuais sucessivas @i_1, i_2, \dots, i_n@ (onde cada @i_k@ é positivo para aumentos e negativo para reduções), o valor final é obtido pelo produto contínuo dos fatores multiplicadores:
+      </p>
+      @@V_n = V_0 \cdot \prod_{k=1}^n (1 + i_k) = V_0(1 + i_1)(1 + i_2)\cdots(1 + i_n)@@
+      <p>A <strong>taxa percentual equivalente acumulada</strong> @i_{\text{total}}@ satisfaz rigorosamente:</p>
+      @@1 + i_{\text{total}} = \prod_{k=1}^n (1 + i_k) \iff i_{\text{total}} = \left[\prod_{k=1}^n (1 + i_k)\right] - 1@@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Teorema da Assimetria Percentual e Inversão Compensatória)</h3>
+      <ol>
+        <li>
+          <strong>Assimetria de Variações Iguais Opostas:</strong> Um aumento percentual de @i@ seguido de uma redução idêntica de @i@ (ou vice-versa) <strong>nunca</strong> reconstitui o patrimônio original. O resultado líquido final é sempre deficitário:
+          @@(1 + i)(1 - i) = 1 - i^2 < 1@@
+          A perda líquida permanente é exatamente igual a @i^2@ (por exemplo, @+20\%@ seguido de @-20\%@ gera @1 - (0{,}2)^2 = 0{,}96@, ou seja, <strong>perda de 4%</strong>).
+        </li>
+        <li>
+          <strong>Fórmula da Inversão Compensatória:</strong> Se um ativo sofre uma desvalorização de taxa @d \in (0, 1)@, a taxa percentual de valorização compensatória @u@ necessária para restabelecer rigorosamente o valor original deve cumprir:
+          @@(1 - d)(1 + u) = 1 \iff 1 + u = \frac{1}{1 - d} \implies u = \frac{d}{1 - d}@@
+          Em termos percentuais (@d\%@):
+          @@u\% = \frac{d\%}{100\% - d\%} \times 100\%@@
+        </li>
+      </ol>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: MATEMÁTICA COMERCIAL RIGOROSA
+         =============================================================== -->
+    <h2>3. Matemática Comercial: Margem sobre o Custo versus Margem sobre a Venda</h2>
+
+    <p>
+      Um dos pontos mais críticos da gestão financeira corporativa reside na distinção matemática entre o <strong>lucro sobre o preço de custo</strong> e o <strong>lucro sobre o preço de venda</strong>.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Relações Fundamentais de Lucro e Venda)</h3>
+      <p>Sejam @C@ o Custo Total de aquisição/produção, @V@ o Preço de Venda faturado e @L = V - C@ o Lucro Bruto monetário:</p>
+      <ul>
+        <li>
+          <strong>Taxa de Lucro sobre o Custo (@i_C@):</strong> É a taxa calculada tomando o custo @C@ como base de referência (denominador):
+          @@i_C = \frac{L}{C} = \frac{V - C}{C} = \frac{V}{C} - 1 \implies V = C(1 + i_C)@@
+        </li>
+        <li>
+          <strong>Taxa de Lucro sobre a Venda (@i_V@ - Margem de Venda):</strong> É a taxa calculada tomando o faturamento bruto @V@ como base de referência (denominador):
+          @@i_V = \frac{L}{V} = \frac{V - C}{V} = 1 - \frac{C}{V} \implies \frac{C}{V} = 1 - i_V \iff V = \frac{C}{1 - i_V}@@
+        </li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Formulário de Conversão Exata entre @i_C@ e @i_V@)</h3>
+      <p>As duas taxas relacionam-se formalmente pelas transformações bijetivas:</p>
+      @@i_C = \frac{i_V}{1 - i_V} \quad \text{e} \quad i_V = \frac{i_C}{1 + i_C}@@
+      <p><strong>Propriedades Matemáticas Cruciais:</strong></p>
+      <ul>
+        <li>Como @1 - i_V < 1@ para qualquer lucro positivo (@i_V > 0@), temos sempre @i_C > i_V@. A taxa sobre o custo é estritamente maior que a margem sobre a venda!</li>
+        <li>A margem sobre a venda é estritamente limitada superiormente: @i_V < 1@ (ou seja, @i_V < 100\%@). Uma margem de @100\%@ sobre a venda exigiria @C = 0@ (custo de produção nulo). Já a taxa sobre o custo @i_C@ não possui limite superior (@i_C \in [0, +\infty)@).</li>
+      </ul>
+    </div>
+
+    <!-- TABELA COMPARATIVA DE MARGENS -->
+    <h3>Tabela de Equivalência de Margens Comerciais</h3>
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Margem sobre o Custo (@i_C@)</th>
+            <th>Fórmula @i_V = \frac{i_C}{1 + i_C}@</th>
+            <th>Margem sobre a Venda (@i_V@)</th>
+            <th>Preço Venda p/ @C = \text{R\$} 100@</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>@25{,}00\%@</td>
+            <td>@\frac{0{,}25}{1{,}25}@</td>
+            <td><strong>@20{,}00\%@</strong></td>
+            <td>R$ 125,00</td>
+          </tr>
+          <tr>
+            <td>@33{,}33\%@ (@1/3@)</td>
+            <td>@\frac{1/3}{4/3}@</td>
+            <td><strong>@25{,}00\%@</strong></td>
+            <td>R$ 133,33</td>
+          </tr>
+          <tr>
+            <td>@50{,}00\%@</td>
+            <td>@\frac{0{,}50}{1{,}50}@</td>
+            <td><strong>@33{,}33\%@</strong></td>
+            <td>R$ 150,00</td>
+          </tr>
+          <tr>
+            <td>@100{,}00\%@ (Dobro do custo)</td>
+            <td>@\frac{1{,}00}{2{,}00}@</td>
+            <td><strong>@50{,}00\%@</strong></td>
+            <td>R$ 200,00</td>
+          </tr>
+          <tr>
+            <td>@300{,}00\%@ (Quádruplo)</td>
+            <td>@\frac{3{,}00}{4{,}00}@</td>
+            <td><strong>@75{,}00\%@</strong></td>
+            <td>R$ 400,00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.2 (O Mark-up Multiplicador Comercial)</h3>
+      <p>
+        No comércio real, o preço final deve cobrir, além do custo de aquisição da mercadoria (@C@), alíquotas percentuais que incidem diretamente sobre o preço de venda bruto final (@V@), tais como impostos "por dentro" (ICMS, PIS, COFINS, ISS), despesas administrativas fixas (@DF@), comissões de venda (@DV@) e a margem de lucro líquido pretendida (@LL@).
+      </p>
+      <p>
+        Seja @\Sigma = \%DF + \%DV + \%Impostos + \%LL@ a soma total das taxas incidentes sobre a venda. O preço de equilíbrio é:
+      </p>
+      @@V = C + \Sigma \cdot V \iff V(1 - \Sigma) = C \implies V = C \times \left(\frac{1}{1 - \Sigma}\right)@@
+      <p>O termo @\text{MK}_{\text{multiplicador}} = \frac{1}{1 - \Sigma}@ é o <strong>Mark-up Multiplicador</strong>.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: ÍNDICES DE PREÇOS E CORREÇÃO MONETÁRIA
+         =============================================================== -->
+    <h2>4. Índices de Preços, Poder de Compra e a Equação de Fisher</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.1 (Inflação e Perda de Poder Aquisitivo da Moeda)</h3>
+      <p>
+        A <strong>inflação</strong> (@I@) é a taxa ponderada de elevação contínua e generalizada do nível de preços de uma cesta de bens e serviços. Se o preço médio de um bem passa de @P_0@ para @P_1 = P_0(1 + I)@, a quantidade de bens que uma unidade monetária compra sofre uma retração estrita:
+      </p>
+      @@\text{Poder de Compra} = \frac{1}{1 + I} = (1 + I)^{-1}@@
+      <p>A taxa de desvalorização do poder de compra (@\delta_{\text{moeda}}@) é dada por:</p>
+      @@\delta_{\text{moeda}} = 1 - \frac{1}{1 + I} = \frac{I}{1 + I}@@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Equação de Irving Fisher para Taxas Reais de Juros)</h3>
+      <p>
+        Seja um investimento financeiro que rende uma <strong>taxa de juros nominal (ou aparente)</strong> @i_{\text{nominal}}@ em um período em que a inflação medida pelo índice oficial de preços foi @I@. A <strong>taxa de juros real</strong> @i_{\text{real}}@ (o ganho efetivo em poder de compra) é regida pela relação exata de Fisher:
+      </p>
+      @@(1 + i_{\text{nominal}}) = (1 + i_{\text{real}})(1 + I)@@
+      <p>Isolando a taxa real @i_{\text{real}}@:</p>
+      @@i_{\text{real}} = \frac{1 + i_{\text{nominal}}}{1 + I} - 1 = \frac{i_{\text{nominal}} - I}{1 + I}@@
+      <p>
+        <strong>Aproximação Linear Clássica:</strong> Quando @I@ e @i_{\text{nominal}}@ são taxas pequenas (próximas de zero), o denominador @1 + I \approx 1@, gerando a conhecida aproximação linear @i_{\text{real}} \approx i_{\text{nominal}} - I@. Contudo, em cenários de juros ou inflação elevados, a fórmula linear gera distorções graves e não deve ser utilizada em análises acadêmicas rigorosas!
+      </p>
+    </div>
+
+    <!-- ERRO COMUM -->
+    <div class="erro-comum">
+      <h3>⚠️ Armadilhas e Falácias Clássicas na Matemática Comercial</h3>
+      <ul>
+        <li><strong>A Falácia do "Leve 3 e Pague 2":</strong> A publicidade frequentemente induz o consumidor a pensar em "50% de desconto" (pois levou metade a mais). Na verdade, comprou-se 3 produtos pagando o preço de 2; o desconto real é @\frac{3 - 2}{3} = \frac{1}{3} \approx 33{,}33\%@.</li>
+        <li><strong>Somar Variações Percentuais:</strong> Dizer que um aumento de 10% seguido de um aumento de 10% totaliza 20%. O correto é @(1{,}10) \times (1{,}10) = 1{,}21 \implies 21\%@.</li>
+        <li><strong>Confundir Lucro sobre Custo com Lucro sobre Venda:</strong> Um comerciante que compra um item por R$ 100 e quer ter "30% de margem na venda" e vende por R$ 130 está cometendo um erro primário: @\frac{30}{130} \approx 23{,}08\%@. O preço correto de venda seria @\frac{100}{1 - 0{,}30} = \text{R\$} 142{,}86@.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>5. Exemplos Resolvidos Passo a Passo</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1: Construção do Retângulo Áureo e Fração Contínua</h3>
+      <p>
+        Um arquiteto deseja projetar uma sala retangular cujas dimensões @(x, y)@ obedeçam rigorosamente à proporção áurea @\frac{x}{y} = \Phi@. Sabendo que o perímetro total da sala é de @52{,}36 \text{ metros}@:
+      </p>
+      <ol type="a">
+        <li>Determine o comprimento exato dos lados @x@ e @y@ (adote @\Phi \approx 1{,}618@).</li>
+        <li>Demonstre algebricamente que se retirarmos da sala um quadrado perfeito de lado @y \times y@, o retângulo remanescente preservará a mesma proporção áurea @\Phi@.</li>
+      </ol>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Escrever as equações com base no perímetro:</p>
+      @@2x + 2y = 52{,}36 \implies x + y = 26{,}18 \text{ metros}@@
+      <p>Como @x = \Phi \cdot y \approx 1{,}618 y@:</p>
+      @@1{,}618 y + y = 26{,}18 \iff 2{,}618 y = 26{,}18 \implies y = \frac{26{,}18}{2{,}618} = 10 \text{ metros}@@
+      <p>O comprimento do lado maior @x@ é:</p>
+      @@x = 26{,}18 - 10 = 16{,}18 \text{ metros}@@
+
+      <p><strong>Passo 2:</strong> Demonstração da auto-similaridade do retângulo remanescente:</p>
+      <p>Ao remover um quadrado de lado @y@, os novos lados da figura remanescente passam a ser @y@ e @(x - y)@.</p>
+      <p>A razão entre o lado maior (@y@) e o lado menor (@x - y@) do novo retângulo é:</p>
+      @@\frac{y}{x - y} = \frac{1}{\frac{x - y}{y}} = \frac{1}{\frac{x}{y} - 1}@@
+      <p>Como @\frac{x}{y} = \Phi@, temos:</p>
+      @@\frac{y}{x - y} = \frac{1}{\Phi - 1}@@
+      <p>Pela identidade áurea @\Phi^2 - \Phi - 1 = 0 \iff \Phi(\Phi - 1) = 1 \implies \frac{1}{\Phi - 1} = \Phi@.</p>
+      <p>Logo, @\frac{y}{x - y} = \Phi@, provando que o retângulo menor remanescente é perfeitamente áureo e semelhante ao original! @\blacksquare@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2: Formação de Preço de Venda com Mark-up Completo</h3>
+      <p>
+        Uma loja adquire um televisor de última geração do fabricante por @C = \text{R\$} \; 2.000,00@. Sobre o faturamento bruto de venda, incidem as seguintes obrigações percentuais:
+      </p>
+      <ul>
+        <li>Tributos diretos por dentro (ICMS + PIS/COFINS): @18\%@</li>
+        <li>Comissão dos vendedores e taxas de cartão: @5\%@</li>
+        <li>Despesas fixas administrativas proporcionais: @7\%@</li>
+        <li>Margem de lucro líquido almejada pela diretoria: @15\%@</li>
+      </ul>
+      <p>Determine a taxa acumulada incidente sobre a venda, o Mark-up Multiplicador e o Preço de Venda faturado final @V@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Calcular o somatório das deduções e margem sobre a venda:</p>
+      @@\Sigma = 18\% + 5\% + 7\% + 15\% = 45\% = 0{,}45@@
+
+      <p><strong>Passo 2:</strong> Calcular o Mark-up Multiplicador:</p>
+      @@\text{MK}_{\text{multiplicador}} = \frac{1}{1 - \Sigma} = \frac{1}{1 - 0{,}45} = \frac{1}{0{,}55} \approx 1{,}81818\dots@@
+
+      <p><strong>Passo 3:</strong> Determinar o preço de venda faturado @V@:</p>
+      @@V = C \times \text{MK}_{\text{multiplicador}} = 2.000 \times \frac{1}{0{,}55} = \frac{2.000}{0{,}55} \approx \text{R\$} \; 3.636,36@@
+
+      <p><strong>Conferência da DRE (Demonstração do Resultado):</strong></p>
+      <ul>
+        <li>Faturamento Bruto: R$ 3.636,36 (100%)</li>
+        <li>Impostos (18%): R$ 654,54</li>
+        <li>Comissões/Cartão (5%): R$ 181,82</li>
+        <li>Despesas Fixas (7%): R$ 254,55</li>
+        <li>Custo da Mercadoria: R$ 2.000,00 (55%)</li>
+        <li>Lucro Líquido Real (15%): R$ 545,45 (exatamente 15% de R$ 3.636,36!).</li>
+      </ul>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3: Cálculo Rigoroso do Ganho Real via Equação de Fisher</h3>
+      <p>
+        Uma aplicação de renda fixa rendeu juros nominais brutos de @14\%@ ao longo de um ano. No mesmo período, o IPCA (inflação oficial) acumulou alta de @6\%@.
+      </p>
+      <ol type="a">
+        <li>Determine a taxa de juros real exata pelo Teorema de Fisher.</li>
+        <li>Calcule a taxa de juros real pela aproximação linear simples e determine o erro absoluto cometido.</li>
+      </ol>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Aplicação da Equação Exata de Fisher:</p>
+      @@i_{\text{real}} = \frac{1 + i_{\text{nominal}}}{1 + I} - 1 = \frac{1 + 0{,}14}{1 + 0{,}06} - 1 = \frac{1{,}14}{1{,}06} - 1@@
+      @@i_{\text{real}} = 1{,}0754717 - 1 = 0{,}0754717 \approx 7{,}55\%@@
+
+      <p><strong>Passo 2:</strong> Aplicação da aproximação linear ingênua:</p>
+      @@i_{\text{aprox}} = i_{\text{nominal}} - I = 14\% - 6\% = 8{,}00\%@@
+
+      <p><strong>Passo 3:</strong> Análise do erro:</p>
+      <p>O investidor que usa a fórmula aproximada acredita ter ganhado @8{,}00\%@, quando na realidade seu ganho real foi de @7{,}55\%@. O erro absoluto foi de:</p>
+      @@\Delta = 8{,}00\% - 7{,}55\% = 0{,}45\% \text{ (ou 45 pontos-base)}@@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO
+         =============================================================== -->
+    <h2>6. Exercícios Conceituais de Fixação Rápida</h2>
+
+    <ol class="lista-exercicios">
+      <!-- EXERCÍCIO 1 -->
+      <li>
+        <strong>(Fórmula de Binet e Fibonacci)</strong>
+        Sabendo que @F_n = \frac{\Phi^n - (1-\Phi)^n}{\sqrt{5}}@, determine algebricamente o valor do 5º termo @F_5@ da sequência de Fibonacci utilizando que @\Phi = \frac{1+\sqrt{5}}{2}@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Pela definição recursiva, os termos são @F_1=1, F_2=1, F_3=2, F_4=3, F_5=5@.</p>
+            <p>Pela fórmula de Binet, como @|1 - \Phi| = \left|\frac{1-\sqrt{5}}{2}\right| \approx 0{,}618 < 1@, para @n=5@:</p>
+            @@(1 - \Phi)^5 = \left(\frac{1-\sqrt{5}}{2}\right)^5 = \frac{1 - 5\sqrt{5} + 10(5) - 10(5\sqrt{5}) + 5(25) - 25\sqrt{5}}{32} = \frac{176 - 80\sqrt{5}}{32} = \frac{11 - 5\sqrt{5}}{2}@@
+            <p>Analogamente, @\Phi^5 = \frac{11 + 5\sqrt{5}}{2}@.</p>
+            <p>Subtraindo as duas potências:</p>
+            @@\Phi^5 - (1-\Phi)^5 = \frac{(11 + 5\sqrt{5}) - (11 - 5\sqrt{5})}{2} = \frac{10\sqrt{5}}{2} = 5\sqrt{5}@@
+            <p>Dividindo por @\sqrt{5}@:</p>
+            @@F_5 = \frac{5\sqrt{5}}{\sqrt{5}} = 5 \quad \blacksquare@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 2 -->
+      <li>
+        <strong>(Inversão Compensatória de Desvalorização)</strong>
+        As ações de uma empresa de tecnologia sofreram uma queda abrupta de @36\%@ durante uma crise setorial. Qual deve ser o percentual exato de valorização subsequente que essas ações precisam atingir para retornar ao valor anterior à queda?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Usamos a fórmula da inversão compensatória com @d = 0{,}36@:</p>
+            @@u = \frac{d}{1 - d} = \frac{0{,}36}{1 - 0{,}36} = \frac{0{,}36}{0{,}64} = \frac{36}{64} = \frac{9}{16} = 0{,}5625@@
+            <p>Em percentual: @u\% = 56{,}25\%@.</p>
+            <p><em>Verificação:</em> @(1 - 0{,}36)(1 + 0{,}5625) = 0{,}64 \times 1{,}5625 = 1{,}00@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 3 -->
+      <li>
+        <strong>(Acréscimos e Descontos Sucessivos Opostos)</strong>
+        O preço de uma mercadoria subiu @25\%@ em janeiro e sofreu um desconto de @25\%@ na liquidação de fevereiro. Sabendo que o preço final em fevereiro foi de R$ 375,00, determine o preço original da mercadoria no início de janeiro.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> O fator multiplicador combinado é:</p>
+            @@F = (1 + 0{,}25)(1 - 0{,}25) = 1 - (0{,}25)^2 = 1 - 0{,}0625 = 0{,}9375@@
+            <p>Assim, o preço final @P_f@ relaciona-se com o inicial @P_0@ por:</p>
+            @@P_f = P_0 \times 0{,}9375 \implies 375 = P_0 \times \frac{15}{16}@@
+            @@P_0 = \frac{375 \times 16}{15} = 25 \times 16 = \text{R\$} \; 400,00@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 4 -->
+      <li>
+        <strong>(Conversão entre Margens de Custo e de Venda)</strong>
+        Um gerente comercial estabeleceu como meta corporativa uma margem de lucro sobre o faturamento de venda de @i_V = 40\%@. Qual é a taxa percentual de acréscimo que deve ser aplicada sobre o preço de custo dos produtos para alcançar essa meta?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Aplicando a relação analítica de conversão de @i_V@ para @i_C@:</p>
+            @@i_C = \frac{i_V}{1 - i_V} = \frac{0{,}40}{1 - 0{,}40} = \frac{0{,}40}{0{,}60} = \frac{2}{3} \approx 0{,}6667@@
+            <p>Portanto, o mark-up sobre o custo deve ser de <strong>@66{,}67\%@</strong> (ou @66 \frac{2}{3}\%@).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 5 -->
+      <li>
+        <strong>(Análise Matemática da Ilusão "Leve 4 Pague 3")</strong>
+        Um supermercado anuncia a seguinte promoção promocional: "Leve 4 sabonetes e Pague apenas 3". Calcule a taxa percentual de desconto real concedida ao cliente em cada sabonete individualmente.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Seja @p@ o preço de tabela unitário de 1 sabonete. O valor normal de 4 sabonetes seria @4p@.</p>
+            <p>O cliente paga @3p@ e leva 4 unidades. O preço unitário efetivo pago é @\frac{3p}{4} = 0{,}75p@.</p>
+            <p>O desconto unitário real em relação ao preço de tabela é:</p>
+            @@\text{Desconto} = \frac{4p - 3p}{4p} = \frac{1}{4} = 25\%@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 6 -->
+      <li>
+        <strong>(Desconto "50% na Segunda Unidade")</strong>
+        Uma loja de calçados anuncia que na compra de dois pares de tênis idênticos, o cliente ganha @50\%@ de desconto sobre o segundo par. Qual é a porcentagem de desconto global concedida sobre o valor total da compra dos dois pares?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Seja @P@ o valor de cada par. Sem a promoção, o total para dois pares seria @2P@.</p>
+            <p>Com a promoção, o cliente paga pelo primeiro par @P@ e pelo segundo @0{,}50P@, totalizando:</p>
+            @@P_{\text{pago}} = P + 0{,}50P = 1{,}50P@@
+            <p>O desconto percentual total sobre o pacote é:</p>
+            @@\text{Desconto Global} = \frac{2P - 1{,}50P}{2P} = \frac{0{,}50P}{2P} = \frac{0{,}50}{2} = 0{,}25 = 25\%@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 7 -->
+      <li>
+        <strong>(Equação de Fisher com Inflação Alta)</strong>
+        Em um ano de forte instabilidade macroeconômica, uma aplicação rendeu @32\%@ de taxa nominal, enquanto a inflação do período atingiu @20\%@. Calcule a taxa real de rendimento obtida pelo aplicador.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Pela Equação de Fisher:</p>
+            @@i_{\text{real}} = \frac{1 + i_{\text{nominal}}}{1 + I} - 1 = \frac{1 + 0{,}32}{1 + 0{,}20} - 1 = \frac{1{,}32}{1{,}20} - 1 = 1{,}10 - 1 = 0{,}10 = 10\%@@
+            <p><em>(Note que a aproximação linear simples @32\% - 20\% = 12\%@ erraria por 200 pontos-base!).</em></p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 8 -->
+      <li>
+        <strong>(Poder de Compra da Moeda)</strong>
+        Se um país acumula uma inflação de @150\%@ ao longo de um triênio, a quanto é reduzido o poder de compra da moeda local em relação ao início do período?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> O fator de aumento dos preços é @1 + I = 1 + 1{,}50 = 2{,}50@.</p>
+            <p>O poder de compra é dado pelo inverso:</p>
+            @@\text{Poder de Compra} = \frac{1}{1 + I} = \frac{1}{2{,}50} = 0{,}40 = 40\%@@
+            <p>A moeda perdeu @60\%@ do seu poder de compra original (@\delta = \frac{1{,}50}{2{,}50} = 0{,}60@).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 9 -->
+      <li>
+        <strong>(Mark-up Multiplicador com Tributos e Custos)</strong>
+        Um comerciante compra um relógio por R$ 300,00. Ele planeja que os impostos absorvam @15\%@ do preço de venda, custos operacionais consumam @10\%@ do preço de venda e que seu lucro líquido seja de @25\%@ sobre o preço de venda. Calcule o preço de venda de etiqueta do relógio.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> A soma dos percentuais sobre a venda é:</p>
+            @@\Sigma = 15\% + 10\% + 25\% = 50\% = 0{,}50@@
+            <p>O mark-up multiplicador é:</p>
+            @@\text{MK} = \frac{1}{1 - 0{,}50} = \frac{1}{0{,}50} = 2@@
+            <p>O preço de venda deve ser:</p>
+            @@V = C \times \text{MK} = 300 \times 2 = \text{R\$} \; 600,00@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 10 -->
+      <li>
+        <strong>(Propriedade da Fração Contínua Áurea)</strong>
+        Mostre algebricamente que se truncarmos a fração contínua de @\Phi@ na terceira convergente @C_3 = 1 + \frac{1}{1 + \frac{1}{1}}@, o resultado obtido é a razão de dois termos consecutivos da sequência de Fibonacci.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Calculamos de baixo para cima:</p>
+            @@C_1 = 1 = \frac{1}{1} = \frac{F_2}{F_1}@@
+            @@C_2 = 1 + \frac{1}{1} = 2 = \frac{2}{1} = \frac{F_3}{F_2}@@
+            @@C_3 = 1 + \frac{1}{1 + \frac{1}{1}} = 1 + \frac{1}{2} = \frac{3}{2} = \frac{F_4}{F_3}@@
+            <p>De fato, a terceira convergente é exatamente @\frac{3}{2} = \frac{F_4}{F_3} = 1{,}5@, que aproxima @\Phi \approx 1{,}618@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 11 -->
+      <li>
+        <strong>(Taxa Acumulada em Três Períodos)</strong>
+        O faturamento de uma startup registrou três variações consecutivas: crescimento de @30\%@ no 1º trimestre, contração de @10\%@ no 2º trimestre e novo crescimento de @20\%@ no 3º trimestre. Determine a taxa acumulada real de variação do faturamento ao final dos três trimestres.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Multiplicamos os fatores de cada trimestre:</p>
+            @@F = (1 + 0{,}30)(1 - 0{,}10)(1 + 0{,}20) = 1{,}30 \times 0{,}90 \times 1{,}20@@
+            @@1{,}30 \times 0{,}90 = 1{,}17@@
+            @@1{,}17 \times 1{,}20 = 1{,}404@@
+            <p>A taxa acumulada é @i_{\text{total}} = 1{,}404 - 1 = 0{,}404 = 40{,}4\%@.</p>
+            <p><em>(Perceba que somar ingenuamente @30\% - 10\% + 20\% = 40\%@ ignoraria a capitalização composta acumulada).</em></p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 12 -->
+      <li>
+        <strong>(Ângulo Áureo na Filotaxia Vegetal)</strong>
+        O ângulo áureo @\theta_{\text{áureo}}@ é a porção menor de uma circunferência dividida na razão áurea: @\theta_{\text{áureo}} = \frac{360^\circ}{\Phi^2}@. Calcule o valor numérico aproximado desse ângulo em graus sexagesimais (com uma casa decimal) e explique por que ele maximiza a captação de luz pelas folhas de uma planta.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Como @\Phi^2 = \Phi + 1 \approx 2{,}6180339887@:</p>
+            @@\theta_{\text{áureo}} = \frac{360^\circ}{2{,}618034} \approx 137{,}5077^\circ \approx 137{,}5^\circ@@
+            <p><strong>Justificativa Biológico-Matemática:</strong></p>
+            <p>
+              Como @\Phi@ é o número irracional mais distante de aproximações racionais simples (fração contínua de uns), cada nova folha ou semente que brota girando @137{,}5^\circ@ em relação à anterior nunca se sobrepõe diretamente a uma folha inferior em nenhuma volta completa. Isso impede o auto-sombreamento e garante o empacotamento espacial e a captação solar máximos para a fotossíntese.
+            </p>
+          </div>
+        </details>
+      </li>
+    </ol>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 35px; margin-bottom: 25px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+    <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

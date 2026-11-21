@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Ponte, Farol e Espelho: Otimização e Parábolas</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-3em {
+      background-color: rgba(239, 68, 68, 0.3);
+      border: 2px solid #ef4444;
+      color: #fee2e2;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-3em">3º Ano EM</div>
+
+    <h1>Ponte, Farol e Espelho: Otimização e Parábolas</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 2: "Ponte, Farol e Espelho: Otimização e Parábolas" &mdash; Geometria Analítica Cônica e Modelagem Rigorosa FME
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E CONTEXTO HISTÓRICO-EPISTEMOLÓGICO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para o domínio analítico completo deste compêndio, estruturado sob a referência clássica dos <em>Fundamentos de Matemática Elementar (FME - Vol. 7: Geometria Analítica)</em> de Gelson Iezzi e os princípios de otimização da OBMEP, o estudante deve mobilizar:</p>
+      <ul>
+        <li><strong>Geometria Analítica Plana:</strong> distância euclidiana entre dois pontos @d(P_1, P_2) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}@ e distância de um ponto a uma reta @d(P, r) = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}@.</li>
+        <li><strong>Função Polinomial do 2º Grau:</strong> forma canônica @f(x) = ax^2 + bx + c@, discriminante @\Delta = b^2 - 4ac@ e coordenadas do vértice por completamento de quadrados.</li>
+        <li><strong>Cinemática Vetorial Bidimensional:</strong> decomposição cartesiana de movimentos retilíneos uniformes (MRU) e uniformemente variados (MRUV).</li>
+      </ul>
+    </div>
+
+    <p>
+      As curvas cônicas foram descobertas e batizadas pelos matemáticos gregos no século IV a.C., com destaque para <strong>Menecmo</strong> e, posteriormente, tratadas de forma enciclopédica por <strong>Apolônio de Perga</strong> em sua obra-prima <em>Das Cônicas</em>. A parábola surge originalmente como a seção plana de um cone circular reto por um plano paralelo a uma de suas geratrizes.
+    </p>
+    <p>
+      Durante quase dois milênios, a parábola foi vista como uma curiosidade puramente especulativa. Foi no Renascimento e na Revolução Científica que ela assumiu o centro da física: <strong>Galileu Galilei</strong> (1638) demonstrou que a trajetória dos projéteis no vácuo é exatamente parabólica, e <strong>Isaac Newton</strong> com <strong>James Gregory</strong> revolucionaram a óptica ao demonstrar que espelhos parabólicos concentram todos os raios luminosos paralelos em um único ponto focal sem aberração esférica.
+    </p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: DEFINIÇÃO GEOMÉTRICA COMO LUGAR GEOMÉTRICO
+         =============================================================== -->
+    <h2>1. A Parábola como Lugar Geométrico Fundamental</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Definição Métrica de Parábola)</h3>
+      <p>
+        Sejam dados em um plano euclidiano um ponto fixo @F@ e uma reta @d@ que não contém @F@. Denomina-se <strong>parábola</strong> o lugar geométrico de todos os pontos @P@ do plano que são <em>equidistantes</em> do ponto @F@ e da reta @d@:
+      </p>
+      @@\mathcal{P} = \{P \in \mathbb{R}^2 \mid \operatorname{dist}(P, F) = \operatorname{dist}(P, d)\}@@
+      <p>Os elementos estruturais da parábola são definidos como:</p>
+      <ul>
+        <li><strong>Foco (@F@):</strong> O ponto fixo gerador da cônica.</li>
+        <li><strong>Diretriz (@d@):</strong> A reta fixa de referência.</li>
+        <li><strong>Eixo Focal (ou Eixo de Simetria):</strong> A reta @e@ perpendicular à diretriz @d@ passando pelo foco @F@. A parábola é estritamente simétrica em relação a esse eixo.</li>
+        <li><strong>Vértice (@V@):</strong> O ponto da parábola pertencente ao eixo focal. Como @V \in \mathcal{P}@, @\operatorname{dist}(V, F) = \operatorname{dist}(V, d)@, o que significa que o vértice é exatamente o <strong>ponto médio</strong> do segmento que une o foco à sua projeção ortogonal sobre a diretriz.</li>
+        <li><strong>Parâmetro (@p@):</strong> A distância euclidiana estrita entre o foco @F@ e a reta diretriz @d@:
+          @@p = \operatorname{dist}(F, d) > 0@@
+          Consequentemente, a distância do vértice ao foco e do vértice à diretriz é exatamente:
+          @@\operatorname{dist}(V, F) = \operatorname{dist}(V, d) = \frac{p}{2}@@
+        </li>
+        <li><strong>Latus Rectum:</strong> A corda que passa pelo foco perpendicularmente ao eixo focal. Seu comprimento linear total é exatamente @2p@.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: DEDUÇÃO FORMAL DAS EQUAÇÕES CANÔNICAS
+         =============================================================== -->
+    <h2>2. Dedução Analítica e Equações Canônicas da Parábola</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Equação Canônica com Eixo Focal Vertical)</h3>
+      <p>
+        Fixemos um sistema cartesiano de coordenadas ortogonais com a origem coincidindo com o vértice da parábola @V(0, 0)@ e o eixo de simetria sobre o eixo das ordenadas (@y@).
+      </p>
+      <p>Nesta configuração:</p>
+      <ul>
+        <li>O foco tem coordenadas: @F\left(0, \frac{p}{2}\right)@ (para parábola com concavidade voltada para cima).</li>
+        <li>A reta diretriz tem equação cartesiana: @d: y = -\frac{p}{2} \iff y + \frac{p}{2} = 0@.</li>
+      </ul>
+      <p><strong>Demonstração Analítica:</strong></p>
+      <p>Um ponto genérico @P(x, y)@ pertence à parábola se, e somente se, @\operatorname{dist}(P, F) = \operatorname{dist}(P, d)@:</p>
+      @@\sqrt{(x - 0)^2 + \left(y - \frac{p}{2}\right)^2} = \left|y - \left(-\frac{p}{2}\right)\right| = \left|y + \frac{p}{2}\right|@@
+      <p>Elevando ambos os membros ao quadrado (sendo ambos não-negativos):</p>
+      @@x^2 + \left(y - \frac{p}{2}\right)^2 = \left(y + \frac{p}{2}\right)^2@@
+      <p>Expandindo os trinômios quadrados perfeitos:</p>
+      @@x^2 + y^2 - 2y\left(\frac{p}{2}\right) + \frac{p^2}{4} = y^2 + 2y\left(\frac{p}{2}\right) + \frac{p^2}{4}@@
+      <p>Cancelando os termos idênticos @y^2@ e @\frac{p^2}{4}@:</p>
+      @@x^2 - py = py \iff x^2 = 2py@@
+      <p>
+        Isolando a ordenada @y@:
+      </p>
+      @@y = \frac{1}{2p} x^2@@
+      <p>
+        Isso estabelece formalmente a identidade entre a parábola geométrica de Apolônio e o gráfico da função quadrática pura @y = ax^2@, onde @a = \frac{1}{2p} \iff p = \frac{1}{2a}@.
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Classificação Geral das Equações Reduzidas)</h3>
+      <div class="tabela-container">
+        <table class="tabela-comparativa">
+          <thead>
+            <tr>
+              <th>Eixo Focal</th>
+              <th>Vértice</th>
+              <th>Foco @F@</th>
+              <th>Diretriz @d@</th>
+              <th>Equação Canônica</th>
+              <th>Abertura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Vertical (@// y@)</td>
+              <td>@(0, 0)@</td>
+              <td>@(0, p/2)@</td>
+              <td>@y = -p/2@</td>
+              <td>@x^2 = 2py@</td>
+              <td>Para cima</td>
+            </tr>
+            <tr>
+              <td>Vertical (@// y@)</td>
+              <td>@(0, 0)@</td>
+              <td>@(0, -p/2)@</td>
+              <td>@y = p/2@</td>
+              <td>@x^2 = -2py@</td>
+              <td>Para baixo</td>
+            </tr>
+            <tr>
+              <td>Horizontal (@// x@)</td>
+              <td>@(0, 0)@</td>
+              <td>@(p/2, 0)@</td>
+              <td>@x = -p/2@</td>
+              <td>@y^2 = 2px@</td>
+              <td>Para a direita</td>
+            </tr>
+            <tr>
+              <td>Horizontal (@// x@)</td>
+              <td>@(0, 0)@</td>
+              <td>@(-p/2, 0)@</td>
+              <td>@x = p/2@</td>
+              <td>@y^2 = -2px@</td>
+              <td>Para a esquerda</td>
+            </tr>
+            <tr>
+              <td>Vertical translada</td>
+              <td>@(x_v, y_v)@</td>
+              <td>@(x_v, y_v + p/2)@</td>
+              <td>@y = y_v - p/2@</td>
+              <td>@(x - x_v)^2 = 2p(y - y_v)@</td>
+              <td>Para cima</td>
+            </tr>
+            <tr>
+              <td>Horizontal translada</td>
+              <td>@(x_v, y_v)@</td>
+              <td>@(x_v + p/2, y_v)@</td>
+              <td>@x = x_v - p/2@</td>
+              <td>@(y - y_v)^2 = 2p(x - x_v)@</td>
+              <td>Para a direita</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: PROPRIEDADE ÓPTICA E ACÚSTICA DA REFLEXÃO
+         =============================================================== -->
+    <h2>3. A Propriedade Óptica e Acústica da Reflexão Parabólica</h2>
+
+    <p>
+      A propriedade física e geométrica mais notável da parábola decorre do comportamento dos seus vetores tangentes e normais em cada ponto da curva.
+    </p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Teorema da Reflexão Parabólica)</h3>
+      <p>
+        Seja @P(x_0, y_0)@ um ponto qualquer pertencente à parábola @x^2 = 2py@. A reta tangente @t@ à parábola no ponto @P@ é a <strong>bissetriz do ângulo</strong> formado entre:
+      </p>
+      <ol>
+        <li>O raio focal @\vec{PF}@ (que une o ponto @P@ ao foco @F@);</li>
+        <li>A reta paralela ao eixo de simetria da parábola que passa por @P@.</li>
+      </ol>
+      <p><strong>Demonstração Rigorosa:</strong></p>
+      <p>
+        A equação da parábola é @y = \frac{1}{2p}x^2@. A inclinação (coeficiente angular) da reta tangente no ponto @(x_0, y_0)@ é dada pela derivada:
+      </p>
+      @@m_t = y'(x_0) = \frac{x_0}{p}@@
+      <p>
+        A equação da reta tangente @t@ é:
+      </p>
+      @@y - y_0 = \frac{x_0}{p}(x - x_0) \iff y = \frac{x_0}{p}x - \frac{x_0^2}{p} + y_0@@
+      <p>
+        Como @x_0^2 = 2p y_0@, temos @\frac{x_0^2}{p} = 2y_0@. Substituindo:
+      </p>
+      @@y = \frac{x_0}{p}x - y_0@@
+      <p>
+        A reta tangente corta o eixo @y@ (eixo de simetria) no ponto @Q(0, -y_0)@.
+      </p>
+      <p>
+        Agora, calculemos as distâncias @\overline{FQ}@ e @\overline{FP}@:
+      </p>
+      <ul>
+        <li>O foco é @F\left(0, \frac{p}{2}\right)@ e @Q\left(0, -y_0\right)@. Como ambos estão no eixo @y@:
+          @@\overline{FQ} = \frac{p}{2} - (-y_0) = y_0 + \frac{p}{2}@@
+        </li>
+        <li>Pela definição geométrica fundamental da parábola, a distância @\overline{FP}@ de qualquer ponto à diretriz @y = -p/2@ é:
+          @@\overline{FP} = \operatorname{dist}(P, d) = y_0 - \left(-\frac{p}{2}\right) = y_0 + \frac{p}{2}@@
+        </li>
+      </ul>
+      <p>
+        Constatamos que @\overline{FQ} = \overline{FP}@! Portanto, o triângulo @\triangle FPQ@ é <strong>isósceles</strong> de base @PQ@. Consequentemente, os ângulos da base são congruentes:
+      </p>
+      @@\angle FQP = \angle FPQ@@
+      <p>
+        Por outro lado, uma reta vertical que desce de @P@ paralelamente ao eixo @y@ forma com a tangente @t@ um ângulo alterno interno congruente a @\angle FQP@. Conclui-se que o ângulo de incidência do raio vertical é rigorosamente idêntico ao ângulo de reflexão em direção ao foco @F@! @\blacksquare@
+      </p>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Consequências Tecnológicas e Físicas da Reflexão</h3>
+      <ul>
+        <li>
+          <strong>Antenas Parabólicas e Radiotelescópios:</strong> Ondas eletromagnéticas paralelas vindas de satélites distantes ou de galáxias remotas atingem a superfície parabólica e convergem todas sincronicamente em fase para a antena receptora posicionada no foco @F@, amplificando o sinal sem distorções temporais.
+        </li>
+        <li>
+          <strong>Faróis Automotivos e Lanternas Táticas:</strong> Uma lâmpada ou filamento LED posicionado no foco @F@ emite luz em todas as direções; ao refletir na carcaça parabólica, todos os feixes divergem em um feixe colimado perfeitamente paralelo de alta intensidade direcionado à pista.
+        </li>
+        <li>
+          <strong>Usinas Termossolares de Concentração:</strong> Calhas cilíndrico-parabólicas concentram a radiação solar direta em um tubo receptor contendo óleo térmico ao longo da linha focal, atingindo temperaturas superiores a @400^\circ\text{C}@ para gerar vapor e acionar turbinas elétricas.
+        </li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: OTIMIZAÇÃO EXTREMA E PROBLEMAS QUADRÁTICOS
+         =============================================================== -->
+    <h2>4. Teoria da Otimização Extrema de Funções Quadráticas</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Vértice e Extremo Absoluto por Completamento de Quadrados)</h3>
+      <p>
+        Seja @f: \mathbb{R} \to \mathbb{R}@ dada por @f(x) = ax^2 + bx + c@ com @a \neq 0@.
+      </p>
+      <p>Reescrevendo @f(x)@ sob a forma canônica por fatoração e completamento de quadrado:</p>
+      @@f(x) = a\left[x^2 + \frac{b}{a}x\right] + c = a\left[\left(x + \frac{b}{2a}\right)^2 - \frac{b^2}{4a^2}\right] + c@@
+      @@f(x) = a\left(x + \frac{b}{2a}\right)^2 - \frac{b^2 - 4ac}{4a} = a\left(x + \frac{b}{2a}\right)^2 - \frac{\Delta}{4a}@@
+      <p>
+        Como @\left(x + \frac{b}{2a}\right)^2 \geq 0@ para todo @x \in \mathbb{R}@, com igualdade se e somente se @x = -\frac{b}{2a}@:
+      </p>
+      <ol>
+        <li>Se @a > 0@: O termo @a\left(x + \frac{b}{2a}\right)^2 \geq 0@, logo a função atinge seu <strong>mínimo absoluto</strong> no vértice:
+          @@x_v = -\frac{b}{2a}, \quad y_{\min} = -\frac{\Delta}{4a}@@
+        </li>
+        <li>Se @a < 0@: O termo @a\left(x + \frac{b}{2a}\right)^2 \leq 0@, logo a função atinge seu <strong>máximo absoluto</strong> no vértice:
+          @@x_v = -\frac{b}{2a}, \quad y_{\max} = -\frac{\Delta}{4a}@@
+        </li>
+      </ol>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.1 (Otimização Multidimensional sob Vínculo)</h3>
+      <p>
+        Muitos problemas reais de engenharia, logística e economia exigem maximizar ou minimizar uma função de duas variáveis @Z(x, y)@ sujeita a uma equação de vínculo linear @g(x, y) = 0@. Isolando uma variável pelo vínculo (@y = \varphi(x)@) e substituindo na função objetivo, obtém-se uma função quadrática de uma única variável @Z(x)@, cujo extremo global é unicamente determinado pelas coordenadas do vértice.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: BALÍSTICA E ENGENHARIA DE CABOS E PONTES
+         =============================================================== -->
+    <h2>5. Balística no Vácuo e a Física dos Cabos: Parábola vs Catenária</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.1 (Trajetória Balística de Galileu)</h3>
+      <p>
+        Considere um corpo pontual lançado a partir de @(0, y_0)@ com velocidade inicial @v_0@ formando um ângulo @\theta@ com a horizontal, sob aceleração gravitacional constante @\vec{g} = -g\hat{j}@ sem resistência do ar. As equações paramétricas no tempo @t \geq 0@ são:
+      </p>
+      @@x(t) = (v_0 \cos \theta) t \iff t = \frac{x}{v_0 \cos \theta}@@
+      @@y(t) = y_0 + (v_0 \operatorname{sen} \theta) t - \frac{1}{2}gt^2@@
+      <p>Substituindo @t@ na equação da ordenada:</p>
+      @@y(x) = y_0 + (v_0 \operatorname{sen} \theta)\left(\frac{x}{v_0 \cos \theta}\right) - \frac{g}{2}\left(\frac{x}{v_0 \cos \theta}\right)^2@@
+      @@y(x) = y_0 + (\tan \theta) x - \left[\frac{g}{2v_0^2 \cos^2 \theta}\right] x^2@@
+      <p>
+        Como o coeficiente quadrático @a = -\frac{g}{2v_0^2 \cos^2 \theta} < 0@ é constante, a trajetória é <strong>estritamente um arco de parábola</strong> com concavidade voltada para baixo.
+      </p>
+      <p>Para lançamento do solo (@y_0 = 0@):</p>
+      <ul>
+        <li><strong>Altura Máxima:</strong> @@H_{\max} = \frac{v_0^2 \operatorname{sen}^2 \theta}{2g}@@</li>
+        <li><strong>Alcance Horizontal:</strong> @@R = \frac{v_0^2 \operatorname{sen}(2\theta)}{g}@@</li>
+        <li><strong>Alcance Máximo Global:</strong> Como @\operatorname{sen}(2\theta) \leq 1@, o alcance máximo ocorre para @2\theta = 90^\circ \iff \theta = 45^\circ@, com valor @R_{\max} = \frac{v_0^2}{g}@.</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Engenharia de Pontes Suspensas: Parábola versus Catenária</h3>
+      <p>Um dos debates mais fascinantes da história da engenharia estrutural envolve o perfil dos cabos de sustentação:</p>
+      <ul>
+        <li>
+          <strong>Cabos de Pontes Pênseis (Parábola):</strong> Em uma ponte suspensa moderna (como a Golden Gate ou a Ponte Hercílio Luz), os cabos principais sustentam um tabuleiro rígido horizontal através de tirantes verticais espaçados igualmente. O peso do tabuleiro é uniformemente distribuído <em>por metro linear horizontal</em> (@w = \text{constante}@ em @dx@). O equilíbrio de forças estáticas conduz à equação diferencial:
+          @@\frac{dy}{dx} = \frac{w}{H}x \implies y(x) = \frac{w}{2H} x^2@@
+          onde @H@ é a tração horizontal constante no cabo. A curva é uma <strong>parábola perfeita</strong>!
+        </li>
+        <li>
+          <strong>Cabos Livres e Linhas de Alta Tensão (Catenária):</strong> Um cabo homogêneo e flexível suspenso entre dois postes suportando <em>apenas o seu próprio peso</em> distribui sua carga uniformemente <em>ao longo de seu próprio comprimento de arco @ds@</em> (e não ao longo de @dx@). A curva resultante não é uma parábola, mas sim uma <strong>catenária</strong>, regida pelo cosseno hiperbólico:
+          @@y(x) = a \cosh\left(\frac{x}{a}\right) = \frac{a}{2}\left(e^{x/a} + e^{-x/a}\right)@@
+          Para pequenas flechas (desníveis pequenos em relação ao vão), a série de Taylor de @\cosh@ mostra que a parábola @y \approx a + \frac{x^2}{2a}@ é uma excelente aproximação de primeira ordem para a catenária.
+        </li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>6. Exemplos Resolvidos Passo a Passo</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1: Determinação de Foco, Diretriz e Parâmetro</h3>
+      <p>
+        Dada a parábola de equação geral @x^2 - 6x - 8y - 7 = 0@, determine:
+      </p>
+      <ol type="a">
+        <li>A equação canônica reduzida na forma @(x - x_v)^2 = 2p(y - y_v)@.</li>
+        <li>As coordenadas do vértice @V@ e do foco @F@.</li>
+        <li>A equação da reta diretriz @d@ e o comprimento do latus rectum.</li>
+      </ol>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Isolar os termos em @x@ e completar o quadrado:</p>
+      @@x^2 - 6x = 8y + 7@@
+      @@x^2 - 6x + 9 = 8y + 7 + 9 \iff (x - 3)^2 = 8y + 16@@
+      @@(x - 3)^2 = 8(y + 2)@@
+
+      <p><strong>Passo 2:</strong> Identificar os parâmetros comparando com @(x - x_v)^2 = 2p(y - y_v)@:</p>
+      <ul>
+        <li>Vértice: @x_v = 3@ e @y_v = -2@, logo @V(3, -2)@.</li>
+        <li>Parâmetro: @2p = 8 \implies p = 4@, o que implica @\frac{p}{2} = 2@.</li>
+      </ul>
+
+      <p><strong>Passo 3:</strong> Localizar o foco e a diretriz:</p>
+      <p>Como a parábola possui eixo focal vertical e abre para cima (@p > 0@):</p>
+      <ul>
+        <li>Foco: @F(x_v, y_v + p/2) = (3, -2 + 2) = F(3, 0)@.</li>
+        <li>Reta diretriz: @y = y_v - \frac{p}{2} = -2 - 2 \implies d: y = -4@.</li>
+        <li>Comprimento do latus rectum: @2p = 8@ unidades de comprimento.</li>
+      </ul>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2: Otimização de Área sob Restrição Linear de Custo</h3>
+      <p>
+        Um produtor rural dispõe de @120 \text{ metros}@ de cerca para construir três piquetes retangulares contíguos de mesma dimensão, aproveitando um muro reto já existente em sua propriedade que servirá como um dos lados maiores (não necessitando de cerca nesse lado). Determine as dimensões de cada piquete e a área total cercada máxima que pode ser obtida.
+      </p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Modelar geometricamente o problema.</p>
+      <p>
+        Sejam @x@ a largura total paralela ao muro existente e @y@ o comprimento de cada uma das divisórias perpendiculares ao muro. Como são 3 piquetes contíguos, há 2 divisórias internas mais as 2 extremidades externas, totalizando <strong>4 segmentos perpendiculares</strong> de comprimento @y@.
+      </p>
+      <p>O comprimento total de cerca disponível é:</p>
+      @@x + 4y = 120 \implies x = 120 - 4y@@
+      <p>Com a restrição física @y > 0@ e @x > 0 \implies 120 - 4y > 0 \iff y < 30@.</p>
+
+      <p><strong>Passo 2:</strong> Escrever a função área total @A(y)@:</p>
+      @@A(y) = x \cdot y = (120 - 4y)y = -4y^2 + 120y@@
+
+      <p><strong>Passo 3:</strong> Como o coeficiente @a = -4 < 0@, a função quadrática possui ponto de máximo no vértice:</p>
+      @@y_v = -\frac{b}{2a} = -\frac{120}{2(-4)} = \frac{120}{8} = 15 \text{ metros}@@
+      <p>Calculando o lado paralelo correspondente @x@:</p>
+      @@x = 120 - 4(15) = 120 - 60 = 60 \text{ metros}@@
+
+      <p><strong>Passo 4:</strong> Dimensões e área máxima:</p>
+      <ul>
+        <li>Área total máxima: @A_{\max} = 60 \times 15 = 900 \text{ m}^2@ (ou via @-\frac{\Delta}{4a} = -\frac{120^2}{4(-4)} = \frac{14.400}{16} = 900 \text{ m}^2@).</li>
+        <li>Cada um dos 3 piquetes congruentes terá dimensões de @\frac{60}{3} = 20 \text{ m}@ por @15 \text{ m}@, com área individual de @300 \text{ m}^2@.</li>
+      </ul>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3: Balística de Precisão e Ponto de Impacto</h3>
+      <p>
+        Um canhão montado em uma colina a @45 \text{ metros}@ acima do solo plano dispara um projétil com velocidade inicial @v_0 = 50 \text{ m/s}@ sob um ângulo de elevação @\theta@ tal que @\operatorname{sen} \theta = \frac{3}{5}@ e @\cos \theta = \frac{4}{5}@. Adotando @g = 10 \text{ m/s}^2@ e desprezando o atrito do ar, determine:
+      </p>
+      <ol type="a">
+        <li>A equação cartesiana da trajetória @y(x)@.</li>
+        <li>A altura máxima atingida pelo projétil em relação ao solo plano.</li>
+        <li>O alcance horizontal total até o projétil colidir com o solo plano (@y = 0@).</li>
+      </ol>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Componentes da velocidade inicial:</p>
+      @@v_{0x} = v_0 \cos \theta = 50 \times 0{,}8 = 40 \text{ m/s}@@
+      @@v_{0y} = v_0 \operatorname{sen} \theta = 50 \times 0{,}6 = 30 \text{ m/s}@@
+      <p>A equação paramétrica da trajetória com @y_0 = 45 \text{ m}@ é:</p>
+      @@t = \frac{x}{40}@@
+      @@y(x) = 45 + 30\left(\frac{x}{40}\right) - \frac{1}{2}(10)\left(\frac{x}{40}\right)^2 = 45 + \frac{3}{4}x - \frac{5}{1.600}x^2 = 45 + 0{,}75x - \frac{1}{320}x^2@@
+
+      <p><strong>Passo 2:</strong> Altura máxima em relação ao solo:</p>
+      <p>O vértice da parábola ocorre em:</p>
+      @@x_v = -\frac{b}{2a} = -\frac{3/4}{2(-1/320)} = \frac{3}{4} \times 160 = 120 \text{ metros}@@
+      <p>Substituindo @x_v = 120@ na equação:</p>
+      @@y_{\max} = 45 + \frac{3}{4}(120) - \frac{1}{320}(14.400) = 45 + 90 - 45 = 90 \text{ metros}@@
+      <p>O projétil atinge @90 \text{ metros}@ de altitude máxima acima do solo.</p>
+
+      <p><strong>Passo 3:</strong> Alcance horizontal total (colisão com o solo plano @y = 0@):</p>
+      @@45 + \frac{3}{4}x - \frac{1}{320}x^2 = 0@@
+      <p>Multiplicando toda a equação por @-320@:</p>
+      @@x^2 - 240x - 14.400 = 0@@
+      <p>Calculando o discriminante:</p>
+      @@\Delta = (-240)^2 - 4(1)(-14.400) = 57.600 + 57.600 = 115.200@@
+      @@\sqrt{\Delta} = \sqrt{2 \times 57.600} = 240\sqrt{2} \approx 240 \times 1{,}4142 = 339{,}4 \text{ m}@@
+      <p>Como @x > 0@:</p>
+      @@x = \frac{240 + 240\sqrt{2}}{2} = 120(1 + \sqrt{2}) \approx 120 \times 2{,}4142 \approx 289{,}7 \text{ metros}@@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 7: EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO
+         =============================================================== -->
+    <h2>7. Exercícios Conceituais de Fixação Rápida</h2>
+
+    <ol class="lista-exercicios">
+      <!-- EXERCÍCIO 1 -->
+      <li>
+        <strong>(Foco e Diretriz pela Definição)</strong>
+        Determine a equação da parábola cujo foco é o ponto @F(0, 3)@ e cuja reta diretriz é @d: y = -3@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> O foco @(0, 3)@ e a diretriz @y = -3@ são simétricos em relação à origem @(0, 0)@, que é o vértice @V(0, 0)@.</p>
+            <p>A distância entre o foco e a diretriz é @p = 3 - (-3) = 6@, logo @p/2 = 3@.</p>
+            <p>Como o foco está no semi-eixo @y@ positivo, a parábola abre para cima:</p>
+            @@x^2 = 2py = 2(6)y \implies x^2 = 12y \iff y = \frac{1}{12}x^2@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 2 -->
+      <li>
+        <strong>(Parábola com Eixo Horizontal)</strong>
+        Encontre as coordenadas do foco e a equação da diretriz da parábola @y^2 = -16x@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> A equação canônica com eixo focal horizontal e vértice na origem é @y^2 = -2px@.</p>
+            <p>Comparando os coeficientes:</p>
+            @@2p = 16 \implies p = 8 \implies \frac{p}{2} = 4@@
+            <p>Como o sinal é negativo, a concavidade abre para a esquerda (semi-eixo @x@ negativo):</p>
+            <ul>
+              <li>Foco: @F(-p/2, 0) = F(-4, 0)@.</li>
+              <li>Diretriz: @x = p/2 \implies x = 4@.</li>
+            </ul>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 3 -->
+      <li>
+        <strong>(Cálculo de Antena Parabólica de Satélite)</strong>
+        Um refletor de antena parabólica tem a forma gerada pela rotação de uma parábola com @1 \text{ metro}@ de diâmetro de abertura e profundidade central de @25 \text{ cm}@ (@0{,}25 \text{ m}@). A que distância do vértice deve ser posicionado o receptor de ondas (LNB) para ficar exatamente no foco?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Adotemos o vértice na origem @(0,0)@ e eixo focal vertical: @x^2 = 2py@.</p>
+            <p>Como o diâmetro é @1 \text{ m}@, o raio de abertura nas bordas é @x = \pm 0{,}5 \text{ m}@, onde a profundidade é @y = 0{,}25 \text{ m}@.</p>
+            <p>Substituindo o ponto @(0{,}5; \; 0{,}25)@ na equação:</p>
+            @@(0{,}5)^2 = 2p(0{,}25) \iff 0{,}25 = 0{,}5p \implies p = \frac{0{,}25}{0{,}5} = 0{,}5 \text{ m}@@
+            <p>A distância focal (distância do vértice ao foco) é:</p>
+            @@f = \frac{p}{2} = \frac{0{,}5}{2} = 0{,}25 \text{ m} = 25 \text{ cm}@@
+            <p>O receptor deve ser instalado exatamente a @25 \text{ cm}@ do fundo do prato (coincidindo com o plano da borda de abertura!).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 4 -->
+      <li>
+        <strong>(Maximização de Receita em Economia)</strong>
+        A demanda de mercado para um produto de luxo é dada pela relação de preço @P(q) = 600 - 5q@, onde @P@ é o preço unitário em reais e @q@ é a quantidade demandada. Sabendo que a Receita Total é @R(q) = P(q) \cdot q@, determine a quantidade @q@ que maximiza a receita e o valor dessa receita máxima.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> A função da Receita Total é:</p>
+            @@R(q) = (600 - 5q)q = -5q^2 + 600q@@
+            <p>Como @a = -5 < 0@, a parábola possui concavidade para baixo e o ponto de máximo absoluto ocorre na abscissa do vértice:</p>
+            @@q_v = -\frac{b}{2a} = -\frac{600}{2(-5)} = \frac{600}{10} = 60 \text{ unidades}@@
+            <p>O valor da receita máxima é:</p>
+            @@R_{\max} = R(60) = -5(60)^2 + 600(60) = -5(3.600) + 36.000 = -18.000 + 36.000 = \text{R\$} \; 18.000,00@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 5 -->
+      <li>
+        <strong>(Propriedade da Reta Tangente e Subnormal)</strong>
+        Para a parábola @x^2 = 4y@, determine o coeficiente angular da reta tangente no ponto @P(4, 4)@ e verifique que o triângulo formado pelo foco, o ponto @P@ e a interseção da tangente com o eixo @y@ é isósceles.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Temos @y = \frac{1}{4}x^2@ e @2p = 4 \implies p = 2 \implies F(0, 1)@.</p>
+            <p>A derivada fornece a inclinação da reta tangente: @m = y'(4) = \frac{2(4)}{4} = 2@.</p>
+            <p>A reta tangente é @y - 4 = 2(x - 4) \iff y = 2x - 4@. Para @x = 0@, ela corta o eixo @y@ em @Q(0, -4)@.</p>
+            <p>Calculamos os comprimentos:</p>
+            <ul>
+              <li>@\overline{FQ} = 1 - (-4) = 5@.</li>
+              <li>@\overline{FP} = \sqrt{(4 - 0)^2 + (4 - 1)^2} = \sqrt{16 + 9} = \sqrt{25} = 5@.</li>
+            </ul>
+            <p>Como @\overline{FQ} = \overline{FP} = 5@, o triângulo @\triangle FPQ@ é estritamente isósceles.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 6 -->
+      <li>
+        <strong>(Arco de Ponte Parabólica)</strong>
+        Um viaduto possui um arco parabólico que sustenta a pista. O vão entre as bases do arco no solo é de @80 \text{ metros}@ e a altura máxima central do arco é de @20 \text{ metros}@. Calcule a altura do arco a @20 \text{ metros}@ de distância do centro da pista.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Posicionando o vértice no topo do arco em @V(0, 20)@, o arco é simétrico em relação ao eixo @y@ e tem equação @y = 20 - kx^2@.</p>
+            <p>Como o vão é de @80 \text{ m}@, as bases no solo (@y = 0@) estão em @x = \pm 40 \text{ m}@:</p>
+            @@0 = 20 - k(40)^2 \iff 1.600k = 20 \implies k = \frac{20}{1.600} = \frac{1}{80}@@
+            <p>A equação da altura do arco é @y(x) = 20 - \frac{x^2}{80}@.</p>
+            <p>Para @x = 20 \text{ metros}@:</p>
+            @@y(20) = 20 - \frac{20^2}{80} = 20 - \frac{400}{80} = 20 - 5 = 15 \text{ metros}@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 7 -->
+      <li>
+        <strong>(Alcance Máximo Balístico)</strong>
+        Um dispositivo lança uma esfera com velocidade escalar constante @v_0 = 20 \text{ m/s}@ a partir do solo plano. Supondo @g = 10 \text{ m/s}^2@ e resistência do ar nula, para quais dois ângulos de lançamento complementares a esfera atinge o mesmo alcance de @20\sqrt{3} \text{ metros}@?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> O alcance é dado por @R = \frac{v_0^2 \operatorname{sen}(2\theta)}{g}@.</p>
+            @@20\sqrt{3} = \frac{20^2 \operatorname{sen}(2\theta)}{10} = \frac{400}{10} \operatorname{sen}(2\theta) = 40 \operatorname{sen}(2\theta)@@
+            @@\operatorname{sen}(2\theta) = \frac{20\sqrt{3}}{40} = \frac{\sqrt{3}}{2}@@
+            <p>Como @2\theta \in [0^\circ, 180^\circ]@, temos duas soluções no 1º e 2º quadrantes:</p>
+            <ul>
+              <li>@2\theta_1 = 60^\circ \implies \theta_1 = 30^\circ@</li>
+              <li>@2\theta_2 = 180^\circ - 60^\circ = 120^\circ \implies \theta_2 = 60^\circ@</li>
+            </ul>
+            <p>Os dois ângulos são complementares (@30^\circ@ e @60^\circ@), confirmando o teorema balístico de Galileu.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 8 -->
+      <li>
+        <strong>(Translação e Identificação do Vértice)</strong>
+        A equação @y = 2x^2 - 12x + 23@ representa uma parábola no plano cartesiano. Determine as coordenadas do vértice @V@ e as coordenadas exatas do seu foco @F@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Completamos os quadrados em @x@:</p>
+            @@y = 2(x^2 - 6x) + 23 = 2(x^2 - 6x + 9) + 23 - 18 = 2(x - 3)^2 + 5@@
+            @@y - 5 = 2(x - 3)^2 \iff (x - 3)^2 = \frac{1}{2}(y - 5)@@
+            <p>O vértice é @V(3, 5)@.</p>
+            <p>Comparando com @(x - x_v)^2 = 2p(y - y_v)@: @2p = \frac{1}{2} \implies p = \frac{1}{4} \implies \frac{p}{2} = \frac{1}{8}@.</p>
+            <p>Como abre para cima, o foco é:</p>
+            @@F\left(3, 5 + \frac{1}{8}\right) = F\left(3, \frac{41}{8}\right)@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 9 -->
+      <li>
+        <strong>(Otimização Geométrica do Retângulo Inscrito)</strong>
+        Considere um triângulo retângulo isósceles de catetos iguais a @10 \text{ cm}@ sobre os eixos coordenados, delimitado pelas retas @x \geq 0@, @y \geq 0@ e @x + y = 10@. Um retângulo tem dois lados sobre os eixos e um vértice sobre a hipotenusa. Determine a área máxima desse retângulo.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> O vértice sobre a reta @x + y = 10@ tem coordenadas @(x, 10 - x)@, com @0 \leq x \leq 10@.</p>
+            <p>A área do retângulo é expressa por:</p>
+            @@A(x) = x(10 - x) = -x^2 + 10x@@
+            <p>O vértice dessa parábola voltada para baixo ocorre em:</p>
+            @@x_v = -\frac{10}{2(-1)} = 5 \text{ cm}@@
+            <p>A altura correspondente é @y = 10 - 5 = 5 \text{ cm}@ (um quadrado!). A área máxima é:</p>
+            @@A_{\max} = 5 \times 5 = 25 \text{ cm}^2@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 10 -->
+      <li>
+        <strong>(Cálculo da Tração Horizontal no Cabo de Ponte)</strong>
+        Em uma ponte suspensa, o vão horizontal entre as torres é de @200 \text{ metros}@ e a flecha máxima central do cabo (ponto mais baixo em relação ao topo das torres) é de @25 \text{ metros}@. Se a carga total linear do tabuleiro é @w = 40 \text{ kN/m}@, calcule a tração horizontal constante @H@ suportada pelo cabo principal.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> A equação parabólica do cabo centrada no ponto mais baixo @(0,0)@ é @y = \frac{w}{2H} x^2@.</p>
+            <p>No topo da torre, temos @x = 100 \text{ m}@ (metade do vão de @200 \text{ m}@) e @y = 25 \text{ m}@.</p>
+            <p>Substituindo os valores:</p>
+            @@25 = \frac{40}{2H} (100)^2 = \frac{20 \times 10.000}{H} = \frac{200.000}{H}@@
+            @@H = \frac{200.000}{25} = 8.000 \text{ kN} = 8 \text{ MN}@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 11 -->
+      <li>
+        <strong>(Latus Rectum e Corda Focal)</strong>
+        Prove que a reta suporte do latus rectum da parábola @x^2 = 2py@ tem equação @y = \frac{p}{2}@ e que as extremidades dessa corda estão separadas por uma distância de exatamente @2p@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Por definição, o latus rectum é a corda focal perpendicular ao eixo de simetria (o eixo @y@). Como o foco está em @F(0, p/2)@, a reta perpendicular ao eixo @y@ passando por @F@ é horizontal de equação @y = \frac{p}{2}@.</p>
+            <p>Substituindo @y = \frac{p}{2}@ na equação da parábola @x^2 = 2py@:</p>
+            @@x^2 = 2p\left(\frac{p}{2}\right) = p^2 \implies x = \pm p@@
+            <p>As duas extremidades da corda são @P_1(-p, p/2)@ e @P_2(p, p/2)@. A distância entre elas é:</p>
+            @@d(P_1, P_2) = p - (-p) = 2p \quad \blacksquare@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 12 -->
+      <li>
+        <strong>(Equilíbrio de Custos e Ponto de Lucro Nulo)</strong>
+        Uma fábrica opera com custo fixo mensal de R$ 5.000,00 e custo variável de R$ 20,00 por peça produzida. A receita gerada pela venda de @x@ peças é descrita pela função quadrática @R(x) = 120x - 0{,}2x^2@. Determine a faixa de produção @x@ na qual a fábrica obtém lucro estritamente positivo (@L(x) > 0@).
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> O custo total é @C(x) = 5.000 + 20x@. A função Lucro @L(x)@ é dada por:</p>
+            @@L(x) = R(x) - C(x) = (120x - 0{,}2x^2) - (5.000 + 20x) = -0{,}2x^2 + 100x - 5.000@@
+            <p>Para lucro positivo, impomos @L(x) > 0@:</p>
+            @@-0{,}2x^2 + 100x - 5.000 > 0 \iff 0{,}2x^2 - 100x + 5.000 < 0@@
+            <p>Multiplicando por 5:</p>
+            @@x^2 - 500x + 25.000 < 0@@
+            <p>Calculando as raízes da equação correspondente:</p>
+            @@\Delta = (-500)^2 - 4(1)(25.000) = 250.000 - 100.000 = 150.000@@
+            @@\sqrt{\Delta} = \sqrt{150.000} \approx 387{,}3@@
+            @@x = \frac{500 \pm 387{,}3}{2} \implies x_1 \approx 56{,}35 \quad \text{e} \quad x_2 \approx 443{,}65@@
+            <p>Como a quantidade de peças deve ser inteira, a produção lucrativa situa-se no intervalo fechado de <strong>57 a 443 peças</strong> mensais.</p>
+          </div>
+        </details>
+      </li>
+    </ol>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 35px; margin-bottom: 25px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+    <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

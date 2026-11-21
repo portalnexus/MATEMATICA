@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Função Polinomial do 2º Grau (Quadrática)</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Estilos para notas e avisos */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para tabelas de síntese */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-quadratica {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-quadratica th,
+    table.tabela-quadratica td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-quadratica th {
+      background-color: rgba(0, 0, 0, 0.4);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-quadratica tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-1em {
+      background-color: rgba(16, 185, 129, 0.25);
+      border: 2px solid #10b981;
+      color: #a7f3d0;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 1.8rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-1em">1º Ano EM</div>
+
+    <h1>Função Polinomial do 2º Grau (Quadrática)</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 2: Entre Retas e Parábolas — Fundamentos Teóricos, Demonstrações e Aplicações
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E INTRODUÇÃO CONCEITUAL
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos Fundamentais</h3>
+      <p>Para um aproveitamento rigoroso deste material, certifique-se de dominar:</p>
+      <ul>
+        <li><strong>Álgebra Elementar:</strong> produtos notáveis (quadrado da soma e da diferença), fatoração de trinômios e completamento de quadrados.</li>
+        <li><strong>Equações Polinomiais:</strong> resolução de equações do 2º grau e operações elementares no conjunto dos números reais @\mathbb{R}@.</li>
+        <li><strong>Noções de Funções:</strong> domínio, contradomínio, imagem, plano cartesiano e estudo da função afim (1º grau).</li>
+        <li><strong>Relações de Ordem e Desigualdades:</strong> propriedades das desigualdades em @\mathbb{R}@ (preservação e inversão de sentido).</li>
+      </ul>
+    </div>
+
+    <p>
+      Na transição do estudo linear para os modelos curvilíneos, a <strong>função quadrática</strong> representa o primeiro e mais crucial exemplo de comportamento não uniforme na matemática do Ensino Médio. Diferente da função afim, cuja taxa de variação é estritamente constante (representada geometricamente por uma reta), a função quadrática modela fenômenos caracterizados por taxas variáveis: a aceleração da gravidade de Galileu Galilei, as órbitas gravitacionais planetárias deduzidas por Isaac Newton, as curvas refletoras de antenas e faróis, bem como a busca de equilíbrios econômicos e otimizações de lucro e áreas na sociedade moderna.
+    </p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: DEFINIÇÃO FORMAL E COEFICIENTES
+         =============================================================== -->
+    <h2>1. Definição Formal e Análise dos Coeficientes</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Função Polinomial do 2º Grau)</h3>
+      <p>
+        Sejam @a, b, c \in \mathbb{R}@ constantes com @a \neq 0@. Denomina-se <strong>função polinomial do 2º grau</strong> ou <strong>função quadrática</strong> a aplicação @f: \mathbb{R} \to \mathbb{R}@ definida pela lei:
+      </p>
+      @@
+      f(x) = ax^2 + bx + c
+      @@
+      <p>
+        onde @x \in \mathbb{R}@ é a variável independente, @a@ é o <em>coeficiente quadrático</em> (ou dominante), @b@ é o <em>coeficiente linear</em> e @c@ é o <em>termo independente</em> (ou constante).
+      </p>
+    </div>
+
+    <p>
+      O domínio e o contradomínio naturais da função quadrática são @\operatorname{Dom}(f) = \mathbb{R}@ e @\operatorname{CD}(f) = \mathbb{R}@. Contudo, como demonstraremos formalmente na Seção 4, o conjunto imagem @\operatorname{Im}(f)@ é sempre um subconjunto próprio limitado inferiormente ou superiormente.
+    </p>
+
+    <h3>Significado Geométrico dos Coeficientes</h3>
+    <p>
+      O gráfico de qualquer função quadrática no plano cartesiano @xOy@ é uma curva plana contínua denominada <strong>parábola</strong> com eixo de simetria paralelo ao eixo das ordenadas @Oy@. Cada coeficiente desempenha um papel geométrico intrínseco:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Coeficiente @a@ (Concavidade e Abertura):</strong>
+        Determina o sentido da concavidade da parábola e sua abertura.
+        <br>— Se @a > 0@: a concavidade é voltada <em>para cima</em> (@\cup@). À medida que @x \to \pm\infty@, temos @f(x) \to +\infty@.
+        <br>— Se @a < 0@: a concavidade é voltada <em>para baixo</em> (@\cap@). À medida que @x \to \pm\infty@, temos @f(x) \to -\infty@.
+        <br>— O módulo @|a|@ controla a abertura da curva: quanto maior for @|a|@, mais "fechada" (estreita) é a parábola; quanto menor for @|a|@ (próximo de zero), mais "aberta" é a parábola.
+      </li>
+      <li>
+        <strong>Coeficiente @b@ (Inclinação na Interseção com @Oy@):</strong>
+        Informa a taxa de variação instantânea com a qual a parábola cruza o eixo vertical @Oy@.
+        <br>— Se @b > 0@: a parábola cruza o eixo @Oy@ de forma <em>crescente</em> (subindo).
+        <br>— Se @b < 0@: a parábola cruza o eixo @Oy@ de forma <em>decrescente</em> (descendo).
+        <br>— Se @b = 0@: a parábola cruza o eixo @Oy@ exatamente em seu vértice, sendo a reta @x = 0@ (o próprio eixo @Oy@) seu eixo de simetria.
+      </li>
+      <li>
+        <strong>Coeficiente @c@ (Interseção com o Eixo das Ordenadas):</strong>
+        Como @f(0) = a(0)^2 + b(0) + c = c@, a parábola sempre intercepta o eixo @Oy@ no ponto exato de coordenadas:
+        @@
+        (0, c)
+        @@
+      </li>
+    </ul>
+
+    <div class="erro-comum">
+      <h3>⚠️ Armadilha Comum: A Condição @a \neq 0@</h3>
+      <p>
+        Se permitíssemos @a = 0@, a lei se reduziria a @f(x) = bx + c@. Essa aplicação é uma <strong>função afim</strong> (ou constante se @b = 0@), cujo gráfico é uma reta e não possui concavidade, nem vértice, nem propriedades parabólicas. Em problemas literais que contenham parâmetros (ex.: @f(x) = (m - 2)x^2 + 4x + 1@), a condição @m - 2 \neq 0 \iff m \neq 2@ deve ser estabelecida imediatamente para que a função seja quadrática.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: AS TRÊS FORMAS DA FUNÇÃO QUADRÁTICA
+         =============================================================== -->
+    <h2>2. As Três Formas da Função Quadrática</h2>
+
+    <p>
+      Na tradição de <em>Fundamentos de Matemática Elementar</em>, a manipulação da função quadrática ganha clareza e poder através de três representações algébricas equivalentes:
+    </p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Forma Canônica da Função Quadrática)</h3>
+      <p>
+        Toda função quadrática @f(x) = ax^2 + bx + c@ (@a \neq 0@) pode ser escrita de maneira única na forma canônica:
+      </p>
+      @@
+      f(x) = a\left(x + \frac{b}{2a}\right)^2 - \frac{\Delta}{4a} = a(x - x_v)^2 + y_v
+      @@
+      <p>
+        onde @\Delta = b^2 - 4ac@ é o <em>discriminante</em> do trinômio, @x_v = -\frac{b}{2a}@ e @y_v = -\frac{\Delta}{4a}@.
+      </p>
+    </div>
+
+    <h4>Demonstração Algébrica Formal por Complementação de Quadrados:</h4>
+    <p>
+      Tomando a expressão polinomial geral @f(x) = ax^2 + bx + c@ e colocando o fator comum @a \neq 0@ em evidência nos dois primeiros termos:
+    </p>
+    @@
+    \begin{aligned}
+    f(x) &= a\left(x^2 + \frac{b}{a}x\right) + c
+    \end{aligned}
+    @@
+    <p>
+      Para completar o trinômio quadrado perfeito dentro dos parênteses, observamos que o termo do meio é @2 \cdot x \cdot \left(\frac{b}{2a}\right)@. Somamos e subtraímos o termo quadrático @\left(\frac{b}{2a}\right)^2 = \frac{b^2}{4a^2}@:
+    </p>
+    @@
+    \begin{aligned}
+    f(x) &= a\left[x^2 + 2\cdot x \cdot \left(\frac{b}{2a}\right) + \left(\frac{b}{2a}\right)^2 - \left(\frac{b}{2a}\right)^2\right] + c \\
+    &= a\left[\left(x + \frac{b}{2a}\right)^2 - \frac{b^2}{4a^2}\right] + c \\
+    &= a\left(x + \frac{b}{2a}\right)^2 - \frac{b^2}{4a} + c
+    \end{aligned}
+    @@
+    <p>
+      Reduzindo os dois últimos termos independentes ao mesmo denominador comum @4a@:
+    </p>
+    @@
+    \begin{aligned}
+    -\frac{b^2}{4a} + c &= -\frac{b^2 - 4ac}{4a} = -\frac{\Delta}{4a}
+    \end{aligned}
+    @@
+    <p>
+      Substituindo de volta na expressão, obtemos a <strong>forma canônica</strong>:
+    </p>
+    @@
+    f(x) = a\left(x + \frac{b}{2a}\right)^2 - \frac{\Delta}{4a} \quad \blacksquare
+    @@
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Forma Fatorada da Função Quadrática)</h3>
+      <p>
+        Se a função quadrática @f(x) = ax^2 + bx + c@ admite raízes reais @x_1@ e @x_2@ (o que ocorre se, e somente se, @\Delta \ge 0@), então @f(x)@ pode ser decomposta no produto de fatores do 1º grau:
+      </p>
+      @@
+      f(x) = a(x - x_1)(x - x_2)
+      @@
+    </div>
+
+    <h4>Demonstração Formal:</h4>
+    <p>
+      Pelas relações de Girard que demonstraremos no Teorema 3.2, sabemos que a soma das raízes é @x_1 + x_2 = -\frac{b}{a}@ e o produto é @x_1 x_2 = \frac{c}{a}@. Assim, @\frac{b}{a} = -(x_1 + x_2)@ e @\frac{c}{a} = x_1 x_2@.
+      <br>Fatorando @a@ na forma geral:
+    </p>
+    @@
+    \begin{aligned}
+    f(x) &= a\left(x^2 + \frac{b}{a}x + \frac{c}{a}\right) \\
+    &= a\left(x^2 - (x_1 + x_2)x + x_1 x_2\right) \\
+    &= a\left(x^2 - x_1 x - x_2 x + x_1 x_2\right) \\
+    &= a\left[x(x - x_1) - x_2(x - x_1)\right] \\
+    &= a(x - x_1)(x - x_2) \quad \blacksquare
+    \end{aligned}
+    @@
+
+    <div class="destaque-box observacao">
+      <h3>Síntese das Três Representações</h3>
+      <ul>
+        <li><strong>Forma Geral:</strong> @f(x) = ax^2 + bx + c@ — ideal para identificar de imediato @c = f(0)@ e aplicar derivação ou métodos algébricos diretos.</li>
+        <li><strong>Forma Canônica:</strong> @f(x) = a(x - x_v)^2 + y_v@ — explicita as translações geométricas, o vértice @(x_v, y_v)@ e simplifica o estudo de valores extremos.</li>
+        <li><strong>Forma Fatorada:</strong> @f(x) = a(x - x_1)(x - x_2)@ (para @\Delta \ge 0@) — explicita diretamente as interseções com o eixo @Ox@ e o estudo do sinal. Quando @\Delta = 0@, temos @x_1 = x_2 = x_v@, resultando em @f(x) = a(x - x_v)^2@ (quadrado perfeito). Quando @\Delta < 0@, a função é irredutível em @\mathbb{R}@.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: TEOREMA DAS RAÍZES (FÓRMULA DE BHASKARA)
+         =============================================================== -->
+    <h2>3. Zeros da Função Quadrática e Relações de Girard</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Zeros ou Raízes)</h3>
+      <p>
+        Denominam-se <strong>zeros</strong> ou <strong>raízes</strong> da função quadrática @f(x) = ax^2 + bx + c@ todos os números reais @x \in \mathbb{R}@ tais que @f(x) = 0@. Geometricamente, as raízes reais correspondem às abscissas dos pontos onde a parábola intercepta o eixo @Ox@.
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Fórmula de Bhaskara / Teorema das Raízes)</h3>
+      <p>
+        Seja a equação @ax^2 + bx + c = 0@ com @a \neq 0@ e seja @\Delta = b^2 - 4ac@ seu discriminante. O conjunto solução @S \subset \mathbb{R}@ satisfaz:
+      </p>
+      @@
+      x = \frac{-b \pm \sqrt{\Delta}}{2a}
+      @@
+      <ul>
+        <li>Se @\Delta > 0@: existem duas raízes reais e distintas, @x_1 = \frac{-b - \sqrt{\Delta}}{2a}@ e @x_2 = \frac{-b + \sqrt{\Delta}}{2a}@ (@x_1 \neq x_2@). A parábola corta @Ox@ em dois pontos distintos @(x_1, 0)@ e @(x_2, 0)@.</li>
+        <li>Se @\Delta = 0@: existe uma raiz real dupla (ou única com multiplicidade 2), @x_1 = x_2 = -\frac{b}{2a}@. A parábola tangencia o eixo @Ox@ no ponto @(x_v, 0)@.</li>
+        <li>Se @\Delta < 0@: a equação não admite raízes reais (@S = \emptyset@ em @\mathbb{R}@). A parábola não intercepta nem tangencia o eixo @Ox@ em ponto algum.</li>
+      </ul>
+    </div>
+
+    <h4>Demonstração Rigorosa via Forma Canônica:</h4>
+    <p>
+      Desejamos determinar os valores de @x \in \mathbb{R}@ que satisfazem @f(x) = 0@:
+    </p>
+    @@
+    ax^2 + bx + c = 0
+    @@
+    <p>
+      Utilizando a identidade comprovada da forma canônica (Teorema 2.1):
+    </p>
+    @@
+    a\left(x + \frac{b}{2a}\right)^2 - \frac{\Delta}{4a} = 0
+    @@
+    <p>
+      Isolando o termo quadrático e dividindo ambos os membros por @a \neq 0@:
+    </p>
+    @@
+    a\left(x + \frac{b}{2a}\right)^2 = \frac{\Delta}{4a} \implies \left(x + \frac{b}{2a}\right)^2 = \frac{\Delta}{4a^2}
+    @@
+    <p>
+      Analisamos a existência de soluções no corpo dos números reais @\mathbb{R}@:
+    </p>
+    <p>
+      Como @a \neq 0@ é real, temos @4a^2 = (2a)^2 > 0@. Portanto, o sinal do segundo membro depende unicamente de @\Delta@:
+    </p>
+    <ol>
+      <li>
+        <strong>Se @\Delta < 0@:</strong> o membro esquerdo @\left(x + \frac{b}{2a}\right)^2 \ge 0@ para todo @x \in \mathbb{R}@, enquanto o membro direito @\frac{\Delta}{4a^2} < 0@. Uma grandeza não negativa não pode igualar um número estritamente negativo. Logo, não existe @x \in \mathbb{R}@ que satisfaça a igualdade.
+      </li>
+      <li>
+        <strong>Se @\Delta = 0@:</strong> temos @\left(x + \frac{b}{2a}\right)^2 = 0 \iff x + \frac{b}{2a} = 0 \iff x = -\frac{b}{2a}@.
+      </li>
+      <li>
+        <strong>Se @\Delta > 0@:</strong> podemos extrair a raiz quadrada real em ambos os membros:
+        @@
+        \left|x + \frac{b}{2a}\right| = \sqrt{\frac{\Delta}{4a^2}} = \frac{\sqrt{\Delta}}{2|a|}
+        @@
+        Pela definição de módulo, @x + \frac{b}{2a} = \pm \frac{\sqrt{\Delta}}{2a}@, o que nos conduz diretamente a:
+        @@
+        x = -\frac{b}{2a} \pm \frac{\sqrt{\Delta}}{2a} = \frac{-b \pm \sqrt{\Delta}}{2a} \quad \blacksquare
+        @@
+      </li>
+    </ol>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.2 (Relações de Girard — Soma e Produto das Raízes)</h3>
+      <p>
+        Sejam @x_1@ e @x_2@ as raízes (reais ou complexas) da função quadrática @f(x) = ax^2 + bx + c@. A soma @S@ e o produto @P@ dessas raízes são dados por:
+      </p>
+      @@
+      S = x_1 + x_2 = -\frac{b}{a} \qquad \text{e} \qquad P = x_1 \cdot x_2 = \frac{c}{a}
+      @@
+    </div>
+
+    <h4>Demonstração Formal das Relações de Girard:</h4>
+    <p>
+      A partir das fórmulas das raízes @x_1 = \frac{-b - \sqrt{\Delta}}{2a}@ e @x_2 = \frac{-b + \sqrt{\Delta}}{2a}@:
+    </p>
+    <p><strong>1. Para a Soma @S@:</strong></p>
+    @@
+    S = x_1 + x_2 = \frac{-b - \sqrt{\Delta}}{2a} + \frac{-b + \sqrt{\Delta}}{2a} = \frac{-b - \sqrt{\Delta} - b + \sqrt{\Delta}}{2a} = \frac{-2b}{2a} = -\frac{b}{a}
+    @@
+    <p><strong>2. Para o Produto @P@:</strong> usando o produto notável da diferença de dois quadrados @(u - v)(u + v) = u^2 - v^2@:</p>
+    @@
+    \begin{aligned}
+    P = x_1 \cdot x_2 &= \left(\frac{-b - \sqrt{\Delta}}{2a}\right) \cdot \left(\frac{-b + \sqrt{\Delta}}{2a}\right) = \frac{(-b)^2 - (\sqrt{\Delta})^2}{(2a)^2} \\
+    &= \frac{b^2 - \Delta}{4a^2} = \frac{b^2 - (b^2 - 4ac)}{4a^2} = \frac{4ac}{4a^2} = \frac{c}{a} \quad \blacksquare
+    \end{aligned}
+    @@
+
+    <!-- ===============================================================
+         SEÇÃO 4: VÉRTICE, EIXO DE SIMETRIA E CONJUNTO IMAGEM
+         =============================================================== -->
+    <h2>4. Vértice da Parábola, Eixo de Simetria e Imagem</h2>
+
+    <p>
+      O vértice é o ponto culminante da parábola: nele a curva atinge seu valor extremo global e muda de sentido de crescimento (passa de crescente a decrescente ou vice-versa).
+    </p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Coordenadas do Vértice e Valores Extremos Absolutos)</h3>
+      <p>
+        O vértice da parábola @f(x) = ax^2 + bx + c@ é o ponto @V(x_v, y_v) \in \mathbb{R}^2@ cujas coordenadas são dadas por:
+      </p>
+      @@
+      x_v = -\frac{b}{2a} \qquad \text{e} \qquad y_v = -\frac{\Delta}{4a}
+      @@
+      <p>Além disso:</p>
+      <ul>
+        <li>Se @a > 0@: @y_v@ é o <strong>valor mínimo absoluto</strong> de @f(x)@ em @\mathbb{R}@, atingido unicamente em @x = x_v@ (ponto de mínimo).</li>
+        <li>Se @a < 0@: @y_v@ é o <strong>valor máximo absoluto</strong> de @f(x)@ em @\mathbb{R}@, atingido unicamente em @x = x_v@ (ponto de máximo).</li>
+      </ul>
+    </div>
+
+    <h4>Demonstração Analítica Rigorosa (Método Fundamental sem Cálculo Diferencial):</h4>
+    <p>
+      Recorremos mais uma vez à forma canônica estabelecida no Teorema 2.1:
+    </p>
+    @@
+    f(x) = a\left(x + \frac{b}{2a}\right)^2 - \frac{\Delta}{4a}
+    @@
+    <p>
+      Para qualquer número real @x \in \mathbb{R}@, o termo quadrático @\left(x + \frac{b}{2a}\right)^2@ é sempre maior ou igual a zero, sendo estritamente nulo se, e somente se, @x + \frac{b}{2a} = 0 \iff x = -\frac{b}{2a}@:
+    </p>
+    @@
+    \left(x + \frac{b}{2a}\right)^2 \ge 0, \quad \forall x \in \mathbb{R}
+    @@
+    <p>
+      Analisamos as consequências para o sinal de @a@:
+    </p>
+    <p><strong>Caso 1: @a > 0@</strong></p>
+    <p>
+      Multiplicando a desigualdade pelo número positivo @a > 0@, preserva-se o sentido da ordem:
+    </p>
+    @@
+    a\left(x + \frac{b}{2a}\right)^2 \ge 0
+    @@
+    <p>
+      Subtraindo a constante @\frac{\Delta}{4a}@ em ambos os membros:
+    </p>
+    @@
+    f(x) = a\left(x + \frac{b}{2a}\right)^2 - \frac{\Delta}{4a} \ge -\frac{\Delta}{4a}
+    @@
+    <p>
+      Essa desigualdade demonstra que @f(x)@ é sempre maior ou igual a @-\frac{\Delta}{4a}@ para todo @x \in \mathbb{R}@. A igualdade @f(x) = -\frac{\Delta}{4a}@ ocorre se, e somente se, @\left(x + \frac{b}{2a}\right)^2 = 0 \iff x = -\frac{b}{2a}@.
+      <br>Portanto, @x_v = -\frac{b}{2a}@ é o <strong>ponto de mínimo</strong> e @y_v = -\frac{\Delta}{4a}@ é o <strong>valor mínimo</strong> de @f@.
+    </p>
+
+    <p><strong>Caso 2: @a < 0@</strong></p>
+    <p>
+      Multiplicando a desigualdade @\left(x + \frac{b}{2a}\right)^2 \ge 0@ pelo número negativo @a < 0@, o sentido da desigualdade inverte-se:
+    </p>
+    @@
+    a\left(x + \frac{b}{2a}\right)^2 \le 0
+    @@
+    <p>
+      Subtraindo @\frac{\Delta}{4a}@ em ambos os membros:
+    </p>
+    @@
+    f(x) = a\left(x + \frac{b}{2a}\right)^2 - \frac{\Delta}{4a} \le -\frac{\Delta}{4a}
+    @@
+    <p>
+      Assim, @f(x)@ é sempre menor ou igual a @-\frac{\Delta}{4a}@ para todo @x \in \mathbb{R}@, atingindo o topo estritamente em @x_v = -\frac{b}{2a}@.
+      <br>Portanto, @x_v = -\frac{b}{2a}@ é o <strong>ponto de máximo</strong> e @y_v = -\frac{\Delta}{4a}@ é o <strong>valor máximo</strong> de @f@. @\blacksquare@
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Corolário 4.1 (Conjunto Imagem da Função Quadrática)</h3>
+      <p>
+        O conjunto imagem @\operatorname{Im}(f) = \{f(x) \mid x \in \mathbb{R}\}@ é dado diretamente por:
+      </p>
+      @@
+      \operatorname{Im}(f) =
+      \begin{cases}
+      \left[-\dfrac{\Delta}{4a}, +\infty\right[ = [y_v, +\infty[, & \text{se } a > 0 \\[2ex]
+      \left]-\infty, -\dfrac{\Delta}{4a}\right] = ]-\infty, y_v], & \text{se } a < 0
+      \end{cases}
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.2 (Eixo de Simetria da Parábola)</h3>
+      <p>
+        O gráfico da função quadrática @f(x) = ax^2 + bx + c@ é perfeitamente simétrico em relação à reta vertical de equação:
+      </p>
+      @@
+      x = x_v = -\frac{b}{2a}
+      @@
+      <p>
+        Isto é, para qualquer deslocamento horizontal @u \in \mathbb{R}@ a partir de @x_v@, temos:
+      </p>
+      @@
+      f(x_v - u) = f(x_v + u)
+      @@
+    </div>
+
+    <h4>Demonstração Formal:</h4>
+    <p>
+      Utilizando a forma canônica @f(x) = a(x - x_v)^2 + y_v@:
+    </p>
+    <p>Para @x = x_v + u@:</p>
+    @@
+    f(x_v + u) = a\left((x_v + u) - x_v\right)^2 + y_v = a(u)^2 + y_v = au^2 + y_v
+    @@
+    <p>Para @x = x_v - u@:</p>
+    @@
+    f(x_v - u) = a\left((x_v - u) - x_v\right)^2 + y_v = a(-u)^2 + y_v = a(u^2) + y_v = au^2 + y_v
+    @@
+    <p>
+      Como @au^2 + y_v = au^2 + y_v@ para todo @u \in \mathbb{R}@, comprovamos a igualdade @f(x_v + u) = f(x_v - u)@. Logo, a reta vertical @x = x_v@ é o eixo de simetria bilateral da parábola. @\blacksquare@
+    </p>
+
+    <div class="destaque-box observacao">
+      <h3>Distinção Crucial: Ponto de Extremo versus Valor Extremo</h3>
+      <p>
+        Um erro clássico e recorrente em vestibulares, ENEM e Olimpíadas consiste em confundir a resposta solicitada pelo enunciado:
+      </p>
+      <ul>
+        <li><strong>"Em qual valor de @x@ ocorre o máximo / mínimo?"</strong> ou <strong>"Qual o ponto de máximo / mínimo?"</strong>: a pergunta refere-se à abscissa do vértice, isto é, a <strong>@x_v = -\frac{b}{2a}@</strong> (ex.: quantidade de produtos, tempo de voo, dimensão geométrica).</li>
+        <li><strong>"Qual é o valor máximo / mínimo?"</strong>: a pergunta refere-se à ordenada do vértice, isto é, a <strong>@y_v = -\frac{\Delta}{4a} = f(x_v)@</strong> (ex.: lucro monetário máximo, altura máxima atingida, área máxima em metros quadrados).</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: CONCAVIDADE E OS SEIS CASOS FUNDAMENTAIS
+         =============================================================== -->
+    <h2>5. Concavidade, Discriminante e os 6 Casos Gráficos</h2>
+
+    <p>
+      A geometria da parábola depende fundamentalmente do par de parâmetros @(a, \Delta)@. A combinação dos sinais de @a@ (que dita a concavidade) com os sinais de @\Delta@ (que dita a quantidade de interseções com o eixo horizontal @Ox@) gera exatamente <strong>seis configurações geométricas exclusivas</strong>:
+    </p>
+
+    <div class="tabela-container">
+      <table class="tabela-quadratica">
+        <thead>
+          <tr>
+            <th>Parâmetros</th>
+            <th>Concavidade</th>
+            <th>Interseções com @Ox@</th>
+            <th>Posição do Vértice</th>
+            <th>Sinal da Função @f(x)@</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>@a > 0@ e @\Delta > 0@</strong></td>
+            <td>Voltada para cima (@\cup@)</td>
+            <td>Corta em 2 pontos distintos: @(x_1, 0)@ e @(x_2, 0)@</td>
+            <td>@y_v < 0@ (abaixo do eixo @Ox@)</td>
+            <td>Positiva fora das raízes, negativa entre as raízes</td>
+          </tr>
+          <tr>
+            <td><strong>@a > 0@ e @\Delta = 0@</strong></td>
+            <td>Voltada para cima (@\cup@)</td>
+            <td>Tangencia em 1 ponto: @(x_v, 0)@</td>
+            <td>@y_v = 0@ (sobre o eixo @Ox@)</td>
+            <td>@f(x) > 0@ para todo @x \neq x_v@, e @f(x_v) = 0@</td>
+          </tr>
+          <tr>
+            <td><strong>@a > 0@ e @\Delta < 0@</strong></td>
+            <td>Voltada para cima (@\cup@)</td>
+            <td>Nenhuma interseção com @Ox@</td>
+            <td>@y_v > 0@ (acima do eixo @Ox@)</td>
+            <td><strong>Estritamente positiva:</strong> @f(x) > 0, \forall x \in \mathbb{R}@</td>
+          </tr>
+          <tr>
+            <td><strong>@a < 0@ e @\Delta > 0@</strong></td>
+            <td>Voltada para baixo (@\cap@)</td>
+            <td>Corta em 2 pontos distintos: @(x_1, 0)@ e @(x_2, 0)@</td>
+            <td>@y_v > 0@ (acima do eixo @Ox@)</td>
+            <td>Negativa fora das raízes, positiva entre as raízes</td>
+          </tr>
+          <tr>
+            <td><strong>@a < 0@ e @\Delta = 0@</strong></td>
+            <td>Voltada para baixo (@\cap@)</td>
+            <td>Tangencia em 1 ponto: @(x_v, 0)@</td>
+            <td>@y_v = 0@ (sobre o eixo @Ox@)</td>
+            <td>@f(x) < 0@ para todo @x \neq x_v@, e @f(x_v) = 0@</td>
+          </tr>
+          <tr>
+            <td><strong>@a < 0@ e @\Delta < 0@</strong></td>
+            <td>Voltada para baixo (@\cap@)</td>
+            <td>Nenhuma interseção com @Ox@</td>
+            <td>@y_v < 0@ (abaixo do eixo @Ox@)</td>
+            <td><strong>Estritamente negativa:</strong> @f(x) < 0, \forall x \in \mathbb{R}@</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: ESTUDO DO SINAL DA FUNÇÃO QUADRÁTICA
+         =============================================================== -->
+    <h2>6. Estudo do Sinal da Função Quadrática</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 6.1 (Teorema do Sinal do Trinômio do 2º Grau)</h3>
+      <p>
+        Seja @f(x) = ax^2 + bx + c@ com @a \neq 0@ e discriminante @\Delta = b^2 - 4ac@. O comportamento do sinal dos valores de @f(x)@ obedece à seguinte lei geral:
+      </p>
+      <ul>
+        <li>
+          <strong>Caso 1: @\Delta > 0@ (duas raízes reais distintas @x_1 < x_2@):</strong>
+          <br>— @f(x)@ tem o <strong>mesmo sinal de @a@</strong> para @x < x_1@ ou @x > x_2@ (fora das raízes).
+          <br>— @f(x) = 0@ para @x = x_1@ e @x = x_2@.
+          <br>— @f(x)@ tem o <strong>sinal contrário ao de @a@</strong> para @x_1 < x < x_2@ (entre as raízes).
+        </li>
+        <li>
+          <strong>Caso 2: @\Delta = 0@ (raiz real dupla @x_1 = x_2 = x_v@):</strong>
+          <br>— @f(x)@ tem o <strong>mesmo sinal de @a@</strong> para todo @x \neq x_v@.
+          <br>— @f(x_v) = 0@.
+        </li>
+        <li>
+          <strong>Caso 3: @\Delta < 0@ (sem raízes reais):</strong>
+          <br>— @f(x)@ tem o <strong>mesmo sinal de @a@ para todo @x \in \mathbb{R}@</strong>.
+        </li>
+      </ul>
+    </div>
+
+    <h4>Demonstração Formal Rigorosa:</h4>
+    <p>
+      <strong>1. Para o Caso 1 (@\Delta > 0@):</strong>
+      Pelo Teorema 2.2, temos @f(x) = a(x - x_1)(x - x_2)@ com @x_1 < x_2@.
+      <br>Dividindo por @a@: @\frac{f(x)}{a} = (x - x_1)(x - x_2)@.
+      <br>— Se @x < x_1@: ambos os fatores @(x - x_1) < 0@ e @(x - x_2) < 0@ são negativos. Logo, o produto @(x - x_1)(x - x_2) > 0@ é positivo, implicando que @\frac{f(x)}{a} > 0 \iff f(x)@ tem o mesmo sinal de @a@.
+      <br>— Se @x_1 < x < x_2@: temos @(x - x_1) > 0@ e @(x - x_2) < 0@. O produto é estritamente negativo, implicando @\frac{f(x)}{a} < 0 \iff f(x)@ tem sinal contrário ao de @a@.
+      <br>— Se @x > x_2@: ambos os fatores são positivos. O produto é positivo, implicando que @f(x)@ tem o mesmo sinal de @a@.
+    </p>
+    <p>
+      <strong>2. Para o Caso 2 (@\Delta = 0@):</strong>
+      Temos @f(x) = a\left(x + \frac{b}{2a}\right)^2 = a(x - x_v)^2@.
+      <br>Como @(x - x_v)^2 > 0@ para todo @x \neq x_v@, o sinal de @f(x)@ coincide estritamente com o sinal de @a@ para qualquer @x \neq x_v@, anulando-se em @x = x_v@.
+    </p>
+    <p>
+      <strong>3. Para o Caso 3 (@\Delta < 0@):</strong>
+      Da forma canônica @f(x) = a\left[\left(x + \frac{b}{2a}\right)^2 - \frac{\Delta}{4a^2}\right]@.
+      <br>Como @\Delta < 0@, temos @-\Delta > 0@ e, portanto, @-\frac{\Delta}{4a^2} > 0@.
+      <br>A expressão entre colchetes @\left(x + \frac{b}{2a}\right)^2 + \frac{-\Delta}{4a^2}@ é a soma de um quadrado (não negativo) com um termo estritamente positivo, sendo estritamente positiva para todo @x \in \mathbb{R}@.
+      <br>Multiplicando esse termo positivo por @a@, conclui-se que @f(x)@ possui identicamente o mesmo sinal de @a@ para todo @x \in \mathbb{R}@. @\blacksquare@
+    </p>
+
+    <!-- ===============================================================
+         SEÇÃO 7: EXEMPLOS PRÁTICOS RESOLVIDOS PASSO A PASSO
+         =============================================================== -->
+    <h2>7. Exemplos Práticos Resolvidos Passo a Passo</h2>
+
+    <!-- EXEMPLO 1 -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 (Estudo Completo de uma Função Quadrática)</h3>
+      <p>
+        <strong>Enunciado:</strong> Seja a função @f: \mathbb{R} \to \mathbb{R}@ dada por @f(x) = x^2 - 6x + 8@.
+        <br>(a) Identifique os coeficientes e determine o sentido da concavidade.
+        <br>(b) Calcule o discriminante @\Delta@ e determine as raízes da função.
+        <br>(c) Determine as coordenadas do vértice @V(x_v, y_v)@ e a equação do eixo de simetria.
+        <br>(d) Estabeleça o conjunto imagem @\operatorname{Im}(f)@.
+        <br>(e) Efetue o estudo do sinal de @f(x)@.
+        <br>(f) Escreva a função nas formas canônica e fatorada.
+      </p>
+
+      <h4>Solução Passo a Passo:</h4>
+      <p><strong>(a) Coeficientes e Concavidade:</strong></p>
+      <p>
+        Temos @a = 1@, @b = -6@ e @c = 8@. Como @a = 1 > 0@, a parábola tem <strong>concavidade voltada para cima</strong>.
+      </p>
+
+      <p><strong>(b) Discriminante e Raízes:</strong></p>
+      @@
+      \Delta = b^2 - 4ac = (-6)^2 - 4(1)(8) = 36 - 32 = 4
+      @@
+      <p>Como @\Delta = 4 > 0@, a função possui duas raízes reais e distintas:</p>
+      @@
+      x = \frac{-b \pm \sqrt{\Delta}}{2a} = \frac{-(-6) \pm \sqrt{4}}{2(1)} = \frac{6 \pm 2}{2}
+      @@
+      @@
+      x_1 = \frac{6 - 2}{2} = 2 \qquad \text{e} \qquad x_2 = \frac{6 + 2}{2} = 4
+      @@
+      <p>A parábola cruza o eixo @Ox@ nos pontos @(2, 0)@ e @(4, 0)@, e o eixo @Oy@ no ponto @(0, 8)@.</p>
+
+      <p><strong>(c) Vértice e Eixo de Simetria:</strong></p>
+      @@
+      x_v = -\frac{b}{2a} = -\frac{-6}{2(1)} = 3
+      @@
+      @@
+      y_v = -\frac{\Delta}{4a} = -\frac{4}{4(1)} = -1 \quad (\text{ou } f(3) = 3^2 - 6(3) + 8 = 9 - 18 + 8 = -1)
+      @@
+      <p>O vértice é o ponto @V(3, -1)@ (ponto de mínimo). O eixo de simetria é a reta vertical @x = 3@.</p>
+
+      <p><strong>(d) Conjunto Imagem:</strong></p>
+      <p>Como @a > 0@ e o valor mínimo é @y_v = -1@, temos:</p>
+      @@
+      \operatorname{Im}(f) = [-1, +\infty[
+      @@
+
+      <p><strong>(e) Estudo do Sinal:</strong></p>
+      <ul>
+        <li>@f(x) > 0@ para @x < 2@ ou @x > 4@ (fora das raízes, mesmo sinal de @a@).</li>
+        <li>@f(x) = 0@ para @x = 2@ ou @x = 4@.</li>
+        <li>@f(x) < 0@ para @2 < x < 4@ (entre as raízes, sinal oposto ao de @a@).</li>
+      </ul>
+
+      <p><strong>(f) Formas Canônica e Fatorada:</strong></p>
+      @@
+      \text{Forma Canônica: } f(x) = a(x - x_v)^2 + y_v \implies f(x) = (x - 3)^2 - 1
+      @@
+      @@
+      \text{Forma Fatorada: } f(x) = a(x - x_1)(x - x_2) \implies f(x) = (x - 2)(x - 4)
+      @@
+    </div>
+
+    <!-- EXEMPLO 2 -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 (Determinação da Lei a partir de Dados do Vértice)</h3>
+      <p>
+        <strong>Enunciado:</strong> Determine a lei da função quadrática @f(x) = ax^2 + bx + c@ sabendo que seu vértice é o ponto @V(2, 9)@ e que seu gráfico passa pelo ponto @P(5, 0)@.
+      </p>
+
+      <h4>Solução Passo a Passo:</h4>
+      <p><strong>Passo 1:</strong> Escrever a função na forma canônica:</p>
+      <p>Como conhecemos as coordenadas do vértice @(x_v, y_v) = (2, 9)@, a forma canônica é a via mais elegante:</p>
+      @@
+      f(x) = a(x - x_v)^2 + y_v = a(x - 2)^2 + 9
+      @@
+
+      <p><strong>Passo 2:</strong> Utilizar o ponto conhecido @P(5, 0)@ para determinar @a@:</p>
+      @@
+      f(5) = 0 \iff a(5 - 2)^2 + 9 = 0 \iff a(3)^2 + 9 = 0 \iff 9a + 9 = 0 \iff a = -1
+      @@
+
+      <p><strong>Passo 3:</strong> Desenvolver para a forma geral:</p>
+      @@
+      f(x) = -1(x - 2)^2 + 9 = -(x^2 - 4x + 4) + 9 = -x^2 + 4x + 5
+      @@
+
+      <p>
+        <strong>Resposta:</strong> A lei da função é @f(x) = -x^2 + 4x + 5@ (com @a = -1@, @b = 4@ e @c = 5@).
+      </p>
+    </div>
+
+    <!-- EXEMPLO 3: OTIMIZAÇÃO ECONÔMICA -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 (Otimização Econômica — Lucro Máximo de uma Empresa)</h3>
+      <p>
+        <strong>Enunciado:</strong> Uma indústria de aparelhos eletrônicos determinou que o custo total diário (em reais) para fabricar @x@ unidades de um equipamento é modelado por @C(x) = x^2 + 40x + 1200@. Cada unidade é comercializada a um preço fixo de R$ 160,00, de modo que a receita total obtida é @R(x) = 160x@.
+        <br>(a) Obtenha a função lucro diário @L(x)@ da empresa.
+        <br>(b) Quantas unidades devem ser produzidas e vendidas por dia para que o lucro diário seja máximo?
+        <br>(c) Qual é o valor desse lucro máximo?
+        <br>(d) Qual é a faixa de produção diária para a qual a empresa não opera com prejuízo (@L(x) \ge 0@)?
+      </p>
+
+      <h4>Solução Passo a Passo:</h4>
+      <p><strong>(a) Função Lucro:</strong></p>
+      <p>O lucro @L(x)@ é a diferença entre a receita e o custo total:</p>
+      @@
+      \begin{aligned}
+      L(x) &= R(x) - C(x) = 160x - (x^2 + 40x + 1200) \\
+      &= -x^2 + 120x - 1200
+      \end{aligned}
+      @@
+
+      <p><strong>(b) Quantidade para Lucro Máximo:</strong></p>
+      <p>
+        Como @a = -1 < 0@, a parábola possui concavidade para baixo, atingindo lucro máximo na abscissa do vértice @x_v@:
+      </p>
+      @@
+      x_v = -\frac{b}{2a} = -\frac{120}{2(-1)} = \frac{-120}{-2} = 60 \text{ unidades}
+      @@
+
+      <p><strong>(c) Lucro Máximo Diário:</strong></p>
+      <p>Calculamos @y_v = L(60)@:</p>
+      @@
+      \begin{aligned}
+      L(60) &= -(60)^2 + 120(60) - 1200 \\
+      &= -3600 + 7200 - 1200 = 2400 \text{ reais}
+      \end{aligned}
+      @@
+      <p>Portanto, o lucro máximo diário é de <strong>R$ 2.400,00</strong>.</p>
+
+      <p><strong>(d) Faixa de Produção sem Prejuízo (@L(x) \ge 0@):</strong></p>
+      <p>Encontramos as raízes da equação @-x^2 + 120x - 1200 = 0 \iff x^2 - 120x + 1200 = 0@:</p>
+      @@
+      \Delta = (-120)^2 - 4(1)(1200) = 14400 - 4800 = 9600
+      @@
+      @@
+      \sqrt{9600} = \sqrt{100 \times 16 \times 6} = 40\sqrt{6} \approx 40 \times 2{,}449 = 97{,}98
+      @@
+      @@
+      x = \frac{120 \pm 40\sqrt{6}}{2} = 60 \pm 20\sqrt{6}
+      @@
+      <p>
+        Aproximadamente, @x_1 \approx 60 - 48{,}99 = 11{,}01@ e @x_2 \approx 60 + 48{,}99 = 108{,}99@.
+        <br>Como @x@ deve ser um número inteiro de unidades produzidas, a empresa opera com lucro no intervalo discreto de <strong>12 a 108 unidades diárias</strong>.
+      </p>
+    </div>
+
+    <!-- EXEMPLO 4: OTIMIZAÇÃO GEOMÉTRICA -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 (Otimização Geométrica — Área Máxima com Cercado)</h3>
+      <p>
+        <strong>Enunciado:</strong> Um produtor rural deseja construir um galinheiro retangular aproveitando um muro de alvenaria já existente em sua propriedade. Ele necessitará cercar apenas três lados do retângulo com uma tela de 120 metros de comprimento que comprou. Quais devem ser as dimensões do retângulo para que a área cercada seja máxima, e qual é o valor dessa área?
+      </p>
+
+      <h4>Solução Passo a Passo:</h4>
+      <p><strong>Passo 1: Modelagem das Variáveis:</strong></p>
+      <p>
+        Seja @x@ o comprimento (em metros) dos dois lados perpendiculares ao muro e @y@ o comprimento do lado paralelo ao muro.
+        <br>O comprimento total da cerca utilizada é:
+      </p>
+      @@
+      2x + y = 120 \implies y = 120 - 2x
+      @@
+      <p>Como as grandezas geométricas devem ser estritamente positivas, temos @x > 0@ e @120 - 2x > 0 \implies x < 60@.</p>
+
+      <p><strong>Passo 2: Construção da Função Área:</strong></p>
+      @@
+      A(x) = x \cdot y = x(120 - 2x) = -2x^2 + 120x
+      @@
+
+      <p><strong>Passo 3: Maximização da Área:</strong></p>
+      <p>
+        A função @A(x)@ é quadrática com @a = -2 < 0@ (concavidade para baixo), possuindo ponto de máximo em @x_v@:
+      </p>
+      @@
+      x_v = -\frac{b}{2a} = -\frac{120}{2(-2)} = \frac{-120}{-4} = 30 \text{ metros}
+      @@
+      <p>Calculando a outra dimensão @y@:</p>
+      @@
+      y = 120 - 2(30) = 60 \text{ metros}
+      @@
+
+      <p><strong>Passo 4: Cálculo da Área Máxima:</strong></p>
+      @@
+      A_{\max} = A(30) = 30 \times 60 = 1800 \text{ m}^2
+      @@
+      <p>
+        <strong>Resposta:</strong> As dimensões devem ser <strong>30 metros</strong> (lados perpendiculares) e <strong>60 metros</strong> (lado paralelo ao muro), proporcionando uma área máxima de <strong>1.800 m²</strong>.
+      </p>
+    </div>
+
+    <!-- EXEMPLO 5: OTIMIZAÇÃO FÍSICA -->
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 (Otimização Física — Cinemática e Trajetória Balística)</h3>
+      <p>
+        <strong>Enunciado:</strong> Do alto de uma plataforma situada a 45 metros do solo, um projétil é disparado verticalmente para cima. Sua altura @h(t)@ (em metros) em relação ao solo, em função do tempo @t@ (em segundos decorridos após o disparo), é descrita pela lei:
+      </p>
+      @@
+      h(t) = -5t^2 + 40t + 45 \quad (t \ge 0)
+      @@
+      <p>
+        (a) Qual é a altura inicial de lançamento?
+        <br>(b) Em que instante o projétil atinge sua altura máxima e qual é essa altura?
+        <br>(c) Quanto tempo após o disparo o projétil atinge o solo?
+        <br>(d) Durante quanto tempo o projétil permaneceu a uma altura superior ou igual a 105 metros?
+      </p>
+
+      <h4>Solução Passo a Passo:</h4>
+      <p><strong>(a) Altura Inicial:</strong></p>
+      <p>Corresponde ao instante @t = 0@:</p>
+      @@
+      h(0) = -5(0)^2 + 40(0) + 45 = 45 \text{ metros}
+      @@
+
+      <p><strong>(b) Instante e Valor da Altura Máxima:</strong></p>
+      <p>O vértice da função quadrática (@a = -5 < 0@) nos dá o tempo de subida até o ápice:</p>
+      @@
+      t_v = -\frac{b}{2a} = -\frac{40}{2(-5)} = \frac{-40}{-10} = 4 \text{ segundos}
+      @@
+      <p>A altura máxima @h_{\max}@ é a ordenada do vértice:</p>
+      @@
+      h(4) = -5(4)^2 + 40(4) + 45 = -5(16) + 160 + 45 = -80 + 160 + 45 = 125 \text{ metros}
+      @@
+
+      <p><strong>(c) Instante de Impacto com o Solo (@h(t) = 0@):</strong></p>
+      @@
+      -5t^2 + 40t + 45 = 0
+      @@
+      <p>Dividindo toda a equação por @-5@ para simplificar:</p>
+      @@
+      t^2 - 8t - 9 = 0 \iff (t - 9)(t + 1) = 0
+      @@
+      <p>
+        As raízes são @t_1 = 9@ e @t_2 = -1@. Como o tempo físico deve satisfazer @t \ge 0@, descartamos a raiz negativa @t_2 = -1@.
+        <br>O projétil atinge o solo <strong>9 segundos</strong> após o disparo.
+      </p>
+
+      <p><strong>(d) Tempo com Altura @h(t) \ge 105@ metros:</strong></p>
+      @@
+      -5t^2 + 40t + 45 \ge 105 \iff -5t^2 + 40t - 60 \ge 0
+      @@
+      <p>Dividindo por @-5@ (o que inverte a desigualdade):</p>
+      @@
+      t^2 - 8t + 12 \le 0 \iff (t - 2)(t - 6) \le 0
+      @@
+      <p>
+        A parábola associada a @t^2 - 8t + 12@ possui raízes @t = 2@ e @t = 6@ e concavidade para cima. Ela é não positiva entre as raízes:
+      </p>
+      @@
+      2 \le t \le 6
+      @@
+      <p>
+        Portanto, o projétil permaneceu a 105 m ou mais durante @\Delta t = 6 - 2 = \mathbf{4\text{ segundos}}@.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 8: ARMADILHAS COMUNS E CUIDADOS
+         =============================================================== -->
+    <h2>8. Armadilhas Comuns e Cuidados Analíticos</h2>
+
+    <div class="destaque-box observacao">
+      <h3>1. O Esquecimento do Sinal Menos nas Fórmulas do Vértice</h3>
+      <p>
+        As duas fórmulas do vértice contêm sinal negativo:
+      </p>
+      @@
+      x_v = -\frac{b}{2a} \qquad \text{e} \qquad y_v = -\frac{\Delta}{4a}
+      @@
+      <p>
+        Lembre-se sempre de que se @b@ já for negativo, @-b@ se tornará positivo. Uma excelente forma de conferir e evitar erros ao calcular @y_v@ é calcular simplesmente a imagem de @x_v@, isto é, @y_v = f(x_v)@.
+      </p>
+    </div>
+
+    <div class="erro-comum">
+      <h3>2. Fatorar Polinômio sem o Coeficiente @a@</h3>
+      <p>
+        Um erro clássico ao escrever a forma fatorada é escrever @(x - x_1)(x - x_2)@ em vez de <strong>@a(x - x_1)(x - x_2)@</strong>.
+        <br>Por exemplo, para @f(x) = 3x^2 - 9x + 6@, as raízes são @x_1 = 1@ e @x_2 = 2@.
+        <br>Escrever @(x - 1)(x - 2) = x^2 - 3x + 2@ é incorreto, pois omitiu-se o fator multiplicativo @a = 3@. A forma correta é @3(x - 1)(x - 2)@.
+      </p>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>3. O Significado de @\Delta < 0@</h3>
+      <p>
+        @\Delta < 0@ não significa que a função é inexistente ou impossível de esboçar! Significa exclusivamente que a parábola <strong>não intercepta o eixo real horizontal @Ox@</strong>. A função continua perfeitamente definida em todo @\mathbb{R}@, com vértice real @(x_v, y_v)@, eixo de simetria e ponto de interseção @(0, c)@ no eixo @Oy@.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 9: EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO RÁPIDA
+         =============================================================== -->
+    <h2>9. Exercícios Conceituais de Fixação Rápida</h2>
+    <p>
+      Teste seu domínio com estes 12 exercícios rigorosamente selecionados. Tente resolver individualmente antes de consultar a resolução comentada retrátil.
+    </p>
+
+    <ol class="lista-exercicios">
+      <!-- EXERCÍCIO 1 -->
+      <li>
+        <strong>(Identificação e Concavidade)</strong> Considere a função quadrática @f(x) = -2x^2 + 8x - 6@.
+        <br>(a) Identifique os coeficientes @a, b@ e @c@.
+        <br>(b) Justifique o sentido da concavidade da parábola.
+        <br>(c) Em qual ponto a curva cruza o eixo das ordenadas @Oy@?
+        <details class="solucao-exercicio">
+          <summary>▶ Ver Resolução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a)</strong> Comparando @f(x) = -2x^2 + 8x - 6@ com a forma canônica geral @ax^2 + bx + c@, temos: @a = -2@, @b = 8@ e @c = -6@.</p>
+            <p><strong>(b)</strong> O sentido da concavidade é determinado exclusivamente pelo sinal de @a@. Como @a = -2 < 0@, a parábola tem <strong>concavidade voltada para baixo</strong> (@\cap@).</p>
+            <p><strong>(c)</strong> Toda parábola cruza o eixo @Oy@ no ponto onde @x = 0@, cuja ordenada é @f(0) = c = -6@. Logo, o ponto é <strong>@(0, -6)@</strong>.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 2 -->
+      <li>
+        <strong>(Discriminante e Quantidade de Raízes)</strong> Calcule o discriminante @\Delta@ e determine o número de raízes reais distintas para cada função:
+        <br>(a) @f(x) = x^2 - 6x + 9@
+        <br>(b) @g(x) = 2x^2 - 3x + 5@
+        <br>(c) @h(x) = 3x^2 - 5x - 2@
+        <details class="solucao-exercicio">
+          <summary>▶ Ver Resolução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a)</strong> @\Delta = (-6)^2 - 4(1)(9) = 36 - 36 = 0@. Como @\Delta = 0@, @f@ possui <strong>uma única raiz real dupla</strong> (@x = 3@), tangenciando o eixo @Ox@.</p>
+            <p><strong>(b)</strong> @\Delta = (-3)^2 - 4(2)(5) = 9 - 40 = -31 < 0@. Como @\Delta < 0@, @g@ <strong>não possui raízes reais</strong> (0 raízes em @\mathbb{R}@).</p>
+            <p><strong>(c)</strong> @\Delta = (-5)^2 - 4(3)(-2) = 25 + 24 = 49 > 0@. Como @\Delta > 0@, @h@ possui <strong>duas raízes reais e distintas</strong> (@x_1 = 2@ e @x_2 = -1/3@).</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 3 -->
+      <li>
+        <strong>(Fórmula de Bhaskara e Forma Fatorada)</strong> Determine as raízes reais da função @f(x) = 2x^2 - 5x - 3@ e escreva a sua decomposição na forma fatorada.
+        <details class="solucao-exercicio">
+          <summary>▶ Ver Resolução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Calculamos o discriminante @\Delta@:</p>
+            @@
+            \Delta = (-5)^2 - 4(2)(-3) = 25 + 24 = 49
+            @@
+            <p>Aplicamos a fórmula de Bhaskara:</p>
+            @@
+            x = \frac{-(-5) \pm \sqrt{49}}{2(2)} = \frac{5 \pm 7}{4}
+            @@
+            @@
+            x_1 = \frac{5 + 7}{4} = \frac{12}{4} = 3 \qquad \text{e} \qquad x_2 = \frac{5 - 7}{4} = \frac{-2}{4} = -\frac{1}{2}
+            @@
+            <p>A forma fatorada geral é @f(x) = a(x - x_1)(x - x_2)@. Com @a = 2@:</p>
+            @@
+            f(x) = 2(x - 3)\left(x + \frac{1}{2}\right) = (x - 3)(2x + 1)
+            @@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 4 -->
+      <li>
+        <strong>(Relações de Girard)</strong> As raízes da função quadrática @f(x) = x^2 - kx + 12@ são números inteiros positivos, sendo uma o triplo da outra. Determine o valor do parâmetro real @k@.
+        <details class="solucao-exercicio">
+          <summary>▶ Ver Resolução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Sejam as raízes @x_1 = r@ e @x_2 = 3r@ com @r > 0@ inteiro.</p>
+            <p>Pelo produto das raízes de Girard (@P = \frac{c}{a}@):</p>
+            @@
+            x_1 \cdot x_2 = \frac{12}{1} \implies r \cdot (3r) = 12 \implies 3r^2 = 12 \implies r^2 = 4
+            @@
+            <p>Como as raízes são positivas, @r = 2@. Logo, as raízes são @x_1 = 2@ e @x_2 = 6@.</p>
+            <p>Pela soma das raízes de Girard (@S = -\frac{b}{a}@):</p>
+            @@
+            S = x_1 + x_2 = -\frac{-k}{1} \implies 2 + 6 = k \implies k = 8
+            @@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 5 -->
+      <li>
+        <strong>(Vértice e Eixo de Simetria)</strong> Determine as coordenadas do vértice @V(x_v, y_v)@ e a reta que constitui o eixo de simetria da parábola dada por @f(x) = -x^2 + 6x - 5@.
+        <details class="solucao-exercicio">
+          <summary>▶ Ver Resolução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Temos @a = -1@, @b = 6@ e @c = -5@.</p>
+            <p>Abscissa do vértice:</p>
+            @@
+            x_v = -\frac{b}{2a} = -\frac{6}{2(-1)} = \frac{-6}{-2} = 3
+            @@
+            <p>Ordenada do vértice:</p>
+            @@
+            y_v = f(3) = -(3)^2 + 6(3) - 5 = -9 + 18 - 5 = 4
+            @@
+            <p>(Alternativamente: @\Delta = 6^2 - 4(-1)(-5) = 36 - 20 = 16 \implies y_v = -\frac{16}{4(-1)} = 4@).</p>
+            <p>Portanto, o vértice é <strong>@V(3, 4)@</strong> e a reta do eixo de simetria é a reta vertical <strong>@x = 3@</strong>.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 6 -->
+      <li>
+        <strong>(Conjunto Imagem)</strong> Determine formalmente o conjunto imagem @\operatorname{Im}(f)@ de cada uma das funções:
+        <br>(a) @f(x) = 2x^2 - 8x + 11@
+        <br>(b) @g(x) = -3x^2 + 12x - 7@
+        <details class="solucao-exercicio">
+          <summary>▶ Ver Resolução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a)</strong> Em @f(x)@, temos @a = 2 > 0@ (a parábola atinge valor mínimo absoluto em @y_v@):</p>
+            @@
+            x_v = -\frac{-8}{2(2)} = 2 \implies y_v = f(2) = 2(2)^2 - 8(2) + 11 = 8 - 16 + 11 = 3
+            @@
+            <p>Logo, @\operatorname{Im}(f) = [3, +\infty[@.</p>
+
+            <p><strong>(b)</strong> Em @g(x)@, temos @a = -3 < 0@ (a parábola atinge valor máximo absoluto em @y_v@):</p>
+            @@
+            x_v = -\frac{12}{2(-3)} = 2 \implies y_v = g(2) = -3(2)^2 + 12(2) - 7 = -12 + 24 - 7 = 5
+            @@
+            <p>Logo, @\operatorname{Im}(g) = ]-\infty, 5]@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 7 -->
+      <li>
+        <strong>(Interpretação de Máximo em Economia)</strong> A receita mensal @R@ (em milhares de reais) gerada por um curso preparatório depende do preço @x@ da mensalidade (em centenas de reais) segundo @R(x) = -x^2 + 14x - 24@ para @2 \le x \le 12@.
+        <br>(a) Qual o valor de @x@ que maximiza a receita mensal?
+        <br>(b) Qual é o valor dessa receita máxima?
+        <details class="solucao-exercicio">
+          <summary>▶ Ver Resolução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>(a)</strong> O preço @x@ que gera a receita máxima é a abscissa do vértice:</p>
+            @@
+            x_v = -\frac{b}{2a} = -\frac{14}{2(-1)} = 7
+            @@
+            <p>Como @x@ está em centenas de reais, o preço ideal é de @7 \times 100 = \mathbf{\text{R\$\ } 700{,}00}@.</p>
+            <p><strong>(b)</strong> A receita máxima corresponde a @R(7)@:</p>
+            @@
+            R(7) = -(7)^2 + 14(7) - 24 = -49 + 98 - 24 = 25
+            @@
+            <p>Como a receita está em milhares de reais, a receita máxima mensal é de @25 \times 1000 = \mathbf{\text{R\$\ } 25.000{,}00}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 8 -->
+      <li>
+        <strong>(Otimização de Perímetro e Área)</strong> Deseja-se cercar um terreno retangular plano dispondo de exatamente 100 metros lineares de cerca para os quatro lados. Determine as dimensões do retângulo que maximizam a área cercada e comprove que o retângulo de área máxima com perímetro fixo é sempre um quadrado.
+        <details class="solucao-exercicio">
+          <summary>▶ Ver Resolução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Sejam @x@ e @y@ os lados do retângulo. O perímetro é @2x + 2y = 100 \implies x + y = 50 \implies y = 50 - x@.</p>
+            <p>A função área é:</p>
+            @@
+            A(x) = x \cdot y = x(50 - x) = -x^2 + 50x
+            @@
+            <p>Como @a = -1 < 0@, o ponto de máximo ocorre em:</p>
+            @@
+            x_v = -\frac{50}{2(-1)} = 25 \text{ metros}
+            @@
+            <p>Calculando a outra dimensão:</p>
+            @@
+            y = 50 - 25 = 25 \text{ metros}
+            @@
+            <p>Como @x = y = 25@ metros, o retângulo de área máxima é necessariamente um <strong>quadrado</strong> de lado 25 m, com área máxima de @A_{\max} = 25^2 = 625\text{ m}^2@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 9 -->
+      <li>
+        <strong>(Estudo do Sinal de um Trinômio)</strong> Efetue o estudo sistemático do sinal da função quadrática @f(x) = x^2 - 2x - 8@.
+        <details class="solucao-exercicio">
+          <summary>▶ Ver Resolução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>1. Determinação das raízes:</strong></p>
+            @@
+            x^2 - 2x - 8 = 0 \iff (x - 4)(x + 2) = 0 \implies x_1 = -2 \quad \text{e} \quad x_2 = 4
+            @@
+            <p><strong>2. Análise da concavidade:</strong></p>
+            <p>O coeficiente quadrático é @a = 1 > 0@ (concavidade voltada para cima).</p>
+            <p><strong>3. Conclusão do sinal:</strong></p>
+            <ul>
+              <li>@f(x) > 0 \iff x \in ]-\infty, -2[ \cup ]4, +\infty[@ (fora das raízes, mesmo sinal de @a@).</li>
+              <li>@f(x) = 0 \iff x \in \{-2, 4\}@ (nos zeros da função).</li>
+              <li>@f(x) < 0 \iff x \in ]-2, 4[@ (entre as raízes, sinal contrário ao de @a@).</li>
+            </ul>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 10 -->
+      <li>
+        <strong>(Inequação do 2º Grau)</strong> Resolva em @\mathbb{R}@ a inequação:
+        @@
+        -2x^2 + 5x - 2 \ge 0
+        @@
+        <details class="solucao-exercicio">
+          <summary>▶ Ver Resolução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Consideramos a função quadrática @f(x) = -2x^2 + 5x - 2@. Queremos @f(x) \ge 0@.</p>
+            <p>Calculamos as raízes de @-2x^2 + 5x - 2 = 0@:</p>
+            @@
+            \Delta = 5^2 - 4(-2)(-2) = 25 - 16 = 9
+            @@
+            @@
+            x = \frac{-5 \pm \sqrt{9}}{2(-2)} = \frac{-5 \pm 3}{-4}
+            @@
+            @@
+            x_1 = \frac{-5 + 3}{-4} = \frac{-2}{-4} = \frac{1}{2} \qquad \text{e} \qquad x_2 = \frac{-5 - 3}{-4} = \frac{-8}{-4} = 2
+            @@
+            <p>
+              Como @a = -2 < 0@ (concavidade para baixo), a função é não negativa (@f(x) \ge 0@) <strong>entre as raízes</strong> (incluindo as próprias raízes).
+            </p>
+            <p>
+              <strong>Conjunto Solução:</strong> @S = \left[\frac{1}{2}, 2\right] = \left\{x \in \mathbb{R} \;\middle|\; \frac{1}{2} \le x \le 2\right\}@.
+            </p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 11 -->
+      <li>
+        <strong>(Reconstrução por Forma Canônica)</strong> Uma parábola possui vértice no ponto @V(2, -8)@ e intercepta o eixo @Oy@ no ponto @(0, 4)@. Determine a expressão de sua lei na forma canônica e na forma polinomial geral.
+        <details class="solucao-exercicio">
+          <summary>▶ Ver Resolução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p>Pela forma canônica com @(x_v, y_v) = (2, -8)@:</p>
+            @@
+            f(x) = a(x - x_v)^2 + y_v = a(x - 2)^2 - 8
+            @@
+            <p>Como o gráfico cruza o eixo @Oy@ em @(0, 4)@, temos @f(0) = 4@:</p>
+            @@
+            a(0 - 2)^2 - 8 = 4 \implies 4a - 8 = 4 \implies 4a = 12 \implies a = 3
+            @@
+            <p>Logo, a <strong>forma canônica</strong> é: @f(x) = 3(x - 2)^2 - 8@.</p>
+            <p>Expandindo o binômio para obter a <strong>forma polinomial geral</strong>:</p>
+            @@
+            f(x) = 3(x^2 - 4x + 4) - 8 = 3x^2 - 12x + 12 - 8 = 3x^2 - 12x + 4
+            @@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 12 -->
+      <li>
+        <strong>(Análise Gráfica Qualitativa / OBMEP)</strong> Uma parábola correspondente ao gráfico da função quadrática @f(x) = ax^2 + bx + c@ possui seu vértice no 4º quadrante do plano cartesiano, cruza o eixo @Oy@ em uma ordenada estritamente negativa e possui duas raízes reais distintas com a mesma abscissa de sinal positivo (@0 < x_1 < x_2@). Deduza rigorosamente os sinais de @a, b, c@ e do discriminante @\Delta@.
+        <details class="solucao-exercicio">
+          <summary>▶ Ver Resolução Comentada</summary>
+          <div class="conteudo-solucao">
+            <ol>
+              <li><strong>Sinal de @\Delta@:</strong> Como o enunciado afirma que a curva possui duas raízes reais distintas (@x_1 \neq x_2@), temos necessariamente <strong>@\Delta > 0@</strong>.</li>
+              <li><strong>Sinal de @c@:</strong> A curva intercepta o eixo @Oy@ no ponto @(0, c)@. Como a ordenada é negativa, temos <strong>@c < 0@</strong>.</li>
+              <li><strong>Sinal de @a@:</strong> O vértice está situado no 4º quadrante, o que implica @y_v < 0@. Como a parábola possui duas raízes reais (@\Delta > 0@) e o vértice está abaixo do eixo @Ox@, a curva deve subir a partir do vértice para cruzar o eixo @Ox@. Portanto, a concavidade é voltada para cima, o que exige <strong>@a > 0@</strong>. (Se @a < 0@ com @y_v < 0@, a parábola estaria inteiramente no semiplano inferior e nunca cruzaria o eixo @Ox@).</li>
+              <li><strong>Sinal de @b@:</strong> O vértice está no 4º quadrante, logo @x_v > 0@. Sabendo que @x_v = -\frac{b}{2a}@ e que @a > 0@:
+              @@
+              -\frac{b}{2a} > 0 \implies -b > 0 \implies \mathbf{b < 0}
+              @@
+              (Também podemos constatar que a soma das raízes é @x_1 + x_2 > 0@, donde @-\frac{b}{a} > 0 \implies b < 0@).</li>
+            </ol>
+            <p><strong>Conclusão Final:</strong> @a > 0@, @b < 0@, @c < 0@ e @\Delta > 0@.</p>
+          </div>
+        </details>
+      </li>
+    </ol>
+
+    <!-- RESPOSTAS SINTÉTICAS EM COMENTÁRIO HTML (PADRÃO NEXUS) -->
+    <!--
+    GABARITO SINTÉTICO DOS EXERCÍCIOS:
+    1. (a) a = -2, b = 8, c = -6; (b) Concavidade para baixo (a < 0); (c) (0, -6)
+    2. (a) Δ = 0 (1 raiz real dupla, x = 3); (b) Δ = -31 < 0 (0 raízes reais); (c) Δ = 49 > 0 (2 raízes reais distintas: x = 2 e x = -1/3)
+    3. Raízes: x₁ = 3, x₂ = -1/2. Forma fatorada: f(x) = 2(x - 3)(x + 1/2) = (x - 3)(2x + 1)
+    4. k = 8 (raízes são 2 e 6)
+    5. Vértice: V(3, 4); Eixo de simetria: x = 3
+    6. (a) Im(f) = [3, +∞[; (b) Im(g) = ]-∞, 5]
+    7. (a) x = 7 (R$ 700,00); (b) R(7) = 25 (R$ 25.000,00)
+    8. Dimensões: 25 m por 25 m (quadrado); Área máxima = 625 m²
+    9. f(x) > 0 para x < -2 ou x > 4; f(x) = 0 para x ∈ {-2, 4}; f(x) < 0 para -2 < x < 4
+    10. S = [1/2, 2]
+    11. Canônica: f(x) = 3(x - 2)² - 8; Polinomial geral: f(x) = 3x² - 12x + 4
+    12. a > 0, b < 0, c < 0 e Δ > 0
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 35px; margin-bottom: 25px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

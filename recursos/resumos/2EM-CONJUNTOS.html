@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Teoria dos Conjuntos</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>Teoria dos Conjuntos</h1>
+
+    <p>A teoria dos conjuntos é a base fundamental da matemática moderna, fornecendo uma linguagem precisa para descrever coleções de objetos e suas relações. Neste resumo, exploraremos os conceitos essenciais de conjuntos, suas representações, operações, relações e aplicações.</p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: CONCEITOS FUNDAMENTAIS E REPRESENTAÇÕES
+         =============================================================== -->
+    <h2>1. Conceitos Fundamentais</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Conjunto)</h3>
+      <p>Um <strong>conjunto</strong> é uma coleção bem definida de objetos distintos, chamados <strong>elementos</strong> ou <strong>membros</strong> do conjunto. Dizemos que um elemento @x@ <strong>pertence</strong> ao conjunto @A@, denotado por @x \in A@, ou que @x@ <strong>não pertence</strong> a @A@, denotado por @x \notin A@.</p>
+    </div>
+
+    <p><strong>Formas de Representação:</strong></p>
+    <ul>
+      <li><strong>Extensão (ou enumeração):</strong> @A = \{1, 2, 3, 4, 5\}@</li>
+      <li><strong>Compreensão (ou propriedade característica):</strong> @A = \{x \in \mathbb{N} \mid 1 \leq x \leq 5\}@</li>
+      <li><strong>Diagrama de Venn:</strong> Representação gráfica com regiões delimitadas</li>
+    </ul>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Conjunto Vazio)</h3>
+      <p>O <strong>conjunto vazio</strong>, denotado por @\emptyset@ ou @\{\}@, é o conjunto que não possui elementos.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Conjunto Unitário)</h3>
+      <p>Um conjunto é chamado <strong>unitário</strong> se possui exatamente um elemento.</p>
+      <p><strong>Exemplo:</strong> @A = \{5\}@ é um conjunto unitário.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.4 (Subconjunto)</h3>
+      <p>Dizemos que @A@ é <strong>subconjunto</strong> de @B@, denotado por @A \subseteq B@, se todo elemento de @A@ também é elemento de @B@. Formalmente:</p>
+      @@
+      A \subseteq B \Leftrightarrow (\forall x)(x \in A \Rightarrow x \in B)
+      @@
+      <p>Se @A \subseteq B@ e existe @y \in B@ tal que @y \notin A@, dizemos que @A@ é <strong>subconjunto próprio</strong> de @B@, denotado por @A \subset B@.</p>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> O conjunto vazio é subconjunto de qualquer conjunto, isto é, @\emptyset \subseteq A@ para todo conjunto @A@. Além disso, todo conjunto é subconjunto de si mesmo: @A \subseteq A@.
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.5 (Igualdade de Conjuntos)</h3>
+      <p>Dois conjuntos @A@ e @B@ são <strong>iguais</strong> se, e somente se, possuem exatamente os mesmos elementos. Formalmente:</p>
+      @@
+      A = B \Leftrightarrow (A \subseteq B) \text{ e } (B \subseteq A)
+      @@
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.6 (Conjunto Universo)</h3>
+      <p>Em contextos específicos, consideramos um <strong>conjunto universo</strong> @U@, que contém todos os elementos relevantes para o problema em questão. Todos os conjuntos considerados são subconjuntos de @U@.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: CONJUNTOS NUMÉRICOS
+         =============================================================== -->
+    <h2>2. Conjuntos Numéricos Fundamentais</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Conjunto dos Números Naturais)</h3>
+      <p>O conjunto @\mathbb{N}@ dos <strong>números naturais</strong> é definido como:</p>
+      @@
+      \mathbb{N} = \{0, 1, 2, 3, 4, 5, \ldots\}
+      @@
+      <p>O conjunto dos naturais não-nulos é denotado por @\mathbb{N}^* = \{1, 2, 3, 4, \ldots\}@.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.2 (Conjunto dos Números Inteiros)</h3>
+      <p>O conjunto @\mathbb{Z}@ dos <strong>números inteiros</strong> é a extensão dos naturais incluindo os negativos:</p>
+      @@
+      \mathbb{Z} = \{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\}
+      @@
+      <p>Note que @\mathbb{N} \subset \mathbb{Z}@.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.3 (Conjunto dos Números Racionais)</h3>
+      <p>O conjunto @\mathbb{Q}@ dos <strong>números racionais</strong> é formado pelos números que podem ser expressos como quociente de dois inteiros:</p>
+      @@
+      \mathbb{Q} = \left\{\frac{p}{q} \mid p \in \mathbb{Z}, q \in \mathbb{Z}^*, \text{ com } p \text{ e } q \text{ primos entre si}\right\}
+      @@
+      <p>Temos @\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q}@.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.4 (Conjunto dos Números Irracionais)</h3>
+      <p>O conjunto @\mathbb{I}@ dos <strong>números irracionais</strong> é formado pelos números que não podem ser expressos como razão de dois inteiros. Suas representações decimais são infinitas e não-periódicas.</p>
+      <p><strong>Exemplos:</strong> @\sqrt{2}@, @\pi@, @e@, @\sqrt{3}@, @\phi = \frac{1+\sqrt{5}}{2}@ (número de ouro).</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.5 (Conjunto dos Números Reais)</h3>
+      <p>O conjunto @\mathbb{R}@ dos <strong>números reais</strong> é a união dos números racionais e irracionais:</p>
+      @@
+      \mathbb{R} = \mathbb{Q} \cup \mathbb{I}
+      @@
+      <p>Temos a cadeia de inclusões: @\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}@.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.6 (Conjunto dos Números Complexos)</h3>
+      <p>O conjunto @\mathbb{C}@ dos <strong>números complexos</strong> é formado por números da forma @z = a + bi@, onde @a, b \in \mathbb{R}@ e @i@ é a unidade imaginária com @i^2 = -1@:</p>
+      @@
+      \mathbb{C} = \{a + bi \mid a, b \in \mathbb{R}\}
+      @@
+      <p>Temos @\mathbb{R} \subset \mathbb{C}@.</p>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> A hierarquia completa dos conjuntos numéricos é:
+      @@
+      \mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}
+      @@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: OPERAÇÕES ENTRE CONJUNTOS
+         =============================================================== -->
+    <h2>3. Operações entre Conjuntos</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (União de Conjuntos)</h3>
+      <p>A <strong>união</strong> de dois conjuntos @A@ e @B@, denotada por @A \cup B@, é o conjunto formado por todos os elementos que pertencem a @A@ ou a @B@ (ou a ambos):</p>
+      @@
+      A \cup B = \{x \mid x \in A \text{ ou } x \in B\}
+      @@
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.2 (Interseção de Conjuntos)</h3>
+      <p>A <strong>interseção</strong> de dois conjuntos @A@ e @B@, denotada por @A \cap B@, é o conjunto formado pelos elementos que pertencem simultaneamente a @A@ e a @B@:</p>
+      @@
+      A \cap B = \{x \mid x \in A \text{ e } x \in B\}
+      @@
+      <p>Se @A \cap B = \emptyset@, dizemos que @A@ e @B@ são <strong>conjuntos disjuntos</strong>.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.3 (Diferença de Conjuntos)</h3>
+      <p>A <strong>diferença</strong> entre @A@ e @B@, denotada por @A - B@ ou @A \setminus B@, é o conjunto dos elementos que pertencem a @A@ mas não pertencem a @B@:</p>
+      @@
+      A - B = \{x \mid x \in A \text{ e } x \notin B\}
+      @@
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.4 (Complementar)</h3>
+      <p>Dado um conjunto universo @U@, o <strong>complementar</strong> de @A@ em relação a @U@, denotado por @A^c@ ou @\overline{A}@ ou @C_U(A)@, é o conjunto:</p>
+      @@
+      A^c = U - A = \{x \in U \mid x \notin A\}
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Propriedades das Operações)</h3>
+      <p>Sejam @A@, @B@ e @C@ conjuntos. Valem as seguintes propriedades:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Comutatividade:</strong> @A \cup B = B \cup A@ e @A \cap B = B \cap A@</li>
+        <li><strong>(ii) Associatividade:</strong> @(A \cup B) \cup C = A \cup (B \cup C)@ e @(A \cap B) \cap C = A \cap (B \cap C)@</li>
+        <li><strong>(iii) Distributividade:</strong> @A \cup (B \cap C) = (A \cup B) \cap (A \cup C)@ e @A \cap (B \cup C) = (A \cap B) \cup (A \cap C)@</li>
+        <li><strong>(iv) Idempotência:</strong> @A \cup A = A@ e @A \cap A = A@</li>
+        <li><strong>(v) Elemento neutro:</strong> @A \cup \emptyset = A@ e @A \cap U = A@</li>
+        <li><strong>(vi) Absorção:</strong> @A \cup U = U@ e @A \cap \emptyset = \emptyset@</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.2 (Leis de De Morgan)</h3>
+      <p>Para quaisquer conjuntos @A@ e @B@, valem:</p>
+      @@
+      \begin{align}
+      (A \cup B)^c &= A^c \cap B^c \\
+      (A \cap B)^c &= A^c \cup B^c
+      \end{align}
+      @@
+    </div>
+
+    <p><strong>Demonstração da primeira lei:</strong></p>
+    <p>Provaremos que @(A \cup B)^c = A^c \cap B^c@ mostrando a dupla inclusão.</p>
+    <p>(@\subseteq@) Seja @x \in (A \cup B)^c@. Então @x \notin A \cup B@, o que significa que @x \notin A@ e @x \notin B@. Logo, @x \in A^c@ e @x \in B^c@, portanto @x \in A^c \cap B^c@.</p>
+    <p>(@\supseteq@) Seja @x \in A^c \cap B^c@. Então @x \in A^c@ e @x \in B^c@, isto é, @x \notin A@ e @x \notin B@. Logo, @x \notin A \cup B@, portanto @x \in (A \cup B)^c@.</p>
+
+    <div class="nota">
+      <strong>Observação:</strong> As Leis de De Morgan permitem transformar complementares de uniões em interseções de complementares, e vice-versa, sendo fundamentais em lógica e teoria dos conjuntos.
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: PRODUTO CARTESIANO E RELAÇÕES
+         =============================================================== -->
+    <h2>4. Produto Cartesiano e Relações</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.1 (Par Ordenado)</h3>
+      <p>Um <strong>par ordenado</strong> @(a, b)@ é uma estrutura matemática onde a ordem importa. Dois pares ordenados @(a, b)@ e @(c, d)@ são iguais se, e somente se, @a = c@ e @b = d@.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.2 (Produto Cartesiano)</h3>
+      <p>O <strong>produto cartesiano</strong> de dois conjuntos @A@ e @B@, denotado por @A \times B@, é o conjunto de todos os pares ordenados @(a, b)@ onde @a \in A@ e @b \in B@:</p>
+      @@
+      A \times B = \{(a, b) \mid a \in A \text{ e } b \in B\}
+      @@
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> Em geral, @A \times B \neq B \times A@, exceto quando @A = B@ ou quando um dos conjuntos é vazio. O produto cartesiano não é comutativo.
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.3 (Relação Binária)</h3>
+      <p>Uma <strong>relação binária</strong> @R@ de @A@ em @B@ é qualquer subconjunto do produto cartesiano @A \times B@. Escrevemos @aRb@ ou @(a, b) \in R@ para indicar que @a@ está relacionado com @b@.</p>
+      <p>Se @A = B@, dizemos que @R@ é uma relação em @A@.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.4 (Propriedades de Relações)</h3>
+      <p>Seja @R@ uma relação em um conjunto @A@. Dizemos que @R@ é:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i) Reflexiva:</strong> se @aRa@ para todo @a \in A@</li>
+        <li><strong>(ii) Simétrica:</strong> se @aRb@ implica @bRa@ para todos @a, b \in A@</li>
+        <li><strong>(iii) Antissimétrica:</strong> se @aRb@ e @bRa@ implicam @a = b@ para todos @a, b \in A@</li>
+        <li><strong>(iv) Transitiva:</strong> se @aRb@ e @bRc@ implicam @aRc@ para todos @a, b, c \in A@</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.5 (Relação de Equivalência)</h3>
+      <p>Uma relação @R@ em @A@ é uma <strong>relação de equivalência</strong> se é reflexiva, simétrica e transitiva.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.6 (Relação de Ordem)</h3>
+      <p>Uma relação @R@ em @A@ é uma <strong>relação de ordem parcial</strong> se é reflexiva, antissimétrica e transitiva. Se, além disso, quaisquer dois elementos de @A@ são comparáveis (isto é, @aRb@ ou @bRa@ para todos @a, b \in A@), dizemos que @R@ é uma <strong>ordem total</strong>.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: CARDINALIDADE E CONTAGEM
+         =============================================================== -->
+    <h2>5. Cardinalidade e Princípios de Contagem</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 5.1 (Cardinalidade)</h3>
+      <p>A <strong>cardinalidade</strong> (ou cardinal) de um conjunto finito @A@, denotada por @|A|@ ou @\#A@ ou @n(A)@, é o número de elementos de @A@.</p>
+      <p>Por convenção, @|\emptyset| = 0@.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.1 (Princípio da Inclusão-Exclusão para Dois Conjuntos)</h3>
+      <p>Para quaisquer conjuntos finitos @A@ e @B@:</p>
+      @@
+      |A \cup B| = |A| + |B| - |A \cap B|
+      @@
+    </div>
+
+    <p><strong>Justificativa:</strong> Ao somar @|A| + |B|@, contamos os elementos de @A \cap B@ duas vezes. Para corrigir, subtraímos @|A \cap B|@ uma vez.</p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.2 (Princípio da Inclusão-Exclusão para Três Conjuntos)</h3>
+      <p>Para quaisquer conjuntos finitos @A@, @B@ e @C@:</p>
+      @@
+      |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.3 (Cardinalidade do Produto Cartesiano)</h3>
+      <p>Se @A@ e @B@ são conjuntos finitos, então:</p>
+      @@
+      |A \times B| = |A| \cdot |B|
+      @@
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 5.2 (Conjunto das Partes)</h3>
+      <p>O <strong>conjunto das partes</strong> (ou conjunto potência) de @A@, denotado por @\mathcal{P}(A)@ ou @2^A@, é o conjunto formado por todos os subconjuntos de @A@:</p>
+      @@
+      \mathcal{P}(A) = \{X \mid X \subseteq A\}
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.4 (Cardinalidade do Conjunto das Partes)</h3>
+      <p>Se @A@ é um conjunto finito com @|A| = n@, então:</p>
+      @@
+      |\mathcal{P}(A)| = 2^n
+      @@
+    </div>
+
+    <p><strong>Demonstração:</strong> Cada elemento de @A@ tem duas escolhas ao formar um subconjunto: estar presente ou não. Como há @n@ elementos, pelo princípio multiplicativo temos @2 \times 2 \times \cdots \times 2 = 2^n@ subconjuntos possíveis.</p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 5.3 (Partição de um Conjunto)</h3>
+      <p>Uma <strong>partição</strong> de um conjunto @A@ é uma coleção @\{A_1, A_2, \ldots, A_k\}@ de subconjuntos não-vazios de @A@ tais que:</p>
+      <ul class="lista-propriedades">
+        <li><strong>(i)</strong> @A_i \neq \emptyset@ para todo @i@</li>
+        <li><strong>(ii)</strong> @A_i \cap A_j = \emptyset@ para @i \neq j@ (subconjuntos mutuamente disjuntos)</li>
+        <li><strong>(iii)</strong> @A_1 \cup A_2 \cup \cdots \cup A_k = A@</li>
+      </ul>
+    </div>
+
+    <div class="nota">
+      <strong>Observação:</strong> Uma partição divide o conjunto em blocos disjuntos que, juntos, reconstituem o conjunto original. Toda relação de equivalência induz uma partição (classes de equivalência), e vice-versa.
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>6. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Operações com Conjuntos Numéricos</h3>
+      <p><strong>Enunciado:</strong> Dados os conjuntos @A = \{x \in \mathbb{Z} \mid -3 \leq x < 4\}@ e @B = \{x \in \mathbb{N} \mid x \leq 5\}@, determine:</p>
+      <p>(a) @A \cap B@</p>
+      <p>(b) @A \cup B@</p>
+      <p>(c) @A - B@</p>
+      <p>(d) @B - A@</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Escrever os conjuntos em extensão.</p>
+      @@
+      \begin{align}
+      A &= \{-3, -2, -1, 0, 1, 2, 3\} \\
+      B &= \{0, 1, 2, 3, 4, 5\}
+      \end{align}
+      @@
+
+      <p><strong>Passo 2:</strong> Calcular as operações.</p>
+      <p>(a) @A \cap B = \{0, 1, 2, 3\}@ (elementos comuns a ambos)</p>
+      <p>(b) @A \cup B = \{-3, -2, -1, 0, 1, 2, 3, 4, 5\}@ (todos os elementos)</p>
+      <p>(c) @A - B = \{-3, -2, -1\}@ (elementos de @A@ que não estão em @B@)</p>
+      <p>(d) @B - A = \{4, 5\}@ (elementos de @B@ que não estão em @A@)</p>
+
+      <p><strong>Resposta:</strong> (a) @\{0, 1, 2, 3\}@; (b) @\{-3, -2, -1, 0, 1, 2, 3, 4, 5\}@; (c) @\{-3, -2, -1\}@; (d) @\{4, 5\}@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Aplicação do Princípio da Inclusão-Exclusão</h3>
+      <p><strong>Enunciado:</strong> Em uma turma de 40 alunos, 25 estudam inglês, 18 estudam espanhol e 10 estudam ambas as línguas. Quantos alunos não estudam nenhuma dessas duas línguas?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Definir os conjuntos.</p>
+      <p>Seja @I@ o conjunto dos alunos que estudam inglês e @E@ o conjunto dos alunos que estudam espanhol. Temos:</p>
+      @@
+      |I| = 25, \quad |E| = 18, \quad |I \cap E| = 10
+      @@
+
+      <p><strong>Passo 2:</strong> Aplicar o princípio da inclusão-exclusão.</p>
+      @@
+      |I \cup E| = |I| + |E| - |I \cap E| = 25 + 18 - 10 = 33
+      @@
+
+      <p><strong>Passo 3:</strong> Calcular quantos não estudam nenhuma língua.</p>
+      <p>Como a turma tem 40 alunos e 33 estudam pelo menos uma língua:</p>
+      @@
+      40 - 33 = 7
+      @@
+
+      <p><strong>Resposta:</strong> 7 alunos não estudam nenhuma das duas línguas.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - Produto Cartesiano e Relações</h3>
+      <p><strong>Enunciado:</strong> Considere os conjuntos @A = \{1, 2, 3\}@ e @B = \{x, y\}@.</p>
+      <p>(a) Determine @A \times B@ e @B \times A@.</p>
+      <p>(b) Calcule @|A \times B|@ e verifique que @|A \times B| = |A| \cdot |B|@.</p>
+      <p>(c) Defina a relação @R = \{(1, x), (2, x), (2, y), (3, y)\} \subseteq A \times B@. Quais elementos de @A@ estão relacionados com @x@?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Determinar os produtos cartesianos.</p>
+      @@
+      \begin{align}
+      A \times B &= \{(1, x), (1, y), (2, x), (2, y), (3, x), (3, y)\} \\
+      B \times A &= \{(x, 1), (x, 2), (x, 3), (y, 1), (y, 2), (y, 3)\}
+      \end{align}
+      @@
+
+      <p><strong>Passo 2:</strong> Calcular cardinalidades.</p>
+      @@
+      |A \times B| = 6, \quad |A| \cdot |B| = 3 \cdot 2 = 6 \quad \checkmark
+      @@
+
+      <p><strong>Passo 3:</strong> Identificar elementos relacionados.</p>
+      <p>Os pares em @R@ que têm @x@ como segundo elemento são @(1, x)@ e @(2, x)@. Portanto, os elementos de @A@ relacionados com @x@ são @1@ e @2@.</p>
+
+      <p><strong>Resposta:</strong> (a) Como acima; (b) @|A \times B| = 6 = |A| \cdot |B|@; (c) @1@ e @2@ estão relacionados com @x@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Propriedades de Relações</h3>
+      <p><strong>Enunciado:</strong> Considere o conjunto @A = \{1, 2, 3, 4\}@ e a relação @R@ definida em @A@ por @xRy \Leftrightarrow x \leq y@. Verifique se @R@ é reflexiva, simétrica, antissimétrica e transitiva.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Reflexiva:</strong> Para todo @x \in A@, temos @x \leq x@, logo @xRx@. Sim, @R@ é reflexiva.</p>
+
+      <p><strong>Simétrica:</strong> Se @xRy@, então @x \leq y@. Isso não implica @y \leq x@ (por exemplo, @1 \leq 2@ mas @2 \not\leq 1@). Não, @R@ não é simétrica.</p>
+
+      <p><strong>Antissimétrica:</strong> Se @xRy@ e @yRx@, então @x \leq y@ e @y \leq x@, o que implica @x = y@. Sim, @R@ é antissimétrica.</p>
+
+      <p><strong>Transitiva:</strong> Se @xRy@ e @yRz@, então @x \leq y@ e @y \leq z@. Pela transitividade da relação @\leq@ em @\mathbb{R}@, temos @x \leq z@, logo @xRz@. Sim, @R@ é transitiva.</p>
+
+      <p><strong>Resposta:</strong> @R@ é reflexiva, antissimétrica e transitiva (portanto, é uma relação de ordem), mas não é simétrica.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Conjunto das Partes</h3>
+      <p><strong>Enunciado:</strong> Seja @A = \{a, b, c\}@. Determine @\mathcal{P}(A)@ e verifique que @|\mathcal{P}(A)| = 2^{|A|}@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Enumerar todos os subconjuntos de @A@.</p>
+      @@
+      \mathcal{P}(A) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\}\}
+      @@
+
+      <p><strong>Passo 2:</strong> Contar os elementos.</p>
+      @@
+      |\mathcal{P}(A)| = 8
+      @@
+
+      <p><strong>Passo 3:</strong> Verificar a fórmula.</p>
+      @@
+      2^{|A|} = 2^3 = 8 \quad \checkmark
+      @@
+
+      <p><strong>Resposta:</strong> @\mathcal{P}(A)@ possui 8 elementos, confirmando que @|\mathcal{P}(A)| = 2^3 = 8@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Partições e Classes de Equivalência</h3>
+      <p><strong>Enunciado:</strong> Considere o conjunto @A = \{1, 2, 3, 4, 5, 6\}@ e a relação @R@ definida por @xRy \Leftrightarrow x@ e @y@ têm a mesma paridade (ambos pares ou ambos ímpares). Mostre que @R@ é uma relação de equivalência e determine as classes de equivalência.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Verificar que @R@ é de equivalência.</p>
+      <ul>
+        <li><strong>Reflexiva:</strong> Todo número tem a mesma paridade que ele mesmo, logo @xRx@.</li>
+        <li><strong>Simétrica:</strong> Se @xRy@, então @x@ e @y@ têm a mesma paridade, logo @y@ e @x@ também têm, portanto @yRx@.</li>
+        <li><strong>Transitiva:</strong> Se @xRy@ e @yRz@, então @x@, @y@ e @z@ têm a mesma paridade, logo @xRz@.</li>
+      </ul>
+      <p>Portanto, @R@ é uma relação de equivalência.</p>
+
+      <p><strong>Passo 2:</strong> Determinar as classes de equivalência.</p>
+      <p>Classe dos números pares: @\overline{2} = \{2, 4, 6\}@</p>
+      <p>Classe dos números ímpares: @\overline{1} = \{1, 3, 5\}@</p>
+
+      <p><strong>Passo 3:</strong> Verificar que formam uma partição.</p>
+      <p>As classes são disjuntas (@\{2, 4, 6\} \cap \{1, 3, 5\} = \emptyset@) e sua união é @A@.</p>
+
+      <p><strong>Resposta:</strong> As classes de equivalência são @\{1, 3, 5\}@ e @\{2, 4, 6\}@, que formam uma partição de @A@.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 7: EXERCÍCIOS PROPOSTOS
+         =============================================================== -->
+    <h2>7. Exercícios</h2>
+
+    <ol>
+      <li>Dados os conjuntos @A = \{1, 2, 3, 4, 5\}@ e @B = \{3, 4, 5, 6, 7\}@, determine @A \cup B@, @A \cap B@, @A - B@ e @B - A@.</li>
+
+      <li>Quantos elementos possui o conjunto @\mathcal{P}(\{a, b, c, d, e\})@?</li>
+
+      <li>Mostre que @A \subseteq B@ se, e somente se, @A \cap B = A@.</li>
+
+      <li>Verifique as Leis de De Morgan para @A = \{1, 2, 3\}@ e @B = \{2, 3, 4\}@ em relação ao universo @U = \{1, 2, 3, 4, 5\}@.</li>
+
+      <li>Classifique os seguintes números nos conjuntos @\mathbb{N}@, @\mathbb{Z}@, @\mathbb{Q}@, @\mathbb{I}@, @\mathbb{R}@ e @\mathbb{C}@: (a) @\frac{7}{3}@; (b) @-5@; (c) @\sqrt{7}@; (d) @0@; (e) @2 + 3i@.</li>
+
+      <li>Sejam @A@, @B@ e @C@ conjuntos tais que @|A| = 12@, @|B| = 15@, @|C| = 10@, @|A \cap B| = 5@, @|A \cap C| = 4@, @|B \cap C| = 6@ e @|A \cap B \cap C| = 2@. Calcule @|A \cup B \cup C|@.</li>
+
+      <li>Dados @A = \{1, 2\}@ e @B = \{x, y, z\}@, determine @A \times B@ e @|A \times B|@.</li>
+
+      <li>Seja @A = \{2, 4, 6, 8\}@. Defina a relação @R@ em @A@ por @xRy \Leftrightarrow x \text{ divide } y@. Verifique se @R@ é reflexiva, simétrica e transitiva.</li>
+
+      <li>Quantos subconjuntos tem o conjunto @A = \{1, 2, 3, 4, 5, 6\}@? Quantos desses subconjuntos têm exatamente 3 elementos?</li>
+
+      <li>Demonstre que @A - (B \cup C) = (A - B) \cap (A - C)@ para quaisquer conjuntos @A@, @B@ e @C@.</li>
+
+      <li>Defina uma relação de equivalência no conjunto @\mathbb{Z}@ por @xRy \Leftrightarrow x - y \text{ é par}@. Determine as classes de equivalência.</li>
+
+      <li>Se @|A| = n@, quantos elementos possui @A \times A@? E @A \times A \times A@?</li>
+
+      <li>Em uma escola, 120 alunos praticam esportes. 70 jogam futebol, 50 jogam vôlei e 30 jogam basquete. Sabendo que 20 jogam futebol e vôlei, 15 jogam futebol e basquete, 10 jogam vôlei e basquete, e 5 jogam os três esportes, quantos alunos praticam exatamente um esporte?</li>
+
+      <li>Seja @A = \{1, 2, 3, 4, 5, 6, 7, 8\}@. Quantas partições de @A@ em dois subconjuntos não-vazios existem?</li>
+
+      <li>Mostre que se @A \subseteq B@, então @\mathcal{P}(A) \subseteq \mathcal{P}(B)@.</li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+    1. A ∪ B = {1, 2, 3, 4, 5, 6, 7}; A ∩ B = {3, 4, 5}; A - B = {1, 2}; B - A = {6, 7}
+    2. 2^5 = 32 elementos
+    3. Demonstração: (⊆) Se A ⊆ B, então A ∩ B = {x | x ∈ A e x ∈ B} = {x | x ∈ A} = A (pois todo elemento de A está em B).
+       (⊇) Se A ∩ B = A, então para todo x ∈ A, temos x ∈ A ∩ B, logo x ∈ B. Portanto A ⊆ B.
+    4. A^c = {4, 5}, B^c = {1, 5}, (A ∪ B)^c = {5}, A^c ∩ B^c = {5} ✓; (A ∩ B)^c = {1, 4, 5}, A^c ∪ B^c = {1, 4, 5} ✓
+    5. (a) ℚ, ℝ, ℂ; (b) ℤ, ℚ, ℝ, ℂ; (c) ℝ, ℂ; (d) ℕ, ℤ, ℚ, ℝ, ℂ; (e) ℂ
+    6. |A ∪ B ∪ C| = 12 + 15 + 10 - 5 - 4 - 6 + 2 = 24
+    7. A × B = {(1,x), (1,y), (1,z), (2,x), (2,y), (2,z)}; |A × B| = 6
+    8. Reflexiva: não (2 não divide 2 é falso, mas 2 divide 4,6,8); Na verdade, é reflexiva (x divide x sempre). Simétrica: não (2 divide 4, mas 4 não divide 2). Transitiva: sim (se x|y e y|z, então x|z).
+    9. 2^6 = 64 subconjuntos; C(6,3) = 20 subconjuntos com 3 elementos
+    10. Demonstração por dupla inclusão usando propriedades de conjuntos
+    11. Duas classes: pares {..., -2, 0, 2, 4, ...} e ímpares {..., -1, 1, 3, 5, ...}
+    12. n^2 elementos em A × A; n^3 elementos em A × A × A
+    13. Aplicando inclusão-exclusão: |F ∪ V ∪ B| = 70 + 50 + 30 - 20 - 15 - 10 + 5 = 110. Exatamente um: 110 - (15 + 5 + 5) - 3·5 = 110 - 25 - 15 = 70
+    14. (2^8 - 2)/2 = 127 partições (excluindo partições com conjunto vazio e dividindo por 2 para evitar duplicação)
+    15. Demonstração: Seja X ∈ P(A). Então X ⊆ A. Como A ⊆ B, temos X ⊆ B, logo X ∈ P(B). Portanto P(A) ⊆ P(B).
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

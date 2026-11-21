@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Estatística Descritiva e Análise de Dados</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-1em {
+      background-color: rgba(16, 185, 129, 0.25);
+      border: 2px solid #10b981;
+      color: #a7f3d0;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-1em">1º Ano EM</div>
+
+    <h1>Estatística Descritiva e Análise de Dados</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 6: "Decidir é preciso!"
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E CONTEXTO HISTÓRICO-EPISTEMOLÓGICO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para o domínio formal deste compêndio, estruturado com rigor acadêmico inspirado em Gelson Iezzi, o estudante deve mobilizar:</p>
+      <ul>
+        <li><strong>Aritmética e Conjuntos Numéricos:</strong> operações com números racionais e reais, manipulação algébrica de somatórios (@\sum@), razões, proporções e porcentagens.</li>
+        <li><strong>Álgebra e Funções:</strong> transformações afins (@y = ax + b@), propriedades modulares (@|x|@) e inequações.</li>
+        <li><strong>Geometria Plana e Visualização:</strong> coordenadas cartesianas, proporcionalidade de áreas e ângulos em setores circulares.</li>
+      </ul>
+    </div>
+
+    <p>
+      Etimologicamente oriunda do latim <em>status</em> (estado), a <strong>Estatística</strong> nasceu como a ciência de coletar dados demográficos, agrícolas e fiscais para os governantes do Egito Antigo, de Roma e dos estados mercantilistas europeus. No século XVII, com <strong>John Graunt</strong> e <strong>William Petty</strong>, tornou-se a "Aritmética Política"; no século XIX e início do século XX, pelas mentes de <strong>Carl Friedrich Gauss</strong>, <strong>Adolphe Quetelet</strong>, <strong>Karl Pearson</strong> e <strong>Ronald Fisher</strong>, fundiu-se ao Cálculo e à Teoria das Probabilidades, transformando-se na espinha dorsal de toda a ciência empírica moderna.
+    </p>
+    <p>
+      Na era contemporânea do <em>Big Data</em>, dos algoritmos de Inteligência Artificial e da profusão de dados nas redes e na imprensa, saber interpretar dados não é apenas uma competência matemática: é uma exigência de <strong>cidadania crítica</strong>. Saber como sintetizar dados sem perda de informação e discernir informações genuínas de manipulações gráficas maliciosas é a verdadeira bússola da tomada de decisão racional: <em>Decidir é preciso!</em>
+    </p>
+
+    <!-- ===============================================================
+         PARTE 1: FUNDAMENTOS DA EDUCAÇÃO ESTATÍSTICA
+         =============================================================== -->
+    <h2>1. Fundamentos da Educação Estatística: População, Amostra e Variáveis</h2>
+
+    <p>
+      O ponto de partida de qualquer investigação estatística reside na identificação precisa do conjunto de indivíduos sobre os quais se debruça o estudo e da natureza matemática dos atributos medidos.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (População Estatística versus Amostra)</h3>
+      <ul>
+        <li>
+          <strong>População (ou Universo Estatístico, @\Omega@):</strong> Conjunto de todos os elementos (indivíduos, animais, peças industriais, domicílios) que compartilham ao menos uma característica comum bem definida sobre a qual incide o interesse da pesquisa. O número total de elementos é denotado pelo tamanho populacional @N@.
+        </li>
+        <li>
+          <strong>Amostra (@\mathcal{A}@):</strong> Qualquer subconjunto próprio @\mathcal{A} \subset \Omega@ de tamanho @n@ (@n < N@), selecionado segundo critérios técnicos para representar fidedignamente a população.
+        </li>
+        <li>
+          <strong>Parâmetro versus Estimador (Estatística):</strong>
+          <ul>
+            <li><em>Parâmetro:</em> Medida numérica calculada utilizando todos os dados da <strong>população</strong> (ex.: média populacional @\mu@, variância populacional @\sigma^2@). É um valor teórico constante, frequentemente desconhecido.</li>
+            <li><em>Estimador / Estatística:</em> Medida numérica calculada utilizando apenas os dados da <strong>amostra</strong> (ex.: média amostral @\bar{x}@, variância amostral @s^2@). É uma variável que visa inferir o parâmetro populacional.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Principais Técnicas de Amostragem Probabilística)</h3>
+      <ol>
+        <li><strong>Amostragem Aleatória Simples (AAS):</strong> Todos os elementos da população têm rigorosamente a mesma probabilidade de serem sorteados (equivalente a uma urna ideal ou gerador de números pseudoaleatórios).</li>
+        <li><strong>Amostragem Estratificada Proporcional:</strong> A população é particionada em subgrupos homogêneos (estratos: ex. faixas etárias, sexo, faixas de renda), e de cada estrato sorteia-se uma amostra aleatória cuja dimensão é rigorosamente proporcional à participação daquele estrato na população total.</li>
+        <li><strong>Amostragem Sistemática:</strong> Seleciona-se um elemento inicial aleatoriamente e, em seguida, tomam-se os elementos a cada intervalo fixo @k = \frac{N}{n}@ em uma lista ordenada.</li>
+      </ol>
+    </div>
+
+    <h3>1.1 Tipologia e Escala das Variáveis</h3>
+    <p>
+      Uma <strong>variável estatística</strong> é a característica ou fenômeno sob observação associado aos elementos da população. Sua classificação epistemológica determina quais operações matemáticas e representações gráficas são teoricamente válidas:
+    </p>
+
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Classificação Geral</th>
+            <th>Subtipo</th>
+            <th>Definição Formal</th>
+            <th>Exemplos Canônicos</th>
+            <th>Operações Permitidas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2"><strong>Qualitativa (Categórica)</strong></td>
+            <td><strong>Nominal</strong></td>
+            <td>Categorias sem qualquer ordenação natural ou hierarquia intrínseca.</td>
+            <td>Tipo sanguíneo (A, B, AB, O), gênero, nacionalidade, estado civil.</td>
+            <td>Frequência, contagem, moda (@=@, @\neq@). Média e mediana são <em>proibidas</em>.</td>
+          </tr>
+          <tr>
+            <td><strong>Ordinal</strong></td>
+            <td>Categorias que possuem uma ordenação hierárquica intrínseca.</td>
+            <td>Escolaridade (Fund., Médio, Sup.), patente militar, gravidade clínica (leve, moderada, grave).</td>
+            <td>Ordenação, postos, frequência, mediana, moda (@<@, @\le@, @>@, @\ge@).</td>
+          </tr>
+          <tr>
+            <td rowspan="2"><strong>Quantitativa (Numérica)</strong></td>
+            <td><strong>Discreta</strong></td>
+            <td>Valores numéricos contáveis, pertencentes a um subconjunto discreto de @\mathbb{R}@ (frequentemente @\mathbb{N}@). Decorre de <em>contagem</em>.</td>
+            <td>Número de filhos, quantidade de faltas, número de gols em uma partida, peças defeituosas.</td>
+            <td>Adição, subtração, média, desvio padrão, distribuição pontual.</td>
+          </tr>
+          <tr>
+            <td><strong>Contínua</strong></td>
+            <td>Valores numéricos mensuráveis que podem assumir qualquer número real em um intervalo @[a, b] \subset \mathbb{R}@. Decorre de <em>medição física</em>.</td>
+            <td>Massa (kg), estatura (m), intervalo de tempo (s), temperatura (°C), pressão arterial.</td>
+            <td>Todas as operações aritméticas, cálculo de intervalos de classe, densidade, média, variância.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>1.2 Organização de Dados e Tabelas de Frequências</h3>
+    <p>
+      Dados brutos coletados diretamente em campo encontram-se desorganizados. A ordenação crescente ou decrescente dos dados numéricos é denominada <strong>Rol</strong>:
+    </p>
+    @@
+    \text{Rol: } x_{(1)} \le x_{(2)} \le x_{(3)} \le \dots \le x_{(n)}
+    @@
+    <p>Em uma tabela de distribuição de frequências com @k@ categorias ou valores distintos @x_1, x_2, \dots, x_k@:</p>
+    <ul>
+      <li><strong>Frequência Absoluta (@f_i@):</strong> Número de ocorrências exatas do valor @x_i@ na amostra. Satisfaz:
+        @@
+        \sum_{i=1}^k f_i = n \quad (\text{tamanho da amostra})
+        @@
+      </li>
+      <li><strong>Frequência Relativa (@f_{r,i}@):</strong> Proporção de ocorrências de @x_i@ em relação ao total da amostra:
+        @@
+        f_{r,i} = \frac{f_i}{n} \quad \text{com} \quad \sum_{i=1}^k f_{r,i} = 1
+        @@
+      </li>
+      <li><strong>Frequência Percentual (@f_{\%,i}@):</strong> Expressão percentual da frequência relativa:
+        @@
+        f_{\%,i} = f_{r,i} \times 100\% \quad \text{com} \quad \sum_{i=1}^k f_{\%,i} = 100\%
+        @@
+      </li>
+      <li><strong>Frequência Acumulada (@F_i@):</strong> Total de observações menores ou iguais ao valor @x_i@:
+        @@
+        F_i = \sum_{j=1}^i f_j = f_1 + f_2 + \dots + f_i \quad (F_k = n)
+        @@
+      </li>
+    </ul>
+
+    <!-- ===============================================================
+         PARTE 2: MEDIDAS DE TENDÊNCIA CENTRAL
+         =============================================================== -->
+    <h2>2. Medidas de Tendência Central (Posição)</h2>
+
+    <p>
+      As medidas de tendência central têm por escopo representar o conjunto de dados por meio de um único valor típico ao redor do qual os dados gravitam.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Média Aritmética Simples e Ponderada)</h3>
+      <p>
+        <strong>Média Aritmética Simples (@\bar{x}@):</strong> Para um conjunto de observações @\{x_1, x_2, \dots, x_n\}@:
+      </p>
+      @@
+      \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i = \frac{x_1 + x_2 + \dots + x_n}{n}
+      @@
+      <p>
+        <strong>Média Aritmética Ponderada (@\bar{x}_p@):</strong> Quando cada elemento @x_i@ possui um peso de importância ou frequência @w_i > 0@ associado:
+      </p>
+      @@
+      \bar{x}_p = \frac{\sum_{i=1}^k w_i x_i}{\sum_{i=1}^k w_i} = \frac{w_1 x_1 + w_2 x_2 + \dots + w_k x_k}{w_1 + w_2 + \dots + w_k}
+      @@
+      <p><em>Equivalência:</em> Para dados agrupados por frequências absolutas @f_i@, a média ponderada com @w_i = f_i@ é exatamente a média da distribuição: @\bar{x} = \frac{\sum f_i x_i}{n}@.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (A Soma dos Desvios em Relação à Média é Nula)</h3>
+      <p>
+        Para qualquer conjunto de dados reais @\{x_1, x_2, \dots, x_n\}@ e sua respectiva média @\bar{x}@, a soma algébrica de todos os desvios @d_i = x_i - \bar{x}@ é identicamente zero:
+      </p>
+      @@
+      \sum_{i=1}^n (x_i - \bar{x}) = 0
+      @@
+      <h4>Demonstração Rigorosa:</h4>
+      <p>Pela linearidade do operador somatório:</p>
+      @@
+      \sum_{i=1}^n (x_i - \bar{x}) = \sum_{i=1}^n x_i - \sum_{i=1}^n \bar{x}
+      @@
+      <p>Como @\bar{x}@ é uma constante em relação ao índice @i@, a soma de @n@ parcelas iguais a @\bar{x}@ vale @n \cdot \bar{x}@:</p>
+      @@
+      \sum_{i=1}^n x_i - n \bar{x} = \sum_{i=1}^n x_i - n \left(\frac{1}{n} \sum_{i=1}^n x_i\right) = \sum_{i=1}^n x_i - \sum_{i=1}^n x_i = 0 \quad \blacksquare
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Propriedade de Mínimo Quadrático da Média)</h3>
+      <p>
+        A função que mede a soma dos quadrados das distâncias dos pontos a um valor real @c@, @f(c) = \sum_{i=1}^n (x_i - c)^2@, assume seu <strong>mínimo global estrito</strong> se, e somente se, @c = \bar{x}@.
+      </p>
+      <h4>Demonstração:</h4>
+      <p>Expandindo a função quadrática em @c@:</p>
+      @@
+      f(c) = \sum_{i=1}^n (x_i^2 - 2c x_i + c^2) = \sum_{i=1}^n x_i^2 - 2c \sum_{i=1}^n x_i + n c^2 = n c^2 - 2\left(\sum_{i=1}^n x_i\right)c + \sum_{i=1}^n x_i^2
+      @@
+      <p>
+        Esta é uma função polinomial do 2º grau da forma @f(c) = A c^2 + B c + C@, onde @A = n > 0@ (parábola com concavidade voltada para cima). Seu ponto de mínimo ocorre precisamente no vértice:
+      </p>
+      @@
+      c_{\min} = -\frac{B}{2A} = -\frac{-2\sum_{i=1}^n x_i}{2n} = \frac{\sum_{i=1}^n x_i}{n} = \bar{x} \quad \blacksquare
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.3 (Linearidade da Média sob Transformações Afins)</h3>
+      <p>
+        Se a cada elemento da amostra @x_i@ for aplicada uma transformação afim @y_i = a \cdot x_i + b@ (com @a, b \in \mathbb{R}@ constantes), a nova média @\bar{y}@ satisfaz:
+      </p>
+      @@
+      \bar{y} = a \bar{x} + b
+      @@
+      <p><em>Consequência:</em> Se somarmos uma constante a todos os dados, a média aumenta dessa mesma constante. Se multiplicarmos todos os dados por uma constante, a média fica multiplicada por ela.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.2 (Mediana &mdash; @Me@)</h3>
+      <p>
+        A <strong>mediana</strong> de uma amostra de tamanho @n@ é o valor numérico que separa o Rol em duas partes quantitativamente iguais (deixando @50\%@ dos dados abaixo e @50\%@ acima dela):
+      </p>
+      <ul>
+        <li><strong>Se @n@ é ímpar (@n = 2k + 1@):</strong> A mediana é o valor do elemento central:
+          @@
+          Me = x_{\left(\frac{n+1}{2}\right)}
+          @@
+        </li>
+        <li><strong>Se @n@ é par (@n = 2k@):</strong> A mediana é a média aritmética simples dos dois valores centrais:
+          @@
+          Me = \frac{x_{\left(\frac{n}{2}\right)} + x_{\left(\frac{n}{2} + 1\right)}}{2}
+          @@
+        </li>
+      </ul>
+      <p><strong>Propriedade de Robustez:</strong> A mediana é uma estatística <em>resistente a valores discrepantes</em> (outliers). Se um dado sofre alteração astronômica para cima ou para baixo, a mediana permanece inalterada ou varia minimamente, ao passo que a média é severamente distorcida.</p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.3 (Moda &mdash; @Mo@)</h3>
+      <p>
+        A <strong>moda</strong> de um conjunto de dados é o valor (ou classe) que comparece com a <strong>maior frequência absoluta</strong>.
+      </p>
+      <ul>
+        <li><strong>Amodal:</strong> Conjunto em que todos os elementos ocorrem com a mesma frequência (ex.: @\{2, 3, 5, 8\}@). Não há moda.</li>
+        <li><strong>Unimodal:</strong> Possui uma única moda proeminente.</li>
+        <li><strong>Bimodal:</strong> Possui dois valores distintos empatados com a frequência máxima absoluta.</li>
+        <li><strong>Multimodal:</strong> Possui três ou mais valores empatados com a frequência máxima.</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Relação entre Média, Mediana e Assimetria da Distribuição</h3>
+      <p>O relacionamento mútuo entre as três medidas revela o formato geométrico da curva de densidade:</p>
+      <ul>
+        <li><strong>Distribuição Simétrica:</strong> A média, a mediana e a moda coincidem no centro da curva:
+          @@
+          \bar{x} \approx Me \approx Mo
+          @@
+        </li>
+        <li><strong>Distribuição Assimétrica Positiva (à Direita):</strong> Apresenta uma cauda longa de valores extremamente altos à direita (ex.: distribuição de renda). A média é puxada para a direita:
+          @@
+          \bar{x} > Me > Mo
+          @@
+        </li>
+        <li><strong>Distribuição Assimétrica Negativa (à Esquerda):</strong> Apresenta uma cauda longa de valores baixos à esquerda (ex.: idade de aposentadoria). A média é puxada para a esquerda:
+          @@
+          \bar{x} < Me < Mo
+          @@
+        </li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 3: MEDIDAS DE DISPERSÃO
+         =============================================================== -->
+    <h2>3. Medidas de Dispersão (Variabilidade)</h2>
+
+    <div class="erro-comum">
+      <h3>⚠️ A Falácia de Confiar Apenas na Média</h3>
+      <p>
+        Imagine dois pacientes febris em um hospital. O paciente A mantém temperatura constante de @37^\circ\text{C}@ durante todo o dia. O paciente B sofre hipotermia severa de @32^\circ\text{C}@ pela manhã e hipertermia fulminante de @42^\circ\text{C}@ à tarde. A média térmica diária de ambos é exatamente @37^\circ\text{C}@! 
+        <br>Concluir que os dois pacientes apresentam o mesmo quadro clínico seria fatal. As <strong>medidas de dispersão</strong> quantificam o grau de variabilidade, instabilidade e risco de uma distribuição.
+      </p>
+    </div>
+
+    <h3>3.1 Amplitude Total (@AT@)</h3>
+    <p>
+      A <strong>amplitude total</strong> é a diferença simples entre a maior e a menor observação do Rol:
+    </p>
+    @@
+    AT = x_{(n)} - x_{(1)} = x_{\max} - x_{\min}
+    @@
+    <p>
+      <em>Limitação:</em> Embora elementar de calcular, ignora absolutamente todas as observações intermediárias da amostra e é extremamente sensível a erros de medição isolados.
+    </p>
+
+    <h3>3.2 Desvio Médio Absoluto (@DM@)</h3>
+    <p>
+      Como a soma dos desvios simples @\sum (x_i - \bar{x}) = 0@ sempre se anula pelo Teorema 2.1, para medir o afastamento médio sem anulação recíproca toma-se o valor absoluto (módulo) dos desvios:
+    </p>
+    @@
+    DM = \frac{1}{n} \sum_{i=1}^n |x_i - \bar{x}|
+    @@
+
+    <h3>3.3 Variância Populacional (@\sigma^2@) e Amostral (@s^2@)</h3>
+    <p>
+      Em vez de tomar o módulo (cuja derivada não é contínua na origem), Gauss e Pearson elevaram os desvios ao quadrado, gerando a <strong>variância</strong>.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Variância Populacional e Amostral)</h3>
+      <p>
+        <strong>1. Variância Populacional (@\sigma^2@):</strong> Para uma população completa de tamanho @N@ com média @\mu@:
+      </p>
+      @@
+      \sigma^2 = \frac{1}{N} \sum_{i=1}^N (x_i - \mu)^2
+      @@
+      <p>
+        <strong>2. Variância Amostral (@s^2@):</strong> Para uma amostra de tamanho @n@ com média @\bar{x}@:
+      </p>
+      @@
+      s^2 = \frac{1}{n - 1} \sum_{i=1}^n (x_i - \bar{x}) = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n - 1}
+      @@
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>⭐ Rigor FME: Por que dividir por @n - 1@? (A Correção de Bessel)</h3>
+      <p>
+        Ao calcularmos a variância de uma amostra, utilizamos a média amostral @\bar{x}@ no lugar da verdadeira média populacional @\mu@ (que é desconhecida). Pelo Teorema 2.2, a média amostral @\bar{x}@ é o número exato que <em>minimiza</em> a soma dos quadrados dos desvios. Portanto:
+      </p>
+      @@
+      \sum_{i=1}^n (x_i - \bar{x})^2 \le \sum_{i=1}^n (x_i - \mu)^2
+      @@
+      <p>
+        Isso significa que a divisão por @n@ tenderia sistematicamente a <strong>subestimar</strong> a verdadeira variância populacional (viés de amostragem). O matemático alemão <strong>Friedrich Bessel</strong> provou que a esperança matemática do estimador com divisor @n@ é @\mathbb{E}\left[\frac{1}{n}\sum (x_i - \bar{x})^2\right] = \frac{n-1}{n}\sigma^2@. 
+      </p>
+      <p>
+        Ao substituir o divisor por @n - 1@ (o número de <em>graus de liberdade</em>, visto que fixada a média @\bar{x}@, apenas @n-1@ desvios são independentes, pois sua soma é zero), o viés é rigorosamente eliminado:
+      </p>
+      @@
+      \mathbb{E}[s^2] = \sigma^2 \quad (\text{estimador não tendencioso ou não viciado})
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Fórmula Prática de Trabalho / Identidade de König-Huygens)</h3>
+      <p>
+        A variância pode ser computada sem necessidade de calcular individualmente a diferença de cada ponto para a média:
+      </p>
+      @@
+      \sigma^2 = \left(\frac{1}{N} \sum_{i=1}^N x_i^2\right) - \mu^2 = \overline{x^2} - (\bar{x})^2
+      @@
+      <p>Em palavras: <em>a variância é a média dos quadrados menos o quadrado da média</em>.</p>
+      <h4>Demonstração:</h4>
+      @@
+      \sum_{i=1}^N (x_i - \mu)^2 = \sum_{i=1}^N (x_i^2 - 2\mu x_i + \mu^2) = \sum_{i=1}^N x_i^2 - 2\mu \sum_{i=1}^N x_i + N \mu^2
+      @@
+      <p>Dividindo ambos os membros por @N@ e usando @\mu = \frac{1}{N}\sum x_i@:</p>
+      @@
+      \sigma^2 = \frac{1}{N}\sum_{i=1}^N x_i^2 - 2\mu \left(\frac{1}{N}\sum_{i=1}^N x_i\right) + \mu^2 = \frac{1}{N}\sum_{i=1}^N x_i^2 - 2\mu^2 + \mu^2 = \left(\frac{1}{N}\sum_{i=1}^N x_i^2\right) - \mu^2 \quad \blacksquare
+      @@
+    </div>
+
+    <h3>3.4 Desvio Padrão (@\sigma@ ou @s@)</h3>
+    <p>
+      A grande limitação física e prática da variância reside no fato de que sua unidade é o quadrado da unidade original dos dados (por exemplo, @\text{reais}^2@, @\text{metros}^2@ ou @\text{kg}^2@). Para restaurar a escala original, define-se o <strong>desvio padrão</strong> como a raiz quadrada positiva da variância:
+    </p>
+    @@
+    \sigma = \sqrt{\sigma^2} \quad (\text{populacional}) \qquad \text{e} \qquad s = \sqrt{s^2} \quad (\text{amostral})
+    @@
+    <p>
+      <strong>Regra Empírica em Distribuições Quase Simétricas (Distribuição Normal):</strong>
+    </p>
+    <ul>
+      <li>Aproximadamente @68{,}27\%@ dos dados situam-se no intervalo @[\bar{x} - s, \, \bar{x} + s]@.</li>
+      <li>Aproximadamente @95{,}45\%@ dos dados situam-se no intervalo @[\bar{x} - 2s, \, \bar{x} + 2s]@.</li>
+      <li>Aproximadamente @99{,}73\%@ dos dados situam-se no intervalo @[\bar{x} - 3s, \, \bar{x} + 3s]@.</li>
+    </ul>
+
+    <h3>3.5 Coeficiente de Variação de Pearson (@CV@)</h3>
+    <div class="destaque-box definicao">
+      <h3>Definição 3.2 (Coeficiente de Variação &mdash; @CV@)</h3>
+      <p>
+        O <strong>coeficiente de variação</strong> é a razão entre o desvio padrão e a média aritmética, habitualmente expresso em porcentagem:
+      </p>
+      @@
+      CV = \frac{s}{\bar{x}} \times 100\% \quad (\text{para } \bar{x} \neq 0)
+      @@
+      <p>
+        <strong>Significado:</strong> Por ser uma quantidade <em>adimensional</em> (o desvio padrão e a média têm as mesmas unidades que se cancelam na divisão), o @CV@ é a ferramenta primordial para <strong>comparar a estabilidade ou homogeneidade</strong> entre:
+      </p>
+      <ol>
+        <li>Grupos com grandezas de grandezas muito díspares (ex.: comparar a dispersão do peso de camundongos versus peso de elefantes);</li>
+        <li>Variáveis mensuradas em unidades físicas distintas (ex.: altura em cm vs peso em kg);</li>
+        <li>Ativos financeiros com diferentes níveis de preços nominais.</li>
+      </ol>
+      <p><strong>Critério usual de interpretação:</strong></p>
+      <ul>
+        <li>@CV \le 15\%@: <em>Baixa dispersão</em> (amostra homogênea, alta regularidade);</li>
+        <li>@15\% < CV \le 30\%@: <em>Média dispersão</em> (homogeneidade moderada);</li>
+        <li>@CV > 30\%@: <em>Alta dispersão</em> (amostra heterogênea, baixa representatividade da média).</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         PARTE 4: LEITURA CRÍTICA DE GRÁFICOS E FALÁCIAS NA MÍDIA
+         =============================================================== -->
+    <h2>4. Leitura Crítica de Gráficos e Falácias Estatísticas na Mídia</h2>
+
+    <p>
+      Representações visuais têm poder retórico fulminante. Quando mal estruturados &mdash; involuntariamente por imperícia técnica ou deliberadamente por desonestidade intelectual &mdash;, gráficos conduzem o leitor a inferências completamente fraudulentas.
+    </p>
+
+    <h3>4.1 Gráficos Estatísticos Canônicos</h3>
+    <ul>
+      <li><strong>Gráficos de Barras / Colunas:</strong> Ideais para variáveis qualitativas ou quantitativas discretas. A altura (ou comprimento) da barra é estritamente proporcional à frequência absoluta ou relativa.</li>
+      <li><strong>Gráficos de Linhas (Séries Temporais):</strong> Projetados para acompanhar a trajetória e o comportamento de uma grandeza contínua ao longo de um eixo cronológico ordenado (tempo).</li>
+      <li><strong>Gráfico de Setores (Pizza):</strong> Indicado exclusivamente para evidenciar a composição das partes em relação ao todo (@100\%@). Cada setor circular possui ângulo central @\theta_i = f_{r,i} \times 360^\circ@. <em>Regra de ouro:</em> Nunca utilize setores se houver mais de 5 ou 6 categorias.</li>
+      <li><strong>Histograma:</strong> Sucessão de retângulos contíguos (sem espaçamento entre si) assentados sobre o eixo horizontal, empregados para variáveis quantitativas contínuas agrupadas em intervalos de classe. <em>Princípio fundamental:</em> a <strong>área</strong> do retângulo é proporcional à frequência da classe.</li>
+    </ul>
+
+    <h3>4.2 As Quatro Grandes Distorções e Armadilhas Gráficas</h3>
+
+    <div class="destaque-box observacao">
+      <h3>1. O Eixo das Ordenadas Truncado (Baseline Flutuante)</h3>
+      <p>
+        Uma das manipulações mais vulgares na imprensa. Ocorre quando o eixo vertical (@Oy@) não parte da origem zero, mas de um valor arbitrariamente próximo dos dados observados.
+      </p>
+      <p>
+        <em>Exemplo:</em> O PIB de um país variou de @100@ para @102@ (uma alta modesta de @2\%@). Se o gráfico iniciar o eixo @Oy@ em @99@, a barra correspondente a @102@ terá altura visual @102 - 99 = 3@, ao passo que a de @100@ terá altura @100 - 99 = 1@. Visualmente, o crescimento parecerá ter <strong>triplicado (300%)</strong>, enganando o leitor desatento.
+      </p>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>2. Distorção Pictórica Bidimensional e Tridimensional</h3>
+      <p>
+        Ocorre ao substituir barras retangulares por desenhos e pictogramas (sacos de dinheiro, barris de petróleo, figuras humanas).
+      </p>
+      <p>
+        <em>A Armadilha Matemática:</em> Se a produção de petróleo dobrou (razão @k = 2@), o infografista dobra a <strong>altura</strong> do barril ilustrado. Todavia, para preservar as proporções da imagem, ele também é forçado a dobrar a <strong>largura</strong> e a <strong>profundidade</strong> do barril. Pelo Teorema de Escala de Geometria Espacial, a área gráfica quadruplica (@k^2 = 4@) e o volume visual percebido octuplica (@k^3 = 8@). O leitor absorve visualmente um aumento de @800\%@ para um dado real que apenas dobrou (@100\%@).
+      </p>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>3. Correlação Espúria versus Causalidade</h3>
+      <p>
+        Duas variáveis @X@ e @Y@ podem apresentar coeficiente de correlação linear altíssimo (@r \approx 1@) sem que exista qualquer nexo causal direto entre elas. Frequentemente, ambas são mediadas por uma <strong>variável oculta de confusão</strong> (<em>confounding variable</em>).
+      </p>
+      <p>
+        <em>Exemplo clássico:</em> Existe uma correlação positiva elevadíssima entre o aumento do consumo de sorvetes e o número de mortes por afogamento no mar. O sorvete causa afogamentos? Evidentemente não. Ambas as variáveis são impulsionadas por um fator oculto comum: a estação do <strong>verão</strong> e o calor intenso.
+      </p>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>4. O Paradoxo de Simpson</h3>
+      <p>
+        Fenômeno probabilístico e estatístico no qual uma tendência, superioridade ou associação observada em vários subgrupos independentes desaparece ou se <strong>inverte completamente</strong> quando os grupos são agregados em uma análise consolidada. Esse paradoxo decorre da desproporção na distribuição de uma variável de estratificação subjacente.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         EXEMPLOS RESOLVIDOS PASSO A PASSO
+         =============================================================== -->
+    <h2>5. Exemplos Resolvidos Passo a Passo</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 5.1 &mdash; Classificação Rigorosa de Variáveis em Estudo Clínico</h3>
+      <p>
+        Um ensaio clínico monitorou 500 pacientes submetidos a um novo tratamento para hipertensão arterial e registrou os seguintes dados de cada paciente:
+      </p>
+      <ol type="a">
+        <li>Tipo de plano de saúde (Público / Privado / Nenhum);</li>
+        <li>Estágio da hipertensão (Pré-hipertenso, Estágio 1, Estágio 2, Crise Hipertensiva);</li>
+        <li>Número de episódios de cefaleia nos últimos 30 dias;</li>
+        <li>Pressão arterial sistólica aferida em repouso (em milímetros de mercúrio &mdash; mmHg);</li>
+        <li>Temperatura corporal aferida em graus Celsius (°C).</li>
+      </ol>
+      <p><strong>Pede-se:</strong> Classifique detalhadamente cada uma das cinco variáveis, explicitando a fundamentação teórica de cada classificação.</p>
+      <h4>Resolução Passo a Passo:</h4>
+      <ul>
+        <li><strong>Item (a) &mdash; Tipo de plano de saúde:</strong> Trata-se de uma <strong>Variável Qualitativa Nominal</strong>. As categorias ("Público", "Privado", "Nenhum") representam atributos puramente categóricos que não admitem qualquer hierarquia ou relação matemática de ordem.</li>
+        <li><strong>Item (b) &mdash; Estágio da hipertensão:</strong> Trata-se de uma <strong>Variável Qualitativa Ordinal</strong>. Embora os dados sejam atributos qualitativos, as categorias guardam uma relação intrínseca de ordem e gravidade progressiva: @\text{Pré-hipertenso} < \text{Estágio 1} < \text{Estágio 2} < \text{Crise}@.</li>
+        <li><strong>Item (c) &mdash; Número de episódios de cefaleia:</strong> Trata-se de uma <strong>Variável Quantitativa Discreta</strong>. É proveniente de um processo de contagem em @\mathbb{N}@ (@0, 1, 2, 3, \dots@ episódios), não admitindo valores intermediários fracionários como @2{,}37@ episódios.</li>
+        <li><strong>Item (d) &mdash; Pressão arterial sistólica:</strong> Trata-se de uma <strong>Variável Quantitativa Contínua</strong>. Resulta de uma medição física de pressão que pode assumir qualquer valor real em uma escala contínua (ex.: @128{,}4\text{ mmHg}@), limitada apenas pela precisão instrumental do esfigmomanômetro.</li>
+        <li><strong>Item (e) &mdash; Temperatura corporal:</strong> Trata-se de uma <strong>Variável Quantitativa Contínua</strong> (medida física em escala contínua de termometria). @\blacksquare@</li>
+      </ul>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 5.2 &mdash; Análise Completa de Tendência Central (Tabela Ponderada)</h3>
+      <p>
+        A distribuição do número de livros lidos no último ano por 40 estudantes de uma turma do 1º Ano do Ensino Médio é apresentada na tabela abaixo:
+      </p>
+      <div class="tabela-container">
+        <table class="tabela-comparativa">
+          <thead>
+            <tr>
+              <th>Livros Lidos (@x_i@)</th>
+              <th>0</th>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th>5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Frequência Absoluta (@f_i@)</strong></td>
+              <td>4</td>
+              <td>10</td>
+              <td>12</td>
+              <td>8</td>
+              <td>4</td>
+              <td>2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Pede-se:</strong> Calcule a Média Aritmética (@\bar{x}@), a Mediana (@Me@) e a Moda (@Mo@) do conjunto de leitores.</p>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Passo 1: Verificação do tamanho da amostra @n@:</strong></p>
+      @@
+      n = \sum f_i = 4 + 10 + 12 + 8 + 4 + 2 = 40 \text{ estudantes}
+      @@
+      <p><strong>Passo 2: Cálculo da Média Ponderada (@\bar{x}@):</strong></p>
+      @@
+      \sum f_i x_i = (0 \times 4) + (1 \times 10) + (2 \times 12) + (3 \times 8) + (4 \times 4) + (5 \times 2)
+      @@
+      @@
+      \sum f_i x_i = 0 + 10 + 24 + 24 + 16 + 10 = 84 \text{ livros no total}
+      @@
+      @@
+      \bar{x} = \frac{\sum f_i x_i}{n} = \frac{84}{40} = 2{,}1 \text{ livros por estudante}
+      @@
+      <p><strong>Passo 3: Determinação da Mediana (@Me@):</strong></p>
+      <p>Como o tamanho da amostra é par (@n = 40@), a mediana situa-se na média aritmética dos termos de ordem @\frac{n}{2} = 20@ e @\frac{n}{2} + 1 = 21@ no Rol ordenado:</p>
+      <p>Construindo a coluna de frequência acumulada @F_i@:</p>
+      <ul>
+        <li>Para @x = 0@: @F_1 = 4@ (posições 1 a 4)</li>
+        <li>Para @x = 1@: @F_2 = 4 + 10 = 14@ (posições 5 a 14)</li>
+        <li>Para @x = 2@: @F_3 = 14 + 12 = 26@ (posições 15 a 26)</li>
+      </ul>
+      <p>Como as posições 20 e 21 situam-se ambas na classe @x = 2@:</p>
+      @@
+      x_{(20)} = 2 \quad \text{e} \quad x_{(21)} = 2 \implies Me = \frac{2 + 2}{2} = 2 \text{ livros}
+      @@
+      <p><strong>Passo 4: Determinação da Moda (@Mo@):</strong></p>
+      <p>A maior frequência absoluta é @f_{\max} = 12@, correspondente à leitura de <strong>2 livros</strong>. Logo:</p>
+      @@
+      Mo = 2 \text{ livros} \quad (\text{distribuição unimodal})
+      @@
+      <p><strong>Resposta:</strong> Média @= 2{,}1@ livros; Mediana @= 2@ livros; Moda @= 2@ livros. Observa-se ligeira assimetria positiva (@\bar{x} > Me@). @\blacksquare@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 5.3 &mdash; O Impacto de Outliers: Média versus Mediana</h3>
+      <p>
+        Uma microempresa de tecnologia tem 7 colaboradores cujos salários mensais (em reais) são:
+        <br>@\mathcal{S}_1 = \{2\,500; \, 2\,800; \, 3\,000; \, 3\,200; \, 3\,500; \, 3\,800; \, 4\,200\}@.
+        <br>No mês seguinte, a empresa contrata um Diretor Executivo com salário de @R\$\,50\,000@, gerando o conjunto:
+        <br>@\mathcal{S}_2 = \{2\,500; \, 2\,800; \, 3\,000; \, 3\,200; \, 3\,500; \, 3\,800; \, 4\,200; \, 50\,000\}@.
+        <br><strong>Pede-se:</strong> Calcule a média e a mediana antes e depois da nova contratação e interprete o impacto da discrepância.
+      </p>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Situação Inicial (@\mathcal{S}_1@, @n = 7@ colaboradores):</strong></p>
+      <ul>
+        <li>Média:
+          @@
+          \bar{x}_1 = \frac{2500 + 2800 + 3000 + 3200 + 3500 + 3800 + 4200}{7} = \frac{23\,000}{7} \approx R\$\,3\,285{,}71
+          @@
+        </li>
+        <li>Mediana (@n = 7@ ímpar, posição @\frac{7+1}{2} = 4@):
+          @@
+          Me_1 = x_{(4)} = R\$\,3\,200{,}00
+          @@
+        </li>
+      </ul>
+      <p><strong>Situação Final (@\mathcal{S}_2@, @n = 8@ colaboradores):</strong></p>
+      <ul>
+        <li>Média:
+          @@
+          \bar{x}_2 = \frac{23\,000 + 50\,000}{8} = \frac{73\,000}{8} = R\$\,9\,125{,}00
+          @@
+        </li>
+        <li>Mediana (@n = 8@ par, média das posições 4 e 5):
+          @@
+          Me_2 = \frac{x_{(4)} + x_{(5)}}{2} = \frac{3\,200 + 3\,500}{2} = R\$\,3\,350{,}00
+          @@
+        </li>
+      </ul>
+      <p><strong>Conclusão Crítica:</strong></p>
+      <p>
+        A média sofreu um aumento explosivo de @R\$\,3\,285{,}71@ para @R\$\,9\,125{,}00@ (alta de @177{,}7\%@). Anunciar que o "salário médio da empresa é superior a 9 mil reais" criaria uma falsa ilusão, visto que 7 dos 8 funcionários (quase @90\%@ da equipe) ganham menos da metade desse valor. A mediana, por sua vez, variou suavemente de @R\$\,3\,200@ para @R\$\,3\,350@, retratando com extrema fidelidade a realidade salarial da esmagadora maioria. @\blacksquare@
+      </p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 5.4 &mdash; Cálculo Completo de Medidas de Dispersão e Correção de Bessel</h3>
+      <p>
+        Um técnico de controle de qualidade coletou uma amostra de 5 peças produzidas por uma máquina calibrada e mediu seus diâmetros em milímetros:
+        <br>@\mathcal{A} = \{19{,}8; \, 20{,}0; \, 20{,}2; \, 19{,}9; \, 20{,}1\}@.
+        <br><strong>Pede-se:</strong> 
+        a) Calcule a média amostral @\bar{x}@; 
+        b) Calcule a variância amostral @s^2@ (com a correção de Bessel @n-1@); 
+        c) Calcule o desvio padrão amostral @s@; 
+        d) Comprove o resultado aplicando a fórmula prática de König-Huygens.
+      </p>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>a) Média Amostral (@\bar{x}@):</strong></p>
+      @@
+      \bar{x} = \frac{19{,}8 + 20{,}0 + 20{,}2 + 19{,}9 + 20{,}1}{5} = \frac{100{,}0}{5} = 20{,}0\text{ mm}
+      @@
+      <p><strong>b) Tabela de Desvios e Variância Amostral (@s^2@):</strong></p>
+      <div class="tabela-container">
+        <table class="tabela-comparativa">
+          <thead>
+            <tr>
+              <th>Peça (@i@)</th>
+              <th>Valor (@x_i@)</th>
+              <th>Desvio (@x_i - \bar{x}@)</th>
+              <th>Desvio ao Quadrado (@(x_i - \bar{x})^2@)</th>
+              <th>Quadrado do Valor (@x_i^2@)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>19,8</td>
+              <td>@19{,}8 - 20{,}0 = -0{,}2@</td>
+              <td>0,04</td>
+              <td>392,04</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>20,0</td>
+              <td>@20{,}0 - 20{,}0 = 0{,}0@</td>
+              <td>0,00</td>
+              <td>400,00</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>20,2</td>
+              <td>@20{,}2 - 20{,}0 = +0{,}2@</td>
+              <td>0,04</td>
+              <td>408,04</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>19,9</td>
+              <td>@19{,}9 - 20{,}0 = -0{,}1@</td>
+              <td>0,01</td>
+              <td>396,01</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>20,1</td>
+              <td>@20{,}1 - 20{,}0 = +0{,}1@</td>
+              <td>0,01</td>
+              <td>404,01</td>
+            </tr>
+            <tr>
+              <td><strong>Soma (@\sum@)</strong></td>
+              <td><strong>100,0</strong></td>
+              <td><strong>0,0</strong> (Teorema 2.1)</td>
+              <td><strong>0,10</strong></td>
+              <td><strong>2000,10</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Aplicando a fórmula da variância amostral com @n - 1 = 4@:</p>
+      @@
+      s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1} = \frac{0{,}10}{5 - 1} = \frac{0{,}10}{4} = 0{,}025\text{ mm}^2
+      @@
+      <p><strong>c) Desvio Padrão Amostral (@s@):</strong></p>
+      @@
+      s = \sqrt{0{,}025} \approx 0{,}1581\text{ mm}
+      @@
+      <p><strong>d) Verificação pela Fórmula de König-Huygens:</strong></p>
+      @@
+      \sum (x_i - \bar{x})^2 = \sum x_i^2 - n(\bar{x})^2 = 2000{,}10 - 5 \times (20{,}0)^2 = 2000{,}10 - 2000{,}00 = 0{,}10
+      @@
+      <p>Dividindo por @n - 1 = 4@, confirma-se identicamente @s^2 = \frac{0{,}10}{4} = 0{,}025\text{ mm}^2@. @\blacksquare@</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo Resolvido 5.5 &mdash; Comparação via Coeficiente de Variação e Detecção de Falácia Gráfica</h3>
+      <p>
+        Uma instituição financeira deseja comparar a consistência de retorno de dois fundos de investimento nos últimos 12 meses:
+        <br>&bull; <strong>Fundo Alfa:</strong> rentabilidade média mensal de @\bar{x}_A = 1{,}5\%@ com desvio padrão @s_A = 0{,}3\%@.
+        <br>&bull; <strong>Fundo Beta:</strong> rentabilidade média mensal de @\bar{x}_B = 6{,}0\%@ com desvio padrão @s_B = 0{,}9\%@.
+        <br>Além disso, um relatório veiculou um gráfico em que a coluna do Fundo Beta era desenhada com @8@ vezes a altura do Fundo Alfa, iniciando a escala vertical em @1{,}0\%@.
+        <br><strong>Pede-se:</strong> 
+        a) Qual fundo é relativamente mais homogêneo e previsível (menor risco relativo)?
+        b) Explique a falácia visual contida no gráfico do relatório.
+      </p>
+      <h4>Resolução Passo a Passo:</h4>
+      <p><strong>Passo 1: Cálculo dos Coeficientes de Variação (@CV@):</strong></p>
+      @@
+      CV_A = \frac{s_A}{\bar{x}_A} \times 100\% = \frac{0{,}3\%}{1{,}5\%} \times 100\% = 20{,}0\%
+      @@
+      @@
+      CV_B = \frac{s_B}{\bar{x}_B} \times 100\% = \frac{0{,}9\%}{6{,}0\%} \times 100\% = 15{,}0\%
+      @@
+      <p>
+        <em>Análise de Risco:</em> Embora o Fundo Beta possua um desvio padrão nominal maior (@0{,}9\% > 0{,}3\%@), sua dispersão relativa ao retorno é significativamente menor (@15\% < 20\%@). Portanto, o <strong>Fundo Beta</strong> apresenta maior regularidade relativa e eficiência por unidade de rentabilidade.
+      </p>
+      <p><strong>Passo 2: Análise da distorção do gráfico com eixo truncado:</strong></p>
+      <p>A razão real entre as médias é:</p>
+      @@
+      \frac{\bar{x}_B}{\bar{x}_A} = \frac{6{,}0\%}{1{,}5\%} = 4{,}0 \quad (\text{a média real é 4 vezes maior})
+      @@
+      <p>Todavia, ao truncar o eixo vertical em @1{,}0\%@, a altura geométrica desenhada para cada coluna é calculada a partir de @1{,}0\%@:</p>
+      @@
+      h_A = 1{,}5 - 1{,}0 = 0{,}5 \qquad \text{e} \qquad h_B = 6{,}0 - 1{,}0 = 5{,}0
+      @@
+      <p>A proporção visual entre as alturas desenhadas é:</p>
+      @@
+      \frac{h_B}{h_A} = \frac{5{,}0}{0{,}5} = 10{,}0 \text{ vezes!}
+      @@
+      <p>
+        O relatório truncou a base para induzir o investidor a acreditar que o Fundo Beta gerou um desempenho colossalmente superior ao que de fato ocorreu. Trata-se de uma falácia gráfica clássica de <em>baseline flutuante</em>. @\blacksquare@
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO COM GABARITO COMENTADO
+         =============================================================== -->
+    <h2>6. Exercícios Conceituais de Fixação Rápida</h2>
+
+    <ol class="lista-exercicios">
+
+      <!-- EXERCÍCIO 1 -->
+      <li>
+        <strong>(Tipologia de Variáveis)</strong> Em um censo escolar, os estudantes preencheram um formulário contendo: (I) turno de estudo (matutino/vespertino/noturno); (II) colocação na olimpíada de matemática (1º lugar, 2º lugar, etc.); (III) tempo diário de deslocamento até a escola (em minutos); (IV) número de livros didáticos na mochila. Identifique a classificação exata de cada uma das quatro variáveis.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <ul>
+              <li><strong>(I) Turno de estudo:</strong> <em>Qualitativa Nominal</em> (categorias sem ordenação natural).</li>
+              <li><strong>(II) Colocação na olimpíada:</strong> <em>Qualitativa Ordinal</em> (existe uma ordenação hierárquica clara de postos: 1º, 2º, 3º).</li>
+              <li><strong>(III) Tempo diário de deslocamento:</strong> <em>Quantitativa Contínua</em> (medida contínua de tempo que pode assumir valores decimais em @\mathbb{R}@).</li>
+              <li><strong>(IV) Número de livros didáticos:</strong> <em>Quantitativa Discreta</em> (resultado de uma contagem pontual em @\mathbb{N}@).</li>
+            </ul>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 2 -->
+      <li>
+        <strong>(Propriedade da Linearidade da Média)</strong> Uma turma de 30 alunos obteve média aritmética de @6{,}4@ em uma avaliação valendo 10 pontos. O professor constatou que uma questão estava mal redigida e decidiu aplicar a seguinte correção nas notas de todos os alunos: multiplicar cada nota por @1{,}1@ e somar @0{,}5@ ponto de bonificação (@y_i = 1{,}1 x_i + 0{,}5@). Qual passou a ser a nova média aritmética da turma após a correção?
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p>Pelo Teorema 2.3 da linearidade da média sob transformações afins (@y_i = a x_i + b \implies \bar{y} = a \bar{x} + b@):</p>
+            @@
+            \bar{y} = 1{,}1 \times \bar{x} + 0{,}5
+            @@
+            <p>Substituindo a média anterior @\bar{x} = 6{,}4@:</p>
+            @@
+            \bar{y} = 1{,}1 \times 6{,}4 + 0{,}5 = 7{,}04 + 0{,}5 = 7{,}54
+            @@
+            <p><strong>Resposta:</strong> A nova média da turma é rigorosamente <strong>@7{,}54@</strong>.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 3 -->
+      <li>
+        <strong>(Média Ponderada e Metas)</strong> Em uma disciplina, a média final é calculada com pesos: Avaliação 1 (peso 2), Avaliação 2 (peso 3) e Projeto Prático (peso 5). Um estudante tirou nota @6{,}0@ na Avaliação 1 e nota @5{,}0@ na Avaliação 2. Qual é a nota mínima que ele precisa obter no Projeto Prático para que sua média final seja pelo menos @7{,}0@?
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p>A soma total dos pesos é @\sum w_i = 2 + 3 + 5 = 10@. Seja @x@ a nota do Projeto:</p>
+            @@
+            \bar{x}_p = \frac{2 \times 6{,}0 + 3 \times 5{,}0 + 5 \times x}{10} \ge 7{,}0
+            @@
+            @@
+            12{,}0 + 15{,}0 + 5x \ge 70{,}0 \implies 27{,}0 + 5x \ge 70{,}0
+            @@
+            @@
+            5x \ge 70{,}0 - 27{,}0 = 43{,}0 \implies x \ge \frac{43{,}0}{5} = 8{,}6
+            @@
+            <p><strong>Resposta:</strong> O estudante necessita de nota mínima <strong>@8{,}6@</strong> no Projeto Prático.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 4 -->
+      <li>
+        <strong>(Mediana com Número Par de Observações)</strong> Determine a mediana do conjunto não ordenado de dados:
+        <br>@\mathcal{D} = \{14; \, 8; \, 22; \, 15; \, 31; \, 9; \, 12; \, 18\}@.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p><strong>Passo 1: Construção obrigatória do Rol (ordenação crescente):</strong></p>
+            @@
+            \text{Rol: } 8; \, 9; \, 12; \, 14; \, 15; \, 18; \, 22; \, 31
+            @@
+            <p><strong>Passo 2: Localização dos termos centrais:</strong></p>
+            <p>O tamanho é par com @n = 8@ termos. Os elementos centrais ocupam as posições @\frac{8}{2} = 4@ e @\frac{8}{2} + 1 = 5@:</p>
+            @@
+            x_{(4)} = 14 \quad \text{e} \quad x_{(5)} = 15
+            @@
+            <p><strong>Passo 3: Média aritmética dos termos centrais:</strong></p>
+            @@
+            Me = \frac{14 + 15}{2} = \frac{29}{2} = 14{,}5
+            @@
+            <p><strong>Resposta:</strong> A mediana é <strong>@14{,}5@</strong>.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 5 -->
+      <li>
+        <strong>(A Soma dos Desvios em Relação à Média)</strong> Uma amostra de 6 valores tem média @\bar{x} = 20@. Cinco dos desvios calculados em relação à média são: @-4, +2, -3, +5, -1@. Qual é o valor do sexto elemento da amostra?
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p>Pelo Teorema 2.1, a soma algébrica de todos os desvios em relação à média é identicamente nula:</p>
+            @@
+            \sum_{i=1}^6 (x_i - \bar{x}) = 0 \implies (-4) + (+2) + (-3) + (+5) + (-1) + d_6 = 0
+            @@
+            @@
+            (-4 + 2 - 3 + 5 - 1) + d_6 = 0 \implies -1 + d_6 = 0 \implies d_6 = +1
+            @@
+            <p>Como @d_6 = x_6 - \bar{x}@:</p>
+            @@
+            x_6 - 20 = 1 \implies x_6 = 21
+            @@
+            <p><strong>Resposta:</strong> O sexto elemento é <strong>@21@</strong>.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 6 -->
+      <li>
+        <strong>(Sensibilidade da Média versus Robustez da Mediana)</strong> Em uma comunidade de 5 famílias, o número de televisores por residência é @\{1, 1, 2, 2, 3\}@. Por um engano de digitação no sistema, o último valor foi digitado como @30@ em vez de @3@. 
+        <br>a) Calcule a média e a mediana com os dados corretos.
+        <br>b) Calcule a média e a mediana com os dados errados e compare o impacto percentual do erro em cada medida.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p><strong>a) Dados corretos (@\{1, 1, 2, 2, 3\}@):</strong></p>
+            @@
+            \bar{x}_{\text{certo}} = \frac{1 + 1 + 2 + 2 + 3}{5} = \frac{9}{5} = 1{,}8
+            @@
+            @@
+            Me_{\text{certo}} = x_{(3)} = 2
+            @@
+            <p><strong>b) Dados corrompidos (@\{1, 1, 2, 2, 30\}@):</strong></p>
+            @@
+            \bar{x}_{\text{errado}} = \frac{1 + 1 + 2 + 2 + 30}{5} = \frac{36}{5} = 7{,}2
+            @@
+            @@
+            Me_{\text{errado}} = x_{(3)} = 2
+            @@
+            <p><strong>Conclusão:</strong> A média quadruplicou (alta de @300\%@, saltando de @1{,}8@ para @7{,}2@). A mediana permaneceu absolutamente intacta em @2@, evidenciando sua propriedade fundamental de <em>robustez</em> a outliers.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 7 -->
+      <li>
+        <strong>(Cálculo Manual de Variância e Desvio Padrão)</strong> Calcule a variância amostral @s^2@ e o desvio padrão amostral @s@ do conjunto: @\mathcal{A} = \{4, 7, 7, 8, 9\}@.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p><strong>1. Média amostral:</strong></p>
+            @@
+            \bar{x} = \frac{4 + 7 + 7 + 8 + 9}{5} = \frac{35}{5} = 7
+            @@
+            <p><strong>2. Desvios e seus quadrados:</strong></p>
+            <ul>
+              <li>@(4 - 7)^2 = (-3)^2 = 9@</li>
+              <li>@(7 - 7)^2 = 0^2 = 0@</li>
+              <li>@(7 - 7)^2 = 0^2 = 0@</li>
+              <li>@(8 - 7)^2 = 1^2 = 1@</li>
+              <li>@(9 - 7)^2 = 2^2 = 4@</li>
+            </ul>
+            <p>Soma dos desvios quadráticos: @9 + 0 + 0 + 1 + 4 = 14@.</p>
+            <p><strong>3. Variância amostral (com @n - 1 = 4@):</strong></p>
+            @@
+            s^2 = \frac{14}{5 - 1} = \frac{14}{4} = 3{,}5
+            @@
+            <p><strong>4. Desvio padrão amostral:</strong></p>
+            @@
+            s = \sqrt{3{,}5} \approx 1{,}87
+            @@
+            <p><strong>Resposta:</strong> Variância amostral @s^2 = 3{,}5@; Desvio padrão @s \approx 1{,}87@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 8 -->
+      <li>
+        <strong>(Coeficiente de Variação na Produção Industrial)</strong> Duas máquinas industriais, M1 e M2, empacotam sacos de café:
+        <br>&bull; A máquina M1 embala com média @\bar{x}_1 = 500\text{ g}@ e desvio padrão @s_1 = 10\text{ g}@.
+        <br>&bull; A máquina M2 embala pacotes industriais com média @\bar{x}_2 = 5\,000\text{ g}@ e desvio padrão @s_2 = 60\text{ g}@.
+        <br>Qual das duas máquinas apresenta processo de empacotamento com maior precisão relativa?
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p>Calculando o Coeficiente de Variação de cada máquina:</p>
+            @@
+            CV_1 = \frac{s_1}{\bar{x}_1} \times 100\% = \frac{10}{500} \times 100\% = 2{,}0\%
+            @@
+            @@
+            CV_2 = \frac{s_2}{\bar{x}_2} \times 100\% = \frac{60}{5\,000} \times 100\% = 1{,}2\%
+            @@
+            <p>
+              Embora a máquina M2 apresente maior desvio padrão absoluto (@60\text{ g} > 10\text{ g}@), sua variabilidade relativa à média é substancialmente menor (@1{,}2\% < 2{,}0\%@). Logo, a <strong>Máquina M2</strong> é mais precisa relativamente.
+            </p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 9 -->
+      <li>
+        <strong>(Propriedades de Escala da Variância e do Desvio Padrão)</strong> Se multiplicarmos todos os elementos de uma amostra por uma constante real @c = 3@ (@y_i = 3x_i@), o que ocorre com:
+        <br>a) O desvio padrão da amostra?
+        <br>b) A variância da amostra?
+        <br>c) O coeficiente de variação?
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p>Seja @y_i = c \cdot x_i@ com @c = 3@:</p>
+            <ul>
+              <li><strong>a) Desvio Padrão:</strong> O desvio padrão é multiplicado pelo valor absoluto da constante: @s_y = |c| s_x = 3 s_x@. Ele fica <strong>triplicado</strong>.</li>
+              <li><strong>b) Variância:</strong> Como @s_y^2 = (3 s_x)^2 = 9 s_x^2@, a variância fica multiplicada pelo quadrado da constante: fica <strong>multiplicada por 9</strong>.</li>
+              <li><strong>c) Coeficiente de Variação:</strong>
+                @@
+                CV_y = \frac{s_y}{\bar{y}} = \frac{3 s_x}{3 \bar{x}} = \frac{s_x}{\bar{x}} = CV_x
+                @@
+                O coeficiente de variação permanece rigorosamente <strong>inalterado</strong> (invariante por homotetias de escala).
+              </li>
+            </ul>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 10 -->
+      <li>
+        <strong>(Auditoria Crítica em Gráficos de Setores)</strong> Uma pesquisa de intenção de voto foi publicada com um gráfico de pizza contendo 4 candidatos com os seguintes percentuais anotados: Candidato A (42%), Candidato B (31%), Candidato C (22%) e Candidato D (15%). Apresente dois motivos matemáticos formais que comprovam que o infográfico é inválido.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <ol>
+              <li><strong>Violação do Axioma da Partição Unitária (100%):</strong> Em qualquer gráfico de setores, a soma de todas as fatias que compõem o círculo completo deve ser rigorosamente igual a @100\%@. Somando as parcelas:
+                @@
+                42\% + 31\% + 22\% + 15\% = 110\% \neq 100\%
+                @@
+                A soma excede em @10\%@ o espaço amostral completo, o que é um absurdo matemático.
+              </li>
+              <li><strong>Impossibilidade Geométrica de Subtensão Angular:</strong> Cada percentual @p_i@ corresponde a um ângulo central @\theta_i = \frac{p_i}{100} \times 360^\circ@. Para a soma @110\%@, a soma dos ângulos seria @1{,}10 \times 360^\circ = 396^\circ@, excedendo a circunferência plana euclidiana de @360^\circ@.
+              </li>
+            </ol>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 11 -->
+      <li>
+        <strong>(Quantificação do Efeito do Eixo Truncado)</strong> Um telejornal noticiou a variação do desemprego em um trimestre, que passou de @8{,}0\%@ para @8{,}4\%@. O infografista desenhou um gráfico de colunas cujo eixo vertical foi truncado iniciando em @7{,}8\%@. Qual é a ampliação visual aparente (em fator multiplicativo de crescimento) transmitida pela altura das colunas em comparação com a taxa real de crescimento?
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p><strong>1. Taxa de crescimento real:</strong></p>
+            @@
+            \text{Variação Real} = \frac{8{,}4 - 8{,}0}{8{,}0} = \frac{0{,}4}{8{,}0} = 0{,}05 = 5{,}0\%
+            @@
+            <p><strong>2. Alturas geométricas desenhadas no gráfico com base @7{,}8@:</strong></p>
+            @@
+            h_1 = 8{,}0 - 7{,}8 = 0{,}2
+            @@
+            @@
+            h_2 = 8{,}4 - 7{,}8 = 0{,}6
+            @@
+            <p><strong>3. Variação visual aparente:</strong></p>
+            @@
+            \text{Variação Aparente} = \frac{h_2 - h_1}{h_1} = \frac{0{,}6 - 0{,}2}{0{,}2} = \frac{0{,}4}{0{,}2} = 2{,}0 = 200\%
+            @@
+            <p>O gráfico transmitiu uma sensação visual de aumento de <strong>@200\%@ (triplicação da altura)</strong> para um fenômeno cujo aumento real foi de apenas <strong>@5\%@</strong>, uma distorção de fator @\frac{200\%}{5\%} = 40@ vezes!</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 12 -->
+      <li>
+        <strong>(Correlação Espúria versus Causalidade)</strong> Um estudo com crianças de 6 a 12 anos constatou uma correlação linear fortíssima (@r = +0{,}89@) entre o tamanho do calçado (número do sapato) e a pontuação obtida em testes de vocabulário e leitura. Um analista declarou: <em>"Comprar sapatos maiores para as crianças aumentará a sua capacidade cognitiva e seu vocabulário"</em>. Refute cientificamente a declaração do analista identificando a falácia e a variável oculta.
+        <details class="solucao-exercicio">
+          <summary>Ver Gabarito e Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Solução:</strong></p>
+            <p>
+              A declaração incorre na falácia clássica da <strong>falsa causa (<em>cum hoc ergo propter hoc</em>)</strong>, ao confundir correlação estatística com nexo de causalidade ontológica. 
+            </p>
+            <p>
+              O tamanho do pé não causa aumento de vocabulário, nem o vocabulário dilata os pés. A forte correlação positiva é integralmente explicada por uma <strong>variável oculta de confusão (<em>confounding variable</em>): a IDADE da criança</strong>. Conforme a criança cresce e atinge idades mais avançadas (de 6 para 12 anos):
+            </p>
+            <ul>
+              <li>Seu corpo se desenvolve biologicamente, aumentando a numeração do calçado;</li>
+              <li>Ela frequenta mais anos de escolaridade e vive mais experiências, expandindo seu vocabulário.</li>
+            </ul>
+            <p>
+              Controlando-se estatisticamente a idade (por exemplo, analisando apenas crianças de exatamente 8 anos), a correlação entre tamanho de sapato e vocabulário desvanece-se para zero.
+            </p>
+          </div>
+        </details>
+      </li>
+
+    </ol>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 35px; margin-bottom: 25px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+    <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

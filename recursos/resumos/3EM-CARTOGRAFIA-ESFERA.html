@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Da Esfera para o Plano: Cartografia e Geometria Esférica</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar 3º EM */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-3em {
+      background-color: rgba(239, 68, 68, 0.25);
+      border: 2px solid #ef4444;
+      color: #fee2e2;
+    }
+
+    /* Soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-3em">3º Ano EM</div>
+
+    <h1>Da Esfera para o Plano: Cartografia e Geometria Esférica</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 6: "Da esfera para o plano: Cartografia e Geometria Esférica"
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E FUNDAMENTAÇÃO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para o entendimento aprofundado dos tópicos deste capítulo, o estudante deve ter assimilado:</p>
+      <ul>
+        <li><strong>Trigonometria Circular:</strong> ciclo trigonométrico, funções seno, cosseno, tangente e secante, conversões graus-radianos.</li>
+        <li><strong>Geometria da Esfera:</strong> seções planas da esfera, círculos máximos, fusos esféricos e área superficial (@A = 4\pi R^2@).</li>
+        <li><strong>Sistemas de Coordenadas:</strong> coordenadas polares no plano e latitude/longitude como ângulos de rotação sobre eixos perpendiculares.</li>
+      </ul>
+    </div>
+
+    <p>
+      Durante mais de dois milênios, a geometria ensinada no Ocidente foi quase exclusivamente a Geometria Euclidiana plana, postulada sobre folhas infinitas e perfeitamente retas. Entretanto, nós habitamos a superfície curva de um planeta aproximadamente esférico. Ao traçar rotas intercontinentais de aeronaves, navegar nos oceanos ou projetar a Terra sobre um mapa bidimensional de papel ou tela digital, as regras clássicas de Euclides colapsam: triângulos passam a ter soma angular maior que @180^\circ@ e retas paralelas deixam de existir. Este capítulo investiga o rigor da <strong>Geometria Esférica</strong> e as leis matemáticas que governam a <strong>Cartografia</strong>.
+    </p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: MODELO ESFÉRICO E COORDENADAS GEOGRÁFICAS
+         =============================================================== -->
+    <h2>1. O Modelo Esférico da Terra e Coordenadas Geográficas</h2>
+
+    <p>
+      A forma física real da Terra aproxima-se de um <strong>geoide</strong> (uma superfície equipotencial do campo gravitacional terrestre) e, para fins geodésicos precisos (como GPS/WGS-84), de um <strong>elipsoide oblato de revolução</strong> (achatado nos polos). Para a modelagem cartográfica e de navegação de longa distância no Ensino Médio e olimpíadas, adota-se com altíssima fidelidade o modelo de uma <strong>esfera média</strong> de raio:
+    </p>
+    @@ R \approx 6371 \text{ km} @@
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Círculos Máximos e Círculos Menores)</h3>
+      <ul>
+        <li>
+          <strong>Círculo Máximo (Great Circle):</strong> É a interseção da esfera com qualquer plano que contenha o <strong>centro da esfera</strong> @O(0,0,0)@. O círculo máximo possui o mesmo centro e o mesmo raio @R@ da esfera. Qualquer par de pontos não antipodais sobre a esfera determina um único círculo máximo.
+        </li>
+        <li>
+          <strong>Círculo Menor:</strong> É a interseção da esfera com um plano secante que <em>não</em> contém o centro da esfera. Seu raio @r@ é estritamente menor que @R@: @r = \sqrt{R^2 - d^2}@, onde @d@ é a distância do plano ao centro.
+        </li>
+      </ul>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Sistema de Coordenadas Geográficas)</h3>
+      <p>Qualquer ponto @P@ sobre a superfície esférica é determinado univocamente por um par ordenado de ângulos @(\varphi, \lambda)@:</p>
+      <ul>
+        <li>
+          <strong>Latitude (@\varphi@):</strong> Ângulo formado entre o raio que liga o centro ao ponto @P@ e o plano do Equador. Varia no intervalo @[-90^\circ, +90^\circ]@ (ou @[-\pi/2, +\pi/2]@ radianos), positivo no Hemisfério Norte (N) e negativo no Hemisfério Sul (S).
+        </li>
+        <li>
+          <strong>Longitude (@\lambda@):</strong> Ângulo diedro formado entre o plano do Meridiano de Greenwich e o plano meridiano que passa por @P@. Varia no intervalo @[-180^\circ, +180^\circ]@ (ou @[-\pi, +\pi]@ radianos), positivo a Leste (E) e negativo a Oeste (W).
+        </li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.1 (Comprimento de Arcos de Paralelos e Meridianos)</h3>
+      <p>
+        Um paralelo de latitude @\varphi@ é um círculo menor com raio:
+      </p>
+      @@ r(\varphi) = R \cos\varphi @@
+      <p>Consequentemente:</p>
+      <ul>
+        <li>
+          O comprimento de um arco de paralelo correspondente a uma variação de longitude @\Delta\lambda@ (em radianos) é:
+          @@ \Delta s_{\text{paralelo}} = r(\varphi) \cdot \Delta\lambda = (R \cos\varphi) \Delta\lambda @@
+        </li>
+        <li>
+          O comprimento de um arco de meridiano correspondente a uma variação de latitude @\Delta\varphi@ (em radianos) é um arco de círculo máximo:
+          @@ \Delta s_{\text{meridiano}} = R \Delta\varphi @@
+        </li>
+      </ul>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.3 (Pontos Antípodas)</h3>
+      <p>
+        O <strong>antípoda</strong> de um ponto @P(\varphi, \lambda)@ é o ponto @P'@ diametralmente oposto sobre a esfera. Suas coordenadas geográficas são dadas por:
+      </p>
+      @@ \varphi_{\text{ant}} = -\varphi @@
+      @@
+      \lambda_{\text{ant}} = \begin{cases}
+      \lambda + 180^\circ, & \text{se } \lambda < 0^\circ \\
+      \lambda - 180^\circ, & \text{se } \lambda \geq 0^\circ
+      \end{cases}
+      @@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: GEOMETRIA NÃO EUCLIDIANA SOBRE A ESFERA
+         =============================================================== -->
+    <h2>2. Geometria Não Euclidiana sobre a Esfera</h2>
+
+    <p>
+      Na geometria esférica intrínseca, as "retas" (caminhos geodésicos de menor distância) são os <strong>círculos máximos</strong>. Essa substituição provoca rupturas profundas com a axiomática de Euclides:
+    </p>
+
+    <div class="destaque-box observacao">
+      <h3>📌 Falência do Quinto Postulado (Postulado das Paralelas)</h3>
+      <p>
+        Em geometria plana euclidiana, por um ponto exterior a uma reta passa uma única reta paralela.
+      </p>
+      <p>
+        <strong>Sobre a esfera:</strong> Como quaisquer dois círculos máximos são coplanares com o centro da esfera, seus planos sempre se interceptam segundo uma reta que passa pela origem. Essa reta perfura a esfera em <strong>dois pontos antípodas</strong>.
+      </p>
+      <p style="font-weight: bold; color: var(--link-color);">
+        Portanto, quaisquer dois círculos máximos sempre se cruzam em dois pontos! NÃO EXISTEM RETAS PARALELAS na geometria esférica.
+      </p>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Triângulo Esférico e Excesso Esférico)</h3>
+      <p>
+        Um <strong>triângulo esférico</strong> @\triangle ABC@ é uma porção da superfície esférica delimitada por três arcos de círculo máximo (lados) cujos comprimentos são inferiores a @\pi R@ (menores que uma semicircunferência).
+      </p>
+      <p>
+        Sejam @A, B, C@ os ângulos internos desse triângulo (medidos entre os planos tangentes aos círculos máximos nos vértices). Em qualquer triângulo esférico:
+      </p>
+      @@ \pi < A + B + C < 5\pi \quad (\text{ou } 180^\circ < A + B + C < 900^\circ) @@
+      <p>
+        A quantidade pela qual a soma dos ângulos excede @\pi@ radianos (@180^\circ@) é chamada de <strong>excesso esférico</strong> @E@:
+      </p>
+      @@ E = A + B + C - \pi \quad (\text{radianos}) @@
+      @@ E^\circ = A^\circ + B^\circ + C^\circ - 180^\circ \quad (\text{graus}) @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Fórmula de Girard para a Área do Triângulo Esférico)</h3>
+      <p>
+        A área de um triângulo esférico @\triangle ABC@ sobre uma esfera de raio @R@ é <strong>estritamente proporcional ao seu excesso esférico</strong>:
+      </p>
+      @@ \text{Área}(\triangle ABC) = E \cdot R^2 = (A + B + C - \pi) R^2 @@
+
+      <h4>Demonstração Rigorosa (Albert Girard, 1629):</h4>
+      <p>
+        Prolonguemos os três círculos máximos que contêm os lados de @\triangle ABC@ para toda a esfera. Cada par de círculos máximos define dois fusos esféricos antipodais.
+      </p>
+      <p>
+        Seja @\triangle A'B'C'@ o triângulo antipodal de @\triangle ABC@ (de mesma área @\text{Área}(\triangle)@). Os três pares de fusos com vértices em @A, B, C@ possuem ângulos diedros @A, B, C@. A área de um fuso de ângulo @\alpha@ é @2\alpha R^2@.
+      </p>
+      <p>
+        Somando as áreas dos pares de fusos correspondentes aos três vértices:
+      </p>
+      @@ \sum \text{Áreas dos Fusos} = 2(2A R^2) + 2(2B R^2) + 2(2C R^2) = 4(A + B + C) R^2 @@
+      <p>
+        Ao unirmos esses três pares de fusos, cobrimos a esfera inteira (@\text{Área}_{\text{esfera}} = 4\pi R^2@). Contudo, os triângulos @\triangle ABC@ e @\triangle A'B'C'@ são cobertos três vezes cada (uma vez por cada par de fusos), enquanto o restante da esfera é coberto exatamente uma vez. Portanto, a soma das áreas dos fusos equivale à área da esfera mais quatro vezes a área do triângulo (duas sobreposições extras para cada um dos dois triângulos):
+      </p>
+      @@ 4(A + B + C) R^2 = 4\pi R^2 + 4 \text{Área}(\triangle ABC) @@
+      <p>Dividindo ambos os membros por 4 e isolando a área:</p>
+      @@ \text{Área}(\triangle ABC) = (A + B + C) R^2 - \pi R^2 = (A + B + C - \pi) R^2 \quad \blacksquare @@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: NAVEGAÇÃO - ORTODRÔMICAS VS LOXODRÔMICAS
+         =============================================================== -->
+    <h2>3. Navegação: Ortodrômicas vs Linhas de Rumo (Loxodrômicas)</h2>
+
+    <p>
+      Na navegação aeronáutica e marítima, a escolha da trajetória entre dois portos ou aeroportos envolve o confronto entre a distância mínima e a simplicidade de orientação magnética:
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Ortodrômica - Geodésica)</h3>
+      <p>
+        A <strong>rota ortodrômica</strong> (ou rota de grande círculo) é o arco de círculo máximo que une o ponto de partida @A@ ao ponto de destino @B@. É o <strong>caminho de menor comprimento possível</strong> entre dois pontos sobre a superfície esférica.
+      </p>
+      <p>
+        A distância angular @\sigma@ (em radianos) entre @P_1(\varphi_1, \lambda_1)@ e @P_2(\varphi_2, \lambda_2)@ é dada pela <strong>Lei dos Cossenos Esférica</strong>:
+      </p>
+      @@ \cos\sigma = \sin\varphi_1 \sin\varphi_2 + \cos\varphi_1 \cos\varphi_2 \cos(\lambda_2 - \lambda_1) @@
+      <p>A distância ortodrômica métrica é:</p>
+      @@ d_{\text{orto}} = R \cdot \sigma = R \cdot \arccos[\sin\varphi_1 \sin\varphi_2 + \cos\varphi_1 \cos\varphi_2 \cos(\lambda_2 - \lambda_1)] @@
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.2 (Loxodrômica - Linha de Rumo)</h3>
+      <p>
+        A <strong>rota loxodrômica</strong> (ou <em>rhumb line</em>) é a curva sobre a esfera que cruza <strong>todos os meridianos sob o mesmo ângulo azimutal constante</strong> @\beta@.
+      </p>
+      <p>
+        <em>Propriedades fundamentais:</em>
+      </p>
+      <ul>
+        <li>Permite navegar mantendo o ponteiro da bússola magnética rigorosamente fixo em uma única direção sem recalculá-la.</li>
+        <li><strong>Não é o menor caminho:</strong> com exceção do próprio Equador ou de um meridiano, a loxodrômica é sempre mais longa que a ortodrômica, formando uma espiral esférica logarítmica que se enrola infinitamente em direção aos polos geográficos.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: THEOREMA EGREGIUM DE GAUSS
+         =============================================================== -->
+    <h2>4. O Theorema Egregium de Gauss e a Impossibilidade Cartográfica</h2>
+
+    <p>
+      Por que não existe nenhum mapa plano perfeito da Terra? A resposta definitiva foi formulada por Carl Friedrich Gauss em 1827.
+    </p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Theorema Egregium de Gauss)</h3>
+      <p>
+        A <strong>curvatura gaussiana</strong> @K@ de uma superfície bidimensional suave no espaço tridimensional é o produto das suas curvaturas principais:
+      </p>
+      @@ K = \kappa_1 \cdot \kappa_2 @@
+      <p>
+        O <em>Theorema Egregium</em> ("Teorema Notável") afirma que @K@ é um <strong>invariante intrínseco</strong> da geometria da superfície: ele independe de como a superfície está imersa no espaço e é preservado sob qualquer deformação local sem estiramento nem rasgamento (isometria local).
+      </p>
+      <ul>
+        <li><strong>Plano Euclidiano:</strong> Possui curvatura @\kappa_1 = 0@ e @\kappa_2 = 0@, logo @K_{\text{plano}} = 0@.</li>
+        <li><strong>Esfera de Raio @R@:</strong> Em cada ponto, as duas curvaturas principais são @\kappa_1 = \kappa_2 = \frac{1}{R}@. Portanto, a curvatura gaussiana é constante e estritamente positiva:
+          @@ K_{\text{esfera}} = \frac{1}{R} \cdot \frac{1}{R} = \frac{1}{R^2} > 0 @@
+        </li>
+      </ul>
+      <p style="font-weight: bold; color: #10b981;">
+        Corolário Fundamental para a Cartografia: Como @K_{\text{esfera}} = \frac{1}{R^2} \neq 0@ e @K_{\text{plano}} = 0@, NÃO EXISTE nenhuma isometria local entre a esfera e o plano. É MATEMATICAMENTE IMPOSSÍVEL planificar a Terra sobre uma folha sem distorcer distâncias, áreas ou ângulos.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: PROJEÇÕES CARTOGRÁFICAS
+         =============================================================== -->
+    <h2>5. Projeções Cartográficas: Mercator vs Gall-Peters</h2>
+
+    <p>
+      Diante da impossibilidade matemática de uma planificação perfeita, cada projeção cartográfica faz uma escolha deliberada sobre qual propriedade geométrica preservar:
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 5.1 (Classificação das Projeções)</h3>
+      <ul>
+        <li><strong>Conformes:</strong> Preservam rigorosamente os ângulos e as formas locais (@\text{Escala}_x = \text{Escala}_y@ em cada ponto), mas distorcem as áreas.</li>
+        <li><strong>Equivalentes:</strong> Preservam com exatidão as razões entre as áreas territoriais, mas deformam as formas geométricas e os ângulos.</li>
+        <li><strong>Equidistantes:</strong> Preservam distâncias ao longo de determinadas direções radiais ou meridianas específicas.</li>
+        <li><strong>Afiláticas:</strong> Projeções de compromisso (como Robinson e Winkel-Tripel) que não preservam nem ângulos nem áreas perfeitamente, mas minimizam a distorção visual média global.</li>
+      </ul>
+    </div>
+
+    <h3>5.1 Projeção Cilíndrica Conforme de Mercator (1569)</h3>
+    <p>
+      Concebida pelo flamengo Gerardus Mercator, esta projeção projeta a esfera sobre um cilindro tangente ao Equador de modo analiticamente conforme:
+    </p>
+    @@ x = R (\lambda - \lambda_0) @@
+    @@ y = R \ln \left[ \tan\left( \frac{\pi}{4} + \frac{\varphi}{2} \right) \right] = R \operatorname{artanh}(\sin\varphi) @@
+    <ul>
+      <li><strong>Propriedade Magistral:</strong> É estritamente <strong>conforme</strong>. Toda linha loxodrômica de rumo constante na esfera é representada como um <strong>segmento de reta</strong> no mapa! Foi a espinha dorsal da navegação da Era dos Descobrimentos.</li>
+      <li><strong>Fator de Deformação de Escala Linear:</strong> @k(\varphi) = \sec\varphi = \frac{1}{\cos\varphi}@.</li>
+      <li><strong>Fator de Deformação de Área:</strong> @k_{\text{área}}(\varphi) = [k(\varphi)]^2 = \sec^2\varphi@.</li>
+      <li>
+        <strong>Distorção Extrema nas Altas Latitudes:</strong> Para @\varphi = 60^\circ@, a área aparente é multiplicada por @\sec^2(60^\circ) = 2^2 = 4@. Para @\varphi = 80^\circ@, a área aparente é multiplicada por @\sec^2(80^\circ) \approx 33{,}16@! Por essa razão, a Groenlândia (com área real de @2{,}16 \text{ milhões de km}^2@) aparenta ter o mesmo tamanho do continente africano (com área real de @30{,}37 \text{ milhões de km}^2@, ou seja, 14 vezes maior).
+      </li>
+    </ul>
+
+    <h3>5.2 Projeção Cilíndrica Equivalente de Gall-Peters (1855 / 1973)</h3>
+    <p>
+      Proposta por James Gall e popularizada pelo historiador Arno Peters, trata-se de uma projeção cilíndrica equivalente com secância nos paralelos @\pm 45^\circ@:
+    </p>
+    @@ x = \frac{R}{\sqrt{2}} (\lambda - \lambda_0) @@
+    @@ y = R \sqrt{2} \sin\varphi @@
+    <ul>
+      <li><strong>Propriedade Magistral:</strong> É rigorosamente <strong>equivalente</strong> (preserva as áreas de todos os países). A razão de área entre qualquer país e o globo permanece exata no mapa.</li>
+      <li><strong>Preço Geométrico:</strong> Distorce severamente as formas locais. Os continentes tropicais (África e América do Sul) aparecem "esticados" verticalmente, enquanto as regiões polares aparecem achatadas horizontalmente.</li>
+    </ul>
+
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Critério</th>
+            <th>Projeção de Mercator</th>
+            <th>Projeção de Gall-Peters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Classificação</strong></td>
+            <td>Cilíndrica Conforme</td>
+            <td>Cilíndrica Equivalente</td>
+          </tr>
+          <tr>
+            <td><strong>Ângulos e Formas Locais</strong></td>
+            <td>Preservados perfeitamente (@90^\circ@ mantido em toda interseção)</td>
+            <td>Distorcidos (ângulos não conservados)</td>
+          </tr>
+          <tr>
+            <td><strong>Áreas Relativas</strong></td>
+            <td>Hipertrofiadas perto dos polos (@\sec^2\varphi \to \infty@)</td>
+            <td>Preservadas rigorosamente (@\text{Fator} = 1@)</td>
+          </tr>
+          <tr>
+            <td><strong>Representação de Loxodrômicas</strong></td>
+            <td>Segmentos de reta (ideal para bússolas)</td>
+            <td>Curvas complexas</td>
+          </tr>
+          <tr>
+            <td><strong>Principal Utilização</strong></td>
+            <td>Cartas náuticas, cartas aeronáuticas, Google Maps (Web Mercator)</td>
+            <td>Mapas temáticos geopolíticos, demografia, atlas da ONU</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>6. Exemplos Resolvidos Passo a Passo</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 (O Triângulo Tri-Retângulo Esférico)</h3>
+      <p>
+        Considere o triângulo esférico formado pelo Polo Norte @N@ e dois pontos sobre o Equador: @A@ (no meridiano de Greenwich, @0^\circ@) e @B@ (no meridiano @90^\circ\text{ L}@).
+      </p>
+      <ol>
+        <li>Determine a medida dos três ângulos internos @A, B, C@.</li>
+        <li>Calcule o excesso esférico @E@ em graus e radianos.</li>
+        <li>Calcule a área desse triângulo esférico sobre a Terra (adote @R = 6370\text{ km}@ e @\pi \approx 3{,}14@).</li>
+      </ol>
+
+      <h4>Resolução:</h4>
+      <p><strong>1. Medida dos ângulos:</strong></p>
+      <ul>
+        <li>No vértice @N@ (Polo Norte), os dois meridianos cruzam-se sob uma diferença de longitude de @\Delta\lambda = 90^\circ - 0^\circ = 90^\circ = \frac{\pi}{2}@ radianos.</li>
+        <li>Nos vértices equatoriais @A@ e @B@, os meridianos encontram o Equador perpendicularmente, de modo que cada ângulo mede @90^\circ = \frac{\pi}{2}@ radianos.</li>
+      </ul>
+      <p>Portanto: @A = 90^\circ@, @B = 90^\circ@ e @C = 90^\circ@ (é um triângulo tri-retângulo!).</p>
+
+      <p><strong>2. Excesso Esférico:</strong></p>
+      @@ E^\circ = 90^\circ + 90^\circ + 90^\circ - 180^\circ = 270^\circ - 180^\circ = 90^\circ @@
+      @@ E = \frac{\pi}{2} + \frac{\pi}{2} + \frac{\pi}{2} - \pi = \frac{3\pi}{2} - \pi = \frac{\pi}{2} \text{ rad.} @@
+
+      <p><strong>3. Área pelo Teorema de Girard:</strong></p>
+      @@ \text{Área} = E \cdot R^2 = \frac{\pi}{2} R^2 @@
+      <p>
+        Observe geometricamente que o Hemisfério Norte é dividido em 4 triângulos idênticos a esse. Como a esfera inteira tem @4\pi R^2@, um oitavo da esfera (um octante) tem área:
+      </p>
+      @@ \frac{1}{8} (4\pi R^2) = \frac{\pi}{2} R^2 @@
+      <p>Substituindo os valores numéricos:</p>
+      @@ \text{Área} = \frac{3{,}14}{2} \cdot (6370)^2 = 1{,}57 \cdot 40576900 \approx 63.705.733 \text{ km}^2. @@
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 (Distorção da Groenlândia na Projeção de Mercator)</h3>
+      <p>
+        A Groenlândia situa-se em torno da latitude média @\varphi = 72^\circ@.
+      </p>
+      <ol>
+        <li>Calcule o fator de ampliação linear @k(\varphi) = \sec\varphi@ de Mercator para @\varphi = 72^\circ@ (dado: @\cos 72^\circ \approx 0{,}309@).</li>
+        <li>Calcule o fator de ampliação de área @k_{\text{área}}@ na projeção de Mercator para essa região.</li>
+      </ol>
+
+      <h4>Resolução:</h4>
+      <p><strong>1. Fator de ampliação linear:</strong></p>
+      @@ k(72^\circ) = \sec(72^\circ) = \frac{1}{\cos(72^\circ)} \approx \frac{1}{0{,}309} \approx 3{,}236 @@
+      <p>As distâncias lineares naquela latitude são esticadas em mais de 3,2 vezes!</p>
+
+      <p><strong>2. Fator de ampliação de área:</strong></p>
+      @@ k_{\text{área}}(72^\circ) = [k(72^\circ)]^2 \approx (3{,}236)^2 \approx 10{,}47 @@
+      <p>
+        <em>Conclusão Crítica:</em> Na projeção de Mercator, uma área situada a @72^\circ@ de latitude aparece desenhada com um tamanho <strong>mais de 10 vezes maior</strong> do que sua proporção real em relação a regiões equatoriais.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 7: EXERCÍCIOS CONCEITUAIS
+         =============================================================== -->
+    <h2>7. Exercícios Conceituais e de Fixação Rápida</h2>
+
+    <ol class="lista-exercicios">
+      <!-- Ex 1 -->
+      <li>
+        <strong>(Cálculo de Antípoda)</strong>
+        Uma estação científica está localizada nas coordenadas @(45^\circ\text{ N}, 120^\circ\text{ W})@. Quais são as coordenadas exatas do seu ponto antípoda na Terra?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Pela definição de antípoda:</p>
+            <ul>
+              <li>A latitude inverte o sinal: @\varphi_{\text{ant}} = -45^\circ = 45^\circ\text{ S}@.</li>
+              <li>A longitude é calculada somando @180^\circ@ para longitudes a oeste: @\lambda_{\text{ant}} = -120^\circ + 180^\circ = +60^\circ = 60^\circ\text{ E}@.</li>
+            </ul>
+            <p>Portanto, o ponto antípoda situa-se em @\mathbf{(45^\circ\text{ S}, 60^\circ\text{ E})}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 2 -->
+      <li>
+        <strong>(Fórmula de Girard e Excesso)</strong>
+        Um triângulo esférico sobre uma esfera de raio @R = 10\text{ m}@ possui ângulos internos @A = 100^\circ@, @B = 80^\circ@ e @C = 60^\circ@. Calcule a sua área superficial exata.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Calculamos o excesso esférico em graus:</p>
+            @@ E^\circ = A + B + C - 180^\circ = 100^\circ + 80^\circ + 60^\circ - 180^\circ = 240^\circ - 180^\circ = 60^\circ @@
+            <p>Convertendo para radianos:</p>
+            @@ E = 60^\circ \cdot \frac{\pi}{180^\circ} = \frac{\pi}{3} \text{ rad.} @@
+            <p>Pela fórmula de Girard:</p>
+            @@ \text{Área} = E \cdot R^2 = \frac{\pi}{3} \cdot (10^2) = \frac{100\pi}{3} \text{ m}^2 \approx 104{,}72 \text{ m}^2. @@
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 3 -->
+      <li>
+        <strong>(Percurso ao Longo de um Paralelo)</strong>
+        Duas cidades, @P@ e @Q@, estão localizadas ambas na latitude @60^\circ\text{ N}@. A cidade @P@ possui longitude @30^\circ\text{ W}@ e a cidade @Q@ possui longitude @60^\circ\text{ E}@. Qual é a distância percorrida por um avião que voa exclusivamente ao longo desse paralelo de latitude constante? (Considere @R = 6400\text{ km}@ e @\pi \approx 3{,}14@).
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>O raio do paralelo de latitude @\varphi = 60^\circ@ é:</p>
+            @@ r(60^\circ) = R \cos(60^\circ) = 6400 \cdot \frac{1}{2} = 3200\text{ km.} @@
+            <p>A diferença de longitude entre as duas cidades é:</p>
+            @@ \Delta\lambda = 60^\circ - (-30^\circ) = 90^\circ = \frac{\pi}{2} \text{ rad.} @@
+            <p>O comprimento do arco sobre o paralelo é:</p>
+            @@ s_{\text{paralelo}} = r \cdot \Delta\lambda = 3200 \cdot \frac{\pi}{2} = 1600\pi \approx 1600 \cdot 3{,}14 = 5024\text{ km.} @@
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 4 -->
+      <li>
+        <strong>(Distância Ortodrômica vs Paralelo)</strong>
+        No problema anterior (latitude @60^\circ\text{ N}@, separação de @90^\circ@ de longitude), calcule a distância ortodrômica (de grande círculo) entre @P@ e @Q@ e determine quantos quilômetros seriam economizados voando pela rota ortodrômica.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Aplicando a lei dos cossenos esférica para @\varphi_1 = \varphi_2 = 60^\circ@ e @\Delta\lambda = 90^\circ@:</p>
+            @@ \cos\sigma = \sin(60^\circ)\sin(60^\circ) + \cos(60^\circ)\cos(60^\circ)\cos(90^\circ) @@
+            <p>Como @\cos(90^\circ) = 0@:</p>
+            @@ \cos\sigma = \left(\frac{\sqrt{3}}{2}\right)^2 + 0 = \frac{3}{4} = 0{,}75 @@
+            <p>Portanto: @\sigma = \arccos(0{,}75) \approx 0{,}7227@ radianos (@\approx 41{,}41^\circ@).</p>
+            <p>A distância ortodrômica é:</p>
+            @@ d_{\text{orto}} = R \cdot \sigma = 6400 \cdot 0{,}7227 \approx 4625\text{ km.} @@
+            <p>Economia em relação ao voo pelo paralelo (@5024\text{ km}@):</p>
+            @@ \Delta d = 5024 - 4625 = 399\text{ km economizados!} @@
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 5 -->
+      <li>
+        <strong>(Theorema Egregium e Casca de Laranja)</strong>
+        Explique com rigor geométrico baseado no Theorema Egregium por que é fisicamente impossível achatar uma casca hemisférica de laranja sobre uma mesa plana sem que ela rasgue ou se sobreponha.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Pelo Teorema Notável de Gauss, a curvatura gaussiana @K = \kappa_1 \kappa_2@ é invariante sob isometrias locais suaves (deformações que conservam distâncias intrínsecas ao longo da superfície sem elasticidade nem ruptura).</p>
+            <p>A casca de laranja esférica possui curvatura constante @K = \frac{1}{R^2} > 0@ (curvatura positiva), enquanto a mesa plana tem curvatura @K = 0@.</p>
+            <p>Como não existe transformação que altere continuamente a curvatura gaussiana preservando o comprimento dos caminhos materiais sobre a casca, para forçá-la a ter curvatura zero ela deve sofrer estiramento mecânico (se for elástica) ou rasgamento nas bordas (se for inelástica). @\blacksquare@</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 6 -->
+      <li>
+        <strong>(Área Máxima de um Triângulo Esférico)</strong>
+        Qual é o limite superior teórico para a área de um triângulo esférico desenhado sobre uma esfera de raio @R@?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Pela fórmula de Girard, a área é @\text{Área} = (A + B + C - \pi) R^2@.</p>
+            <p>A soma dos ângulos internos de um triângulo esférico satisfaz estritamente @\pi < A + B + C < 5\pi@.</p>
+            <p>No limite em que os lados do triângulo quase coincidem com semicircunferências completas e seus vértices aproximam-se de pontos colineares, cada ângulo interno aproxima-se de @\pi@ (ou quase @5\pi@ na soma):</p>
+            @@ \lim (A + B + C) = 3\pi \implies \text{Área} \to (3\pi - \pi) R^2 = 2\pi R^2 @@
+            <p>
+              (Se considerarmos triângulos convexos, o limite é a semiesfera, @2\pi R^2@. Se permitirmos o triângulo degenerado complementar não convexo, a soma dos ângulos tende a @5\pi@ e a área tende a @(5\pi - \pi) R^2 = 4\pi R^2@, cobrindo quase toda a esfera).
+            </p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 7 -->
+      <li>
+        <strong>(Projeção Conforme e Ortogonalidade)</strong>
+        Mostre por que os meridianos e paralelos, que se cruzam a @90^\circ@ no globo terrestre, continuam rigorosamente perpendiculares no mapa de Mercator.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>As coordenadas do mapa de Mercator são @x = R(\lambda - \lambda_0)@ e @y = R \ln \tan(\frac{\pi}{4} + \frac{\varphi}{2})@.</p>
+            <p>Sobre um meridiano, a longitude @\lambda@ é constante, de modo que @x = \text{constante}@ (retas verticais paralelas ao eixo @y@).</p>
+            <p>Sobre um paralelo, a latitude @\varphi@ é constante, de modo que @y = \text{constante}@ (retas horizontais paralelas ao eixo @x@).</p>
+            <p>Como retas verticais e horizontais no plano cartesiano são perpendiculares (@\vec{v}_x \cdot \vec{v}_y = 0@), o ângulo de @90^\circ@ é rigorosamente preservado em todos os pontos do mapa, confirmando a conformidade da projeção.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 8 -->
+      <li>
+        <strong>(Projeção de Gall-Peters e Conservação de Área)</strong>
+        Verifique analiticamente que o elemento diferencial de área @dA_{\text{plano}} = dx \cdot dy@ na Projeção de Gall-Peters é proporcional ao elemento diferencial de área na esfera @dA_{\text{esfera}} = R^2 \cos\varphi \, d\lambda \, d\varphi@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>As equações de Gall-Peters são @x = \frac{R}{\sqrt{2}}\lambda@ e @y = R\sqrt{2}\sin\varphi@.</p>
+            <p>Calculando as diferenciais parciais:</p>
+            @@ dx = \frac{R}{\sqrt{2}} \, d\lambda @@
+            @@ dy = R\sqrt{2} \cos\varphi \, d\varphi @@
+            <p>Multiplicando as diferenciais (Jacobiano da transformação):</p>
+            @@ dA_{\text{plano}} = dx \, dy = \left(\frac{R}{\sqrt{2}} d\lambda\right) \left(R\sqrt{2}\cos\varphi \, d\varphi\right) = R^2 \cos\varphi \, d\lambda \, d\varphi @@
+            <p>Como esse valor coincide exatamente com a métrica de área esférica @dA_{\text{esfera}}@, a razão local de áreas é identicamente constante a 1 em todo o mapa. A projeção é perfeitamente equivalente! @\blacksquare@</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 9 -->
+      <li>
+        <strong>(Loxodrômica nos Polos)</strong>
+        Um navio parte de um ponto a @45^\circ\text{ N}@ e viaja indefinidamente seguindo um rumo azimutal constante de @45^\circ@ (Nordeste). O navio atinge o Polo Norte? Quantas voltas em torno da Terra ele executa?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>A curva loxodrômica com rumo não ortogonal aos meridianos é uma espiral que se aproxima assintoticamente do polo.</p>
+            <p>O comprimento total da trajetória até o polo é finito e dado por @L = \frac{R(\frac{\pi}{2} - \varphi_0)}{\cos\beta}@.</p>
+            <p>No entanto, a longitude varia conforme @\Delta\lambda \propto \tan\beta \ln(\tan(\frac{\pi}{4} + \frac{\varphi}{2}))@. Quando @\varphi \to \frac{\pi}{2}@, o termo logarítmico tende ao infinito!</p>
+            <p>Portanto, o navio <strong>atinge o Polo Norte em tempo e distância finitos</strong>, mas após dar <strong>infinitas voltas espirais</strong> em torno do eixo de rotação da Terra.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 10 -->
+      <li>
+        <strong>(Diferença de Fuso Horário e Geometria)</strong>
+        A Terra gira @360^\circ@ em 24 horas. Quantos quilômetros sobre o Equador correspondem a exatamente 1 hora de diferença de fuso horário? E sobre o paralelo de @60^\circ\text{ S}@? (Adote @R = 6400\text{ km}@ e @\pi \approx 3@).
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>1 hora de fuso corresponde a uma variação angular de longitude de:</p>
+            @@ \Delta\lambda = \frac{360^\circ}{24} = 15^\circ = 15 \cdot \frac{\pi}{180} = \frac{\pi}{12} \text{ rad.} @@
+            <p><strong>1. No Equador (@\varphi = 0^\circ@):</strong></p>
+            @@ \Delta s = R \Delta\lambda = 6400 \cdot \frac{3}{12} = 6400 \cdot \frac{1}{4} = 1600\text{ km.} @@
+            <p><strong>2. No paralelo @60^\circ\text{ S}@:</strong></p>
+            @@ \Delta s = (R \cos 60^\circ) \Delta\lambda = 6400 \cdot \frac{1}{2} \cdot \frac{3}{12} = 3200 \cdot \frac{1}{4} = 800\text{ km.} @@
+            <p>A distância linear correspondente a 1 hora de fuso cai pela metade a @60^\circ@ de latitude.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 11 -->
+      <li>
+        <strong>(Triângulo Equilátero Esférico)</strong>
+        É possível existir na esfera um triângulo equilátero cujos ângulos internos meçam todos @120^\circ@? Se existir, qual é a sua área em termos da área total da esfera @A_{\text{total}}@?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Sim, é perfeitamente possível. A soma dos ângulos é @120^\circ + 120^\circ + 120^\circ = 360^\circ = 2\pi@ radianos.</p>
+            <p>Como @\pi < 2\pi < 5\pi@, o triângulo satisfaz os axiomas da geometria esférica.</p>
+            <p>O excesso esférico é:</p>
+            @@ E = 2\pi - \pi = \pi \text{ rad.} @@
+            <p>Pela fórmula de Girard:</p>
+            @@ \text{Área} = E \cdot R^2 = \pi R^2 @@
+            <p>Como a área total da esfera é @A_{\text{total}} = 4\pi R^2@:</p>
+            @@ \frac{\text{Área}}{A_{\text{total}}} = \frac{\pi R^2}{4\pi R^2} = \frac{1}{4} @@
+            <p>Esse triângulo cobre exatamente um quarto (@25\%@) da superfície de todo o globo terrestre.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Ex 12 -->
+      <li>
+        <strong>(Desafio OBMEP/Geometria Superior - Polígono Esférico)</strong>
+        Generalize a fórmula de Girard para um polígono esférico convexo de @n@ vértices com ângulos internos @\alpha_1, \alpha_2, \dots, \alpha_n@ (em radianos). Qual é a sua área?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Detalhada</summary>
+          <div class="conteudo-solucao">
+            <p>Qualquer polígono esférico de @n@ vértices pode ser decomposto em @n - 2@ triângulos esféricos traçando diagonais a partir de um vértice comum.</p>
+            <p>A área do polígono é a soma das áreas dos @n - 2@ triângulos componentes:</p>
+            @@ \text{Área} = \sum_{k=1}^{n-2} \text{Área}(T_k) = \sum_{k=1}^{n-2} (S_k - \pi) R^2 @@
+            <p>onde @S_k@ é a soma dos ângulos do @k@-ésimo triângulo. A soma de todos os ângulos de todos os triângulos equivale exatamente à soma dos ângulos internos do polígono @\sum_{i=1}^n \alpha_i@. Portanto:</p>
+            @@ \text{Área}(P_n) = \left[ \sum_{i=1}^n \alpha_i - (n - 2)\pi \right] R^2 @@
+            <p>Esta é a <strong>Fórmula de Girard-Gauss-Bonnet</strong> para polígonos esféricos. @\blacksquare@</p>
+          </div>
+        </details>
+      </li>
+    </ol>
+</article>
+
+</div><!-- /container -->
+</div><!-- /page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

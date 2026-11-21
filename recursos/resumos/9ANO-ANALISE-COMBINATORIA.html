@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Análise Combinatória</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: var(--heading-text-color);
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #2196f3;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #ff9800;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--heading-text-color);
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+      border-left: 4px solid var(--secondary-text-color);
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos para observações e notas */
+    .nota {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--secondary-text-color);
+    }
+
+    /* Estilos para listas de propriedades */
+    .lista-propriedades {
+      margin: 1rem 0;
+    }
+
+    .lista-propriedades li {
+      margin: 0.8rem 0;
+    }
+
+    /* Tabela comparativa */
+    .tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .tabela-comparativa th,
+    .tabela-comparativa td {
+      border: 1px solid var(--secondary-text-color);
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    .tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.3);
+      color: var(--heading-text-color);
+      font-weight: bold;
+    }
+
+    .tabela-comparativa tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <h1>Análise Combinatória</h1>
+
+    <p>A <strong>análise combinatória</strong> é o ramo da matemática que estuda métodos de contagem. Ela nos ajuda a responder perguntas como: "De quantas maneiras posso organizar objetos?", "Quantas escolhas diferentes posso fazer?" ou "Quantos grupos diferentes posso formar?". Neste resumo, exploraremos os conceitos fundamentais desta área fascinante!</p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: CONCEITOS FUNDAMENTAIS
+         - Definições numeradas (Definição 1.1, 1.2, ...)
+         - Exemplos iniciais
+         - Notações e convenções
+         =============================================================== -->
+    <h2>1. Conceitos Fundamentais</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (Princípio Fundamental da Contagem - PFC)</h3>
+      <p>Se uma decisão @A@ pode ser tomada de @m@ maneiras diferentes e, para cada uma dessas maneiras, uma decisão @B@ pode ser tomada de @n@ maneiras diferentes, então o número total de maneiras de tomar as decisões @A@ e @B@ em sequência é @m \times n@.</p>
+      <p>De forma mais geral: se temos @k@ decisões a serem tomadas, onde a primeira pode ser feita de @n_1@ maneiras, a segunda de @n_2@ maneiras, e assim por diante até a @k@-ésima de @n_k@ maneiras, então o total de possibilidades é:</p>
+      @@
+      n_1 \times n_2 \times n_3 \times \cdots \times n_k
+      @@
+    </div>
+
+    <p><strong>Exemplos do Princípio Fundamental da Contagem:</strong></p>
+    <ul>
+      <li><strong>Exemplo 1:</strong> Maria tem 3 blusas (azul, vermelha e verde) e 2 calças (preta e jeans). De quantas maneiras diferentes ela pode se vestir?
+      <br>Resposta: @3 \times 2 = 6@ maneiras diferentes.</li>
+
+      <li><strong>Exemplo 2:</strong> Um restaurante oferece 4 tipos de entrada, 5 tipos de prato principal e 3 tipos de sobremesa. Quantas refeições completas diferentes podem ser formadas?
+      <br>Resposta: @4 \times 5 \times 3 = 60@ refeições diferentes.</li>
+
+      <li><strong>Exemplo 3:</strong> Uma senha numérica tem 4 dígitos, e cada dígito pode ser qualquer número de 0 a 9. Quantas senhas diferentes existem?
+      <br>Resposta: @10 \times 10 \times 10 \times 10 = 10.000@ senhas diferentes.</li>
+    </ul>
+
+    <div class="nota">
+      <strong>Observação:</strong> O Princípio Fundamental da Contagem é a base de toda a análise combinatória. Todas as fórmulas que veremos a seguir podem ser justificadas usando este princípio!
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.2 (Fatorial)</h3>
+      <p>O <strong>fatorial</strong> de um número natural @n@, denotado por @n!@ (lê-se "n fatorial"), é o produto de todos os números naturais de 1 até @n@:</p>
+      @@
+      n! = n \times (n-1) \times (n-2) \times \cdots \times 3 \times 2 \times 1
+      @@
+      <p>Por convenção, definimos @0! = 1@.</p>
+    </div>
+
+    <p><strong>Exemplos de cálculos de fatoriais:</strong></p>
+    <ul class="lista-propriedades">
+      <li>@1! = 1@</li>
+      <li>@2! = 2 \times 1 = 2@</li>
+      <li>@3! = 3 \times 2 \times 1 = 6@</li>
+      <li>@4! = 4 \times 3 \times 2 \times 1 = 24@</li>
+      <li>@5! = 5 \times 4 \times 3 \times 2 \times 1 = 120@</li>
+      <li>@6! = 6 \times 5 \times 4 \times 3 \times 2 \times 1 = 720@</li>
+    </ul>
+
+    <div class="nota">
+      <strong>Dica de cálculo:</strong> Note que @n! = n \times (n-1)!@. Por exemplo: @5! = 5 \times 4! = 5 \times 24 = 120@. Esta propriedade é muito útil para simplificar expressões com fatoriais!
+    </div>
+
+    <p><strong>Por que o fatorial é importante?</strong> O fatorial aparece naturalmente quando queremos contar de quantas maneiras podemos <em>organizar</em> ou <em>permutar</em> objetos. Vamos entender isso melhor na próxima seção!</p>
+
+    <!-- ===============================================================
+         SEÇÃO 2: PERMUTAÇÕES E ARRANJOS
+         - Teoremas numerados (Teorema 2.1, 2.2, ...)
+         - Demonstrações ou justificativas
+         - Propriedades fundamentais
+         =============================================================== -->
+    <h2>2. Permutações e Arranjos</h2>
+
+    <h3>2.1 Permutações Simples</h3>
+
+    <p>Imagine que você tem 3 livros diferentes e quer organizá-los em uma estante. De quantas maneiras diferentes você pode fazer isso?</p>
+
+    <p>Vamos pensar passo a passo usando o PFC:</p>
+    <ul>
+      <li>Para o primeiro livro, temos <strong>3 escolhas</strong></li>
+      <li>Para o segundo livro, temos <strong>2 escolhas</strong> (já usamos um)</li>
+      <li>Para o terceiro livro, temos <strong>1 escolha</strong> (só sobrou um)</li>
+    </ul>
+
+    <p>Pelo PFC: @3 \times 2 \times 1 = 6@ maneiras diferentes. Observe que este resultado é exatamente @3!@</p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Permutação Simples)</h3>
+      <p>Uma <strong>permutação simples</strong> de @n@ elementos distintos é qualquer ordenação desses @n@ elementos. O número de permutações simples de @n@ elementos é denotado por @P_n@ e calculado por:</p>
+      @@
+      P_n = n!
+      @@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Fórmula da Permutação Simples)</h3>
+      <p>O número de maneiras de ordenar @n@ objetos distintos é:</p>
+      @@
+      P_n = n \times (n-1) \times (n-2) \times \cdots \times 2 \times 1 = n!
+      @@
+    </div>
+
+    <p><strong>Justificativa pelo PFC:</strong></p>
+    <p>Para ordenar @n@ objetos, temos:</p>
+    <ul>
+      <li>@n@ escolhas para a primeira posição</li>
+      <li>@(n-1)@ escolhas para a segunda posição (já usamos uma)</li>
+      <li>@(n-2)@ escolhas para a terceira posição</li>
+      <li>E assim por diante, até @1@ escolha para a última posição</li>
+    </ul>
+    <p>Pelo PFC, o total é: @n \times (n-1) \times (n-2) \times \cdots \times 1 = n!@</p>
+
+    <div class="destaque-box observacao">
+      <h3>Observação Importante</h3>
+      <p>Em uma permutação, usamos <strong>todos os elementos disponíveis</strong> e a <strong>ordem importa</strong>. Se mudarmos a ordem, temos uma permutação diferente!</p>
+      <p>Por exemplo: ABC, ACB, BAC, BCA, CAB, CBA são as 6 permutações de 3 letras (de fato, @3! = 6@).</p>
+    </div>
+
+    <h3>2.2 Arranjos Simples</h3>
+
+    <p>Agora imagine que temos 5 atletas em uma corrida, mas só queremos saber de quantas maneiras podemos formar o pódio (1º, 2º e 3º lugares). Neste caso, não vamos usar todos os 5 atletas, apenas 3 deles!</p>
+
+    <p>Vamos pensar usando o PFC:</p>
+    <ul>
+      <li>Para o 1º lugar: <strong>5 escolhas</strong></li>
+      <li>Para o 2º lugar: <strong>4 escolhas</strong> (já temos um no pódio)</li>
+      <li>Para o 3º lugar: <strong>3 escolhas</strong> (já temos dois no pódio)</li>
+    </ul>
+
+    <p>Pelo PFC: @5 \times 4 \times 3 = 60@ maneiras diferentes de formar o pódio.</p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.2 (Arranjo Simples)</h3>
+      <p>Um <strong>arranjo simples</strong> de @n@ elementos tomados @p@ a @p@ (onde @p \leq n@) é qualquer ordenação de @p@ elementos escolhidos dentre os @n@ elementos disponíveis. O número de arranjos é denotado por @A_{n,p}@ e calculado por:</p>
+      @@
+      A_{n,p} = \frac{n!}{(n-p)!}
+      @@
+      <p>Também pode ser escrito como: @A_{n,p} = n \times (n-1) \times (n-2) \times \cdots \times (n-p+1)@ (produto de @p@ fatores consecutivos decrescentes a partir de @n@).</p>
+    </div>
+
+    <p><strong>Exemplos de cálculo de arranjos:</strong></p>
+    <ul>
+      <li>@A_{5,3} = \frac{5!}{(5-3)!} = \frac{5!}{2!} = \frac{120}{2} = 60@ (pódio com 5 atletas)</li>
+      <li>@A_{4,2} = \frac{4!}{2!} = \frac{24}{2} = 12@ ou @A_{4,2} = 4 \times 3 = 12@</li>
+      <li>@A_{6,4} = 6 \times 5 \times 4 \times 3 = 360@</li>
+    </ul>
+
+    <div class="destaque-box observacao">
+      <h3>Relação entre Permutação e Arranjo</h3>
+      <p>Note que uma permutação é um caso especial de arranjo onde @p = n@:</p>
+      @@
+      A_{n,n} = \frac{n!}{(n-n)!} = \frac{n!}{0!} = \frac{n!}{1} = n! = P_n
+      @@
+      <p>Ou seja: <strong>permutação é um arranjo onde usamos todos os elementos!</strong></p>
+    </div>
+
+    <h3>2.3 Diferença Entre Permutação e Arranjo</h3>
+
+    <table class="tabela-comparativa">
+      <tr>
+        <th>Característica</th>
+        <th>Permutação (@P_n@)</th>
+        <th>Arranjo (@A_{n,p}@)</th>
+      </tr>
+      <tr>
+        <td><strong>Quantos elementos usamos?</strong></td>
+        <td>Todos (@n@ elementos)</td>
+        <td>Parte dos elementos (@p@ de @n@, com @p \leq n@)</td>
+      </tr>
+      <tr>
+        <td><strong>A ordem importa?</strong></td>
+        <td>Sim! ABC ≠ BAC</td>
+        <td>Sim! AB no pódio ≠ BA no pódio</td>
+      </tr>
+      <tr>
+        <td><strong>Fórmula</strong></td>
+        <td>@P_n = n!@</td>
+        <td>@A_{n,p} = \frac{n!}{(n-p)!}@</td>
+      </tr>
+      <tr>
+        <td><strong>Exemplo</strong></td>
+        <td>Anagramas de AMOR (@4! = 24@)</td>
+        <td>Pódio com 5 atletas (@A_{5,3} = 60@)</td>
+      </tr>
+    </table>
+
+    <!-- ===============================================================
+         SEÇÃO 3: COMBINAÇÕES
+         - Definições
+         - Propriedades
+         - Diferença arranjo vs combinação
+         =============================================================== -->
+    <h2>3. Combinações</h2>
+
+    <h3>3.1 Quando a Ordem NÃO Importa</h3>
+
+    <p>Até agora, estudamos situações onde <strong>a ordem importa</strong>. Mas e se a ordem <em>não importar</em>?</p>
+
+    <p>Por exemplo: você precisa escolher 3 amigos dentre 5 para formar um grupo de estudos. Escolher Ana, Bruno e Carlos é a mesma coisa que escolher Carlos, Ana e Bruno (a ordem não importa, o que importa é <strong>quem está no grupo</strong>).</p>
+
+    <p>Este tipo de contagem é chamado de <strong>combinação</strong>!</p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (Combinação Simples)</h3>
+      <p>Uma <strong>combinação simples</strong> de @n@ elementos tomados @p@ a @p@ (onde @p \leq n@) é qualquer escolha de @p@ elementos dentre os @n@ disponíveis, <strong>sem levar em conta a ordem</strong>. O número de combinações é denotado por @C_{n,p}@ e calculado por:</p>
+      @@
+      C_{n,p} = \frac{n!}{p! \cdot (n-p)!}
+      @@
+      <p>Também pode ser escrito como @\binom{n}{p}@ (lê-se "n escolhe p" ou "combinação de n p a p").</p>
+    </div>
+
+    <h3>3.2 De Onde Vem a Fórmula da Combinação?</h3>
+
+    <p>Vamos entender a lógica por trás da fórmula de combinação usando o exemplo do grupo de estudos:</p>
+
+    <p><strong>Passo 1:</strong> Se a ordem importasse, teríamos @A_{5,3} = 60@ maneiras de escolher 3 amigos dentre 5.</p>
+
+    <p><strong>Passo 2:</strong> Mas a ordem NÃO importa! Cada grupo de 3 pessoas foi contado várias vezes. Quantas vezes? Exatamente @3! = 6@ vezes (as permutações de 3 pessoas).</p>
+
+    <p>Por exemplo: {Ana, Bruno, Carlos} foi contado 6 vezes no arranjo:</p>
+    <ul>
+      <li>Ana, Bruno, Carlos</li>
+      <li>Ana, Carlos, Bruno</li>
+      <li>Bruno, Ana, Carlos</li>
+      <li>Bruno, Carlos, Ana</li>
+      <li>Carlos, Ana, Bruno</li>
+      <li>Carlos, Bruno, Ana</li>
+    </ul>
+
+    <p><strong>Passo 3:</strong> Para corrigir essa "supercontagem", dividimos o arranjo pelo número de permutações:</p>
+    @@
+    C_{5,3} = \frac{A_{5,3}}{P_3} = \frac{60}{6} = 10
+    @@
+
+    <p>De forma geral:</p>
+    @@
+    C_{n,p} = \frac{A_{n,p}}{P_p} = \frac{\frac{n!}{(n-p)!}}{p!} = \frac{n!}{p! \cdot (n-p)!}
+    @@
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (Fórmula da Combinação)</h3>
+      <p>O número de maneiras de escolher @p@ elementos dentre @n@ elementos disponíveis, sem considerar a ordem, é:</p>
+      @@
+      C_{n,p} = \binom{n}{p} = \frac{n!}{p! \cdot (n-p)!}
+      @@
+    </div>
+
+    <h3>3.3 Propriedades Importantes das Combinações</h3>
+
+    <ul class="lista-propriedades">
+      <li><strong>(i)</strong> @C_{n,0} = 1@ (há uma única maneira de escolher 0 elementos: não escolher nenhum)</li>
+      <li><strong>(ii)</strong> @C_{n,n} = 1@ (há uma única maneira de escolher todos os elementos)</li>
+      <li><strong>(iii)</strong> @C_{n,1} = n@ (há @n@ maneiras de escolher 1 elemento dentre @n@)</li>
+      <li><strong>(iv)</strong> @C_{n,p} = C_{n,n-p}@ (<strong>propriedade da simetria</strong>: escolher @p@ elementos é o mesmo que deixar de escolher @n-p@ elementos)</li>
+    </ul>
+
+    <p><strong>Verificando a propriedade da simetria:</strong></p>
+    @@
+    C_{5,3} = \frac{5!}{3! \cdot 2!} = \frac{120}{6 \cdot 2} = 10
+    @@
+    @@
+    C_{5,2} = \frac{5!}{2! \cdot 3!} = \frac{120}{2 \cdot 6} = 10
+    @@
+    <p>De fato, @C_{5,3} = C_{5,2}@! Isso faz sentido: escolher 3 amigos dentre 5 é o mesmo que escolher 2 para <em>não</em> participar do grupo.</p>
+
+    <h3>3.4 Diferença Entre Arranjo e Combinação</h3>
+
+    <table class="tabela-comparativa">
+      <tr>
+        <th>Característica</th>
+        <th>Arranjo (@A_{n,p}@)</th>
+        <th>Combinação (@C_{n,p}@)</th>
+      </tr>
+      <tr>
+        <td><strong>A ordem importa?</strong></td>
+        <td>Sim! ABC ≠ BAC</td>
+        <td>Não! {A,B,C} = {C,A,B}</td>
+      </tr>
+      <tr>
+        <td><strong>Fórmula</strong></td>
+        <td>@A_{n,p} = \frac{n!}{(n-p)!}@</td>
+        <td>@C_{n,p} = \frac{n!}{p! \cdot (n-p)!}@</td>
+      </tr>
+      <tr>
+        <td><strong>Relação</strong></td>
+        <td colspan="2">@C_{n,p} = \frac{A_{n,p}}{P_p} = \frac{A_{n,p}}{p!}@</td>
+      </tr>
+      <tr>
+        <td><strong>Exemplo</strong></td>
+        <td>Pódio de 5 atletas (@A_{5,3} = 60@)</td>
+        <td>Comissão de 3 entre 5 pessoas (@C_{5,3} = 10@)</td>
+      </tr>
+      <tr>
+        <td><strong>Quando usar?</strong></td>
+        <td>Posições, senhas, sequências</td>
+        <td>Grupos, times, comissões, escolhas</td>
+      </tr>
+    </table>
+
+    <div class="nota">
+      <strong>Dica de ouro:</strong> Antes de resolver um problema, sempre pergunte: <strong>"A ordem importa?"</strong>
+      <ul>
+        <li>Se SIM → use arranjo (ou permutação se usar todos)</li>
+        <li>Se NÃO → use combinação</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: EXEMPLOS RESOLVIDOS
+         - Mínimo 6 exemplos
+         - Progressão de dificuldade
+         - Solução passo a passo detalhada
+         =============================================================== -->
+    <h2>4. Exemplos Resolvidos</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 - Aplicação do Princípio Fundamental da Contagem</h3>
+      <p><strong>Enunciado:</strong> Uma lanchonete oferece 3 tipos de pão (francês, integral, ciabatta), 4 tipos de recheio (queijo, presunto, frango, atum) e 2 tipos de bebida (suco, refrigerante). De quantas maneiras diferentes um cliente pode montar seu lanche completo (pão + recheio + bebida)?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar as decisões independentes:</p>
+      <ul>
+        <li>Escolha do pão: 3 opções</li>
+        <li>Escolha do recheio: 4 opções</li>
+        <li>Escolha da bebida: 2 opções</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Aplicar o PFC (multiplicar as opções):</p>
+      @@
+      \text{Total} = 3 \times 4 \times 2 = 24
+      @@
+
+      <p><strong>Resposta:</strong> Existem <strong>24 maneiras diferentes</strong> de montar um lanche completo.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 - Permutação Simples (Anagramas)</h3>
+      <p><strong>Enunciado:</strong> Quantos anagramas (reordenações das letras) podemos formar com a palavra NEXUS?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Contar quantas letras diferentes temos:</p>
+      <p>NEXUS tem 5 letras distintas: N, E, X, U, S</p>
+
+      <p><strong>Passo 2:</strong> Como queremos ordenar TODAS as 5 letras, usamos permutação:</p>
+      @@
+      P_5 = 5! = 5 \times 4 \times 3 \times 2 \times 1 = 120
+      @@
+
+      <p><strong>Passo 3:</strong> Justificativa pelo PFC:</p>
+      <ul>
+        <li>1ª posição: 5 escolhas</li>
+        <li>2ª posição: 4 escolhas</li>
+        <li>3ª posição: 3 escolhas</li>
+        <li>4ª posição: 2 escolhas</li>
+        <li>5ª posição: 1 escolha</li>
+      </ul>
+      <p>Total: @5 \times 4 \times 3 \times 2 \times 1 = 120@</p>
+
+      <p><strong>Resposta:</strong> Podemos formar <strong>120 anagramas</strong> diferentes com a palavra NEXUS.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 - Arranjo Simples (Pódio)</h3>
+      <p><strong>Enunciado:</strong> Em uma competição de natação com 8 atletas, de quantas maneiras podemos ter o pódio (1º, 2º e 3º lugares)?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar o tipo de problema:</p>
+      <ul>
+        <li>Temos 8 atletas disponíveis</li>
+        <li>Vamos escolher apenas 3 (para o pódio)</li>
+        <li>A ordem importa! (1º lugar ≠ 2º lugar ≠ 3º lugar)</li>
+        <li>Conclusão: é um arranjo @A_{8,3}@</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Calcular o arranjo:</p>
+      @@
+      A_{8,3} = \frac{8!}{(8-3)!} = \frac{8!}{5!} = \frac{8 \times 7 \times 6 \times 5!}{5!} = 8 \times 7 \times 6 = 336
+      @@
+
+      <p>Ou, de forma mais direta: @A_{8,3} = 8 \times 7 \times 6 = 336@</p>
+
+      <p><strong>Passo 3:</strong> Justificativa pelo PFC:</p>
+      <ul>
+        <li>1º lugar: 8 escolhas</li>
+        <li>2º lugar: 7 escolhas (já temos um atleta no pódio)</li>
+        <li>3º lugar: 6 escolhas (já temos dois no pódio)</li>
+      </ul>
+      <p>Total: @8 \times 7 \times 6 = 336@</p>
+
+      <p><strong>Resposta:</strong> Existem <strong>336 maneiras diferentes</strong> de formar o pódio.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 4 - Combinação Simples (Comissão)</h3>
+      <p><strong>Enunciado:</strong> Uma turma tem 10 alunos e precisa formar uma comissão de 4 estudantes para representá-los. De quantas maneiras diferentes essa comissão pode ser formada?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Identificar o tipo de problema:</p>
+      <ul>
+        <li>Temos 10 alunos disponíveis</li>
+        <li>Vamos escolher 4 para a comissão</li>
+        <li>A ordem NÃO importa! (escolher Ana, Bruno, Carlos, Daniel é o mesmo que escolher Daniel, Ana, Bruno, Carlos)</li>
+        <li>Conclusão: é uma combinação @C_{10,4}@</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Calcular a combinação:</p>
+      @@
+      C_{10,4} = \frac{10!}{4! \cdot 6!} = \frac{10 \times 9 \times 8 \times 7 \times 6!}{4! \cdot 6!} = \frac{10 \times 9 \times 8 \times 7}{4 \times 3 \times 2 \times 1}
+      @@
+      @@
+      C_{10,4} = \frac{5040}{24} = 210
+      @@
+
+      <p><strong>Resposta:</strong> Existem <strong>210 maneiras diferentes</strong> de formar a comissão.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 5 - Comparação: Arranjo vs. Combinação</h3>
+      <p><strong>Enunciado:</strong> Uma biblioteca tem 6 livros diferentes. Compare:</p>
+      <ul>
+        <li>(a) De quantas maneiras podemos escolher e ordenar 3 livros em uma prateleira?</li>
+        <li>(b) De quantas maneiras podemos escolher 3 livros para emprestar (sem ordem)?</li>
+      </ul>
+
+      <h4>Solução:</h4>
+      <p><strong>Parte (a):</strong> A ordem importa (prateleira), então usamos arranjo:</p>
+      @@
+      A_{6,3} = 6 \times 5 \times 4 = 120
+      @@
+      <p><strong>Resposta (a):</strong> 120 maneiras diferentes.</p>
+
+      <p><strong>Parte (b):</strong> A ordem NÃO importa (só importa quais livros escolher), então usamos combinação:</p>
+      @@
+      C_{6,3} = \frac{6!}{3! \cdot 3!} = \frac{6 \times 5 \times 4}{3 \times 2 \times 1} = \frac{120}{6} = 20
+      @@
+      <p><strong>Resposta (b):</strong> 20 maneiras diferentes.</p>
+
+      <p><strong>Observação importante:</strong> Note que @C_{6,3} = \frac{A_{6,3}}{3!} = \frac{120}{6} = 20@, confirmando a relação entre arranjo e combinação!</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 6 - Problema Contextualizado com Múltiplas Etapas</h3>
+      <p><strong>Enunciado:</strong> Uma escola vai montar um time de vôlei. Há 7 candidatas para jogadoras de quadra e 3 candidatas para líbero. De quantas maneiras podemos formar um time com 5 jogadoras de quadra e 1 líbero?</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Dividir o problema em etapas independentes:</p>
+      <ul>
+        <li><strong>Etapa 1:</strong> Escolher 5 jogadoras de quadra dentre 7 candidatas</li>
+        <li><strong>Etapa 2:</strong> Escolher 1 líbero dentre 3 candidatas</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Identificar o tipo de cada etapa:</p>
+      <p><strong>Etapa 1:</strong> A ordem NÃO importa (tanto faz qual jogadora chamamos de "primeira" ou "segunda"), então é combinação:</p>
+      @@
+      C_{7,5} = \frac{7!}{5! \cdot 2!} = \frac{7 \times 6}{2 \times 1} = 21
+      @@
+
+      <p><strong>Etapa 2:</strong> Escolher 1 líbero dentre 3:</p>
+      @@
+      C_{3,1} = 3
+      @@
+
+      <p><strong>Passo 3:</strong> Aplicar o PFC (multiplicar as etapas):</p>
+      @@
+      \text{Total} = C_{7,5} \times C_{3,1} = 21 \times 3 = 63
+      @@
+
+      <p><strong>Resposta:</strong> Existem <strong>63 maneiras diferentes</strong> de formar o time de vôlei.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: EXERCÍCIOS PROPOSTOS
+         - 12-15 exercícios variados
+         - Progressão de dificuldade
+         - Respostas em comentário HTML
+         =============================================================== -->
+    <h2>5. Exercícios</h2>
+
+    <p>Resolva os exercícios a seguir aplicando os conceitos de Princípio Fundamental da Contagem, Permutações, Arranjos e Combinações. As respostas estão disponíveis no final da página.</p>
+
+    <h3>Exercícios Básicos (1-5)</h3>
+
+    <ol>
+      <li>Calcule os seguintes fatoriais:
+        <ul>
+          <li>(a) @7!@</li>
+          <li>(b) @\frac{8!}{6!}@</li>
+          <li>(c) @\frac{10!}{8! \cdot 2!}@</li>
+        </ul>
+      </li>
+
+      <li>Uma pizzaria oferece 5 sabores de pizza e 3 tipos de borda. De quantas maneiras um cliente pode escolher sua pizza (sabor + borda)?</li>
+
+      <li>Quantos anagramas podemos formar com a palavra BRASIL? (Considere todas as letras distintas)</li>
+
+      <li>De quantas maneiras podemos organizar 4 pessoas em uma fila?</li>
+
+      <li>Calcule:
+        <ul>
+          <li>(a) @A_{6,2}@</li>
+          <li>(b) @A_{5,3}@</li>
+          <li>(c) @C_{5,2}@</li>
+          <li>(d) @C_{7,3}@</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Exercícios Intermediários (6-10)</h3>
+
+    <ol start="6">
+      <li>Em uma corrida com 10 corredores, de quantas maneiras podemos ter:
+        <ul>
+          <li>(a) O pódio (1º, 2º e 3º lugares)?</li>
+          <li>(b) Um grupo de 3 corredores que terminaram a prova (sem ordem)?</li>
+        </ul>
+      </li>
+
+      <li>Uma turma tem 15 alunos. De quantas maneiras podemos formar uma comissão de 5 alunos?</li>
+
+      <li>Um código de acesso tem 4 dígitos, onde cada dígito pode ser qualquer número de 0 a 9. Quantos códigos diferentes podem ser formados se:
+        <ul>
+          <li>(a) Não há restrições?</li>
+          <li>(b) Os dígitos devem ser todos diferentes?</li>
+        </ul>
+      </li>
+
+      <li>De quantas maneiras podemos escolher um presidente e um vice-presidente de um grupo de 8 pessoas? (A mesma pessoa não pode ocupar os dois cargos)</li>
+
+      <li>Verifique a propriedade da simetria calculando @C_{8,3}@ e @C_{8,5}@. Os resultados são iguais?</li>
+    </ol>
+
+    <h3>Exercícios Avançados (11-15)</h3>
+
+    <ol start="11">
+      <li>Uma empresa tem 6 homens e 4 mulheres. De quantas maneiras podemos formar uma equipe de 5 pessoas que tenha exatamente 3 homens e 2 mulheres?</li>
+
+      <li>De quantas maneiras podemos organizar as letras da palavra MATEMATICA? (Dica: algumas letras se repetem!)</li>
+
+      <li>Em um baralho de 52 cartas, de quantas maneiras podemos escolher:
+        <ul>
+          <li>(a) Uma mão de 5 cartas?</li>
+          <li>(b) Uma sequência ordenada de 3 cartas?</li>
+        </ul>
+      </li>
+
+      <li>Uma prova tem 10 questões, e um aluno deve escolher 6 para responder. De quantas maneiras ele pode fazer essa escolha?</li>
+
+      <li>Um torneio de xadrez tem 12 participantes. Quantas partidas devem ser jogadas se cada participante joga exatamente uma vez contra cada um dos outros participantes?</li>
+    </ol>
+
+    <!-- RESPOSTAS EM COMENTÁRIO HTML -->
+    <!--
+    RESPOSTAS:
+
+    1. (a) 7! = 5040
+       (b) 8!/6! = 8 × 7 = 56
+       (c) 10!/(8!·2!) = (10 × 9)/(2 × 1) = 45
+
+    2. 5 × 3 = 15 maneiras diferentes
+
+    3. P₆ = 6! = 720 anagramas
+
+    4. P₄ = 4! = 24 maneiras
+
+    5. (a) A₆,₂ = 6 × 5 = 30
+       (b) A₅,₃ = 5 × 4 × 3 = 60
+       (c) C₅,₂ = 10
+       (d) C₇,₃ = 35
+
+    6. (a) A₁₀,₃ = 10 × 9 × 8 = 720 maneiras
+       (b) C₁₀,₃ = 120 maneiras
+
+    7. C₁₅,₅ = 3003 maneiras
+
+    8. (a) 10⁴ = 10.000 códigos
+       (b) A₁₀,₄ = 10 × 9 × 8 × 7 = 5040 códigos
+
+    9. A₈,₂ = 8 × 7 = 56 maneiras
+
+    10. C₈,₃ = 56 e C₈,₅ = 56. Sim, são iguais! (propriedade da simetria)
+
+    11. C₆,₃ × C₄,₂ = 20 × 6 = 120 maneiras
+
+    12. Este problema envolve permutação com repetição (não abordado neste resumo introdutório).
+        Resposta: 10!/((3!)(2!)(2!)) = 151.200 anagramas
+
+    13. (a) C₅₂,₅ = 2.598.960 mãos
+        (b) A₅₂,₃ = 52 × 51 × 50 = 132.600 sequências
+
+    14. C₁₀,₆ = 210 maneiras (ou C₁₀,₄ = 210, pela propriedade da simetria)
+
+    15. C₁₂,₂ = 66 partidas (cada partida envolve escolher 2 participantes dentre 12, e a ordem não importa)
+    -->
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

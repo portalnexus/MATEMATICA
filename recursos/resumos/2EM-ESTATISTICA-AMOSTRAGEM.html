@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Teoria da Amostragem e Análise Bivariada</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: left;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar 2º EM */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-2em {
+      background-color: rgba(245, 158, 11, 0.25);
+      border: 2px solid #f59e0b;
+      color: #fef3c7;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-2em">2º Ano EM</div>
+
+    <h1>Estatística Inferencial e Teoria da Amostragem</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 5: "Opinião sem dados não passa de opinião"
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E FUNDAMENTAÇÃO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para o domínio formal e acadêmico deste conteúdo, o estudante deve mobilizar conhecimentos consolidados de:</p>
+      <ul>
+        <li><strong>Estatística Descritiva Univariada:</strong> medidas de tendência central (média aritmética @\bar{x}@, mediana e moda) e de dispersão (variância @\sigma^2@ e desvio-padrão @\sigma@).</li>
+        <li><strong>Teoria das Probabilidades:</strong> espaços amostrais, probabilidade condicional, independência de eventos e a distribuição binomial @B(n, p)@.</li>
+        <li><strong>Geometria Analítica:</strong> equação fundamental da reta no plano cartesiano (@y = ax + b@) e projeção ortogonal.</li>
+      </ul>
+    </div>
+
+    <p>
+      Como sentenciou o estatístico W. Edwards Deming: <em>"In God we trust; all others must bring data"</em> (Em Deus confiamos; todos os outros tragam dados). Na era da informação massiva, a fronteira que separa a tomada racional de decisões do preconceito empírico é erguida pela <strong>Estatística Inferencial</strong>. A inferência permite extrapolar com precisão probabilística rigorosa propriedades de milhões de indivíduos a partir do exame de uma fração finita e bem estruturada: a <strong>amostra</strong>.
+    </p>
+
+    <!-- ===============================================================
+         SEÇÃO 1: TEORIA DA AMOSTRAGEM
+         =============================================================== -->
+    <h2>1. Teoria da Amostragem Probabilística</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 — População, Amostra e Censo</h3>
+      <p>
+        Seja @\Omega@ o conjunto universo sob investigação.
+      </p>
+      <ul>
+        <li><strong>População (Universo) @\Omega@:</strong> A totalidade dos elementos, indivíduos ou unidades observacionais que compartilham pelo menos uma característica mensurável comum de interesse. O tamanho da população é denotado por @N@ (finito ou infinito).</li>
+        <li><strong>Amostra @S \subset \Omega@:</strong> Qualquer subconjunto próprio de tamanho @n < N@ extraído da população, cujo propósito é representar fidedignamente a estrutura distributiva de @\Omega@.</li>
+        <li><strong>Censo:</strong> A avaliação exaustiva de todos os @N@ elementos da população. Embora forneça certeza determinística (@n = N@), sua execução costuma ser economicamente proibitiva, operacionalmente morosa ou fisicamente destrutiva (como em testes de durabilidade de lâmpadas ou exames de sangue).</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.1 — Principais Técnicas de Amostragem Probabilística</h3>
+      <p>
+        Uma amostragem é dita <strong>probabilística</strong> se cada elemento da população possui uma probabilidade conhecida e não nula de ser selecionado. Classificam-se em quatro modalidades basilares:
+      </p>
+
+      <ol>
+        <li>
+          <strong>Amostragem Aleatória Simples (AAS):</strong><br>
+          Cada um dos @\binom{N}{n}@ subconjuntos possíveis de tamanho @n@ possui rigorosamente a mesma probabilidade de ser escolhido:
+          @@
+          \mathbb{P}(S) = \frac{1}{\binom{N}{n}}
+          @@
+          Equivale a um sorteio puramente equiprovável com ou sem reposição (utilizando tabelas de números pseudoaleatórios ou algoritmos criptográficos).
+        </li>
+        <li>
+          <strong>Amostragem Estratificada Proporcional:</strong><br>
+          A população @\Omega@ é particionada em @k@ subpopulações disjuntas e internamente homogêneas chamadas <em>estratos</em> (@\Omega = E_1 \cup E_2 \cup \dots \cup E_k@), com base em variáveis determinantes conhecidas a priori (ex.: renda, gênero, faixa etária). De cada estrato @h@ de tamanho @N_h@, sorteia-se por AAS uma subamostra de tamanho @n_h@ proporcional ao seu peso populacional:
+          @@
+          n_h = n \cdot \frac{N_h}{N} \quad \left(\text{onde } \sum_{h=1}^k n_h = n\right)
+          @@
+          <em>Vantagem teórica:</em> Reduz a variância do estimador global (@\sigma_{\text{estratificada}}^2 \le \sigma_{\text{AAS}}^2@), eliminando a variabilidade entre estratos.
+        </li>
+        <li>
+          <strong>Amostragem por Conglomerados (Clusters):</strong><br>
+          A população é dividida em grupos naturalmente heterogêneos internamente (como quarteirões de uma cidade, escolas de um distrito ou setores censitários). Em vez de sortear indivíduos isolados, sorteia-se por AAS uma quantidade de <em>conglomerados inteiros</em>, avaliando-se todos os indivíduos contidos nos conglomerados sorteados.<br>
+          <em>Vantagem prática:</em> Enorme economia de logística e deslocamento de campo em grandes áreas geográficas.
+        </li>
+        <li>
+          <strong>Amostragem Sistemática:</strong><br>
+          Quando a população encontra-se naturalmente ordenada em uma fila ou cadastro de @N@ elementos, calcula-se o intervalo de salto @k = \lfloor N/n \rfloor@. Sorteia-se aleatoriamente um início @r \in \{1, 2, \dots, k\}@ e selecionam-se os elementos nas posições:
+          @@
+          \{r,\, r + k,\, r + 2k,\, \dots,\, r + (n - 1)k\}
+          @@
+          <em>Cuidado:</em> Se a lista possuir uma periodicidade oculta coincidente com o salto @k@ (por exemplo, analisar vendas de um comércio sempre aos domingos), a amostra resultará seriamente viciada.
+        </li>
+      </ol>
+    </div>
+
+    <!-- Tabela Comparativa de Técnicas de Amostragem -->
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Técnica</th>
+            <th>Princípio de Operação</th>
+            <th>Vantagem Primária</th>
+            <th>Vulnerabilidade Crítica</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Aleatória Simples (AAS)</strong></td>
+            <td>Sorteio equiprovável puro entre todos os @N@ indivíduos.</td>
+            <td>Neutralidade máxima e fundamentação matemática direta.</td>
+            <td>Dificuldade de cadastramento completo e custo logístico elevado.</td>
+          </tr>
+          <tr>
+            <td><strong>Estratificada Proporcional</strong></td>
+            <td>Divisão em estratos homogêneos e amostragem proporcional.</td>
+            <td>Maior precisão e menor erro padrão para amostras pequenas.</td>
+            <td>Exige conhecimento prévio detalhado da distribuição dos estratos.</td>
+          </tr>
+          <tr>
+            <td><strong>Por Conglomerados</strong></td>
+            <td>Sorteio de agrupamentos territoriais inteiros.</td>
+            <td>Excelente custo-benefício em pesquisas geográficas extensas.</td>
+            <td>Maior erro amostral se os conglomerados forem homogêneos entre si.</td>
+          </tr>
+          <tr>
+            <td><strong>Sistemática</strong></td>
+            <td>Seleção a cada salto constante @k = N/n@ a partir de sorteio inicial.</td>
+            <td>Execução ágil em linhas de produção e triagens sequenciais.</td>
+            <td>Vieses graves se houver periodicidade ou sazonalidade na ordem da lista.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: MARGEM DE ERRO E NÍVEL DE CONFIANÇA
+         =============================================================== -->
+    <h2>2. Margem de Erro, Nível de Confiança e o Teorema Central do Limite</h2>
+
+    <p>
+      Ao realizar uma pesquisa de opinião ou eleitoral, estima-se a verdadeira proporção populacional @p@ de eleitores favoráveis a uma proposta a partir da proporção observada na amostra @\hat{p} = \frac{X}{n}@, onde @X@ é o número de sucessos obtidos.
+    </p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 — Teorema Central do Limite (TCL) para Proporções Amostrais</h3>
+      <p>
+        Para um tamanho amostral suficientemente grande (@np \ge 5@ e @n(1-p) \ge 5@), a distribuição da proporção amostral @\hat{p}@ converge assintoticamente para uma <strong>Distribuição Normal Gaussiana</strong>:
+      </p>
+      @@
+      \hat{p} \sim \mathcal{N}\left(p,\, \sigma_{\hat{p}}^2\right) \quad \text{com erro padrão} \quad \sigma_{\hat{p}} = \sqrt{\frac{p(1 - p)}{n}}
+      @@
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 — Intervalo de Confiança e Margem de Erro (@e@)</h3>
+      <p>
+        O <strong>Intervalo de Confiança</strong> de @(1 - \alpha)@ para a proporção populacional @p@ é dado por:
+      </p>
+      @@
+      IC_{(1 - \alpha)}(p) = \left[ \hat{p} - z_{\alpha/2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}},\, \hat{p} + z_{\alpha/2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} \right]
+      @@
+      <p>
+        A <strong>Margem de Erro</strong> amostral @e@ corresponde ao semi-comprimento do intervalo:
+      </p>
+      @@
+      e = z_{\alpha/2} \cdot \sqrt{\frac{p(1 - p)}{n}}
+      @@
+      <ul>
+        <li>Para o <strong>nível de confiança de 95%</strong> (padrão em pesquisas científicas e eleitorais), temos @\alpha = 0{,}05@ e @z_{0{,}025} \approx 1{,}96 \approx 2@ (a célebre regra dos <em>dois sigmas</em>).</li>
+        <li><strong>Margem de Erro Máxima Conservadora:</strong> O produto @p(1 - p)@ atinge seu ponto de máximo absoluto quando @p = 0{,}5@ (cenário de máxima incerteza e variância máxima, onde @p(1 - p) = 0{,}25@). Substituindo @p = 0{,}5@ e @z \approx 1{,}96@:
+          @@
+          e_{\text{máx}} = 1{,}96 \cdot \sqrt{\frac{0{,}25}{n}} = \frac{1{,}96 \times 0{,}5}{\sqrt{n}} = \frac{0{,}98}{\sqrt{n}} \approx \frac{1}{\sqrt{n}}
+          @@
+        </li>
+      </ul>
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>🔍 A Natureza Matemática do "Empate Técnico"</h3>
+      <p>
+        Diz-se que dois candidatos @A@ e @B@ encontram-se em <strong>empate técnico</strong> quando seus respectivos intervalos de confiança se sobrepõem:
+      </p>
+      @@
+      [\hat{p}_A - e,\, \hat{p}_A + e] \cap [\hat{p}_B - e,\, \hat{p}_B + e] \neq \emptyset \iff |\hat{p}_A - \hat{p}_B| \le 2e
+      @@
+      <p>
+        Por exemplo, se o Candidato @A@ tem @42\%@ e o Candidato @B@ tem @39\%@ com margem de erro de @\pm 2\%@:
+      </p>
+      <ul>
+        <li>Intervalo de @A@: @[40\%,\, 44\%]@.</li>
+        <li>Intervalo de @B@: @[37\%,\, 41\%]@.</li>
+      </ul>
+      <p>
+        Como a faixa @[40\%,\, 41\%]@ pertence a ambos os intervalos simultaneamente, não se pode rejeitar probabilisticamente a hipótese nula de que a verdadeira preferência populacional seja idêntica ou favorável a @B@ no nível de significância de @5\%@.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: VIESES, NÃO RESPOSTA E NEUTRALIDADE
+         =============================================================== -->
+    <h2>3. Vieses de Amostragem, Taxa de Não Resposta e Neutralidade</h2>
+
+    <p>
+      O rigor estatístico exige não apenas equações matemáticas perfeitas, mas a garantia epistêmica de que o mecanismo gerador dos dados não sofre distorções sistemáticas (vieses).
+    </p>
+
+    <div class="destaque-box observacao">
+      <h3>⚠️ Patologias Críticas da Amostragem:</h3>
+      <ul>
+        <li>
+          <strong>Viés de Seleção (Selection Bias):</strong> Ocorre quando elementos da população têm probabilidades desiguais ou nulas de inclusão, não controladas pelo modelo.<br>
+          <em>O Caso Clássico da Revista Literary Digest (1936):</em> A revista enviou 10 milhões de questionários por correio e recebeu 2,4 milhões de respostas, prevendo a vitória esmagadora de Alf Landon (57%) contra Franklin D. Roosevelt (43%). Na eleição real, Roosevelt venceu com 61% dos votos (uma das maiores vitórias da história). O erro catastrófico ocorreu porque os questionários foram enviados a partir de listas de assinantes de telefones e donos de automóveis — um segmento abastado no auge da Grande Depressão que não representava as classes populares. George Gallup, com uma amostra estratificada probabilística de apenas 50.000 pessoas, acertou o resultado com precisão!
+        </li>
+        <li>
+          <strong>Viés de Sobrevivência (Survivorship Bias):</strong> Ocorre quando a análise concentra-se exclusivamente nos elementos que "sobreviveram" a um determinado processo de filtragem, ignorando os que foram eliminados.<br>
+          <em>O Teorema dos Caças de Abraham Wald (Segunda Guerra Mundial):</em> Ao analisar aviões militares que retornavam de missões crivados de balas nas asas e na fuselagem, os generais queriam blindar as áreas perfuradas. O matemático Abraham Wald demonstrou o oposto: os aviões que retornavam podiam tolerar tiros nessas regiões e ainda assim voar. Devia-se blindar as regiões <em>onde os sobreviventes não tinham buracos de bala</em> (os motores e a cabine de comando), pois os aviões atingidos ali haviam caído e não constavam na amostra observada.
+        </li>
+        <li>
+          <strong>Taxa de Não Resposta e Viés de Atrito:</strong> Se os indivíduos que se recusam a responder ao questionário possuem perfis sociodemográficos ou comportamentais sistematicamente diferentes dos que respondem, o simples aumento do tamanho da amostra não remove o erro, apenas o consolida com maior certeza aparente.
+        </li>
+        <li>
+          <strong>Efeito de Formulação e Enquadramento (Framing Effect):</strong> A forma como uma questão é redigida pode induzir psicologicamente a resposta. Perguntas com palavras carregadas emocionalmente ou que sugerem aprovação social (leading questions) invalidam a neutralidade do instrumento de medida.
+        </li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: DADOS BIVARIADOS E CORRELAÇÃO DE PEARSON
+         =============================================================== -->
+    <h2>4. Análise de Dados Bivariados: Correlação Linear de Pearson</h2>
+
+    <p>
+      Quando observamos simultaneamente duas variáveis quantitativas @(X, Y)@ em cada um dos @n@ elementos de uma amostra, geramos um conjunto de pares ordenados @\{(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\}@ que podem ser visualizados geometricamente em um <strong>Diagrama de Dispersão</strong> (<em>Scatter Plot</em>).
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 4.1 — Coeficiente de Correlação Linear de Pearson (@r@)</h3>
+      <p>
+        O <strong>Coeficiente de Pearson @r@</strong> quantifica a intensidade e a direção da dependência estritamente linear entre duas variáveis contínuas @X@ e @Y@:
+      </p>
+      @@
+      r = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2} \cdot \sqrt{\sum_{i=1}^n (y_i - \bar{y})^2}} = \frac{\operatorname{Cov}(X, Y)}{\sigma_X \cdot \sigma_Y}
+      @@
+      <p>onde @\operatorname{Cov}(X, Y) = \frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})@ é a covariância amostral.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 — Propriedades Algébricas e Geométricas do Coeficiente @r@</h3>
+      <ol>
+        <li><strong>Limites Rígidos (Desigualdade de Cauchy-Schwarz):</strong>
+          @@
+          -1 \le r \le +1
+          @@
+        </li>
+        <li><strong>Interpretação dos Valores Notáveis:</strong>
+          <ul>
+            <li>@r = +1@: <em>Correlação Linear Positiva Perfeita</em> (todos os pontos alinham-se exatamente sobre uma reta de inclinação positiva).</li>
+            <li>@r = -1@: <em>Correlação Linear Negativa Perfeita</em> (todos os pontos alinham-se exatamente sobre uma reta de inclinação negativa).</li>
+            <li>@r = 0@: <em>Ausência de Correlação Linear</em> (as variáveis não mantêm relacionamento de 1º grau, embora possam manter relações não lineares perfeitas, como @Y = X^2@).</li>
+            <li>@0{,}7 \le |r| < 1@: Correlação linear forte.</li>
+            <li>@0{,}3 \le |r| < 0{,}7@: Correlação linear moderada.</li>
+            <li>@0 < |r| < 0{,}3@: Correlação linear fraca.</li>
+          </ul>
+        </li>
+        <li><strong>Invariância por Escala e Translação Afim:</strong> O valor de @r@ independe das unidades de medida de @X@ e @Y@. Se substituirmos @X' = aX + b@ e @Y' = cY + d@ com @a, c > 0@, o coeficiente permanece inalterado: @r(X', Y') = r(X, Y)@.</li>
+      </ol>
+      <div class="conteudo-solucao" style="border-top: 1px dashed rgba(255,255,255,0.15); margin-top: 0.8rem; padding-top: 0.6rem;">
+        <strong>Demonstração da Desigualdade @|r| \le 1@ via Produto Escalar:</strong><br>
+        Defina os vetores centralizados em @\mathbb{R}^n@:
+        @@
+        \mathbf{u} = (x_1 - \bar{x},\, x_2 - \bar{x},\, \dots,\, x_n - \bar{x}) \quad \text{e} \quad \mathbf{v} = (y_1 - \bar{y},\, y_2 - \bar{y},\, \dots,\, y_n - \bar{y})
+        @@
+        O produto interno euclidiano usual é @\langle \mathbf{u}, \mathbf{v} \rangle = \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})@, e as normas são @\|\mathbf{u}\| = \sqrt{\sum (x_i - \bar{x})^2}@ e @\|\mathbf{v}\| = \sqrt{\sum (y_i - \bar{y})^2}@.<br>
+        Portanto, o coeficiente de correlação é precisamente o <strong>cosseno do ângulo @\theta@</strong> entre os dois vetores de desvios no espaço @\mathbb{R}^n@:
+        @@
+        r = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\|\mathbf{u}\| \cdot \|\mathbf{v}\|} = \cos(\theta)
+        @@
+        Como a função cosseno em @\mathbb{R}@ é estritamente limitada no intervalo @[-1, 1]@, segue necessariamente que @-1 \le r \le 1@. A igualdade @|r| = 1@ ocorre se, e somente se, os vetores @\mathbf{u}@ e @\mathbf{v}@ forem linearmente dependentes (colineares), o que traduz a existência de uma relação linear determinística exata @y_i - \bar{y} = a(x_i - \bar{x})@. @\blacksquare@
+      </div>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.2 — Reta de Regressão Linear dos Mínimos Quadrados</h3>
+      <p>
+        A reta de tendência @\hat{y} = ax + b@ que minimiza a soma dos quadrados dos resíduos verticais @\sum_{i=1}^n (y_i - \hat{y}_i)^2@ possui declividade @a@ dada por:
+      </p>
+      @@
+      a = r \cdot \frac{s_y}{s_x} = \frac{\operatorname{Cov}(X, Y)}{s_x^2}
+      @@
+      <p>
+        e passa obrigatoriamente pelo <em>centroide</em> ou centro de gravidade das médias amostrais @(\bar{x}, \bar{y})@:
+      </p>
+      @@
+      b = \bar{y} - a\bar{x} \implies \hat{y} - \bar{y} = r \frac{s_y}{s_x} (x - \bar{x})
+      @@
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>⚠️ O Princípio Fundamental: Correlação NÃO Implica Causalidade!</h3>
+      <p>
+        A constatação matemática de um coeficiente de correlação elevado (@|r| \approx 1@) entre duas grandezas @X@ e @Y@ <strong>não autoriza inferir que @X@ causa @Y@</strong>. Existem três hipóteses alternativas fundamentais:
+      </p>
+      <ol>
+        <li><strong>Variável de Confusão Oculta (Confounder):</strong> Uma terceira variável não observada @Z@ causa conjuntamente variações em @X@ e em @Y@.<br>
+          <em>Exemplo clássico:</em> Existe forte correlação positiva entre o <em>consumo diário de sorvetes</em> e o <em>número de afogamentos no litoral</em>. Sorvete causa afogamento? Não! A variável de confusão é a <strong>temperatura do verão</strong>: nos dias muito quentes, mais pessoas compram sorvetes e muito mais pessoas entram no mar.
+        </li>
+        <li><strong>Causalidade Reversa:</strong> A direção de causação é o inverso do intuído empiricamente (@Y \implies X@).</li>
+        <li><strong>Correlação Espúria:</strong> Em grandes bancos de dados, variáveis completamente desprovidas de conexão física exibem correlações estatísticas altas puramente pelo acaso estocástico (como a correlação bizarra entre gastos dos EUA em ciência e suicídios por enforcamento).</li>
+      </ol>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>5. Exemplos Resolvidos Passo a Passo</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1 — Dimensionamento de Amostra e Margem de Erro Eleitoral</h3>
+      <p>
+        Um instituto de pesquisa deseja estimar a intenção de voto do eleitorado de um município de @N = 500.000@ habitantes para a eleição municipal. O contratante exige um <strong>nível de confiança de 95%</strong> (@z = 1{,}96@) e uma <strong>margem de erro máxima de @\pm 2\%@</strong> (@e = 0{,}02@).
+      </p>
+      <ol type="a">
+        <li>Calcule o tamanho amostral mínimo @n@ necessário adotando o critério conservador (@p = 0{,}5@).</li>
+        <li>Se a pesquisa foi a campo com a amostra calculada e constatou que o Candidato 1 obteve @48\%@ e o Candidato 2 obteve @45\%@, determine os respectivos intervalos de confiança e informe se há empate técnico.</li>
+      </ol>
+
+      <h4>Resolução:</h4>
+      <p><strong>Passo 1: Cálculo do tamanho da amostra @n@.</strong></p>
+      <p>Pela fórmula da margem de erro máxima para populações grandes:</p>
+      @@
+      e = z \cdot \sqrt{\frac{p(1 - p)}{n}} \implies e^2 = z^2 \cdot \frac{p(1 - p)}{n} \implies n = \frac{z^2 \cdot p(1 - p)}{e^2}
+      @@
+      <p>Substituindo os valores @z = 1{,}96@, @p = 0{,}5@ (logo @p(1-p) = 0{,}25@) e @e = 0{,}02@:</p>
+      @@
+      n = \frac{(1{,}96)^2 \times 0{,}25}{(0{,}02)^2} = \frac{3{,}8416 \times 0{,}25}{0{,}0004} = \frac{0{,}9604}{0{,}0004} = 2.401
+      @@
+      <p>
+        (Observação: usando a aproximação prática @e \approx \frac{1}{\sqrt{n}}@, teríamos @\sqrt{n} = \frac{1}{0{,}02} = 50 \implies n = 2.500@).<br>
+        Portanto, uma amostra de <strong>2.401 eleitores</strong> é suficiente para representar todo o município! Note que o tamanho da população (@500.000@) sequer entra no cálculo quando @N \gg n@, pois o fator de correção finita @\sqrt{\frac{N-n}{N-1}} \approx \sqrt{\frac{497599}{499999}} \approx 0{,}9976 \approx 1@.
+      </p>
+
+      <p><strong>Passo 2: Análise dos Intervalos de Confiança e Empate Técnico.</strong></p>
+      <ul>
+        <li>Candidato 1 (@\hat{p}_1 = 48\%@, @e = 2\%@):
+          @@
+          IC(p_1) = [48\% - 2\%,\, 48\% + 2\%] = [46\%,\, 50\%]
+          @@
+        </li>
+        <li>Candidato 2 (@\hat{p}_2 = 45\%@, @e = 2\%@):
+          @@
+          IC(p_2) = [45\% - 2\%,\, 45\% + 2\%] = [43\%,\, 47\%]
+          @@
+        </li>
+      </ul>
+      <p>
+        A interseção entre os intervalos é @[46\%,\, 47\%] \neq \emptyset@. Como existe sobreposição na faixa de @46\%@ a @47\%@, <strong>configura-se empate técnico</strong> dentro da margem de erro estatística no nível de 95% de confiança.
+      </p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2 — Amostragem Estratificada Proporcional Escolar</h3>
+      <p>
+        Uma escola técnica possui uma população total de @N = 1.200@ estudantes matriculados em três modalidades distintas de ensino:
+      </p>
+      <ul>
+        <li>Ensino Fundamental II: @N_1 = 480@ alunos.</li>
+        <li>Ensino Médio Integrado: @N_2 = 420@ alunos.</li>
+        <li>Educação de Jovens e Adultos (EJA): @N_3 = 300@ alunos.</li>
+      </ul>
+      <p>
+        Deseja-se selecionar uma amostra estratificada proporcional de tamanho total @n = 200@ alunos para avaliar a qualidade da merenda escolar. Calcule a quantidade de estudantes @n_1, n_2@ e @n_3@ que deverão ser sorteados de cada estrato.
+      </p>
+
+      <h4>Resolução:</h4>
+      <p><strong>Passo 1: Determinar a fração amostral global @f@.</strong></p>
+      @@
+      f = \frac{n}{N} = \frac{200}{1200} = \frac{1}{6} \approx 16{,}67\%
+      @@
+
+      <p><strong>Passo 2: Calcular a cota proporcional para cada estrato @n_h = f \cdot N_h@.</strong></p>
+      <ul>
+        <li>Para o Ensino Fundamental II (@N_1 = 480@):
+          @@
+          n_1 = \frac{1}{6} \times 480 = 80 \text{ alunos}
+          @@
+        </li>
+        <li>Para o Ensino Médio Integrado (@N_2 = 420@):
+          @@
+          n_2 = \frac{1}{6} \times 420 = 70 \text{ alunos}
+          @@
+        </li>
+        <li>Para o EJA (@N_3 = 300@):
+          @@
+          n_3 = \frac{1}{6} \times 300 = 50 \text{ alunos}
+          @@
+        </li>
+      </ul>
+
+      <p><strong>Passo 3: Verificação de fechamento do total amostral.</strong></p>
+      @@
+      n_1 + n_2 + n_3 = 80 + 70 + 50 = 200 \text{ alunos.}
+      @@
+      <p>
+        Dessa forma, cada subgrupo populacional tem sua representatividade estritamente preservada na amostra, evitando que o resultado seja monopolizado pelos interesses dos alunos do Fundamental ou do Médio.
+      </p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3 — Cálculo Numérico do Coeficiente de Pearson e Análise Crítica</h3>
+      <p>
+        Em um grupo focal de @n = 5@ estudantes selecionados aleatoriamente, foram tabuladas as <strong>horas semanais de estudo individual dedicadas à matemática (@X@)</strong> e as respectivas <strong>notas finais obtidas na disciplina (@Y@, de 0 a 10)</strong>:
+      </p>
+      <div class="tabela-container">
+        <table class="tabela-comparativa">
+          <thead>
+            <tr>
+              <th>Estudante</th>
+              <th>Horas de Estudo (@X@)</th>
+              <th>Nota Obtida (@Y@)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>A</td><td>2</td><td>4</td></tr>
+            <tr><td>B</td><td>4</td><td>6</td></tr>
+            <tr><td>C</td><td>5</td><td>5</td></tr>
+            <tr><td>D</td><td>6</td><td>8</td></tr>
+            <tr><td>E</td><td>8</td><td>9</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ol type="a">
+        <li>Calcule as médias aritméticas @\bar{x}@ e @\bar{y}@.</li>
+        <li>Construa a tabela de desvios e determine o Coeficiente de Correlação de Pearson @r@.</li>
+        <li>Classifique a intensidade da correlação linear encontrada e interprete o resultado.</li>
+      </ol>
+
+      <h4>Resolução:</h4>
+      <p><strong>Passo 1: Médias aritméticas.</strong></p>
+      @@
+      \bar{x} = \frac{2 + 4 + 5 + 6 + 8}{5} = \frac{25}{5} = 5\text{ horas}
+      @@
+      @@
+      \bar{y} = \frac{4 + 6 + 5 + 8 + 9}{5} = \frac{32}{5} = 6{,}4\text{ pontos}
+      @@
+
+      <p><strong>Passo 2: Tabela de desvios e produtos.</strong></p>
+      <div class="tabela-container">
+        <table class="tabela-comparativa">
+          <thead>
+            <tr>
+              <th>Estudante</th>
+              <th>@x_i - \bar{x}@</th>
+              <th>@y_i - \bar{y}@</th>
+              <th>@(x_i - \bar{x})^2@</th>
+              <th>@(y_i - \bar{y})^2@</th>
+              <th>@(x_i - \bar{x})(y_i - \bar{y})@</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>A</td><td>@2 - 5 = -3@</td><td>@4 - 6{,}4 = -2{,}4@</td><td>@9@</td><td>@5{,}76@</td><td>@(-3)(-2{,}4) = +7{,}2@</td></tr>
+            <tr><td>B</td><td>@4 - 5 = -1@</td><td>@6 - 6{,}4 = -0{,}4@</td><td>@1@</td><td>@0{,}16@</td><td>@(-1)(-0{,}4) = +0{,}4@</td></tr>
+            <tr><td>C</td><td>@5 - 5 = 0@</td><td>@5 - 6{,}4 = -1{,}4@</td><td>@0@</td><td>@1{,}96@</td><td>@(0)(-1{,}4) = 0{,}0@</td></tr>
+            <tr><td>D</td><td>@6 - 5 = +1@</td><td>@8 - 6{,}4 = +1{,}6@</td><td>@1@</td><td>@2{,}56@</td><td>@(+1)(+1{,}6) = +1{,}6@</td></tr>
+            <tr><td>E</td><td>@8 - 5 = +3@</td><td>@9 - 6{,}4 = +2{,}6@</td><td>@9@</td><td>@6{,}76@</td><td>@(+3)(+2{,}6) = +7{,}8@</td></tr>
+            <tr><td><strong>Total (@\sum@)</strong></td><td>@0@</td><td>@0@</td><td>@\mathbf{20}@</td><td>@\mathbf{17{,}20}@</td><td>@\mathbf{17{,}0}@</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Passo 3: Cálculo do Coeficiente @r@.</strong></p>
+      @@
+      r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2} \cdot \sqrt{\sum (y_i - \bar{y})^2}} = \frac{17{,}0}{\sqrt{20} \cdot \sqrt{17{,}20}} = \frac{17{,}0}{\sqrt{344}} \approx \frac{17{,}0}{18{,}547} \approx 0{,}9166
+      @@
+
+      <p><strong>Passo 4: Classificação e Interpretação.</strong></p>
+      <p>
+        O valor @r \approx 0{,}92@ revela uma <strong>correlação linear positiva muito forte</strong> entre o tempo dedicado aos estudos e o desempenho nas avaliações. Embora @r@ alto não constitua por si só prova isolada de causação, neste caso o mecanismo pedagógico de aquisição de habilidades sustenta a hipótese causal de que o estudo deliberado alavanca o domínio do conteúdo.
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO
+         =============================================================== -->
+    <h2>6. Exercícios Conceituais de Fixação Rápida</h2>
+
+    <ol class="lista-exercicios">
+      <!-- Exercício 1 -->
+      <li>
+        <strong>(Margem de Erro e Quádruplo da Amostra)</strong> Em uma pesquisa de opinião, uma amostra de tamanho @n_1@ produz uma margem de erro de @\pm 4\%@. Se desejarmos reduzir a margem de erro pela metade, fixando-a em @\pm 2\%@ mantendo o mesmo nível de confiança, por qual fator devemos multiplicar o tamanho original da amostra?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Como @e \propto \frac{1}{\sqrt{n}}@, temos:
+            @@
+            \frac{e_1}{e_2} = \frac{\sqrt{n_2}}{\sqrt{n_1}} \implies \frac{4\%}{2\%} = 2 = \sqrt{\frac{n_2}{n_1}} \implies \frac{n_2}{n_1} = 2^2 = 4
+            @@
+            <p><strong>Resposta:</strong> Devemos <strong>quadruplicar</strong> o tamanho da amostra (@n_2 = 4n_1@). O custo da precisão estatística cresce quadraticamente!</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 2 -->
+      <li>
+        <strong>(Enquetes em Redes Sociais e Validade)</strong> Uma emissora de TV realiza uma enquete pela internet em seu portal de notícias perguntando aos internautas sobre uma reforma tributária. Mais de 500.000 votos foram registrados, com 82% contrários à medida. Explique por que, apesar do enorme volume de dados (@n = 500.000@), esse resultado <strong>não pode</strong> ser extrapolado como a opinião de toda a população brasileira.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Trata-se de uma <strong>amostra por autoseleção (voluntária) e não probabilística</strong>:
+            <ul>
+              <li>Apenas pessoas com acesso à internet, que acompanham aquele canal específico e que possuem interesse emotivo intenso no assunto se dispõem a votar (viés de seleção).</li>
+              <li>Não há controle demográfico de estratificação por renda, região ou escolaridade.</li>
+              <li>A lei dos grandes números e o Teorema Central do Limite exigem estritamente amostragem probabilística independente. Uma amostra viciada de 500.000 indivíduos simplesmente mede o viés com enorme certeza aparente, mas zero validade inferencial sobre a população geral.</li>
+            </ul>
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 3 -->
+      <li>
+        <strong>(Amostragem Sistemática em Linha de Produção)</strong> Em uma fábrica de microchips que produz @N = 30.000@ unidades por turno diário, deseja-se selecionar uma amostra sistemática de @n = 600@ peças para inspeção de controle de qualidade.
+        <ol type="a">
+          <li>Determine o intervalo de salto sistemático @k@.</li>
+          <li>Se o primeiro item sorteado foi o de número 14, quais serão o segundo e o terceiro itens inspecionados?</li>
+        </ol>
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Item (a):</strong> O intervalo de salto @k@ é:</p>
+            @@
+            k = \frac{N}{n} = \frac{30.000}{600} = 50
+            @@
+            <p><strong>Item (b):</strong> Sendo o início @r = 14@:</p>
+            <ul>
+              <li>2º item: @14 + 50 = 64@.</li>
+              <li>3º item: @64 + 50 = 114@.</li>
+            </ul>
+            <p><strong>Resposta:</strong> Salto @k = 50@; itens 64 e 114.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 4 -->
+      <li>
+        <strong>(Nível de Confiança de 95% e Interpretação Frequentista)</strong> O que significa rigorosamente afirmar que uma pesquisa possui "nível de confiança de 95%"? É correto dizer que há 95% de chance de o resultado real da eleição coincidir exatamente com a estimativa @\hat{p}@?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <strong>Não, a afirmação popular está incorreta!</strong><br>
+            A verdadeira proporção populacional @p@ é um parâmetro fixo (embora desconhecido), e não uma variável aleatória. A interpretação frequentista correta é: <em>se repetíssemos o mesmo procedimento de amostragem 100 vezes de forma idêntica e independente, construindo 100 intervalos de confiança distintos @[\hat{p} - e, \hat{p} + e]@, esperamos que aproximadamente 95 desses intervalos contenham o verdadeiro valor fixo @p@</em>.
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 5 -->
+      <li>
+        <strong>(Viés de Sobrevivência na Gestão de Fundos de Investimento)</strong> Ao avaliar o desempenho de fundos de ações ao longo de 10 anos, uma corretora mostra que o retorno médio de todos os fundos existentes em sua plataforma foi de 14% ao ano, superando a taxa básica. Onde reside o viés de sobrevivência nessa conclusão?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            A análise considera apenas os fundos que continuam ativos (os "sobreviventes") após 10 anos. Os fundos que tiveram desempenhos desastrosos, quebraram ou sofreram fusões foram extintos e excluídos da base de dados histórica. Desconsiderar os fundos fracassados superestima artificialmente a média de mercado, induzindo o investidor a acreditar que a estratégia é muito mais lucrativa e menos arriscada do que a realidade histórica comprova.
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 6 -->
+      <li>
+        <strong>(Correlação Nula com Dependência Não Linear Perfeita)</strong> Considere o conjunto de pontos @(-2, 4), (-1, 1), (0, 0), (1, 1), (2, 4)@ gerados pela função determinística perfeita @Y = X^2@.
+        <ol type="a">
+          <li>Calcule as médias @\bar{x}@ e @\bar{y}@ e mostre que @\sum (x_i - \bar{x})(y_i - \bar{y}) = 0@.</li>
+          <li>Conclua o que ocorre com o coeficiente de correlação linear @r@ e comente a limitação de Pearson.</li>
+        </ol>
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Item (a):</strong> @\bar{x} = \frac{-2 - 1 + 0 + 1 + 2}{5} = 0@.<br>
+            Os valores de @(x_i - \bar{x})@ são @-2, -1, 0, 1, 2@. Os valores de @y_i@ são simétricos: @4, 1, 0, 1, 4@ (com @\bar{y} = 2@, desvios @2, -1, -2, -1, 2@).<br>
+            Calculando a covariância:
+            @@
+            \sum (x_i - \bar{x})(y_i - \bar{y}) = (-2)(2) + (-1)(-1) + (0)(-2) + (1)(-1) + (2)(2) = -4 + 1 + 0 - 1 + 4 = 0
+            @@
+            </p>
+            <p><strong>Item (b):</strong> Como o numerador é zero, temos @r = 0@. Isso ilustra com clareza cristalina que o Coeficiente de Pearson mede exclusivamente <strong>relações lineares</strong>. Variáveis com dependência funcional não linear perfeita (quadrática, periódica, circular) podem apresentar @r = 0@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 7 -->
+      <li>
+        <strong>(Conglomerado vs. Estratificada)</strong> Em que situação metodológica é preferível adotar a Amostragem por Conglomerados em vez da Amostragem Estratificada, mesmo sabendo que a estratificada costuma oferecer menor variância para o mesmo tamanho @n@?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            A amostragem por conglomerados é indicada quando os custos de deslocamento geográfico ou de obtenção da lista completa de indivíduos dispersos são excessivamente altos. Por exemplo, em uma pesquisa domiciliar nacional realizada pelo IBGE, enviar pesquisadores a casas sorteadas aleatoriamente e dispersas em milhares de municípios isolados seria logisticamente inviável. É muito mais eficiente sortear setores censitários (conglomerados) e entrevistar múltiplos domicílios vizinhos em cada setor sorteado.
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 8 -->
+      <li>
+        <strong>(Causalidade e Terceira Variável)</strong> Uma pesquisa médica detectou alta correlação positiva entre o consumo de café e doenças cardíacas em adultos jovens. No entanto, ao controlar a análise pela variável "hábito de fumar", a correlação entre café e problemas cardíacos desapareceu completamente. Como a Estatística explica esse fenômeno?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            O tabagismo atuava como uma <strong>variável de confusão (confounding factor)</strong>: na população estudada, os indivíduos que fumavam cigarros tendiam concomitantemente a ingerir mais café. O fumo é a verdadeira causa das lesões vasculares e coronárias. Ao estratificar e isolar a variável tabagismo, revelou-se que o café não exercia efeito patogênico primário.
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 9 -->
+      <li>
+        <strong>(Formulação Induzida de Questões)</strong> Compare os dois enunciados de perguntas a seguir sobre energia nuclear e aponte qual deles viola o princípio da neutralidade:
+        <ul>
+          <li><em>Pergunta A:</em> "Você é favorável ou contrário à construção de usinas nucleares em território nacional para geração de eletricidade?"</li>
+          <li><em>Pergunta B:</em> "Sabendo dos perigos fatais de contaminação radioativa e do risco de acidentes como Chernobyl, você é a favor da construção de usinas nucleares?"</li>
+        </ul>
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            A <strong>Pergunta B</strong> viola gravemente a neutralidade estatística: trata-se de uma <em>leading question</em> (pergunta indutiva com viés de ancoragem e carga emocional de aversão). Ao condicionar o respondente com vocábulos de alarme ("perigos fatais", "contaminação radioativa", "Chernobyl") sem mencionar contrapartidas positivas (como redução de emissão de gases de efeito estufa ou segurança energética), o questionário induz artificialmente a rejeição à proposta.
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 10 -->
+      <li>
+        <strong>(Reta de Mínimos Quadrados)</strong> Se uma reta de regressão linear estimada for @\hat{y} = 2{,}5x + 10@, e a média de @X@ for @\bar{x} = 8@, qual é obrigatoriamente a média amostral @\bar{y}@ de @Y@?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Pelo Teorema da Regressão Linear dos Mínimos Quadrados, a reta de regressão passa estritamente pelo ponto centroide @(\bar{x}, \bar{y})@. Substituindo @\bar{x} = 8@ na equação:
+            @@
+            \bar{y} = 2{,}5(\bar{x}) + 10 = 2{,}5(8) + 10 = 20 + 10 = 30
+            @@
+            <p><strong>Resposta:</strong> @\bar{y} = 30@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 11 -->
+      <li>
+        <strong>(Viés de Não Resposta em Avaliações de Restaurante)</strong> Aplicativos de entrega de comida costumam ter notas médias concentradas em 1 estrela ou 5 estrelas, com pouquíssimas avaliações de 3 estrelas. Qual é o mecanismo comportamental e estatístico que gera essa distribuição bimodal polarizada?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            Esse fenômeno decorre da <strong>taxa de não resposta e do custo de engajamento</strong>. Clientes cuja experiência foi apenas "ordinária ou média" (3 estrelas) têm baixa motivação psicológica para gastar tempo avaliando o serviço. Em contrapartida, clientes que viveram experiências extremas — ou ficaram eufóricos com um serviço impecável (5 estrelas) ou revoltados com atrasos e comida estragada (1 estrela) — sentem necessidade emocional de externar sua opinião, gerando uma distorção polarizada na base de dados avaliada.
+          </div>
+        </details>
+      </li>
+
+      <!-- Exercício 12 -->
+      <li>
+        <strong>(Invariância de Escala de Pearson)</strong> Se todas as temperaturas registradas em graus Celsius (@C@) em um estudo forem convertidas para graus Fahrenheit (@F = \frac{9}{5}C + 32@), o que ocorre com o valor numérico do coeficiente de correlação @r@ entre a temperatura e a pressão atmosférica medida?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            A conversão de Celsius para Fahrenheit é uma <strong>transformação linear afim estritamente crescente</strong> (@a = 9/5 > 0@). Como o coeficiente de Pearson @r@ é matematicamente adimensional e invariante perante transformações de escala e origem com coeficiente angular positivo:
+            @@
+            r(F, P) = r(C, P)
+            @@
+            O valor de @r@ permanece <strong>rigorosamente inalterado</strong>.
+          </div>
+        </details>
+      </li>
+    </ol>
+
+    <div style="margin: 2.5rem 0; text-align: center;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+    </div>
+
+</article>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

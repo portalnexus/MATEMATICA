@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Volumes e Geometria Espacial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div id="page-wrapper">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+                <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+                <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <article>
+                <span class="badge-nivel ano-9">9º ANO</span>
+                <h1>Volumes e Geometria Espacial</h1>
+                <p>A Geometria Espacial estuda os objetos que ocupam lugar no espaço (tridimensionais). Nesta seção,
+                    focaremos no cálculo de volumes de prismas e cilindros, além de compreender como visualizar esses
+                    objetos através de projeções.</p>
+
+                <h2>1. Volume de Prismas</h2>
+                <div class="destaque-box definicao">
+                    <p>O volume @V@ de qualquer prisma é o produto da área da base @A_B@ pela altura @h@:</p>
+                    @@ V = A_B \cdot h @@
+                </div>
+                <p>No caso de um paralelepípedo reto-retângulo (como uma caixa), o volume é o produto das três
+                    dimensões:</p>
+                @@ V = a \cdot b \cdot c @@
+
+                <h2>2. Volume de Cilindros</h2>
+                <div class="destaque-box definicao">
+                    <p>O cilindro pode ser visto como um "prisma de base circular". Seu volume é a área do círculo da
+                        base multiplicada pela altura:</p>
+                    @@ V = \pi \cdot r^2 \cdot h @@
+                </div>
+
+                <h2>3. Projeções Ortogonais</h2>
+                <div class="destaque-box observacao">
+                    <p>A projeção ortogonal de uma figura sobre um plano é a "sombra" dessa figura quando iluminada por
+                        raios perpendiculares ao plano.</p>
+                    <ul class="lista-propriedades">
+                        <li>A projeção de um segmento de reta pode ser um segmento ou um ponto.</li>
+                        <li>A projeção de uma esfera sobre um plano é um círculo.</li>
+                    </ul>
+                </div>
+
+                <h2>4. Exemplos Resolvidos</h2>
+                <div class="exemplo-resolvido">
+                    <h3>Exemplo 1: Volume do Cilindro</h3>
+                    <p>Calcule o volume de um cilindro com raio da base 3 cm e altura 10 cm. (Use @\pi \approx 3,14@).
+                    </p>
+                    <h4>Solução:</h4>
+                    <p>@V = \pi \cdot 3^2 \cdot 10@</p>
+                    <p>@V = 3,14 \cdot 9 \cdot 10 = 282,6 \text{ cm}^3@.</p>
+                </div>
+
+            </article>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="../../recursos.html" class="themed-button"
+                    style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+            </div>
+        </div>
+    </div>
+    <canvas id="matrixCanvas"></canvas>
+    <script src="../../js/matrix-rain.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "@@", right: "@@", display: true },
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "@", right: "@", display: false },
+                    { left: "\\(", right: "\\)", display: false }
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+    <script src="../../js/theme-switcher.js" defer></script>
+    <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - [Tópico Matemático]" -->
+  <title>NEXUS - Eratóstenes, Arcos e Ciclo Trigonométrico</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para boxes de destaque conceituais */
+    .destaque-box {
+      border-left: 4px solid var(--link-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .destaque-box.definicao {
+      border-left-color: #3b82f6 !important;
+      background-color: rgba(59, 130, 246, 0.08) !important;
+    }
+
+    .destaque-box.teorema {
+      border-left-color: #10b981 !important;
+      background-color: rgba(160, 185, 129, 0.08) !important;
+    }
+
+    .destaque-box.observacao {
+      border-left-color: #8b5cf6 !important;
+      background-color: rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .destaque-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--heading-text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Estilos para exemplos resolvidos */
+    .exemplo-resolvido {
+      background-color: rgba(245, 158, 11, 0.08) !important;
+      border-left: 4px solid #f59e0b !important;
+      padding: 1.6rem;
+      margin: 2rem 0;
+      border-radius: 6px;
+    }
+
+    .exemplo-resolvido h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .exemplo-resolvido h4 {
+      color: var(--link-color);
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Estilos para erros comuns e armadilhas */
+    .erro-comum {
+      background-color: rgba(239, 68, 68, 0.08) !important;
+      border-left: 4px solid #ef4444 !important;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-radius: 6px;
+    }
+
+    .erro-comum h3 {
+      color: #ef4444;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    /* Tabelas comparativas */
+    .tabela-container {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+    }
+
+    table.tabela-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    table.tabela-comparativa th,
+    table.tabela-comparativa td {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    table.tabela-comparativa th {
+      background-color: rgba(0, 0, 0, 0.45);
+      color: var(--heading-text-color);
+      font-family: var(--font-family-headings);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    table.tabela-comparativa tr:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Badge de nível escolar */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-family: var(--font-family-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-3em {
+      background-color: rgba(239, 68, 68, 0.3);
+      border: 2px solid #ef4444;
+      color: #fee2e2;
+    }
+
+    /* Estilos para soluções retráteis dos exercícios */
+    details.solucao-exercicio {
+      margin-top: 0.8rem;
+      margin-bottom: 1.4rem;
+      background-color: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--link-color);
+      border-radius: 5px;
+      padding: 0.6rem 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    details.solucao-exercicio summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--link-color);
+      outline: none;
+      user-select: none;
+      padding: 0.3rem 0;
+      font-size: 0.92rem;
+    }
+
+    details.solucao-exercicio summary:hover {
+      color: var(--link-hover-color);
+    }
+
+    details.solucao-exercicio[open] {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    details.solucao-exercicio .conteudo-solucao {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .lista-exercicios {
+      padding-left: 1.5rem;
+    }
+
+    .lista-exercicios > li {
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <div class="badge-nivel ano-3em">3º Ano EM</div>
+
+    <h1>Eratóstenes, Arcos e o Ciclo Trigonométrico</h1>
+    <p style="font-size: 1.1rem; color: var(--secondary-text-color); margin-top: -0.5rem; margin-bottom: 1.8rem; font-style: italic;">
+      Capítulo 1: "Eratóstenes, Arcos e Ciclo Trigonométrico" &mdash; Fundamentação Rigorosa FME
+    </p>
+
+    <!-- ===============================================================
+         PRÉ-REQUISITOS E CONTEXTO HISTÓRICO-EPISTEMOLÓGICO
+         =============================================================== -->
+    <div class="destaque-box observacao">
+      <h3>📌 Pré-requisitos e Fundamentação Prévia</h3>
+      <p>Para o domínio pleno deste compêndio, estruturado sob o rigor do <em>Fundamentos de Matemática Elementar (FME - Vol. 3: Trigonometria)</em> de Gelson Iezzi e os padrões olímpicos da OBMEP, o estudante deve mobilizar:</p>
+      <ul>
+        <li><strong>Geometria Plana Euclidiana:</strong> feixe de retas paralelas cortadas por transversais (ângulos alternos internos), semelhança de triângulos e o Teorema de Pitágoras.</li>
+        <li><strong>Trigonometria no Triângulo Retângulo:</strong> razões métricas @\operatorname{sen} \theta = \frac{\text{cateto oposto}}{\text{hipotenusa}}@, @\cos \theta = \frac{\text{cateto adjacente}}{\text{hipotenusa}}@ e @\tan \theta = \frac{\text{cateto oposto}}{\text{cateto adjacente}}@ para @0 < \theta < \frac{\pi}{2}@.</li>
+        <li><strong>Noções de Funções Reais:</strong> paridade (funções pares e ímpares), domínio, contradomínio, imagem, periodicidade e transformações de gráficos.</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 1: ERATÓSTENES E A MEDIÇÃO DO RAIO DA TERRA
+         =============================================================== -->
+    <h2>1. O Experimento de Eratóstenes e a Gênese Geométrica da Medida da Terra</h2>
+
+    <p>
+      No século III a.C. (cerca de 240 a.C.), o polímata e bibliotecário-chefe da Grande Biblioteca de Alexandria, <strong>Eratóstenes de Cirene</strong>, realizou uma das maiores proezas intelectuais da humanidade: mediu a circunferência e o raio do planeta Terra utilizando apenas a geometria euclidiana elementar, as propriedades de sombras projetadas por hastes verticais (gnômons) e a observação astronômica.
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 1.1 (O Modelo Físico-Geométrico de Eratóstenes)</h3>
+      <p>Eratóstenes partiu de duas premissas empíricas fundamentais e duas hipóteses geométricas:</p>
+      <ol>
+        <li><strong>Forma da Terra:</strong> A Terra é uma esfera perfeita de raio @R_{\text{Terra}}@.</li>
+        <li><strong>Paralelismo dos Raios Solares:</strong> Devido à distância astronômica incomensurável entre o Sol e a Terra, os raios solares que atingem a superfície terrestre em pontos distintos são geometricamente <em>paralelos</em> entre si.</li>
+        <li><strong>Siena (atual Assuã):</strong> No dia do solstício de verão (21 de junho), exatamente ao meio-dia solar, a luz do Sol atingia o fundo de um poço profundo sem projetar nenhuma sombra lateral. Isso demonstrava que o Sol estava exatamente no <em>zênite</em> (raios perpendiculares à superfície esférica local, alinhados com o raio que passa pelo centro da Terra).</li>
+        <li><strong>Alexandria:</strong> Situada aproximadamente sobre o mesmo meridiano que Siena (ao norte), na mesma data e horário solar, uma estaca vertical (gnômon) de comprimento @h@ projetava no solo uma sombra de comprimento @s@, formando com os raios solares incidentes um ângulo @\alpha@.</li>
+      </ol>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 1.1 (Dedução Geométrica da Circunferência Terrestre)</h3>
+      <p>
+        Sejam @S@ a cidade de Siena, @A@ a cidade de Alexandria e @O@ o centro da Terra. Pelo paralelismo dos raios de Sol e pelo teorema das paralelas cortadas por uma reta secante (o raio que liga @O@ a @A@ e projeta o gnômon), o ângulo zenital @\alpha@ medido em Alexandria é <strong>congruente</strong> ao ângulo central @\angle AOB = \theta@ subtendido pelo arco de meridiano @\overset{\frown}{SA}@.
+      </p>
+      <p>Portanto, a razão entre o arco de distância @d = \overset{\frown}{SA}@ e a circunferência total da Terra @C_{\text{Terra}}@ é estritamente idêntica à razão entre o ângulo central @\alpha@ e uma volta completa (@360^\circ@ ou @2\pi \text{ rad}@):</p>
+      @@\frac{d}{C_{\text{Terra}}} = \frac{\alpha}{360^\circ} \iff C_{\text{Terra}} = d \cdot \frac{360^\circ}{\alpha}@@
+    </div>
+
+    <div class="destaque-box observacao">
+      <h3>Cálculo Histórico Quantitativo</h3>
+      <p>Eratóstenes obteve as seguintes medições:</p>
+      <ul>
+        <li>Ângulo da sombra em Alexandria: @\alpha = 7^\circ 12' = 7{,}2^\circ = \frac{1}{50}@ de uma circunferência completa (@\frac{360^\circ}{50} = 7{,}2^\circ@).</li>
+        <li>Distância linear entre Siena e Alexandria medida pelas caravanas de camelos (bematistas): @d \approx 5.000@ estádios egípcios.</li>
+      </ul>
+      <p>Aplicando a proporção direta:</p>
+      @@C_{\text{Terra}} = 5.000 \times 50 = 250.000 \text{ estádios}@@
+      <p>
+        Considerando o estádio egípcio de aproximadamente @157{,}5 \text{ m} = 0{,}1575 \text{ km}@:
+      </p>
+      @@C_{\text{Terra}} \approx 250.000 \times 0{,}1575 \text{ km} = 39.375 \text{ km}@@
+      <p>
+        O raio terrestre estimado por Eratóstenes foi:
+      </p>
+      @@R_{\text{Terra}} = \frac{C_{\text{Terra}}}{2\pi} \approx \frac{39.375}{2 \times 3{,}14159} \approx 6.267 \text{ km}@@
+      <p>
+        Comparado ao raio volumétrico médio moderno (@R_{\text{médio}} \approx 6.371 \text{ km}@ e circunferência meridional de @40.008 \text{ km}@), o erro relativo foi de apenas <strong>1,6%</strong>, obtido sem telescópios, relógios atômicos ou satélites orbitais!
+      </p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: ARCOS, ÂNGULOS E UNIDADES DE MEDIDA
+         =============================================================== -->
+    <h2>2. Arcos, Ângulos Orientados e a Unidade Radiano</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.1 (Arco de Circunferência e Orientação)</h3>
+      <p>
+        Seja uma circunferência @\mathcal{C}@ de centro @O@ e raio @R@ no plano euclidiano. Dois pontos distintos @A, B \in \mathcal{C}@ determinam dois <strong>arcos de circunferência</strong>. Adotamos o plano coordenado cartesiano com uma orientação padrão:
+      </p>
+      <ul>
+        <li><strong>Sentido Anti-horário (Levógiro):</strong> Orientação positiva (@+@).</li>
+        <li><strong>Sentido Horário (Dextrógiro):</strong> Orientação negativa (@-@).</li>
+      </ul>
+    </div>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 2.2 (Medida em Radianos - Rigor Dimensional)</h3>
+      <p>
+        A medida de um ângulo central @\theta@ em <strong>radianos</strong> é definida formalmente como a razão entre o comprimento do arco @s@ subtendido na circunferência e a medida do raio @R@:
+      </p>
+      @@\theta = \frac{s}{R} \quad \text{[rad]}@@
+      <p>
+        <strong>Consequência Dimensional:</strong> Como @s@ e @R@ possuem dimensão linear de comprimento (@[L]@), a unidade <em>radiano</em> é estritamente <strong>adimensional</strong> (@[L]/[L] = 1@). Isso faz do radiano a unidade canônica e natural em toda a Análise Matemática e Cálculo Diferencial, permitindo operações como @\lim_{x \to 0} \frac{\operatorname{sen} x}{x} = 1@ e a expansão em séries de Taylor.
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.1 (Conversão entre Graus e Radianos)</h3>
+      <p>
+        Como a circunferência completa possui comprimento @s = 2\pi R@ e corresponde por definição a @360^\circ@ sexagesimais, temos a equivalência fundamental:
+      </p>
+      @@2\pi \text{ rad} = 360^\circ \iff \pi \text{ rad} = 180^\circ@@
+      <p>A fórmula geral de conversão para um ângulo de @G@ graus e @R_{\text{rad}}@ radianos é:</p>
+      @@\frac{G}{180^\circ} = \frac{R_{\text{rad}}}{\pi}@@
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 2.2 (Comprimento de Arco e Área do Setor Circular)</h3>
+      <p>Dado um arco subtendido por um ângulo central @\theta@ (em radianos) em uma circunferência de raio @R@:</p>
+      <ol>
+        <li><strong>Comprimento de Arco:</strong> @@s = R \cdot \theta@@</li>
+        <li><strong>Área do Setor Circular:</strong> Pela proporção com a área total @\pi R^2@:
+          @@A_{\text{setor}} = \frac{\theta}{2\pi} \cdot (\pi R^2) = \frac{1}{2} R^2 \theta = \frac{1}{2} s R@@
+        </li>
+      </ol>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: O CICLO TRIGONOMÉTRICO UNITÁRIO
+         =============================================================== -->
+    <h2>3. O Ciclo Trigonométrico Unitário (@x^2 + y^2 = 1@)</h2>
+
+    <p>
+      O <strong>ciclo trigonométrico</strong> (ou circunferência trigonométrica) é uma circunferência orientada de raio unitário (@R = 1@) centrada na origem @O(0, 0)@ do plano cartesiano ortogonal @\mathbb{R}^2@, com equação algébrica:
+    </p>
+    @@x^2 + y^2 = 1@@
+
+    <p>
+      Fixa-se o ponto @A(1, 0)@ sobre o semi-eixo positivo das abscissas como a <strong>origem canônica de todos os arcos</strong>. A cada número real @\theta \in \mathbb{R}@ corresponde um único ponto @P(x, y)@ sobre a circunferência, obtido percorrendo a partir de @A@ um arco de comprimento @|\theta|@ no sentido anti-horário (se @\theta \geq 0@) ou horário (se @\theta < 0@).
+    </p>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 3.1 (As Seis Funções no Ciclo Trigonométrico)</h3>
+      <p>Seja @P(x, y)@ o ponto terminal associado ao número real @\theta@:</p>
+      <ul>
+        <li><strong>Cosseno (@\cos \theta@):</strong> É a abscissa do ponto @P@:
+          @@\cos \theta = x \quad \implies \quad -1 \leq \cos \theta \leq 1@@
+          O <em>eixo das abscissas</em> (@x@) é denominado <strong>Eixo dos Cossenos</strong>.
+        </li>
+        <li><strong>Seno (@\operatorname{sen} \theta@):</strong> É a ordenada do ponto @P@:
+          @@\operatorname{sen} \theta = y \quad \implies \quad -1 \leq \operatorname{sen} \theta \leq 1@@
+          O <em>eixo das ordenadas</em> (@y@) é denominado <strong>Eixo dos Senos</strong>.
+        </li>
+        <li><strong>Tangente (@\tan \theta@):</strong> Seja a reta vertical @x = 1@ tangente ao ciclo em @A(1, 0)@ (Eixo das Tangentes). O prolongamento do segmento @\vec{OP}@ intercepta essa reta no ponto @T(1, \tan \theta)@. Por semelhança de triângulos:
+          @@\tan \theta = \frac{y}{x} = \frac{\operatorname{sen} \theta}{\cos \theta}, \quad \text{definida para } \theta \neq \frac{\pi}{2} + k\pi, \; k \in \mathbb{Z}@@
+        </li>
+        <li><strong>Cotangente (@\cot \theta@):</strong> Seja a reta horizontal @y = 1@ tangente ao ciclo em @B(0, 1)@ (Eixo das Cotangentes). A interseção da reta suporte de @\vec{OP}@ com essa reta dá @C(\cot \theta, 1)@:
+          @@\cot \theta = \frac{x}{y} = \frac{\cos \theta}{\operatorname{sen} \theta} = \frac{1}{\tan \theta}, \quad \text{definida para } \theta \neq k\pi, \; k \in \mathbb{Z}@@
+        </li>
+        <li><strong>Secante (@\sec \theta@):</strong> Seja a reta tangente ao ciclo no próprio ponto @P@. A interseção dessa reta com o eixo das abscissas (@y = 0@) ocorre exatamente no ponto @S(\sec \theta, 0)@:
+          @@\sec \theta = \frac{1}{\cos \theta}, \quad \text{definida para } \theta \neq \frac{\pi}{2} + k\pi, \; k \in \mathbb{Z}@@
+        </li>
+        <li><strong>Cossecante (@\csc \theta@):</strong> A interseção da mesma reta tangente ao ciclo em @P@ com o eixo das ordenadas (@x = 0@) ocorre no ponto @Q(0, \csc \theta)@:
+          @@\csc \theta = \frac{1}{\operatorname{sen} \theta}, \quad \text{definida para } \theta \neq k\pi, \; k \in \mathbb{Z}@@
+        </li>
+      </ul>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 3.1 (A Identidade Fundamental de Pitágoras no Ciclo)</h3>
+      <p>
+        Como o ponto @P(\cos \theta, \operatorname{sen} \theta)@ pertence à circunferência unitária @x^2 + y^2 = 1@, decorre imediatamente pelo Teorema de Pitágoras no triângulo retângulo de vértices @(0,0)@, @(\cos \theta, 0)@ e @(\cos \theta, \operatorname{sen} \theta)@:
+      </p>
+      @@\operatorname{sen}^2 \theta + \cos^2 \theta = 1, \quad \forall \theta \in \mathbb{R}@@
+    </div>
+
+    <!-- TABELA DOS ARCOS NOTÁVEIS -->
+    <h3>Tabela Rigorosa dos Arcos Notáveis</h3>
+    <div class="tabela-container">
+      <table class="tabela-comparativa">
+        <thead>
+          <tr>
+            <th>Graus</th>
+            <th>Radianos</th>
+            <th>@\operatorname{sen}@</th>
+            <th>@\cos@</th>
+            <th>@\tan@</th>
+            <th>@\cot@</th>
+            <th>@\sec@</th>
+            <th>@\csc@</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>@0^\circ@</td>
+            <td>@0@</td>
+            <td>@0@</td>
+            <td>@1@</td>
+            <td>@0@</td>
+            <td><em>Não existe</em></td>
+            <td>@1@</td>
+            <td><em>Não existe</em></td>
+          </tr>
+          <tr>
+            <td>@30^\circ@</td>
+            <td>@\frac{\pi}{6}@</td>
+            <td>@\frac{1}{2}@</td>
+            <td>@\frac{\sqrt{3}}{2}@</td>
+            <td>@\frac{\sqrt{3}}{3}@</td>
+            <td>@\sqrt{3}@</td>
+            <td>@\frac{2\sqrt{3}}{3}@</td>
+            <td>@2@</td>
+          </tr>
+          <tr>
+            <td>@45^\circ@</td>
+            <td>@\frac{\pi}{4}@</td>
+            <td>@\frac{\sqrt{2}}{2}@</td>
+            <td>@\frac{\sqrt{2}}{2}@</td>
+            <td>@1@</td>
+            <td>@1@</td>
+            <td>@\sqrt{2}@</td>
+            <td>@\sqrt{2}@</td>
+          </tr>
+          <tr>
+            <td>@60^\circ@</td>
+            <td>@\frac{\pi}{3}@</td>
+            <td>@\frac{\sqrt{3}}{2}@</td>
+            <td>@\frac{1}{2}@</td>
+            <td>@\sqrt{3}@</td>
+            <td>@\frac{\sqrt{3}}{3}@</td>
+            <td>@2@</td>
+            <td>@\frac{2\sqrt{3}}{3}@</td>
+          </tr>
+          <tr>
+            <td>@90^\circ@</td>
+            <td>@\frac{\pi}{2}@</td>
+            <td>@1@</td>
+            <td>@0@</td>
+            <td><em>Não existe</em></td>
+            <td>@0@</td>
+            <td><em>Não existe</em></td>
+            <td>@1@</td>
+          </tr>
+          <tr>
+            <td>@180^\circ@</td>
+            <td>@\pi@</td>
+            <td>@0@</td>
+            <td>@-1@</td>
+            <td>@0@</td>
+            <td><em>Não existe</em></td>
+            <td>@-1@</td>
+            <td><em>Não existe</em></td>
+          </tr>
+          <tr>
+            <td>@270^\circ@</td>
+            <td>@\frac{3\pi}{2}@</td>
+            <td>@-1@</td>
+            <td>@0@</td>
+            <td><em>Não existe</em></td>
+            <td>@0@</td>
+            <td><em>Não existe</em></td>
+            <td>@-1@</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: REDUÇÃO AO PRIMEIRO QUADRANTE E SIMETRIAS
+         =============================================================== -->
+    <h2>4. Redução ao Primeiro Quadrante e Simetrias no Círculo</h2>
+
+    <p>
+      O ciclo trigonométrico é dividido pelos eixos cartesianos em quatro quadrantes congruentes. A posição de um ponto @P@ em qualquer quadrante pode ser relacionada a um ponto correspondente @P_1@ no 1º quadrante através de reflexões especulares axiais e centrais:
+    </p>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.1 (Simetrias e Redução pelos Quadrantes)</h3>
+      <p>Seja @x \in \left[0, \frac{\pi}{2}\right]@ o arco base no 1º quadrante:</p>
+      <ul>
+        <li>
+          <strong>2º Quadrante (Simetria em relação ao eixo @y@: arco @\pi - x@):</strong>
+          @@\operatorname{sen}(\pi - x) = \operatorname{sen}(x), \quad \cos(\pi - x) = -\cos(x), \quad \tan(\pi - x) = -\tan(x)@@
+        </li>
+        <li>
+          <strong>3º Quadrante (Simetria em relação à origem @(0,0)@: arco @\pi + x@):</strong>
+          @@\operatorname{sen}(\pi + x) = -\operatorname{sen}(x), \quad \cos(\pi + x) = -\cos(x), \quad \tan(\pi + x) = \tan(x)@@
+        </li>
+        <li>
+          <strong>4º Quadrante (Simetria em relação ao eixo @x@: arco @2\pi - x \equiv -x@):</strong>
+          @@\operatorname{sen}(-x) = -\operatorname{sen}(x), \quad \cos(-x) = \cos(x), \quad \tan(-x) = -\tan(x)@@
+        </li>
+      </ul>
+      <p>
+        <strong>Propriedade de Paridade:</strong> A função cosseno é uma <strong>função par</strong> (@\cos(-x) = \cos(x)@); as funções seno e tangente são <strong>funções ímpares</strong> (@\operatorname{sen}(-x) = -\operatorname{sen}(x)@ e @\tan(-x) = -\tan(x)@).
+      </p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 4.2 (Arcos Complementares)</h3>
+      <p>
+        Para arcos cuja soma é @\frac{\pi}{2}@ (90°), as razões co-trigonométricas coincidem:
+      </p>
+      @@\operatorname{sen}\left(\frac{\pi}{2} - x\right) = \cos(x), \quad \cos\left(\frac{\pi}{2} - x\right) = \operatorname{sen}(x)@@
+      @@\tan\left(\frac{\pi}{2} - x\right) = \cot(x), \quad \sec\left(\frac{\pi}{2} - x\right) = \csc(x)@@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: IDENTIDADES DERIVADAS E ADIÇÃO DE ARCOS
+         =============================================================== -->
+    <h2>5. Identidades Derivadas e Fórmulas de Adição</h2>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.1 (Identidades Algébricas Derivadas)</h3>
+      <p>A partir de @\operatorname{sen}^2(x) + \cos^2(x) = 1@:</p>
+      <ol>
+        <li>
+          Dividindo ambos os membros por @\cos^2(x)@ (para @x \neq \frac{\pi}{2} + k\pi@):
+          @@\frac{\operatorname{sen}^2(x)}{\cos^2(x)} + \frac{\cos^2(x)}{\cos^2(x)} = \frac{1}{\cos^2(x)} \iff 1 + \tan^2(x) = \sec^2(x)@@
+        </li>
+        <li>
+          Dividindo ambos os membros por @\operatorname{sen}^2(x)@ (para @x \neq k\pi@):
+          @@\frac{\operatorname{sen}^2(x)}{\operatorname{sen}^2(x)} + \frac{\cos^2(x)}{\operatorname{sen}^2(x)} = \frac{1}{\operatorname{sen}^2(x)} \iff 1 + \cot^2(x) = \csc^2(x)@@
+        </li>
+      </ol>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 5.2 (Fórmulas de Adição e Arco Duplo)</h3>
+      <p>Para quaisquer @a, b \in \mathbb{R}@ nos domínios válidos:</p>
+      @@\operatorname{sen}(a \pm b) = \operatorname{sen}(a)\cos(b) \pm \operatorname{sen}(b)\cos(a)@@
+      @@\cos(a \pm b) = \cos(a)\cos(b) \mp \operatorname{sen}(a)\operatorname{sen}(b)@@
+      @@\tan(a \pm b) = \frac{\tan(a) \pm \tan(b)}{1 \mp \tan(a)\tan(b)}@@
+      <p>Fazendo @a = b = x@, obtemos as <strong>fórmulas do arco duplo</strong>:</p>
+      @@\operatorname{sen}(2x) = 2\operatorname{sen}(x)\cos(x)@@
+      @@\cos(2x) = \cos^2(x) - \operatorname{sen}^2(x) = 2\cos^2(x) - 1 = 1 - 2\operatorname{sen}^2(x)@@
+      @@\tan(2x) = \frac{2\tan(x)}{1 - \tan^2(x)}@@
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: FUNÇÕES CIRCULARES E ANÁLISE DE PERÍODO
+         =============================================================== -->
+    <h2>6. Análise de Funções Periódicas: Amplitude, Fase e Período</h2>
+
+    <div class="destaque-box definicao">
+      <h3>Definição 6.1 (Função Periódica)</h3>
+      <p>
+        Uma função @f: D \subset \mathbb{R} \to \mathbb{R}@ é <strong>periódica</strong> se existe um número real @T > 0@ tal que:
+      </p>
+      @@f(x + T) = f(x), \quad \forall x \in D \text{ tal que } (x+T) \in D@@
+      <p>O menor valor positivo @T@ satisfazendo essa condição é o <strong>período fundamental</strong> da função.</p>
+    </div>
+
+    <div class="destaque-box teorema">
+      <h3>Teorema 6.1 (Família Harmônica Geral: @y = a + b \operatorname{sen}(cx + d)@)</h3>
+      <p>
+        Considere a função periódica real generalizada @f(x) = a + b \operatorname{sen}(cx + d)@ (ou com cosseno), com @b \neq 0@ e @c \neq 0@:
+      </p>
+      <ul>
+        <li><strong>Domínio:</strong> @D(f) = \mathbb{R}@.</li>
+        <li><strong>Linha Média (Deslocamento Vertical):</strong> @y = a@.</li>
+        <li><strong>Amplitude:</strong> @A = |b|@.</li>
+        <li><strong>Imagem:</strong> @\operatorname{Im}(f) = [a - |b|, \; a + |b|]@.</li>
+        <li><strong>Período Fundamental:</strong> Como o argumento @u = cx + d@ deve variar de @2\pi@ radianos para completar um ciclo:
+          @@c(x + T) + d - (cx + d) = 2\pi \iff cT = 2\pi \implies T = \frac{2\pi}{|c|}@@
+        </li>
+        <li><strong>Deslocamento de Fase:</strong> A translação horizontal do gráfico é dada por @x_{\text{fase}} = -\frac{d}{c}@.</li>
+      </ul>
+      <p>Para a função tangente @g(x) = a + b \tan(cx + d)@, o período fundamental é @T = \frac{\pi}{|c|}@.</p>
+    </div>
+
+    <!-- ERRO COMUM -->
+    <div class="erro-comum">
+      <h3>⚠️ Armadilhas e Erros Frequentes no Ciclo Trigonométrico</h3>
+      <ul>
+        <li><strong>Confundir @\operatorname{sen}(2x)@ com @2\operatorname{sen}(x)@:</strong> O argumento dobrado não duplica o valor do seno; ele reduz o período pela metade! @\operatorname{sen}(2x) = 2\operatorname{sen}(x)\cos(x) \neq 2\operatorname{sen}(x)@.</li>
+        <li><strong>Calcular @s = R\theta@ com ângulo em graus:</strong> A relação linear @s = R\theta@ só é válida se @\theta@ estiver expresso em <strong>radianos</strong>. Se @\theta@ for dado em graus, deve-se primeiro converter para radianos via @\theta_{\text{rad}} = \theta^\circ \cdot \frac{\pi}{180^\circ}@.</li>
+        <li><strong>Ignorar o sinal ao extrair a raiz quadrada:</strong> De @\operatorname{sen}^2 x = 1 - \cos^2 x@, decorre @\operatorname{sen} x = \pm \sqrt{1 - \cos^2 x}@. O sinal depende estritamente do quadrante em que se localiza a extremidade do arco @x@!</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         EXEMPLOS RESOLVIDOS
+         =============================================================== -->
+    <h2>7. Exemplos Resolvidos Passo a Passo</h2>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 1: Reprodução Analítica do Cálculo de Eratóstenes</h3>
+      <p>
+        Em um planeta hipotético perfeitamente esférico, duas cidades @P@ e @Q@ estão situadas no mesmo meridiano. Ao meio-dia solar, enquanto em @P@ os raios solares incidem verticalmente sem sombra, em @Q@ uma torre vertical de @20 \text{ m}@ projeta uma sombra horizontal de @20\sqrt{3} \text{ m}@. Sabendo que a distância geodésica linear medida ao longo da superfície entre @P@ e @Q@ é de @1.200 \text{ km}@, determine:
+      </p>
+      <ol type="a">
+        <li>O ângulo central correspondente ao arco entre as cidades, em radianos.</li>
+        <li>O raio do planeta e a sua circunferência total.</li>
+      </ol>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Determinar o ângulo @\alpha@ formado pelos raios solares com a vertical em @Q@.</p>
+      <p>No triângulo retângulo formado pela torre e sua sombra:</p>
+      @@\tan \alpha = \frac{\text{comprimento da sombra}}{\text{altura da torre}} = \frac{20\sqrt{3}}{20} = \sqrt{3}@@
+      <p>Como @\alpha \in \left(0, \frac{\pi}{2}\right)@, temos @\alpha = 60^\circ@.</p>
+      <p>Convertendo para radianos:</p>
+      @@\alpha = 60^\circ \times \frac{\pi}{180^\circ} = \frac{\pi}{3} \text{ rad}@@
+
+      <p><strong>Passo 2:</strong> Pelo paralelismo dos raios solares, o ângulo central @\theta@ é congruente a @\alpha@, logo @\theta = \frac{\pi}{3} \text{ rad}@.</p>
+
+      <p><strong>Passo 3:</strong> Determinar o raio do planeta usando a relação @s = R \cdot \theta@:</p>
+      @@1.200 = R \cdot \frac{\pi}{3} \implies R = \frac{3 \times 1.200}{\pi} = \frac{3.600}{\pi} \text{ km} \approx 1.145{,}9 \text{ km}@@
+
+      <p><strong>Passo 4:</strong> Calcular a circunferência total do planeta:</p>
+      @@C = 2\pi R = 2\pi \cdot \left(\frac{3.600}{\pi}\right) = 7.200 \text{ km}@@
+      <p>Ou, diretamente pela proporção: @C = d \cdot \frac{360^\circ}{60^\circ} = 1.200 \times 6 = 7.200 \text{ km}@.</p>
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 2: Determinação Completa de Razões Trigonométricas no 3º Quadrante</h3>
+      <p>
+        Dado que @\cos(x) = -\frac{5}{13}@ e sabe-se que @\pi < x < \frac{3\pi}{2}@ (3º quadrante), determine os valores exatos de @\operatorname{sen}(x)@, @\tan(x)@, @\cot(x)@, @\sec(x)@ e @\csc(x)@.
+      </p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Utilizar a identidade pitagórica fundamental @\operatorname{sen}^2(x) + \cos^2(x) = 1@:</p>
+      @@\operatorname{sen}^2(x) + \left(-\frac{5}{13}\right)^2 = 1 \iff \operatorname{sen}^2(x) + \frac{25}{169} = 1 \iff \operatorname{sen}^2(x) = \frac{144}{169}@@
+      <p>Como @x@ pertence ao 3º quadrante, o seno é estritamente negativo (@y < 0@):</p>
+      @@\operatorname{sen}(x) = -\sqrt{\frac{144}{169}} = -\frac{12}{13}@@
+
+      <p><strong>Passo 2:</strong> Calcular a tangente:</p>
+      @@\tan(x) = \frac{\operatorname{sen}(x)}{\cos(x)} = \frac{-12/13}{-5/13} = \frac{12}{5}@@
+
+      <p><strong>Passo 3:</strong> Calcular as funções inversas multiplicativas:</p>
+      @@\cot(x) = \frac{1}{\tan(x)} = \frac{5}{12}@@
+      @@\sec(x) = \frac{1}{\cos(x)} = \frac{1}{-5/13} = -\frac{13}{5}@@
+      @@\csc(x) = \frac{1}{\operatorname{sen}(x)} = \frac{1}{-12/13} = -\frac{13}{12}@@
+    </div>
+
+    <div class="exemplo-resolvido">
+      <h3>Exemplo 3: Modelagem Harmônica de Marés Oceânicas</h3>
+      <p>
+        A altura da maré @H(t)@ (em metros) em um determinado porto é descrita no decorrer das @24 \text{ horas}@ do dia pela função periódica:
+      </p>
+      @@H(t) = 4 + 2{,}5 \cos\left(\frac{\pi}{6} t - \frac{\pi}{3}\right), \quad t \in [0, 24]@@
+      <p>Determine a linha média, a amplitude, o período da oscilação, a altura máxima e mínima da água, e o primeiro instante @t \geq 0@ em que a maré atinge o valor de @5{,}25 \text{ m}@.</p>
+
+      <h4>Solução:</h4>
+      <p><strong>Passo 1:</strong> Parâmetros estruturais da função:</p>
+      <ul>
+        <li>Linha média: @a = 4 \text{ m}@.</li>
+        <li>Amplitude: @A = |2{,}5| = 2{,}5 \text{ m}@.</li>
+        <li>Altura máxima: @H_{\max} = 4 + 2{,}5 = 6{,}5 \text{ m}@.</li>
+        <li>Altura mínima: @H_{\min} = 4 - 2{,}5 = 1{,}5 \text{ m}@.</li>
+        <li>Período: @c = \frac{\pi}{6} \implies T = \frac{2\pi}{|c|} = \frac{2\pi}{\pi/6} = 12 \text{ horas}@.</li>
+      </ul>
+
+      <p><strong>Passo 2:</strong> Encontrar o instante em que @H(t) = 5{,}25@:</p>
+      @@4 + 2{,}5 \cos\left(\frac{\pi}{6} t - \frac{\pi}{3}\right) = 5{,}25 \iff 2{,}5 \cos\left(\frac{\pi}{6} t - \frac{\pi}{3}\right) = 1{,}25@@
+      @@\cos\left(\frac{\pi}{6} t - \frac{\pi}{3}\right) = \frac{1{,}25}{2{,}5} = \frac{1}{2}@@
+      <p>O menor valor positivo cujo cosseno é @1/2@ é @\frac{\pi}{3}@ radianos:</p>
+      @@\frac{\pi}{6} t - \frac{\pi}{3} = \frac{\pi}{3} \iff \frac{\pi}{6} t = \frac{2\pi}{3} \iff t = \frac{2\pi}{3} \cdot \frac{6}{\pi} = 4 \text{ horas}@@
+      <p>Portanto, a maré atinge @5{,}25 \text{ m}@ pela primeira vez exatamente às 4 horas da manhã.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 8: EXERCÍCIOS CONCEITUAIS DE FIXAÇÃO
+         =============================================================== -->
+    <h2>8. Exercícios Conceituais de Fixação Rápida</h2>
+
+    <ol class="lista-exercicios">
+      <!-- EXERCÍCIO 1 -->
+      <li>
+        <strong>(Eratóstenes e Escala Planetária)</strong>
+        Um astrônomo em Marte observa que duas bases espaciais @A@ e @B@ estão alinhadas no mesmo meridiano a uma distância de @800 \text{ km}@. Ao meio-dia marciano, a base @A@ não projeta sombra, enquanto uma haste vertical em @B@ projeta uma sombra correspondente a um ângulo zenital de @15^\circ@. Determine o raio aproximado do planeta Marte (adote @\pi \approx 3{,}14@).
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> O ângulo de @15^\circ@ corresponde ao ângulo central subtendido pelo arco de @800 \text{ km}@. Convertendo @15^\circ@ para radianos:</p>
+            @@\theta = 15^\circ \times \frac{\pi}{180^\circ} = \frac{\pi}{12} \text{ rad}@@
+            <p>Usando a relação do arco @s = R \cdot \theta@:</p>
+            @@800 = R \cdot \frac{\pi}{12} \implies R = \frac{800 \times 12}{\pi} = \frac{9.600}{3{,}14} \approx 3.057 \text{ km}@@
+            <p><em>(O valor real médio do raio de Marte é cerca de 3.390 km; a aproximação é consistente).</em></p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 2 -->
+      <li>
+        <strong>(Conversão Angular e Comprimento de Arco)</strong>
+        Uma pista de atletismo circular possui raio @R = 50 \text{ m}@. Um atleta percorre sobre a pista um arco correspondente a um ângulo central de @216^\circ@. Calcule a distância percorrida pelo atleta em metros (deixe em função de @\pi@ e aproxime para @\pi = 3{,}14@).
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Convertemos @216^\circ@ para radianos:</p>
+            @@\theta = 216^\circ \cdot \frac{\pi}{180^\circ} = \frac{6\pi}{5} \text{ rad}@@
+            <p>O comprimento do percurso é:</p>
+            @@s = R \cdot \theta = 50 \cdot \frac{6\pi}{5} = 60\pi \text{ m} \approx 60 \times 3{,}14 = 188{,}4 \text{ m}@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 3 -->
+      <li>
+        <strong>(Área do Setor Circular)</strong>
+        Um pêndulo de comprimento @L = 1{,}2 \text{ m}@ oscila descrevendo um ângulo de amplitude total de @30^\circ@. Qual é a área da superfície plana varrida pelo fio do pêndulo em uma oscilação completa de uma extremidade à outra?
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> A região varrida é um setor circular com raio @R = 1{,}2 \text{ m}@ e ângulo @\theta = 30^\circ = \frac{\pi}{6} \text{ rad}@.</p>
+            @@A_{\text{setor}} = \frac{1}{2} R^2 \theta = \frac{1}{2} (1{,}2)^2 \cdot \frac{\pi}{6} = \frac{1}{2} \cdot 1{,}44 \cdot \frac{\pi}{6} = \frac{1{,}44\pi}{12} = 0{,}12\pi \text{ m}^2 \approx 0{,}377 \text{ m}^2@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 4 -->
+      <li>
+        <strong>(Coordenadas no Ciclo Unitário)</strong>
+        Determine as coordenadas cartesianas @(x, y)@ do ponto terminal associado ao arco de medida @\theta = \frac{5\pi}{6}@ no ciclo trigonométrico.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> O ponto no ciclo unitário é dado por @P(\cos \theta, \operatorname{sen} \theta)@.</p>
+            <p>Como @\frac{5\pi}{6} = \pi - \frac{\pi}{6}@ está no 2º quadrante:</p>
+            @@\cos\left(\frac{5\pi}{6}\right) = -\cos\left(\frac{\pi}{6}\right) = -\frac{\sqrt{3}}{2}@@
+            @@\operatorname{sen}\left(\frac{5\pi}{6}\right) = \operatorname{sen}\left(\frac{\pi}{6}\right) = \frac{1}{2}@@
+            <p>Logo, o ponto tem coordenadas @P\left(-\frac{\sqrt{3}}{2}, \frac{1}{2}\right)@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 5 -->
+      <li>
+        <strong>(Redução ao 1º Quadrante)</strong>
+        Calcule o valor exato da expressão @E = \operatorname{sen}(210^\circ) + \cos(300^\circ) - \tan(135^\circ)@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Reduzindo cada termo ao 1º quadrante:</p>
+            <ul>
+              <li>@210^\circ@ (3ºQ): @\operatorname{sen}(210^\circ) = -\operatorname{sen}(210^\circ - 180^\circ) = -\operatorname{sen}(30^\circ) = -\frac{1}{2}@.</li>
+              <li>@300^\circ@ (4ºQ): @\cos(300^\circ) = +\cos(360^\circ - 300^\circ) = \cos(60^\circ) = \frac{1}{2}@.</li>
+              <li>@135^\circ@ (2ºQ): @\tan(135^\circ) = -\tan(180^\circ - 135^\circ) = -\tan(45^\circ) = -1@.</li>
+            </ul>
+            <p>Substituindo na expressão:</p>
+            @@E = \left(-\frac{1}{2}\right) + \left(\frac{1}{2}\right) - (-1) = 0 + 1 = 1@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 6 -->
+      <li>
+        <strong>(Identidade Derivada da Secante)</strong>
+        Se @\tan(x) = -\frac{3}{4}@ e @\frac{\pi}{2} < x < \pi@ (2º quadrante), determine o valor de @\sec(x)@ e @\cos(x)@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Usamos a identidade @1 + \tan^2(x) = \sec^2(x)@:</p>
+            @@\sec^2(x) = 1 + \left(-\frac{3}{4}\right)^2 = 1 + \frac{9}{16} = \frac{25}{16}@@
+            <p>No 2º quadrante, o cosseno e a secante são estritamente negativos. Logo:</p>
+            @@\sec(x) = -\sqrt{\frac{25}{16}} = -\frac{5}{4}@@
+            @@\cos(x) = \frac{1}{\sec(x)} = -\frac{4}{5}@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 7 -->
+      <li>
+        <strong>(Paridade e Simetria de Funções Circulares)</strong>
+        Classifique a função @f(x) = x^3 \cdot \operatorname{sen}(x) + \cos(x)@ como par, ímpar ou nem par nem ímpar, justificando formalmente.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Calculamos @f(-x)@:</p>
+            @@f(-x) = (-x)^3 \cdot \operatorname{sen}(-x) + \cos(-x)@@
+            <p>Como @(-x)^3 = -x^3@, @\operatorname{sen}(-x) = -\operatorname{sen}(x)@ e @\cos(-x) = \cos(x)@:</p>
+            @@f(-x) = (-x^3)(-\operatorname{sen}(x)) + \cos(x) = x^3 \operatorname{sen}(x) + \cos(x) = f(x)@@
+            <p>Como @f(-x) = f(x)@ para todo @x \in \mathbb{R}@, a função @f@ é <strong>estritamente par</strong>.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 8 -->
+      <li>
+        <strong>(Período de Função Trigonométrica Composta)</strong>
+        Determine o período fundamental @T@ da função real @f(x) = 7 - 3 \cos\left(\frac{4\pi x}{5} - \frac{\pi}{2}\right)@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Identificamos o coeficiente angular do argumento: @c = \frac{4\pi}{5}@.</p>
+            <p>Pela fórmula do período @T = \frac{2\pi}{|c|}@:</p>
+            @@T = \frac{2\pi}{\frac{4\pi}{5}} = 2\pi \cdot \frac{5}{4\pi} = \frac{10}{4} = \frac{5}{2} = 2{,}5@@
+            <p>O período é @T = 2{,}5@ unidades.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 9 -->
+      <li>
+        <strong>(Imagem e Amplitude de Onda Senoidal)</strong>
+        Seja @g(x) = -2 + 5\operatorname{sen}\left(3x + \frac{\pi}{4}\right)@. Determine o conjunto imagem @\operatorname{Im}(g)@, o valor máximo @g_{\max}@ e o valor mínimo @g_{\min}@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Para qualquer argumento real @u@, temos @-1 \leq \operatorname{sen}(u) \leq 1@.</p>
+            <p>Multiplicando por 5:</p>
+            @@-5 \leq 5\operatorname{sen}\left(3x + \frac{\pi}{4}\right) \leq 5@@
+            <p>Subtraindo 2 em toda a desigualdade:</p>
+            @@-2 - 5 \leq g(x) \leq -2 + 5 \iff -7 \leq g(x) \leq 3@@
+            <p>Portanto, o conjunto imagem é @\operatorname{Im}(g) = [-7, 3]@, com @g_{\min} = -7@ e @g_{\max} = 3@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 10 -->
+      <li>
+        <strong>(Arco Duplo e Simplificação Algébrica)</strong>
+        Mostre que a expressão @\frac{\operatorname{sen}(2x)}{1 + \cos(2x)}@ é idêntica a @\tan(x)@ para todos os valores de @x@ onde a expressão é definida.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Aplicando as identidades de arco duplo:</p>
+            <ul>
+              <li>@\operatorname{sen}(2x) = 2\operatorname{sen}(x)\cos(x)@</li>
+              <li>@\cos(2x) = 2\cos^2(x) - 1 \implies 1 + \cos(2x) = 2\cos^2(x)@</li>
+            </ul>
+            <p>Substituindo no numerador e no denominador:</p>
+            @@\frac{2\operatorname{sen}(x)\cos(x)}{2\cos^2(x)} = \frac{\operatorname{sen}(x)}{\cos(x)} = \tan(x) \quad \blacksquare@@
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 11 -->
+      <li>
+        <strong>(Equação Trigonométrica Fundamental no Ciclo)</strong>
+        Resolva no intervalo @x \in [0, 2\pi)@ a equação trigonométrica @2\operatorname{sen}^2(x) - \operatorname{sen}(x) - 1 = 0@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Fazendo a substituição @u = \operatorname{sen}(x)@, obtemos a equação quadrática @2u^2 - u - 1 = 0@.</p>
+            <p>Aplicando a fórmula de Bhaskara:</p>
+            @@\Delta = (-1)^2 - 4(2)(-1) = 1 + 8 = 9 \implies u = \frac{1 \pm 3}{4}@@
+            @@u_1 = \frac{4}{4} = 1, \quad u_2 = -\frac{2}{4} = -\frac{1}{2}@@
+            <p>Analisando cada caso no ciclo @[0, 2\pi)@:</p>
+            <ul>
+              <li>Caso 1: @\operatorname{sen}(x) = 1 \implies x = \frac{\pi}{2}@.</li>
+              <li>Caso 2: @\operatorname{sen}(x) = -\frac{1}{2}@ (3º e 4º quadrantes):
+                @@x_1 = \pi + \frac{\pi}{6} = \frac{7\pi}{6}, \quad x_2 = 2\pi - \frac{\pi}{6} = \frac{11\pi}{6}@@
+              </li>
+            </ul>
+            <p>Conjunto solução: @S = \left\{\frac{\pi}{2}, \frac{7\pi}{6}, \frac{11\pi}{6}\right\}@.</p>
+          </div>
+        </details>
+      </li>
+
+      <!-- EXERCÍCIO 12 -->
+      <li>
+        <strong>(Segmento Secante e Tangente no Ciclo)</strong>
+        No ciclo trigonométrico unitário, prove geometricamente que a distância do centro @O(0,0)@ até o ponto @S@ de interseção da reta tangente ao ciclo no ponto @P(\cos \theta, \operatorname{sen} \theta)@ com o eixo @x@ é igual a @|\sec \theta|@.
+        <details class="solucao-exercicio">
+          <summary>Ver Solução Comentada</summary>
+          <div class="conteudo-solucao">
+            <p><strong>Resolução:</strong> Considere o triângulo retângulo @\triangle OPS@, onde:</p>
+            <ul>
+              <li>O raio @OP@ é perpendicular à reta tangente em @P@, logo o ângulo @\angle OPS = 90^\circ@.</li>
+              <li>O comprimento do raio é @\overline{OP} = 1@ (ciclo unitário).</li>
+              <li>O ângulo central é @\angle POS = \theta@.</li>
+            </ul>
+            <p>Aplicando a definição de cosseno no triângulo retângulo @\triangle OPS@:</p>
+            @@\cos \theta = \frac{\text{cateto adjacente}}{\text{hipotenusa}} = \frac{\overline{OP}}{\overline{OS}} = \frac{1}{\overline{OS}}@@
+            <p>Isolando a distância @\overline{OS}@:</p>
+            @@\overline{OS} = \frac{1}{|\cos \theta|} = |\sec \theta| \quad \blacksquare@@
+          </div>
+        </details>
+      </li>
+    </ol>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 35px; margin-bottom: 25px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+    <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

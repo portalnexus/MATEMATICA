@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Função do 1° Grau</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<h1>FUNÇÃO DO 1° GRAU</h1>
+
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas básicos para familiarização com os conceitos de função do 1° grau: cálculo de imagem, identificação de coeficientes e raiz.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Cálculo de imagem</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Dada a função do 1º grau @f(x) = 3x + 2@, calcule o valor de @f(5)@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Cálculo de imagem</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Se @g(x) = -2x + 7@, qual é o valor de @g(3)@?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Cálculo de imagem</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Encontre o valor de @y@ quando @x = 4@ na função @y = 5x - 1@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Cálculo de imagem</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Para a função @h(x) = \frac{1}{2}x - 3@, determine @h(10)@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Cálculo de imagem</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Qual é o valor de @f(0)@ para a função @f(x) = 4x - 6@?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Identificação de coeficientes</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Identifique o coeficiente angular (ou taxa de variação) e o coeficiente linear da função @f(x) = -5x + 1@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Interseção com eixos</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Em @y = 2x + 8@, qual é o valor de @y@ quando @x = 0@? Este ponto é a interseção com qual eixo?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Escrita de função</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>A função @f(x) = mx + n@ tem @m = 4@ e @n = -3@. Escreva a expressão completa da função.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Raiz da função</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Se @f(x) = x - 9@, para qual valor de @x@ temos @f(x) = 0@? (Raiz da função)</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Raiz da função</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Determine a raiz da função @g(x) = 2x + 10@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Determinação de função</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>A função @f(x) = ax + b@ passa pelos pontos @(1, 5)@ e @(2, 7)@. Quais são os valores de @a@ e @b@?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Gráfico de função</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Esboce o gráfico da função @f(x) = 2x - 4@. Indique os pontos onde o gráfico cruza os eixos @x@ e @y@.</p>
+    </li>
+  </ol>
+</article>
+
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas contextualizados que envolvem interpretação de enunciados e aplicação de funções do 1° grau em situações práticas.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Modelagem - Custos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Uma empresa de aluguel de carros cobra uma taxa fixa de R$ 50,00 mais R$ 0,80 por quilômetro rodado. Escreva a função @C(x)@ que representa o custo total do aluguel em função da quantidade de quilômetros @x@ rodados.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Modelagem - Serviços</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Um técnico de informática cobra R$ 70,00 pela visita e mais R$ 50,00 por hora de serviço. Qual o custo total @C(h)@ de um serviço que durou @h@ horas?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Modelagem - Temperatura</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>A temperatura em graus Celsius @T@ em função do tempo em horas @t@ é dada por @T(t) = -2t + 20@. Qual a temperatura após 3 horas? E qual a temperatura inicial?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Modelagem - Movimento</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um balão é lançado e sua altitude @A@ em metros, @t@ segundos após o lançamento, é dada por @A(t) = 5t + 10@. Qual a altitude do balão após 15 segundos? Qual a altitude inicial?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Modelagem - Volume</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma piscina está sendo esvaziada a uma taxa constante. A quantidade de água @V@ em litros, @t@ minutos após o início do esvaziamento, é dada por @V(t) = 10000 - 50t@. Quantos litros de água restam após 10 minutos? Quanto tempo levará para a piscina ficar vazia?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação do 1° grau</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Dada a função @f(x) = -x + 6@, determine o valor de @x@ para que @f(x) = 10@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Raiz da função</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Encontre o valor de @x@ tal que @g(x) = 3x - 15@ seja igual a 0.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Determinação de função</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>A função @f(x) = ax + b@ passa pelos pontos @(0, 3)@ e @(2, 7)@. Determine os valores de @a@ e @b@ e escreva a função.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Determinação de função</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>A função @f(x) = mx + n@ tem @f(1) = 5@ e @f(3) = 11@. Encontre os valores de @m@ e @n@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Determinação por interseções</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>O gráfico de uma função do 1º grau intercepta o eixo @y@ no ponto @(0, -4)@ e o eixo @x@ no ponto @(2, 0)@. Escreva a equação dessa função.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Determinação por coeficiente e ponto</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma função do 1º grau tem coeficiente angular igual a 3 e passa pelo ponto @(1, 8)@. Qual é a equação dessa função?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Determinação por raiz e interseção</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma função do 1º grau tem raiz igual a 5 e intercepta o eixo @y@ no ponto @(0, -10)@. Qual é a equação dessa função?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Igualdade de funções</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Se @f(x) = 4x - 8@, qual o valor de @x@ para que @f(x) = 2x + 6@?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Modelagem - Aplicação inversa</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Um serviço de streaming de música cobra uma mensalidade de R$ 20,00 mais R$ 0,50 por música baixada. Escreva a função que representa o custo mensal @C(m)@ em função do número de músicas baixadas @m@. Se um usuário gastou R$ 35,00 em um mês, quantas músicas ele baixou?</p>
+    </li>
+  </ol>
+</article>
+
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Problemas complexos que exigem raciocínio em múltiplas etapas, comparação de funções e aplicações avançadas.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Comparação de funções</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Dois vendedores, João e Maria, recebem um salário fixo mensal mais uma comissão por cada venda realizada. João tem um salário fixo de R$ 1200,00 e ganha R$ 50,00 de comissão por venda. Maria tem um salário fixo de R$ 1000,00 e ganha R$ 70,00 de comissão por venda. Para quantas vendas o salário de João será igual ao de Maria?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequação e aplicação</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Um fazendeiro tem um tanque com 5000 litros de água. Ele utiliza um sistema de irrigação que consome 20 litros de água por minuto. A quantidade de água no tanque @A(t)@, em litros, após @t@ minutos de uso do sistema, é dada por @A(t) = 5000 - 20t@. Se o fazendeiro precisa de pelo menos 1000 litros de água para emergências, qual o tempo máximo, em minutos, que ele pode usar o sistema de irrigação?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Interseção de funções</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Considere as funções @f(x) = 2x + 1@ e @g(x) = -x + 7@. Encontre o valor de @x@ para o qual @f(x) = g(x)@. Qual o ponto de interseção dos gráficos dessas duas funções?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Funções paralelas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>O gráfico de uma função do 1º grau @f(x)@ intercepta o eixo @x@ no ponto @(4, 0)@ e o eixo @y@ no ponto @(0, -8)@. Outra função do 1º grau, @g(x)@, tem coeficiente angular igual a 2 e passa pelo ponto @(1, 5)@. Determine a equação de @f(x)@ e @g(x)@ e encontre o ponto onde seus gráficos se interceptam.</p>
+      <div class="dica">
+        <strong>Dica:</strong> Compare os coeficientes angulares das duas funções antes de tentar encontrar o ponto de interseção!
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conversão de escalas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>A relação entre a temperatura em Fahrenheit (@F@) e em Celsius (@C@) é dada por uma função do 1º grau: @F(C) = aC + b@. Sabendo que @0^\circ C@ corresponde a @32^\circ F@ e @100^\circ C@ corresponde a @212^\circ F@, determine os valores de @a@ e @b@ e escreva a função @F(C)@. Qual a temperatura em Fahrenheit quando a temperatura em Celsius é @25^\circ C@?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema de encontro</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Um ciclista A parte de um ponto P em direção a um ponto Q, com velocidade constante de 15 km/h. Um ciclista B parte do ponto Q em direção ao ponto P, com velocidade constante de 20 km/h. A distância entre P e Q é de 70 km. Suponha que os ciclistas partem no mesmo instante. Seja @t@ o tempo em horas após a partida. A distância do ciclista A ao ponto P é dada por @d_A(t) = 15t@. A distância do ciclista B ao ponto P é dada por @d_B(t) = 70 - 20t@. Em quanto tempo os ciclistas se encontrarão?</p>
+    </li>
+  </ol>
+</article>
+
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para você praticar e consolidar seu aprendizado sobre funções do 1° grau!
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Modelagem</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma pizzaria cobra R$ 15,00 por uma pizza pequena e R$ 3,50 por cada adicional. Escreva a função que representa o custo @C(n)@ de uma pizza com @n@ adicionais.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Gráfico e análise</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Dadas as funções @f(x) = x + 3@ e @g(x) = -2x + 9@, determine graficamente o ponto de interseção entre elas.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Função afim crescente/decrescente</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Determine se a função @f(x) = -3x + 7@ é crescente ou decrescente. Justifique sua resposta.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Sistema de equações</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Duas funções @f(x) = 2x + k@ e @g(x) = -x + 6@ se interceptam no ponto de coordenadas @(2, y)@. Determine o valor de @k@ e as coordenadas completas do ponto de interseção.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - Depreciação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Um carro novo custa R$ 50.000,00 e deprecia R$ 4.000,00 por ano. Escreva a função que representa o valor @V(t)@ do carro após @t@ anos. Em quantos anos o carro valerá R$ 30.000,00?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Composição</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Dadas @f(x) = 2x + 1@ e @g(x) = 3x - 2@, calcule @f(g(x))@ e @g(f(x))@. Essas composições são iguais?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Zero e sinal da função</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Para a função @f(x) = -2x + 8@, determine: a) a raiz da função; b) os valores de @x@ para os quais @f(x) > 0@; c) os valores de @x@ para os quais @f(x) < 0@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Função inversa</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Dada a função @f(x) = 3x - 6@, determine a função inversa @f^{-1}(x)@. Verifique que @f(f^{-1}(x)) = x@.</p>
+    </li>
+  </ol>
+</article>
+
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

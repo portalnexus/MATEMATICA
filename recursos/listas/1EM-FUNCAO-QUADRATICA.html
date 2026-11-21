@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Lista de Problemas: Função Quadrática</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    /* Container de metadados (fonte, dificuldade, tempo estimado) */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    /* Tag de tópico matemático */
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    /* Tag de fonte do problema */
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Tag de dificuldade com cores diferentes */
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Cores por nível de dificuldade */
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }    /* Verde */
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }    /* Amarelo */
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }  /* Vermelho */
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); } /* Roxo */
+
+    /* Introdução de cada seção */
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    /* Caixas de dica para os estudantes */
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    /* Gabarito expansível */
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-secao ol {
+      padding-left: 1.5rem;
+    }
+
+    .gabarito-secao li {
+      margin-bottom: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: 600;
+      color: var(--secondary-text-color);
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<!-- ============================================================================
+     TÍTULO PRINCIPAL DA LISTA
+     ============================================================================ -->
+<h1>LISTA DE PROBLEMAS: FUNÇÃO QUADRÁTICA</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas fundamentais para aplicação direta de fórmulas e conceitos: identificação de coeficientes, cálculo de raízes, discriminante, concavidade e coordenadas do vértice.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Identificação de coeficientes e concavidade</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Dada a função quadrática @f(x) = 3x^2 - 5x + 2@, identifique os coeficientes @a@, @b@ e @c@, e informe se a parábola tem concavidade voltada para cima ou para baixo, justificando com base no coeficiente principal.</p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Cálculo de imagem</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Para a função @f(x) = -2x^2 + 4x - 1@ definida para todo @x \in \mathbb{R}@, determine os valores numéricos das imagens @f(0)@, @f(1)@ e @f(-2)@.</p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Cálculo do discriminante</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Calcule o discriminante @\Delta = b^2 - 4ac@ da função quadrática @f(x) = x^2 - 6x + 9@ e conclua a respeito da quantidade e natureza de suas raízes reais.</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Determinação de raízes</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Determine os zeros reais da função quadrática @f(x) = x^2 - 7x + 10@ utilizando a fórmula de Bhaskara ou o método da soma e produto das raízes.</p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Raízes de equações incompletas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Encontre as raízes reais das seguintes funções quadráticas incompletas:</p>
+      <p>a) @g(x) = 2x^2 - 18@</p>
+      <p>b) @h(x) = 5x^2 + 15x@</p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Coordenadas do vértice</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Determine as coordenadas do vértice @V(x_v, y_v)@ da parábola associada à função @f(x) = x^2 - 4x + 3@ utilizando as relações @x_v = -\frac{b}{2a}@ e @y_v = -\frac{\Delta}{4a}@.</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Valor máximo ou mínimo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Considere a função quadrática @y = -x^2 + 8x - 12@.</p>
+      <p>a) A função admite valor máximo ou valor mínimo? Justifique.</p>
+      <p>b) Qual é o valor desse extremo e para qual valor da variável @x@ ele é atingido?</p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Interseção com os eixos cartesianos</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Determine os pontos de interseção da curva gráfica de @f(x) = x^2 - 2x - 8@ com o eixo das abscissas (eixo @x@) e com o eixo das ordenadas (eixo @y@).</p>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Eixo de simetria</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Uma parábola intercepta o eixo horizontal nos pontos de abscissas @x_1 = -1@ e @x_2 = 7@. Determine a equação da reta vertical que constitui o eixo de simetria dessa parábola.</p>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Número de pontos de contato com o eixo x</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Sem traçar o gráfico, verifique se a parábola descrita por @f(x) = 2x^2 + 3x + 5@ cruza, tangencia ou não toca o eixo @x@. Justifique sua resposta através da análise do sinal do discriminante.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas contextualizados e intermediários que exigem interpretação: problemas de área máxima, trajetórias balísticas, lucro empresarial, arquitetura em arco parabólico e estudo de sinais.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Otimização geométrica de área</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um criador de animais dispõe de 60 metros de tela metálica para cercar uma área retangular de pasto. Ele pretende utilizar um muro reto já existente como um dos lados do cercado, cercando apenas os outros três lados com a tela disponível. Se os dois lados perpendiculares ao muro medem @x@ metros cada:</p>
+      <p>a) Escreva a lei da função @A(x)@ que expressa a área cercada em função de @x@.</p>
+      <p>b) Quais devem ser as dimensões do cercado para que a área delimitada seja máxima? Qual é essa área máxima?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> O comprimento paralelo ao muro medirá @60 - 2x@. A área do retângulo é dada pelo produto dos lados adjacentes: @A(x) = x(60 - 2x)@. A abscissa do vértice indica a largura que maximiza a área.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Lançamento de projéteis</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Um pequeno foguete experimental é disparado verticalmente para cima a partir do nível do solo. Sua altura @h@ (em metros) acima do chão, @t@ segundos após a ignição, obedece à equação @h(t) = -5t^2 + 40t@. Desprezando a resistência do ar, calcule:</p>
+      <p>a) O tempo decorrido desde o lançamento até o foguete atingir sua altura máxima.</p>
+      <p>b) O valor da altura máxima atingida.</p>
+      <p>c) O instante em que o projétil retorna ao solo.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A altura máxima é atingida no vértice da parábola (@t_v = -\frac{b}{2a}@). O retorno ao solo corresponde ao momento em que @h(t) = 0@ com @t > 0@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Modelagem e maximização de lucro</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Uma microempresa vende capas para celulares a R$ 50,00 a unidade. O custo total @C(q)@, em reais, para produzir @q@ unidades por mês é expresso pela função @C(q) = q^2 + 10q + 300@.</p>
+      <p>a) Determine a expressão da função receita mensal @R(q)@ e da função lucro mensal @L(q) = R(q) - C(q)@.</p>
+      <p>b) Quantas capas devem ser fabricadas e comercializadas mensalmente para maximizar o lucro da empresa? Qual é o valor desse lucro máximo?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A receita é o preço unitário vezes a quantidade (@R(q) = 50q@). O lucro é a diferença entre receita e custo: @L(q) = 50q - (q^2 + 10q + 300)@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Arquitetura em arco parabólico</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>O pórtico de entrada de um centro de convenções foi construído no formato de um arco parabólico com concavidade voltada para baixo. O vão na base (distância entre os dois pontos de apoio no chão) mede 40 metros e a altura máxima no ponto central do arco é de 20 metros. Posicione a origem do sistema cartesiano no solo, exatamente no ponto médio entre os apoios da base.</p>
+      <p>a) Encontre a equação da parábola @y = ax^2 + c@ que descreve a linha do arco.</p>
+      <p>b) Calcule a altura do arco em um ponto situado a 10 metros de distância horizontal do centro do vão.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Na origem centralizada, o vértice está em @(0, 20)@ e as raízes estão em @x = -20@ e @x = 20@. Substitua as coordenadas de um dos apoios para encontrar o valor de @a@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 15 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Estudo do sinal da função</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Realize o estudo completo de sinais da função quadrática @f(x) = -x^2 + 2x + 8@, indicando com rigor os subconjuntos de @\mathbb{R}@ para os quais @f(x) > 0@, @f(x) = 0@ e @f(x) < 0@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Encontre primeiro os zeros da função resolvendo @-x^2 + 2x + 8 = 0@. Lembre-se de que quando @a < 0@, a parábola é positiva estritamente entre as duas raízes.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 16 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequação do 2º grau simples</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Resolva no conjunto dos números reais @\mathbb{R}@ a inequação quadrática @@2x^2 - 5x - 3 \leq 0@@ Apresente a solução na notação de intervalo.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Encontre as raízes da equação associada @2x^2 - 5x - 3 = 0@. Sendo @a = 2 > 0@, a expressão assume valores menores ou iguais a zero no intervalo fechado delimitado pelas duas raízes.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 17 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Determinação da lei por três pontos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Determine a lei de formação da função quadrática @f(x) = ax^2 + bx + c@ cujo gráfico passa pelos pontos @A(0, 5)@, @B(1, 2)@ e @C(3, 8)@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Como o ponto @A(0, 5)@ pertence à parábola, temos imediatamente @c = 5@. Monte um sistema com as outras duas informações para calcular @a@ e @b@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 18 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Forma canônica da parábola</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Reescreva a função quadrática @f(x) = 2x^2 - 12x + 23@ na forma canônica @@f(x) = a(x - h)^2 + k@@ e determine, a partir dessa expressão, as coordenadas do vértice e o valor mínimo assumido pela função.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Fatore o coeficiente @a = 2@ nos dois primeiros termos e complete o quadrado perfeito dentro dos parênteses: @2(x^2 - 6x) + 23 = 2[(x - 3)^2 - 9] + 23@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 19 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Forma fatorada da função quadrática</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma parábola intercepta o eixo das abscissas nos pontos @(-2, 0)@ e @(4, 0)@ e tem seu vértice sobre a ordenada @y_v = 18@. Encontre a lei algébrica @f(x) = ax^2 + bx + c@ dessa função.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A abscissa do vértice é o ponto médio entre as duas raízes. Utilize a forma fatorada @f(x) = a(x - x_1)(x - x_2)@ e aplique o ponto do vértice para determinar o coeficiente @a@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 20 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Interseção entre reta e parábola</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Determine as coordenadas dos pontos de interseção entre a reta de equação @y = 2x + 1@ e a curva da parábola descrita por @y = x^2 - x - 3@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Iguale as duas expressões (@x^2 - x - 3 = 2x + 1@), obtenha uma equação do 2º grau na incógnita @x@, determine suas raízes e calcule a respectiva ordenada @y@ para cada raiz.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 21 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Tangência entre reta e parábola</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Determine para qual valor do número real @k@ a reta de equação @y = 4x + k@ tangencia a parábola de equação @y = x^2 + 2x + 6@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Para haver tangência, a interseção entre a reta e a parábola deve resultar em um único ponto com multiplicidade dois, o que equivale a impor @\Delta = 0@ na equação resolutiva do sistema.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 22 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Elasticidade de preço e receita</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Um anfiteatro municipal com 500 lugares cobra R$ 40,00 por ingresso e vende regularmente 300 ingressos por apresentação. Uma pesquisa demonstrou que, a cada desconto de R$ 2,00 no valor do ingresso, 30 novos espectadores comparecem ao evento.</p>
+      <p>a) Escreva a função receita @R(x)@ em termos do número @x@ de descontos de R$ 2,00 concedidos.</p>
+      <p>b) Qual preço por ingresso deve ser cobrado para obter a receita máxima? Qual será o valor dessa receita máxima arrecadada?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> O preço de cada ingresso com desconto é @(40 - 2x)@ e o total de ingressos vendidos é @(300 + 30x)@. A receita total é dada por @R(x) = (40 - 2x)(300 + 30x)@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 23 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequação quociente</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Determine o conjunto solução no universo dos números reais @\mathbb{R}@ da seguinte inequação quociente: @@\frac{x^2 - 4x + 3}{x - 2} \geq 0@@</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Estude separadamente os sinais do numerador @(x^2 - 4x + 3)@ e do denominador @(x - 2)@ na reta real e construa o quadro-produto de sinais, atentando para a condição de existência @x \neq 2@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 24 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Translação e transformações no plano</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>O gráfico de uma função @g(x)@ é construído transladando a parábola fundamental @f(x) = x^2@ em 3 unidades horizontalmente para a direita e 4 unidades verticalmente para baixo.</p>
+      <p>a) Escreva a lei da função @g(x)@ na forma padrão @ax^2 + bx + c@.</p>
+      <p>b) Determine os zeros da função @g(x)@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Uma translação de @h@ unidades para a direita e @k@ para baixo sobre @f(x)@ produz @g(x) = f(x - h) - k = (x - 3)^2 - 4@.
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Desafios de alto nível e questões de vestibulares tradicionais (ENEM, FUVEST, UNICAMP) e olimpíadas de matemática (OBMEP): análise de parâmetros, desigualdades simultâneas e relações de Girard.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 25 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST</span>
+        <span class="topico">Família de parábolas e raízes com sinais opostos</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Considere a família de funções quadráticas @f_m(x) = x^2 - 2(m - 1)x + (m^2 - 2m - 3)@, em que @m@ representa um parâmetro real constante.</p>
+      <p>a) Demonstre que a função @f_m(x)@ possui duas raízes reais distintas para todo e qualquer valor de @m \in \mathbb{R}@.</p>
+      <p>b) Determine para quais valores do parâmetro @m@ as duas raízes reais de @f_m(x)@ possuem sinais contrários (isto é, uma raiz é estritamente positiva e a outra é estritamente negativa).</p>
+    </li>
+
+    <!-- PROBLEMA 26 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">UNICAMP</span>
+        <span class="topico">Sistema de inequações quadráticas simultâneas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 14 min</span>
+      </div>
+      <p>Encontre o conjunto de todos os números reais @x@ que satisfazem simultaneamente o seguinte sistema de inequações: @@\begin{cases} x^2 - 3x - 10 \leq 0 \\ x^2 - 4x > 0 \end{cases}@@ Apresente o conjunto solução final na forma de intervalos e indique quantos números inteiros pertencem a essa solução.</p>
+    </li>
+
+    <!-- PROBLEMA 27 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ENEM</span>
+        <span class="topico">Otimização de receita e modelagem parabólica</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Um agricultor colheu uma safra de tomates e estima que, se vendê-la imediatamente, terá 100 caixas prontas para entrega a um preço de R$ 80,00 por caixa. A cada semana de espera antes da venda, a quantidade colhida aumenta em 10 novas caixas devido ao amadurecimento das plantas remanescentes; todavia, em virtude do aumento de oferta do produto na região, o valor pago por caixa diminui R$ 4,00 a cada semana transcorrida.</p>
+      <p>a) Deduza a função quadrática @R(t)@ que expressa a receita total (em reais) que o agricultor obterá vendendo toda a sua colheita após uma espera de @t@ semanas.</p>
+      <p>b) Após quantas semanas de espera o produtor alcançará a receita máxima possível? Qual será o valor dessa receita máxima arrecadada?</p>
+    </li>
+
+    <!-- PROBLEMA 28 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">OBMEP</span>
+        <span class="topico">Mínimo condicionado e soma de quadrados</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 15 min</span>
+      </div>
+      <p>Sejam @x@ e @y@ números reais tais que a sua soma seja constante e igual a 10 (@x + y = 10@).</p>
+      <p>a) Utilizando propriedades da função quadrática, determine o valor mínimo da soma dos seus quadrados @S = x^2 + y^2@ e especifique os valores de @x@ e @y@ para os quais esse mínimo ocorre.</p>
+      <p>b) Se for imposta a restrição adicional de que @x \geq 7@, determine o novo valor mínimo que a soma @x^2 + y^2@ poderá atingir.</p>
+    </li>
+
+    <!-- PROBLEMA 29 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST</span>
+        <span class="topico">Trinômio estritamente positivo para todo x real</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Determine o conjunto de todos os valores reais da constante @k@ para os quais a função quadrática @@f(x) = (k - 1)x^2 + 2(k - 1)x + (2k + 1)@@ assume exclusivamente valores estritamente positivos (@f(x) > 0@) para qualquer valor real de @x@.</p>
+    </li>
+
+    <!-- PROBLEMA 30 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST / UNICAMP</span>
+        <span class="topico">Corda parabólica e relações de Viète</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 14 min</span>
+      </div>
+      <p>Uma reta de equação @y = 2x + k@ intercepta a parábola canônica @y = x^2@ em dois pontos distintos @P_1(x_1, y_1)@ e @P_2(x_2, y_2)@.</p>
+      <p>a) Estabeleça a condição necessária e suficiente sobre a constante real @k@ para que existam de fato dois pontos de interseção distintos.</p>
+      <p>b) Expresse a diferença ao quadrado entre as abscissas, dada por @(x_2 - x_1)^2@, em termos de @k@ e calcule o valor exato de @k@ para o qual a distância horizontal entre esses dois pontos de contato seja igual a 6 unidades (@|x_2 - x_1| = 6@).</p>
+    </li>
+
+    <!-- PROBLEMA 31 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ENEM / FUVEST</span>
+        <span class="topico">Otimização com vínculo linear</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Dois números reais positivos @u@ e @v@ estão vinculados pela equação linear @3u + 2v = 24@.</p>
+      <p>a) Expresse o produto @P = u \cdot v@ como uma função quadrática de uma única variável.</p>
+      <p>b) Encontre os valores de @u@ e @v@ que tornam o produto @P@ máximo e indique o valor numérico desse produto máximo.</p>
+    </li>
+
+    <!-- PROBLEMA 32 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">OBMEP</span>
+        <span class="topico">Relações de Girard e teoria dos números</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 15 min</span>
+      </div>
+      <p>Considere a equação do segundo grau @x^2 - px + q = 0@, na qual os coeficientes @p@ e @q@ são números inteiros positivos primos. Sabendo que essa equação admite duas raízes inteiras positivas distintas @r_1@ e @r_2@:</p>
+      <p>a) Identifique as raízes @r_1@ e @r_2@ da equação.</p>
+      <p>b) Determine os valores numéricos dos coeficientes primos @p@ e @q@, justificando sua dedução com base nas relações de soma e produto de raízes.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para prática autônoma. Resolva-os e confira suas respostas no gabarito estruturado ao final da página!
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 33 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Vértice e conjunto imagem</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Dada a função @f: \mathbb{R} \to \mathbb{R}@ definida por @f(x) = 3x^2 - 12x + 7@, calcule as coordenadas de seu ponto extremo e determine formalmente o seu conjunto imagem @\text{Im}(f)@.</p>
+    </li>
+
+    <!-- PROBLEMA 34 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Gabarito de altura em túnel parabólico</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>A abóbada de um túnel rodoviário possui formato de arco parabólico dado por @h(x) = -0{,}5x^2 + 6@, com as medidas dadas em metros e @x@ indicando o afastamento horizontal a partir do centro da pista de rolamento. Um caminhão baú possui 2,4 metros de largura e 3,5 metros de altura. Se o caminhão passar exatamente centralizado pela pista, ele conseguirá atravessar o túnel com segurança? Justifique calculando a altura livre do arco nas bordas do caminhão.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Centralizado, o caminhão se estende de @x = -1{,}2@ a @x = 1{,}2@. Avalie a altura do teto do túnel em @x = 1{,}2@ e compare com a altura de 3,5 m do baú.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 35 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequação quadrática modular</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Resolva no conjunto dos números reais @\mathbb{R}@ a inequação @@x^2 - 5|x| + 6 \leq 0@@</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Utilize a identidade @x^2 = |x|^2@ e defina a variável auxiliar @y = |x| \geq 0@ para transformar a expressão em uma inequação quadrática padrão em @y@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 36 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Sistema não linear (reta e parábola)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Encontre todos os pares ordenados @(x, y) \in \mathbb{R} \times \mathbb{R}@ que satisfazem o sistema: @@\begin{cases} y = x^2 - 4x + 3 \\ x + y = 1 \end{cases}@@</p>
+    </li>
+
+    <!-- PROBLEMA 37 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Condição geométrica sobre o vértice</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Considere a função @y = x^2 - 6x + m@, onde @m@ é uma constante real. Determine o valor de @m@ para que o vértice da respectiva parábola pertença à reta de equação @y = 2x - 5@.</p>
+    </li>
+
+    <!-- PROBLEMA 38 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Geometria e corte de chapa retangular</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>A partir de uma placa quadrada de papelão com 20 cm de lado, cortam-se quadrados idênticos de lado @x@ em cada um dos seus quatro cantos para dobrar as abas e construir uma caixa aberta sem tampa.</p>
+      <p>a) Obtenha a expressão que fornece a área do fundo plano da caixa, @A(x)@, em termos de @x@, indicando o domínio geométrico viável para @x@.</p>
+      <p>b) Para qual valor de @x@ a área da base quadrada do fundo será exatamente igual a 64 cm²?</p>
+    </li>
+
+    <!-- PROBLEMA 39 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Intervalo de rentabilidade econômica</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>O lucro mensal @L(x)@ de uma oficina mecânica (em milhares de reais) decorrente do conserto e revisão de @x@ dezenas de veículos é estimado pelo modelo @L(x) = -2x^2 + 14x - 20@. Encontre a faixa de produção e atendimento de veículos no mês para a qual a oficina garante lucro estritamente positivo (@L(x) > 0@).</p>
+    </li>
+
+    <!-- PROBLEMA 40 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equação biquadrada redutível</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Determine todas as raízes reais da equação biquadrada @@x^4 - 13x^2 + 36 = 0@@</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Aplique a mudança de variável @u = x^2@, resolva a equação quadrática em @u@ e extraia as raízes reais correspondentes para @x@.
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     GABARITO E SOLUÇÕES ESTRUTURADAS
+     ============================================================================ -->
+<details class="gabarito-container">
+  <summary>🔍 Clique para Ver o Gabarito e as Soluções Estruturadas</summary>
+  <div class="gabarito-content">
+
+    <!-- GABARITO DA SEÇÃO 1 -->
+    <div class="gabarito-secao">
+      <h3>Seção 1: Problemas Introdutórios</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Coeficientes: @a = 3@, @b = -5@ e @c = 2@. Como o coeficiente líder @a = 3 > 0@, a parábola possui concavidade voltada para cima.<br>
+          <strong>Resposta:</strong> @a = 3, b = -5, c = 2@; concavidade para cima.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          • @f(0) = -2(0)^2 + 4(0) - 1 = -1@<br>
+          • @f(1) = -2(1)^2 + 4(1) - 1 = -2 + 4 - 1 = 1@<br>
+          • @f(-2) = -2(-2)^2 + 4(-2) - 1 = -2(4) - 8 - 1 = -8 - 8 - 1 = -17@<br>
+          <strong>Resposta:</strong> @f(0) = -1@, @f(1) = 1@ e @f(-2) = -17@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> @a = 1@, @b = -6@, @c = 9@. Discriminante: @\Delta = (-6)^2 - 4(1)(9) = 36 - 36 = 0@. Sendo @\Delta = 0@, a função quadrática possui uma única raiz real dupla (duas raízes reais e coincidentes: @x = 3@).<br>
+          <strong>Resposta:</strong> @\Delta = 0@; possui uma única raiz real dupla (@x = 3@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Para @x^2 - 7x + 10 = 0@: soma @S = 7@ e produto @P = 10@. Dois números cujo produto é 10 e a soma é 7 são 2 e 5. Por Bhaskara: @\Delta = (-7)^2 - 4(1)(10) = 49 - 40 = 9@, @x = \frac{7 \pm 3}{2}@, logo @x_1 = 2@ e @x_2 = 5@.<br>
+          <strong>Resposta:</strong> @x_1 = 2@ e @x_2 = 5@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @2x^2 - 18 = 0 \iff 2x^2 = 18 \iff x^2 = 9 \iff x = \pm 3@.<br>
+          b) @5x^2 + 15x = 0 \iff 5x(x + 3) = 0 \iff x = 0@ ou @x = -3@.<br>
+          <strong>Resposta:</strong> a) @x = \pm 3@; b) @x = 0@ ou @x = -3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Para @f(x) = x^2 - 4x + 3@: @a = 1, b = -4, c = 3@.<br>
+          Abscissa do vértice: @x_v = -\frac{b}{2a} = -\frac{-4}{2(1)} = 2@.<br>
+          Ordenada do vértice: @y_v = f(2) = 2^2 - 4(2) + 3 = 4 - 8 + 3 = -1@ (ou @y_v = -\frac{\Delta}{4a} = -\frac{16 - 12}{4} = -1@).<br>
+          <strong>Resposta:</strong> Vértice @V(2, -1)@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Para @y = -x^2 + 8x - 12@, temos @a = -1 < 0@, logo a parábola tem concavidade para baixo e admite valor máximo.<br>
+          Abscissa do extremo: @x_v = -\frac{8}{2(-1)} = 4@.<br>
+          Valor máximo: @y_v = -(4)^2 + 8(4) - 12 = -16 + 32 - 12 = 4@.<br>
+          <strong>Resposta:</strong> a) Valor máximo (pois @a < 0@); b) Valor máximo @4@, atingido em @x = 4@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          • Interseção com o eixo @x@ (@y = 0@): @x^2 - 2x - 8 = 0 \iff (x - 4)(x + 2) = 0 \iff x = 4@ ou @x = -2@. Pontos: @(4, 0)@ e @(-2, 0)@.<br>
+          • Interseção com o eixo @y@ (@x = 0@): @y = f(0) = -8@. Ponto: @(0, -8)@.<br>
+          <strong>Resposta:</strong> No eixo @x@: @(-2, 0)@ e @(4, 0)@; no eixo @y@: @(0, -8)@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Por simetria da parábola, o eixo de simetria é a reta vertical que passa pela média aritmética de suas raízes: @x = \frac{x_1 + x_2}{2} = \frac{-1 + 7}{2} = \frac{6}{2} = 3@.<br>
+          <strong>Resposta:</strong> Reta @x = 3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Discriminante: @\Delta = 3^2 - 4(2)(5) = 9 - 40 = -31 < 0@. Como @\Delta < 0@, a equação @2x^2 + 3x + 5 = 0@ não tem raízes reais. Logo, a parábola não toca nem corta o eixo @x@ (zero pontos de contato).<br>
+          <strong>Resposta:</strong> A curva gráfica possui 0 pontos de contato com o eixo @x@, pois @\Delta = -31 < 0@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- GABARITO DA SEÇÃO 2 -->
+    <div class="gabarito-secao">
+      <h3>Seção 2: Problemas de Fixação</h3>
+      <ol start="11">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A tela total de 60 m cerca dois lados de medida @x@ e um lado paralelo ao muro de medida @(60 - 2x)@. A área é @A(x) = x(60 - 2x) = -2x^2 + 60x@.<br>
+          b) O valor máximo ocorre no vértice: @x_v = -\frac{60}{2(-2)} = 15\text{ m}@. O lado paralelo mede @60 - 2(15) = 30\text{ m}@. A área máxima é @A(15) = 15 \cdot 30 = 450\text{ m}^2@.<br>
+          <strong>Resposta:</strong> a) @A(x) = -2x^2 + 60x@; b) Dimensões de 15 m por 30 m; Área máxima de 450 m².
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) O tempo para a altura máxima é a abscissa do vértice: @t_v = -\frac{40}{2(-5)} = 4\text{ s}@.<br>
+          b) Altura máxima: @h(4) = -5(4)^2 + 40(4) = -80 + 160 = 80\text{ m}@.<br>
+          c) Retorno ao solo: @h(t) = 0 \iff -5t(t - 8) = 0@. Descartando @t = 0@ (instante do lançamento), obtemos @t = 8\text{ s}@.<br>
+          <strong>Resposta:</strong> a) 4 segundos; b) 80 metros; c) 8 segundos.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Receita: @R(q) = 50q@. Lucro: @L(q) = R(q) - C(q) = 50q - (q^2 + 10q + 300) = -q^2 + 40q - 300@.<br>
+          b) Quantidade para lucro máximo: @q_v = -\frac{40}{2(-1)} = 20@ unidades. Lucro máximo: @L(20) = -(20)^2 + 40(20) - 300 = -400 + 800 - 300 = 100@ reais.<br>
+          <strong>Resposta:</strong> a) @R(q) = 50q@ e @L(q) = -q^2 + 40q - 300@; b) 20 capas; Lucro máximo de R$ 100,00.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Com a origem no solo e ponto médio, o vértice está em @(0, 20) \implies c = 20@. Os apoios no chão ficam em @(-20, 0)@ e @(20, 0)@. Substituindo @(20, 0)@: @0 = a(20)^2 + 20 \implies 400a = -20 \implies a = -\frac{1}{20} = -0{,}05@. Logo, @y = -0{,}05x^2 + 20@.<br>
+          b) A 10 m do centro (@x = 10@): @y = -0{,}05(10)^2 + 20 = -0{,}05(100) + 20 = -5 + 20 = 15\text{ m}@.<br>
+          <strong>Resposta:</strong> a) @y = -0{,}05x^2 + 20@ (ou @y = -\frac{1}{20}x^2 + 20@); b) 15 metros.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Raízes de @-x^2 + 2x + 8 = 0@: @\Delta = 4 - 4(-1)(8) = 36@, @x = \frac{-2 \pm 6}{-2}@, logo @x = -2@ e @x = 4@. Como @a = -1 < 0@ (concavidade voltada para baixo):<br>
+          • @f(x) > 0 \iff x \in ]-2, 4[@ (ou @-2 < x < 4@);<br>
+          • @f(x) = 0 \iff x \in \{-2, 4\}@;<br>
+          • @f(x) < 0 \iff x \in ]-\infty, -2[ \cup ]4, +\infty[@ (ou @x < -2@ ou @x > 4@).<br>
+          <strong>Resposta:</strong> Positiva para @x \in ]-2, 4[@, nula para @x \in \{-2, 4\}@ e negativa para @x < -2@ ou @x > 4@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Raízes de @2x^2 - 5x - 3 = 0@: @\Delta = (-5)^2 - 4(2)(-3) = 25 + 24 = 49@. @x = \frac{5 \pm 7}{4} \implies x_1 = -\frac{1}{2}@ e @x_2 = 3@. Sendo @a = 2 > 0@, o trinômio é não positivo no intervalo delimitado pelas raízes: @S = \left[-\frac{1}{2}, 3\right]@.<br>
+          <strong>Resposta:</strong> @S = \left[-\frac{1}{2}, 3\right]@ (isto é, @-\frac{1}{2} \leq x \leq 3@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> @f(0) = c = 5@. Pelo ponto @B(1, 2)@: @a(1)^2 + b(1) + 5 = 2 \implies a + b = -3@. Pelo ponto @C(3, 8)@: @a(3)^2 + b(3) + 5 = 8 \implies 9a + 3b = 3 \implies 3a + b = 1@. Subtraindo as duas equações: @(3a + b) - (a + b) = 1 - (-3) \implies 2a = 4 \implies a = 2@. Substituindo: @2 + b = -3 \implies b = -5@. Portanto, @f(x) = 2x^2 - 5x + 5@.<br>
+          <strong>Resposta:</strong> @f(x) = 2x^2 - 5x + 5@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Completando quadrados: @f(x) = 2(x^2 - 6x) + 23 = 2[(x - 3)^2 - 9] + 23 = 2(x - 3)^2 - 18 + 23 = 2(x - 3)^2 + 5@. O vértice é @V(3, 5)@ e o valor mínimo absoluto é @5@.<br>
+          <strong>Resposta:</strong> Forma canônica: @f(x) = 2(x - 3)^2 + 5@; Vértice @V(3, 5)@; Valor mínimo: 5.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Raízes em @-2@ e @4@. A abscissa do vértice é @x_v = \frac{-2 + 4}{2} = 1@. O vértice é @V(1, 18)@. Na forma fatorada @f(x) = a(x + 2)(x - 4)@: @f(1) = a(3)(-3) = -9a = 18 \implies a = -2@. Expandindo: @f(x) = -2(x^2 - 2x - 8) = -2x^2 + 4x + 16@.<br>
+          <strong>Resposta:</strong> @f(x) = -2x^2 + 4x + 16@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Igualando @y@: @x^2 - x - 3 = 2x + 1 \iff x^2 - 3x - 4 = 0 \iff (x - 4)(x + 1) = 0@. Portanto, @x = 4@ ou @x = -1@. Para @x = 4@: @y = 2(4) + 1 = 9 \implies (4, 9)@. Para @x = -1@: @y = 2(-1) + 1 = -1 \implies (-1, -1)@.<br>
+          <strong>Resposta:</strong> @(-1, -1)@ e @(4, 9)@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Interseção: @x^2 + 2x + 6 = 4x + k \iff x^2 - 2x + (6 - k) = 0@. Para tangência, o discriminante deve anular-se: @\Delta = (-2)^2 - 4(1)(6 - k) = 4 - 24 + 4k = 4k - 20 = 0 \implies 4k = 20 \implies k = 5@.<br>
+          <strong>Resposta:</strong> @k = 5@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Preço unitário: @40 - 2x@. Ingressos vendidos: @300 + 30x@. A receita é @R(x) = (40 - 2x)(300 + 30x) = 12000 + 1200x - 600x - 60x^2 = -60x^2 + 600x + 12000@.<br>
+          b) O vértice ocorre em @x_v = -\frac{600}{2(-60)} = 5@ descontos. Preço por ingresso: @40 - 2(5) = \text{R\$} 30,00@. Público: @300 + 30(5) = 450@ pessoas (inferior aos 500 lugares disponíveis). Receita máxima: @30 \times 450 = \text{R\$} 13.500,00@.<br>
+          <strong>Resposta:</strong> a) @R(x) = -60x^2 + 600x + 12000@; b) Preço de R$ 30,00 por ingresso; Receita máxima de R$ 13.500,00.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Numerador @N(x) = x^2 - 4x + 3 = (x - 1)(x - 3)@ (nulo em @1@ e @3@, positivo para @x < 1@ ou @x > 3@). Denominador @D(x) = x - 2@ (nulo em @2@ com restrição @x \neq 2@, positivo para @x > 2@). Fazendo a regra de sinais nos intervalos: @]-\infty, 1[@ é negativo, em @x=1@ vale zero, em @]1, 2[@ é positivo, em @]2, 3[@ é negativo, em @x=3@ vale zero e em @]3, +\infty[@ é positivo. Logo, a expressão é @\geq 0@ em @[1, 2[\, \cup\, [3, +\infty[@.<br>
+          <strong>Resposta:</strong> @S = [1, 2[\, \cup\, [3, +\infty[@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @g(x) = (x - 3)^2 - 4 = x^2 - 6x + 9 - 4 = x^2 - 6x + 5@.<br>
+          b) Zeros: @(x - 3)^2 - 4 = 0 \iff (x - 3)^2 = 4 \iff x - 3 = \pm 2 \iff x = 1@ ou @x = 5@.<br>
+          <strong>Resposta:</strong> a) @g(x) = x^2 - 6x + 5@; b) @x = 1@ e @x = 5@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- GABARITO DA SEÇÃO 3 -->
+    <div class="gabarito-secao">
+      <h3>Seção 3: Problemas de Aprofundamento</h3>
+      <ol start="25">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) O discriminante de @f_m(x)@ é: @\Delta = [-2(m - 1)]^2 - 4(1)(m^2 - 2m - 3) = 4(m^2 - 2m + 1) - 4(m^2 - 2m - 3) = 4(4) = 16 > 0@, constante e estritamente positivo para todo @m \in \mathbb{R}@. Portanto, existem duas raízes reais distintas para qualquer @m@ real.<br>
+          b) Para que as raízes tenham sinais contrários, o produto das raízes deve ser estritamente negativo: @P = \frac{c}{a} = m^2 - 2m - 3 < 0 \iff (m - 3)(m + 1) < 0 \iff -1 < m < 3@.<br>
+          <strong>Resposta:</strong> a) @\Delta = 16 > 0@ para todo @m \in \mathbb{R}@; b) @m \in ]-1, 3[@ (isto é, @-1 < m < 3@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          • Inequação 1: @x^2 - 3x - 10 \leq 0 \iff (x - 5)(x + 2) \leq 0 \iff -2 \leq x \leq 5@, isto é, @S_1 = [-2, 5]@.<br>
+          • Inequação 2: @x^2 - 4x > 0 \iff x(x - 4) > 0 \iff x < 0@ ou @x > 4@, isto é, @S_2 = ]-\infty, 0[\, \cup\, ]4, +\infty[@.<br>
+          • Interseção: @S = S_1 \cap S_2 = [-2, 0[\, \cup\, ]4, 5]@.<br>
+          Os inteiros contidos nessa união de intervalos são @x \in \{-2, -1, 5\}@, totalizando 3 números inteiros.<br>
+          <strong>Resposta:</strong> Solução: @[-2, 0[\, \cup\, ]4, 5]@; Existem exatamente 3 números inteiros (@-2@, @-1@ e @5@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Quantidade de caixas: @100 + 10t@. Preço unitário: @80 - 4t@. Receita total: @R(t) = (100 + 10t)(80 - 4t) = 8000 - 400t + 800t - 40t^2 = -40t^2 + 400t + 8000@.<br>
+          b) O vértice ocorre em @t_v = -\frac{400}{2(-40)} = 5@ semanas. A receita máxima correspondente é @R(5) = -40(5)^2 + 400(5) + 8000 = -1000 + 2000 + 8000 = 9000@ reais.<br>
+          <strong>Resposta:</strong> a) @R(t) = -40t^2 + 400t + 8000@; b) 5 semanas; Receita máxima de R$ 9.000,00.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Como @y = 10 - x@, temos @S(x) = x^2 + (10 - x)^2 = 2x^2 - 20x + 100@. Sendo @a = 2 > 0@, o ponto de mínimo ocorre no vértice @x_v = -\frac{-20}{2(2)} = 5@. Logo, @x = 5@ e @y = 5@. O valor mínimo é @S(5) = 2(25) - 100 + 100 = 50@.<br>
+          b) Com @x \geq 7@: como a parábola tem vértice em @x = 5@ e concavidade para cima, a função @S(x)@ é estritamente crescente para todo @x \geq 5@. Portanto, o menor valor no intervalo @[7, +\infty[@ ocorre em @x = 7@. Para @x = 7@, temos @y = 3@ e @S = 7^2 + 3^2 = 49 + 9 = 58@.<br>
+          <strong>Resposta:</strong> a) Valor mínimo de 50 para @x = 5@ e @y = 5@; b) Valor mínimo de 58 (atingido em @x = 7, y = 3@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Para que um trinômio quadrático seja estritamente positivo para todo @x \in \mathbb{R}@, devemos ter simultaneamente:<br>
+          1) @a > 0 \implies k - 1 > 0 \implies k > 1@;<br>
+          2) @\Delta < 0@: @\Delta = [2(k - 1)]^2 - 4(k - 1)(2k + 1) = 4(k - 1)[(k - 1) - (2k + 1)] = -4(k - 1)(k + 2) < 0 \iff (k - 1)(k + 2) > 0@, o que ocorre quando @k < -2@ ou @k > 1@.<br>
+          Fazendo a interseção das duas condições (@k > 1@ e @[k < -2 \text{ ou } k > 1]@), obtemos @k > 1@.<br>
+          <strong>Resposta:</strong> @k \in ]1, +\infty[@ (isto é, @k > 1@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Interseção: @x^2 = 2x + k \iff x^2 - 2x - k = 0@. Para haver dois pontos de interseção distintos: @\Delta = (-2)^2 - 4(1)(-k) = 4 + 4k > 0 \implies 4k > -4 \implies k > -1@.<br>
+          b) Pelas relações de Girard, @x_1 + x_2 = 2@ e @x_1 x_2 = -k@. A diferença ao quadrado é @(x_2 - x_1)^2 = (x_1 + x_2)^2 - 4x_1 x_2 = 2^2 - 4(-k) = 4 + 4k@. Para @|x_2 - x_1| = 6@, elevamos ao quadrado: @(x_2 - x_1)^2 = 36 \implies 4 + 4k = 36 \implies 4k = 32 \implies k = 8@ (que satisfaz @k > -1@).<br>
+          <strong>Resposta:</strong> a) @k > -1@; b) @(x_2 - x_1)^2 = 4 + 4k@ e @k = 8@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Da equação linear, @2v = 24 - 3u \implies v = 12 - \frac{3}{2}u@. O produto é @P(u) = u\left(12 - \frac{3}{2}u\right) = -\frac{3}{2}u^2 + 12u@.<br>
+          b) Como @a = -\frac{3}{2} < 0@, o ponto de máximo ocorre no vértice: @u_v = -\frac{12}{2(-3/2)} = \frac{12}{3} = 4@. Substituindo: @v = 12 - \frac{3}{2}(4) = 12 - 6 = 6@. O produto máximo é @P_{max} = 4 \times 6 = 24@.<br>
+          <strong>Resposta:</strong> a) @P(u) = -\frac{3}{2}u^2 + 12u@; b) @u = 4@, @v = 6@ e produto máximo igual a 24.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Pelas relações de Girard: @r_1 + r_2 = p@ e @r_1 \cdot r_2 = q@. Sendo @q@ um número primo e as raízes inteiras positivas distintas, os únicos divisores positivos de @q@ são 1 e @q@. Logo, @r_1 = 1@ e @r_2 = q@. Substituindo na soma: @1 + q = p \implies p - q = 1@. Os números @p@ e @q@ são números primos consecutivos cuja diferença é 1. O único par de primos com essa propriedade é @q = 2@ e @p = 3@ (já que todos os demais primos são ímpares e têm diferença mínima de 2). Assim, as raízes são 1 e 2.<br>
+          <strong>Resposta:</strong> a) Raízes @r_1 = 1@ e @r_2 = 2@; b) Primos @p = 3@ e @q = 2@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- GABARITO DA SEÇÃO 4 -->
+    <div class="gabarito-secao">
+      <h3>Seção 4: Problemas Propostos</h3>
+      <ol start="33">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> @x_v = -\frac{-12}{2(3)} = 2@. @y_v = f(2) = 3(4) - 12(2) + 7 = 12 - 24 + 7 = -5@. Como @a = 3 > 0@, a parábola tem concavidade voltada para cima e o vértice é ponto de mínimo absoluto: @\text{Im}(f) = [-5, +\infty[@.<br>
+          <strong>Resposta:</strong> Vértice @V(2, -5)@ e @\text{Im}(f) = [-5, +\infty[@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Com largura de 2,4 m centralizada, as extremidades do baú situam-se em @x = \pm 1{,}2@. A altura do arco nessa posição é @h(1{,}2) = -0{,}5(1{,}2)^2 + 6 = -0{,}5(1{,}44) + 6 = -0{,}72 + 6 = 5{,}28\text{ m}@. Como @5{,}28\text{ m} > 3{,}50\text{ m}@, o caminhão atravessa o túnel com margem de segurança de @1{,}78\text{ m}@.<br>
+          <strong>Resposta:</strong> Sim, consegue passar com segurança (a altura do túnel nas bordas do baú é de 5,28 m, superando os 3,50 m do veículo).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Fazendo @y = |x| \geq 0@, a inequação torna-se @y^2 - 5y + 6 \leq 0 \iff (y - 2)(y - 3) \leq 0 \iff 2 \leq y \leq 3@. Retornando para @x@: @2 \leq |x| \leq 3 \iff x \in [-3, -2] \cup [2, 3]@.<br>
+          <strong>Resposta:</strong> @S = [-3, -2] \cup [2, 3]@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Da segunda equação, @y = 1 - x@. Substituindo na primeira: @1 - x = x^2 - 4x + 3 \iff x^2 - 3x + 2 = 0 \iff (x - 1)(x - 2) = 0@. Logo @x = 1@ (gerando @y = 0@) ou @x = 2@ (gerando @y = -1@).<br>
+          <strong>Resposta:</strong> @(1, 0)@ e @(2, -1)@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Abscissa do vértice: @x_v = -\frac{-6}{2} = 3@. Na reta @y = 2x - 5@, quando @x = 3@, temos @y_v = 2(3) - 5 = 1@. Na parábola: @y_v = 3^2 - 6(3) + m = 9 - 18 + m = m - 9@. Igualando: @m - 9 = 1 \implies m = 10@.<br>
+          <strong>Resposta:</strong> @m = 10@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Cada lado do fundo plano medirá @(20 - 2x)@. A área é @A(x) = (20 - 2x)^2 = 4x^2 - 80x + 400@, com domínio geométrico @x \in ]0, 10[@.<br>
+          b) @(20 - 2x)^2 = 64 \implies 20 - 2x = 8 \implies 2x = 12 \implies x = 6\text{ cm}@ (a outra raiz @20 - 2x = -8 \implies x = 14@ é descartada por exceder as dimensões da folha).<br>
+          <strong>Resposta:</strong> a) @A(x) = (20 - 2x)^2 = 4x^2 - 80x + 400@ para @0 < x < 10@; b) @x = 6\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> @-2x^2 + 14x - 20 > 0 \iff x^2 - 7x + 10 < 0 \iff (x - 2)(x - 5) < 0 \iff 2 < x < 5@. Como @x@ representa dezenas de veículos, a produção deve ser estritamente superior a 20 e inferior a 50 veículos atendidos.<br>
+          <strong>Resposta:</strong> Para @x \in ]2, 5[@, ou seja, entre 20 e 50 veículos mensais.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span> Seja @u = x^2 \geq 0@. A equação se reduz a @u^2 - 13u + 36 = 0 \iff (u - 4)(u - 9) = 0 \iff u = 4@ ou @u = 9@. Para @u = 4 \implies x^2 = 4 \implies x = \pm 2@. Para @u = 9 \implies x^2 = 9 \implies x = \pm 3@.<br>
+          <strong>Resposta:</strong> @S = \{-3, -2, 2, 3\}@.
+        </li>
+      </ol>
+    </div>
+
+  </div>
+</details>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

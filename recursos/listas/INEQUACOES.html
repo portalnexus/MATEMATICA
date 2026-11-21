@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - INEQUAÇÕES</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press Start 2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    /* Container de metadados (fonte, dificuldade, tempo estimado) */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    /* Tag de tópico matemático */
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    /* Tag de fonte do problema */
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Tag de dificuldade com cores diferentes */
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Cores por nível de dificuldade */
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }    /* Verde */
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }    /* Amarelo */
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }  /* Vermelho */
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); } /* Roxo */
+
+    /* Introdução de cada seção */
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    /* Caixas de dica para os estudantes */
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+<div class="container">
+
+<h1>INEQUAÇÕES - REVISÃO E CONSOLIDAÇÃO</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas básicos para familiarização com os conceitos fundamentais de inequações do 1º grau.
+  </p>
+
+  <ol>
+    <!-- Problema 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução básica de inequações</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Resolva a inequação @x + 5 > 12@.</p>
+    </li>
+
+    <!-- Problema 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução básica de inequações</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Resolva a inequação @3x \leq 21@.</p>
+    </li>
+
+    <!-- Problema 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução básica de inequações</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Resolva a inequação @x - 8 < 15@.</p>
+    </li>
+
+    <!-- Problema 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Verificação de soluções</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Verifique se @x = 5@ é solução da inequação @2x + 3 \geq 10@.</p>
+    </li>
+
+    <!-- Problema 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Verificação de soluções</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Dentre os valores @\{-2, 0, 3, 5\}@, quais satisfazem a inequação @x + 4 > 2@?</p>
+    </li>
+
+    <!-- Problema 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Representação na reta numérica</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Represente na reta numérica o conjunto solução de @x > 3@.</p>
+    </li>
+
+    <!-- Problema 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Representação na reta numérica</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Represente na reta numérica o conjunto solução de @x \leq -2@.</p>
+    </li>
+
+    <!-- Problema 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Propriedades das desigualdades</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Complete com @>@, @<@, @\geq@ ou @\leq@: Se @x > 5@, então @x + 3 \, \underline{\phantom{XX}} \, 8@.</p>
+    </li>
+
+    <!-- Problema 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Notação de intervalo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Escreva o conjunto solução de @x < 7@ usando notação de intervalo.</p>
+    </li>
+
+    <!-- Problema 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Notação de intervalo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Escreva o conjunto solução de @x \geq -1@ usando notação de intervalo.</p>
+    </li>
+
+    <!-- Problema 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução básica de inequações</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Resolva a inequação @-x > 4@.</p>
+    </li>
+
+    <!-- Problema 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Resolução básica de inequações</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Resolva a inequação @5x \geq 0@.</p>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas que requerem interpretação do enunciado e aplicação de conceitos combinados, incluindo a importante regra da troca de sinal ao multiplicar/dividir por números negativos.
+  </p>
+
+  <ol>
+    <!-- Problema 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequações com termos em ambos os lados</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Resolva a inequação @2x + 7 < 5x - 2@ e represente a solução na reta numérica.</p>
+    </li>
+
+    <!-- Problema 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequações com parênteses</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Resolva a inequação @3(x - 4) \geq 2(x + 1)@.</p>
+    </li>
+
+    <!-- Problema 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Multiplicação por número negativo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Resolva a inequação @-2x \leq 10@.</p>
+      <div class="dica">
+        <strong>Dica:</strong> Ao dividir ambos os lados por um número negativo, lembre-se de inverter o sentido da desigualdade.
+      </div>
+    </li>
+
+    <!-- Problema 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Multiplicação por número negativo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Resolva a inequação @-3x + 6 > 15@ e escreva a solução em notação de intervalo.</p>
+    </li>
+
+    <!-- Problema 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - Restrição de idade</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Para entrar em uma atração de parque de diversões, é necessário ter pelo menos 1,20 m de altura. Sabendo que a altura média de uma criança pode ser estimada por @h = 0,75 + 0,06i@, onde @h@ é a altura em metros e @i@ é a idade em anos, determine a partir de que idade, aproximadamente, uma criança pode entrar nessa atração.</p>
+    </li>
+
+    <!-- Problema 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - Orçamento</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Marina tem R$ 200,00 para gastar em uma loja. Ela já escolheu um livro de R$ 45,00 e quer comprar canetas que custam R$ 3,50 cada. Quantas canetas, no máximo, ela pode comprar sem ultrapassar seu orçamento?</p>
+    </li>
+
+    <!-- Problema 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - Capacidade</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um elevador pode transportar no máximo 600 kg. Já estão no elevador 4 pessoas com massa média de 70 kg cada. Quantas crianças de 30 kg, no máximo, ainda podem entrar no elevador?</p>
+    </li>
+
+    <!-- Problema 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequações complexas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Resolva a inequação @4(2x - 1) - 3(x + 2) < 5x + 10@.</p>
+    </li>
+
+    <!-- Problema 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - Medidas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>O perímetro de um triângulo isósceles é menor que 40 cm. Sabendo que a base mede 12 cm e os lados congruentes medem @x@ cm cada, determine os possíveis valores de @x@.</p>
+      <div class="dica">
+        <strong>Dica:</strong> Lembre-se que o perímetro é a soma de todos os lados e que @x@ deve ser positivo.
+      </div>
+    </li>
+
+    <!-- Problema 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Notação de intervalo - Casos variados</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Resolva @5 - 2x \geq 11@ e expresse a solução usando notação de intervalo.</p>
+    </li>
+
+    <!-- Problema 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - Limitações físicas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um cabo de aço suporta no máximo 500 kg. Um container vazio pesa 80 kg e será carregado com caixas de 15 kg cada. Quantas caixas, no máximo, podem ser colocadas no container e suspensas pelo cabo?</p>
+    </li>
+
+    <!-- Problema 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequações com frações</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Resolva a inequação @@\frac{x}{2} + \frac{x}{3} > 5@@</p>
+    </li>
+
+    <!-- Problema 13 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Representação gráfica completa</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Resolva a inequação @7 - 3x < 1@ e represente a solução na reta numérica e em notação de intervalo.</p>
+    </li>
+
+    <!-- Problema 14 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - Restrição de temperatura</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma substância química deve ser armazenada em temperatura inferior a 15°C. A relação entre as escalas Celsius (@C@) e Fahrenheit (@F@) é dada por @C = \frac{5(F - 32)}{9}@. Determine a temperatura máxima em Fahrenheit para o armazenamento adequado.</p>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Problemas complexos que exigem raciocínio em múltiplas etapas, sistemas de inequações e aplicações práticas avançadas.
+  </p>
+
+  <ol>
+    <!-- Problema 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Sistema de inequações</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Determine o conjunto solução do sistema de inequações:</p>
+      @@
+      \begin{cases}
+      2x + 3 > 7 \\
+      3x - 1 \leq 11
+      \end{cases}
+      @@
+      <p>Represente a solução na reta numérica e em notação de intervalo.</p>
+    </li>
+
+    <!-- Problema 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Sistema de inequações - Aplicação</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Um estudante precisa obter uma nota @N@ na prova final que satisfaça simultaneamente:</p>
+      <p>• Seja maior que 6,0 para ser aprovado</p>
+      <p>• Seja menor ou igual a 10,0 (nota máxima)</p>
+      <p>• Quando somada ao dobro da média dos trabalhos (7,5), resulte em um total maior que 20</p>
+
+      <p>a) Expresse essas condições como um sistema de inequações.</p>
+      <p>b) Determine o intervalo de notas possíveis para aprovação.</p>
+      <p>c) Qual a nota mínima necessária na prova?</p>
+    </li>
+
+    <!-- Problema 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequações com frações complexas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Resolva a inequação @@\frac{2x - 1}{3} - \frac{x + 2}{4} \geq \frac{x - 3}{6}@@</p>
+      <div class="dica">
+        <strong>Dica:</strong> Determine o MMC dos denominadores para eliminar as frações.
+      </div>
+    </li>
+
+    <!-- Problema 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Otimização com inequações</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Uma fábrica produz dois tipos de produto: A e B. A produção de cada unidade de A requer 2 horas de trabalho, e cada unidade de B requer 3 horas. A fábrica dispõe de no máximo 120 horas semanais.</p>
+
+      <p>a) Se a fábrica decidir produzir apenas o produto A, quantas unidades pode produzir no máximo?</p>
+      <p>b) Se produzir 15 unidades de B, quantas unidades de A pode produzir no máximo?</p>
+      <p>c) Expresse a restrição de horas como uma inequação envolvendo @x@ (unidades de A) e @y@ (unidades de B).</p>
+      <p>d) Se @x = 20@, determine os valores possíveis de @y@.</p>
+    </li>
+
+    <!-- Problema 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação com múltiplas restrições</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Uma empresa de turismo está organizando uma excursão. O ônibus tem capacidade para 50 pessoas. O custo fixo da excursão é de R$ 2.000,00, mais R$ 30,00 por passageiro. A empresa quer que o preço por pessoa (@p@) seja tal que:</p>
+      <p>• A receita total seja maior que R$ 3.500,00</p>
+      <p>• O preço não ultrapasse R$ 120,00 por pessoa</p>
+      <p>• Pelo menos 25 pessoas participem</p>
+
+      <p>a) Se 30 pessoas confirmarem presença, qual deve ser o preço mínimo por pessoa para que a receita ultrapasse R$ 3.500,00?</p>
+      <p>b) Com 40 participantes e cobrando R$ 100,00 por pessoa, qual será o lucro (receita menos custos)?</p>
+    </li>
+
+    <!-- Problema 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequações modulares simples</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Um termômetro digital apresenta um erro de medição de no máximo 0,5°C para mais ou para menos. Se o termômetro indica 37°C, determine o intervalo de temperatura real possível.</p>
+      <p>a) Expresse essa situação usando uma inequação com valor absoluto.</p>
+      <p>b) Resolva a inequação e determine o intervalo de temperatura.</p>
+    </li>
+
+    <!-- Problema 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Análise de proposições</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Considere as afirmações sobre inequações:</p>
+      <p>I. Se @x > y@, então @x + 5 > y + 5@</p>
+      <p>II. Se @x > y@, então @-2x > -2y@</p>
+      <p>III. Se @x > y@ e @y > z@, então @x > z@</p>
+      <p>IV. Se @x > y@, então @x^2 > y^2@</p>
+
+      <p>a) Classifique cada afirmação como verdadeira ou falsa.</p>
+      <p>b) Para as afirmações falsas, forneça um contraexemplo.</p>
+    </li>
+
+    <!-- Problema 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Sistema triplo de inequações</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Resolva o sistema de inequações e represente graficamente a solução:</p>
+      @@
+      \begin{cases}
+      x + 2 > 5 \\
+      2x - 3 \leq 9 \\
+      -x + 4 \geq -2
+      \end{cases}
+      @@
+      <p>a) Determine o conjunto solução.</p>
+      <p>b) Represente na reta numérica.</p>
+      <p>c) Escreva usando notação de intervalo.</p>
+      <p>d) Quais números inteiros pertencem ao conjunto solução?</p>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para você praticar e consolidar seu aprendizado sobre inequações!
+  </p>
+
+  <ol>
+    <!-- Problema 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - Velocidade</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Em uma rodovia, a velocidade máxima permitida é 110 km/h. Um carro parte de um pedágio com velocidade de 70 km/h e acelera a uma taxa de 8 km/h por minuto. Após quantos minutos, no máximo, o motorista deve parar de acelerar para não ultrapassar o limite?</p>
+    </li>
+
+    <!-- Problema 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Geometria - Perímetro</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um retângulo tem largura de 8 cm e comprimento @c@ cm. Se o perímetro deve ser menor que 50 cm, quais são os valores possíveis para o comprimento?</p>
+    </li>
+
+    <!-- Problema 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - Consumo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma família consome em média 180 litros de água por dia. A caixa d'água tem capacidade de 1.500 litros. Se a caixa está cheia e não houver reabastecimento, por quantos dias completos, no mínimo, a família terá água disponível?</p>
+    </li>
+
+    <!-- Problema 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Desafio numérico</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Encontre todos os números inteiros que satisfazem simultaneamente @3x - 5 < 16@ e @2x + 7 \geq 11@.</p>
+    </li>
+
+    <!-- Problema 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - Custo-benefício</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma academia oferece dois planos: Plano A custa R$ 80,00 mensais sem custo por aula, e Plano B custa R$ 40,00 mensais mais R$ 5,00 por aula. A partir de quantas aulas por mês o Plano A se torna mais vantajoso?</p>
+    </li>
+
+    <!-- Problema 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Inequação literal</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Resolva a inequação @ax + b > c@ para @x@, onde @a@, @b@ e @c@ são constantes reais e @a \neq 0@. Analise os casos quando @a > 0@ e @a < 0@.</p>
+    </li>
+
+    <!-- Problema 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - Mistura</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma receita de suco requer pelo menos 200 mL de polpa de fruta. Se já foram adicionados 80 mL de polpa de morango, quantos mL de polpa de laranja devem ser adicionados para completar a receita?</p>
+    </li>
+
+    <!-- Problema 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Desafio - Intervalo vazio</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Determine para quais valores de @k@ o sistema abaixo não possui solução:</p>
+      @@
+      \begin{cases}
+      x > k + 2 \\
+      x < k - 3
+      \end{cases}
+      @@
+      <div class="dica">
+        <strong>Dica:</strong> Um sistema não tem solução quando os intervalos não se intersectam.
+      </div>
+    </li>
+
+    <!-- Problema 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - Física</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>A lei de Hooke relaciona a força @F@ (em Newtons) aplicada a uma mola com sua deformação @x@ (em cm) pela fórmula @F = kx@, onde @k@ é a constante elástica. Para uma mola com @k = 50@ N/cm, que não deve ser deformada em mais de 10 cm, qual a força máxima que pode ser aplicada?</p>
+    </li>
+
+    <!-- Problema 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Desafio algébrico</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Prove que para quaisquer números reais @a@ e @b@, vale a desigualdade @@a^2 + b^2 \geq 2ab@@</p>
+      <p>Em que condição ocorre a igualdade?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Considere analisar a expressão @(a - b)^2@.
+      </div>
+    </li>
+
+  </ol>
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

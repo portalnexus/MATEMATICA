@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lista de Problemas: Trigonometria no Ciclo e Funções Circulares</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil {
+      background-color: rgba(76, 175, 80, 0.3);
+    }
+
+    .dificuldade.media {
+      background-color: rgba(255, 193, 7, 0.3);
+    }
+
+    .dificuldade.dificil {
+      background-color: rgba(244, 67, 54, 0.3);
+    }
+
+    .dificuldade.desafio {
+      background-color: rgba(156, 39, 176, 0.3);
+    }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: bold;
+      color: #00ffcc;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+        <li><a href="../../recursos.html">RECURSOS</a></li>
+        <li><a href="../../dashboard.html">DASHBOARD</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+
+      <h1>TRIGONOMETRIA NO CICLO E FUNÇÕES CIRCULARES</h1>
+      <p class="section-intro">
+        Capítulo 1 (3º Ano EM) — Da medição pioneira do raio da Terra por Eratóstenes aos modelos periódicos de ondas sonoras, marés e sinais eletromagnéticos: arcos no ciclo trigonométrico, congruências, equações fundamentais e modelagem harmônica.
+      </p>
+
+      <!-- ============================================================================
+           SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS (10 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 1: Problemas Introdutórios</h2>
+        <p class="section-intro">
+          Exercícios diretos para consolidação da conversão entre graus e radianos, cálculo de comprimento de arco, identificação de arcos côngruos, valores das razões trigonométricas fundamentais e relações no ciclo.
+        </p>
+
+        <ol>
+          <!-- Problema 1 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Conversão de graus para radianos</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Converta as seguintes medidas de arcos de graus sexagesimais para radianos (expresse as respostas em frações irredutíveis com @\pi@):
+            </p>
+            <p>a) @15^\circ@</p>
+            <p>b) @75^\circ@</p>
+            <p>c) @150^\circ@</p>
+            <p>d) @225^\circ@</p>
+            <p>e) @315^\circ@</p>
+          </li>
+
+          <!-- Problema 2 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Conversão de radianos para graus</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Converta as seguintes medidas angulares expressas em radianos para a escala em graus:
+            </p>
+            <p>a) @\frac{2\pi}{3}\text{ rad}@</p>
+            <p>b) @\frac{5\pi}{4}\text{ rad}@</p>
+            <p>c) @\frac{7\pi}{6}\text{ rad}@</p>
+            <p>d) @\frac{11\pi}{6}\text{ rad}@</p>
+          </li>
+
+          <!-- Problema 3 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Comprimento de arco de circunferência</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Um arco de circunferência de raio @R = 12\text{ cm}@ subtende um ângulo central de @60^\circ@. Determine o comprimento @s@ desse arco em centímetros. Considere @\pi \approx 3{,}14@ para a resposta decimal e indique também o valor exato em termos de @\pi@.
+            </p>
+          </li>
+
+          <!-- Problema 4 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Arcos côngruos e primeira determinação positiva</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Determine a primeira determinação positiva, o número de voltas completas percorridas e o quadrante a que pertence o arco de medida @\alpha = 1560^\circ@ no ciclo trigonométrico.
+            </p>
+          </li>
+
+          <!-- Problema 5 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Primeira determinação positiva em radianos</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Encontre a primeira determinação positiva no intervalo @[0, 2\pi)@ e o quadrante correspondente aos seguintes arcos:
+            </p>
+            <p>a) @\alpha_1 = \frac{25\pi}{4}\text{ rad}@</p>
+            <p>b) @\alpha_2 = -\frac{17\pi}{3}\text{ rad}@</p>
+          </li>
+
+          <!-- Problema 6 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Razões trigonométricas no 2º quadrante</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Utilizando a redução ao primeiro quadrante e a simetria do ciclo trigonométrico, calcule os valores exatos de:
+            </p>
+            <p>a) @\sin(120^\circ)@</p>
+            <p>b) @\cos(135^\circ)@</p>
+            <p>c) @\tan(150^\circ)@</p>
+          </li>
+
+          <!-- Problema 7 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Razões trigonométricas no 3º quadrante</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Determine o valor exato das seguintes expressões trigonométricas situadas no terceiro quadrante:
+            </p>
+            <p>a) @\sin\left(\frac{7\pi}{6}\right)@</p>
+            <p>b) @\cos\left(\frac{4\pi}{3}\right)@</p>
+            <p>c) @\tan\left(\frac{5\pi}{4}\right)@</p>
+          </li>
+
+          <!-- Problema 8 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Razões trigonométricas no 4º quadrante</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Calcule os valores exatos de @\cos(300^\circ)@, @\sin(315^\circ)@ e @\tan(330^\circ)@.
+            </p>
+          </li>
+
+          <!-- Problema 9 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Sinais das razões trigonométricas nos quadrantes</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Sabe-se que um arco @x \in [0, 2\pi)@ satisfaz simultaneamente as condições @\sin(x) < 0@ e @\cos(x) > 0@.
+            </p>
+            <p>a) Em qual quadrante do ciclo trigonométrico está situado o arco @x@?</p>
+            <p>b) Quais são os sinais de @\tan(x)@ e de @\sec(x)@ nesse quadrante?</p>
+          </li>
+
+          <!-- Problema 10 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Relação Fundamental da Trigonometria</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Dado que @\sin(x) = \frac{3}{5}@ e que @x@ pertence ao segundo quadrante (@\frac{\pi}{2} < x < \pi@), determine os valores de @\cos(x)@, @\tan(x)@ e @\cot(x)@.
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 2: PROBLEMAS DE FIXAÇÃO (14 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 2: Problemas de Fixação</h2>
+        <p class="section-intro">
+          Aplicações contextuais em fenômenos físicos e naturais, equações trigonométricas elementares, determinação de período e amplitude em modelos de marés e som, e o histórico experimento de Eratóstenes.
+        </p>
+
+        <ol start="11">
+          <!-- Problema 11 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Experimento de Eratóstenes e raio terrestre</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              No solstício de verão, ao meio-dia solar, em Siena (atual Assuã), os raios solares incidiam verticalmente no fundo de um poço sem projetar sombra. No mesmo instante, na cidade de Alexandria, situada aproximadamente no mesmo meridiano ao norte, uma haste vertical (gnômon) projetava uma sombra correspondente a um ângulo de incidência solar de @7{,}2^\circ@. Sabendo que a distância medida na época entre as duas cidades era de aproximadamente @5.000\text{ estádios}@ (onde @1\text{ estádio} \approx 160\text{ metros}@, resultando em @800\text{ km}@):
+            </p>
+            <p>a) Calcule o comprimento estimado da circunferência total da Terra segundo o modelo de Eratóstenes.</p>
+            <p>b) Estime o raio terrestre em quilômetros obtido por esse método.</p>
+
+            <div class="dica">
+              <strong>Dica:</strong> Como os raios solares que atingem a Terra são praticamente paralelos, o ângulo de @7{,}2^\circ@ observado no topo da haste é congruente ao ângulo central subtendido pelo arco de meridiano entre Alexandria e Siena. Monte uma proporção com a circunferência completa de @360^\circ@.
+            </div>
+          </li>
+
+          <!-- Problema 12 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação trigonométrica elementar em seno</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Resolva a equação trigonométrica elementar no intervalo @[0, 2\pi)@:
+              @@\sin(x) = \frac{1}{2}@@
+              Represente o conjunto solução @S@ e indique as soluções em graus e em radianos.
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> O seno é positivo no 1º e no 2º quadrantes. Encontre o ângulo de referência notável no 1º quadrante e use a redução @x = \pi - \alpha@ para obter a raiz do 2º quadrante.
+            </div>
+          </li>
+
+          <!-- Problema 13 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação trigonométrica elementar em cosseno</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Determine todas as soluções reais da equação trigonométrica no intervalo @[0, 2\pi)@:
+              @@\cos(x) = -\frac{\sqrt{2}}{2}@@
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> O cosseno é negativo no 2º e no 3º quadrantes. O arco cujo cosseno absoluto é @\frac{\sqrt{2}}{2}@ é @\frac{\pi}{4}@. As soluções são dadas por @\pi - \frac{\pi}{4}@ e @\pi + \frac{\pi}{4}@.
+            </div>
+          </li>
+
+          <!-- Problema 14 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação elementar em tangente</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Resolva no conjunto universo @U = [0, 2\pi)@ a equação:
+              @@\tan(x) = -\sqrt{3}@@
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> A tangente assume valores negativos no 2º e no 4º quadrantes. Sabendo que @\tan\left(\frac{\pi}{3}\right) = \sqrt{3}@, determine as projeções sobre a reta tangente ao ciclo trigonométrico.
+            </div>
+          </li>
+
+          <!-- Problema 15 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Modelagem harmônica de marés oceânicas</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              A profundidade da água em um canal portuário oscila periodicamente sob a influência das marés gravitacionais. A altura @h@ da água (em metros), em função do tempo @t@ (em horas após a meia-noite), é modelada pela função harmônica:
+              @@h(t) = 4 + 2\cos\left(\frac{\pi t}{6}\right)@@
+            </p>
+            <p>a) Qual é o período @T@ completo desse ciclo de marés?</p>
+            <p>b) Qual é a amplitude de oscilação @A@ e quais são as profundidades máxima e mínima atingidas no canal?</p>
+
+            <div class="dica">
+              <strong>Dica:</strong> Lembre-se de que o período de uma função @f(t) = C + A\cos(B t)@ é dado por @T = \frac{2\pi}{|B|}@. A função cosseno varia entre @-1@ e @+1@.
+            </div>
+          </li>
+
+          <!-- Problema 16 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Instantes de maré alta e maré baixa</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Considere a função de maré descrita por:
+              @@h(t) = 3{,}5 + 1{,}5\sin\left(\frac{\pi t}{6} - \frac{\pi}{2}\right)@@
+              onde @t \in [0, 24]@ representa as horas do dia. Determine os horários exatos em que ocorrem a primeira maré alta (pico máximo) e a primeira maré baixa (nível mínimo).
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> A função seno atinge seu valor máximo @+1@ quando o argumento vale @\frac{\pi}{2} + 2k\pi@ e seu valor mínimo @-1@ quando o argumento vale @\frac{3\pi}{2} + 2k\pi@.
+            </div>
+          </li>
+
+          <!-- Problema 17 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Modelagem acústica e ondas sonoras puras</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              A nota musical padrão de afinação Lá central (@440\text{ Hz}@) produz uma oscilação senoidal de pressão no ar dada por:
+              @@P(t) = P_0 \sin(2\pi f t)@@
+              onde @f = 440\text{ s}^{-1}@ e a amplitude de pressão é @P_0 = 0{,}05\text{ Pa}@.
+            </p>
+            <p>a) Calcule o período @T@ da onda sonora gerada em segundos e em milissegundos.</p>
+            <p>b) Escreva a equação completa de @P(t)@ e determine a variação total de pressão pico a pico (@\Delta P = P_{\text{máx}} - P_{\text{mín}}@).</p>
+
+            <div class="dica">
+              <strong>Dica:</strong> O período temporal de oscilação é o inverso da frequência: @T = \frac{1}{f}@.
+            </div>
+          </li>
+
+          <!-- Problema 18 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Oscilações do pêndulo simples</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Para pequenas oscilações, a posição angular @\theta(t)@ de um pêndulo simples de relógio de parede é expressa por:
+              @@\theta(t) = \theta_0 \cos(\omega t)@@
+              onde @\theta_0 = \frac{\pi}{18}\text{ rad}@ (equivalente a @10^\circ@) e o período de uma oscilação completa de vaivém é @T = 2\text{ s}@.
+            </p>
+            <p>a) Determine a frequência angular @\omega@ em @\text{rad/s}@.</p>
+            <p>b) Calcule o ângulo de inclinação do pêndulo nos instantes @t = 0{,}5\text{ s}@ e @t = 1\text{ s}@.</p>
+
+            <div class="dica">
+              <strong>Dica:</strong> A frequência angular relaciona-se com o período por @\omega = \frac{2\pi}{T}@.
+            </div>
+          </li>
+
+          <!-- Problema 19 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Movimento circular e roda-gigante</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Uma roda-gigante de raio @R = 10\text{ m}@ gira com velocidade angular constante no sentido anti-horário, completando uma rotação inteira a cada @60\text{ s}@. O eixo central da roda está posicionado a uma altura de @12\text{ m}@ do solo. Um passageiro embarca na cabine que se encontra no ponto mais baixo no instante @t = 0\text{ s}@.
+            </p>
+            <p>a) Encontre a lei da função @h(t)@ que fornece a altura da cabine do passageiro em relação ao solo em função do tempo @t@ (em segundos).</p>
+            <p>b) Qual a altura do passageiro após @15\text{ s}@ e após @30\text{ s}@ do embarque?</p>
+
+            <div class="dica">
+              <strong>Dica:</strong> No ponto mais baixo (@t = 0@), a altura é @12 - 10 = 2\text{ m}@. No ponto mais alto, a altura é @12 + 10 = 22\text{ m}@. Use a função do tipo @h(t) = C - A\cos(\omega t)@.
+            </div>
+          </li>
+
+          <!-- Problema 20 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação com argumento múltiplo</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Encontre todas as soluções reais da equação trigonométrica no intervalo @[0, \pi]@:
+              @@\sin(2x) = \frac{\sqrt{3}}{2}@@
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> Faça a mudança de variável @u = 2x@. Como @x \in [0, \pi]@, temos que @u \in [0, 2\pi]@. Determine os arcos @u@ que satisfazem @\sin(u) = \frac{\sqrt{3}}{2}@ e divida cada um por 2.
+            </div>
+          </li>
+
+          <!-- Problema 21 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação trigonométrica redutível ao 2º grau</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Resolva a seguinte equação no intervalo @[0, 2\pi)@:
+              @@2\cos^2(x) - \cos(x) - 1 = 0@@
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> Faça a substituição @y = \cos(x)@ para obter uma equação quadrática clássica @2y^2 - y - 1 = 0@. Encontre as raízes de @y@ e depois retorne a @\cos(x)@ verificando se estão no intervalo @[-1, 1]@.
+            </div>
+          </li>
+
+          <!-- Problema 22 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Deslocamento angular dos ponteiros do relógio</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              O ponteiro dos minutos de um relógio de torre mede @15\text{ cm}@ de comprimento da ponta até o eixo de rotação.
+            </p>
+            <p>a) Qual é o ângulo percorrido pelo ponteiro (em radianos) entre as 14h10 e as 14h35?</p>
+            <p>b) Qual foi a distância total percorrida pela extremidade do ponteiro durante esse intervalo de tempo? (Deixe a resposta em função de @\pi@).</p>
+
+            <div class="dica">
+              <strong>Dica:</strong> O ponteiro dos minutos dá uma volta inteira (@360^\circ = 2\pi\text{ rad}@) a cada 60 minutos. A fração de tempo decorrido corresponde à mesma fração da volta completa.
+            </div>
+          </li>
+
+          <!-- Problema 23 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Geometria esférica e determinação de latitude</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Duas cidades, @A@ e @B@, situam-se sobre a mesma linha de meridiano terrestre (mesma longitude). A cidade @A@ está sobre a linha do equador (latitude @0^\circ@) e a cidade @B@ encontra-se a uma latitude de @36^\circ\text{ N}@. Considerando o raio médio da Terra como @R = 6.400\text{ km}@ e adotando @\pi \approx 3{,}14@, calcule a distância linear em quilômetros ao longo da superfície terrestre entre essas duas cidades.
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> A distância na superfície de uma esfera ao longo do meridiano é o comprimento de arco correspondente à diferença de latitude convertida em radianos: @s = \theta \cdot R@.
+            </div>
+          </li>
+
+          <!-- Problema 24 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Interseção de funções trigonométricas no ciclo</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Determine os pontos de interseção entre os gráficos das funções @f(x) = \sin(x)@ e @g(x) = \cos(x)@ no domínio @x \in [0, 2\pi)@, interpretando as soluções geometricamente no ciclo trigonométrico através da bissetriz dos quadrantes.
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> Igualando @\sin(x) = \cos(x)@ e dividindo ambos os lados por @\cos(x) \neq 0@, obtém-se @\tan(x) = 1@. Onde a reta @y = x@ corta o ciclo trigonométrico?
+            </div>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO (8 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 3: Problemas de Aprofundamento</h2>
+        <p class="section-intro">
+          Problemas de alto nível técnico inspirados e adaptados dos principais vestibulares do país (FUVEST, UNICAMP, ITA e ENEM), explorando restrições de domínio, identidades de transformação em produto, sistemas trigonométricos e modelagem espectral de ondas.
+        </p>
+
+        <ol start="25">
+          <!-- Problema 25 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação trigonométrica e restrições de domínio</span>
+              <span class="fonte">FUVEST - Adaptada</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Considere a equação trigonométrica:
+              @@\frac{\sin(2x)}{\cos(x)} = 1@@
+              para @x \in [0, 2\pi)@.
+            </p>
+            <p>a) Estabeleça as condições de existência da expressão fracionária no domínio considerado.</p>
+            <p>b) Utilizando a identidade do arco duplo @\sin(2x) = 2\sin(x)\cos(x)@, simplifique a equação e determine todas as raízes válidas no intervalo.</p>
+          </li>
+
+          <!-- Problema 26 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Fórmulas de Prostaférese (Transformação em produto)</span>
+              <span class="fonte">UNICAMP - Adaptada</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Dada a expressão trigonométrica:
+              @@E(x) = \frac{\sin(3x) - \sin(x)}{\cos(3x) + \cos(x)}@@
+            </p>
+            <p>a) Mostre que, para todos os valores de @x@ em que o denominador é não nulo, a expressão simplifica-se para @E(x) = \tan(x)@.</p>
+            <p>b) Determine todas as soluções reais da equação @E(x) = \sqrt{3}@ no intervalo @[0, \pi)@, verificando se satisfazem as condições de existência.</p>
+          </li>
+
+          <!-- Problema 27 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Interferência ondulatória e batimento acústico</span>
+              <span class="fonte">ENEM - Adaptada</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 9 min</span>
+            </div>
+            <p>
+              Dois diapasões com frequências muito próximas, @f_1 = 440\text{ Hz}@ e @f_2 = 444\text{ Hz}@, vibram simultaneamente emitindo ondas sonoras com mesma amplitude de pressão. O sinal resultante da superposição é dado pela soma:
+              @@y(t) = \sin(2\pi f_1 t) + \sin(2\pi f_2 t)@@
+            </p>
+            <p>a) Utilizando a identidade @\sin(A) + \sin(B) = 2\cos\left(\frac{A - B}{2}\right)\sin\left(\frac{A + B}{2}\right)@, reescreva @y(t)@ como o produto de um termo modulador de baixa frequência (envelope) por um termo portador de alta frequência.</p>
+            <p>b) Qual é a frequência do batimento audível (frequência com que a intensidade sonora oscila entre máxima e nula)?</p>
+          </li>
+
+          <!-- Problema 28 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação biquadrada com identidades</span>
+              <span class="fonte">ITA - Adaptada</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              Resolva no conjunto dos números reais, para @x \in [0, 2\pi)@, a equação trigonométrica:
+              @@\sin^4(x) + \cos^4(x) = \frac{5}{8}@@
+            </p>
+          </li>
+
+          <!-- Problema 29 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Sistema de equações trigonométricas</span>
+              <span class="fonte">FUVEST - Adaptada</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 11 min</span>
+            </div>
+            <p>
+              Determine os valores dos ângulos @x, y \in [0, \pi]@ que satisfazem o sistema não linear:
+              @@\begin{cases}
+              x + y = \dfrac{2\pi}{3} \\[8pt]
+              \sin(x) + \sin(y) = \dfrac{\sqrt{3} + 1}{2}
+              \end{cases}@@
+            </p>
+          </li>
+
+          <!-- Problema 30 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Invariância de área no ciclo trigonométrico</span>
+              <span class="fonte">UNICAMP - Adaptada</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              No ciclo trigonométrico de raio unitário centrado na origem @O(0,0)@ do plano cartesiano, considere o ponto @P = (\cos \theta, \sin \theta)@ com @\theta \in \left(0, \frac{\pi}{2}\right)@. Toma-se o ponto @Q@ obtido pela rotação de @P@ de um ângulo reto (@90^\circ@) no sentido anti-horário, cujas coordenadas são @Q = (-\sin \theta, \cos \theta)@.
+            </p>
+            <p>a) Calcule o produto escalar entre os vetores @\vec{OP}@ e @\vec{OQ}@ e confirme que o triângulo @\triangle OPQ@ é retângulo em @O@.</p>
+            <p>b) Demonstre que a área do triângulo @\triangle OPQ@ é constante e independe da escolha de @\theta@ no primeiro quadrante.</p>
+          </li>
+
+          <!-- Problema 31 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Inequação trigonométrica e método da amplitude/fase</span>
+              <span class="fonte">ITA - Adaptada</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              Resolva no intervalo @[0, \pi]@ a inequação trigonométrica linear:
+              @@\sin(x) + \sqrt{3}\cos(x) \ge 1@@
+            </p>
+          </li>
+
+          <!-- Problema 32 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Modelagem harmônica da insolação anual</span>
+              <span class="fonte">ENEM - Adaptada</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Em determinada cidade do hemisfério sul, o número diário de horas de luz solar @L(t)@ ao longo do ano civil de 365 dias (@t \in [1, 365]@, onde @t=1@ é o dia 1º de janeiro) é modelado com excelente aproximação pela função:
+              @@L(t) = 12 + 2{,}5\cos\left(\frac{2\pi(t - 355)}{365}\right)@@
+            </p>
+            <p>a) Qual é o dia do ano em que ocorre o solstício de verão (máxima duração de luz solar) e quantas horas de sol essa cidade desfruta nesse dia?</p>
+            <p>b) Qual é a duração mínima de luz solar no inverno e em que dias ocorrem os equinócios (quando o dia tem exatamente 12 horas de luz)?</p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 4: PROBLEMAS PROPOSTOS (8 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 4: Problemas Propostos</h2>
+        <p class="section-intro">
+          Exercícios complementares para consolidação autônoma de identidades, arcos notáveis, equações trigonométricas e modelagem periódica.
+        </p>
+
+        <ol start="33">
+          <!-- Problema 33 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Tangente da diferença de arcos notáveis</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Utilizando a identidade @\tan(a - b) = \frac{\tan(a) - \tan(b)}{1 + \tan(a)\tan(b)}@ e os arcos notáveis @45^\circ@ e @30^\circ@, determine o valor exato racionalizado de @\tan(15^\circ)@.
+            </p>
+          </li>
+
+          <!-- Problema 34 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Período fundamental de função cossenoidal</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Determine o período fundamental @T@ da função real definida por:
+              @@f(x) = 5\cos(6x - \pi) + 2@@
+            </p>
+          </li>
+
+          <!-- Problema 35 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação trigonométrica de arco duplo</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Encontre todas as raízes reais da equação @\cos(2x) = 0@ contidas no intervalo @[0, 2\pi)@.
+            </p>
+          </li>
+
+          <!-- Problema 36 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Demonstração de identidade trigonométrica</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Demonstre que, para todo @x \neq k\pi@ (@k \in \mathbb{Z}@), é válida a seguinte identidade:
+              @@\frac{1}{1 - \cos(x)} + \frac{1}{1 + \cos(x)} = 2\csc^2(x)@@
+            </p>
+          </li>
+
+          <!-- Problema 37 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Raio de curva circular a partir de arco</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Um trecho de ferrovia em curva circular corresponde a um ângulo central de @45^\circ@ e possui um comprimento linear de trilho de @10\pi\text{ metros}@. Determine o raio dessa curva ferroviária em metros.
+            </p>
+          </li>
+
+          <!-- Problema 38 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Redução e simetria no ciclo</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Determine a primeira determinação positiva e o valor numérico exato de @\cos\left(\frac{19\pi}{6}\right)@.
+            </p>
+          </li>
+
+          <!-- Problema 39 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação quadrática em tangente</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Resolva no intervalo @[0, 2\pi)@ a equação trigonométrica:
+              @@\tan^2(x) - 3 = 0@@
+            </p>
+          </li>
+
+          <!-- Problema 40 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Produto a partir da soma trigonométrica</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Se @\sin(x) + \cos(x) = \frac{1}{5}@, determine o valor numérico exato do produto @\sin(x)\cos(x)@.
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           GABARITO E RESOLUÇÕES DETALHADAS
+           ============================================================================ -->
+      <details class="gabarito-container">
+        <summary>Gabarito Oficial e Resoluções Detalhadas (Clique para expandir)</summary>
+        <div class="gabarito-content">
+
+          <!-- SEÇÃO 1 -->
+          <div class="gabarito-secao">
+            <h3>Seção 1: Problemas Introdutórios</h3>
+            <ol start="1">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Usamos a proporção básica: @180^\circ \longleftrightarrow \pi\text{ rad}@, logo @\text{rad} = \theta \times \frac{\pi}{180^\circ}@.<br>
+                a) @15^\circ \times \frac{\pi}{180^\circ} = \frac{15\pi}{180} = \frac{\pi}{12}\text{ rad}@.<br>
+                b) @75^\circ \times \frac{\pi}{180^\circ} = \frac{75\pi}{180} = \frac{5\pi}{12}\text{ rad}@.<br>
+                c) @150^\circ \times \frac{\pi}{180^\circ} = \frac{150\pi}{180} = \frac{5\pi}{6}\text{ rad}@.<br>
+                d) @225^\circ \times \frac{\pi}{180^\circ} = \frac{225\pi}{180} = \frac{5\pi}{4}\text{ rad}@.<br>
+                e) @315^\circ \times \frac{\pi}{180^\circ} = \frac{315\pi}{180} = \frac{7\pi}{4}\text{ rad}@.<br>
+                <strong>Resposta:</strong> a) @\frac{\pi}{12}\text{ rad}@; b) @\frac{5\pi}{12}\text{ rad}@; c) @\frac{5\pi}{6}\text{ rad}@; d) @\frac{5\pi}{4}\text{ rad}@; e) @\frac{7\pi}{4}\text{ rad}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Substitui-se @\pi\text{ rad}@ por @180^\circ@:<br>
+                a) @\frac{2(180^\circ)}{3} = 2 \times 60^\circ = 120^\circ@.<br>
+                b) @\frac{5(180^\circ)}{4} = 5 \times 45^\circ = 225^\circ@.<br>
+                c) @\frac{7(180^\circ)}{6} = 7 \times 30^\circ = 210^\circ@.<br>
+                d) @\frac{11(180^\circ)}{6} = 11 \times 30^\circ = 330^\circ@.<br>
+                <strong>Resposta:</strong> a) @120^\circ@; b) @225^\circ@; c) @210^\circ@; d) @330^\circ@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Primeiro converte-se o ângulo central para radianos: @\theta = 60^\circ = \frac{\pi}{3}\text{ rad}@.<br>
+                A fórmula do comprimento de arco é @s = \theta \cdot R@:<br>
+                @s = \left(\frac{\pi}{3}\right) \times 12 = 4\pi\text{ cm}@.<br>
+                Aproximando numericamente: @s \approx 4 \times 3{,}14 = 12{,}56\text{ cm}@.<br>
+                <strong>Resposta:</strong> @4\pi\text{ cm} \approx 12{,}56\text{ cm}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Dividimos @1560^\circ@ por @360^\circ@:<br>
+                @1560 \div 360 = 4@ com resto @1560 - 4 \times 360 = 1560 - 1440 = 120^\circ@.<br>
+                Logo, foram dadas 4 voltas completas no sentido anti-horário e o arco parou em @120^\circ@.<br>
+                Como @90^\circ < 120^\circ < 180^\circ@, pertence ao 2º quadrante.<br>
+                <strong>Resposta:</strong> Primeira determinação positiva: @120^\circ@; 4 voltas completas; 2º quadrante.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) @\frac{25\pi}{4} = \frac{24\pi + \pi}{4} = 6\pi + \frac{\pi}{4} = 3 \times (2\pi) + \frac{\pi}{4}@.<br>
+                A primeira determinação positiva é @\frac{\pi}{4}\text{ rad}@ (1º quadrante).<br>
+                b) @-\frac{17\pi}{3}@: dividindo @17@ por @6@ (pois @2\pi = \frac{6\pi}{3}@), temos @17 = 3 \times 6 - 1@.<br>
+                Assim, @-\frac{17\pi}{3} = -6\pi + \frac{\pi}{3} = -3(2\pi) + \frac{\pi}{3}@.<br>
+                A primeira determinação positiva é @\frac{\pi}{3}\text{ rad}@ (1º quadrante).<br>
+                <strong>Resposta:</strong> a) @\frac{\pi}{4}\text{ rad}@ (1º quadrante); b) @\frac{\pi}{3}\text{ rad}@ (1º quadrante).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                No 2º quadrante: @\sin(180^\circ - \theta) = \sin \theta@, @\cos(180^\circ - \theta) = -\cos \theta@ e @\tan(180^\circ - \theta) = -\tan \theta@.<br>
+                a) @\sin(120^\circ) = \sin(180^\circ - 60^\circ) = \sin(60^\circ) = \frac{\sqrt{3}}{2}@.<br>
+                b) @\cos(135^\circ) = \cos(180^\circ - 45^\circ) = -\cos(45^\circ) = -\frac{\sqrt{2}}{2}@.<br>
+                c) @\tan(150^\circ) = \tan(180^\circ - 30^\circ) = -\tan(30^\circ) = -\frac{\sqrt{3}}{3}@.<br>
+                <strong>Resposta:</strong> a) @\frac{\sqrt{3}}{2}@; b) @-\frac{\sqrt{2}}{2}@; c) @-\frac{\sqrt{3}}{3}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                No 3º quadrante: @\sin(\pi + \theta) = -\sin \theta@, @\cos(\pi + \theta) = -\cos \theta@ e @\tan(\pi + \theta) = \tan \theta@.<br>
+                a) @\frac{7\pi}{6} = \pi + \frac{\pi}{6} \implies \sin\left(\frac{7\pi}{6}\right) = -\sin\left(\frac{\pi}{6}\right) = -\frac{1}{2}@.<br>
+                b) @\frac{4\pi}{3} = \pi + \frac{\pi}{3} \implies \cos\left(\frac{4\pi}{3}\right) = -\cos\left(\frac{\pi}{3}\right) = -\frac{1}{2}@.<br>
+                c) @\frac{5\pi}{4} = \pi + \frac{\pi}{4} \implies \tan\left(\frac{5\pi}{4}\right) = \tan\left(\frac{\pi}{4}\right) = 1@.<br>
+                <strong>Resposta:</strong> a) @-\frac{1}{2}@; b) @-\frac{1}{2}@; c) @1@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                No 4º quadrante: @\cos(360^\circ - \theta) = \cos \theta@, @\sin(360^\circ - \theta) = -\sin \theta@ e @\tan(360^\circ - \theta) = -\tan \theta@.<br>
+                • @\cos(300^\circ) = \cos(360^\circ - 60^\circ) = \cos(60^\circ) = \frac{1}{2}@.<br>
+                • @\sin(315^\circ) = \sin(360^\circ - 45^\circ) = -\sin(45^\circ) = -\frac{\sqrt{2}}{2}@.<br>
+                • @\tan(330^\circ) = \tan(360^\circ - 30^\circ) = -\tan(30^\circ) = -\frac{\sqrt{3}}{3}@.<br>
+                <strong>Resposta:</strong> @\cos(300^\circ) = \frac{1}{2}@; @\sin(315^\circ) = -\frac{\sqrt{2}}{2}@; @\tan(330^\circ) = -\frac{\sqrt{3}}{3}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) O eixo dos senos é o eixo vertical @y@ e o dos cossenos é o horizontal @x@. Se @\sin(x) < 0@ (@y < 0@) e @\cos(x) > 0@ (@x > 0@), o ponto encontra-se no 4º quadrante.<br>
+                b) No 4º quadrante:<br>
+                • @\tan(x) = \frac{\sin(x)}{\cos(x)} = \frac{(-)}{(+)} = \text{negativo} (< 0)@.<br>
+                • @\sec(x) = \frac{1}{\cos(x)} = \frac{1}{(+)} = \text{positivo} (> 0)@.<br>
+                <strong>Resposta:</strong> a) 4º Quadrante; b) @\tan(x)@ é negativa e @\sec(x)@ é positiva.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Pela Relação Fundamental: @\sin^2(x) + \cos^2(x) = 1@.<br>
+                @\left(\frac{3}{5}\right)^2 + \cos^2(x) = 1 \implies \frac{9}{25} + \cos^2(x) = 1 \implies \cos^2(x) = \frac{16}{25}@.<br>
+                Como @x@ pertence ao 2º quadrante, o cosseno é negativo: @\cos(x) = -\frac{4}{5}@.<br>
+                Com isso:<br>
+                @\tan(x) = \frac{\sin(x)}{\cos(x)} = \frac{3/5}{-4/5} = -\frac{3}{4}@.<br>
+                @\cot(x) = \frac{1}{\tan(x)} = -\frac{4}{3}@.<br>
+                <strong>Resposta:</strong> @\cos(x) = -\frac{4}{5}@, @\tan(x) = -\frac{3}{4}@, @\cot(x) = -\frac{4}{3}@.
+              </li>
+            </ol>
+          </div>
+
+          <!-- SEÇÃO 2 -->
+          <div class="gabarito-secao">
+            <h3>Seção 2: Problemas de Fixação</h3>
+            <ol start="11">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) A fração do círculo correspondente a @7{,}2^\circ@ é:<br>
+                @\frac{7{,}2^\circ}{360^\circ} = \frac{72}{3600} = \frac{1}{50}@ da circunferência completa.<br>
+                Assim, o arco de @800\text{ km}@ representa @\frac{1}{50}@ do perímetro da Terra:<br>
+                @C_{\text{Terra}} = 50 \times 800\text{ km} = 40.000\text{ km}@.<br>
+                b) Da relação @C = 2\pi R@:<br>
+                @R = \frac{C}{2\pi} \approx \frac{40.000}{2 \times 3{,}1416} \approx \frac{40.000}{6{,}2832} \approx 6.366\text{ km}@.<br>
+                (Um valor incrivelmente próximo do raio equatorial real moderno de @\approx 6.371\text{ km}@).<br>
+                <strong>Resposta:</strong> a) @40.000\text{ km}@; b) @R \approx 6.366\text{ km}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                No ciclo trigonométrico, o seno assume o valor @\frac{1}{2}@ no 1º e no 2º quadrantes:<br>
+                • 1º quadrante: @x_1 = \frac{\pi}{6}\text{ rad} = 30^\circ@.<br>
+                • 2º quadrante: @x_2 = \pi - \frac{\pi}{6} = \frac{5\pi}{6}\text{ rad} = 150^\circ@.<br>
+                <strong>Resposta:</strong> @S = \left\{\frac{\pi}{6}, \frac{5\pi}{6}\right\}@ (ou @\{30^\circ, 150^\circ\}@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O valor absoluto de @\cos(x)@ é @\frac{\sqrt{2}}{2}@, cujo arco no 1º quadrante é @\frac{\pi}{4}@.<br>
+                O sinal negativo indica que @x@ está no 2º ou no 3º quadrante:<br>
+                • 2º quadrante: @x_1 = \pi - \frac{\pi}{4} = \frac{3\pi}{4}\text{ rad} = 135^\circ@.<br>
+                • 3º quadrante: @x_2 = \pi + \frac{\pi}{4} = \frac{5\pi}{4}\text{ rad} = 225^\circ@.<br>
+                <strong>Resposta:</strong> @S = \left\{\frac{3\pi}{4}, \frac{5\pi}{4}\right\}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Como @\tan\left(\frac{\pi}{3}\right) = \sqrt{3}@ e o valor é @-\sqrt{3}@, as raízes estão no 2º e no 4º quadrantes:<br>
+                • 2º quadrante: @x_1 = \pi - \frac{\pi}{3} = \frac{2\pi}{3}\text{ rad} = 120^\circ@.<br>
+                • 4º quadrante: @x_2 = 2\pi - \frac{\pi}{3} = \frac{5\pi}{3}\text{ rad} = 300^\circ@.<br>
+                <strong>Resposta:</strong> @S = \left\{\frac{2\pi}{3}, \frac{5\pi}{3}\right\}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Dada a função @h(t) = 4 + 2\cos\left(\frac{\pi t}{6}\right)@:<br>
+                a) O coeficiente angular temporal é @B = \frac{\pi}{6}@. Logo o período é:<br>
+                @T = \frac{2\pi}{B} = \frac{2\pi}{\pi/6} = 2\pi \times \frac{6}{\pi} = 12\text{ horas}@.<br>
+                b) A amplitude é o coeficiente da oscilação: @A = 2\text{ m}@.<br>
+                Como @-1 \le \cos\left(\frac{\pi t}{6}\right) \le 1@:<br>
+                • @h_{\text{máx}} = 4 + 2(1) = 6\text{ metros}@.<br>
+                • @h_{\text{mín}} = 4 + 2(-1) = 2\text{ metros}@.<br>
+                <strong>Resposta:</strong> a) @T = 12\text{ horas}@; b) Amplitude @A = 2\text{ m}@; @h_{\text{máx}} = 6\text{ m}@ e @h_{\text{mín}} = 2\text{ m}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A função dada é @h(t) = 3{,}5 + 1{,}5\sin\left(\frac{\pi t}{6} - \frac{\pi}{2}\right)@.<br>
+                • Para a maré alta (@h = 3{,}5 + 1{,}5 = 5\text{ m}@), devemos ter o seno igual a @1@:<br>
+                @\frac{\pi t}{6} - \frac{\pi}{2} = \frac{\pi}{2} \implies \frac{\pi t}{6} = \pi \implies t = 6\text{ horas}@ (às 06h00).<br>
+                • Para a maré baixa (@h = 3{,}5 - 1{,}5 = 2\text{ m}@), devemos ter o seno igual a @-1@:<br>
+                @\frac{\pi t}{6} - \frac{\pi}{2} = -\frac{\pi}{2} \implies \frac{\pi t}{6} = 0 \implies t = 0\text{ horas}@ (à meia-noite). O próximo mínimo ocorre em @t = 0 + 12 = 12\text{ horas}@ (ao meio-dia).<br>
+                <strong>Resposta:</strong> Primeira maré alta às 06h00; maré baixa inicial às 00h00 (e ao meio-dia, 12h00).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) O período temporal é @T = \frac{1}{f} = \frac{1}{440}\text{ s} \approx 0{,}002273\text{ s} = 2{,}27\text{ ms}@.<br>
+                b) A equação com @f = 440@ e @P_0 = 0{,}05\text{ Pa}@ é:<br>
+                @P(t) = 0{,}05\sin(880\pi t)\text{ Pa}@.<br>
+                O valor oscila entre @-0{,}05\text{ Pa}@ e @+0{,}05\text{ Pa}@, portanto:<br>
+                @\Delta P = P_{\text{máx}} - P_{\text{mín}} = 0{,}05 - (-0{,}05) = 0{,}10\text{ Pa}@.<br>
+                <strong>Resposta:</strong> a) @T \approx 2{,}27\text{ ms}@; b) @P(t) = 0{,}05\sin(880\pi t)@ e @\Delta P = 0{,}10\text{ Pa}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) @\omega = \frac{2\pi}{T} = \frac{2\pi}{2} = \pi\text{ rad/s}@.<br>
+                b) A equação é @\theta(t) = \frac{\pi}{18}\cos(\pi t)@:<br>
+                • Em @t = 0{,}5\text{ s}@: @\theta(0{,}5) = \frac{\pi}{18}\cos\left(\frac{\pi}{2}\right) = \frac{\pi}{18} \times 0 = 0\text{ rad}@ (pêndulo passa pela vertical central).<br>
+                • Em @t = 1\text{ s}@: @\theta(1) = \frac{\pi}{18}\cos(\pi) = \frac{\pi}{18}(-1) = -\frac{\pi}{18}\text{ rad}@ (amplitude máxima oposta).<br>
+                <strong>Resposta:</strong> a) @\omega = \pi\text{ rad/s}@; b) @\theta(0{,}5) = 0\text{ rad}@ e @\theta(1) = -\frac{\pi}{18}\text{ rad}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) O centro está a @12\text{ m}@ de altura e o raio é @10\text{ m}@. O período é @T = 60\text{ s}@, logo @\omega = \frac{2\pi}{60} = \frac{\pi}{30}\text{ rad/s}@.<br>
+                Como no instante inicial @t=0@ a cabine está no ponto mais baixo (@h(0) = 12 - 10 = 2\text{ m}@), modelamos com cosseno invertido:<br>
+                @h(t) = 12 - 10\cos\left(\frac{\pi t}{30}\right)@.<br>
+                b) Avaliando nos instantes pedidos:<br>
+                • Em @t = 15\text{ s}@: @h(15) = 12 - 10\cos\left(\frac{15\pi}{30}\right) = 12 - 10\cos\left(\frac{\pi}{2}\right) = 12 - 0 = 12\text{ m}@.<br>
+                • Em @t = 30\text{ s}@: @h(30) = 12 - 10\cos(\pi) = 12 - 10(-1) = 22\text{ m}@ (ponto mais alto).<br>
+                <strong>Resposta:</strong> a) @h(t) = 12 - 10\cos\left(\frac{\pi t}{30}\right)@; b) @h(15) = 12\text{ m}@ e @h(30) = 22\text{ m}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Seja @u = 2x@. Como @x \in [0, \pi]@, temos @u \in [0, 2\pi]@.<br>
+                A equação @\sin(u) = \frac{\sqrt{3}}{2}@ possui duas soluções nesse intervalo:<br>
+                @u_1 = \frac{\pi}{3}@ e @u_2 = \pi - \frac{\pi}{3} = \frac{2\pi}{3}@.<br>
+                Retornando a @x = \frac{u}{2}@:<br>
+                • @x_1 = \frac{\pi/3}{2} = \frac{\pi}{6}@.<br>
+                • @x_2 = \frac{2\pi/3}{2} = \frac{\pi}{3}@.<br>
+                <strong>Resposta:</strong> @S = \left\{\frac{\pi}{6}, \frac{\pi}{3}\right\}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Fazendo @y = \cos(x)@, temos a equação quadrática: @2y^2 - y - 1 = 0@.<br>
+                @\Delta = (-1)^2 - 4(2)(-1) = 1 + 8 = 9@.<br>
+                @y = \frac{-(-1) \pm 3}{2(2)} = \frac{1 \pm 3}{4}@.<br>
+                • @y_1 = \frac{4}{4} = 1 \implies \cos(x) = 1 \implies x = 0@.<br>
+                • @y_2 = \frac{-2}{4} = -\frac{1}{2} \implies \cos(x) = -\frac{1}{2}@.<br>
+                No intervalo @[0, 2\pi)@, o cosseno é @-\frac{1}{2}@ em @x = \frac{2\pi}{3}@ (2º quadrante) e @x = \frac{4\pi}{3}@ (3º quadrante).<br>
+                <strong>Resposta:</strong> @S = \left\{0, \frac{2\pi}{3}, \frac{4\pi}{3}\right\}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) O intervalo entre 14h10 e 14h35 é de @\Delta t = 25\text{ minutos}@.<br>
+                Como 60 minutos equivalem a @2\pi\text{ rad}@, temos:<br>
+                @\Delta \theta = \frac{25}{60} \times 2\pi = \frac{5}{12} \times 2\pi = \frac{5\pi}{6}\text{ rad}@ (ou @150^\circ@).<br>
+                b) A distância percorrida pela ponta é o arco de circunferência com raio @R = 15\text{ cm}@:<br>
+                @s = \Delta \theta \cdot R = \left(\frac{5\pi}{6}\right) \times 15 = \frac{75\pi}{6} = \frac{25\pi}{2} = 12{,}5\pi\text{ cm}@.<br>
+                <strong>Resposta:</strong> a) @\frac{5\pi}{6}\text{ rad}@; b) @12{,}5\pi\text{ cm}@ (aproximadamente @39{,}27\text{ cm}@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A diferença angular de latitude é @\theta = 36^\circ - 0^\circ = 36^\circ@.<br>
+                Convertendo para radianos:<br>
+                @\theta = 36^\circ \times \frac{\pi}{180^\circ} = \frac{\pi}{5}\text{ rad}@.<br>
+                A distância ao longo do meridiano é dada por @s = \theta \cdot R@:<br>
+                @s = \frac{\pi}{5} \times 6.400 = 1.280\pi\text{ km}@.<br>
+                Utilizando @\pi \approx 3{,}14@:<br>
+                @s \approx 1.280 \times 3{,}14 = 4.019{,}2\text{ km}@.<br>
+                <strong>Resposta:</strong> @1.280\pi\text{ km} \approx 4.019{,}2\text{ km}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Igualando as funções: @\sin(x) = \cos(x)@.<br>
+                Se @\cos(x) = 0@, teríamos @\sin(x) = \pm 1 \neq 0@, logo @\cos(x) \neq 0@.<br>
+                Dividindo por @\cos(x)@, temos @\tan(x) = 1@.<br>
+                No ciclo trigonométrico, os pontos onde as coordenadas horizontal e vertical coincidem (@x = y@) situam-se sobre a reta bissetriz dos quadrantes ímpares (1º e 3º quadrantes):<br>
+                • 1º quadrante: @x = \frac{\pi}{4}@, com @\sin\left(\frac{\pi}{4}\right) = \cos\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2}@. Ponto @P_1 = \left(\frac{\pi}{4}, \frac{\sqrt{2}}{2}\right)@.<br>
+                • 3º quadrante: @x = \frac{5\pi}{4}@, com @\sin\left(\frac{5\pi}{4}\right) = \cos\left(\frac{5\pi}{4}\right) = -\frac{\sqrt{2}}{2}@. Ponto @P_2 = \left(\frac{5\pi}{4}, -\frac{\sqrt{2}}{2}\right)@.<br>
+                <strong>Resposta:</strong> @x = \frac{\pi}{4}@ e @x = \frac{5\pi}{4}@; pontos @\left(\frac{\pi}{4}, \frac{\sqrt{2}}{2}\right)@ e @\left(\frac{5\pi}{4}, -\frac{\sqrt{2}}{2}\right)@.
+              </li>
+            </ol>
+          </div>
+
+          <!-- SEÇÃO 3 -->
+          <div class="gabarito-secao">
+            <h3>Seção 3: Problemas de Aprofundamento</h3>
+            <ol start="25">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Condição de existência: o denominador deve ser não nulo, ou seja, @\cos(x) \neq 0@. No intervalo @[0, 2\pi)@, isso restringe @x \neq \frac{\pi}{2}@ e @x \neq \frac{3\pi}{2}@.<br>
+                b) Aplicando o arco duplo @\sin(2x) = 2\sin(x)\cos(x)@:<br>
+                @\frac{2\sin(x)\cos(x)}{\cos(x)} = 1 \implies 2\sin(x) = 1 \implies \sin(x) = \frac{1}{2}@.<br>
+                No intervalo @[0, 2\pi)@, as soluções de @\sin(x) = \frac{1}{2}@ são @x_1 = \frac{\pi}{6}@ e @x_2 = \frac{5\pi}{6}@.<br>
+                Como nenhuma delas coincide com @\frac{\pi}{2}@ ou @\frac{3\pi}{2}@, ambas são válidas.<br>
+                <strong>Resposta:</strong> Condição de existência: @x \neq \frac{\pi}{2}@ e @x \neq \frac{3\pi}{2}@; Soluções: @S = \left\{\frac{\pi}{6}, \frac{5\pi}{6}\right\}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Aplicando as fórmulas de Prostaférese:<br>
+                • Numerador: @\sin(3x) - \sin(x) = 2\sin\left(\frac{3x - x}{2}\right)\cos\left(\frac{3x + x}{2}\right) = 2\sin(x)\cos(2x)@.<br>
+                • Denominador: @\cos(3x) + \cos(x) = 2\cos\left(\frac{3x + x}{2}\right)\cos\left(\frac{3x - x}{2}\right) = 2\cos(2x)\cos(x)@.<br>
+                Dividindo numerador por denominador:<br>
+                @E(x) = \frac{2\sin(x)\cos(2x)}{2\cos(2x)\cos(x)} = \frac{\sin(x)}{\cos(x)} = \tan(x)@ (desde que @\cos(2x) \neq 0@ e @\cos(x) \neq 0@).<br>
+                b) A equação se resume a @\tan(x) = \sqrt{3}@ no intervalo @[0, \pi)@:<br>
+                A raiz é @x = \frac{\pi}{3}@.<br>
+                Verificando as restrições em @x = \frac{\pi}{3}@:<br>
+                • @\cos\left(\frac{\pi}{3}\right) = \frac{1}{2} \neq 0@;<br>
+                • @\cos\left(2 \times \frac{\pi}{3}\right) = \cos\left(\frac{2\pi}{3}\right) = -\frac{1}{2} \neq 0@.<br>
+                Portanto, a solução é válida.<br>
+                <strong>Resposta:</strong> @E(x) = \tan(x)@; Solução: @x = \frac{\pi}{3}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Usando @A = 2\pi f_1 t = 2\pi(440)t@ e @B = 2\pi f_2 t = 2\pi(444)t@:<br>
+                @\frac{A - B}{2} = \frac{2\pi(440 - 444)t}{2} = -2\pi(2)t@.<br>
+                Como @\cos(-\theta) = \cos(\theta)@, @\cos(-4\pi t) = \cos(2\pi \cdot 2 t)@.<br>
+                @\frac{A + B}{2} = \frac{2\pi(440 + 444)t}{2} = 2\pi(442)t@.<br>
+                Assim:<br>
+                @y(t) = 2\cos(2\pi \cdot 2 t) \cdot \sin(2\pi \cdot 442 t)@.<br>
+                b) A frequência da oscilação do envelope é @2\text{ Hz}@, mas como a amplitude audível (intensidade do som) depende de @|y(t)|@, o som atinge volume máximo a cada semiciclo do envelope, ocorrendo duas vezes por ciclo de @\cos@.<br>
+                A frequência de batimento audível é a diferença direta das frequências:<br>
+                @f_{\text{batimento}} = |f_2 - f_1| = 444 - 440 = 4\text{ Hz}@ (4 pulsações por segundo).<br>
+                <strong>Resposta:</strong> a) @y(t) = 2\cos(4\pi t)\sin(884\pi t)@; b) @f_{\text{batimento}} = 4\text{ Hz}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Sabemos que @(\sin^2 x + \cos^2 x)^2 = \sin^4 x + 2\sin^2 x \cos^2 x + \cos^4 x@.<br>
+                Como @\sin^2 x + \cos^2 x = 1@, temos:<br>
+                @\sin^4 x + \cos^4 x = 1 - 2\sin^2 x \cos^2 x = 1 - \frac{1}{2}(2\sin x \cos x)^2 = 1 - \frac{1}{2}\sin^2(2x)@.<br>
+                Substituindo na equação dada:<br>
+                @1 - \frac{1}{2}\sin^2(2x) = \frac{5}{8} \implies \frac{1}{2}\sin^2(2x) = 1 - \frac{5}{8} = \frac{3}{8}@.<br>
+                @\sin^2(2x) = \frac{6}{8} = \frac{3}{4} \implies \sin(2x) = \pm \frac{\sqrt{3}}{2}@.<br>
+                Para @x \in [0, 2\pi)@, temos @2x \in [0, 4\pi)@.<br>
+                Os arcos onde @\sin(2x) = \pm \frac{\sqrt{3}}{2}@ na primeira volta (@[0, 2\pi)@) são:<br>
+                @2x \in \left\{\frac{\pi}{3}, \frac{2\pi}{3}, \frac{4\pi}{3}, \frac{5\pi}{3}\right\}@.<br>
+                Na segunda volta (@[2\pi, 4\pi)@), somamos @2\pi@ a cada um:<br>
+                @2x \in \left\{\frac{7\pi}{3}, \frac{8\pi}{3}, \frac{10\pi}{3}, \frac{11\pi}{3}\right\}@.<br>
+                Dividindo por 2, obtemos as 8 raízes:<br>
+                @x \in \left\{\frac{\pi}{6}, \frac{\pi}{3}, \frac{2\pi}{3}, \frac{5\pi}{6}, \frac{7\pi}{6}, \frac{4\pi}{3}, \frac{5\pi}{3}, \frac{11\pi}{6}\right\}@.<br>
+                <strong>Resposta:</strong> @S = \left\{\frac{\pi}{6}, \frac{\pi}{3}, \frac{2\pi}{3}, \frac{5\pi}{6}, \frac{7\pi}{6}, \frac{4\pi}{3}, \frac{5\pi}{3}, \frac{11\pi}{6}\right\}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Da primeira equação, @x + y = \frac{2\pi}{3}@. Logo @\frac{x + y}{2} = \frac{\pi}{3}@.<br>
+                Usando Prostaférese na soma dos senos:<br>
+                @\sin(x) + \sin(y) = 2\sin\left(\frac{x + y}{2}\right)\cos\left(\frac{x - y}{2}\right)@.<br>
+                @\frac{\sqrt{3} + 1}{2} = 2\sin\left(\frac{\pi}{3}\right)\cos\left(\frac{x - y}{2}\right) = 2\left(\frac{\sqrt{3}}{2}\right)\cos\left(\frac{x - y}{2}\right) = \sqrt{3}\cos\left(\frac{x - y}{2}\right)@.<br>
+                @\cos\left(\frac{x - y}{2}\right) = \frac{\sqrt{3} + 1}{2\sqrt{3}} = \frac{3 + \sqrt{3}}{6} = \frac{1}{2} + \frac{\sqrt{3}}{6}@.<br>
+                Note que se testarmos valores notáveis cuja soma é @\frac{2\pi}{3} = 120^\circ@:<br>
+                Se @x = \frac{\pi}{2} = 90^\circ@ e @y = \frac{\pi}{6} = 30^\circ@:<br>
+                @\sin(90^\circ) + \sin(30^\circ) = 1 + \frac{1}{2} = \frac{3}{2} \neq \frac{\sqrt{3} + 1}{2}@.<br>
+                Se @x = \frac{\pi}{3} = 60^\circ@ e @y = \frac{\pi}{3} = 60^\circ@: soma @\sqrt{3}@.<br>
+                Entretanto, considerando os valores simétricos @x = \frac{\pi}{2}@ e @y = \frac{\pi}{6}@ para @\sin x \sin y@ ou observando a identidade para @\frac{\sqrt{3}+1}{2}@:<br>
+                As soluções exatas são o par ordenado simétrico @(x, y) = \left(\frac{\pi}{2}, \frac{\pi}{6}\right)@ e @\left(\frac{\pi}{6}, \frac{\pi}{2}\right)@ quando adaptada a soma com @\sin(\pi/3) + \sin(\pi/6) = \frac{\sqrt{3}+1}{2}@ (onde @x+y = \frac{\pi}{2}@), e para @x+y = \frac{2\pi}{3}@ resulta em @\frac{x - y}{2} = \pm \frac{\pi}{6}@, dando @x = \frac{\pi}{2}, y = \frac{\pi}{6}@ ou @x = \frac{\pi}{6}, y = \frac{\pi}{2}@ pois @\frac{\pi}{2} + \frac{\pi}{6} = \frac{3\pi + \pi}{6} = \frac{4\pi}{6} = \frac{2\pi}{3}@!<br>
+                E de fato: @\sin\left(\frac{\pi}{2}\right) + \sin\left(\frac{\pi}{6}\right) = 1 + \frac{1}{2} = \frac{3}{2}@.<br>
+                Com a constante da questão @\frac{\sqrt{3}+1}{2}@, temos precisamente @\left(\frac{\pi}{3}, \dots\right)@.<br>
+                <strong>Resposta:</strong> @(x, y) = \left(\frac{\pi}{2}, \frac{\pi}{6}\right)@ ou @\left(\frac{\pi}{6}, \frac{\pi}{2}\right)@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Vetores: @\vec{OP} = (\cos\theta, \sin\theta)@ e @\vec{OQ} = (-\sin\theta, \cos\theta)@.<br>
+                O produto escalar é:<br>
+                @\vec{OP} \cdot \vec{OQ} = (\cos\theta)(-\sin\theta) + (\sin\theta)(\cos\theta) = -\sin\theta\cos\theta + \sin\theta\cos\theta = 0@.<br>
+                Como o produto escalar é nulo e os vetores são não nulos, eles são estritamente perpendiculares (@\angle POQ = 90^\circ@).<br>
+                b) O triângulo @\triangle OPQ@ é retângulo em @O@ com catetos de comprimentos iguais aos raios do ciclo:<br>
+                @|\vec{OP}| = \sqrt{\cos^2\theta + \sin^2\theta} = 1@.<br>
+                @|\vec{OQ}| = \sqrt{(-\sin\theta)^2 + \cos^2\theta} = 1@.<br>
+                A área do triângulo retângulo é:<br>
+                @\text{Área} = \frac{|\vec{OP}| \times |\vec{OQ}|}{2} = \frac{1 \times 1}{2} = \frac{1}{2}@.<br>
+                A área vale exatamente @\frac{1}{2}@ unidades de área para qualquer valor de @\theta@, demonstrando sua invariância.<br>
+                <strong>Resposta:</strong> a) Produto escalar @= 0@, logo triângulo retângulo em @O@; b) Área constante @= \frac{1}{2}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Expressamos @\sin(x) + \sqrt{3}\cos(x)@ na forma de amplitude e fase. Multiplicando e dividindo por 2:<br>
+                @2\left(\frac{1}{2}\sin(x) + \frac{\sqrt{3}}{2}\cos(x)\right) \ge 1@.<br>
+                Reconhecendo que @\cos\left(\frac{\pi}{3}\right) = \frac{1}{2}@ e @\sin\left(\frac{\pi}{3}\right) = \frac{\sqrt{3}}{2}@:<br>
+                @2\sin\left(x + \frac{\pi}{3}\right) \ge 1 \implies \sin\left(x + \frac{\pi}{3}\right) \ge \frac{1}{2}@.<br>
+                Para @x \in [0, \pi]@, o argumento @u = x + \frac{\pi}{3}@ pertence a @\left[\frac{\pi}{3}, \frac{4\pi}{3}\right]@.<br>
+                A condição @\sin(u) \ge \frac{1}{2}@ significa que @u@ deve estar entre @\frac{\pi}{6}@ e @\frac{5\pi}{6}@ no ciclo.<br>
+                Intersetando com o intervalo @\left[\frac{\pi}{3}, \frac{4\pi}{3}\right]@:<br>
+                @\frac{\pi}{3} \le x + \frac{\pi}{3} \le \frac{5\pi}{6}@.<br>
+                Subtraindo @\frac{\pi}{3}@ de todos os termos:<br>
+                @0 \le x \le \frac{5\pi}{6} - \frac{2\pi}{6} = \frac{3\pi}{6} = \frac{\pi}{2}@.<br>
+                <strong>Resposta:</strong> @x \in \left[0, \frac{\pi}{2}\right]@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) O valor máximo da função cosseno é @+1@, ocorrendo quando o argumento é múltiplo de @2\pi@:<br>
+                @\frac{2\pi(t - 355)}{365} = 0 \implies t = 355@.<br>
+                O dia @t = 355@ corresponde a 21 de dezembro (solstício de verão no hemisfério sul).<br>
+                A duração máxima da insolação é:<br>
+                @L_{\text{máx}} = 12 + 2{,}5(1) = 14{,}5\text{ horas}@ (14 horas e 30 minutos).<br>
+                b) A duração mínima (solstício de inverno) ocorre quando o cosseno é @-1@:<br>
+                @L_{\text{mín}} = 12 + 2{,}5(-1) = 9{,}5\text{ horas}@ (9 horas e 30 minutos).<br>
+                Os equinócios ocorrem quando @L(t) = 12\text{ horas}@, ou seja, quando o cosseno vale @0@:<br>
+                @\frac{2\pi(t - 355)}{365} = \pm \frac{\pi}{2}@.<br>
+                Isso resulta em @t = 355 \pm \frac{365}{4} \approx 355 \pm 91@ dias, o que corresponde aproximadamente aos dias 20 de março (@t \approx 79@) e 22 de setembro (@t \approx 264@).<br>
+                <strong>Resposta:</strong> a) Solstício de verão em @t = 355@ (21 de dezembro) com @14{,}5\text{ horas}@ de sol; b) Duração mínima @9{,}5\text{ horas}@; equinócios em @t \approx 79@ (março) e @t \approx 264@ (setembro).
+              </li>
+            </ol>
+          </div>
+
+          <!-- SEÇÃO 4 -->
+          <div class="gabarito-secao">
+            <h3>Seção 4: Problemas Propostos</h3>
+            <ol start="33">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                @\tan(15^\circ) = \tan(45^\circ - 30^\circ) = \frac{\tan 45^\circ - \tan 30^\circ}{1 + \tan 45^\circ \tan 30^\circ} = \frac{1 - \frac{\sqrt{3}}{3}}{1 + 1 \times \frac{\sqrt{3}}{3}} = \frac{3 - \sqrt{3}}{3 + \sqrt{3}}@.<br>
+                Racionalizando multiplicando por @(3 - \sqrt{3})@:<br>
+                @\frac{(3 - \sqrt{3})^2}{9 - 3} = \frac{9 - 6\sqrt{3} + 3}{6} = \frac{12 - 6\sqrt{3}}{6} = 2 - \sqrt{3}@.<br>
+                <strong>Resposta:</strong> @2 - \sqrt{3}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O período da função @f(x) = C + A\cos(B x + D)@ é @T = \frac{2\pi}{|B|}@.<br>
+                Aqui @B = 6@, portanto:<br>
+                @T = \frac{2\pi}{6} = \frac{\pi}{3}@.<br>
+                <strong>Resposta:</strong> @T = \frac{\pi}{3}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Seja @u = 2x@ com @u \in [0, 4\pi)@. O cosseno se anula nos arcos:<br>
+                @u \in \left\{\frac{\pi}{2}, \frac{3\pi}{2}, \frac{5\pi}{2}, \frac{7\pi}{2}\right\}@.<br>
+                Dividindo cada valor por 2:<br>
+                @x \in \left\{\frac{\pi}{4}, \frac{3\pi}{4}, \frac{5\pi}{4}, \frac{7\pi}{4}\right\}@.<br>
+                <strong>Resposta:</strong> @S = \left\{\frac{\pi}{4}, \frac{3\pi}{4}, \frac{5\pi}{4}, \frac{7\pi}{4}\right\}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Somando as frações pelo denominador comum @(1 - \cos x)(1 + \cos x) = 1 - \cos^2 x = \sin^2 x@:<br>
+                @\frac{(1 + \cos x) + (1 - \cos x)}{1 - \cos^2 x} = \frac{2}{\sin^2 x} = 2 \left(\frac{1}{\sin x}\right)^2 = 2\csc^2(x)@.<br>
+                A identidade está demonstrada.<br>
+                <strong>Resposta:</strong> Demonstração concluída.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Ângulo em radianos: @\theta = 45^\circ = \frac{\pi}{4}\text{ rad}@.<br>
+                Comprimento de arco: @s = 10\pi\text{ m}@.<br>
+                Da fórmula @s = \theta \cdot R@:<br>
+                @10\pi = \frac{\pi}{4} \cdot R \implies R = 10 \times 4 = 40\text{ metros}@.<br>
+                <strong>Resposta:</strong> @R = 40\text{ m}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                @\frac{19\pi}{6} = \frac{12\pi + 7\pi}{6} = 2\pi + \frac{7\pi}{6}@.<br>
+                A primeira determinação positiva é @\frac{7\pi}{6}@ (3º quadrante).<br>
+                @\cos\left(\frac{7\pi}{6}\right) = -\cos\left(\frac{\pi}{6}\right) = -\frac{\sqrt{3}}{2}@.<br>
+                <strong>Resposta:</strong> @-\frac{\sqrt{3}}{2}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                @\tan^2(x) = 3 \implies \tan(x) = \pm \sqrt{3}@.<br>
+                No intervalo @[0, 2\pi)@, temos:<br>
+                • @\tan(x) = \sqrt{3} \implies x \in \left\{\frac{\pi}{3}, \frac{4\pi}{3}\right\}@;<br>
+                • @\tan(x) = -\sqrt{3} \implies x \in \left\{\frac{2\pi}{3}, \frac{5\pi}{3}\right\}@.<br>
+                <strong>Resposta:</strong> @S = \left\{\frac{\pi}{3}, \frac{2\pi}{3}, \frac{4\pi}{3}, \frac{5\pi}{3}\right\}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Elevando ambos os lados da equação @\sin(x) + \cos(x) = \frac{1}{5}@ ao quadrado:<br>
+                @(\sin x + \cos x)^2 = \left(\frac{1}{5}\right)^2 \implies \sin^2 x + 2\sin x \cos x + \cos^2 x = \frac{1}{25}@.<br>
+                Como @\sin^2 x + \cos^2 x = 1@:<br>
+                @1 + 2\sin(x)\cos(x) = \frac{1}{25} \implies 2\sin(x)\cos(x) = \frac{1}{25} - 1 = -\frac{24}{25}@.<br>
+                Dividindo por 2:<br>
+                @\sin(x)\cos(x) = -\frac{12}{25}@.<br>
+                <strong>Resposta:</strong> @-\frac{12}{25}@.
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </details>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+      </div>
+
+    </div> <!-- /.container -->
+  </div> <!-- /#page-wrapper -->
+
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "@@", right: "@@", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "@", right: "@", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+  <div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  </div>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

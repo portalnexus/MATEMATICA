@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Geometria Plana: Perímetro e Área</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<h1>FIGURAS PLANAS, PERÍMETRO E ÁREA</h1>
+
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas básicos para familiarização com os conceitos de perímetro e área das principais figuras planas.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Perímetro do quadrado</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Um quadrado possui lado medindo @5 cm@. Qual é o seu perímetro?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área do quadrado</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Calcule a área de um quadrado com lado de @8 metros@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Perímetro do retângulo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Um retângulo tem comprimento de @10 cm@ e largura de @4 cm@. Qual é o seu perímetro?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área do retângulo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Encontre a área de um retângulo com @12 metros@ de comprimento e @5 metros@ de largura.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Perímetro do triângulo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Um triângulo equilátero tem todos os lados medindo @6 cm@. Qual é o seu perímetro?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área do triângulo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Qual é a área de um triângulo com base de @10 cm@ e altura de @7 cm@?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Circunferência</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um círculo tem raio medindo @3 metros@. Qual é o seu perímetro (circunferência)? Use @\pi \approx 3.14@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área do círculo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Calcule a área de um círculo com raio de @5 cm@. Use @\pi \approx 3.14@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área do losango</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um losango tem diagonais medindo @10 cm@ e @6 cm@. Qual é a sua área?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Perímetro do trapézio</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Qual é o perímetro de um trapézio isósceles com bases medindo @15 cm@ e @7 cm@, e lados não paralelos medindo @5 cm@ cada?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área do paralelogramo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Um paralelogramo tem base medindo @9 metros@ e altura @4 metros@. Qual é a sua área?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Perímetro de polígono regular</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Um pentágono regular tem lado medindo @4 cm@. Qual é o seu perímetro?</p>
+    </li>
+  </ol>
+</article>
+
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas contextualizados que envolvem cálculos de perímetro e área aplicados a situações do cotidiano.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área de ambiente</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>A sala de estar de uma casa tem formato retangular, medindo @6 metros@ de comprimento por @4,5 metros@ de largura. Qual a área dessa sala?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Perímetro - Cercamento</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um jardim quadrado tem @15 metros@ de lado. Quantos metros de cerca são necessários para cercar completamente o jardim?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área de superfície</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Uma piscina retangular tem @25 metros@ de comprimento e @10 metros@ de largura. Qual a área da superfície da água?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área de triângulo retângulo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Um terreno tem formato de triângulo retângulo, com catetos medindo @12 metros@ e @16 metros@. Qual a área desse terreno?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Circunferência - Movimento circular</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Um ciclista percorre um circuito circular com raio de @50 metros@. Quantos metros ele percorre em uma volta completa? Use @\pi \approx 3.14@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área de parede</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Uma parede retangular mede @5 metros@ de altura e @8 metros@ de largura. Qual a área dessa parede?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Revestimento - Conversão de unidades</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um piso é formado por ladrilhos quadrados de @20 cm@ de lado. Quantos ladrilhos são necessários para cobrir uma área de @4 metros quadrados@?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Converta todas as medidas para a mesma unidade antes de calcular!
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Perímetro de campo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um campo de futebol retangular tem @100 metros@ de comprimento e @70 metros@ de largura. Qual o perímetro desse campo?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área do losango - Aplicação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Um artesão está fazendo um mosaico com peças em formato de losango. Cada losango tem diagonais medindo @8 cm@ e @4 cm@. Qual a área de cada losango?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área do trapézio</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um terreno tem formato de trapézio, com bases medindo @30 metros@ e @20 metros@, e altura @15 metros@. Qual a área desse terreno?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área do círculo - Cálculo inverso</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um círculo tem área igual a @28.26 metros quadrados@. Qual é o raio desse círculo? Use @\pi \approx 3.14@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área do quadrado - Cálculo inverso</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Um quadrado tem área de @144 cm^2@. Qual é a medida do seu lado?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área do triângulo - Cálculo inverso</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um triângulo tem base medindo @10 cm@ e área de @35 cm^2@. Qual é a sua altura?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Perímetro e área do retângulo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um retângulo tem perímetro de @40 cm@ e um lado mede @12 cm@. Qual a medida do outro lado e qual a área do retângulo?</p>
+    </li>
+  </ol>
+</article>
+
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Problemas complexos que exigem raciocínio em múltiplas etapas, teorema de Pitágoras e composição de figuras.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Teorema de Pitágoras - Diagonal</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Um terreno retangular de @20 m@ por @30 m@ será dividido em duas partes iguais por um cercado que vai de um vértice ao vértice oposto. Qual o comprimento desse cercado?</p>
+      <div class="dica">
+        <strong>Dica:</strong> O cercado forma a diagonal do retângulo. Use o Teorema de Pitágoras!
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Relação entre áreas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Um quadrado e um círculo têm a mesma área. Se o raio do círculo é @r@, qual o lado do quadrado em função de @r@?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área de coroa circular</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Uma praça circular tem @10 metros@ de raio. Ao redor dela, será construída uma calçada com @2 metros@ de largura. Qual a área da calçada? Use @\pi \approx 3.14@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Revestimento - Múltiplas conversões</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Um piso de @3 m@ por @4 m@ será revestido com azulejos quadrados. Se cada azulejo mede @15 cm@ de lado, quantos azulejos serão necessários?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área e valor monetário</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Um terreno tem o formato de um trapézio retângulo, com base maior medindo @50 m@, base menor medindo @30 m@ e altura @25 m@. Se o metro quadrado do terreno custa @R\$ 150,00@, qual o valor total do terreno?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Geometria - Ponto interior</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Um quadrado ABCD tem lado medindo @10 cm@. Um ponto E está no interior do quadrado tal que AE = BE = @6 cm@. Calcule a área do triângulo ABE.</p>
+      <div class="dica">
+        <strong>Dica:</strong> O triângulo ABE é isósceles. Encontre a altura relativa à base AB!
+      </div>
+    </li>
+  </ol>
+</article>
+
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para você praticar e consolidar seu aprendizado sobre perímetro e área!
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área composta</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Uma figura é formada por um retângulo de @8 cm@ por @5 cm@ com um triângulo de base @8 cm@ e altura @3 cm@ sobre um dos lados maiores. Qual a área total da figura?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Razão entre áreas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Se o lado de um quadrado é duplicado, por quanto sua área é multiplicada?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Perímetro de figura irregular</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma figura em formato de L é formada por dois retângulos: um de @10 cm@ por @4 cm@ e outro de @6 cm@ por @3 cm@. Qual o perímetro da figura composta?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área de semicírculo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Calcule a área de um semicírculo com raio de @6 cm@. Use @\pi \approx 3.14@.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Teorema de Pitágoras - Hipotenusa</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um triângulo retângulo tem catetos medindo @5 cm@ e @12 cm@. Qual o perímetro desse triângulo?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Comparação de áreas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Dois quadrados têm perímetros de @20 cm@ e @28 cm@. Qual a diferença entre suas áreas?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Otimização - Área máxima</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Com uma corda de @40 metros@, deseja-se cercar um terreno retangular. Quais as dimensões do retângulo que resultarão na maior área possível?</p>
+      <div class="dica">
+        <strong>Dica:</strong> Para perímetro fixo, o retângulo de maior área é o quadrado!
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área - Porcentagem</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Um jardim circular tem raio de @8 metros@. Uma área circular interna de raio @4 metros@ será coberta com grama. Qual percentual da área total do jardim será coberta com grama?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área de hexágono regular</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Um hexágono regular tem lado medindo @4 cm@. Sabendo que ele pode ser dividido em 6 triângulos equiláteros, calcule sua área. (Use @\sqrt{3} \approx 1.73@)</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Volume e área - Relação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma caixa cúbica tem aresta de @5 cm@. Qual a área total de suas 6 faces?</p>
+    </li>
+  </ol>
+</article>
+
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

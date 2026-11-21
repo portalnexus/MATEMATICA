@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - EXPRESSÕES NUMÉRICAS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press Start 2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    /* Container de metadados (fonte, dificuldade, tempo estimado) */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    /* Tag de tópico matemático */
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    /* Tag de fonte do problema */
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Tag de dificuldade com cores diferentes */
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Cores por nível de dificuldade */
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }    /* Verde */
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }    /* Amarelo */
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }  /* Vermelho */
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); } /* Roxo */
+
+    /* Introdução de cada seção */
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    /* Caixas de dica para os estudantes */
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+<div class="container">
+
+<h1>EXPRESSÕES NUMÉRICAS - REVISÃO E CONSOLIDAÇÃO</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas básicos para familiarização com os conceitos fundamentais de ordem de operações.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Ordem de operações - multiplicação e adição</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @15 + 3 \times 2@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Ordem de operações - divisão e subtração</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @20 - 12 \div 4@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Uso de parênteses</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @(8 + 4) \div 3@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Potenciação simples</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @2^3 + 5@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Ordem de operações - potenciação e multiplicação</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @3^2 \times 4 - 10@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Parênteses e colchetes</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @[(18 - 6) \div 3] \times 2@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Múltiplas operações básicas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @50 - 8 \times 5 + 12@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Potenciação e adição</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @5^2 + 3^2@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Parênteses aninhados</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @7 \times (10 - 2 \times 3)@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Operações mistas básicas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @100 \div 5 + 3 \times 6 - 10@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Uso de chaves, colchetes e parênteses</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @\{[(20 - 5) \div 3] + 7\} \times 2@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Raiz quadrada simples</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @\sqrt{16} + \sqrt{9}@</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas que requerem interpretação do enunciado e aplicação de conceitos combinados.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Operações com frações - adição e subtração</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @@\frac{3}{4} + \frac{5}{6} - \frac{1}{2}@@</p>
+      <div class="dica">
+        <strong>Dica:</strong> Encontre o MMC dos denominadores para realizar as operações.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Operações com decimais</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @2{,}5 \times 4 + 1{,}8 \div 0{,}6@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Frações e potenciação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @@\left(\frac{2}{3}\right)^2 + \frac{1}{4}@@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Expressões com raízes quadradas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @\sqrt{25} \times 3 - \sqrt{4} \times 5@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Frações com multiplicação e divisão</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @@\frac{3}{5} \times \frac{10}{9} \div \frac{2}{3}@@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Expressões mistas - frações e inteiros</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @@5 - \frac{7}{4} + \frac{3}{2}@@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Potências negativas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @2^{-1} + 3^{-1}@</p>
+      <div class="dica">
+        <strong>Dica:</strong> Lembre-se que @a^{-n} = \frac{1}{a^n}@.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Expressões longas com múltiplas operações</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @[(3^2 + 4^2) \div 5 - 2] \times 3 + 10@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Raízes e potências combinadas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @\sqrt{36} + 2^4 - 3^2@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação prática - orçamento familiar</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Maria recebeu R$ 500,00 de salário. Ela gastou @\frac{1}{4}@ do valor com alimentação, @\frac{2}{5}@ com aluguel e R$ 80,00 com transporte. Quanto sobrou?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Decimais em expressões complexas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @(3{,}5 + 2{,}8) \times 1{,}2 - 4{,}6 \div 2@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Frações com parênteses aninhados</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @@\frac{1}{2} + \left(\frac{3}{4} - \frac{1}{6}\right) \times 2@@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação prática - desconto em compras</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um produto custa R$ 240,00. Na promoção, tem 25% de desconto e mais R$ 15,00 de desconto adicional. Quanto custará o produto?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Potências de frações</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @@\left(\frac{1}{2}\right)^3 + \left(\frac{2}{3}\right)^2 - \frac{1}{4}@@</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Problemas complexos que exigem raciocínio em múltiplas etapas e combinação de conceitos.
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Expressões complexas com múltiplos níveis</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Calcule o valor da expressão:</p>
+      @@\left\{100 - \left[(5^2 - 3^2) \times 2 + 18 \div 3\right]\right\} \div 4@@
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Frações com potências e raízes</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Calcule o valor da expressão:</p>
+      @@\frac{\sqrt{64} + 2^3}{\left(\frac{1}{2}\right)^{-2} - 1}@@
+      <div class="dica">
+        <strong>Dica:</strong> Resolva primeiro as potências e raízes, depois simplifique as frações.
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Expressões com raízes de raízes</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @\sqrt{\sqrt{256}} + \sqrt{81} - 2^3@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação prática - cálculo de juros simples</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>João aplicou R$ 2.000,00 a juros simples de 3% ao mês. Após 4 meses, ele retirou metade do montante. No mês seguinte, o restante rendeu mais 3%. Quanto João possui agora?</p>
+      <p>a) Monte a expressão numérica que representa o problema.</p>
+      <p>b) Calcule o valor final.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Expressões com múltiplas frações aninhadas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Calcule o valor da expressão:</p>
+      @@\frac{2 + \frac{1}{3}}{\frac{5}{6} - \frac{1}{4}} + \frac{3}{2}@@
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Potências e raízes com operações mistas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Calcule o valor da expressão:</p>
+      @@\left(\frac{2^3 \times 3^2}{\sqrt{144}}\right) + \left(5^2 - 4^2\right) \div 3@@
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema investigativo - sequência de operações</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Considere a seguinte sequência de operações:</p>
+      <p>• Comece com o número 100</p>
+      <p>• Subtraia o quadrado de 5</p>
+      <p>• Divida o resultado por 3</p>
+      <p>• Adicione a raiz quadrada de 49</p>
+      <p>• Multiplique tudo por 2</p>
+      <p>a) Escreva a expressão numérica que representa essas operações.</p>
+      <p>b) Calcule o valor final.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Expressão com potências negativas e frações</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Calcule o valor da expressão:</p>
+      @@\left(2^{-2} + 3^{-1}\right) \times \left(\frac{4}{3}\right)^2 - \frac{1}{2}@@
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para você praticar e consolidar seu aprendizado!
+  </p>
+
+  <ol>
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Expressões com potências de 10</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @10^3 - 10^2 + 10^1 - 10^0@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Média aritmética de expressões</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Calcule a média aritmética dos resultados das expressões: @3^2 + 1@, @2^3 - 3@ e @\sqrt{25} + 2@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Expressões com temperatura</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>A temperatura às 6h era de @-3\text{°C}@. Às 12h subiu @8\text{°C}@, às 18h subiu mais @2\text{°C}@, e à meia-noite caiu @5\text{°C}@. Qual era a temperatura à meia-noite?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Expressões com frações decimais</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Calcule o valor da expressão: @@\frac{0{,}5 + 1{,}25}{0{,}75} - \frac{2}{3}@@</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Desafio - expressão com padrão</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Calcule o valor da expressão:</p>
+      @@\frac{1}{1 \times 2} + \frac{1}{2 \times 3} + \frac{1}{3 \times 4} + \frac{1}{4 \times 5}@@
+      <div class="dica">
+        <strong>Dica:</strong> Observe que @\frac{1}{n \times (n+1)} = \frac{1}{n} - \frac{1}{n+1}@
+      </div>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Problema de velocidade média</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um carro percorreu 150 km em 2 horas, depois mais 180 km em 2,5 horas. Qual foi a velocidade média total da viagem?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Expressões com porcentagens</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um produto custava R$ 200,00. Teve um aumento de 20%, depois um desconto de 20%. Qual o preço final?</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Desafio criativo - expressão simétrica</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Calcule o valor da expressão:</p>
+      @@\left(1 + \frac{1}{2}\right) \times \left(1 + \frac{1}{3}\right) \times \left(1 + \frac{1}{4}\right) \times \left(1 + \frac{1}{5}\right)@@
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Área e perímetro</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um retângulo tem base de @5{,}5@ m e altura de @3{,}2@ m. Calcule a diferença entre a área (em @\text{m}^2@) e o perímetro (em m) desse retângulo.</p>
+    </li>
+
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Desafio - números consecutivos</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Calcule o valor da expressão @1^2 - 2^2 + 3^2 - 4^2 + 5^2 - 6^2 + 7^2 - 8^2 + 9^2 - 10^2@</p>
+      <div class="dica">
+        <strong>Dica:</strong> Agrupe os termos em pares e use @a^2 - b^2 = (a+b)(a-b)@
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

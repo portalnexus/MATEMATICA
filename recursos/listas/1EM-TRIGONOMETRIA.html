@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Lista de Problemas: Trigonometria e Transformações Geométricas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    /* Container de metadados (fonte, dificuldade, tempo estimado) */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    /* Tag de tópico matemático */
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    /* Tag de fonte do problema */
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Tag de dificuldade com cores diferentes */
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Cores por nível de dificuldade */
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }    /* Verde */
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }    /* Amarelo */
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }  /* Vermelho */
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); } /* Roxo */
+
+    /* Introdução de cada seção */
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    /* Caixas de dica para os estudantes */
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    /* Gabarito expansível */
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-secao ol {
+      padding-left: 1.5rem;
+    }
+
+    .gabarito-secao li {
+      margin-bottom: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: 600;
+      color: var(--secondary-text-color);
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<!-- ============================================================================
+     TÍTULO PRINCIPAL DA LISTA
+     ============================================================================ -->
+<h1>LISTA DE PROBLEMAS: TRIGONOMETRIA E TRANSFORMAÇÕES GEOMÉTRICAS</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas fundamentais para aplicação direta de fórmulas e conceitos: relações métricas no triângulo retângulo, Teorema de Pitágoras, razões trigonométricas fundamentais (@\operatorname{sen}@, @\cos@, @\operatorname{tg}@), ângulos notáveis (30°, 45°, 60°), arcos e transformações no plano cartesiano.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Teorema de Pitágoras</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um triângulo retângulo possui catetos de medidas 6 cm e 8 cm. Calcule a medida da hipotenusa desse triângulo.</p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Razões trigonométricas no triângulo retângulo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Em um triângulo retângulo @ABC@, reto em @A@, o cateto oposto ao ângulo agudo @\alpha@ mede 5 cm e o cateto adjacente mede 12 cm. Sabendo que a hipotenusa mede 13 cm, determine os valores de @\operatorname{sen}(\alpha)@, @\cos(\alpha)@ e @\operatorname{tg}(\alpha)@.</p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Ângulos notáveis e tangência</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Um poste vertical projeta no solo plano horizontal uma sombra de 15 metros no momento em que os raios solares incidem formando um ângulo de 30° com o solo. Determine a altura desse poste (adote @\sqrt{3} \approx 1{,}73@).</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Relação fundamental da trigonometria</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Sabendo que @\theta@ é a medida de um ângulo agudo e que @\operatorname{sen}(\theta) = \frac{3}{5}@, utilize a identidade fundamental @\operatorname{sen}^2(\theta) + \cos^2(\theta) = 1@ para calcular os valores exatos de @\cos(\theta)@ e @\operatorname{tg}(\theta)@.</p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Relações métricas no triângulo retângulo</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>Em um triângulo retângulo, a hipotenusa mede @a = 25\text{ cm}@ e a projeção ortogonal de um dos catetos sobre a hipotenusa mede @m = 9\text{ cm}@. Calcule a medida da outra projeção @n@ e a altura relativa à hipotenusa @h@.</p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Semelhança de triângulos retângulos</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Dois triângulos retângulos @T_1@ e @T_2@ possuem, ambos, um ângulo agudo medindo 40°. Sabendo que a hipotenusa de @T_1@ mede 7 cm e que a razão de semelhança entre @T_2@ e @T_1@ é @k = 3@, determine a medida da hipotenusa do triângulo @T_2@.</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Transformações geométricas: Reflexão cartesiana</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Considere no plano cartesiano o ponto @P(3, -4)@. Determine as coordenadas da imagem @P'@ de @P@ após:</p>
+      <p>a) Uma reflexão em relação ao eixo das abscissas (eixo @x@).</p>
+      <p>b) Uma reflexão em relação ao eixo das ordenadas (eixo @y@).</p>
+      <p>c) Uma reflexão central em relação à origem @(0, 0)@.</p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Transformações geométricas: Translação vetorial</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Os vértices de um triângulo no plano cartesiano são @A(1, 2)@, @B(4, 2)@ e @C(2, 5)@. Esse triângulo sofre uma translação orientada pelo vetor @\vec{v} = (3, -2)@. Quais são as novas coordenadas @A'@, @B'@ e @C'@ dos vértices transladados?</p>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Ângulo inscrito e ângulo central na circunferência</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Em uma circunferência de centro @O@, o ângulo central @\angle AOB@ subtende um arco de medida 80°. Um ponto @C@ pertence à circunferência no arco maior @AB@. Qual é a medida em graus do ângulo inscrito @\angle ACB@?</p>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Transformações geométricas: Homotetia e áreas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um polígono plano de área igual a 12 cm² é submetido a uma ampliação homotética de razão de semelhança @k = 3@. Qual é a área do novo polígono resultante?</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas contextualizados que integram múltiplos conceitos geométricos e trigonométricos: acessibilidade, topografia, medição indireta de alturas, simetrias em arte e arquitetura, e relações métricas avançadas.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Rampa de acessibilidade e inclinação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma rampa reta de acessibilidade com 10 metros de extensão deve ser construída para vencer um desnível vertical de 1,20 metro entre a calçada e a entrada de um edifício público.</p>
+      <p>a) Calcule o seno do ângulo de inclinação @\alpha@ da rampa com o plano horizontal.</p>
+      <p>b) Determine o comprimento da projeção horizontal dessa rampa sobre o piso.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A rampa representa a hipotenusa de um triângulo retângulo. Aplique o Teorema de Pitágoras @L^2 = h^2 + d^2@ para encontrar o comprimento da projeção horizontal @d@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Topografia e medição de altura com teodolito</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um topógrafo utiliza um teodolito montado sobre um tripé a 1,60 m do solo para medir a altura de um edifício comercial. Posicionado a 30 metros da base da edificação, o instrumento registra um ângulo de elevação de 60° em direção ao topo da antena do prédio. Calcule a altura total da edificação em relação ao solo (adote @\sqrt{3} \approx 1{,}73@).</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A tangente de 60° relaciona o cateto oposto (altura acima da linha do teodolito) com a distância horizontal de 30 m. Lembre-se de somar a altura do tripé (1,60 m) ao resultado final.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Teorema de Pitágoras e triângulo equilátero</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Considere um triângulo equilátero de lado @\ell@.</p>
+      <p>a) Utilizando o Teorema de Pitágoras na metade do triângulo, deduza a fórmula da altura @h = \frac{\ell\sqrt{3}}{2}@ e a fórmula da área @A = \frac{\ell^2\sqrt{3}}{4}@.</p>
+      <p>b) Calcule a área exata e aproximada de um canteiro triangular equilátero com 8 metros de lado (considere @\sqrt{3} \approx 1{,}73@).</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A altura de um triângulo equilátero divide a base ao meio em dois segmentos de medida @\frac{\ell}{2}@ e forma dois triângulos retângulos congruentes.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Relações métricas em estrutura de telhado</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Uma tesoura de telhado forma a seção transversal de um triângulo retângulo cujos catetos medem 6 m e 8 m, apoiados sobre uma viga mestra horizontal (a hipotenusa). Um pontal vertical de sustentação liga o vértice do ângulo reto perpendicularmente à viga mestra.</p>
+      <p>a) Calcule o comprimento da hipotenusa (viga mestra).</p>
+      <p>b) Determine o comprimento do pontal vertical (altura relativa à hipotenusa @h@) e as projeções ortogonais @m@ e @n@ dos catetos sobre a viga mestra.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Utilize as relações métricas fundamentais: @a^2 = b^2 + c^2@, @a \cdot h = b \cdot c@ e @b^2 = a \cdot m@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 15 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Semelhança geométrica e projeção de sombras</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Em uma praça pública, um poste de iluminação vertical projeta uma sombra de 3,60 metros no mesmo instante em que uma estaca vertical de madeira de 1,50 metro de altura cravada ao lado projeta uma sombra de 90 cm no mesmo piso plano. Determine a altura do poste de iluminação.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Como os raios solares são aproximadamente paralelos, os triângulos formados pelas alturas e pelas respectivas sombras são semelhantes pelo critério AA~.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 16 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Distância inacessível e dois ângulos de observação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Um observador no ponto @A@ avista o cume de uma colina sob um ângulo de elevação de 30° em relação ao solo plano. Caminhando 40 metros em linha reta em direção à colina até o ponto @B@, o novo ângulo de elevação passa a ser de 60°.</p>
+      <p>a) Determine a distância do ponto @B@ até a base da colina.</p>
+      <p>b) Calcule a altura @h@ da colina (adote @\sqrt{3} \approx 1{,}73@).</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Escreva duas equações trigonométricas envolvendo a altura @h@: uma a partir da tangente de 60° no triângulo menor (@h = d \cdot \operatorname{tg} 60^\circ@) e outra a partir da tangente de 30° no triângulo maior (@h = (d + 40) \cdot \operatorname{tg} 30^\circ@).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 17 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Transformações geométricas: Rotação no plano</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>No plano cartesiano, o ponto @P(4, 0)@ é submetido a uma rotação em torno da origem @(0, 0)@.</p>
+      <p>a) Determine as coordenadas do ponto @P'@ resultante de uma rotação de 90° no sentido anti-horário.</p>
+      <p>b) Determine as coordenadas do ponto @P''@ resultante de uma rotação de 45° no sentido anti-horário, utilizando as fórmulas @x' = x\cos\alpha - y\operatorname{sen}\alpha@ e @y' = x\operatorname{sen}\alpha + y\cos\alpha@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Lembre-se de que @\cos(45^\circ) = \operatorname{sen}(45^\circ) = \frac{\sqrt{2}}{2}@ e que o ponto original tem coordenadas @x = 4@ e @y = 0@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 18 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Identidades trigonométricas e simplificação algébrica</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Seja @\theta@ um ângulo agudo tal que @\operatorname{tg}(\theta) = 2@.</p>
+      <p>a) Calcule os valores exatos de @\operatorname{sen}(\theta)@ e @\cos(\theta)@.</p>
+      <p>b) Calcule o valor numérico da fração: @@E = \frac{\operatorname{sen}(\theta) + \cos(\theta)}{\operatorname{sen}(\theta) - \cos(\theta)}@@</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Divida o numerador e o denominador da fração por @\cos(\theta)@ para expressar toda a fração diretamente em termos de @\operatorname{tg}(\theta)@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 19 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Simetrias, mosaicos de Escher e ladrilhamento</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um artista cria um mosaico decorativo inspirado nas obras de M. C. Escher através da repetição periódica de uma peça cerâmica triangular com catetos de medidas 10 cm e 15 cm.</p>
+      <p>a) Que tipo de transformações isométricas (translações, rotações, reflexões) preservam o tamanho e a forma original da peça durante a pavimentação do piso?</p>
+      <p>b) Se a composição completa utiliza 200 dessas peças cerâmicas justapostas sem sobreposição nem vazios, qual é a área total pavimentada em metros quadrados?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> As transformações isométricas conservam as distâncias e as áreas. Calcule a área de um triângulo em cm² (@\frac{b \cdot h}{2}@), multiplique por 200 e converta para m² dividindo por 10.000.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 20 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Comprimento de arco e ângulo central</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma pista de atletismo possui uma curva em formato de arco de circunferência de raio @R = 50\text{ m}@. Um atleta percorre essa curva correspondente a um ângulo central de 72°.</p>
+      <p>a) Converta o ângulo central de 72° para radianos.</p>
+      <p>b) Calcule a distância percorrida pelo atleta ao longo desse arco (adote @\pi \approx 3{,}14@).</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> O comprimento do arco @s@ é dado por @s = R \cdot \theta@, onde @\theta@ deve estar expresso em radianos (@180^\circ = \pi\text{ rad}@).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 21 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Homotetia e razão de áreas em cartografia</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>O mapa de uma reserva ambiental foi desenhado em uma escala cartográfica de @1 : 500@. Na planta, a representação de um lago ocupa uma área de 24 cm².</p>
+      <p>a) Qual é a razão linear de semelhança @k@ entre a medida real e a medida no mapa?</p>
+      <p>b) Calcule a área real da superfície do lago em metros quadrados.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A razão entre áreas de figuras semelhantes é dada pelo quadrado da razão linear de semelhança: @\frac{A_{\text{real}}}{A_{\text{mapa}}} = k^2@. Lembre-se de converter @1\text{ m}^2 = 10.000\text{ cm}^2@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 22 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Decolagem de aeronave e trigonometria</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um avião comercial decola mantendo um ângulo de subida constante de 15° com a pista plana horizontal. Após percorrer 4.000 metros em linha reta na trajetória de subida (medida no ar):</p>
+      <p>a) Qual é a altitude (em metros) atingida pela aeronave? (Dado: @\operatorname{sen}(15^\circ) \approx 0{,}2588@).</p>
+      <p>b) Qual é a distância percorrida no solo correspondente a essa projeção horizontal? (Dado: @\cos(15^\circ) \approx 0{,}9659@).</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A trajetória no ar é a hipotenusa. A altitude é o cateto oposto (@h = d \cdot \operatorname{sen} 15^\circ@) e a projeção no solo é o cateto adjacente (@x = d \cdot \cos 15^\circ@).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 23 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Corda, apótema e flecha na circunferência</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Em uma circunferência com raio de 13 cm, traça-se uma corda @AB@ de comprimento igual a 24 cm.</p>
+      <p>a) Determine a distância do centro da circunferência até a corda (apótema da corda).</p>
+      <p>b) Calcule a medida da flecha correspondente (distância entre o ponto médio da corda e o ponto médio do arco por ela subtendido).</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> O raio perpendicular a uma corda passa pelo seu ponto médio, dividindo a corda de 24 cm em dois segmentos de 12 cm. Aplique Pitágoras com a hipotenusa igual ao raio (13 cm).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 24 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Triângulo 30°-60°-90° e origami geométrico</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Ao realizar uma dobradura em uma folha retangular, um estudante obtém um triângulo retângulo cujos ângulos agudos medem 30° e 60°. Sabendo que a hipotenusa desse triângulo formado mede 10 cm:</p>
+      <p>a) Calcule as medidas exatas dos dois catetos desse triângulo.</p>
+      <p>b) Calcule a área exata da região triangular delimitada pela dobra.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> No triângulo retângulo com ângulos notáveis 30° e 60°, o cateto oposto ao ângulo de 30° vale metade da hipotenusa (@a \cdot \operatorname{sen} 30^\circ@) e o cateto oposto ao ângulo de 60° vale @\frac{a\sqrt{3}}{2}@.
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Desafios de alto nível e questões de vestibulares tradicionais (FUVEST, ENEM, UNICAMP) e olimpíadas de matemática (OBMEP): bissetriz interna com trigonometria, problemas de menor caminho com reflexão óptica, satélites de telecomunicações e equações trigonométricas redutíveis a equações quadráticas.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 25 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST</span>
+        <span class="topico">Bissetriz do ângulo reto e áreas triangulares</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Um triângulo retângulo @ABC@ tem catetos @AB = 3@ e @AC = 4@, com ângulo reto no vértice @A@. Traça-se a bissetriz interna do ângulo reto @\hat{A}@, que intersecta a hipotenusa @BC@ no ponto @D@.</p>
+      <p>a) Calcule a área total do triângulo @ABC@.</p>
+      <p>b) Utilizando a soma das áreas dos triângulos @ABD@ e @ACD@, determine a medida exata do comprimento da bissetriz @AD@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A bissetriz divide o ângulo de 90° em dois ângulos de 45°. A área de um triângulo de lados @x, y@ e ângulo @\theta@ entre eles é dada por @\frac{1}{2} x y \operatorname{sen}(\theta)@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 26 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ENEM</span>
+        <span class="topico">Largura de rio por triangulação e linhas de visada</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Para estimar a largura de um rio de margens retilíneas e paralelas sem atravessá-lo, uma equipe de engenharia fixa dois marcos @A@ e @B@ distantes 50 metros entre si na margem sul. O marco @A@ é posicionado exatamente em frente a uma palmeira notável @C@ localizada na margem norte, de modo que o segmento @AC@ é perpendicular às margens (@\angle CAB = 90^\circ@). Do marco @B@, a equipe mede o ângulo de visada @\angle CBA = 60^\circ@.</p>
+      <p>a) Faça um esquema geométrico da situação e determine a largura exata @L@ do rio em termos de raiz quadrada.</p>
+      <p>b) Considerando a aproximação @\sqrt{3} \approx 1{,}732@, calcule o valor aproximado da largura em metros.</p>
+    </li>
+
+    <!-- PROBLEMA 27 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">UNICAMP</span>
+        <span class="topico">Quadrado inscrito em triângulo retângulo isósceles</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Um triângulo retângulo isósceles possui hipotenusa de medida 10 cm. Deseja-se inscrever um quadrado nesse triângulo de modo que um de seus lados repouse inteiramente sobre a hipotenusa e os dois outros vértices pertençam aos catetos do triângulo.</p>
+      <p>a) Calcule o lado @x@ do quadrado inscrito.</p>
+      <p>b) Calcule a área desse quadrado inscrito e compare-a com a área total do triângulo.</p>
+    </li>
+
+    <!-- PROBLEMA 28 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">OBMEP</span>
+        <span class="topico">Problema de Heron: menor caminho e reflexão planar</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 15 min</span>
+      </div>
+      <p>No plano cartesiano, um acampamento base está no ponto @B(9, 2)@ e um posto de observação está no ponto @F(3, 4)@. Um riacho retilíneo corre exatamente sobre o eixo das abscissas (reta @y = 0@). Um guarda florestal precisa partir do acampamento @B@, caminhar até a margem do rio para abastecer seu cantil em um ponto @P(x, 0)@ e, em seguida, dirigir-se ao posto @F@.</p>
+      <p>a) Utilizando o princípio da reflexão geométrica do ponto @B@ em relação ao eixo @x@, determine a distância mínima total percorrida pelo guarda florestal.</p>
+      <p>b) Encontre a coordenada @x@ exata do ponto @P@ na margem do rio onde o guarda deve recolher água para minimizar a caminhada.</p>
+    </li>
+
+    <!-- PROBLEMA 29 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">FUVEST</span>
+        <span class="topico">Circunferência inscrita no triângulo retângulo</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Um triângulo retângulo tem catetos de medidas 8 cm e 15 cm.</p>
+      <p>a) Calcule a medida da hipotenusa desse triângulo.</p>
+      <p>b) Determine o raio @r@ da circunferência inscrita nesse triângulo retângulo utilizando a relação entre a área e o semiperímetro (@A = p \cdot r@) ou a propriedade dos segmentos tangentes.</p>
+      <p>c) Calcule as medidas dos três segmentos em que a hipotenusa e os catetos ficam divididos pelos pontos de tangência.</p>
+    </li>
+
+    <!-- PROBLEMA 30 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">ENEM</span>
+        <span class="topico">Satélite geoestacionário e cobertura angular da Terra</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Um satélite de telecomunicações encontra-se em órbita geoestacionária circular a uma altitude @h = 36.000\text{ km}@ acima do equador terrestre. Considere a Terra como uma esfera de raio @R \approx 6.400\text{ km}@ e que a linha de visada limite do satélite é tangente à superfície do planeta.</p>
+      <p>a) Calcule o cosseno do semi-ângulo central de cobertura @\theta@ visível pelo satélite.</p>
+      <p>b) Sabendo que @\theta \approx 81{,}3^\circ@, determine a porcentagem aproximada da linha do equador que um único satélite geoestacionário consegue cobrir.</p>
+    </li>
+
+    <!-- PROBLEMA 31 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">OBMEP</span>
+        <span class="topico">Dobradura de faixa de papel e relações de 30° e 60°</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 14 min</span>
+      </div>
+      <p>Uma tira longa retangular de papel com 6 cm de largura possui bordas retas paralelas. Dobra-se a tira ao longo de uma linha reta de vinco de tal forma que um dos vértices inferiores passa a repousar sobre a borda superior oposta. Se a linha reta do vinco forma um ângulo de 30° com a borda inferior da tira:</p>
+      <p>a) Calcule o comprimento da linha de vinco.</p>
+      <p>b) Determine a área do triângulo da sobreposição gerado pela dobra.</p>
+    </li>
+
+    <!-- PROBLEMA 32 -->
+    <li>
+      <div class="problema-meta">
+        <span class="fonte">UNICAMP / FUVEST</span>
+        <span class="topico">Equação trigonométrica redutível à quadrática</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Resolva no intervalo @0^\circ \leq x \leq 90^\circ@ a equação trigonométrica: @@2\operatorname{sen}^2(x) - 3\cos(x) = 0@@ apresentando detalhadamente a transformação através da relação fundamental @\operatorname{sen}^2(x) = 1 - \cos^2(x)@ e a discussão das raízes da equação quadrática auxiliar obtida.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para prática individual e consolidação do aprendizado. Resolva com atenção e confira as resoluções completas no gabarito expansível logo abaixo!
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 33 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Ângulo de elevação solar</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um edifício vertical de 45 metros de altura projeta uma sombra no solo horizontal exatamente com 45 metros de extensão. Qual é a medida do ângulo de elevação do Sol no céu nesse instante?</p>
+    </li>
+
+    <!-- PROBLEMA 34 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Escada apoiada na parede vertical</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma escada reta de 6 metros de comprimento está apoiada no topo de uma parede vertical lisa, formando com o solo horizontal plano um ângulo de 60°. Determine:</p>
+      <p>a) A que altura do solo a escada se apoia na parede.</p>
+      <p>b) A distância horizontal entre a base da escada e a base da parede.</p>
+    </li>
+
+    <!-- PROBLEMA 35 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Isometria e área de paralelogramo transladado</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um paralelogramo no plano cartesiano possui vértices nos pontos @A(0, 0)@, @B(4, 0)@, @C(5, 3)@ e @D(1, 3)@. Essa figura sofre uma translação orientada pelo vetor @\vec{u} = (-2, 4)@.</p>
+      <p>a) Determine as coordenadas dos vértices do paralelogramo transladado @A'B'C'D'@.</p>
+      <p>b) Calcule a área da figura transladada e justifique por que as translações preservam a área.</p>
+    </li>
+
+    <!-- PROBLEMA 36 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Diagonal espacial do paralelepípedo</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma caixa organizadora em formato de paralelepípedo retângulo tem dimensões internas de 3 cm, 4 cm e 12 cm. Aplicando sucessivamente o Teorema de Pitágoras no plano e no espaço tridimensional, determine o comprimento da maior haste rígida retilínea que pode ser guardada completamente no interior dessa caixa.</p>
+    </li>
+
+    <!-- PROBLEMA 37 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Ângulo central nos ponteiros do relógio</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Determine a menor medida do ângulo central formado entre o ponteiro das horas e o ponteiro dos minutos de um relógio analógico quando ele marca pontualmente 4 horas e 40 minutos.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Em 60 minutos, o ponteiro dos minutos gira 360° (6° por minuto) e o ponteiro das horas gira 30° (0,5° por minuto). Calcule o deslocamento de ambos a partir da posição de 12h00.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 38 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Identidade trigonométrica invariante</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Demonstre que, para qualquer ângulo @\alpha@ para o qual as funções estão definidas, o valor da expressão algébrica: @@(\operatorname{sen}\alpha + \cos\alpha)^2 + (\operatorname{sen}\alpha - \cos\alpha)^2@@ é uma constante independente de @\alpha@ e determine seu valor numérico exato.</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     GABARITO E RESOLUÇÕES DETALHADAS (EXPANSÍVEL)
+     ============================================================================ -->
+<details class="gabarito-container">
+  <summary>GABARITO E RESOLUÇÕES DETALHADAS (Clique para expandir)</summary>
+  <div class="gabarito-content">
+
+    <!-- SEÇÃO 1 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 1: Problemas Introdutórios</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Pelo Teorema de Pitágoras: @a^2 = b^2 + c^2@.<br>
+          Substituindo os catetos: @a^2 = 6^2 + 8^2 = 36 + 64 = 100 \implies a = \sqrt{100} = 10\text{ cm}@.<br>
+          <strong>Resposta:</strong> A hipotenusa mede 10 cm.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Com cateto oposto @= 5@, cateto adjacente @= 12@ e hipotenusa @= 13@:<br>
+          @\operatorname{sen}(\alpha) = \frac{\text{cateto oposto}}{\text{hipotenusa}} = \frac{5}{13}@.<br>
+          @\cos(\alpha) = \frac{\text{cateto adjacente}}{\text{hipotenusa}} = \frac{12}{13}@.<br>
+          @\operatorname{tg}(\alpha) = \frac{\text{cateto oposto}}{\text{cateto adjacente}} = \frac{5}{12}@.<br>
+          <strong>Resposta:</strong> @\operatorname{sen}(\alpha) = \frac{5}{13}@, @\cos(\alpha) = \frac{12}{13}@ e @\operatorname{tg}(\alpha) = \frac{5}{12}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          A relação entre a altura @h@ do poste e sua sombra @s = 15\text{ m}@ é a tangente do ângulo de 30°:<br>
+          @\operatorname{tg}(30^\circ) = \frac{h}{s} \implies \frac{\sqrt{3}}{3} = \frac{h}{15}@.<br>
+          Multiplicando em cruz: @3h = 15\sqrt{3} \implies h = 5\sqrt{3}\text{ m}@.<br>
+          Substituindo @\sqrt{3} \approx 1{,}73@: @h \approx 5 \cdot 1{,}73 = 8{,}65\text{ m}@.<br>
+          <strong>Resposta:</strong> @5\sqrt{3}\text{ m} \approx 8{,}65\text{ m}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Aplicando a relação fundamental: @\operatorname{sen}^2(\theta) + \cos^2(\theta) = 1@.<br>
+          @\left(\frac{3}{5}\right)^2 + \cos^2(\theta) = 1 \implies \frac{9}{25} + \cos^2(\theta) = 1 \implies \cos^2(\theta) = 1 - \frac{9}{25} = \frac{16}{25}@.<br>
+          Como @\theta@ é agudo, @\cos(\theta) > 0@: @\cos(\theta) = \sqrt{\frac{16}{25}} = \frac{4}{5}@.<br>
+          Calculando a tangente: @\operatorname{tg}(\theta) = \frac{\operatorname{sen}(\theta)}{\cos(\theta)} = \frac{3/5}{4/5} = \frac{3}{4}@.<br>
+          <strong>Resposta:</strong> @\cos(\theta) = \frac{4}{5}@ e @\operatorname{tg}(\theta) = \frac{3}{4}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          A hipotenusa é a soma das projeções: @a = m + n \implies 25 = 9 + n \implies n = 25 - 9 = 16\text{ cm}@.<br>
+          Pela relação métrica da altura relativa à hipotenusa: @h^2 = m \cdot n@.<br>
+          @h^2 = 9 \cdot 16 = 144 \implies h = \sqrt{144} = 12\text{ cm}@.<br>
+          <strong>Resposta:</strong> @n = 16\text{ cm}@ e @h = 12\text{ cm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Ambos possuem ângulos de 90° e 40°, logo o terceiro ângulo mede @180^\circ - 90^\circ - 40^\circ = 50^\circ@. Pelo critério Ângulo-Ângulo (AA~), os triângulos são semelhantes.<br>
+          Como a razão de semelhança entre @T_2@ e @T_1@ é @k = 3@, todos os lados lineares de @T_2@ são o triplo dos lados homólogos de @T_1@:<br>
+          @\text{Hipotenusa}(T_2) = 3 \times \text{Hipotenusa}(T_1) = 3 \times 7 = 21\text{ cm}@.<br>
+          <strong>Resposta:</strong> 21 cm.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Dado o ponto @P(3, -4)@:<br>
+          a) Reflexão em @x@: mantém a abscissa e inverte a ordenada: @(x, -y) = (3, -(-4)) = (3, 4)@.<br>
+          b) Reflexão em @y@: inverte a abscissa e mantém a ordenada: @(-x, y) = (-3, -4)@.<br>
+          c) Reflexão na origem: inverte ambas as coordenadas: @(-x, -y) = (-3, 4)@.<br>
+          <strong>Resposta:</strong> a) @(3, 4)@; b) @(-3, -4)@; c) @(-3, 4)@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          A translação soma o vetor @\vec{v} = (3, -2)@ a cada vértice @(x' = x + 3, y' = y - 2)@:<br>
+          @A' = (1 + 3, 2 - 2) = (4, 0)@.<br>
+          @B' = (4 + 3, 2 - 2) = (7, 0)@.<br>
+          @C' = (2 + 3, 5 - 2) = (5, 3)@.<br>
+          <strong>Resposta:</strong> @A'(4, 0)@, @B'(7, 0)@ e @C'(5, 3)@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          O teorema do ângulo inscrito estabelece que a medida de um ângulo inscrito em uma circunferência é igual à metade da medida do ângulo central que subtende o mesmo arco:<br>
+          @\angle ACB = \frac{\angle AOB}{2} = \frac{80^\circ}{2} = 40^\circ@.<br>
+          <strong>Resposta:</strong> 40°.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Em uma transformação homotética de razão @k@, a razão entre as áreas das figuras é igual a @k^2@:<br>
+          @A' = k^2 \cdot A = 3^2 \cdot 12 = 9 \cdot 12 = 108\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> 108 cm².
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 2 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 2: Problemas de Fixação</h3>
+      <ol start="11">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A rampa forma a hipotenusa @L = 10\text{ m}@ e o desnível vertical é o cateto oposto @h = 1{,}20\text{ m}@:<br>
+          @\operatorname{sen}(\alpha) = \frac{h}{L} = \frac{1{,}20}{10} = 0{,}12@.<br>
+          b) Aplicando o Teorema de Pitágoras para encontrar a projeção horizontal @d@:<br>
+          @d^2 + (1{,}20)^2 = 10^2 \implies d^2 + 1{,}44 = 100 \implies d^2 = 98{,}56@.<br>
+          @d = \sqrt{98{,}56} \approx 9{,}93\text{ m}@.<br>
+          <strong>Resposta:</strong> a) @\operatorname{sen}(\alpha) = 0{,}12@; b) @\approx 9{,}93\text{ m}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Seja @y@ a altura da antena acima do plano horizontal do teodolito.<br>
+          @\operatorname{tg}(60^\circ) = \frac{y}{30} \implies y = 30 \cdot \operatorname{tg}(60^\circ) = 30\sqrt{3}@.<br>
+          Com @\sqrt{3} \approx 1{,}73@, temos: @y \approx 30 \cdot 1{,}73 = 51{,}9\text{ m}@.<br>
+          A altura total @H@ a partir do solo inclui a altura do tripé do teodolito (1,60 m):<br>
+          @H = y + 1{,}60 = 51{,}9 + 1{,}60 = 53{,}5\text{ m}@.<br>
+          <strong>Resposta:</strong> @53{,}5\text{ m}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) No triângulo retângulo formado pela metade do triângulo equilátero, os catetos são @h@ e @\frac{\ell}{2}@ e a hipotenusa é @\ell@:<br>
+          @h^2 + \left(\frac{\ell}{2}\right)^2 = \ell^2 \implies h^2 = \ell^2 - \frac{\ell^2}{4} = \frac{3\ell^2}{4} \implies h = \frac{\ell\sqrt{3}}{2}@.<br>
+          A área do triângulo é @A = \frac{\text{base} \cdot h}{2} = \frac{\ell \cdot \frac{\ell\sqrt{3}}{2}}{2} = \frac{\ell^2\sqrt{3}}{4}@.<br>
+          b) Para @\ell = 8\text{ m}@:<br>
+          @A = \frac{8^2\sqrt{3}}{4} = \frac{64\sqrt{3}}{4} = 16\sqrt{3}\text{ m}^2 \approx 16 \cdot 1{,}73 = 27{,}68\text{ m}^2@.<br>
+          <strong>Resposta:</strong> a) Demonstrações apresentadas; b) @16\sqrt{3}\text{ m}^2 \approx 27{,}68\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Hipotenusa @a = \sqrt{b^2 + c^2} = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10\text{ m}@.<br>
+          b) Pela relação métrica @a \cdot h = b \cdot c@:<br>
+          @10 \cdot h = 6 \cdot 8 = 48 \implies h = \frac{48}{10} = 4{,}8\text{ m}@.<br>
+          Pelas projeções: @b^2 = a \cdot m \implies 6^2 = 10 \cdot m \implies 36 = 10m \implies m = 3{,}6\text{ m}@.<br>
+          @c^2 = a \cdot n \implies 8^2 = 10 \cdot n \implies 64 = 10n \implies n = 6{,}4\text{ m}@.<br>
+          (Note que @m + n = 3{,}6 + 6{,}4 = 10\text{ m}@).<br>
+          <strong>Resposta:</strong> a) 10 m; b) @h = 4{,}8\text{ m}@, @m = 3{,}6\text{ m}@ e @n = 6{,}4\text{ m}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          A estaca tem altura @1{,}50\text{ m}@ e sombra @0{,}90\text{ m}@ (90 cm). O poste tem sombra @3{,}60\text{ m}@.<br>
+          Pela semelhança de triângulos:<br>
+          @\frac{H_{\text{poste}}}{1{,}50} = \frac{3{,}60}{0{,}90} = 4 \implies H_{\text{poste}} = 1{,}50 \cdot 4 = 6{,}0\text{ m}@.<br>
+          <strong>Resposta:</strong> 6 metros.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Seja @d@ a distância horizontal do ponto @B@ até a base da colina e @h@ a altura da colina.<br>
+          No triângulo menor a partir de @B@: @\operatorname{tg}(60^\circ) = \frac{h}{d} \implies h = d\sqrt{3}@.<br>
+          No triângulo maior a partir de @A@: @\operatorname{tg}(30^\circ) = \frac{h}{d + 40} \implies \frac{\sqrt{3}}{3} = \frac{d\sqrt{3}}{d + 40}@.<br>
+          Dividindo ambos os membros por @\sqrt{3}@: @\frac{1}{3} = \frac{d}{d + 40} \implies d + 40 = 3d \implies 2d = 40 \implies d = 20\text{ m}@.<br>
+          A altura é: @h = 20\sqrt{3} \approx 20 \cdot 1{,}73 = 34{,}6\text{ m}@.<br>
+          <strong>Resposta:</strong> a) @d = 20\text{ m}@; b) @h = 20\sqrt{3}\text{ m} \approx 34{,}6\text{ m}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Rotação de 90° anti-horário: a rotação de 90° leva o ponto @(x, y)@ em @(-y, x)@. Logo, @P(4, 0) \to P'(0, 4)@.<br>
+          b) Rotação de 45° anti-horário:<br>
+          @x' = 4\cos(45^\circ) - 0 \cdot \operatorname{sen}(45^\circ) = 4 \cdot \frac{\sqrt{2}}{2} = 2\sqrt{2}@.<br>
+          @y' = 4\operatorname{sen}(45^\circ) + 0 \cdot \cos(45^\circ) = 4 \cdot \frac{\sqrt{2}}{2} = 2\sqrt{2}@.<br>
+          Logo, @P'' = (2\sqrt{2}, 2\sqrt{2})@.<br>
+          <strong>Resposta:</strong> a) @P'(0, 4)@; b) @P''(2\sqrt{2}, 2\sqrt{2})@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Sabemos que @1 + \operatorname{tg}^2(\theta) = \frac{1}{\cos^2(\theta)} \implies 1 + 2^2 = \frac{1}{\cos^2(\theta)} \implies 5 = \frac{1}{\cos^2(\theta)} \implies \cos^2(\theta) = \frac{1}{5}@.<br>
+          Como @\theta@ é agudo, @\cos(\theta) = \frac{1}{\sqrt{5}} = \frac{\sqrt{5}}{5}@.<br>
+          Então @\operatorname{sen}(\theta) = \operatorname{tg}(\theta) \cdot \cos(\theta) = 2 \cdot \frac{\sqrt{5}}{5} = \frac{2\sqrt{5}}{5}@.<br>
+          b) Dividindo numerador e denominador por @\cos(\theta)@:<br>
+          @E = \frac{\frac{\operatorname{sen}\theta}{\cos\theta} + 1}{\frac{\operatorname{sen}\theta}{\cos\theta} - 1} = \frac{\operatorname{tg}\theta + 1}{\operatorname{tg}\theta - 1} = \frac{2 + 1}{2 - 1} = \frac{3}{1} = 3@.<br>
+          <strong>Resposta:</strong> a) @\operatorname{sen}(\theta) = \frac{2\sqrt{5}}{5}@ e @\cos(\theta) = \frac{\sqrt{5}}{5}@; b) @E = 3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) As transformações isométricas envolvidas são translações (deslocamento dos motivos), rotações (mudança de orientação angular) e reflexões (simetria espelhada), pois preservam todas as distâncias entre pontos e as áreas das figuras.<br>
+          b) Área de uma peça triangular: @A_1 = \frac{10 \cdot 15}{2} = 75\text{ cm}^2@.<br>
+          Área de 200 peças: @A_{\text{total}} = 200 \times 75 = 15.000\text{ cm}^2@.<br>
+          Convertendo para metros quadrados (@1\text{ m}^2 = 10.000\text{ cm}^2@):<br>
+          @A_{\text{total}} = \frac{15.000}{10.000} = 1{,}5\text{ m}^2@.<br>
+          <strong>Resposta:</strong> a) Translações, rotações e reflexões; b) @1{,}5\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Conversão para radianos:<br>
+          @\theta = 72^\circ \cdot \frac{\pi}{180^\circ} = \frac{72\pi}{180} = \frac{2\pi}{5}\text{ rad}@.<br>
+          b) Comprimento do arco @s = R \cdot \theta@:<br>
+          @s = 50 \cdot \frac{2\pi}{5} = 20\pi\text{ m}@.<br>
+          Com @\pi \approx 3{,}14@: @s \approx 20 \cdot 3{,}14 = 62{,}8\text{ m}@.<br>
+          <strong>Resposta:</strong> a) @\frac{2\pi}{5}\text{ rad}@; b) @20\pi\text{ m} \approx 62{,}8\text{ m}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A escala @1 : 500@ indica que a razão linear é @k = 500@.<br>
+          b) A razão de áreas é @k^2 = 500^2 = 250.000@.<br>
+          Área real = @24\text{ cm}^2 \times 250.000 = 6.000.000\text{ cm}^2@.<br>
+          Como @1\text{ m}^2 = 10.000\text{ cm}^2@:<br>
+          @A_{\text{real}} = \frac{6.000.000}{10.000} = 600\text{ m}^2@.<br>
+          <strong>Resposta:</strong> a) @k = 500@; b) @600\text{ m}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Altitude atingida: @h = d \cdot \operatorname{sen}(15^\circ) = 4.000 \cdot 0{,}2588 = 1.035{,}2\text{ m}@.<br>
+          b) Projeção horizontal no solo: @x = d \cdot \cos(15^\circ) = 4.000 \cdot 0{,}9659 = 3.863{,}6\text{ m}@.<br>
+          <strong>Resposta:</strong> a) @1.035{,}2\text{ m}@; b) @3.863{,}6\text{ m}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) O raio perpendicular à corda bissecciona a corda. Metade da corda: @\frac{24}{2} = 12\text{ cm}@.<br>
+          No triângulo retângulo de hipotenusa @R = 13\text{ cm}@ e cateto 12 cm, o apótema @d@ é dado por:<br>
+          @d = \sqrt{R^2 - 12^2} = \sqrt{13^2 - 12^2} = \sqrt{169 - 144} = \sqrt{25} = 5\text{ cm}@.<br>
+          b) A flecha @f@ é a parte restante do raio: @f = R - d = 13 - 5 = 8\text{ cm}@.<br>
+          <strong>Resposta:</strong> a) Apótema = 5 cm; b) Flecha = 8 cm.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Cateto oposto ao ângulo de 30°: @c_1 = 10 \cdot \operatorname{sen}(30^\circ) = 10 \cdot \frac{1}{2} = 5\text{ cm}@.<br>
+          Cateto oposto ao ângulo de 60°: @c_2 = 10 \cdot \operatorname{sen}(60^\circ) = 10 \cdot \frac{\sqrt{3}}{2} = 5\sqrt{3}\text{ cm}@.<br>
+          b) Área do triângulo retângulo: @A = \frac{c_1 \cdot c_2}{2} = \frac{5 \cdot 5\sqrt{3}}{2} = \frac{25\sqrt{3}}{2}\text{ cm}^2 \approx 21{,}65\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) 5 cm e @5\sqrt{3}\text{ cm}@; b) @\frac{25\sqrt{3}}{2}\text{ cm}^2 \approx 21{,}65\text{ cm}^2@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 3 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 3: Problemas de Aprofundamento</h3>
+      <ol start="25">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A área do triângulo retângulo com catetos 3 e 4 é: @A_{\triangle ABC} = \frac{3 \cdot 4}{2} = 6@.<br>
+          b) A bissetriz @AD@ divide o ângulo de 90° em dois ângulos de 45°. A área total é a soma das áreas dos dois triângulos adjacentes:<br>
+          @A_{\triangle ABC} = A_{\triangle ABD} + A_{\triangle ACD}@<br>
+          @6 = \frac{1}{2} \cdot AB \cdot AD \cdot \operatorname{sen}(45^\circ) + \frac{1}{2} \cdot AC \cdot AD \cdot \operatorname{sen}(45^\circ)@<br>
+          @6 = \frac{1}{2} \cdot 3 \cdot AD \cdot \frac{\sqrt{2}}{2} + \frac{1}{2} \cdot 4 \cdot AD \cdot \frac{\sqrt{2}}{2} = \frac{\sqrt{2}}{4} AD (3 + 4) = \frac{7\sqrt{2}}{4} AD@.<br>
+          Isolando @AD@: @AD = \frac{6 \cdot 4}{7\sqrt{2}} = \frac{24}{7\sqrt{2}} = \frac{24\sqrt{2}}{14} = \frac{12\sqrt{2}}{7}@.<br>
+          <strong>Resposta:</strong> a) 6 unidades de área; b) @AD = \frac{12\sqrt{2}}{7}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) O triângulo @ABC@ é retângulo em @A@, com @AB = 50\text{ m}@ (cateto adjacente ao ângulo de 60°) e @AC = L@ (cateto oposto).<br>
+          @\operatorname{tg}(60^\circ) = \frac{L}{AB} \implies \sqrt{3} = \frac{L}{50} \implies L = 50\sqrt{3}\text{ m}@.<br>
+          b) Substituindo @\sqrt{3} \approx 1{,}732@:<br>
+          @L \approx 50 \cdot 1{,}732 = 86{,}6\text{ m}@.<br>
+          <strong>Resposta:</strong> a) @L = 50\sqrt{3}\text{ m}@; b) @86{,}6\text{ m}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Em um triângulo retângulo isósceles, os ângulos da base medem 45°. Se o quadrado tem lado @x@ apoiado na hipotenusa, os dois triângulos formados nas extremidades da hipotenusa são triângulos retângulos isósceles com catetos iguais a @x@, projetando cada um um segmento de comprimento @x@ sobre a hipotenusa.<br>
+          Assim, a hipotenusa total é particionada em: @x + x + x = 3x@.<br>
+          Como a hipotenusa mede 10 cm: @3x = 10 \implies x = \frac{10}{3}\text{ cm}@.<br>
+          b) A área do quadrado é @A_{\text{quadrado}} = x^2 = \left(\frac{10}{3}\right)^2 = \frac{100}{9}\text{ cm}^2 \approx 11{,}11\text{ cm}^2@.<br>
+          Como a hipotenusa mede 10 cm, os catetos medem @\frac{10}{\sqrt{2}} = 5\sqrt{2}@ e a área do triângulo é @\frac{(5\sqrt{2})^2}{2} = \frac{50}{2} = 25\text{ cm}^2@.<br>
+          A fração da área ocupada é @\frac{100/9}{25} = \frac{4}{9} \approx 44{,}4\%@.<br>
+          <strong>Resposta:</strong> a) @x = \frac{10}{3}\text{ cm}@; b) Área = @\frac{100}{9}\text{ cm}^2@, correspondendo a @\frac{4}{9}@ da área do triângulo.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Pelo princípio de Heron, a distância de @B(9, 2)@ a @P(x, 0)@ somada à distância de @P@ a @F(3, 4)@ é igual à distância entre @F@ e o ponto refletido @B'(9, -2)@.<br>
+          A menor distância é o comprimento do segmento reto @FB'@:<br>
+          @d_{\min} = \sqrt{(9 - 3)^2 + (-2 - 4)^2} = \sqrt{6^2 + (-6)^2} = \sqrt{36 + 36} = \sqrt{72} = 6\sqrt{2}@.<br>
+          b) A reta que liga @F(3, 4)@ a @B'(9, -2)@ tem coeficiente angular: @m = \frac{-2 - 4}{9 - 3} = \frac{-6}{6} = -1@.<br>
+          Equação da reta: @y - 4 = -1(x - 3) \implies y = -x + 7@.<br>
+          Na margem do rio (@y = 0@): @0 = -x + 7 \implies x = 7@.<br>
+          Logo, o ponto ideal é @P(7, 0)@.<br>
+          <strong>Resposta:</strong> a) @6\sqrt{2} \approx 8{,}49@ unidades; b) @P(7, 0)@ (isto é, @x = 7@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Hipotenusa: @a = \sqrt{8^2 + 15^2} = \sqrt{64 + 225} = \sqrt{289} = 17\text{ cm}@.<br>
+          b) O semiperímetro é @p = \frac{8 + 15 + 17}{2} = \frac{40}{2} = 20\text{ cm}@.<br>
+          A área é @A = \frac{8 \cdot 15}{2} = 60\text{ cm}^2@.<br>
+          Como @A = p \cdot r@, temos @60 = 20 \cdot r \implies r = 3\text{ cm}@.<br>
+          (Ou pela fórmula direta para triângulo retângulo: @r = \frac{b + c - a}{2} = \frac{8 + 15 - 17}{2} = 3\text{ cm}@).<br>
+          c) No vértice reto, os segmentos de tangência medem @r = 3\text{ cm}@.<br>
+          No outro cateto: @8 - 3 = 5\text{ cm}@.<br>
+          No outro cateto: @15 - 3 = 12\text{ cm}@.<br>
+          Na hipotenusa, os dois segmentos de tangência medem 5 cm e 12 cm (cuja soma é @5 + 12 = 17\text{ cm}@).<br>
+          <strong>Resposta:</strong> a) 17 cm; b) @r = 3\text{ cm}@; c) Segmentos de 3 cm, 5 cm e 12 cm.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A distância do satélite ao centro da Terra é @d = R + h = 6.400 + 36.000 = 42.400\text{ km}@.<br>
+          A linha tangente forma um triângulo retângulo onde o raio @R@ é o cateto e @d@ é a hipotenusa:<br>
+          @\cos(\theta) = \frac{R}{d} = \frac{6.400}{42.400} = \frac{64}{424} = \frac{8}{53} \approx 0{,}1509@.<br>
+          b) O arco de cobertura total ao longo do equador corresponde a @2\theta = 2 \times 81{,}3^\circ = 162{,}6^\circ@.<br>
+          A porcentagem da circunferência equatorial coberta é:<br>
+          @\frac{162{,}6^\circ}{360^\circ} \times 100\% \approx 45{,}17\%@.<br>
+          <strong>Resposta:</strong> a) @\cos(\theta) = \frac{8}{53} \approx 0{,}1509@; b) @\approx 45{,}2\%@ da linha equatorial.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A largura da tira é a distância perpendicular entre as bordas, @L = 6\text{ cm}@.<br>
+          Com o vinco inclinado de 30° em relação à borda, o triângulo formado pela projeção perpendicular tem cateto oposto igual a 6 cm:<br>
+          @\operatorname{sen}(30^\circ) = \frac{6}{V} \implies \frac{1}{2} = \frac{6}{V} \implies V = 12\text{ cm}@.<br>
+          b) O triângulo da dobra é isósceles com lados iguais a 12 cm e ângulo de 30° entre eles:<br>
+          @A = \frac{1}{2} \cdot V \cdot V \cdot \operatorname{sen}(30^\circ) = \frac{1}{2} \cdot 12 \cdot 12 \cdot \frac{1}{2} = \frac{144}{4} = 36\text{ cm}^2@.<br>
+          (Ou pela base e altura: base = @\frac{6}{\operatorname{sen} 30^\circ} = 12@ e altura = 6 cm, dando @\frac{12 \cdot 6}{2} = 36\text{ cm}^2@).<br>
+          <strong>Resposta:</strong> a) Vinco = 12 cm; b) Área = 36 cm².
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Substituindo @\operatorname{sen}^2(x) = 1 - \cos^2(x)@:<br>
+          @2(1 - \cos^2(x)) - 3\cos(x) = 0 \implies 2 - 2\cos^2(x) - 3\cos(x) = 0@.<br>
+          Multiplicando por @-1@: @2\cos^2(x) + 3\cos(x) - 2 = 0@.<br>
+          Fazendo a substituição de variável @u = \cos(x)@:<br>
+          @2u^2 + 3u - 2 = 0@.<br>
+          Discriminante: @\Delta = 3^2 - 4(2)(-2) = 9 + 16 = 25@.<br>
+          Raízes: @u = \frac{-3 \pm 5}{4}@.<br>
+          @u_1 = \frac{2}{4} = \frac{1}{2}@ e @u_2 = \frac{-8}{4} = -2@.<br>
+          Como @-1 \leq \cos(x) \leq 1@, a raiz @u_2 = -2@ não tem solução real.<br>
+          Para @u = \frac{1}{2}@: @\cos(x) = \frac{1}{2}@.<br>
+          No intervalo @0^\circ \leq x \leq 90^\circ@, o único ângulo cujo cosseno vale @\frac{1}{2}@ é @x = 60^\circ@.<br>
+          <strong>Resposta:</strong> @S = \{60^\circ\}@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 4 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 4: Problemas Propostos</h3>
+      <ol start="33">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          @\operatorname{tg}(\theta) = \frac{\text{altura}}{\text{sombra}} = \frac{45}{45} = 1@.<br>
+          O ângulo cuja tangente vale 1 no primeiro quadrante é 45°.<br>
+          <strong>Resposta:</strong> 45°.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Altura do apoio na parede: @h = 6 \cdot \operatorname{sen}(60^\circ) = 6 \cdot \frac{\sqrt{3}}{2} = 3\sqrt{3}\text{ m} \approx 5{,}20\text{ m}@.<br>
+          b) Distância da base: @d = 6 \cdot \cos(60^\circ) = 6 \cdot \frac{1}{2} = 3\text{ m}@.<br>
+          <strong>Resposta:</strong> a) @3\sqrt{3}\text{ m} \approx 5{,}20\text{ m}@; b) 3 metros.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Somando @\vec{u} = (-2, 4)@ a cada vértice:<br>
+          @A' = (0 - 2, 0 + 4) = (-2, 4)@.<br>
+          @B' = (4 - 2, 0 + 4) = (2, 4)@.<br>
+          @C' = (5 - 2, 3 + 4) = (3, 7)@.<br>
+          @D' = (1 - 2, 3 + 4) = (-1, 7)@.<br>
+          b) A base mede @|B - A| = 4 - 0 = 4@ e a altura é a diferença de ordenadas @3 - 0 = 3@. A área é @\text{base} \times \text{altura} = 4 \times 3 = 12@ unidades quadradas. Como a translação é uma isometria, preserva comprimentos de lados e ângulos, mantendo a área inalterada.<br>
+          <strong>Resposta:</strong> a) @A'(-2, 4)@, @B'(2, 4)@, @C'(3, 7)@ e @D'(-1, 7)@; b) Área = 12 unidades quadradas.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Diagonal da base retangular: @d_{\text{base}} = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5\text{ cm}@.<br>
+          Diagonal espacial do paralelepípedo: @D = \sqrt{d_{\text{base}}^2 + 12^2} = \sqrt{5^2 + 12^2} = \sqrt{25 + 144} = \sqrt{169} = 13\text{ cm}@.<br>
+          <strong>Resposta:</strong> 13 cm.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Às 4h40, a posição do ponteiro dos minutos (em 40 min) é @40 \times 6^\circ = 240^\circ@ a partir do 12.<br>
+          O ponteiro das horas às 4h estava em @4 \times 30^\circ = 120^\circ@. Em 40 minutos ele avança @40 \times 0{,}5^\circ = 20^\circ@. Sua posição é @120^\circ + 20^\circ = 140^\circ@.<br>
+          A menor diferença angular entre eles é: @240^\circ - 140^\circ = 100^\circ@.<br>
+          <strong>Resposta:</strong> 100°.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          Expandindo os produtos notáveis:<br>
+          @(\operatorname{sen}\alpha + \cos\alpha)^2 = \operatorname{sen}^2\alpha + 2\operatorname{sen}\alpha\cos\alpha + \cos^2\alpha@.<br>
+          @(\operatorname{sen}\alpha - \cos\alpha)^2 = \operatorname{sen}^2\alpha - 2\operatorname{sen}\alpha\cos\alpha + \cos^2\alpha@.<br>
+          Somando as duas expressões, os termos cruzados @2\operatorname{sen}\alpha\cos\alpha@ se cancelam:<br>
+          @2\operatorname{sen}^2\alpha + 2\cos^2\alpha = 2(\operatorname{sen}^2\alpha + \cos^2\alpha)@.<br>
+          Pela relação fundamental @\operatorname{sen}^2\alpha + \cos^2\alpha = 1@, a expressão resulta em @2 \cdot 1 = 2@.<br>
+          <strong>Resposta:</strong> Demonstração realizada; o valor é 2.
+        </li>
+      </ol>
+    </div>
+
+  </div>
+</details>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

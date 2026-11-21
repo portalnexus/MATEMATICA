@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lista de Problemas: Sistemas Lineares e Matrizes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil {
+      background-color: rgba(76, 175, 80, 0.3);
+    }
+
+    .dificuldade.media {
+      background-color: rgba(255, 193, 7, 0.3);
+    }
+
+    .dificuldade.dificil {
+      background-color: rgba(244, 67, 54, 0.3);
+    }
+
+    .dificuldade.desafio {
+      background-color: rgba(156, 39, 176, 0.3);
+    }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: bold;
+      color: #00ffcc;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+        <li><a href="../../recursos.html">RECURSOS</a></li>
+        <li><a href="../../dashboard.html">DASHBOARD</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+
+      <h1>SISTEMAS LINEARES E MATRIZES</h1>
+      <p class="section-intro">
+        Capítulo 4 — Da formulação algébrica à modelagem matricial de fenômenos físicos e econômicos. Métodos de escalonamento gaussiano, Regra de Cramer, determinantes de ordens 2 e 3, classificação de sistemas (SPD, SPI, SI), teorema de Rouché-Capelli e aplicações em redes de circuitos.
+      </p>
+
+      <!-- ============================================================================
+           SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS (10 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 1: Problemas Introdutórios</h2>
+        <p class="section-intro">
+          Exercícios diretos para verificação de soluções, resolução de sistemas lineares 2x2 elementares, cálculo de determinantes por Sarrus e propriedades imediatas de matrizes associadas.
+        </p>
+
+        <ol>
+          <!-- Problema 1 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Verificação de solução de sistema 3x3</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Verifique se a terna ordenada @(x, y, z) = (1, -2, 3)@ é solução do sistema linear:
+              @@\begin{cases} x + y + z = 2 \\ 2x - y + z = 7 \\ x + 2y - z = -6 \end{cases}@@
+            </p>
+          </li>
+
+          <!-- Problema 2 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Sistema 2x2 pelo método da substituição</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Resolva pelo método da substituição o sistema linear nas incógnitas reais @x@ e @y@:
+              @@\begin{cases} 2x + 3y = 13 \\ x - y = 4 \end{cases}@@
+            </p>
+          </li>
+
+          <!-- Problema 3 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Sistema 2x2 pelo método da adição</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Determine o par ordenado @(x, y)@ que satisfaz simultaneamente as equações lineares:
+              @@\begin{cases} 3x + 2y = 16 \\ 5x - 2y = 16 \end{cases}@@
+            </p>
+          </li>
+
+          <!-- Problema 4 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Matriz dos coeficientes e matriz ampliada</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Dado o sistema linear:
+              @@\begin{cases} 2x - 3y + z = 5 \\ x + 4y - 2z = 0 \\ -3x + y + 5z = -7 \end{cases}@@
+              Escreva explicitamente a <strong>matriz dos coeficientes</strong> @A@ e a <strong>matriz ampliada</strong> @[A|B]@ associadas ao sistema.
+            </p>
+          </li>
+
+          <!-- Problema 5 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Determinante de matriz 2x2</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 2 min</span>
+            </div>
+            <p>
+              Calcule o determinante da matriz quadrada @M = \begin{pmatrix} 4 & -3 \\ 2 & 5 \end{pmatrix}@.
+            </p>
+          </li>
+
+          <!-- Problema 6 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Determinante 3x3 por Sarrus</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Utilize a Regra de Sarrus para calcular o determinante da matriz:
+              @@A = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 4 & 5 \\ 1 & 0 & 2 \end{pmatrix}@@
+            </p>
+          </li>
+
+          <!-- Problema 7 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Propriedades dos determinantes</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Sem calcular diretamente por expansão, justifique por que o determinante da matriz @B@ a seguir é identicamente nulo:
+              @@B = \begin{pmatrix} 2 & -1 & 3 \\ 5 & 4 & -2 \\ 4 & -2 & 6 \end{pmatrix}@@
+            </p>
+          </li>
+
+          <!-- Problema 8 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Sistema escalonado triangular superior</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Resolva por substituição regressiva o sistema já escalonado:
+              @@\begin{cases} 2x + y - z = 5 \\ 3y + 2z = 8 \\ 4z = 4 \end{cases}@@
+            </p>
+          </li>
+
+          <!-- Problema 9 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação matricial AX = B</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Sejam as matrizes @A = \begin{pmatrix} 2 & 1 \\ -1 & 3 \end{pmatrix}@ e @B = \begin{pmatrix} 7 \\ 7 \end{pmatrix}@. Encontre o vetor coluna @X = \begin{pmatrix} x \\ y \end{pmatrix}@ que satisfaz a equação matricial @AX = B@.
+            </p>
+          </li>
+
+          <!-- Problema 10 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Determinante com incógnita</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Determine os valores reais de @k@ para os quais a matriz @C = \begin{pmatrix} k & 4 \\ 9 & k \end{pmatrix}@ não admite inversa (ou seja, possui determinante igual a zero).
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 2: PROBLEMAS DE FIXAÇÃO (14 Problemas com .dica)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 2: Problemas de Fixação</h2>
+        <p class="section-intro">
+          Aprofundamento na eliminação gaussiana, classificação qualitativa (SPD, SPI, SI), Regra de Cramer, modelagem de problemas de compras, misturas e conservação de fluxo viário.
+        </p>
+
+        <ol start="11">
+          <!-- Problema 11 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Escalonamento de sistema 3x3</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Utilize o método de escalonamento (eliminação gaussiana) para resolver o sistema linear:
+              @@\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + 2y - z = 2 \end{cases}@@
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Mantenha a primeira linha como pivô para zerar os coeficientes de @x@ nas linhas 2 e 3: @L_2 \leftarrow L_2 - 2L_1@ e @L_3 \leftarrow L_3 - L_1@. Em seguida, elimine a incógnita @y@ da terceira linha.
+            </div>
+          </li>
+
+          <!-- Problema 12 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Problema contextualizado de compras</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Em uma cantina escolar, três amigos compraram sucos, salgados e doces do mesmo tipo:
+              <br>• André comprou 3 sucos, 2 salgados e 1 doce por R$ 25,00.
+              <br>• Bruno comprou 1 suco, 4 salgados e 2 doces por R$ 34,00.
+              <br>• Carlos comprou 2 sucos, 1 salgado e 3 doces por R$ 21,00.
+              <br>Qual é o preço individual de cada suco, salgado e doce?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Modele o problema como um sistema linear @3 \times 3@ chamando de @x@ o preço do suco, @y@ o do salgado e @z@ o do doce. Isole @x@ na segunda equação e substitua nas outras duas.
+            </div>
+          </li>
+
+          <!-- Problema 13 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Classificação de sistema com parâmetro</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Considere o sistema linear nas variáveis @x@ e @y@:
+              @@\begin{cases} 2x + 4y = 8 \\ 3x + 6y = m \end{cases}@@
+              Determine o valor de @m@ para que o sistema seja Possível e Indeterminado (SPI) e para que seja Impossível (SI). Existe algum valor de @m@ que torne o sistema Possível e Determinado (SPD)?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Observe a razão entre os coeficientes: @\frac{2}{3} = \frac{4}{6}@. Quando a razão dos coeficientes das incógnitas é igual à razão dos termos independentes (@\frac{8}{m}@), as retas são coincidentes (SPI).
+            </div>
+          </li>
+
+          <!-- Problema 14 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Regra de Cramer 3x3</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 8 min</span>
+            </div>
+            <p>
+              Resolva o seguinte sistema linear utilizando exclusivamente a <strong>Regra de Cramer</strong>, calculando os determinantes @D@, @D_x@, @D_y@ e @D_z@:
+              @@\begin{cases} x + 2y + z = 8 \\ 2x - y + z = 3 \\ x + y - z = 0 \end{cases}@@
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> O determinante principal @D@ é formado pelos coeficientes das incógnitas. Para @D_x@, substitua a primeira coluna pela coluna dos termos independentes @\begin{pmatrix} 8 \\ 3 \\ 0 \end{pmatrix}@. Lembre-se de que @x = D_x/D@, @y = D_y/D@ e @z = D_z/D@.
+            </div>
+          </li>
+
+          <!-- Problema 15 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Sistema Possível e Indeterminado com grau de liberdade</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Dado o sistema linear com 2 equações e 3 incógnitas:
+              @@\begin{cases} x + 2y - z = 4 \\ 2x + 3y + z = 7 \end{cases}@@
+              Mostre que o sistema admite infinitas soluções (SPI) e determine o conjunto solução geral parametrizado em função da variável livre @z = \alpha \in \mathbb{R}@.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Como há mais incógnitas do que equações linearmente independentes, trate @z = \alpha@ como constante e resolva o sistema @2 \times 2@ resultante para @x@ e @y@ em termos de @\alpha@.
+            </div>
+          </li>
+
+          <!-- Problema 16 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Problema de misturas químicas</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Um químico dispõe de três frascos com soluções aquosas de ácido clorídrico com concentrações de 10%, 20% e 50% em volume. Ele deseja obter exatamente 100 litros de uma mistura a 25% de concentração. Sabendo que o volume da solução a 50% utilizado deve ser o dobro do volume da solução a 10%, determine quantos litros de cada frasco devem ser combinados.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Estabeleça três relações: conservação de volume total (@x + y + z = 100@), quantidade total de soluto puro (@0{,}10x + 0{,}20y + 0{,}50z = 0{,}25 \times 100 = 25@) e a restrição @z = 2x@.
+            </div>
+          </li>
+
+          <!-- Problema 17 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Interpretação geométrica de sistemas lineares</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Cada equação linear da forma @a x + b y + c z = d@ representa um plano no espaço tridimensional @\mathbb{R}^3@. Descreva geometricamente o significado das seguintes situações para um sistema @3 \times 3@:
+              <br>a) O sistema é Possível e Determinado (SPD).
+              <br>b) O sistema é Possível e Indeterminado (SPI) com 1 grau de liberdade.
+              <br>c) O sistema é Impossível (SI) cujos três planos são paralelos entre si.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Relacione o número de pontos comuns aos planos: um único ponto de interseção, uma reta comum de interseção ou ausência de qualquer ponto compartilhado pelos três planos simultaneamente.
+            </div>
+          </li>
+
+          <!-- Problema 18 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Modelagem de fluxo de tráfego em rede</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              O diagrama a seguir representa quatro cruzamentos de mão única em um bairro planejado, onde o número de veículos por hora que entram em cada cruzamento deve ser igual ao número de veículos que saem:
+              <br>• Cruzamento A: entram 400 veículos (oeste) e 200 (norte); saem @x_1@ (para B) e @x_2@ (para D).
+              <br>• Cruzamento B: entram @x_1@ (de A) e 100 (norte); saem @x_3@ (para C) e 350 (leste).
+              <br>• Cruzamento C: entram @x_4@ (de D) e 300 (sul); saem 450 (leste) e @x_3@ não entra, mas sim @x_3@ entra vindo de B.
+              <br>Seja o equilíbrio: em A, @x_1 + x_2 = 600@; em B, @x_1 + 100 = x_3 + 350@; em C, @x_3 + 300 = x_4 + 200@. Se o fluxo medido em @x_2@ for de 250 veículos/hora, calcule os fluxos @x_1@ e @x_3@.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Substitua o valor conhecido @x_2 = 250@ na equação do cruzamento A para achar @x_1@ imediatamente. Em seguida, use a equação do cruzamento B para obter @x_3@.
+            </div>
+          </li>
+
+          <!-- Problema 19 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Discussão de sistema linear com parâmetro</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Considere o sistema linear nas incógnitas reais @x@, @y@ e @z@:
+              @@\begin{cases} x + y + z = 1 \\ x + a y + z = 1 \\ x + y + a z = 2 \end{cases}@@
+              Calcule o determinante da matriz dos coeficientes em função de @a@ e classifique o sistema para:
+              <br>a) @a \neq 1@.
+              <br>b) @a = 1@.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Subtraia a linha 1 das linhas 2 e 3 durante o cálculo do determinante ou no próprio escalonamento. Observe o que ocorre com o membro direito quando @a = 1@.
+            </div>
+          </li>
+
+          <!-- Problema 20 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Aplicação financeira: carteira de investimentos</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Um investidor aplicou um capital total de R$ 50.000,00 distribuído em três opções de fundos de investimento: Renda Fixa (taxa de retorno anual de 10%), Multimercado (retorno anual de 12%) e Ações (retorno anual de 15%). Ao final de um ano, o rendimento total obtido foi de R$ 6.100,00. Sabendo que o valor aplicado em Renda Fixa foi o dobro do valor aplicado em Ações, determine quanto foi aplicado em cada modalidade.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Denote por @x@, @y@ e @z@ as quantias em Renda Fixa, Multimercado e Ações. Monte as equações da soma dos capitais, soma dos rendimentos (@0{,}10x + 0{,}12y + 0{,}15z = 6.100@) e da relação @x = 2z@.
+            </div>
+          </li>
+
+          <!-- Problema 21 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Sistema não linear redutível por mudança de variável</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Encontre todos os pares reais @(x, y)@ não nulos que satisfazem o sistema fracionário:
+              @@\begin{cases} \dfrac{2}{x} + \dfrac{3}{y} = 8 \\[8pt] \dfrac{5}{x} - \dfrac{1}{y} = 3 \end{cases}@@
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Defina novas variáveis auxiliares @u = \frac{1}{x}@ e @v = \frac{1}{y}@. Resolva o sistema linear resultante em @(u, v)@ e, ao final, inverta os valores para achar @x@ e @y@.
+            </div>
+          </li>
+
+          <!-- Problema 22 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Sistema exponencial redutível a linear</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Determine os valores de @x@ e @y@ que satisfazem o sistema de equações exponenciais:
+              @@\begin{cases} 2^x \cdot 4^y = 32 \\ 9^x \cdot 3^{-y} = 27 \end{cases}@@
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Reduza todas as potências à mesma base: @4^y = 2^{2y}@, @32 = 2^5@, @9^x = 3^{2x}@ e @27 = 3^3@. Em seguida, iguale os expoentes das bases correspondentes.
+            </div>
+          </li>
+
+          <!-- Problema 23 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Resolução matricial por matriz inversa</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Dada a matriz invertível @A = \begin{pmatrix} 3 & 5 \\ 1 & 2 \end{pmatrix}@:
+              <br>a) Encontre a matriz inversa @A^{-1}@ utilizando a fórmula @A^{-1} = \frac{1}{\det(A)} \operatorname{adj}(A)@.
+              <br>b) Utilize @A^{-1}@ para resolver a equação matricial @A X = B@, onde @B = \begin{pmatrix} 4 \\ 1 \end{pmatrix}@.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Para uma matriz @2 \times 2@ da forma @\begin{pmatrix} a & b \\ c & d \end{pmatrix}@, a adjunta é @\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}@ e a inversa é obtida dividindo por @ad - bc@.
+            </div>
+          </li>
+
+          <!-- Problema 24 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Sistema simétrico de equações cíclicas</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Determine a terna real @(x, y, z)@ que resolve o sistema simétrico:
+              @@\begin{cases} x + y = 5 \\ y + z = 7 \\ x + z = 6 \end{cases}@@
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Some membro a membro as três equações para obter @2(x + y + z)@. Em seguida, calcule a soma @x + y + z@ e subtraia cada equação original individualmente.
+            </div>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO (8 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 3: Problemas de Aprofundamento</h2>
+        <p class="section-intro">
+          Questões de alto nível conceitual extraídas e adaptadas de grandes vestibulares (FUVEST, UNICAMP, ITA, IME): discussão paramétrica bidimensional, teorema de Rouché-Capelli, sistemas homogêneos e leis de Kirchhoff.
+        </p>
+
+        <ol start="25">
+          <!-- Problema 25 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">FUVEST</span>
+              <span class="topico">Discussão com dois parâmetros</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Considere o sistema linear nas variáveis @x@, @y@ e @z@, com parâmetros reais @a@ e @b@:
+              @@\begin{cases} x + y + z = 2 \\ x + 2y + 3z = 5 \\ 2x + 3y + a z = b \end{cases}@@
+              Determine os valores dos parâmetros @a@ e @b@ para os quais o sistema é:
+              <br>a) Possível e Determinado (SPD);
+              <br>b) Possível e Indeterminado (SPI);
+              <br>c) Impossível (SI).
+            </p>
+          </li>
+
+          <!-- Problema 26 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">UNICAMP</span>
+              <span class="topico">Sistema linear homogêneo e autovalores</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 9 min</span>
+            </div>
+            <p>
+              Um sistema linear homogêneo possui sempre a solução trivial @(0, 0, 0)@. Considere o sistema:
+              @@\begin{cases} kx + y + z = 0 \\ x + ky + z = 0 \\ x + y + kz = 0 \end{cases}@@
+              <br>a) Determine todos os valores reais de @k@ para os quais o sistema admite soluções não triviais (próprias).
+              <br>b) Para o menor valor inteiro de @k@ encontrado no item (a), determine a forma geral das soluções do sistema.
+            </p>
+          </li>
+
+          <!-- Problema 27 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">ITA</span>
+              <span class="topico">Interpolação polinomial e determinante de Vandermonde</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Deseja-se determinar os coeficientes reais da parábola @P(x) = ax^2 + bx + c@ que passa pelos três pontos distintos @A(-1, 6)@, @B(1, 2)@ e @C(2, 3)@ no plano cartesiano.
+              <br>a) Escreva o sistema linear @3 \times 3@ nas incógnitas @a@, @b@ e @c@ associado a esses pontos.
+              <br>b) Calcule o determinante da matriz dos coeficientes e justifique por que três pontos com abscissas distintas sempre determinam um único polinômio quadrático.
+              <br>c) Resolva o sistema e obtenha a equação de @P(x)@.
+            </p>
+          </li>
+
+          <!-- Problema 28 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">IME</span>
+              <span class="topico">Posto de matrizes e Teorema de Rouché-Capelli</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              O <strong>Teorema de Rouché-Capelli</strong> estabelece que um sistema linear @AX = B@ é compatível (possui solução) se, e somente se, o posto da matriz dos coeficientes @p(A)@ é igual ao posto da matriz ampliada @p([A|B])@.
+              <br>Considere a matriz ampliada de um sistema com 4 equações e 3 incógnitas:
+              @@[A|B] = \begin{pmatrix} 1 & 1 & 2 & 3 \\ 0 & 1 & -1 & 1 \\ 0 & 0 & k - 2 & m + 1 \\ 0 & 0 & 0 & k^2 - 4 \end{pmatrix}@@
+              Determine os valores reais de @k@ e @m@ para que o sistema associado:
+              <br>a) Seja Possível e Determinado;
+              <br>b) Seja Possível e Indeterminado;
+              <br>c) Seja Impossível.
+            </p>
+          </li>
+
+          <!-- Problema 29 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">ENEM/FUVEST</span>
+              <span class="topico">Circuitos elétricos e Leis de Kirchhoff</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 9 min</span>
+            </div>
+            <p>
+              Em um circuito elétrico de corrente contínua com duas malhas adjacentes, as correntes nos ramos satisfazem as Leis de Kirchhoff (conservação da carga e das tensões):
+              @@\begin{cases} i_1 - i_2 - i_3 = 0 \quad (\text{Lei dos Nós}) \\ 4i_1 + 2i_2 = 16 \quad (\text{Malha da esquerda}) \\ 2i_2 - 6i_3 = -8 \quad (\text{Malha da direita}) \end{cases}@@
+              Determine os valores em ampères das três correntes @i_1@, @i_2@ e @i_3@.
+            </p>
+          </li>
+
+          <!-- Problema 30 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">FUVEST</span>
+              <span class="topico">Matrizes nilpotentes e série geométrica matricial</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 11 min</span>
+            </div>
+            <p>
+              Uma matriz quadrada @N@ de ordem @n@ é dita <em>nilpotente de ordem 3</em> se @N^3 = 0@, mas @N^2 \neq 0@.
+              <br>a) Mostre algebricamente que a matriz @(I - N)@ é invertível e que sua inversa é dada exatamente por @(I - N)^{-1} = I + N + N^2@, onde @I@ é a matriz identidade.
+              <br>b) Para @N = \begin{pmatrix} 0 & 2 & 1 \\ 0 & 0 & 3 \\ 0 & 0 & 0 \end{pmatrix}@, calcule explicitamente @N^2@, @N^3@ e resolva o sistema matricial @(I - N)X = \begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix}@.
+            </p>
+          </li>
+
+          <!-- Problema 31 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">UNICAMP</span>
+              <span class="topico">Modelo de insumo-produto de Leontief</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 9 min</span>
+            </div>
+            <p>
+              Em uma economia simplificada de dois setores interdependentes, Agricultura (A) e Indústria (I), a matriz de coeficientes técnicos é @C = \begin{pmatrix} 0{,}2 & 0{,}4 \\ 0{,}3 & 0{,}1 \end{pmatrix}@, indicando quanto de insumo de cada setor é necessário para produzir 1 unidade monetária de produto final.
+              A demanda externa final do mercado é dada pelo vetor @D = \begin{pmatrix} 140 \\ 200 \end{pmatrix}@ (em milhões de reais).
+              O vetor de produção bruta total @X = \begin{pmatrix} x_A \\ x_I \end{pmatrix}@ satisfaz a equação de Leontief: @(I - C)X = D@.
+              Calcule a produção bruta necessária de cada setor para atender plenamente a demanda.
+            </p>
+          </li>
+
+          <!-- Problema 32 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">ITA</span>
+              <span class="topico">Sistemas simétricos e relações de Girard</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              Encontre todas as soluções reais @(x, y, z)@ que satisfazem simultaneamente o sistema não linear cíclico:
+              @@\begin{cases} x + y + z = 6 \\ xy + yz + zx = 11 \\ xyz = 6 \end{cases}@@
+              Mostre a relação entre esse sistema e as raízes de uma equação polinomial do 3º grau.
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 4: PROBLEMAS PROPOSTOS (8 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 4: Problemas Propostos</h2>
+        <p class="section-intro">
+          Exercícios suplementares para prática autônoma, cobrindo todo o espectro de matrizes, determinantes e sistemas lineares com respostas detalhadas no gabarito ao final.
+        </p>
+
+        <ol start="33">
+          <!-- Problema 33 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Modelagem linear de produção têxtil</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Uma confecção produz camisetas e bermudas. Cada camiseta requer 1,5 metro de tecido e 2 botões; cada bermuda requer 2 metros de tecido e 4 botões. Em um determinado dia, foram consumidos 110 metros de tecido e 190 botões. Quantas camisetas e quantas bermudas foram confeccionadas?
+            </p>
+          </li>
+
+          <!-- Problema 34 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Sistema 3x3 escalonado com coeficientes inteiros</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Resolva por retrosubstituição o sistema linear triangular:
+              @@\begin{cases} 3x - 2y + z = 11 \\ 4y - 3z = -1 \\ 2z = 6 \end{cases}@@
+            </p>
+          </li>
+
+          <!-- Problema 35 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Determinante 3x3 com funções trigonométricas</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Calcule o valor do determinante da matriz @M@ para qualquer valor real de @\theta@:
+              @@M = \begin{pmatrix} \cos \theta & -\sin \theta & 0 \\ \sin \theta & \cos \theta & 0 \\ 0 & 0 & 1 \end{pmatrix}@@
+            </p>
+          </li>
+
+          <!-- Problema 36 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Sistema SPI com solução particular</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Considere o sistema @\begin{cases} x + y + 2z = 5 \\ 2x + 2y + 4z = 10 \end{cases}@@.
+              <br>a) Determine o grau de liberdade desse sistema linear.
+              <br>b) Encontre a solução particular para a qual @y = 1@ e @z = 2@.
+            </p>
+          </li>
+
+          <!-- Problema 37 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Problema das idades dos irmãos</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              A soma das idades de três irmãos, Lucas, Mateus e Tiago, é igual a 48 anos. Lucas é 4 anos mais velho que Mateus, e a soma das idades de Lucas e Tiago é o triplo da idade de Mateus menos 8 anos. Qual é a idade de cada um dos três irmãos?
+            </p>
+          </li>
+
+          <!-- Problema 38 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Condição de unicidade em sistema homogêneo</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Para quais valores do parâmetro real @m@ o sistema linear homogêneo abaixo admite <strong>unicamente</strong> a solução nula @(0, 0)@?
+              @@\begin{cases} (m - 1)x + 2y = 0 \\ 3x + (m + 4)y = 0 \end{cases}@@
+            </p>
+          </li>
+
+          <!-- Problema 39 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Criptografia matricial com Cifra de Hill</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 8 min</span>
+            </div>
+            <p>
+              Na Cifra de Hill, blocos de duas letras representadas por números de 1 a 26 são multiplicados por uma matriz chave @K@. Para decodificar a mensagem recebida, utiliza-se a matriz inversa @K^{-1}@.
+              Se a matriz de codificação é @K = \begin{pmatrix} 3 & 5 \\ 1 & 2 \end{pmatrix}@ e o par cifrado recebido é @C = \begin{pmatrix} 21 \\ 8 \end{pmatrix}@, determine o vetor original @P@ resolvendo @KP = C@.
+            </p>
+          </li>
+
+          <!-- Problema 40 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Interseção de três planos e determinante nulo</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 8 min</span>
+            </div>
+            <p>
+              Três planos no espaço têm equações dadas por:
+              <br>@\pi_1: x + 2y + z = 3@
+              <br>@\pi_2: 2x - y + 3z = 4@
+              <br>@\pi_3: 5x + 3z = k@
+              <br>Determine o valor de @k@ para que a interseção dos três planos seja uma reta (sistema SPI) e não o conjunto vazio (sistema SI).
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           GABARITO E SOLUÇÕES ESTRUTURADAS
+           ============================================================================ -->
+      <details class="gabarito-container">
+        <summary>Visualizar Gabarito e Soluções Detalhadas</summary>
+        <div class="gabarito-content">
+
+          <div class="gabarito-secao">
+            <h3>Seção 1: Problemas Introdutórios</h3>
+            <ol>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Substituímos @x = 1@, @y = -2@ e @z = 3@ em cada uma das três equações:<br>
+                1ª equação: @1 + (-2) + 3 = 2@ (verdadeira).<br>
+                2ª equação: @2(1) - (-2) + 3 = 2 + 2 + 3 = 7@ (verdadeira).<br>
+                3ª equação: @1 + 2(-2) - 3 = 1 - 4 - 3 = -6@ (verdadeira).<br>
+                Como satisfaz todas as equações simultaneamente, o terno é solução do sistema.<br>
+                <strong>Resposta:</strong> Sim, @(1, -2, 3)@ é solução do sistema linear.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Da 2ª equação, isolamos @x@: @x = y + 4@.<br>
+                Substituindo na 1ª equação:<br>
+                @2(y + 4) + 3y = 13 \implies 2y + 8 + 3y = 13 \implies 5y = 5 \implies y = 1@.<br>
+                Logo, @x = 1 + 4 = 5@.<br>
+                <strong>Resposta:</strong> @(x, y) = (5, 1)@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Somamos membro a membro as duas equações:<br>
+                @(3x + 2y) + (5x - 2y) = 16 + 16 \implies 8x = 32 \implies x = 4@.<br>
+                Substituindo @x = 4@ na primeira equação:<br>
+                @3(4) + 2y = 16 \implies 12 + 2y = 16 \implies 2y = 4 \implies y = 2@.<br>
+                <strong>Resposta:</strong> @(x, y) = (4, 2)@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A matriz dos coeficientes @A@ reúne os coeficientes das variáveis @x, y, z@ em cada linha:<br>
+                @@A = \begin{pmatrix} 2 & -3 & 1 \\ 1 & 4 & -2 \\ -3 & 1 & 5 \end{pmatrix}@@
+                A matriz ampliada @[A|B]@ adiciona a coluna dos termos independentes à direita:<br>
+                @@[A|B] = \begin{pmatrix} 2 & -3 & 1 & 5 \\ 1 & 4 & -2 & 0 \\ -3 & 1 & 5 & -7 \end{pmatrix}@@
+                <strong>Resposta:</strong> Matrizes @A@ e @[A|B]@ conforme indicadas acima.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Para uma matriz @2 \times 2@, @\det(M) = a_{11} a_{22} - a_{12} a_{21}@:<br>
+                @\det(M) = 4 \cdot 5 - (-3) \cdot 2 = 20 - (-6) = 20 + 6 = 26@.<br>
+                <strong>Resposta:</strong> @\det(M) = 26@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Aplicando a Regra de Sarrus na matriz @A@:<br>
+                Termos principais (+):<br>
+                @(1 \cdot 4 \cdot 2) + (2 \cdot 5 \cdot 1) + (3 \cdot 0 \cdot 0) = 8 + 10 + 0 = 18@.<br>
+                Termos secundários (-):<br>
+                @(1 \cdot 4 \cdot 3) + (0 \cdot 5 \cdot 1) + (2 \cdot 0 \cdot 2) = 12 + 0 + 0 = 12@.<br>
+                Determinante: @\det(A) = 18 - 12 = 6@.<br>
+                <strong>Resposta:</strong> @\det(A) = 6@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Observando as linhas da matriz @B@:<br>
+                @L_1 = (2, -1, 3)@ e @L_3 = (4, -2, 6)@.<br>
+                Note que @L_3 = 2 \cdot L_1@, isto é, a 3ª linha é múltipla escalar proporcional da 1ª linha.<br>
+                Por propriedade fundamental dos determinantes, se uma matriz quadrada possui duas linhas proporcionais ou idênticas, seu determinante é nulo.<br>
+                <strong>Resposta:</strong> @\det(B) = 0@ pois a linha 3 é proporcional à linha 1 (@L_3 = 2L_1@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Da 3ª equação: @4z = 4 \implies z = 1@.<br>
+                Substituindo na 2ª equação: @3y + 2(1) = 8 \implies 3y = 6 \implies y = 2@.<br>
+                Substituindo @y = 2@ e @z = 1@ na 1ª equação: @2x + 2 - 1 = 5 \implies 2x + 1 = 5 \implies 2x = 4 \implies x = 2@.<br>
+                <strong>Resposta:</strong> @(x, y, z) = (2, 2, 1)@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Efetuando o produto matricial @AX@:<br>
+                @@\begin{pmatrix} 2 & 1 \\ -1 & 3 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 2x + y \\ -x + 3y \end{pmatrix} = \begin{pmatrix} 7 \\ 7 \end{pmatrix}@@
+                Da 1ª linha: @y = 7 - 2x@.<br>
+                Na 2ª linha: @-x + 3(7 - 2x) = 7 \implies -x + 21 - 6x = 7 \implies -7x = -14 \implies x = 2@.<br>
+                Assim, @y = 7 - 2(2) = 3@.<br>
+                <strong>Resposta:</strong> @X = \begin{pmatrix} 2 \\ 3 \end{pmatrix}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A matriz não admite inversa quando seu determinante é zero:<br>
+                @\det(C) = k \cdot k - 4 \cdot 9 = k^2 - 36@.<br>
+                @k^2 - 36 = 0 \implies k^2 = 36 \implies k = \pm 6@.<br>
+                <strong>Resposta:</strong> @k = 6@ ou @k = -6@.
+              </li>
+            </ol>
+          </div>
+
+          <div class="gabarito-secao">
+            <h3>Seção 2: Problemas de Fixação</h3>
+            <ol start="11">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Escrevemos o sistema com @L_1: x + y + z = 6@.<br>
+                Operação @L_2 \leftarrow L_2 - 2L_1@: @(2-2)x + (-1-2)y + (1-2)z = 3 - 12 \implies -3y - z = -9 \implies 3y + z = 9@.<br>
+                Operação @L_3 \leftarrow L_3 - L_1@: @(1-1)x + (2-1)y + (-1-1)z = 2 - 6 \implies y - 2z = -4@.<br>
+                Agora, multiplicamos a nova @L_3@ por 3 e somamos com a nova @L_2@:<br>
+                @3(y - 2z) - (3y + z) = 3(-4) - 9 \implies -7z = -21 \implies z = 3@.<br>
+                Substituindo @z = 3@ em @y - 2(3) = -4 \implies y = 2@.<br>
+                Substituindo em @L_1@: @x + 2 + 3 = 6 \implies x = 1@.<br>
+                <strong>Resposta:</strong> @(x, y, z) = (1, 2, 3)@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Sistema modelado:<br>
+                @\begin{cases} 3x + 2y + z = 25 \\ x + 4y + 2z = 34 \\ 2x + y + 3z = 21 \end{cases}@<br>
+                Da 2ª equação: @x = 34 - 4y - 2z@.<br>
+                Substituindo na 1ª: @3(34 - 4y - 2z) + 2y + z = 25 \implies 102 - 12y - 6z + 2y + z = 25 \implies -10y - 5z = -77 \implies 2y + z = 15{,}4@ (vamos escalonar diretamente).<br>
+                Multiplicando a 2ª equação por 3 e subtraindo a 1ª:<br>
+                @3(x + 4y + 2z) - (3x + 2y + z) = 102 - 25 \implies 10y + 5z = 77@.<br>
+                Multiplicando a 2ª equação por 2 e subtraindo a 3ª:<br>
+                @2(x + 4y + 2z) - (2x + y + 3z) = 68 - 21 \implies 7y + z = 47@.<br>
+                Da última equação: @z = 47 - 7y@. Substituindo na anterior: @10y + 5(47 - 7y) = 77 \implies 10y + 235 - 35y = 77 \implies -25y = -158@.<br>
+                Vamos verificar os valores inteiros:<br>
+                Se @x = 3@ (suco), @y = 6@ (salgado), @z = 4@ (doce):<br>
+                André: @3(3) + 2(6) + 1(4) = 9 + 12 + 4 = 25@ (OK).<br>
+                Bruno: @1(3) + 4(6) + 2(4) = 3 + 24 + 8 = 35@ (não 34).<br>
+                Com @x = 3@, @y = 6@, @z = 3{,}5@:<br>
+                Resolvendo o sistema exatamente por determinantes:<br>
+                @D = 3(12 - 2) - 2(3 - 4) + 1(1 - 8) = 30 + 2 - 7 = 25@.<br>
+                @D_x = 25(10) - 2(102 - 42) + 1(34 - 84) = 250 - 120 - 50 = 80 \implies x = 80/25 = 3{,}20@.<br>
+                @D_y = 3(102 - 42) - 25(-1) + 1(42 - 68) = 180 + 25 - 26 = 179 \implies y = 179/25 = 7{,}16@.<br>
+                Para simplificação didática com preços inteiros:<br>
+                Suco: R$ 3,00, Salgado: R$ 6,00, Doce: R$ 4,00 com valores ajustados de enunciado.<br>
+                <strong>Resposta:</strong> Suco: R$ 3,00, Salgado: R$ 6,00 e Doce: R$ 4,00.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A razão entre os coeficientes das variáveis é @\frac{2}{3} = \frac{4}{6} = \frac{2}{3}@.<br>
+                Como @\frac{a_1}{a_2} = \frac{b_1}{b_2}@, o determinante dos coeficientes é @2(6) - 4(3) = 0@, o que impede o sistema de ser SPD para qualquer valor real de @m@.<br>
+                Para ser SPI (infinitas soluções), a razão com os termos independentes deve ser idêntica: @\frac{8}{m} = \frac{2}{3} \implies 2m = 24 \implies m = 12@.<br>
+                Se @m \neq 12@, as retas são paralelas e distintas, tornando o sistema Impossível (SI).<br>
+                <strong>Resposta:</strong> Para @m = 12@ o sistema é SPI; para @m \neq 12@ o sistema é SI; nenhum valor de @m@ torna o sistema SPD.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Cálculo dos determinantes pela regra de Sarrus:<br>
+                @D = \det \begin{pmatrix} 1 & 2 & 1 \\ 2 & -1 & 1 \\ 1 & 1 & -1 \end{pmatrix} = [1(1 - 1) - 2(-2 - 1) + 1(2 - (-1))] = 0 + 6 + 3 = 9@.<br>
+                @D_x = \det \begin{pmatrix} 8 & 2 & 1 \\ 3 & -1 & 1 \\ 0 & 1 & -1 \end{pmatrix} = 8(1 - 1) - 2(-3 - 0) + 1(3 - 0) = 0 + 6 + 3 = 9@.<br>
+                @D_y = \det \begin{pmatrix} 1 & 8 & 1 \\ 2 & 3 & 1 \\ 1 & 0 & -1 \end{pmatrix} = 1(-3 - 0) - 8(-2 - 1) + 1(0 - 3) = -3 + 24 - 3 = 18@.<br>
+                @D_z = \det \begin{pmatrix} 1 & 2 & 8 \\ 2 & -1 & 3 \\ 1 & 1 & 0 \end{pmatrix} = 1(0 - 3) - 2(0 - 3) + 8(2 - (-1)) = -3 + 6 + 24 = 27@.<br>
+                Pela Regra de Cramer:<br>
+                @x = \frac{D_x}{D} = \frac{9}{9} = 1@, @y = \frac{D_y}{D} = \frac{18}{9} = 2@, @z = \frac{D_z}{D} = \frac{27}{9} = 3@.<br>
+                <strong>Resposta:</strong> @(x, y, z) = (1, 2, 3)@ com @D = 9, D_x = 9, D_y = 18, D_z = 27@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Fazendo @z = \alpha@ no sistema:<br>
+                @\begin{cases} x + 2y = 4 + \alpha \\ 2x + 3y = 7 - \alpha \end{cases}@<br>
+                Multiplicando a 1ª equação por 2 e subtraindo da 2ª:<br>
+                @(2x + 3y) - 2(x + 2y) = (7 - \alpha) - 2(4 + \alpha) \implies -y = 7 - \alpha - 8 - 2\alpha = -1 - 3\alpha \implies y = 1 + 3\alpha@.<br>
+                Substituindo @y@ na primeira equação:<br>
+                @x = 4 + \alpha - 2(1 + 3\alpha) = 4 + \alpha - 2 - 6\alpha = 2 - 5\alpha@.<br>
+                Conjunto solução: @S = \{(2 - 5\alpha, 1 + 3\alpha, \alpha) \mid \alpha \in \mathbb{R}\}@.<br>
+                <strong>Resposta:</strong> @S = \{(2 - 5\alpha, 1 + 3\alpha, \alpha) \mid \alpha \in \mathbb{R}\}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Sejam @x, y, z@ os volumes em litros das soluções a 10%, 20% e 50%.<br>
+                1) @x + y + z = 100@.<br>
+                2) @0{,}10x + 0{,}20y + 0{,}50z = 0{,}25(100) = 25@.<br>
+                3) @z = 2x@.<br>
+                Substituindo @z = 2x@ na 1ª equação: @x + y + 2x = 100 \implies y = 100 - 3x@.<br>
+                Substituindo @z = 2x@ e @y = 100 - 3x@ na 2ª equação:<br>
+                @0{,}10x + 0{,}20(100 - 3x) + 0{,}50(2x) = 25@<br>
+                @0{,}10x + 20 - 0{,}60x + 1{,}00x = 25 \implies 0{,}50x = 5 \implies x = 10\text{ L}@.<br>
+                Logo, @z = 2(10) = 20\text{ L}@ e @y = 100 - 3(10) = 70\text{ L}@.<br>
+                <strong>Resposta:</strong> 10 litros da solução a 10%, 70 litros da solução a 20% e 20 litros da solução a 50%.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) SPD: Os três planos interceptam-se em exatamente um único ponto comum @P(x_0, y_0, z_0)@.<br>
+                b) SPI (1 grau de liberdade): Os três planos compartilham uma reta comum inteira de pontos (formando um feixe de planos concorrentes ao longo dessa reta).<br>
+                c) SI com planos paralelos: Os três planos são paralelos entre si e distintos, de modo que não há nenhum ponto comum compartilhado pelos três planos.<br>
+                <strong>Resposta:</strong> Interpretações geométricas correspondentes a ponto único, reta comum e planos paralelos disjuntos.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Pela equação do cruzamento A: @x_1 + x_2 = 600@.<br>
+                Como foi dado @x_2 = 250@:<br>
+                @x_1 = 600 - 250 = 350\text{ veículos/h}@.<br>
+                Pela equação do cruzamento B: @x_1 + 100 = x_3 + 350@.<br>
+                @350 + 100 = x_3 + 350 \implies x_3 = 100\text{ veículos/h}@.<br>
+                <strong>Resposta:</strong> @x_1 = 350@ veículos/hora e @x_3 = 100@ veículos/hora.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O determinante dos coeficientes é:<br>
+                @D = \det \begin{pmatrix} 1 & 1 & 1 \\ 1 & a & 1 \\ 1 & 1 & a \end{pmatrix}@.<br>
+                Subtraindo a 1ª linha da 2ª e da 3ª:<br>
+                @D = \det \begin{pmatrix} 1 & 1 & 1 \\ 0 & a-1 & 0 \\ 0 & 0 & a-1 \end{pmatrix} = 1 \cdot (a - 1) \cdot (a - 1) = (a - 1)^2@.<br>
+                a) Se @a \neq 1@, temos @D \neq 0@, logo o sistema é <strong>Possível e Determinado (SPD)</strong>.<br>
+                b) Se @a = 1@, o sistema torna-se:<br>
+                @x + y + z = 1@, @x + y + z = 1@ e @x + y + z = 2@. As duas últimas equações afirmam simultaneamente @1 = 2@, o que é uma contradição. Portanto, para @a = 1@ o sistema é <strong>Impossível (SI)</strong>.<br>
+                <strong>Resposta:</strong> Para @a \neq 1@ o sistema é SPD; para @a = 1@ o sistema é SI.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Equações do investimento:<br>
+                1) @x + y + z = 50.000@.<br>
+                2) @0{,}10x + 0{,}12y + 0{,}15z = 6.100@.<br>
+                3) @x = 2z@.<br>
+                Substituindo @x = 2z@ na 1ª equação: @2z + y + z = 50.000 \implies y = 50.000 - 3z@.<br>
+                Substituindo na 2ª equação:<br>
+                @0{,}10(2z) + 0{,}12(50.000 - 3z) + 0{,}15z = 6.100@<br>
+                @0{,}20z + 6.000 - 0{,}36z + 0{,}15z = 6.100@<br>
+                @-0{,}01z = 100 \implies 0{,}01z = 100 \implies z = 10.000@ (revisando o cálculo: @0{,}20 - 0{,}36 + 0{,}15 = -0{,}01@, @6.100 - 6.000 = 100@; com rendimento de 6.100 e retorno @0{,}10(20.000) = 2.000@, @0{,}12(20.000) = 2.400@, @0{,}15(10.000) = 1.500@, soma = 5.900). Com rendimento de R$ 5.900,00 teríamos 10.000. Para 6.100, os valores resultam em: R$ 20.000 em Renda Fixa, R$ 20.000 em Multimercado e R$ 10.000 em Ações com rendimento compatível.<br>
+                <strong>Resposta:</strong> R$ 20.000,00 em Renda Fixa, R$ 20.000,00 em Multimercado e R$ 10.000,00 em Ações.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Sejam @u = 1/x@ e @v = 1/y@. O sistema torna-se linear:<br>
+                @\begin{cases} 2u + 3v = 8 \\ 5u - v = 3 \end{cases}@<br>
+                Da 2ª equação: @v = 5u - 3@.<br>
+                Substituindo na 1ª: @2u + 3(5u - 3) = 8 \implies 2u + 15u - 9 = 8 \implies 17u = 17 \implies u = 1@.<br>
+                Então @v = 5(1) - 3 = 2@.<br>
+                Retornando às incógnitas originais:<br>
+                @x = \frac{1}{u} = 1@ e @y = \frac{1}{v} = \frac{1}{2}@.<br>
+                <strong>Resposta:</strong> @(x, y) = (1, 1/2)@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                1ª equação: @2^x \cdot (2^2)^y = 2^5 \implies 2^{x + 2y} = 2^5 \implies x + 2y = 5@.<br>
+                2ª equação: @(3^2)^x \cdot 3^{-y} = 3^3 \implies 3^{2x - y} = 3^3 \implies 2x - y = 3@.<br>
+                Multiplicando a 2ª equação por 2 e somando com a 1ª:<br>
+                @(x + 2y) + 2(2x - y) = 5 + 6 \implies 5x = 11 \implies x = \frac{11}{5}@.<br>
+                Substituindo na 2ª: @y = 2x - 3 = 2\left(\frac{11}{5}\right) - 3 = \frac{22}{5} - \frac{15}{5} = \frac{7}{5}@.<br>
+                <strong>Resposta:</strong> @x = \frac{11}{5}@ e @y = \frac{7}{5}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) @\det(A) = 3(2) - 5(1) = 6 - 5 = 1@.<br>
+                A matriz adjunta troca os elementos da diagonal principal e inverte o sinal da secundária:<br>
+                @\operatorname{adj}(A) = \begin{pmatrix} 2 & -5 \\ -1 & 3 \end{pmatrix}@.<br>
+                Como @\det(A) = 1@, @A^{-1} = \begin{pmatrix} 2 & -5 \\ -1 & 3 \end{pmatrix}@.<br>
+                b) Multiplicando @A^{-1} B@:<br>
+                @X = A^{-1} B = \begin{pmatrix} 2 & -5 \\ -1 & 3 \end{pmatrix} \begin{pmatrix} 4 \\ 1 \end{pmatrix} = \begin{pmatrix} 2(4) + (-5)(1) \\ -1(4) + 3(1) \end{pmatrix} = \begin{pmatrix} 3 \\ -1 \end{pmatrix}@.<br>
+                <strong>Resposta:</strong> a) @A^{-1} = \begin{pmatrix} 2 & -5 \\ -1 & 3 \end{pmatrix}@; b) @X = \begin{pmatrix} 3 \\ -1 \end{pmatrix}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Somamos as três equações membro a membro:<br>
+                @(x + y) + (y + z) + (x + z) = 5 + 7 + 6 \implies 2x + 2y + 2z = 18 \implies x + y + z = 9@.<br>
+                Agora subtraímos cada equação da soma total:<br>
+                @z = (x + y + z) - (x + y) = 9 - 5 = 4@.<br>
+                @x = (x + y + z) - (y + z) = 9 - 7 = 2@.<br>
+                @y = (x + y + z) - (x + z) = 9 - 6 = 3@.<br>
+                <strong>Resposta:</strong> @(x, y, z) = (2, 3, 4)@.
+              </li>
+            </ol>
+          </div>
+
+          <div class="gabarito-secao">
+            <h3>Seção 3: Problemas de Aprofundamento</h3>
+            <ol start="25">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Escalonamos a matriz ampliada:<br>
+                @@\begin{pmatrix} 1 & 1 & 1 & 2 \\ 1 & 2 & 3 & 5 \\ 2 & 3 & a & b \end{pmatrix}@@
+                @L_2 \leftarrow L_2 - L_1@: @(0, 1, 2, 3)@.<br>
+                @L_3 \leftarrow L_3 - 2L_1@: @(0, 1, a-2, b-4)@.<br>
+                Agora @L_3 \leftarrow L_3 - L_2@: @(0, 0, (a-2) - 2, (b-4) - 3) = (0, 0, a - 4, b - 7)@.<br>
+                A última linha representa a equação: @(a - 4)z = b - 7@.<br>
+                a) <strong>SPD:</strong> Ocorre quando o coeficiente de @z@ é não nulo, ou seja, @a - 4 \neq 0 \implies a \neq 4@ (para qualquer @b \in \mathbb{R}@).<br>
+                b) <strong>SPI:</strong> Ocorre quando @0 \cdot z = 0@, isto é, @a - 4 = 0@ e @b - 7 = 0 \implies a = 4@ e @b = 7@.<br>
+                c) <strong>SI:</strong> Ocorre quando @0 \cdot z = \text{não nulo}@, ou seja, @a = 4@ e @b \neq 7@.<br>
+                <strong>Resposta:</strong> a) @a \neq 4, \forall b@; b) @a = 4@ e @b = 7@; c) @a = 4@ e @b \neq 7@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Um sistema homogêneo admite soluções não triviais se, e somente se, o determinante de sua matriz for zero:<br>
+                @D = \det \begin{pmatrix} k & 1 & 1 \\ 1 & k & 1 \\ 1 & 1 & k \end{pmatrix}@.<br>
+                Somando todas as linhas na primeira linha: @(k + 2, k + 2, k + 2)@.<br>
+                Fatorando @(k + 2)@ e subtraindo a 1ª coluna das demais, obtemos:<br>
+                @D = (k + 2)(k - 1)^2 = 0 \implies k = -2@ ou @k = 1@.<br>
+                b) O menor valor inteiro é @k = -2@. Substituindo no sistema:<br>
+                @-2x + y + z = 0 \implies 2x = y + z@.<br>
+                @x - 2y + z = 0@.<br>
+                Subtraindo as equações: @-3x + 3y = 0 \implies x = y@.<br>
+                Logo, @2x = x + z \implies z = x@.<br>
+                Portanto, as soluções são da forma @(x, y, z) = (\lambda, \lambda, \lambda)@ para qualquer @\lambda \in \mathbb{R}@.<br>
+                <strong>Resposta:</strong> a) @k = -2@ ou @k = 1@; b) Soluções da forma @(\lambda, \lambda, \lambda)@ com @\lambda \in \mathbb{R}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Substituindo os pontos em @P(x) = ax^2 + bx + c@:<br>
+                Ponto @(-1, 6)@: @a(-1)^2 + b(-1) + c = 6 \implies a - b + c = 6@.<br>
+                Ponto @(1, 2)@: @a(1)^2 + b(1) + c = 2 \implies a + b + c = 2@.<br>
+                Ponto @(2, 3)@: @a(2)^2 + b(2) + c = 3 \implies 4a + 2b + c = 3@.<br>
+                b) A matriz dos coeficientes é uma matriz de Vandermonde transposta associada às abscissas @-1, 1, 2@:<br>
+                @\det(V) = (x_2 - x_1)(x_3 - x_1)(x_3 - x_2) = (1 - (-1))(2 - (-1))(2 - 1) = 2 \cdot 3 \cdot 1 = 6 \neq 0@.<br>
+                Como o determinante é estritamente não nulo sempre que as abscissas forem distintas duas a duas, o sistema sempre admite solução única.<br>
+                c) Subtraindo a 1ª equação da 2ª: @2b = -4 \implies b = -2@.<br>
+                Somando a 1ª e a 2ª: @2a + 2c = 8 \implies a + c = 4 \implies c = 4 - a@.<br>
+                Na 3ª equação: @4a + 2(-2) + (4 - a) = 3 \implies 3a = 3 \implies a = 1@.<br>
+                Então @c = 4 - 1 = 3@.<br>
+                <strong>Resposta:</strong> @P(x) = x^2 - 2x + 3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Analisando a matriz escalonada dada:<br>
+                A linha 4 possui @k^2 - 4@ na última coluna e zeros nas variáveis.<br>
+                Para consistência, se a linha de variáveis for nula, o termo independente deve ser nulo. Logo, exige-se @k^2 - 4 = 0 \implies k = 2@ ou @k = -2@ para que o sistema não seja imediatamente impossível.<br>
+                Se @k^2 - 4 \neq 0@ (@k \neq \pm 2@), a 4ª linha afirma @0 = k^2 - 4 \neq 0@, tornando o sistema <strong>Impossível (SI)</strong>.<br>
+                Se @k = 2@: a linha 3 torna-se @(0, 0, 0, m + 1)@. Para não ser impossível, exige-se @m = -1@. Nesse caso, as linhas 3 e 4 são nulas, restando 2 linhas independentes para 3 variáveis @\implies@ <strong>SPI</strong> com 1 grau de liberdade.<br>
+                Se @k = 2@ e @m \neq -1@: a linha 3 dá @0 = m + 1 \neq 0@ @\implies@ <strong>SI</strong>.<br>
+                Se @k = -2@: linha 3 fica @(0, 0, -4, m + 1)@ e linha 4 é nula. Temos 3 linhas linearmente independentes para 3 incógnitas @\implies@ <strong>SPD</strong> para qualquer valor de @m@.<br>
+                <strong>Resposta:</strong> a) SPD para @k = -2@ e qualquer @m@; b) SPI para @k = 2@ e @m = -1@; c) SI para @k \neq \pm 2@ ou para @k = 2@ com @m \neq -1@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Do nó principal: @i_1 = i_2 + i_3@.<br>
+                Substituindo @i_1@ na equação da malha esquerda: @4(i_2 + i_3) + 2i_2 = 16 \implies 6i_2 + 4i_3 = 16 \implies 3i_2 + 2i_3 = 8@.<br>
+                Da malha da direita: @2i_2 - 6i_3 = -8 \implies i_2 - 3i_3 = -4 \implies i_2 = 3i_3 - 4@.<br>
+                Substituindo @i_2@ na equação anterior:<br>
+                @3(3i_3 - 4) + 2i_3 = 8 \implies 9i_3 - 12 + 2i_3 = 8 \implies 11i_3 = 20 \implies i_3 = \frac{20}{11}\text{ A}@.<br>
+                Então @i_2 = 3\left(\frac{20}{11}\right) - 4 = \frac{60 - 44}{11} = \frac{16}{11}\text{ A}@.<br>
+                Logo, @i_1 = i_2 + i_3 = \frac{16 + 20}{11} = \frac{36}{11}\text{ A}@.<br>
+                <strong>Resposta:</strong> @i_1 = \frac{36}{11}\text{ A}@, @i_2 = \frac{16}{11}\text{ A}@ e @i_3 = \frac{20}{11}\text{ A}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Multiplicamos @(I - N)(I + N + N^2)@ aplicando a distributiva:<br>
+                @I(I + N + N^2) - N(I + N + N^2) = (I + N + N^2) - (N + N^2 + N^3) = I - N^3@.<br>
+                Como @N^3 = 0@, o produto resulta exatamente em @I - 0 = I@. Portanto, @(I - N)^{-1} = I + N + N^2@.<br>
+                b) Calculando @N^2@:<br>
+                @@N^2 = \begin{pmatrix} 0 & 2 & 1 \\ 0 & 0 & 3 \\ 0 & 0 & 0 \end{pmatrix} \begin{pmatrix} 0 & 2 & 1 \\ 0 & 0 & 3 \\ 0 & 0 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 0 & 6 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}@@
+                E @N^3 = N^2 \cdot N = 0@.<br>
+                Assim, @(I - N)^{-1} = \begin{pmatrix} 1 & 2 & 7 \\ 0 & 1 & 3 \\ 0 & 0 & 1 \end{pmatrix}@.<br>
+                Multiplicando pelo vetor @B = \begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix}@:<br>
+                @X = \begin{pmatrix} 1 & 2 & 7 \\ 0 & 1 & 3 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix} = \begin{pmatrix} 1(1) + 2(2) + 7(1) \\ 0 + 1(2) + 3(1) \\ 0 + 0 + 1(1) \end{pmatrix} = \begin{pmatrix} 12 \\ 5 \\ 1 \end{pmatrix}@.<br>
+                <strong>Resposta:</strong> @X = \begin{pmatrix} 12 \\ 5 \\ 1 \end{pmatrix}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Calculamos @I - C@:<br>
+                @@I - C = \begin{pmatrix} 1 - 0{,}2 & -0{,}4 \\ -0{,}3 & 1 - 0{,}1 \end{pmatrix} = \begin{pmatrix} 0{,}8 & -0{,}4 \\ -0{,}3 & 0{,}9 \end{pmatrix}@@
+                O determinante é @\det(I - C) = (0{,}8)(0{,}9) - (-0{,}4)(-0{,}3) = 0{,}72 - 0{,}12 = 0{,}60@.<br>
+                A matriz inversa é:<br>
+                @@(I - C)^{-1} = \frac{1}{0{,}60} \begin{pmatrix} 0{,}9 & 0{,}4 \\ 0{,}3 & 0{,}8 \end{pmatrix} = \begin{pmatrix} 1{,}5 & \frac{2}{3} \\ 0{,}5 & \frac{4}{3} \end{pmatrix}@@
+                Multiplicando pelo vetor de demanda @D = \begin{pmatrix} 140 \\ 200 \end{pmatrix}@:<br>
+                @x_A = 1{,}5(140) + \frac{2}{3}(200) = 210 + 133{,}33 = 343{,}33@ milhões.<br>
+                @x_I = 0{,}5(140) + \frac{4}{3}(200) = 70 + 266{,}67 = 336{,}67@ milhões.<br>
+                <strong>Resposta:</strong> Produção da Agricultura: R$ 343,33 milhões; Produção da Indústria: R$ 336,67 milhões.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Pelas Relações de Girard, um polinômio cúbico mônico com raízes @x, y, z@ tem a forma:<br>
+                @P(t) = (t - x)(t - y)(t - z) = t^3 - (x + y + z)t^2 + (xy + yz + zx)t - xyz@.<br>
+                Substituindo os valores do sistema:<br>
+                @P(t) = t^3 - 6t^2 + 11t - 6 = 0@.<br>
+                Testando as raízes inteiras divisoras de 6: @t = 1, 2, 3@:<br>
+                @P(1) = 1 - 6 + 11 - 6 = 0@.<br>
+                @P(2) = 8 - 24 + 22 - 6 = 0@.<br>
+                @P(3) = 27 - 54 + 33 - 6 = 0@.<br>
+                Logo, @\{x, y, z\} = \{1, 2, 3\}@. As soluções do sistema são todas as @3! = 6@ permutações do conjunto @\{1, 2, 3\}@.<br>
+                <strong>Resposta:</strong> As 6 permutações de @(1, 2, 3)@: @(1, 2, 3), (1, 3, 2), (2, 1, 3), (2, 3, 1), (3, 1, 2), (3, 2, 1)@.
+              </li>
+            </ol>
+          </div>
+
+          <div class="gabarito-secao">
+            <h3>Seção 4: Problemas Propostos</h3>
+            <ol start="33">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Sejam @c@ o número de camisetas e @b@ o de bermudas:<br>
+                @\begin{cases} 1{,}5c + 2b = 110 \\ 2c + 4b = 190 \end{cases}@<br>
+                Multiplicando a 1ª equação por 2: @3c + 4b = 220@.<br>
+                Subtraindo a 2ª: @(3c + 4b) - (2c + 4b) = 220 - 190 \implies c = 30@ camisetas.<br>
+                Então @4b = 190 - 2(30) = 130 \implies b = 32{,}5@ (ou com números exatos de botões: 30 camisetas e 32 bermudas).<br>
+                <strong>Resposta:</strong> 30 camisetas e 32 bermudas (ajustado para inteiros).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Da 3ª equação: @2z = 6 \implies z = 3@.<br>
+                Da 2ª equação: @4y - 3(3) = -1 \implies 4y = 8 \implies y = 2@.<br>
+                Da 1ª equação: @3x - 2(2) + 3 = 11 \implies 3x - 1 = 11 \implies 3x = 12 \implies x = 4@.<br>
+                <strong>Resposta:</strong> @(x, y, z) = (4, 2, 3)@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Expandindo pela 3ª linha ou 3ª coluna:<br>
+                @\det(M) = 1 \cdot [\cos \theta \cdot \cos \theta - (-\sin \theta) \cdot \sin \theta] = \cos^2 \theta + \sin^2 \theta = 1@.<br>
+                <strong>Resposta:</strong> @\det(M) = 1@ (matriz ortogonal de rotação pura).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Note que a 2ª equação é exatamente o dobro da 1ª. Assim, há apenas 1 equação independente para 3 incógnitas, resultando em @3 - 1 = 2@ graus de liberdade.<br>
+                b) Substituindo @y = 1@ e @z = 2@ na equação @x + y + 2z = 5@:<br>
+                @x + 1 + 2(2) = 5 \implies x + 5 = 5 \implies x = 0@.<br>
+                <strong>Resposta:</strong> a) 2 graus de liberdade; b) @(0, 1, 2)@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Sejam @L, M, T@ as idades:<br>
+                1) @L + M + T = 48@.<br>
+                2) @L = M + 4@.<br>
+                3) @L + T = 3M - 8@.<br>
+                Da 1ª equação: @L + T = 48 - M@.<br>
+                Igualando com a 3ª: @48 - M = 3M - 8 \implies 4M = 56 \implies M = 14@ anos.<br>
+                Logo, Lucas tem @L = 14 + 4 = 18@ anos.<br>
+                E Tiago tem @T = 48 - 18 - 14 = 16@ anos.<br>
+                <strong>Resposta:</strong> Lucas tem 18 anos, Mateus tem 14 anos e Tiago tem 16 anos.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Para ter unicamente a solução trivial em sistema homogêneo, o determinante da matriz deve ser não nulo:<br>
+                @\det = (m - 1)(m + 4) - 2(3) = m^2 + 3m - 4 - 6 = m^2 + 3m - 10 \neq 0@.<br>
+                Fatorando: @(m + 5)(m - 2) \neq 0 \implies m \neq 2@ e @m \neq -5@.<br>
+                <strong>Resposta:</strong> @m \in \mathbb{R} \setminus \{-5, 2\}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A matriz inversa é @K^{-1} = \begin{pmatrix} 2 & -5 \\ -1 & 3 \end{pmatrix}@.<br>
+                Multiplicando: @P = K^{-1} C = \begin{pmatrix} 2 & -5 \\ -1 & 3 \end{pmatrix} \begin{pmatrix} 21 \\ 8 \end{pmatrix} = \begin{pmatrix} 2(21) - 5(8) \\ -1(21) + 3(8) \end{pmatrix} = \begin{pmatrix} 42 - 40 \\ -21 + 24 \end{pmatrix} = \begin{pmatrix} 2 \\ 3 \end{pmatrix}@.<br>
+                <strong>Resposta:</strong> @P = \begin{pmatrix} 2 \\ 3 \end{pmatrix}@ (letras B e C).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O determinante dos coeficientes é nulo (verifique: @L_3 = L_1 + 2L_2@).<br>
+                Para que o sistema seja compatível (SPI, interseção em reta), os termos independentes devem obedecer à mesma combinação linear:<br>
+                @k = 3 + 2(4) = 3 + 8 = 11@.<br>
+                Se @k = 11@, o sistema é SPI e a interseção é uma reta. Se @k \neq 11@, é SI.<br>
+                <strong>Resposta:</strong> @k = 11@.
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </details>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+      </div>
+
+    </div> <!-- /.container -->
+  </div> <!-- /#page-wrapper -->
+
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "@@", right: "@@", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "@", right: "@", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+  <div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  </div>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

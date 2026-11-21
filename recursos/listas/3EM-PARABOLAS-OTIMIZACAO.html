@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lista de Problemas: Parábolas, Balística e Otimização Extrema</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil {
+      background-color: rgba(76, 175, 80, 0.3);
+    }
+
+    .dificuldade.media {
+      background-color: rgba(255, 193, 7, 0.3);
+    }
+
+    .dificuldade.dificil {
+      background-color: rgba(244, 67, 54, 0.3);
+    }
+
+    .dificuldade.desafio {
+      background-color: rgba(156, 39, 176, 0.3);
+    }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: bold;
+      color: #00ffcc;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+        <li><a href="../../recursos.html">RECURSOS</a></li>
+        <li><a href="../../dashboard.html">DASHBOARD</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+
+      <h1>PARÁBOLAS, BALÍSTICA E OTIMIZAÇÃO EXTREMA</h1>
+      <p class="section-intro">
+        Capítulo 2 (3º Ano EM) — Da geometria cônica clássica de Apolônio às aplicações tecnológicas modernas: foco, diretriz, propriedade óptica de refletores, trajetórias balísticas e maximização/minimização quadrática em engenharia e economia.
+      </p>
+
+      <!-- ============================================================================
+           SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS (10 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 1: Problemas Introdutórios</h2>
+        <p class="section-intro">
+          Exercícios diretos para identificação dos elementos geométricos da parábola (vértice, foco, diretriz, parâmetro focal e eixo de simetria) e cálculo de pontos de máximo e mínimo.
+        </p>
+
+        <ol>
+          <!-- Problema 1 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Coordenadas do vértice da parábola</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Dada a função quadrática @y = x^2 - 8x + 12@, calcule as coordenadas do vértice @V(x_v, y_v)@ utilizando as relações @x_v = -\frac{b}{2a}@ e @y_v = -\frac{\Delta}{4a}@.
+            </p>
+          </li>
+
+          <!-- Problema 2 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Classificação de ponto extremo e concavidade</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Considere a parábola dada por @y = -2x^2 + 12x - 10@.
+            </p>
+            <p>a) A parábola possui ponto de máximo ou ponto de mínimo? Justifique pelo sinal do coeficiente líder @a@.</p>
+            <p>b) Calcule o valor extremo (máximo ou mínimo) assumido por @y@ e o ponto @x@ onde ele ocorre.</p>
+          </li>
+
+          <!-- Problema 3 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Foco e diretriz na equação canônica horizontal</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Uma parábola com vértice na origem @(0,0)@ e eixo focal coincidente com o eixo das abscissas tem equação canônica @y^2 = 4px@. Sabendo que ela passa pelo ponto @P(2, 4)@:
+            </p>
+            <p>a) Determine o valor do parâmetro @p@.</p>
+            <p>b) Indique as coordenadas do foco @F@ e a equação da reta diretriz @d@.</p>
+          </li>
+
+          <!-- Problema 4 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Foco e diretriz na equação canônica vertical</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Para a parábola de equação @x^2 = 16y@ com vértice na origem @(0,0)@:
+            </p>
+            <p>a) Determine a distância focal @p@.</p>
+            <p>b) Escreva as coordenadas do foco @F@ e a equação cartesiana da reta diretriz.</p>
+          </li>
+
+          <!-- Problema 5 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Construção da parábola a partir de foco e diretriz</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Determine a equação cartesiana da parábola cujo foco é o ponto @F(0, 3)@ e cuja reta diretriz tem equação @y = -3@, aplicando a definição geométrica como lugar geométrico dos pontos equidistantes de @F@ e da diretriz.
+            </p>
+          </li>
+
+          <!-- Problema 6 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Parábola com vértice transladado</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Uma parábola possui vértice no ponto @V(2, 1)@, concavidade voltada para cima e distância do vértice ao foco igual a @p = 2@ (foco no ponto @F(2, 3)@). Escreva a equação reduzida da parábola na forma @(x - x_v)^2 = 4p(y - y_v)@ e expanda-a na forma polinomial padrão @y = ax^2 + bx + c@.
+            </p>
+          </li>
+
+          <!-- Problema 7 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Forma fatorada a partir de raízes</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Uma parábola intersecta o eixo das abscissas nos pontos @x_1 = -1@ e @x_2 = 5@ e cruza o eixo das ordenadas no ponto @(0, -10)@.
+            </p>
+            <p>a) Determine a lei da função quadrática @y = a(x - x_1)(x - x_2)@.</p>
+            <p>b) Encontre a abscissa do vértice através da média aritmética das raízes.</p>
+          </li>
+
+          <!-- Problema 8 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Altura máxima em lançamento vertical</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Um objeto é atirado verticalmente para cima a partir do solo. Sua altura @h@ em metros, após @t@ segundos do lançamento, é dada por @h(t) = -5t^2 + 40t@. Calcule o instante em que o objeto atinge a altura máxima e o valor dessa altura em metros.
+            </p>
+          </li>
+
+          <!-- Problema 9 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Latus rectum e corda focal</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Dada a parábola @y = \frac{1}{12}x^2@ com vértice na origem:
+            </p>
+            <p>a) Reescreva a equação na forma canônica @x^2 = 4py@ e determine @p@.</p>
+            <p>b) Calcule o comprimento do <em>latus rectum</em> (a corda focal paralela à diretriz que passa pelo foco, dada por @|4p|@).</p>
+          </li>
+
+          <!-- Problema 10 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Determinação de parâmetros por pontos notáveis</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              A parábola @y = ax^2 + bx + c@ tem vértice no ponto @V(3, 4)@ e passa pelo ponto @P(1, 0)@. Determine os valores numéricos dos coeficientes reais @a@, @b@ e @c@.
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 2: PROBLEMAS DE FIXAÇÃO (14 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 2: Problemas de Fixação</h2>
+        <p class="section-intro">
+          Aplicações tecnológicas e físicas: foco e reflexão em antenas e refletores, geometria estrutural de arcos parabólicos de pontes e viadutos, alcance balístico e problemas clássicos de otimização de receita, lucro e área.
+        </p>
+
+        <ol start="11">
+          <!-- Problema 11 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Reflexão em antena parabólica de satélite</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Uma antena parabólica de recepção de sinal via satélite tem a forma de um parabolóide de revolução. A sua abertura circular superior tem diâmetro de @120\text{ cm}@ e a profundidade no centro da calota é de @20\text{ cm}@. A que distância do vértice (fundo da antena) deve ser instalado o receptor (LNB) para que os sinais eletromagnéticos paralelos convirjam exatamente sobre ele?
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> Posicione o vértice da parábola na origem @(0,0)@ com eixo de simetria vertical (@x^2 = 4py@). A borda superior da antena passa pelo ponto @(x, y) = (60, 20)@. Substitua essas coordenadas para encontrar o parâmetro focal @p@.
+            </div>
+          </li>
+
+          <!-- Problema 12 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Espelho parabólico e farol automotivo</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              O refletor do farol de milha de um automóvel é projetado com seção transversal parabólica de modo que a lâmpada fique no foco, emitindo um feixe de luz colimado e paralelo. Sabendo que o foco está situado a @4\text{ cm}@ do vértice e que a profundidade total do refletor é de @9\text{ cm}@, determine o diâmetro da abertura frontal do farol.
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> Com a lâmpada no foco, temos @p = 4\text{ cm}@. A equação da parábola com vértice na origem é @y^2 = 4px = 16x@ (ou @x^2 = 16y@ dependendo da orientação). Calcule a abertura total @2y@ quando a profundidade for @9\text{ cm}@.
+            </div>
+          </li>
+
+          <!-- Problema 13 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Arco de ponte parabólica</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              O arco central de sustentação de uma ponte de concreto tem a forma de uma parábola com a concavidade voltada para baixo. O vão total entre os pilares de apoio na base é de @80\text{ m}@ e a altura máxima do arco no ponto central é de @20\text{ m}@ acima do nível da água.
+            </p>
+            <p>a) Estabeleça a equação da parábola adotando o vértice no topo do arco com coordenadas @(0, 20)@.</p>
+            <p>b) Determine a altura do arco a uma distância horizontal de @20\text{ m}@ do centro da ponte.</p>
+
+            <div class="dica">
+              <strong>Dica:</strong> Com vértice em @(0, 20)@, a equação é do tipo @y = 20 - ax^2@. Os apoios da base ocorrem em @x = \pm 40\text{ m}@ onde @y = 0@. Use essa condição para determinar o coeficiente @a@.
+            </div>
+          </li>
+
+          <!-- Problema 14 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Alcance horizontal e altura máxima balística</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Um canhão posicionado na origem do plano cartesiano dispara um projétil sobre solo plano horizontal. Desprezando a resistência do ar, a trajetória balística é descrita pela equação parabólica:
+              @@y(x) = x - \frac{x^2}{250}@@
+              onde @x@ e @y@ são medidos em metros.
+            </p>
+            <p>a) Determine o alcance horizontal máximo do disparo (ponto em que o projétil atinge o solo novamente).</p>
+            <p>b) Calcule a altura máxima atingida pelo projétil durante o voo.</p>
+
+            <div class="dica">
+              <strong>Dica:</strong> O solo corresponde a @y = 0@. O alcance é a raiz positiva da equação @x - \frac{x^2}{250} = 0@. A altura máxima ocorre na abscissa do vértice, exatamente na metade do alcance total.
+            </div>
+          </li>
+
+          <!-- Problema 15 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Trajetória esportiva com obstáculo</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Em uma partida de vôlei, um atleta saca a bola a uma altura de @2\text{ m}@ do solo. A trajetória descrita pela bola no plano vertical é dada por:
+              @@y(x) = -0{,}05x^2 + 1{,}2x + 2@@
+              onde @x@ é a distância horizontal percorrida (em metros) e @y@ é a altura (em metros). A rede tem @2{,}43\text{ m}@ de altura e está situada a @10\text{ m}@ de distância horizontal do sacador. A bola passa por cima da rede? Com qual folga vertical de altura?
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> Calcule o valor da ordenada @y(10)@ substituindo @x = 10@ na equação da parábola e compare com a altura regulamentar da rede (@2{,}43\text{ m}@).
+            </div>
+          </li>
+
+          <!-- Problema 16 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Maximização de área com restrição linear</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Um fazendeiro dispõe de @160\text{ m}@ de tela metálica flexível para cercar uma horta retangular. Ele pretende aproveitar um muro de alvenaria reto já existente como um dos lados maiores do cercado, de modo que necessita cercar apenas os outros três lados (dois lados de largura @x@ e um lado de comprimento @y@). Quais devem ser as dimensões @x@ e @y@ do retângulo para que a área cultivável seja máxima? Qual é essa área máxima?
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> O comprimento total de tela é @2x + y = 160@, donde @y = 160 - 2x@. A função área é @A(x) = x \cdot y = x(160 - 2x) = -2x^2 + 160x@. Encontre o vértice dessa parábola.
+            </div>
+          </li>
+
+          <!-- Problema 17 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Otimização de receita e elasticidade de preço</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Um teatro com capacidade para 600 espectadores cobra atualmente R$ 50,00 por ingresso e recebe, em média, 300 pessoas por sessão. Uma pesquisa de mercado revelou que, para cada R$ 2,00 de desconto concedido no preço do ingresso, 20 novos espectadores comparecem à sessão.
+            </p>
+            <p>a) Escreva a função que expressa a receita total @R(n)@ da sessão em função do número @n@ de descontos de R$ 2,00 aplicados.</p>
+            <p>b) Qual deve ser o preço do ingresso para maximizar a receita da bilheteria e qual o valor dessa receita máxima?</p>
+
+            <div class="dica">
+              <strong>Dica:</strong> O preço unitário do ingresso é @P(n) = 50 - 2n@ e a quantidade de espectadores é @Q(n) = 300 + 20n@. A receita é dada pelo produto @R(n) = P(n) \cdot Q(n)@.
+            </div>
+          </li>
+
+          <!-- Problema 18 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Otimização de lucro industrial</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Uma fábrica produz microprocessadores com custo diário total expresso por @C(q) = q^2 + 20q + 100@ (em milhares de reais), onde @q@ representa a quantidade produzida em centenas de peças (@q \ge 0@). A receita diária obtida na comercialização é dada por @R(q) = 80q - 2q^2@ (em milhares de reais).
+            </p>
+            <p>a) Determine a função do lucro diário @L(q) = R(q) - C(q)@.</p>
+            <p>b) Quantas centenas de microprocessadores devem ser produzidas diariamente para maximizar o lucro, e qual o valor do lucro máximo em reais?</p>
+
+            <div class="dica">
+              <strong>Dica:</strong> O lucro é a diferença @L(q) = R(q) - C(q)@. Reduza os termos semelhantes para obter uma parábola côncava para baixo e calcule o vértice @q_v = -\frac{b}{2a}@.
+            </div>
+          </li>
+
+          <!-- Problema 19 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cabos de sustentação em ponte pênsil</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Os cabos principais de uma ponte pênsil assumem a forma de uma parábola. As duas torres que sustentam os cabos estão separadas horizontalmente por @200\text{ m}@ e têm @24\text{ m}@ de altura acima da pista plana horizontal. No ponto médio entre as torres, o cabo atinge sua altura mínima de @4\text{ m}@ acima da pista. Calcule a altura de um tirante vertical situado a @50\text{ m}@ de distância horizontal de uma das torres.
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> Fixe o centro da ponte em @x = 0@, de modo que o vértice é @(0, 4)@ e as torres estão em @x = -100@ e @x = 100@ com @y = 24@. Encontre a equação @y = ax^2 + 4@. Um ponto a @50\text{ m}@ de uma torre está a @100 - 50 = 50\text{ m}@ do centro da ponte.
+            </div>
+          </li>
+
+          <!-- Problema 20 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Gabarito de passagem em túnel parabólico</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              A seção transversal de um túnel rodoviário tem a forma de um arco parabólico com base de @10\text{ m}@ de largura ao nível do solo e altura máxima no centro de @6\text{ m}@. Um caminhão de transporte transportando uma carga retangular de @4\text{ m}@ de largura precisa atravessar o túnel trafegando rigorosamente pelo centro da via. Qual é a altura máxima permitida para essa carga retangular sem que ela encoste na abóbada do túnel?
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> Se o caminhão tem @4\text{ m}@ de largura centralizado, suas laterais situam-se em @x = -2@ e @x = 2@. A altura do túnel nesses limites é o valor de @y(2)@ na equação da parábola com vértice em @(0, 6)@ e raízes em @\pm 5@.
+            </div>
+          </li>
+
+          <!-- Problema 21 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Balística esportiva e ponto de impacto</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              A trajetória de um projétil disparado rente ao solo é modelada pela parábola @y(x) = -\frac{1}{60}x^2 + \frac{2}{3}x + 2@, onde @x@ é o deslocamento horizontal (em metros) e @y@ é a altitude (em metros).
+            </p>
+            <p>a) A que altura em relação ao solo o projétil foi lançado (@x = 0@)?</p>
+            <p>b) A que distância horizontal do ponto de disparo o projétil colide com o solo (@y = 0@)?</p>
+
+            <div class="dica">
+              <strong>Dica:</strong> Para encontrar o ponto de impacto no solo, iguale a equação a zero: @-\frac{1}{60}x^2 + \frac{2}{3}x + 2 = 0@. Multiplique toda a equação por @-60@ para obter uma equação quadrática com coeficientes inteiros e resolva por Bhaskara descartando a raiz negativa.
+            </div>
+          </li>
+
+          <!-- Problema 22 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Geometria analítica e retângulo sob parábola</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Considere a parábola @y = 9 - x^2@ no semiplano superior (@y \ge 0@). Um retângulo tem base apoiada sobre o eixo @x@ com vértices em @(-x, 0)@ e @(x, 0)@ (onde @0 < x < 3@) e os vértices superiores apoiados sobre a parábola nos pontos @(-x, 9 - x^2)@ e @(x, 9 - x^2)@.
+            </p>
+            <p>a) Escreva a expressão polinomial da área @A(x)@ do retângulo em função de @x@.</p>
+            <p>b) Calcule o valor numérico da área para @x = 1@ e para @x = 2@.</p>
+
+            <div class="dica">
+              <strong>Dica:</strong> A base do retângulo mede @2x@ e a altura mede @y = 9 - x^2@. A área é o produto @A(x) = 2x(9 - x^2) = 18x - 2x^3@.
+            </div>
+          </li>
+
+          <!-- Problema 23 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Jato de água e modelagem por vértice</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              O bocal de uma mangueira de combate a incêndio está posicionado a @1\text{ m}@ de altura do solo (@x = 0, y = 1@). O jato contínuo de água lançado atinge sua altura máxima de @9\text{ m}@ quando se encontra a uma distância horizontal de @8\text{ m}@ do operador.
+            </p>
+            <p>a) Determine a equação cartesiana da trajetória descrita pelo jato d'água.</p>
+            <p>b) Determine a que distância horizontal do operador o jato de água atinge o solo.</p>
+
+            <div class="dica">
+              <strong>Dica:</strong> Use a forma canônica do vértice @y = a(x - x_v)^2 + y_v@, onde @(x_v, y_v) = (8, 9)@. Utilize o ponto @(0, 1)@ para calcular o coeficiente @a@.
+            </div>
+          </li>
+
+          <!-- Problema 24 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Minimização de custo de produção</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              O custo total de manutenção de uma frota de transporte é dado em função da velocidade média operacional @v@ (em km/h) pela relação quadrática:
+              @@C(v) = 0{,}05v^2 - 6v + 280@@
+              (em reais por hora de operação). Determine a velocidade média que minimiza o custo horário da frota e calcule esse custo mínimo.
+            </p>
+
+            <div class="dica">
+              <strong>Dica:</strong> Como o coeficiente de @v^2@ é positivo (@0{,}05 > 0@), a parábola tem concavidade para cima e o ponto crítico do vértice é um mínimo absoluto: @v_v = -\frac{b}{2a}@.
+            </div>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO (8 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 3: Problemas de Aprofundamento</h2>
+        <p class="section-intro">
+          Problemas avançados de vestibulares e olimpíadas (FUVEST, UNICAMP, ENEM, OBMEP e ITA): retas tangentes via anulamento de discriminante, lugar geométrico de tangentes ortogonais, propriedade reflexiva focal e otimização sob múltiplos vínculos.
+        </p>
+
+        <ol start="25">
+          <!-- Problema 25 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Reta tangente à parábola com coeficiente angular fixado</span>
+              <span class="fonte">FUVEST - Adaptada</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Considere a parábola de equação @y = x^2 - 4x + 7@.
+            </p>
+            <p>a) Determine o valor do coeficiente linear @k@ para que a reta de equação @y = 2x + k@ seja tangente à parábola, utilizando a condição algébrica de que o sistema admita raiz única (@\Delta = 0@).</p>
+            <p>b) Encontre as coordenadas cartesianas do ponto de tangência @T(x_t, y_t)@ entre a reta e a parábola.</p>
+          </li>
+
+          <!-- Problema 26 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Posições relativas entre feixe de retas e parábola</span>
+              <span class="fonte">UNICAMP - Adaptada</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 9 min</span>
+            </div>
+            <p>
+              Dado o feixe de retas paralelas @y = 4x + k@ (com @k \in \mathbb{R}@) e a parábola @y = x^2@:
+            </p>
+            <p>a) Determine os valores de @k@ para os quais a reta intercepta a parábola em dois pontos distintos (secante).</p>
+            <p>b) Determine o valor de @k@ para o qual a reta é tangente à parábola.</p>
+            <p>c) Determine os valores de @k@ para os quais a reta e a parábola não possuem pontos de contato reais (externa).</p>
+          </li>
+
+          <!-- Problema 27 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Otimização de área com divisórias internas múltiplas</span>
+              <span class="fonte">ENEM - Adaptada</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Um produtor rural dispõe de exatamente @480\text{ metros}@ lineares de cerca para construir um grande curral retangular de dimensões externas @x@ e @y@. Para separar animais de diferentes faixas etárias, o curral será subdividido internamente em quatro piquetes retangulares idênticos através de três cercas divisórias internas paralelas aos lados de comprimento @x@.
+            </p>
+            <p>a) Escreva a equação do vínculo que relaciona as variáveis @x@ e @y@ com o comprimento total de cerca disponível.</p>
+            <p>b) Determine as dimensões externas @x@ e @y@ que maximizam a área total do curral e calcule essa área máxima em metros quadrados.</p>
+          </li>
+
+          <!-- Problema 28 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Demonstração da propriedade óptica da parábola</span>
+              <span class="fonte">OBMEP - Adaptada</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 14 min</span>
+            </div>
+            <p>
+              Considere a parábola @x^2 = 4y@ com foco no ponto @F(0, 1)@. Uma fonte pontual de luz posicionada no foco emite um raio luminoso que incide sobre a superfície espelhada da parábola no ponto @P(4, 4)@.
+            </p>
+            <p>a) Determine o coeficiente angular e a equação da reta tangente à parábola no ponto @P@.</p>
+            <p>b) Demonstre que a reta tangente forma ângulos congruentes com a reta focal @FP@ e com a reta vertical @x = 4@ que sobe paralelamente ao eixo de simetria, comprovando que o raio refletido segue uma trajetória perfeitamente vertical.</p>
+          </li>
+
+          <!-- Problema 29 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Retas tangentes traçadas a partir de ponto externo</span>
+              <span class="fonte">FUVEST - Adaptada</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              Pelo ponto exterior @P(2, 3)@, são traçadas duas retas tangentes à parábola @y = x^2@.
+            </p>
+            <p>a) Escreva a equação do feixe de retas que passa por @P@ com coeficiente angular @m@ genérico.</p>
+            <p>b) Utilizando o método do discriminante nulo (@\Delta = 0@), determine os dois valores possíveis de @m@, as equações das duas retas tangentes e as coordenadas dos dois pontos de tangência.</p>
+          </li>
+
+          <!-- Problema 30 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Teorema de tangentes ortogonais e reta diretriz</span>
+              <span class="fonte">ITA - Adaptada</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 15 min</span>
+            </div>
+            <p>
+              Considere a parábola padrão @x^2 = 4py@, cujo foco é @F(0, p)@ e cuja reta diretriz é a reta horizontal @d: y = -p@. Sejam @r_1@ e @r_2@ duas retas tangentes à parábola que se cruzam perpendicularmente em um ponto @Q(x_0, y_0)@ do plano (isto é, o produto de seus coeficientes angulares é @m_1 \cdot m_2 = -1@). Prove analiticamente que a ordenada do ponto de encontro é sempre @y_0 = -p@, concluindo que o lugar geométrico de interseção de retas tangentes ortogonais a uma parábola é a sua própria reta diretriz.
+            </p>
+          </li>
+
+          <!-- Problema 31 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Balística com colisão em rampa inclinada</span>
+              <span class="fonte">ENEM - Adaptada</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Um dispositivo de artilharia localizado no pé de uma colina na origem @(0, 0)@ dispara um projétil cuja trajetória parabólica é descrita por:
+              @@y(x) = -\frac{1}{100}x^2 + 2x@@
+              O perfil de elevação da colina é modelado por um plano inclinado de inclinação linear constante dada pela reta @y = \frac{3}{4}x@. Determine a que distância horizontal do canhão o projétil atinge a encosta da colina e calcule a altitude @y@ do ponto de impacto.
+            </p>
+          </li>
+
+          <!-- Problema 32 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Otimização com restrição de custos diferenciados</span>
+              <span class="fonte">UNICAMP - Adaptada</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 11 min</span>
+            </div>
+            <p>
+              Uma construtora necessita delimitar um pátio de armazenagem retangular adjacente a uma rodovia federal retilínea. Não será necessária cerca ao longo da rodovia. O lado paralelo à rodovia tem comprimento @y@ e será construído com grade de alta segurança com custo de R$ 80,00 por metro linear. Os dois lados perpendiculares à rodovia têm comprimento @x@ cada e serão construídos com cerca de tela padrão com custo de R$ 50,00 por metro linear. Sabendo que o orçamento total destinado à cerca é de exatamente R$ 8.000,00:
+            </p>
+            <p>a) Escreva a equação do orçamento em função de @x@ e @y@.</p>
+            <p>b) Determine os valores de @x@ e @y@ que proporcionam a máxima área interna possível e calcule essa área máxima em @\text{m}^2@.</p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 4: PROBLEMAS PROPOSTOS (8 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 4: Problemas Propostos</h2>
+        <p class="section-intro">
+          Exercícios complementares para consolidação autônoma de propriedades geométricas, alcance balístico, modelagem quadrática e retas tangentes.
+        </p>
+
+        <ol start="33">
+          <!-- Problema 33 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Vértice de parábola com concavidade negativa</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Determine as coordenadas do vértice da parábola definida por @y = -x^2 + 6x - 5@ e informe seu ponto de máximo.
+            </p>
+          </li>
+
+          <!-- Problema 34 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Elementos da parábola canônica horizontal</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Dada a equação da parábola @y^2 = 12x@, determine a distância focal @p@, as coordenadas do foco @F@ e a equação da reta diretriz.
+            </p>
+          </li>
+
+          <!-- Problema 35 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Tempo de altura máxima de projétil</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              A função @h(t) = -5t^2 + 50t + 10@ descreve a altitude (em metros) de um foguete amador após @t@ segundos do disparo. Em quantos segundos ele atinge sua altitude máxima e qual é essa altitude?
+            </p>
+          </li>
+
+          <!-- Problema 36 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Condição para vértice tangente ao eixo x</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Qual deve ser o valor da constante real @k@ para que a parábola @y = 2x^2 - 8x + k@ tangencie o eixo das abscissas (@y = 0@)?
+            </p>
+          </li>
+
+          <!-- Problema 37 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Distância focal de antena parabólica</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Uma antena parabólica de radar tem @100\text{ cm}@ de diâmetro de abertura e sua profundidade central mede @25\text{ cm}@. Calcule a distância focal @p@ do vértice ao foco.
+            </p>
+          </li>
+
+          <!-- Problema 38 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Problema clássico de produto máximo</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Encontre dois números reais cuja soma seja igual a 36 e cujo produto seja o maior possível. Qual é esse produto máximo?
+            </p>
+          </li>
+
+          <!-- Problema 39 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação da reta tangente em ponto da curva</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Encontre a equação da reta tangente à parábola @y = x^2@ no ponto @P(2, 4)@.
+            </p>
+          </li>
+
+          <!-- Problema 40 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Arco de viaduto parabólico</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              O arco de um viaduto parabólico tem vão de @100\text{ m}@ na base e altura central máxima de @25\text{ m}@. Calcule a altura do arco a @25\text{ m}@ de distância horizontal do centro.
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           GABARITO E RESOLUÇÕES DETALHADAS
+           ============================================================================ -->
+      <details class="gabarito-container">
+        <summary>Gabarito Oficial e Resoluções Detalhadas (Clique para expandir)</summary>
+        <div class="gabarito-content">
+
+          <!-- SEÇÃO 1 -->
+          <div class="gabarito-secao">
+            <h3>Seção 1: Problemas Introdutórios</h3>
+            <ol start="1">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Identificando os coeficientes da função @y = x^2 - 8x + 12@: @a = 1@, @b = -8@, @c = 12@.<br>
+                Abscissa do vértice: @x_v = -\frac{b}{2a} = -\frac{-8}{2(1)} = \frac{8}{2} = 4@.<br>
+                Discriminante: @\Delta = b^2 - 4ac = (-8)^2 - 4(1)(12) = 64 - 48 = 16@.<br>
+                Ordenada do vértice: @y_v = -\frac{\Delta}{4a} = -\frac{16}{4(1)} = -4@.<br>
+                (Alternativamente, @y_v = f(4) = 4^2 - 8(4) + 12 = 16 - 32 + 12 = -4@).<br>
+                <strong>Resposta:</strong> @V(4, -4)@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Para @y = -2x^2 + 12x - 10@, temos @a = -2@, @b = 12@, @c = -10@.<br>
+                a) Como @a = -2 < 0@, a concavidade é voltada para baixo, logo o vértice é um ponto de <strong>máximo</strong>.<br>
+                b) @x_v = -\frac{12}{2(-2)} = \frac{-12}{-4} = 3@.<br>
+                O valor máximo é @y_{\text{máx}} = f(3) = -2(3)^2 + 12(3) - 10 = -2(9) + 36 - 10 = -18 + 36 - 10 = 8@.<br>
+                <strong>Resposta:</strong> a) Ponto de máximo pois @a < 0@; b) Valor máximo @y = 8@ em @x = 3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Substituindo o ponto @P(2, 4)@ na equação @y^2 = 4px@:<br>
+                @4^2 = 4p(2) \implies 16 = 8p \implies p = 2@.<br>
+                b) Com @p = 2@ e eixo focal horizontal no semieixo positivo de @x@:<br>
+                • Foco: @F(p, 0) = F(2, 0)@.<br>
+                • Reta diretriz: reta vertical @x = -p \implies x = -2@.<br>
+                <strong>Resposta:</strong> a) @p = 2@; b) Foco @F(2, 0)@ e diretriz @x = -2@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A equação canônica de eixo vertical é @x^2 = 4py@.<br>
+                a) Comparando @x^2 = 16y@ com @x^2 = 4py@: @4p = 16 \implies p = 4@.<br>
+                b) Como a parábola se abre para cima no eixo @y@:<br>
+                • Foco: @F(0, p) = F(0, 4)@.<br>
+                • Reta diretriz: reta horizontal @y = -p \implies y = -4@.<br>
+                <strong>Resposta:</strong> a) @p = 4@; b) Foco @F(0, 4)@ e diretriz @y = -4@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Pela definição de lugar geométrico, qualquer ponto @P(x, y)@ da parábola satisfaz @\text{dist}(P, F) = \text{dist}(P, d)@.<br>
+                @\text{dist}(P, F) = \sqrt{(x - 0)^2 + (y - 3)^2} = \sqrt{x^2 + (y - 3)^2}@.<br>
+                A distância à diretriz @y = -3@ é @|y - (-3)| = |y + 3|@.<br>
+                Elevando ambos os lados ao quadrado:<br>
+                @x^2 + (y - 3)^2 = (y + 3)^2 \implies x^2 + y^2 - 6y + 9 = y^2 + 6y + 9@.<br>
+                Cancelando @y^2@ e @9@:<br>
+                @x^2 - 6y = 6y \implies x^2 = 12y \implies y = \frac{1}{12}x^2@.<br>
+                <strong>Resposta:</strong> @x^2 = 12y@ (ou @y = \frac{1}{12}x^2@).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A forma canônica com vértice @V(x_v, y_v) = (2, 1)@ e abertura para cima com @p = 2@ é:<br>
+                @(x - x_v)^2 = 4p(y - y_v) \implies (x - 2)^2 = 4(2)(y - 1) = 8(y - 1)@.<br>
+                Expandindo:<br>
+                @x^2 - 4x + 4 = 8y - 8 \implies 8y = x^2 - 4x + 12 \implies y = \frac{1}{8}x^2 - \frac{1}{2}x + \frac{3}{2}@.<br>
+                <strong>Resposta:</strong> Forma canônica: @(x - 2)^2 = 8(y - 1)@; Forma polinomial: @y = \frac{1}{8}x^2 - \frac{1}{2}x + \frac{3}{2}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Pela forma fatorada: @y = a(x - x_1)(x - x_2) = a(x + 1)(x - 5)@.<br>
+                Como passa pelo ponto @(0, -10)@:<br>
+                @-10 = a(0 + 1)(0 - 5) \implies -10 = a(1)(-5) = -5a \implies a = 2@.<br>
+                A lei da função é @y = 2(x + 1)(x - 5) = 2(x^2 - 4x - 5) = 2x^2 - 8x - 10@.<br>
+                b) A abscissa do vértice é o ponto médio das raízes:<br>
+                @x_v = \frac{x_1 + x_2}{2} = \frac{-1 + 5}{2} = \frac{4}{2} = 2@.<br>
+                <strong>Resposta:</strong> a) @y = 2x^2 - 8x - 10@; b) @x_v = 2@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Dada a equação horária @h(t) = -5t^2 + 40t@, temos @a = -5@ e @b = 40@.<br>
+                Instante de altura máxima: @t_v = -\frac{b}{2a} = -\frac{40}{2(-5)} = \frac{40}{10} = 4\text{ segundos}@.<br>
+                Altura máxima: @h_{\text{máx}} = h(4) = -5(4)^2 + 40(4) = -5(16) + 160 = -80 + 160 = 80\text{ metros}@.<br>
+                <strong>Resposta:</strong> Instante: @t = 4\text{ s}@; Altura máxima: @80\text{ m}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Multiplicando @y = \frac{1}{12}x^2@ por 12: @x^2 = 12y@.<br>
+                Como @x^2 = 4py@, temos @4p = 12 \implies p = 3@.<br>
+                b) O <em>latus rectum</em> é o segmento que passa pelo foco @(0, 3)@ paralelo à diretriz @y = -3@, tendo ordenada fixa @y = 3@.<br>
+                Substituindo @y = 3@ em @x^2 = 12y@: @x^2 = 36 \implies x = \pm 6@.<br>
+                Os extremos da corda focal são @(-6, 3)@ e @(6, 3)@.<br>
+                O comprimento é @6 - (-6) = 12 = |4p|@.<br>
+                <strong>Resposta:</strong> a) @x^2 = 12y@ com @p = 3@; b) Comprimento do latus rectum @= 12@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Usando a forma canônica do vértice @y = a(x - x_v)^2 + y_v@ com @(x_v, y_v) = (3, 4)@:<br>
+                @y = a(x - 3)^2 + 4@.<br>
+                Como a curva passa por @P(1, 0)@:<br>
+                @0 = a(1 - 3)^2 + 4 \implies 0 = 4a + 4 \implies 4a = -4 \implies a = -1@.<br>
+                Expandindo a expressão:<br>
+                @y = -1(x^2 - 6x + 9) + 4 = -x^2 + 6x - 9 + 4 = -x^2 + 6x - 5@.<br>
+                Logo, @a = -1@, @b = 6@ e @c = -5@.<br>
+                <strong>Resposta:</strong> @a = -1@, @b = 6@, @c = -5@.
+              </li>
+            </ol>
+          </div>
+
+          <!-- SEÇÃO 2 -->
+          <div class="gabarito-secao">
+            <h3>Seção 2: Problemas de Fixação</h3>
+            <ol start="11">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Posicionando o vértice no ponto @(0, 0)@ e orientando o eixo da antena no eixo vertical @y@, a equação é @x^2 = 4py@.<br>
+                Com diâmetro total de @120\text{ cm}@, o raio é de @60\text{ cm}@ e a profundidade é de @20\text{ cm}@.<br>
+                Portanto, a borda passa pelo ponto @(60, 20)@.<br>
+                Substituindo na equação:<br>
+                @60^2 = 4p(20) \implies 3600 = 80p \implies p = \frac{3600}{80} = 45\text{ cm}@.<br>
+                O receptor (LNB) deve ser instalado no foco a @45\text{ cm}@ do vértice no eixo central.<br>
+                <strong>Resposta:</strong> @45\text{ cm}@ do vértice.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Orientando a parábola horizontalmente com vértice na origem: @y^2 = 4px@.<br>
+                Como o foco está a @4\text{ cm}@ do vértice, @p = 4\text{ cm}@, logo @y^2 = 4(4)x = 16x@.<br>
+                Para uma profundidade total @x = 9\text{ cm}@:<br>
+                @y^2 = 16(9) = 144 \implies y = \pm 12\text{ cm}@.<br>
+                O diâmetro da abertura do farol é a distância entre as bordas extremas @(-12)@ e @(+12)@:<br>
+                @D = 2y = 2 \times 12 = 24\text{ cm}@.<br>
+                <strong>Resposta:</strong> @24\text{ cm}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Adotando o centro no eixo @x = 0@, o vértice está em @(0, 20)@. A equação é @y = 20 - ax^2@.<br>
+                Como o vão entre pilares é de @80\text{ m}@, as bases estão em @x = \pm 40\text{ m}@ com @y = 0@:<br>
+                @0 = 20 - a(40)^2 \implies 1600a = 20 \implies a = \frac{20}{1600} = \frac{1}{80}@.<br>
+                A equação é @y(x) = 20 - \frac{x^2}{80}@.<br>
+                b) A @20\text{ m}@ de distância horizontal do centro (@x = 20@):<br>
+                @y(20) = 20 - \frac{20^2}{80} = 20 - \frac{400}{80} = 20 - 5 = 15\text{ metros}@.<br>
+                <strong>Resposta:</strong> a) @y = 20 - \frac{x^2}{80}@; b) @15\text{ metros}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) O projétil retorna ao solo quando @y(x) = 0@:<br>
+                @x - \frac{x^2}{250} = 0 \implies x\left(1 - \frac{x}{250}\right) = 0@.<br>
+                As raízes são @x = 0@ (disparo) e @x = 250\text{ m}@ (alcance total).<br>
+                b) A altura máxima ocorre na metade do percurso, @x_v = \frac{250}{2} = 125\text{ m}@:<br>
+                @y_{\text{máx}} = y(125) = 125 - \frac{125^2}{250} = 125 - \frac{15.625}{250} = 125 - 62{,}5 = 62{,}5\text{ metros}@.<br>
+                <strong>Resposta:</strong> a) Alcance: @250\text{ m}@; b) Altura máxima: @62{,}5\text{ m}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A rede está a @x = 10\text{ m}@ do atleta.<br>
+                Calculando a altura da bola nesse ponto:<br>
+                @y(10) = -0{,}05(10)^2 + 1{,}2(10) + 2 = -0{,}05(100) + 12 + 2 = -5 + 14 = 9\text{ metros}@.<br>
+                Como a altura regulamentar da rede é de @2{,}43\text{ m}@ e a bola passa a @9\text{ m}@ de altura:<br>
+                A bola passa por cima da rede com folga de @9 - 2{,}43 = 6{,}57\text{ metros}@.<br>
+                <strong>Resposta:</strong> Sim, a bola passa pela rede com folga de @6{,}57\text{ metros}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O fazendeiro cerca 3 lados com @160\text{ m}@ de tela: @2x + y = 160 \implies y = 160 - 2x@.<br>
+                A função área é @A(x) = x \cdot y = x(160 - 2x) = -2x^2 + 160x@.<br>
+                O vértice ocorre em @x_v = -\frac{160}{2(-2)} = \frac{160}{4} = 40\text{ metros}@.<br>
+                Para @x = 40\text{ m}@, temos @y = 160 - 2(40) = 80\text{ metros}@.<br>
+                A área máxima é @A_{\text{máx}} = 40 \times 80 = 3.200\text{ m}^2@.<br>
+                <strong>Resposta:</strong> Dimensões: largura @x = 40\text{ m}@ e comprimento @y = 80\text{ m}@; Área máxima: @3.200\text{ m}^2@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Preço unitário: @P(n) = 50 - 2n@.<br>
+                Público espectador: @Q(n) = 300 + 20n@.<br>
+                Receita total: @R(n) = (50 - 2n)(300 + 20n) = 15.000 + 1.000n - 600n - 40n^2 = -40n^2 + 400n + 15.000@.<br>
+                b) O número ideal de descontos de R$ 2,00 é o vértice:<br>
+                @n_v = -\frac{400}{2(-40)} = \frac{400}{80} = 5@ descontos.<br>
+                Preço ideal do ingresso: @P(5) = 50 - 2(5) = \text{R\$\ } 40{,}00@.<br>
+                Público esperado: @Q(5) = 300 + 20(5) = 400@ pessoas (abaixo da capacidade máxima de 600).<br>
+                Receita máxima: @R(5) = 40 \times 400 = \text{R\$\ } 16.000{,}00@.<br>
+                <strong>Resposta:</strong> a) @R(n) = -40n^2 + 400n + 15.000@; b) Preço do ingresso: R$ 40,00; Receita máxima: R$ 16.000,00.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) @L(q) = R(q) - C(q) = (80q - 2q^2) - (q^2 + 20q + 100) = -3q^2 + 60q - 100@ (em milhares de reais).<br>
+                b) O vértice ocorre em:<br>
+                @q_v = -\frac{60}{2(-3)} = \frac{60}{6} = 10@ centenas (ou seja, @1.000@ microprocessadores).<br>
+                Lucro máximo:<br>
+                @L(10) = -3(10)^2 + 60(10) - 100 = -300 + 600 - 100 = 200@ milhares de reais.<br>
+                Em reais: @200 \times 1.000 = \text{R\$\ } 200.000{,}00@.<br>
+                <strong>Resposta:</strong> a) @L(q) = -3q^2 + 60q - 100@; b) @10@ centenas (1.000 peças); Lucro máximo de R$ 200.000,00.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Com o centro da ponte em @x = 0@, o vértice do cabo é @(0, 4)@. A equação é @y = ax^2 + 4@.<br>
+                As torres situam-se a @x = \pm 100\text{ m}@ com altura de @24\text{ m}@:<br>
+                @24 = a(100)^2 + 4 \implies 10.000a = 20 \implies a = \frac{20}{10.000} = \frac{1}{500}@.<br>
+                A equação é @y(x) = \frac{x^2}{500} + 4@.<br>
+                Um tirante a @50\text{ m}@ de uma torre está a uma distância do centro de @|x| = 100 - 50 = 50\text{ m}@:<br>
+                @y(50) = \frac{50^2}{500} + 4 = \frac{2500}{500} + 4 = 5 + 4 = 9\text{ metros}@.<br>
+                <strong>Resposta:</strong> @9\text{ metros}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Com o centro do túnel em @x = 0@, o vértice está em @(0, 6)@ e as bordas em @x = \pm 5@ com @y = 0@.<br>
+                A equação do túnel é @y = 6 - ax^2@.<br>
+                @0 = 6 - a(5^2) \implies 25a = 6 \implies a = \frac{6}{25} = 0{,}24@.<br>
+                Portanto, @y(x) = 6 - 0{,}24x^2@.<br>
+                A carga do caminhão tem @4\text{ m}@ de largura centralizada, estendendo-se de @x = -2@ a @x = 2@.<br>
+                A altura do arco nas extremidades laterais da carga é:<br>
+                @y(2) = 6 - 0{,}24(2^2) = 6 - 0{,}24(4) = 6 - 0{,}96 = 5{,}04\text{ metros}@.<br>
+                A altura máxima permitida é de @5{,}04\text{ m}@.<br>
+                <strong>Resposta:</strong> Altura máxima permitida: @5{,}04\text{ metros}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) No ponto de lançamento (@x = 0@):<br>
+                @y(0) = -\frac{1}{60}(0)^2 + \frac{2}{3}(0) + 2 = 2\text{ metros}@.<br>
+                b) Ao tocar o solo (@y = 0@):<br>
+                @-\frac{1}{60}x^2 + \frac{2}{3}x + 2 = 0@.<br>
+                Multiplicando toda a equação por @-60@:<br>
+                @x^2 - 40x - 120 = 0@.<br>
+                @\Delta = (-40)^2 - 4(1)(-120) = 1600 + 480 = 2080@.<br>
+                @\sqrt{2080} = \sqrt{16 \times 130} = 4\sqrt{130} \approx 4 \times 11{,}40 = 45{,}61@.<br>
+                @x = \frac{40 \pm 4\sqrt{130}}{2} = 20 \pm 2\sqrt{130}@.<br>
+                Descartando a raiz negativa (@x > 0@):<br>
+                @x = 20 + 2\sqrt{130} \approx 20 + 22{,}80 = 42{,}8\text{ metros}@.<br>
+                <strong>Resposta:</strong> a) @2\text{ metros}@; b) @20 + 2\sqrt{130}\text{ m} \approx 42{,}8\text{ metros}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) A base do retângulo mede @x - (-x) = 2x@ e a altura é @y = 9 - x^2@.<br>
+                A área é dada por @A(x) = 2x(9 - x^2) = 18x - 2x^3@.<br>
+                b) Para @x = 1@: @A(1) = 18(1) - 2(1)^3 = 18 - 2 = 16\text{ unidades de área}@.<br>
+                Para @x = 2@: @A(2) = 18(2) - 2(2)^3 = 36 - 2(8) = 36 - 16 = 20\text{ unidades de área}@.<br>
+                <strong>Resposta:</strong> a) @A(x) = 18x - 2x^3@; b) @A(1) = 16@ e @A(2) = 20@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) A forma do vértice é @y = a(x - x_v)^2 + y_v = a(x - 8)^2 + 9@.<br>
+                No ponto inicial @(0, 1)@:<br>
+                @1 = a(0 - 8)^2 + 9 \implies 1 = 64a + 9 \implies 64a = -8 \implies a = -\frac{8}{64} = -\frac{1}{8}@.<br>
+                A equação é @y(x) = -\frac{1}{8}(x - 8)^2 + 9 = -\frac{1}{8}(x^2 - 16x + 64) + 9 = -\frac{1}{8}x^2 + 2x + 1@.<br>
+                b) Para encontrar onde a água toca o solo (@y = 0@):<br>
+                @-\frac{1}{8}(x - 8)^2 + 9 = 0 \implies \frac{1}{8}(x - 8)^2 = 9 \implies (x - 8)^2 = 72@.<br>
+                @x - 8 = \pm \sqrt{72} = \pm 6\sqrt{2}@.<br>
+                Como @x > 8@ para o impacto frontal:<br>
+                @x = 8 + 6\sqrt{2} \approx 8 + 6(1{,}414) = 8 + 8{,}48 = 16{,}48\text{ metros}@.<br>
+                <strong>Resposta:</strong> a) @y(x) = -\frac{1}{8}(x - 8)^2 + 9@; b) @8 + 6\sqrt{2}\text{ m} \approx 16{,}48\text{ metros}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Para a parábola @C(v) = 0{,}05v^2 - 6v + 280@, temos @a = 0{,}05@ e @b = -6@.<br>
+                A velocidade de custo mínimo é o vértice:<br>
+                @v_v = -\frac{b}{2a} = -\frac{-6}{2(0{,}05)} = \frac{6}{0{,}1} = 60\text{ km/h}@.<br>
+                O custo mínimo horário é:<br>
+                @C(60) = 0{,}05(60)^2 - 6(60) + 280 = 0{,}05(3600) - 360 + 280 = 180 - 360 + 280 = \text{R\$\ } 100{,}00/\text{h}@.<br>
+                <strong>Resposta:</strong> Velocidade ideal: @60\text{ km/h}@; Custo mínimo: R$ 100,00 por hora.
+              </li>
+            </ol>
+          </div>
+
+          <!-- SEÇÃO 3 -->
+          <div class="gabarito-secao">
+            <h3>Seção 3: Problemas de Aprofundamento</h3>
+            <ol start="25">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Igualando a equação da reta à parábola:<br>
+                @x^2 - 4x + 7 = 2x + k \implies x^2 - 6x + (7 - k) = 0@.<br>
+                Para que a reta seja tangente, o discriminante da equação quadrática deve ser rigorosamente nulo (@\Delta = 0@):<br>
+                @\Delta = (-6)^2 - 4(1)(7 - k) = 36 - 28 + 4k = 8 + 4k = 0 \implies 4k = -8 \implies k = -2@.<br>
+                A reta tangente é @y = 2x - 2@.<br>
+                b) Substituindo @k = -2@ na equação quadrática:<br>
+                @x^2 - 6x + 9 = 0 \implies (x - 3)^2 = 0 \implies x_t = 3@.<br>
+                Substituindo na reta: @y_t = 2(3) - 2 = 6 - 2 = 4@.<br>
+                O ponto de tangência é @T(3, 4)@.<br>
+                <strong>Resposta:</strong> a) @k = -2@ (reta @y = 2x - 2@); b) Ponto de tangência @T(3, 4)@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Igualando a reta @y = 4x + k@ à parábola @y = x^2@:<br>
+                @x^2 - 4x - k = 0@.<br>
+                O discriminante é @\Delta = (-4)^2 - 4(1)(-k) = 16 + 4k@.<br>
+                a) A reta é secante (dois pontos distintos) quando @\Delta > 0@:<br>
+                @16 + 4k > 0 \implies 4k > -16 \implies k > -4@.<br>
+                b) A reta é tangente (um único ponto de contato) quando @\Delta = 0@:<br>
+                @16 + 4k = 0 \implies k = -4@.<br>
+                c) A reta é externa (sem pontos reais de interseção) quando @\Delta < 0@:<br>
+                @16 + 4k < 0 \implies k < -4@.<br>
+                <strong>Resposta:</strong> a) Secante para @k > -4@; b) Tangente para @k = -4@; c) Externa para @k < -4@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) O curral externo retangular tem 2 lados de comprimento @y@ e 2 lados de largura @x@. Internamente, há 3 divisórias paralelas ao lado @x@. Portanto, há ao todo @2 + 3 = 5@ segmentos de comprimento @x@ e 2 segmentos de comprimento @y@.<br>
+                A cerca total disponível é:<br>
+                @5x + 2y = 480@.<br>
+                b) Isolando @y@:<br>
+                @y = \frac{480 - 5x}{2} = 240 - 2{,}5x@.<br>
+                A área total cercada é @A(x) = x \cdot y = x(240 - 2{,}5x) = -2{,}5x^2 + 240x@.<br>
+                O vértice ocorre em:<br>
+                @x_v = -\frac{b}{2a} = -\frac{240}{2(-2{,}5)} = \frac{240}{5} = 48\text{ metros}@.<br>
+                Substituindo em @y@:<br>
+                @y = 240 - 2{,}5(48) = 240 - 120 = 120\text{ metros}@.<br>
+                A área máxima é:<br>
+                @A_{\text{máx}} = 48 \times 120 = 5.760\text{ m}^2@.<br>
+                <strong>Resposta:</strong> Dimensões: @x = 48\text{ m}@ e @y = 120\text{ m}@; Área máxima: @5.760\text{ m}^2@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) A parábola é @y = \frac{x^2}{4}@. A derivada em @x = 4@ fornece o coeficiente angular da reta tangente: @m = \frac{dy}{dx} = \frac{2x}{4} = \frac{x}{2}@. Em @x = 4@, @m = \frac{4}{2} = 2@.<br>
+                (Sem cálculo diferencial: a reta passando por @(4, 4)@ é @y - 4 = m(x - 4) \implies y = mx - 4m + 4@. Igualando a @\frac{x^2}{4}@: @x^2 - 4mx + 16(m - 1) = 0@. @\Delta = 16m^2 - 64(m - 1) = 16(m^2 - 4m + 4) = 16(m - 2)^2 = 0 \implies m = 2@).<br>
+                A equação da reta tangente é @y - 4 = 2(x - 4) \implies y = 2x - 4@.<br>
+                b) O vetor da reta focal é @\vec{v}_1 = \vec{FP} = (4 - 0, 4 - 1) = (4, 3)@.<br>
+                O vetor diretor da reta tangente é @\vec{t} = (1, m) = (1, 2)@.<br>
+                O cosseno do ângulo @\alpha@ entre a tangente e o raio focal é:<br>
+                @\cos \alpha = \frac{\vec{v}_1 \cdot \vec{t}}{|\vec{v}_1| |\vec{t}|} = \frac{4(1) + 3(2)}{\sqrt{16 + 9} \sqrt{1 + 4}} = \frac{10}{5\sqrt{5}} = \frac{2}{\sqrt{5}}@.<br>
+                O vetor diretor da reta vertical ascendente é @\vec{v}_2 = (0, 1)@.<br>
+                O cosseno do ângulo @\beta@ entre a tangente e a vertical é:<br>
+                @\cos \beta = \frac{\vec{v}_2 \cdot \vec{t}}{|\vec{v}_2| |\vec{t}|} = \frac{0(1) + 1(2)}{1 \times \sqrt{5}} = \frac{2}{\sqrt{5}}@.<br>
+                Como @\cos \alpha = \cos \beta@, temos @\alpha = \beta@. Pela lei da reflexão óptica (ângulo de incidência igual ao de reflexão), o raio refletido sobe paralelo ao eixo vertical de simetria.<br>
+                <strong>Resposta:</strong> Reta tangente: @y = 2x - 4@; @\cos \alpha = \cos \beta = \frac{2}{\sqrt{5}}@, provando a reflexão vertical paralela ao eixo.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) O feixe de retas passando por @P(2, 3)@ com declividade @m@ tem equação @y - 3 = m(x - 2) \implies y = mx - 2m + 3@.<br>
+                b) Intersectando com a parábola @y = x^2@:<br>
+                @x^2 = mx - 2m + 3 \implies x^2 - mx + (2m - 3) = 0@.<br>
+                Impondo a condição de tangência (@\Delta = 0@):<br>
+                @\Delta = (-m)^2 - 4(1)(2m - 3) = m^2 - 8m + 12 = 0@.<br>
+                Fatorando: @(m - 2)(m - 6) = 0@, donde @m_1 = 2@ e @m_2 = 6@.<br>
+                • Para @m_1 = 2@: reta @y = 2x - 2(2) + 3 \implies y = 2x - 1@.<br>
+                A abscissa do ponto de contato é a raiz dupla: @x = \frac{m}{2} = \frac{2}{2} = 1 \implies T_1(1, 1)@.<br>
+                • Para @m_2 = 6@: reta @y = 6x - 2(6) + 3 \implies y = 6x - 9@.<br>
+                A abscissa é @x = \frac{6}{2} = 3 \implies T_2(3, 9)@.<br>
+                <strong>Resposta:</strong> Retas tangentes: @y = 2x - 1@ e @y = 6x - 9@; Pontos de contato: @(1, 1)@ e @(3, 9)@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Seja uma reta genérica passando por @Q(x_0, y_0)@ com inclinação @m@: @y - y_0 = m(x - x_0) \implies y = mx - mx_0 + y_0@.<br>
+                Substituindo na equação @x^2 = 4py@:<br>
+                @x^2 = 4p(mx - mx_0 + y_0) \implies x^2 - 4pmx + 4p(mx_0 - y_0) = 0@.<br>
+                A condição de tangência é @\Delta = 0@:<br>
+                @\Delta = (-4pm)^2 - 4(1)[4p(mx_0 - y_0)] = 16p^2 m^2 - 16p(mx_0 - y_0) = 0@.<br>
+                Dividindo tudo por @16p@ (com @p \neq 0@):<br>
+                @p m^2 - x_0 m + y_0 = 0@.<br>
+                Esta é uma equação do 2º grau nas inclinações @m@ das tangentes que passam por @Q@.<br>
+                Pelas relações de Girard, o produto das raízes (os coeficientes angulares das duas tangentes) é:<br>
+                @m_1 \cdot m_2 = \frac{y_0}{p}@.<br>
+                Para que as duas tangentes sejam estritamente ortogonais, seu produto deve ser @-1@:<br>
+                @\frac{y_0}{p} = -1 \implies y_0 = -p@.<br>
+                Portanto, a ordenada do ponto de encontro de duas tangentes perpendiculares é sempre constante e igual a @-p@, que é exatamente a equação da reta diretriz @d: y = -p@. O teorema está demonstrado.<br>
+                <strong>Resposta:</strong> Demonstração concluída: @m_1 \cdot m_2 = \frac{y_0}{p} = -1 \implies y_0 = -p@ (reta diretriz).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O projétil atinge a encosta quando as coordenadas da trajetória e da reta da encosta coincidem:<br>
+                @-\frac{1}{100}x^2 + 2x = \frac{3}{4}x@.<br>
+                Como @x \neq 0@ no impacto:<br>
+                @-\frac{1}{100}x + 2 = \frac{3}{4} \implies \frac{1}{100}x = 2 - \frac{3}{4} = \frac{5}{4}@.<br>
+                Multiplicando por 100:<br>
+                @x = \frac{5}{4} \times 100 = 5 \times 25 = 125\text{ metros}@.<br>
+                A altitude do impacto na encosta é:<br>
+                @y = \frac{3}{4}(125) = \frac{375}{4} = 93{,}75\text{ metros}@.<br>
+                (Conferindo na parábola: @-\frac{125^2}{100} + 2(125) = -\frac{15.625}{100} + 250 = -156{,}25 + 250 = 93{,}75\text{ m}@).<br>
+                <strong>Resposta:</strong> Distância horizontal: @x = 125\text{ m}@; Altitude do impacto: @y = 93{,}75\text{ m}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Custo do lado paralelo (@y@): @80y@.<br>
+                Custo dos dois lados perpendiculares (@2x@): @2 \times 50x = 100x@.<br>
+                Equação do orçamento total: @100x + 80y = 8.000@.<br>
+                b) Isolando @y@:<br>
+                @80y = 8.000 - 100x \implies y = 100 - 1{,}25x = 100 - \frac{5}{4}x@.<br>
+                A função área cercada é:<br>
+                @A(x) = x \cdot y = x\left(100 - \frac{5}{4}x\right) = -\frac{5}{4}x^2 + 100x@.<br>
+                O vértice ocorre em:<br>
+                @x_v = -\frac{100}{2(-5/4)} = \frac{100}{5/2} = 100 \times \frac{2}{5} = 40\text{ metros}@.<br>
+                Substituindo em @y@:<br>
+                @y = 100 - 1{,}25(40) = 100 - 50 = 50\text{ metros}@.<br>
+                A área máxima cercada é:<br>
+                @A_{\text{máx}} = 40 \times 50 = 2.000\text{ m}^2@.<br>
+                <strong>Resposta:</strong> a) @100x + 80y = 8.000@; b) Dimensões: @x = 40\text{ m}@ e @y = 50\text{ m}@; Área máxima: @2.000\text{ m}^2@.
+              </li>
+            </ol>
+          </div>
+
+          <!-- SEÇÃO 4 -->
+          <div class="gabarito-secao">
+            <h3>Seção 4: Problemas Propostos</h3>
+            <ol start="33">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Para @y = -x^2 + 6x - 5@: @x_v = -\frac{6}{2(-1)} = 3@.<br>
+                @y_v = -(3)^2 + 6(3) - 5 = -9 + 18 - 5 = 4@.<br>
+                O ponto de máximo é @V(3, 4)@.<br>
+                <strong>Resposta:</strong> @V(3, 4)@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Comparando @y^2 = 12x@ com @y^2 = 4px@, temos @4p = 12 \implies p = 3@.<br>
+                • Foco: @F(3, 0)@.<br>
+                • Diretriz: @x = -3@.<br>
+                <strong>Resposta:</strong> @p = 3@, Foco @F(3, 0)@ e diretriz @x = -3@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Instante do vértice: @t_v = -\frac{50}{2(-5)} = 5\text{ segundos}@.<br>
+                Altitude máxima: @h(5) = -5(25) + 50(5) + 10 = -125 + 250 + 10 = 135\text{ metros}@.<br>
+                <strong>Resposta:</strong> @5\text{ segundos}@ e @135\text{ metros}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Para haver tangência ao eixo @x@, o discriminante deve ser nulo (@\Delta = 0@):<br>
+                @\Delta = (-8)^2 - 4(2)(k) = 64 - 8k = 0 \implies 8k = 64 \implies k = 8@.<br>
+                <strong>Resposta:</strong> @k = 8@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Adotando @x^2 = 4py@: com diâmetro de @100\text{ cm}@, o raio é @50\text{ cm}@ e a profundidade é @25\text{ cm}@.<br>
+                O ponto da borda é @(50, 25)@:<br>
+                @50^2 = 4p(25) \implies 2500 = 100p \implies p = 25\text{ cm}@.<br>
+                <strong>Resposta:</strong> @p = 25\text{ cm}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Sejam os números @x@ e @36 - x@. O produto é @P(x) = x(36 - x) = -x^2 + 36x@.<br>
+                O vértice ocorre em @x = -\frac{36}{2(-1)} = 18@.<br>
+                Os dois números são 18 e 18. O produto máximo é @18 \times 18 = 324@.<br>
+                <strong>Resposta:</strong> Os números são 18 e 18; Produto máximo @= 324@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O coeficiente angular da tangente a @y = x^2@ no ponto @(2, 4)@ é a derivada @m = 2x = 2(2) = 4@.<br>
+                A equação da reta tangente é:<br>
+                @y - 4 = 4(x - 2) \implies y = 4x - 8 + 4 \implies y = 4x - 4@.<br>
+                <strong>Resposta:</strong> @y = 4x - 4@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Equação: @y = 25 - ax^2@ com raízes em @\pm 50@.<br>
+                @0 = 25 - a(50^2) \implies 2500a = 25 \implies a = \frac{1}{100}@.<br>
+                Logo @y(x) = 25 - \frac{x^2}{100}@.<br>
+                Para @x = 25@:<br>
+                @y(25) = 25 - \frac{25^2}{100} = 25 - \frac{625}{100} = 25 - 6{,}25 = 18{,}75\text{ metros}@.<br>
+                <strong>Resposta:</strong> @18{,}75\text{ metros}@.
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </details>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+      </div>
+
+    </div> <!-- /.container -->
+  </div> <!-- /#page-wrapper -->
+
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "@@", right: "@@", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "@", right: "@", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+  <div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  </div>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

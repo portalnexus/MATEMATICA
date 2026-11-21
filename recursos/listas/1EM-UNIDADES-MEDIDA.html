@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Lista de Problemas: Unidades de Medida e Análise Dimensional</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-secao ol {
+      padding-left: 1.5rem;
+    }
+
+    .gabarito-secao li {
+      margin-bottom: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: 600;
+      color: var(--secondary-text-color);
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<!-- ============================================================================
+     TÍTULO PRINCIPAL DA LISTA
+     ============================================================================ -->
+<h1>LISTA DE PROBLEMAS: UNIDADES DE MEDIDA E ANÁLISE DIMENSIONAL</h1>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas para consolidação de conceitos fundamentais: prefixos do Sistema Internacional (SI), conversões de comprimento, área, volume, massa, tempo, velocidade, escalas termométricas e energia elétrica.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Prefixos do Sistema Internacional (SI)</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Escreva os seguintes valores em sua unidade base do Sistema Internacional (metro, segundo, grama/quilograma ou watt), utilizando potências de 10 correspondentes aos prefixos indicados:</p>
+      <p>a) @450\text{ nm}@ (nanômetros)</p>
+      <p>b) @25\text{ }\mu\text{s}@ (microssegundos)</p>
+      <p>c) @8{,}4\text{ GHz}@ (gigahertz)</p>
+      <p>d) @120\text{ mg}@ (miligramas expressos em gramas)</p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conversão linear de comprimento</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Uma pista de atletismo possui uma reta principal de @120\text{ m}@ de comprimento. Converta essa medida para:</p>
+      <p>a) Quilômetros (@\text{km}@)</p>
+      <p>b) Centímetros (@\text{cm}@)</p>
+      <p>c) Milímetros (@\text{mm}@)</p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conversão de unidades de área e hectare</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Uma propriedade rural possui uma área de @3{,}5\text{ hectares (ha)}@. Sabendo que @1\text{ ha} = 10.000\text{ m}^2@, determine:</p>
+      <p>a) A área dessa propriedade em metros quadrados (@\text{m}^2@).</p>
+      <p>b) A área dessa propriedade em centímetros quadrados (@\text{cm}^2@), expressa em potências de dez.</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conversão de volume e capacidade</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Uma caixa-d'água cúbica tem capacidade interna total de @2{,}4\text{ m}^3@. Sabendo que @1\text{ m}^3 = 1.000\text{ L}@ e que @1\text{ L} = 1.000\text{ cm}^3 = 1.000\text{ mL}@:</p>
+      <p>a) Quantos litros (@\text{L}@) cabem nesse reservatório quando totalmente cheio?</p>
+      <p>b) Qual é esse volume expresso em centímetros cúbicos (@\text{cm}^3@)?</p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conversão de tempo composto</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>Um experimento químico de fermentação durou exatamente @2\text{ horas, } 45\text{ minutos e } 18\text{ segundos}@. Calcule a duração total desse experimento:</p>
+      <p>a) Exclusivamente em segundos (@\text{s}@).</p>
+      <p>b) Exclusivamente em horas (@\text{h}@), expressa na forma decimal.</p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conversão de velocidade linear</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Efetue as seguintes conversões de velocidade utilizando o fator multiplicativo @3{,}6@:</p>
+      <p>a) Um automóvel trafega em uma rodovia a @108\text{ km/h}@. Converta sua velocidade para metros por segundo (@\text{m/s}@).</p>
+      <p>b) Um atleta de corrida de velocidade atinge momentaneamente @12{,}5\text{ m/s}@. Qual é essa velocidade expressa em @\text{km/h}@?</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conversão de unidades de massa</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+      <p>Um caminhão transporta uma carga de grãos de soja cuja massa total é de @14{,}5\text{ toneladas métricas (t)}@. Converta essa massa para:</p>
+      <p>a) Quilogramas (@\text{kg}@).</p>
+      <p>b) Gramas (@\text{g}@), em potências de dez.</p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Unidades de armazenamento digital</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>No padrão comercial decimal (SI), @1\text{ kB} = 10^3\text{ bytes}@, @1\text{ MB} = 10^6\text{ bytes}@ e @1\text{ GB} = 10^9\text{ bytes}@. Um disco rígido externo possui capacidade informada pelo fabricante de @500\text{ GB}@.</p>
+      <p>a) Quantos bytes possui esse disco rígido de acordo com o padrão decimal?</p>
+      <p>b) Sabendo que uma música em formato MP3 ocupa em média @5\text{ MB}@, quantas dessas faixas cabem teoricamente no dispositivo?</p>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Escalas termométricas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>As relações de conversão entre a escala Celsius (@T_C@), Fahrenheit (@T_F@) e Kelvin (@T_K@) são dadas por @\frac{T_C}{5} = \frac{T_F - 32}{9}@ e @T_K = T_C + 273{,}15@. Em um dia de verão, um termômetro em Nova York registra @86^\circ\text{F}@. Converta essa temperatura para:</p>
+      <p>a) Graus Celsius (@^\circ\text{C}@).</p>
+      <p>b) Kelvin (@\text{K}@).</p>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Energia elétrica e potência</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+      <p>O consumo de energia elétrica residencial é faturado em quilowatts-hora (@\text{kWh}@), onde @1\text{ W} = 1\text{ J/s}@ e @1\text{ h} = 3.600\text{ s}@.</p>
+      <p>a) Demonstre que @1\text{ kWh} = 3{,}6 \times 10^6\text{ J}@.</p>
+      <p>b) Uma lâmpada de @100\text{ W}@ permaneceu acesa ininterruptamente durante 10 horas. Calcule a energia consumida em @\text{kWh}@ e em Joules (@\text{J}@).</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas contextualizados que integram múltiplos conceitos: vazão volumétrica, densidade, pressão mecânica e manométrica, sistema imperial de medidas, análise dimensional e taxas compostas.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Vazão volumétrica e tempo de enchimento</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma mangueira conectada a uma torneira residencial despeja água a uma vazão constante de @15\text{ litros por minuto (L/min)}@. Pretende-se encher completamente uma piscina infantil cilíndrica com diâmetro de base igual a @2\text{ m}@ e profundidade uniforme de @60\text{ cm}@ (adote @\pi \approx 3{,}14@).</p>
+      <p>a) Calcule o volume total de água necessário para encher a piscina, em metros cúbicos (@\text{m}^3@) e em litros (@\text{L}@).</p>
+      <p>b) Determine o tempo necessário para o enchimento completo, expressando o resultado em horas e minutos.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> O volume do cilindro é @V = \pi r^2 h@ com @r = 1\text{ m}@ e @h = 0{,}60\text{ m}@. Em seguida, utilize a relação da vazão: @\Delta t = \frac{V}{Q}@, garantindo que o volume e a vazão estejam expressos na mesma unidade de capacidade (litros).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Vazamento contínuo e perdas hídricas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Uma torneira com defeito goteja continuamente a uma taxa de 1 gota por segundo. Sabendo que cada gota possui em média um volume de @0{,}05\text{ mL}@:</p>
+      <p>a) Calcule o volume total de água desperdiçado ao longo de um mês comercial de 30 dias, em litros (@\text{L}@).</p>
+      <p>b) Se a tarifa de água da companhia de saneamento é de @\text{R\$}~5{,}50@ por metro cúbico (@\text{m}^3@), qual é o custo financeiro aproximado gerado por esse desperdício durante 1 ano (365 dias)?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Determine inicialmente a perda por dia: @1\text{ dia} = 86.400\text{ s}@. Cada segundo equivale a @0{,}05\text{ mL} = 5 \times 10^{-5}\text{ L}@. Para converter litros em @\text{m}^3@, divida o valor por 1.000.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Densidade absoluta e massa específica</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>A densidade de uma substância homogênea é definida pela razão @\rho = \frac{m}{V}@. Um bloco maciço cúbico de alumínio tem aresta de @10\text{ cm}@ e massa de @2{,}7\text{ kg}@.</p>
+      <p>a) Calcule a densidade absoluta do alumínio em gramas por centímetro cúbico (@\text{g/cm}^3@).</p>
+      <p>b) Converta essa densidade para quilogramas por metro cúbico (@\text{kg/m}^3@) no Sistema Internacional.</p>
+      <p>c) Se um bloco idêntico em dimensões fosse confeccionado em ouro maciço (@\rho_{\text{ouro}} = 19{,}3\text{ g/cm}^3@), qual seria a massa desse novo bloco em @\text{kg}@?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Para converter @\text{g/cm}^3@ para @\text{kg/m}^3@, multiplique por @1.000@, pois @1\text{ g} = 10^{-3}\text{ kg}@ e @1\text{ cm}^3 = 10^{-6}\text{ m}^3@, logo @\frac{10^{-3}\text{ kg}}{10^{-6}\text{ m}^3} = 10^3\text{ kg/m}^3@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Densidade de ligas metálicas binárias</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 7 min</span>
+      </div>
+      <p>Uma joia maciça com volume de @15\text{ cm}^3@ e massa total de @213\text{ g}@ é composta exclusivamente por uma liga de ouro puro (@\rho_1 = 19{,}3\text{ g/cm}^3@) e prata pura (@\rho_2 = 10{,}5\text{ g/cm}^3@). Supondo que na fusão não houve contração nem expansão de volume (ou seja, @V_{\text{total}} = V_1 + V_2@ e @m_{\text{total}} = m_1 + m_2@):</p>
+      <p>a) Monte o sistema de equações lineares para determinar o volume ocupado por cada metal na joia.</p>
+      <p>b) Determine a massa de ouro e a fração percentual de ouro em massa (teor de ouro) contida na peça.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Escreva @V_1 + V_2 = 15@ e @19{,}3 V_1 + 10{,}5 V_2 = 213@. Isole @V_2 = 15 - V_1@ e substitua na equação das massas.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 15 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Pressão mecânica e unidades de pressão</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>A pressão média exercida por uma força perpendicular sobre uma superfície é @P = \frac{F}{A}@. Uma bailarina de massa @50\text{ kg}@ apoia todo o peso de seu corpo na ponta de uma única sapatilha, cuja área de contato com o solo é de apenas @2\text{ cm}^2@. Adote a aceleração da gravidade @g = 10\text{ m/s}^2@.</p>
+      <p>a) Calcule a força peso exercida pela bailarina em Newtons (@\text{N}@).</p>
+      <p>b) Calcule a pressão exercida no solo pela ponta da sapatilha em Pascal (@\text{Pa} = \text{N/m}^2@).</p>
+      <p>c) Sabendo que a pressão atmosférica normal ao nível do mar é de @1\text{ atm} \approx 1{,}0 \times 10^5\text{ Pa}@, quantas vezes a pressão exercida pela bailarina supera a pressão atmosférica?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Converta a área para @\text{m}^2@ antes de dividir: @1\text{ cm}^2 = (10^{-2}\text{ m})^2 = 10^{-4}\text{ m}^2@. Portanto, @2\text{ cm}^2 = 2 \times 10^{-4}\text{ m}^2@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 16 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Pressão em pneus e sistema imperial (psi)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Ao calibrar os pneus de um veículo de passeio no Brasil, os manômetros dos postos de combustível frequentemente utilizam a unidade do sistema imperial denominada "psi" (do inglês <em>pounds per square inch</em>, libra-força por polegada quadrada, @\text{lbf/in}^2@). Sabe-se que @1\text{ psi} \approx 6.895\text{ Pa}@ e @1\text{ bar} = 10^5\text{ Pa}@.</p>
+      <p>a) Se o manual do fabricante recomenda calibrar os pneus dianteiros com @32\text{ psi}@, qual é esse valor expresso em quilopascais (@\text{kPa}@)?</p>
+      <p>b) Expresse essa mesma pressão em bar.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Multiplique @32@ por @6.895\text{ Pa}@ e divida por @1.000@ para obter @\text{kPa}@, ou divida por @10^5@ para obter bar.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 17 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Sistema imperial de comprimento</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Na aviação civil e na navegação marítima internacional, unidades do sistema imperial são comumente empregadas:</p>
+      <p>• @1\text{ pé (foot - ft)} = 0{,}3048\text{ m}@</p>
+      <p>• @1\text{ polegada (inch - in)} = 2{,}54\text{ cm} = 0{,}0254\text{ m}@</p>
+      <p>• @1\text{ milha náutica (NM)} = 1.852\text{ m}@</p>
+      <p>a) Uma aeronave comercial voa em altitude de cruzeiro nivelada a @36.000\text{ pés}@. Calcule essa altitude em metros e em quilômetros.</p>
+      <p>b) Um navio de carga percorre uma distância de @450\text{ milhas náuticas}@. Determine essa distância em quilômetros (@\text{km}@).</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Efetue a multiplicação direta: @36.000 \times 0{,}3048@ para a altitude e @450 \times 1{,}852@ para a distância do navio.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 18 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Consumo de combustível: km/L versus mpg</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Nos Estados Unidos, a eficiência de consumo de combustível veicular é expressa em milhas por galão (mpg, <em>miles per gallon</em>), enquanto no Brasil expressamos em quilômetros por litro (@\text{km/L}@). Sabe-se que @1\text{ milha terrestre} \approx 1{,}609\text{ km}@ e @1\text{ galão americano (US gal)} \approx 3{,}785\text{ L}@.</p>
+      <p>a) Um automóvel híbrido importado atinge nos testes americanos uma marca de @45\text{ mpg}@. Calcule o consumo equivalente desse veículo em @\text{km/L}@.</p>
+      <p>b) Na Europa, o padrão comum é litros consumidos a cada 100 km (@\text{L/100 km}@). Qual é o consumo do veículo híbrido nessa escala europeia?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Para converter mpg para km/L: @1\text{ mpg} = \frac{1{,}609\text{ km}}{3{,}785\text{ L}} \approx 0{,}4251\text{ km/L}@. Para a escala europeia, observe quantos litros são necessários para rodar 100 km: @\frac{100}{\text{km/L}}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 19 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Análise dimensional de grandezas mecânicas</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>No Sistema Internacional de Grandezas (Massa @[\text{M}]@, Comprimento @[\text{L}]@, Tempo @[\text{T}]@):</p>
+      <p>a) Sabendo que Força é o produto da massa pela aceleração (@F = m \cdot a@), determine a equação dimensional da Força @[F]@.</p>
+      <p>b) Sabendo que Trabalho/Energia mecânica é dado por @W = F \cdot d@, determine a fórmula dimensional de @[W]@.</p>
+      <p>c) Sabendo que Potência é a taxa de energia por unidade de tempo (@P = \frac{W}{\Delta t}@), determine a equação dimensional da Potência @[P]@.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Aceleração tem dimensão @[\text{L}][\text{T}]^{-2}@. Multiplique sucessivamente pelas dimensões de massa e comprimento para encontrar força, trabalho e potência.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 20 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Homogeneidade dimensional em cinemática</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>O princípio da homogeneidade dimensional estabelece que, em qualquer equação física válida, todos os termos somados ou igualados devem possuir exatamente a mesma dimensão física. Considere a equação horária da posição de um corpo em movimento retilíneo:</p>
+      <p>@@S(t) = A + B \cdot t + C \cdot t^2@@</p>
+      <p>onde @S@ representa a posição no espaço (comprimento @[\text{L}]@) e @t@ representa o tempo (tempo @[\text{T}]@).</p>
+      <p>a) Determine as fórmulas dimensionais das constantes físicas @A@, @B@ e @C@.</p>
+      <p>b) Identifique quais são as unidades de @A@, @B@ e @C@ no Sistema Internacional (SI).</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Igualar cada parcela à dimensão da posição: @[A] = [S]@, @[B \cdot t] = [S] \implies [B][\text{T}] = [\text{L}]@ e @[C \cdot t^2] = [S] \implies [C][\text{T}]^2 = [\text{L}]@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 21 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Dedução de fórmula por análise dimensional</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Deseja-se determinar como o período de oscilação @T@ (com dimensão de tempo @[\text{T}]@) de um pêndulo simples depende da massa da esfera pendular @m@ (@[\text{M}]@), do comprimento do fio @L@ (@[\text{L}]@) e da aceleração da gravidade local @g@ (@[\text{L}][\text{T}]^{-2}@). Admite-se uma relação do tipo:</p>
+      <p>@@T = k \cdot m^\alpha \cdot L^\beta \cdot g^\gamma@@</p>
+      <p>onde @k@ é uma constante adimensional.</p>
+      <p>a) Monte a equação dimensional correspondente.</p>
+      <p>b) Resolva o sistema de expoentes e determine os valores de @\alpha@, @\beta@ e @\gamma@, concluindo a expressão formal do período.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Igualando as potências de @\text{M}@, @\text{L}@ e @\text{T}@ em ambos os lados: @[\text{M}]^0 [\text{L}]^0 [\text{T}]^1 = [\text{M}]^\alpha \cdot [\text{L}]^\beta \cdot ([\text{L}][\text{T}]^{-2})^\gamma@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 22 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Dosagem médica e taxa de gotejamento</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um médico prescreveu a um paciente internado com @70\text{ kg}@ de massa corporal um medicamento cuja posologia requer @15\text{ mg}@ por quilograma de peso corporal por dia, diluído em soro fisiológico e administrado por infusão contínua durante @24\text{ horas}@. A equipe de enfermagem dispõe de ampolas de @500\text{ mg}@ do princípio ativo em frascos de soro de @500\text{ mL}@. Sabe-se que @1\text{ mL} = 20\text{ gotas}@.</p>
+      <p>a) Qual é a massa total diária (em @\text{mg}@) de princípio ativo que o paciente deve receber?</p>
+      <p>b) Quantas gotas por minuto (@\text{gotas/min}@) o equipo deve administrar para que o frasco de @500\text{ mL}@ termine exatamente em 24 horas?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A taxa de infusão em gotas por minuto é dada por @\frac{\text{Volume em mL} \times 20}{\text{Tempo em horas} \times 60}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 23 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Concentração em partes por milhão (ppm)</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>A concentração de poluentes ou de substâncias químicas em água costuma ser indicada em partes por milhão (@\text{ppm}@), onde @1\text{ ppm}@ equivale a @1\text{ mg}@ de soluto por litro de solução aquosa (@1\text{ mg/L}@, considerando a densidade da água @1\text{ kg/L}@). Um técnico ambiental analisou a água de um reservatório de abastecimento público de @40.000\text{ m}^3@ e detectou uma concentração de cloro de @1{,}8\text{ ppm}@.</p>
+      <p>a) Calcule a massa total de cloro (em quilogramas, @\text{kg}@) dissolvida no reservatório.</p>
+      <p>b) Se a legislação sanitária estabelece que o teor máximo permitido é de @2{,}0\text{ mg/L}@, o reservatório está dentro dos padrões regulamentares?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> @40.000\text{ m}^3 = 4 \times 10^7\text{ L}@. Multiplique o volume em litros pela concentração em @\text{mg/L}@ e converta miligramas para quilogramas (@1\text{ kg} = 10^6\text{ mg}@).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 24 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Taxa de transmissão de dados e download</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>Um usuário contratou um plano de internet banda larga com velocidade de download anunciada de @200\text{ Mbps}@ (megabits por segundo). Ele precisa baixar uma imagem de sistema operacional com tamanho de @45\text{ GB}@ (gigabytes, considerando @1\text{ GB} = 1.000\text{ MB}@ no padrão decimal).</p>
+      <p>a) Sabendo que @1\text{ Byte} = 8\text{ bits}@, qual é a taxa máxima teórica de download em megabytes por segundo (@\text{MB/s}@)?</p>
+      <p>b) Calcule o tempo mínimo teórico (em minutos e segundos) necessário para concluir o download do arquivo de 45 GB sob taxa máxima.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Divida a velocidade em Mbps por 8 para encontrar @\text{MB/s}@: @\frac{200}{8} = 25\text{ MB/s}@. Em seguida, calcule @\Delta t = \frac{\text{Tamanho em MB}}{\text{Taxa em MB/s}}@.
+      </div>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Desafios e questões de vestibulares conceituados (ENEM, FUVEST, ITA, UNICAMP) envolvendo modelos analíticos, múltiplos fatores de conversão e raciocínio físico-matemático avançado.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 25 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Consumo de energia e tarifas com impostos</span>
+        <span class="fonte">ENEM</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Em uma residência com 4 moradores, cada pessoa toma um banho diário de @15\text{ minutos}@ em um chuveiro elétrico de potência nominal igual a @6.000\text{ W}@. A concessionária estadual de energia elétrica cobra uma tarifa de @\text{R\$}~0{,}75@ por cada @\text{kWh}@ consumido (já inclusos tributos), acrescida de uma sobretaxa de bandeira tarifária vermelha de @\text{R\$}~4{,}00@ a cada @100\text{ kWh}@ consumidos no mês.</p>
+      <p>a) Calcule a energia elétrica mensal (em @\text{kWh}@) consumida exclusivamente pelos banhos da família em um mês de 30 dias.</p>
+      <p>b) Calcule o valor monetário total correspondente a esse consumo, incluindo a bandeira tarifária.</p>
+    </li>
+
+    <!-- PROBLEMA 26 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Análise dimensional da força de arrasto</span>
+        <span class="fonte">FUVEST</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>A força de resistência do ar (arrasto aerodinâmico) que atua sobre um automóvel em alta velocidade é modelada pela relação semiempírica:</p>
+      <p>@@F_{\text{arrasto}} = \frac{1}{2} C_d \cdot \rho^\alpha \cdot v^\beta \cdot A^\gamma@@</p>
+      <p>onde @F_{\text{arrasto}}@ é uma força (@[\text{M}][\text{L}][\text{T}]^{-2}@), @C_d@ é o coeficiente de arrasto (grandeza adimensional), @\rho@ é a massa específica do ar (@[\text{M}][\text{L}]^{-3}@), @v@ é a velocidade do veículo (@[\text{L}][\text{T}]^{-1}@) e @A@ é a área frontal do veículo (@[\text{L}]^2@).</p>
+      <p>a) Utilizando o princípio da homogeneidade dimensional, determine os valores dos expoentes @\alpha@, @\beta@ e @\gamma@.</p>
+      <p>b) Se a velocidade de um veículo aumenta de @60\text{ km/h}@ para @120\text{ km/h}@, por qual fator multiplicativo a força de resistência do ar é amplificada?</p>
+    </li>
+
+    <!-- PROBLEMA 27 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Análise dimensional de constantes fundamentais</span>
+        <span class="fonte">ITA</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 12 min</span>
+      </div>
+      <p>Considere as seguintes leis fundamentais da Física:</p>
+      <p>I. Lei da Gravitação Universal de Newton: @F = G \frac{M \cdot m}{r^2}@</p>
+      <p>II. Relação quântica de Planck-Einstein: @E = h \cdot f@, onde @E@ é energia e @f@ é frequência (@[\text{T}]^{-1}@).</p>
+      <p>a) Determine a fórmula dimensional da constante de gravitação universal @[G]@ no sistema @[\text{M}], [\text{L}], [\text{T}]@.</p>
+      <p>b) Determine a fórmula dimensional da constante de Planck @[h]@.</p>
+      <p>c) Mostre que a grandeza hipotética formada pelo produto @G \cdot h@ possui dimensão de @[\text{M}]^a [\text{L}]^b [\text{T}]^c@ e determine os expoentes @a, b, c@.</p>
+    </li>
+
+    <!-- PROBLEMA 28 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equilíbrio de fluidos imiscíveis em tubo em U</span>
+        <span class="fonte">UNICAMP</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>Em um tubo em U aberto em ambas as extremidades para a atmosfera, são vertidos dois líquidos imiscíveis em equilíbrio estático: água (@\rho_{\text{água}} = 1{,}0\text{ g/cm}^3@) e um óleo vegetal desconhecido (@\rho_{\text{óleo}}@). A superfície de separação entre os dois líquidos fica em um nível de referência. A coluna de óleo acima da interface tem altura @h_{\text{óleo}} = 20\text{ cm}@, enquanto a coluna de água correspondente no outro ramo do tubo mede @h_{\text{água}} = 16\text{ cm}@.</p>
+      <p>a) A partir do Teorema de Stevin (@P_A = P_B@ no mesmo plano horizontal do mesmo fluido contínuo), determine a densidade do óleo em @\text{g/cm}^3@ e no Sistema Internacional (@\text{kg/m}^3@).</p>
+      <p>b) Se a área da seção reta interna do tubo é de @2{,}5\text{ cm}^2@, determine a massa de óleo contida no tubo.</p>
+    </li>
+
+    <!-- PROBLEMA 29 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Pegada hídrica e conversão de escalas macro</span>
+        <span class="fonte">ENEM</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+      <p>O conceito de "água virtual" quantifica o volume total de água doce empregado direta e indiretamente ao longo de toda a cadeia produtiva de um bem. Estudos indicam que a produção de @1\text{ kg}@ de carne bovina desossada consome em média @15.000\text{ litros}@ de água virtual. Um frigorífico exportador brasileiro abarca o processamento de @600\text{ toneladas}@ de carne bovina mensalmente.</p>
+      <p>a) Calcule o volume total de água virtual consumido por esse frigorífico em um mês, expressando o resultado em metros cúbicos (@\text{m}^3@) em notação científica.</p>
+      <p>b) Uma piscina olímpica padrão possui dimensões de @50\text{ m}@ de comprimento, @25\text{ m}@ de largura e profundidade média de @2\text{ m}@. O volume mensal de água virtual gasto pelo frigorífico equivale à capacidade total de quantas piscinas olímpicas?</p>
+    </li>
+
+    <!-- PROBLEMA 30 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Velocidade de propagação em corda vibrante</span>
+        <span class="fonte">ITA</span>
+        <span class="dificuldade desafio">Desafio</span>
+        <span>⏱️ 11 min</span>
+      </div>
+      <p>A velocidade @v@ de propagação de uma onda transversal em uma corda homogênea tracionada depende unicamente da força tensora aplicada @T@ (@[\text{M}][\text{L}][\text{T}]^{-2}@) e da densidade linear de massa @\mu = \frac{m}{L}@ (@[\text{M}][\text{L}]^{-1}@) da corda. Admite-se uma expressão monomial @v = C \cdot T^\alpha \cdot \mu^\beta@, onde @C@ é uma constante adimensional.</p>
+      <p>a) Utilizando análise dimensional, determine rigorosamente os expoentes @\alpha@ e @\beta@.</p>
+      <p>b) Uma corda de violão de aço de @60\text{ cm}@ de comprimento possui massa total de @3\text{ g}@ e é submetida a uma tração mecânica de @120\text{ N}@. Calcule a velocidade de propagação da onda nessa corda em metros por segundo (@\text{m/s}@), adotando @C = 1@.</p>
+    </li>
+
+    <!-- PROBLEMA 31 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Potência e rendimento hidroelétrico</span>
+        <span class="fonte">FUVEST</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 10 min</span>
+      </div>
+      <p>Em uma usina hidroelétrica, a potência mecânica teórica disponibilizada pela queda d'água é dada por @P_{\text{teo}} = \rho \cdot Q \cdot g \cdot H@, onde @\rho = 1.000\text{ kg/m}^3@ é a densidade da água, @Q@ é a vazão volumétrica em @\text{m}^3/\text{s}@, @g = 10\text{ m/s}^2@ é a gravidade e @H@ é o desnível útil da represa. Uma usina opera com vazão de @400\text{ m}^3/\text{s}@ e queda d'água de @60\text{ m}@. Devido a perdas por atrito e rendimento do gerador elétrico, apenas @85\%@ dessa potência mecânica é efetivamente convertida em energia elétrica.</p>
+      <p>a) Mostre dimensionalmente que a expressão @\rho \cdot Q \cdot g \cdot H@ tem dimensão de Potência (@[\text{M}][\text{L}]^2[\text{T}]^{-3}@).</p>
+      <p>b) Calcule a potência elétrica útil gerada pela usina em Megawatts (@\text{MW}@).</p>
+      <p>c) Qual é a energia elétrica total produzida por essa usina em 24 horas de operação contínua, expressa em @\text{MWh}@?</p>
+    </li>
+
+    <!-- PROBLEMA 32 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Escalas cartográficas e conversão de áreas</span>
+        <span class="fonte">ENEM</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+      <p>Em um mapa geográfico confeccionado na escala numérica @1:250.000@, uma reserva florestal de preservação permanente é representada por um polígono que ocupa uma área de @32\text{ cm}^2@ no papel.</p>
+      <p>a) Se a escala linear é @1:E@, qual é a relação de escala entre as áreas representadas no mapa e no terreno real?</p>
+      <p>b) Calcule a área real dessa reserva florestal expressa em quilômetros quadrados (@\text{km}^2@) e em hectares (@\text{ha}@).</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para você exercitar sua autonomia e dominar plenamente as conversões dimensionais em contextos práticos e científicos!
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 33 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Irrigação agrícola e lâmina d'água</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Um sistema de irrigação por pivô central aplica uma lâmina de água de @6\text{ mm}@ por dia sobre uma lavoura circular com raio de @200\text{ m}@ (adote @\pi \approx 3{,}14@). Sabendo que uma lâmina de @1\text{ mm}@ equivale à precipitação de @1\text{ litro de água por metro quadrado (1 L/m}^2)@:</p>
+      <p>a) Calcule a área total irrigada pela lavoura em @\text{m}^2@ e em hectares.</p>
+      <p>b) Calcule o volume total diário de água aspergido pelo sistema em metros cúbicos (@\text{m}^3@).</p>
+    </li>
+
+    <!-- PROBLEMA 34 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Densidade de mistura de líquidos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Misturam-se homogeneamente @400\text{ mL}@ de água pura (@\rho_1 = 1{,}0\text{ g/cm}^3@) com @600\text{ mL}@ de etanol anidro (@\rho_2 = 0{,}80\text{ g/cm}^3@). Desprezando qualquer contração de volume na mistura líquida:</p>
+      <p>a) Calcule a massa total da mistura resultante.</p>
+      <p>b) Calcule a densidade média final da solução aquosa em @\text{g/cm}^3@.</p>
+    </li>
+
+    <!-- PROBLEMA 35 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Análise dimensional de constante elástica</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>A Lei de Hooke para deformações elásticas é expressa por @F = k \cdot x@, onde @F@ é a força restauradora exercida pela mola, @x@ é a deformação linear da mola e @k@ é a constante elástica. Determine:</p>
+      <p>a) A equação dimensional de @k@ em termos de @[\text{M}], [\text{L}], [\text{T}]@.</p>
+      <p>b) A unidade de @k@ no Sistema Internacional (SI).</p>
+    </li>
+
+    <!-- PROBLEMA 36 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Metabolismo energético e calorias</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+      <p>Uma barra de cereal possui valor calórico impresso na embalagem de @180\text{ kcal}@ (quilocalorias alimentares). Sabe-se que @1\text{ cal} = 4{,}184\text{ J}@ e, portanto, @1\text{ kcal} = 4.184\text{ J}@.</p>
+      <p>a) Converta o valor energético total dessa barra de cereal para Joules (@\text{J}@).</p>
+      <p>b) Um atleta consome energia a uma taxa metabólica de @750\text{ W}@ durante uma corrida de intensidade média. Durante quantos minutos ele deve correr para dissipar uma quantidade de energia equivalente à dessa barra de cereal?</p>
+    </li>
+
+    <!-- PROBLEMA 37 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Unidades astronômicas: o ano-luz</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+      <p>O ano-luz é uma unidade de medida de comprimento utilizada em astronomia, definida como a distância que a luz percorre no vácuo ao longo de um ano sideral (considere @1\text{ ano} \approx 365{,}25\text{ dias}@ e a velocidade da luz @c = 3{,}00 \times 10^8\text{ m/s}@).</p>
+      <p>a) Calcule o número total de segundos contidos em um ano de 365,25 dias.</p>
+      <p>b) Calcule o valor exato de @1\text{ ano-luz}@ expresso em metros e em quilômetros, em notação científica.</p>
+    </li>
+
+    <!-- PROBLEMA 38 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Rendimento de combustível na escala europeia</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 4 min</span>
+      </div>
+      <p>O computador de bordo de um veículo fabricado na Alemanha informa um consumo médio de @6{,}25\text{ L/100 km}@.</p>
+      <p>a) Quantos quilômetros esse veículo percorre com cada litro de combustível (@\text{km/L}@)?</p>
+      <p>b) Se o tanque do veículo comporta @60\text{ litros}@, qual é a autonomia teórica máxima proporcionada por esse volume de combustível?</p>
+    </li>
+  </ol>
+</article>
+
+<!-- ============================================================================
+     GABARITO E RESOLUÇÕES DETALHADAS
+     ============================================================================ -->
+<details class="gabarito-container">
+  <summary>📖 GABARITO E RESOLUÇÕES DETALHADAS (Clique para expandir)</summary>
+  <div class="gabarito-content">
+
+    <!-- SEÇÃO 1 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 1: Problemas Introdutórios</h3>
+      <ol>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Nano (@\text{n}@) equivale a @10^{-9}@: @450\text{ nm} = 450 \times 10^{-9}\text{ m} = 4{,}5 \times 10^{-7}\text{ m}@.<br>
+          b) Micro (@\mu@) equivale a @10^{-6}@: @25\text{ }\mu\text{s} = 25 \times 10^{-6}\text{ s} = 2{,}5 \times 10^{-5}\text{ s}@.<br>
+          c) Giga (@\text{G}@) equivale a @10^9@: @8{,}4\text{ GHz} = 8{,}4 \times 10^9\text{ Hz}@.<br>
+          d) Mili (@\text{m}@) equivale a @10^{-3}@: @120\text{ mg} = 120 \times 10^{-3}\text{ g} = 0{,}12\text{ g}@ (ou @1{,}2 \times 10^{-4}\text{ kg}@).<br>
+          <strong>Resposta:</strong> a) @4{,}5 \times 10^{-7}\text{ m}@; b) @2{,}5 \times 10^{-5}\text{ s}@; c) @8{,}4 \times 10^9\text{ Hz}@; d) @0{,}12\text{ g}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Para converter metros para quilômetros, divide-se por 1.000: @\frac{120}{1.000} = 0{,}12\text{ km}@.<br>
+          b) Para centímetros, multiplica-se por 100: @120 \times 100 = 12.000\text{ cm}@.<br>
+          c) Para milímetros, multiplica-se por 1.000: @120 \times 1.000 = 120.000\text{ mm}@.<br>
+          <strong>Resposta:</strong> a) @0{,}12\text{ km}@; b) @12.000\text{ cm}@; c) @120.000\text{ mm}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Como @1\text{ ha} = 10.000\text{ m}^2@: @3{,}5 \times 10.000 = 35.000\text{ m}^2@.<br>
+          b) Como @1\text{ m} = 100\text{ cm} \implies 1\text{ m}^2 = 10^4\text{ cm}^2@: @35.000 \times 10^4 = 3{,}5 \times 10^8\text{ cm}^2@.<br>
+          <strong>Resposta:</strong> a) @35.000\text{ m}^2@; b) @3{,}5 \times 10^8\text{ cm}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Sabendo que @1\text{ m}^3 = 1.000\text{ L}@: @2{,}4 \times 1.000 = 2.400\text{ L}@.<br>
+          b) Como @1\text{ m}^3 = (10^2\text{ cm})^3 = 10^6\text{ cm}^3@: @2{,}4 \times 10^6\text{ cm}^3 = 2.400.000\text{ cm}^3@.<br>
+          <strong>Resposta:</strong> a) @2.400\text{ L}@; b) @2{,}4 \times 10^6\text{ cm}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @2\text{ h} = 2 \times 3.600 = 7.200\text{ s}@; @45\text{ min} = 45 \times 60 = 2.700\text{ s}@.<br>
+          Total em segundos: @7.200 + 2.700 + 18 = 9.918\text{ s}@.<br>
+          b) @45\text{ min} = \frac{45}{60} = 0{,}75\text{ h}@; @18\text{ s} = \frac{18}{3.600} = 0{,}005\text{ h}@.<br>
+          Total em horas: @2 + 0{,}75 + 0{,}005 = 2{,}755\text{ h}@.<br>
+          <strong>Resposta:</strong> a) @9.918\text{ s}@; b) @2{,}755\text{ h}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Para converter @\text{km/h}@ em @\text{m/s}@, divide-se por @3{,}6@: @\frac{108}{3{,}6} = 30\text{ m/s}@.<br>
+          b) Para converter @\text{m/s}@ em @\text{km/h}@, multiplica-se por @3{,}6@: @12{,}5 \times 3{,}6 = 45\text{ km/h}@.<br>
+          <strong>Resposta:</strong> a) @30\text{ m/s}@; b) @45\text{ km/h}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @1\text{ t} = 1.000\text{ kg}@: @14{,}5 \times 1.000 = 14.500\text{ kg}@.<br>
+          b) @1\text{ kg} = 1.000\text{ g}@: @14.500 \times 1.000 = 14.500.000\text{ g} = 1{,}45 \times 10^7\text{ g}@.<br>
+          <strong>Resposta:</strong> a) @14.500\text{ kg}@; b) @1{,}45 \times 10^7\text{ g}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @500\text{ GB} = 500 \times 10^9\text{ bytes} = 5 \times 10^{11}\text{ bytes}@.<br>
+          b) Capacidade em MB: @500\text{ GB} = 500.000\text{ MB}@.<br>
+          Número de músicas: @\frac{500.000}{5} = 100.000@ músicas.<br>
+          <strong>Resposta:</strong> a) @5 \times 10^{11}\text{ bytes}@; b) @100.000@ músicas.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @\frac{T_C}{5} = \frac{86 - 32}{9} = \frac{54}{9} = 6 \implies T_C = 5 \times 6 = 30^\circ\text{C}@.<br>
+          b) @T_K = 30 + 273{,}15 = 303{,}15\text{ K}@.<br>
+          <strong>Resposta:</strong> a) @30^\circ\text{C}@; b) @303{,}15\text{ K}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @1\text{ kWh} = (1.000\text{ W}) \times (3.600\text{ s}) = 3.600.000\text{ W}\cdot\text{s} = 3{,}6 \times 10^6\text{ J}@.<br>
+          b) Potência: @100\text{ W} = 0{,}1\text{ kW}@.<br>
+          Energia consumida: @E = P \cdot \Delta t = 0{,}1\text{ kW} \times 10\text{ h} = 1{,}0\text{ kWh}@.<br>
+          Em Joules: @1{,}0 \times 3{,}6 \times 10^6 = 3{,}6 \times 10^6\text{ J}@.<br>
+          <strong>Resposta:</strong> a) Demonstração apresentada; b) @1{,}0\text{ kWh}@ e @3{,}6 \times 10^6\text{ J}@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 2 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 2: Problemas de Fixação</h3>
+      <ol start="11">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Raio da base @r = 1\text{ m}@; altura @h = 0{,}60\text{ m}@.<br>
+          Volume: @V = \pi r^2 h = 3{,}14 \times 1^2 \times 0{,}60 = 1{,}884\text{ m}^3@.<br>
+          Em litros: @1{,}884 \times 1.000 = 1.884\text{ L}@.<br>
+          b) Vazão @Q = 15\text{ L/min}@.<br>
+          Tempo de enchimento: @\Delta t = \frac{1.884}{15} = 125{,}6\text{ min}@.<br>
+          Como @125{,}6\text{ min} = 120\text{ min} + 5{,}6\text{ min}@ e @0{,}6 \times 60 = 36\text{ s}@, tem-se @2\text{ h } 5\text{ min } 36\text{ s}@.<br>
+          <strong>Resposta:</strong> a) @1{,}884\text{ m}^3@ e @1.884\text{ L}@; b) @2\text{ horas, } 5\text{ minutos e } 36\text{ segundos}@ (ou @125{,}6\text{ min}@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Em 1 dia (@86.400\text{ s}@), vazam @86.400 \times 0{,}05\text{ mL} = 4.320\text{ mL} = 4{,}32\text{ L}@.<br>
+          Em 30 dias: @30 \times 4{,}32 = 129{,}6\text{ L}@.<br>
+          b) Em 365 dias: @365 \times 4{,}32 = 1.576{,}8\text{ L} = 1{,}5768\text{ m}^3@.<br>
+          Custo anual: @1{,}5768 \times \text{R\$}~5{,}50 \approx \text{R\$}~8{,}67@.<br>
+          <strong>Resposta:</strong> a) @129{,}6\text{ L}@; b) R$ 8,67.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Volume do cubo: @V = (10\text{ cm})^3 = 1.000\text{ cm}^3@.<br>
+          Massa em gramas: @2{,}7\text{ kg} = 2.700\text{ g}@.<br>
+          Densidade: @\rho = \frac{2.700}{1.000} = 2{,}7\text{ g/cm}^3@.<br>
+          b) @2{,}7 \times 10^3 = 2.700\text{ kg/m}^3@.<br>
+          c) Bloco de ouro: @m = \rho_{\text{ouro}} \cdot V = 19{,}3\text{ g/cm}^3 \times 1.000\text{ cm}^3 = 19.300\text{ g} = 19{,}3\text{ kg}@.<br>
+          <strong>Resposta:</strong> a) @2{,}7\text{ g/cm}^3@; b) @2.700\text{ kg/m}^3@; c) @19{,}3\text{ kg}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Sistema:
+          @@\begin{cases} V_1 + V_2 = 15 \\ 19{,}3 V_1 + 10{,}5 V_2 = 213 \end{cases}@@
+          b) Substituindo @V_2 = 15 - V_1@:
+          @19{,}3 V_1 + 10{,}5(15 - V_1) = 213 \implies 19{,}3 V_1 + 157{,}5 - 10{,}5 V_1 = 213 \implies 8{,}8 V_1 = 55{,}5 \implies V_1 \approx 6{,}307\text{ cm}^3@.<br>
+          Massa de ouro: @m_1 = 19{,}3 \times 6{,}307 \approx 121{,}72\text{ g}@.<br>
+          Teor percentual em massa: @\frac{121{,}72}{213} \times 100\% \approx 57{,}15\%@.<br>
+          <strong>Resposta:</strong> a) Sistema estabelecido; b) Massa de ouro @\approx 121{,}7\text{ g}@ (teor de aproximadamente @57{,}1\%@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Força peso: @F = m \cdot g = 50 \times 10 = 500\text{ N}@.<br>
+          b) Área em @\text{m}^2@: @A = 2\text{ cm}^2 = 2 \times 10^{-4}\text{ m}^2@.<br>
+          Pressão: @P = \frac{500}{2 \times 10^{-4}} = 250 \times 10^4 = 2{,}5 \times 10^6\text{ Pa}@.<br>
+          c) Razão com a pressão atmosférica: @\frac{2{,}5 \times 10^6}{1{,}0 \times 10^5} = 25@ vezes.<br>
+          <strong>Resposta:</strong> a) @500\text{ N}@; b) @2{,}5 \times 10^6\text{ Pa}@; c) 25 vezes superior.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @32\text{ psi} = 32 \times 6.895\text{ Pa} = 220.640\text{ Pa} \approx 220{,}64\text{ kPa}@.<br>
+          b) Em bar: @\frac{220.640}{10^5} \approx 2{,}21\text{ bar}@.<br>
+          <strong>Resposta:</strong> a) @220{,}64\text{ kPa}@; b) @2{,}21\text{ bar}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Altitude: @36.000 \times 0{,}3048 = 10.972{,}8\text{ m} \approx 10{,}97\text{ km}@.<br>
+          b) Distância marítima: @450 \times 1{,}852 = 833{,}4\text{ km}@.<br>
+          <strong>Resposta:</strong> a) @10.972{,}8\text{ m}@ (@10{,}97\text{ km}@); b) @833{,}4\text{ km}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Eficiência: @45\text{ mpg} = 45 \times \frac{1{,}609\text{ km}}{3{,}785\text{ L}} = 45 \times 0{,}4251 \approx 19{,}13\text{ km/L}@.<br>
+          b) Para rodar 100 km: @\frac{100}{19{,}13} \approx 5{,}23\text{ L/100 km}@.<br>
+          <strong>Resposta:</strong> a) @\approx 19{,}13\text{ km/L}@; b) @\approx 5{,}23\text{ L/100 km}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @[F] = [m][a] = [\text{M}]([\text{L}][\text{T}]^{-2}) = [\text{M}][\text{L}][\text{T}]^{-2}@.<br>
+          b) @[W] = [F][d] = ([\text{M}][\text{L}][\text{T}]^{-2})[\text{L}] = [\text{M}][\text{L}]^2[\text{T}]^{-2}@.<br>
+          c) @[P] = \frac{[W]}{[\Delta t]} = \frac{[\text{M}][\text{L}]^2[\text{T}]^{-2}}{[\text{T}]} = [\text{M}][\text{L}]^2[\text{T}]^{-3}@.<br>
+          <strong>Resposta:</strong> a) @[\text{M}][\text{L}][\text{T}]^{-2}@; b) @[\text{M}][\text{L}]^2[\text{T}]^{-2}@; c) @[\text{M}][\text{L}]^2[\text{T}]^{-3}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Pela homogeneidade dimensional:<br>
+          • @[A] = [S] = [\text{L}]@<br>
+          • @[B][\text{T}] = [\text{L}] \implies [B] = [\text{L}][\text{T}]^{-1}@<br>
+          • @[C][\text{T}]^2 = [\text{L}] \implies [C] = [\text{L}][\text{T}]^{-2}@<br>
+          b) Unidades SI: @A@ em metros (@\text{m}@), @B@ em metros por segundo (@\text{m/s}@) e @C@ em metros por segundo ao quadrado (@\text{m/s}^2@).<br>
+          <strong>Resposta:</strong> a) @[A]=[\text{L}]@, @[B]=[\text{L}][\text{T}]^{-1}@, @[C]=[\text{L}][\text{T}]^{-2}@; b) @\text{m}@, @\text{m/s}@ e @\text{m/s}^2@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Equação dimensional: @[\text{T}] = [\text{M}]^\alpha \cdot [\text{L}]^\beta \cdot ([\text{L}][\text{T}]^{-2})^\gamma = [\text{M}]^\alpha [\text{L}]^{\beta + \gamma} [\text{T}]^{-2\gamma}@.<br>
+          b) Comparando os expoentes:<br>
+          • Para @\text{M}@: @\alpha = 0@ (o período não depende da massa!).<br>
+          • Para @\text{T}@: @-2\gamma = 1 \implies \gamma = -\frac{1}{2}@.<br>
+          • Para @\text{L}@: @\beta + \gamma = 0 \implies \beta = -\gamma = \frac{1}{2}@.<br>
+          Portanto, @T = k \cdot L^{1/2} \cdot g^{-1/2} = k \sqrt{\frac{L}{g}}@.<br>
+          <strong>Resposta:</strong> @\alpha = 0@, @\beta = 1/2@, @\gamma = -1/2@, donde @T = k \sqrt{L/g}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Massa diária de princípio ativo: @70\text{ kg} \times 15\text{ mg/kg} = 1.050\text{ mg}@.<br>
+          b) Volume total: @500\text{ mL}@. Em gotas: @500 \times 20 = 10.000\text{ gotas}@.<br>
+          Tempo total em minutos: @24 \times 60 = 1.440\text{ min}@.<br>
+          Taxa de gotejamento: @\frac{10.000}{1.440} \approx 6{,}94\text{ gotas/min}@ (aproximadamente 7 gotas por minuto).<br>
+          <strong>Resposta:</strong> a) @1.050\text{ mg}@; b) @\approx 7\text{ gotas/min}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @40.000\text{ m}^3 = 40.000 \times 1.000\text{ L} = 4 \times 10^7\text{ L}@.<br>
+          Massa de cloro: @(4 \times 10^7\text{ L}) \times (1{,}8\text{ mg/L}) = 7{,}2 \times 10^7\text{ mg}@.<br>
+          Como @1\text{ kg} = 10^6\text{ mg}@: @\frac{7{,}2 \times 10^7}{10^6} = 72\text{ kg}@.<br>
+          b) Como @1{,}8\text{ mg/L} < 2{,}0\text{ mg/L}@, o reservatório está em conformidade.<br>
+          <strong>Resposta:</strong> a) @72\text{ kg}@ de cloro; b) Sim, está dentro dos padrões sanitários.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Taxa em @\text{MB/s}@: @\frac{200\text{ Mbps}}{8} = 25\text{ MB/s}@.<br>
+          b) Tamanho do arquivo: @45\text{ GB} = 45.000\text{ MB}@.<br>
+          Tempo de download: @\Delta t = \frac{45.000}{25} = 1.800\text{ s}@.<br>
+          Em minutos: @\frac{1.800}{60} = 30\text{ minutos}@.<br>
+          <strong>Resposta:</strong> a) @25\text{ MB/s}@; b) @30\text{ minutos}@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 3 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 3: Problemas de Aprofundamento</h3>
+      <ol start="25">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Tempo diário total de chuveiro: @4 \times 15\text{ min} = 60\text{ min} = 1\text{ hora}@.<br>
+          Em 30 dias: @30\text{ horas}@ de funcionamento.<br>
+          Potência: @6.000\text{ W} = 6\text{ kW}@.<br>
+          Consumo mensal: @E = 6\text{ kW} \times 30\text{ h} = 180\text{ kWh}@.<br>
+          b) Custo da tarifa base: @180 \times \text{R\$}~0{,}75 = \text{R\$}~135{,}00@.<br>
+          Sobretaxa da bandeira tarifária: @\frac{180}{100} \times \text{R\$}~4{,}00 = 1{,}8 \times 4{,}00 = \text{R\$}~7{,}20@.<br>
+          Custo total: @135{,}00 + 7{,}20 = \text{R\$}~142{,}20@.<br>
+          <strong>Resposta:</strong> a) @180\text{ kWh}@; b) R$ 142,20.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Dimensões das variáveis:<br>
+          @[F] = [\text{M}][\text{L}][\text{T}]^{-2}@<br>
+          @[\rho] = [\text{M}][\text{L}]^{-3}@<br>
+          @[v] = [\text{L}][\text{T}]^{-1}@<br>
+          @[A] = [\text{L}]^2@<br>
+          Portanto: @[\text{M}][\text{L}][\text{T}]^{-2} = ([\text{M}][\text{L}]^{-3})^\alpha ([\text{L}][\text{T}]^{-1})^\beta ([\text{L}]^2)^\gamma = [\text{M}]^\alpha [\text{L}]^{-3\alpha + \beta + 2\gamma} [\text{T}]^{-\beta}@.<br>
+          Igualando expoentes:<br>
+          • @\alpha = 1@<br>
+          • @-\beta = -2 \implies \beta = 2@<br>
+          • @-3(1) + 2 + 2\gamma = 1 \implies -1 + 2\gamma = 1 \implies 2\gamma = 2 \implies \gamma = 1@.<br>
+          Logo, @F = \frac{1}{2} C_d \rho v^2 A@.<br>
+          b) Como @F \propto v^2@, dobrando a velocidade de @60@ para @120\text{ km/h}@, a força quadruplica: @2^2 = 4@ vezes.<br>
+          <strong>Resposta:</strong> a) @\alpha = 1@, @\beta = 2@, @\gamma = 1@; b) Amplificada por 4 vezes.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) De @F = G \frac{M m}{r^2}@: @[G] = \frac{[F][r]^2}{[M]^2} = \frac{([\text{M}][\text{L}][\text{T}]^{-2})[\text{L}]^2}{[\text{M}]^2} = [\text{M}]^{-1}[\text{L}]^3[\text{T}]^{-2}@.<br>
+          b) De @E = h f@: @[h] = \frac{[E]}{[f]} = \frac{[\text{M}][\text{L}]^2[\text{T}]^{-2}}{[\text{T}]^{-1}} = [\text{M}][\text{L}]^2[\text{T}]^{-1}@.<br>
+          c) Produto @[G \cdot h] = ([\text{M}]^{-1}[\text{L}]^3[\text{T}]^{-2}) \times ([\text{M}][\text{L}]^2[\text{T}]^{-1}) = [\text{M}]^0 [\text{L}]^5 [\text{T}]^{-3}@.<br>
+          Portanto, @a = 0@, @b = 5@, @c = -3@.<br>
+          <strong>Resposta:</strong> a) @[\text{M}]^{-1}[\text{L}]^3[\text{T}]^{-2}@; b) @[\text{M}][\text{L}]^2[\text{T}]^{-1}@; c) @[\text{M}]^0[\text{L}]^5[\text{T}]^{-3}@, com @a=0, b=5, c=-3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Pelo princípio de Stevin: @P_{\text{atm}} + \rho_{\text{óleo}} \cdot g \cdot h_{\text{óleo}} = P_{\text{atm}} + \rho_{\text{água}} \cdot g \cdot h_{\text{água}}@.<br>
+          Cancelando @P_{\text{atm}}@ e @g@: @\rho_{\text{óleo}} \cdot h_{\text{óleo}} = \rho_{\text{água}} \cdot h_{\text{água}}@.<br>
+          @\rho_{\text{óleo}} \cdot 20 = 1{,}0 \cdot 16 \implies \rho_{\text{óleo}} = \frac{16}{20} = 0{,}80\text{ g/cm}^3@.<br>
+          No SI: @0{,}80 \times 10^3 = 800\text{ kg/m}^3@.<br>
+          b) Volume de óleo: @V = A \cdot h = 2{,}5\text{ cm}^2 \times 20\text{ cm} = 50\text{ cm}^3@.<br>
+          Massa de óleo: @m = \rho \cdot V = 0{,}80 \times 50 = 40\text{ g}@.<br>
+          <strong>Resposta:</strong> a) @0{,}80\text{ g/cm}^3@ e @800\text{ kg/m}^3@; b) @40\text{ g}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Massa: @600\text{ t} = 600.000\text{ kg} = 6 \times 10^5\text{ kg}@.<br>
+          Volume de água em litros: @(6 \times 10^5) \times 15.000 = 9 \times 10^9\text{ L}@.<br>
+          Em metros cúbicos (@\text{m}^3@): @\frac{9 \times 10^9}{1.000} = 9 \times 10^6\text{ m}^3@.<br>
+          b) Volume de uma piscina olímpica: @V = 50 \times 25 \times 2 = 2.500\text{ m}^3@.<br>
+          Número de piscinas: @\frac{9 \times 10^6}{2.500} = \frac{9.000.000}{2.500} = 3.600@ piscinas olímpicas.<br>
+          <strong>Resposta:</strong> a) @9 \times 10^6\text{ m}^3@; b) @3.600@ piscinas olímpicas.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Análise dimensional:<br>
+          @[v] = [\text{L}][\text{T}]^{-1}@<br>
+          @[T] = [\text{M}][\text{L}][\text{T}]^{-2}@<br>
+          @[\mu] = [\text{M}][\text{L}]^{-1}@<br>
+          @[\text{L}][\text{T}]^{-1} = ([\text{M}][\text{L}][\text{T}]^{-2})^\alpha ([\text{M}][\text{L}]^{-1})^\beta = [\text{M}]^{\alpha + \beta} [\text{L}]^{\alpha - \beta} [\text{T}]^{-2\alpha}@.<br>
+          Sistema:<br>
+          • @\alpha + \beta = 0 \implies \beta = -\alpha@<br>
+          • @-2\alpha = -1 \implies \alpha = \frac{1}{2}@<br>
+          • @\beta = -\frac{1}{2}@<br>
+          • Verificação: @\alpha - \beta = \frac{1}{2} - (-\frac{1}{2}) = 1@ (correto).<br>
+          Logo, @v = \sqrt{\frac{T}{\mu}}@.<br>
+          b) Densidade linear no SI: @\mu = \frac{3 \times 10^{-3}\text{ kg}}{0{,}60\text{ m}} = 5 \times 10^{-3}\text{ kg/m}@.<br>
+          Velocidade: @v = \sqrt{\frac{120}{5 \times 10^{-3}}} = \sqrt{24.000} \approx 154{,}9\text{ m/s}@.<br>
+          <strong>Resposta:</strong> a) @\alpha = 1/2@ e @\beta = -1/2@, donde @v = \sqrt{T/\mu}@; b) @\approx 155\text{ m/s}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @[\rho \cdot Q \cdot g \cdot H] = ([\text{M}][\text{L}]^{-3}) \cdot ([\text{L}]^3[\text{T}]^{-1}) \cdot ([\text{L}][\text{T}]^{-2}) \cdot [\text{L}] = [\text{M}][\text{L}]^2[\text{T}]^{-3}@, correspondendo à dimensão de Potência.<br>
+          b) Potência teórica: @P_{\text{teo}} = 1.000 \times 400 \times 10 \times 60 = 240.000.000\text{ W} = 240\text{ MW}@.<br>
+          Potência útil (@85\%@): @P_{\text{útil}} = 0{,}85 \times 240\text{ MW} = 204\text{ MW}@.<br>
+          c) Energia em 24 h: @E = 204\text{ MW} \times 24\text{ h} = 4.896\text{ MWh}@.<br>
+          <strong>Resposta:</strong> a) Demonstração dimensional realizada; b) @204\text{ MW}@; c) @4.896\text{ MWh}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) A relação entre áreas segue a razão quadrática da escala linear: @\frac{A_{\text{real}}}{A_{\text{mapa}}} = E^2@.<br>
+          b) Escala linear: @1\text{ cm}@ no mapa corresponde a @250.000\text{ cm} = 2.500\text{ m} = 2{,}5\text{ km}@ no terreno real.<br>
+          Portanto: @1\text{ cm}^2@ no papel corresponde a @(2{,}5\text{ km})^2 = 6{,}25\text{ km}^2@ reais.<br>
+          Área real: @32 \times 6{,}25 = 200\text{ km}^2@.<br>
+          Como @1\text{ km}^2 = 100\text{ ha}@: @200 \times 100 = 20.000\text{ hectares}@.<br>
+          <strong>Resposta:</strong> a) Razão @E^2@; b) @200\text{ km}^2@ e @20.000\text{ ha}@.
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEÇÃO 4 NO GABARITO -->
+    <div class="gabarito-secao">
+      <h3>Seção 4: Problemas Propostos</h3>
+      <ol start="33">
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Área circular: @A = \pi r^2 = 3{,}14 \times 200^2 = 3{,}14 \times 40.000 = 125.600\text{ m}^2@.<br>
+          Em hectares (@1\text{ ha} = 10^4\text{ m}^2@): @\frac{125.600}{10.000} = 12{,}56\text{ ha}@.<br>
+          b) Lâmina de @6\text{ mm} = 6\text{ L/m}^2 = 0{,}006\text{ m}^3/\text{m}^2@.<br>
+          Volume diário: @125.600 \times 0{,}006 = 753{,}6\text{ m}^3@.<br>
+          <strong>Resposta:</strong> a) @125.600\text{ m}^2@ (@12{,}56\text{ ha}@); b) @753{,}6\text{ m}^3@ de água.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Massa de água: @400\text{ mL} \times 1{,}0\text{ g/mL} = 400\text{ g}@.<br>
+          Massa de etanol: @600\text{ mL} \times 0{,}80\text{ g/mL} = 480\text{ g}@.<br>
+          Massa total: @400 + 480 = 880\text{ g}@.<br>
+          b) Volume total: @400 + 600 = 1.000\text{ mL} = 1.000\text{ cm}^3@.<br>
+          Densidade da mistura: @\rho = \frac{880}{1.000} = 0{,}88\text{ g/cm}^3@.<br>
+          <strong>Resposta:</strong> a) @880\text{ g}@; b) @0{,}88\text{ g/cm}^3@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Da relação @k = \frac{F}{x}@: @[k] = \frac{[F]}{[x]} = \frac{[\text{M}][\text{L}][\text{T}]^{-2}}{[\text{L}]} = [\text{M}][\text{T}]^{-2}@.<br>
+          b) No SI: Newton por metro (@\text{N/m}@) ou @\text{kg/s}^2@.<br>
+          <strong>Resposta:</strong> a) @[\text{M}][\text{T}]^{-2}@; b) @\text{N/m}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Energia total: @180 \times 4.184 = 753.120\text{ J}@.<br>
+          b) Potência metabólica: @P = 750\text{ W} = 750\text{ J/s}@.<br>
+          Tempo em segundos: @\Delta t = \frac{753.120}{750} \approx 1.004{,}16\text{ s}@.<br>
+          Em minutos: @\frac{1.004{,}16}{60} \approx 16{,}74\text{ minutos}@ (aproximadamente 16 min e 44 s).<br>
+          <strong>Resposta:</strong> a) @753.120\text{ J}@; b) @\approx 16{,}7\text{ minutos}@.
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) @1\text{ dia} = 86.400\text{ s}@.<br>
+          Em 365,25 dias: @365{,}25 \times 86.400 = 31.557.600\text{ s} \approx 3{,}156 \times 10^7\text{ s}@.<br>
+          b) Distância percorrida (@d = c \cdot t@):<br>
+          @d = (3{,}00 \times 10^8\text{ m/s}) \times (31.557.600\text{ s}) = 9{,}467 \times 10^{15}\text{ m}@.<br>
+          Em quilômetros: @9{,}467 \times 10^{12}\text{ km}@.<br>
+          <strong>Resposta:</strong> a) @31.557.600\text{ s}@; b) @9{,}467 \times 10^{15}\text{ m}@ (@\approx 9{,}47 \times 10^{12}\text{ km}@).
+        </li>
+        <li>
+          <span class="gabarito-item-titulo">Solução:</span><br>
+          a) Rendimento: @\frac{100\text{ km}}{6{,}25\text{ L}} = 16\text{ km/L}@.<br>
+          b) Autonomia com 60 L: @60 \times 16 = 960\text{ km}@.<br>
+          <strong>Resposta:</strong> a) @16\text{ km/L}@; b) @960\text{ km}@.
+        </li>
+      </ol>
+    </div>
+
+  </div>
+</details>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

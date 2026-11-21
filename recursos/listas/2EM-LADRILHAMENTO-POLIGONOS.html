@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Lista de Problemas: Ladrilhamento e Polígonos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    .problema-meta .fonte {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    .dificuldade.facil {
+      background-color: rgba(76, 175, 80, 0.3);
+    }
+
+    .dificuldade.media {
+      background-color: rgba(255, 193, 7, 0.3);
+    }
+
+    .dificuldade.dificil {
+      background-color: rgba(244, 67, 54, 0.3);
+    }
+
+    .dificuldade.desafio {
+      background-color: rgba(156, 39, 176, 0.3);
+    }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    /* Gabarito expansível */
+    details.gabarito-container {
+      margin: 2.5rem 0 1.5rem 0;
+      border: 1px solid var(--link-color, #00ffcc);
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    details.gabarito-container summary {
+      padding: 1rem 1.25rem;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      background-color: rgba(0, 255, 204, 0.08);
+      color: var(--link-color, #00ffcc);
+      transition: background-color 0.2s;
+    }
+
+    details.gabarito-container summary:hover {
+      background-color: rgba(0, 255, 204, 0.18);
+    }
+
+    .gabarito-content {
+      padding: 1.5rem;
+    }
+
+    .gabarito-secao {
+      margin-bottom: 2rem;
+    }
+
+    .gabarito-secao h3 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.4rem;
+      color: var(--link-color, #00ffcc);
+      font-size: 1.1rem;
+    }
+
+    .gabarito-item-titulo {
+      font-weight: bold;
+      color: #00ffcc;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <nav>
+      <ul>
+        <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+        <li><a href="../../recursos.html">RECURSOS</a></li>
+        <li><a href="../../dashboard.html">DASHBOARD</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+
+      <h1>LADRILHAMENTO E POLÍGONOS</h1>
+      <p class="section-intro">
+        Capítulo 1 — Estudo das propriedades angulares e métricas dos polígonos convexos, tesselações regulares e semirregulares no plano euclidiano, análise combinatória de vértices e coberturas com poliminós.
+      </p>
+
+      <!-- ============================================================================
+           SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS (10 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 1: Problemas Introdutórios</h2>
+        <p class="section-intro">
+          Exercícios fundamentais para fixar as relações de soma de ângulos internos, ângulos externos, diagonais e contagem de elementos em polígonos regulares e convexos.
+        </p>
+
+        <ol>
+          <!-- Problema 1 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Soma dos ângulos internos</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Determine a soma dos ângulos internos (@S_i@) de um dodecágono convexo (polígono de 12 lados).
+            </p>
+          </li>
+
+          <!-- Problema 2 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Ângulos de polígonos regulares</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Um arquiteto está desenhando um gazebo em formato de octógono regular. Calcule a medida do ângulo externo (@a_e@) e a medida do ângulo interno (@a_i@) de cada vértice desse octógono.
+            </p>
+          </li>
+
+          <!-- Problema 3 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Diagonais de polígonos</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Quantas diagonais possui um decágono convexo (10 lados)?
+            </p>
+          </li>
+
+          <!-- Problema 4 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação de diagonais e lados</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Qual é o polígono convexo cujo número de diagonais é exatamente o quádruplo do seu número de lados?
+            </p>
+          </li>
+
+          <!-- Problema 5 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Ângulo interno e número de lados</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Cada ângulo interno de certo polígono regular mede @156^\circ@. Quantos lados tem esse polígono e qual é o seu nome geométrico?
+            </p>
+          </li>
+
+          <!-- Problema 6 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Diagonais pelo centro</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Em um icoságono regular (20 lados), quantas diagonais passam exatamente pelo centro geométrico do polígono? E quantas diagonais não passam pelo centro?
+            </p>
+          </li>
+
+          <!-- Problema 7 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Diagonais por um vértice e triangulação</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              A partir de um único vértice de um eneágono convexo (9 lados), quantas diagonais distintas podem ser traçadas? Em quantos triângulos essas diagonais particionam o eneágono?
+            </p>
+          </li>
+
+          <!-- Problema 8 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Soma dos ângulos externos</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Explique por que a soma dos ângulos externos de qualquer polígono convexo é sempre constante e igual a @360^\circ@, independentemente da quantidade de lados @n@. Em seguida, determine o valor aproximado do ângulo externo de um heptágono regular (7 lados).
+            </p>
+          </li>
+
+          <!-- Problema 9 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Cálculo de lados a partir de diagonais</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Um mosaico decorativo utiliza placas poligonais convexas com exatamente 54 diagonais cada uma. Determine a quantidade de lados dessas placas.
+            </p>
+          </li>
+
+          <!-- Problema 10 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Ângulo central e triângulos fundamentais</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Calcule a medida do ângulo central (@a_c@) de um hexágono regular e caracterize o triângulo formado pelo centro do hexágono e dois vértices adjacentes consecutivos.
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 2: PROBLEMAS DE FIXAÇÃO (14 Problemas com .dica)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 2: Problemas de Fixação</h2>
+        <p class="section-intro">
+          Aplicações de ladrilhamentos regulares, semirregulares (arquimedianos), condições diofantinas para junção de vértices e pavimentação com poliminós.
+        </p>
+
+        <ol start="11">
+          <!-- Problema 11 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Ladrilhamentos regulares monoédricos</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Deseja-se recobrir totalmente um piso plano sem sobreposições e sem frestas utilizando exclusivamente cópias idênticas de um mesmo polígono regular de @n@ lados. Mostre, algebricamente, que apenas os valores @n = 3@ (triângulo equilátero), @n = 4@ (quadrado) e @n = 6@ (hexágono regular) admitem tal ladrilhamento.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Em cada vértice da junção devem se encontrar @k@ polígonos regulares idênticos. Monte a equação @k \cdot a_i = 360^\circ@, onde @a_i = \frac{(n-2) \cdot 180^\circ}{n}@, e deduza a equação diofantina @\frac{1}{n} + \frac{1}{k} = \frac{1}{2}@ com @n \ge 3@ e @k \ge 3@.
+            </div>
+          </li>
+
+          <!-- Problema 12 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Inviabilidade do pentágono regular</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Muitos designers tentam criar pisos utilizando apenas pentágonos regulares. Demonstre geometricamente por que é impossível ladrilhar o plano euclidiano usando apenas pentágonos regulares congruentes, calculando o espaço angular restante ou a sobreposição gerada ao redor de um vértice.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> O ângulo interno do pentágono regular é @a_i = 108^\circ@. Calcule a soma para 3 pentágonos reunidos e compare com a volta completa (@360^\circ@). Em seguida, teste 4 pentágonos.
+            </div>
+          </li>
+
+          <!-- Problema 13 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Ladrilhamento semirregular (4, 8, 8)</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Um dos pisos clássicos em cerâmica combina octógonos regulares e quadrados de mesmo comprimento de lado.
+              <br>a) Verifique que a combinação @(4, 8^2)@ (isto é, 1 quadrado e 2 octógonos) preenche perfeitamente os @360^\circ@ em torno de cada vértice compartilhado.
+              <br>b) Em uma região extensa desse ladrilhamento, qual é a proporção entre o número de quadrados e o número de octógonos?
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Some @a_i(4) + 2 \cdot a_i(8)@. Para a proporção, note que cada vértice é compartilhado por 1 quadrado e 2 octógonos; considere o número de vértices de cada figura.
+            </div>
+          </li>
+
+          <!-- Problema 14 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Ladrilhamento semirregular (3, 12, 12)</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Outro ladrilhamento arquimediano clássico é gerado pela configuração @(3, 12^2)@, reunindo triângulos equiláteros e dodecágonos regulares de mesma aresta.
+              <br>a) Demonstre que a soma dos ângulos internos em torno de cada vértice é exatamente @360^\circ@.
+              <br>b) Calcule a razão entre a área total ocupada pelos triângulos e a área total ocupada pelos dodecágonos no plano infinito.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> O ângulo do dodecágono é @150^\circ@ e o do triângulo equilátero é @60^\circ@. Em cada vértice convergem 2 dodecágonos e 1 triângulo. Em uma malha infinita, há 2 triângulos para cada 1 dodecágono. A área do dodecágono de lado @L@ é @3(2+\sqrt{3})L^2@.
+            </div>
+          </li>
+
+          <!-- Problema 15 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Configuração cíclica de vértice (3, 4, 6, 4)</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Considere quatro polígonos regulares que se encontram em um vértice na seguinte ordem cíclica: um triângulo equilátero, um quadrado, um hexágono regular e outro quadrado, designados pela notação @(3, 4, 6, 4)@.
+              <br>a) Confirme que a soma dos ângulos ao redor do vértice é @360^\circ@.
+              <br>b) Explique por que a configuração @(3, 3, 4, 6)@, embora possua a mesma soma angular, NÃO pode ser estendida para formar um ladrilhamento semirregular no plano todo.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Em um ladrilhamento semirregular, a vizinhança de TODOS os vértices deve ser isomórfica (mesma ordem cíclica). Ao tentar alternar @(3, 3, 4, 6)@, os lados vizinhos impõem polígonos incompatíveis nos vértices adjacentes.
+            </div>
+          </li>
+
+          <!-- Problema 16 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Ladrilhamento (4, 6, 12)</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              O ladrilhamento grande rombi-trihexagonal possui configuração de vértices @(4, 6, 12)@.
+              <br>a) Verifique numericamente a soma dos ângulos internos que concorrem no vértice.
+              <br>b) Se a aresta de todos os polígonos mede @10\text{ cm}@, calcule a área de uma célula unitária contendo exatamente 1 dodecágono, 2 hexágonos e 3 quadrados.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> @a_i(4) = 90^\circ@, @a_i(6) = 120^\circ@ e @a_i(12) = 150^\circ@. Lembre-se: @A_{\text{quad}} = L^2@, @A_{\text{hex}} = \frac{3\sqrt{3}}{2}L^2@ e @A_{\text{dod}} = 3(2+\sqrt{3})L^2@.
+            </div>
+          </li>
+
+          <!-- Problema 17 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Equação diofantina de vértices impossíveis</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Um estudante de arquitetura propõe um novo ladrilhamento unindo em cada vértice 1 pentágono regular, 1 hexágono regular e 1 terceiro polígono regular com @n@ lados. Determine algebricamente o valor de @n@ e justifique por que tal ladrilhamento é geometricamente impossível no plano euclidiano.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Monte @108^\circ + 120^\circ + a_i(n) = 360^\circ@ e isole @a_i(n)@. Em seguida, use @a_e(n) = 180^\circ - a_i(n)@ e verifique se @n = \frac{360^\circ}{a_e}@ resulta em um número inteiro maior ou igual a 3.
+            </div>
+          </li>
+
+          <!-- Problema 18 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Poliminós — Tetraminós e paridade de tabuleiro</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 8 min</span>
+            </div>
+            <p>
+              Os tetraminós são figuras formadas pela união de 4 quadrados unitários unidos por arestas completas. Existem 5 peças livres: I, O, T, L e Z.
+              <br>a) Qual é a área total conjunta das 5 peças livres?
+              <br>b) Mostre que é IMPOSSÍVEL recobrir perfeitamente um tabuleiro @4 \times 5@ (ou @2 \times 10@) utilizando exatamente uma cópia de cada um dos 5 tetraminós livres.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Pinte o tabuleiro com o padrão de xadrez (casas pretas e brancas alternadas, 10 de cada cor). Analise quantas casas de cada cor as peças I, O, L e Z cobrem (sempre 2 pretas e 2 brancas). Agora analise quantas casas de cada cor a peça T cobre obrigatoriamente.
+            </div>
+          </li>
+
+          <!-- Problema 19 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Problema de Gomory — Tabuleiro mutilado e dominós</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Considere um tabuleiro de xadrez tradicional @8 \times 8@ do qual foram retiradas duas casas de cantos diagonalmente opostos, restando 62 casas. Dispomos de 31 dominós de tamanho @1 \times 2@ (cada dominó cobre exatamente duas casas adjacentes). É possível cobrir perfeitamente as 62 casas restantes usando esses 31 dominós? Demonstre rigorosamente sua resposta.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Em um tabuleiro padrão, duas casas em cantos diagonalmente opostos possuem sempre a mesma cor. Conte quantas casas pretas e brancas restam no tabuleiro mutilado e observe quantas de cada cor um dominó cobre.
+            </div>
+          </li>
+
+          <!-- Problema 20 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Trominós em L — Teorema de Golomb</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 8 min</span>
+            </div>
+            <p>
+              Um trominó em formato de L é formado por 3 quadradinhos unitários. O Teorema de Solomon Golomb afirma que qualquer tabuleiro de dimensões @2^n \times 2^n@ com exatamente uma casa unitária removida (qualquer que seja sua posição) pode ser perfeitamente coberto por trominós em L.
+              <br>Demonstre o caso @n = 2@ (tabuleiro @4 \times 4@ com 1 casa removida, totalizando 15 casas) descrevendo o procedimento construtivo indutivo.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Divida o tabuleiro @4 \times 4@ em 4 quadrantes @2 \times 2@. O quadradinho removido está em um deles. Posicione um trominó em L no centro do tabuleiro de modo que cubra exatamente uma casa de cada um dos 3 quadrantes restantes.
+            </div>
+          </li>
+
+          <!-- Problema 21 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Ladrilhamento por quadriláteros quaisquer</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Demonstre que QUALQUER quadrilátero convexo simples (mesmo com lados e ângulos completamente desiguais) é capaz de ladrilhar perfeitamente o plano euclidiano.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Use o fato de que a soma dos ângulos internos de qualquer quadrilátero é @\alpha + \beta + \gamma + \delta = 360^\circ@. Mostre que, ao aplicar rotações de @180^\circ@ em torno dos pontos médios de cada lado, os quatro ângulos se encontram em cada vértice comum.
+            </div>
+          </li>
+
+          <!-- Problema 22 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Ladrilhamento por triângulos arbitrários</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Mostre que qualquer triângulo escaleno (com ângulos @\alpha, \beta, \gamma@ tais que @\alpha+\beta+\gamma = 180^\circ@) pode ladrilhar o plano, e determine quantos triângulos concorrem em cada vértice desse ladrilhamento.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Junte duas cópias idênticas do triângulo girando uma delas em @180^\circ@ ao longo de um lado comum para formar um paralelogramo. Como paralelogramos ladrilham por translação, quantos triângulos se reúnem em cada vértice?
+            </div>
+          </li>
+
+          <!-- Problema 23 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Pentaminós — Retângulos de cobertura</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 7 min</span>
+            </div>
+            <p>
+              Existem exatamente 12 pentaminós livres distintos (chamados classicamente pelas letras F, I, L, P, N, T, U, V, W, X, Y, Z).
+              <br>a) Qual é a área total somada dos 12 pentaminós?
+              <br>b) Liste todas as dimensões inteiras @L \times C@ de retângulos cuja área é igual à área total dos 12 pentaminós e analise por que o retângulo @2 \times 30@ é impossível de ser preenchido.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> A área é @12 \times 5 = 60@. Os divisores de 60 maiores que 1 dão retângulos @2 \times 30@, @3 \times 20@, @4 \times 15@, @5 \times 12@, @6 \times 10@. Avalie a peça X (cruz) ou peças que exigem largura mínima de 3 unidades.
+            </div>
+          </li>
+
+          <!-- Problema 24 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Combinações angulares em torno de um vértice</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 8 min</span>
+            </div>
+            <p>
+              A condição necessária para que polígonos regulares de @n_1, n_2, \dots, n_k@ lados se encontrem em um vértice plano é:
+              @@\sum_{i=1}^k \left(1 - \frac{2}{n_i}\right) = 2@@
+              <br>a) Deduza essa equação a partir da soma dos ângulos internos @\sum a_i(n_j) = 360^\circ@.
+              <br>b) Mostre que o número mínimo de polígonos em um vértice é @k = 3@ e o número máximo é @k = 6@.
+            </p>
+            <div class="dica">
+              <strong>Dica:</strong> Como cada @a_i(n) = 180^\circ(1 - 2/n)@, divida a soma total por @180^\circ@. O menor ângulo possível é no triângulo equilátero (@60^\circ@), logo @k_{\max} = 360^\circ / 60^\circ = 6@.
+            </div>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO (8 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 3: Problemas de Aprofundamento</h2>
+        <p class="section-intro">
+          Questões de alto nível com estilo de olimpíadas (OBMEP, Cone Sul) e vestibulares de excelência (FUVEST, UNICAMP, ITA), explorando coloração de tabuleiros, ladrilhamentos de Penrose e relações métrico-angulares avançadas.
+        </p>
+
+        <ol start="25">
+          <!-- Problema 25 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">FUVEST Adaptada</span>
+              <span class="topico">Vértice com 2 polígonos de p lados e 1 de q lados</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              Um mosaico no plano é projetado de forma que em cada vértice compartilhado se encontram exatamente dois polígonos regulares de @p@ lados e um polígono regular de @q@ lados, com @p, q \ge 3@.
+              <br>a) Escreva a equação diofantina que relaciona @p@ e @q@ de modo que o plano seja vedado sem falhas angulares.
+              <br>b) Encontre TODOS os pares ordenados de inteiros @(p, q)@ que satisfazem essa relação e identifique quais polígonos correspondem a cada solução.
+            </p>
+          </li>
+
+          <!-- Problema 26 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">OBMEP / Olimpíada Russa</span>
+              <span class="topico">Coloração com 4 cores periódicas — Tetraminó reto</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              Deseja-se cobrir um tabuleiro quadriculado de @10 \times 10@ casas unitárias (área 100) utilizando 25 tetraminós retos (peças de dimensões @1 \times 4@).
+              <br>Demonstre, utilizando um método de coloração com 4 cores dispostas periodicamente em diagonais ou coordenadas @(x+y)\pmod 4@, que é IMPOSSÍVEL realizar essa cobertura.
+            </p>
+          </li>
+
+          <!-- Problema 27 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">ENEM / Aplicação Artística</span>
+              <span class="topico">Transformações isométricas e técnica de M. C. Escher</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 8 min</span>
+            </div>
+            <p>
+              Nas famosas gravuras de M. C. Escher e nos calçadões ornamentais, figuras figurativas (lagartos, pássaros, peixes) ladrilham o plano sem deixar espaços vazios.
+              <br>a) Uma técnica de criação consiste em partir de um quadrado de lado @L@, remover uma curva arbitrária de área @\Delta A@ de um lado e colá-la por translação no lado oposto; em seguida, realizar o mesmo procedimento no outro par de lados. Demonstre por que a área da nova peça resultante permanece estritamente igual a @L^2@.
+              <br>b) Se a mesma técnica for executada por rotação de @90^\circ@ em torno de um vértice do quadrado, explique qual propriedade de simetria do ladrilho é garantida no ponto de junção dos vértices.
+            </p>
+          </li>
+
+          <!-- Problema 28 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">OBMEP</span>
+              <span class="topico">Diferença entre ângulos internos e externos</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 8 min</span>
+            </div>
+            <p>
+              Em um polígono convexo de @n@ lados, sabe-se que a soma das medidas dos ângulos internos excede a soma das medidas dos ângulos externos em exatamente @1080^\circ@.
+              <br>a) Determine a quantidade de lados @n@ desse polígono.
+              <br>b) Calcule o número total de diagonais desse polígono.
+              <br>c) Se esse polígono for regular, qual é a medida do seu ângulo interno em graus?
+            </p>
+          </li>
+
+          <!-- Problema 29 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">ITA Adaptada</span>
+              <span class="topico">Ladrilhamento Kagome (3, 6, 3, 6) e frações de área</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 10 min</span>
+            </div>
+            <p>
+              A malha de Kagome é uma pavimentação semirregular do tipo @(3, 6, 3, 6)@, onde triângulos equiláteros e hexágonos regulares de aresta comum @a@ se intercalam, amplamente estudada na física da matéria condensada e supercondutividade.
+              <br>a) Verifique a condição angular em cada vértice.
+              <br>b) Calcule a razão entre a área total ocupada pelos triângulos e a área total ocupada pelos hexágonos na cobertura infinita do plano.
+              <br>c) Que percentual da área total pavimentada corresponde aos triângulos equiláteros?
+            </p>
+          </li>
+
+          <!-- Problema 30 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">UNICAMP</span>
+              <span class="topico">Ladrilhamento pentagonal monoédrico (Tipo 1 de Reinhardt)</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 12 min</span>
+            </div>
+            <p>
+              Embora o pentágono regular não ladrilhe o plano, existem 15 famílias conhecidas de pentágonos convexos não regulares que cobrem o plano monoedricamente. Considere a família Tipo 1 descrita por Karl Reinhardt em 1918, na qual os ângulos consecutivos @(A, B, C, D, E)@ satisfazem a condição @B + C = 180^\circ@ e @A + D + E = 360^\circ@.
+              <br>a) Mostre que a soma total dos 5 ângulos internos permanece consistente com o valor esperado para qualquer pentágono convexo.
+              <br>b) Em um projeto arquitetônico, adota-se um pentágono dessa família com @B = 100^\circ@, @C = 80^\circ@ e @A = D = E@. Calcule o valor exato dos ângulos @A@, @D@ e @E@ e demonstre como vértices do tipo @(A, D, E)@ e do tipo @(B, B, C, C)@ fecham perfeitamente @360^\circ@ no plano.
+            </p>
+          </li>
+
+          <!-- Problema 31 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">Olimpíada de Matemática</span>
+              <span class="topico">Relações métricas em polígono circunscrito a círculo</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 14 min</span>
+            </div>
+            <p>
+              Seja @P@ um dodecágono regular de vértices @A_1, A_2, \dots, A_{12}@ inscrito em uma circunferência de raio @R@ centrada em @O@.
+              <br>a) Calcule a medida do lado @L_{12}@ do dodecágono em função do raio @R@.
+              <br>b) Mostre que a área desse dodecágono regular é dada exatamente por @A = 3R^2@.
+              <br>c) Se ladrilharmos o plano utilizando uma malha desse dodecágono regular combinada com triângulos equiláteros e quadrados de lado @L_{12}@, mostre que a proporção entre os polígonos para vedar o plano respeita a regra @(3, 12, 12)@ ou @(4, 6, 12)@.
+            </p>
+          </li>
+
+          <!-- Problema 32 -->
+          <li>
+            <div class="problema-meta">
+              <span class="fonte">Desafio Avançado</span>
+              <span class="topico">Ladrilhamento aperiódico de Penrose e a Proporção Áurea</span>
+              <span class="dificuldade desafio">Desafio</span>
+              <span>⏱️ 15 min</span>
+            </div>
+            <p>
+              O físico Roger Penrose descobriu em 1974 que é possível cobrir o plano sem simetria translacional periódica usando apenas dois tipos de losangos de arestas unitárias: o "losango fino" (ângulos @36^\circ@ e @144^\circ@) e o "losango grosso" (ângulos @72^\circ@ e @108^\circ@).
+              <br>a) Mostre como uma combinação de 3 losangos grossos e 2 losangos finos com vértices de @72^\circ@ e @36^\circ@ pode preencher perfeitamente os @360^\circ@ ao redor de um vértice central em formato de estrela.
+              <br>b) Calcule a razão entre a área do losango grosso e a área do losango fino e demonstre que essa razão é exatamente igual à razão áurea @\phi = \frac{1+\sqrt{5}}{2}@.
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           SEÇÃO 4: PROBLEMAS PROPOSTOS (8 Problemas)
+           ============================================================================ -->
+      <article>
+        <h2>Seção 4: Problemas Propostos</h2>
+        <p class="section-intro">
+          Exercícios suplementares para prática autônoma e consolidação das habilidades geométricas.
+        </p>
+
+        <ol start="33">
+          <!-- Problema 33 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Polígonos convexos e diagonais</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 5 min</span>
+            </div>
+            <p>
+              Quantos lados tem um polígono convexo que possui exatamente 90 diagonais?
+            </p>
+          </li>
+
+          <!-- Problema 34 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Ângulos de polígono regular</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 3 min</span>
+            </div>
+            <p>
+              Calcule a medida do ângulo interno de um icoságono regular (20 lados).
+            </p>
+          </li>
+
+          <!-- Problema 35 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Ladrilhamento semirregular (3, 3, 3, 4, 4)</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Verifique se a configuração @(3, 3, 3, 4, 4)@ (composta por três triângulos equiláteros e dois quadrados) satisfaz a condição angular de @360^\circ@ em cada vértice e classifique esse ladrilhamento quanto à sua homogeneidade de vértices.
+            </p>
+          </li>
+
+          <!-- Problema 36 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Razão entre soma de ângulos</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Em um determinado polígono regular, a razão entre a soma dos ângulos internos e a soma dos ângulos externos é igual a 5. Quantos vértices tem esse polígono e qual é o seu número de diagonais?
+            </p>
+          </li>
+
+          <!-- Problema 37 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Paridade e dominós em tabuleiro ímpar</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Um tabuleiro de damas de @7 \times 7@ casas unitárias pode ser completamente preenchido utilizando dominós @1 \times 2@ sem sobreposição? Justifique matematicamente.
+            </p>
+          </li>
+
+          <!-- Problema 38 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Ângulo interno e divisibilidade</span>
+              <span class="dificuldade facil">Fácil</span>
+              <span>⏱️ 4 min</span>
+            </div>
+            <p>
+              Pode existir algum polígono regular cujo ângulo interno meça exatamente @170^\circ@? Se sim, qual é o seu número de lados? Se não, explique o motivo.
+            </p>
+          </li>
+
+          <!-- Problema 39 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Ladrilhamento semirregular (3, 6, 3, 6)</span>
+              <span class="dificuldade media">Média</span>
+              <span>⏱️ 6 min</span>
+            </div>
+            <p>
+              Calcule a soma dos ângulos que concorrem no vértice do ladrilhamento semirregular formado pela sequência alternada de dois triângulos equiláteros e dois hexágonos regulares @(3, 6, 3, 6)@.
+            </p>
+          </li>
+
+          <!-- Problema 40 -->
+          <li>
+            <div class="problema-meta">
+              <span class="topico">Linhas de falha em tabuleiros cobertos por dominós</span>
+              <span class="dificuldade dificil">Difícil</span>
+              <span>⏱️ 8 min</span>
+            </div>
+            <p>
+              Um tabuleiro @6 \times 6@ é totalmente coberto por 18 dominós @1 \times 2@. Uma "linha de corte" ou "linha de falha" é uma reta vertical ou horizontal que divide o tabuleiro sem cortar ao meio nenhum dominó. Mostre que é impossível cobrir o tabuleiro @6 \times 6@ de modo que todas as 10 linhas internas sejam cortadas por dominós (ou seja, sempre existe ao menos uma linha de corte íntegra).
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- ============================================================================
+           GABARITO E RESOLUÇÕES DETALHADAS (EXPANSÍVEL)
+           ============================================================================ -->
+      <details class="gabarito-container">
+        <summary>📝 GABARITO E RESOLUÇÕES DETALHADAS (Clique para expandir)</summary>
+        <div class="gabarito-content">
+
+          <!-- GABARITO SEÇÃO 1 -->
+          <div class="gabarito-secao">
+            <h3>Seção 1: Problemas Introdutórios</h3>
+            <ol>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A fórmula para a soma dos ângulos internos de um polígono convexo de @n@ lados é dada por @S_i = (n - 2) \cdot 180^\circ@.<br>
+                Para o dodecágono, temos @n = 12@:<br>
+                @S_i = (12 - 2) \cdot 180^\circ = 10 \cdot 180^\circ = 1800^\circ@.<br>
+                <strong>Resposta:</strong> @S_i = 1800^\circ@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Em um octógono regular, @n = 8@.<br>
+                O ângulo externo é dado por: @a_e = \frac{360^\circ}{n} = \frac{360^\circ}{8} = 45^\circ@.<br>
+                Como cada ângulo interno é suplementar ao ângulo externo adjacente:<br>
+                @a_i = 180^\circ - a_e = 180^\circ - 45^\circ = 135^\circ@.<br>
+                <strong>Resposta:</strong> @a_e = 45^\circ@ e @a_i = 135^\circ@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O número de diagonais @d@ de um polígono de @n@ lados é dado por @d = \frac{n(n - 3)}{2}@.<br>
+                Para o decágono (@n = 10@):<br>
+                @d = \frac{10(10 - 3)}{2} = \frac{10 \cdot 7}{2} = 35@.<br>
+                <strong>Resposta:</strong> 35 diagonais.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                De acordo com o enunciado, @d = 4n@.<br>
+                Substituindo a expressão das diagonais:<br>
+                @\frac{n(n - 3)}{2} = 4n@.<br>
+                Como @n \neq 0@, podemos dividir ambos os membros por @n@:<br>
+                @\frac{n - 3}{2} = 4 \implies n - 3 = 8 \implies n = 11@ lados.<br>
+                O polígono é o undecágono.<br>
+                <strong>Resposta:</strong> @n = 11@ (undecágono).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Sabemos que @a_i = 156^\circ@, logo o ângulo externo correspondente é:<br>
+                @a_e = 180^\circ - 156^\circ = 24^\circ@.<br>
+                Como a soma dos ângulos externos é @360^\circ@, temos:<br>
+                @n = \frac{360^\circ}{a_e} = \frac{360^\circ}{24^\circ} = 15@ lados.<br>
+                O polígono de 15 lados chama-se pentadecágono.<br>
+                <strong>Resposta:</strong> 15 lados (pentadecágono).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Em qualquer polígono regular com número par de lados @n@, os vértices opostos definem diagonais que passam pelo centro geométrico da figura. O número dessas diagonais é exatamente @\frac{n}{2}@.<br>
+                Para o icoságono (@n = 20@):<br>
+                • Diagonais que passam pelo centro: @\frac{20}{2} = 10@ diagonais.<br>
+                O número total de diagonais é:<br>
+                @d = \frac{20(20 - 3)}{2} = \frac{20 \cdot 17}{2} = 170@.<br>
+                • Diagonais que não passam pelo centro: @170 - 10 = 160@ diagonais.<br>
+                <strong>Resposta:</strong> 10 passam pelo centro e 160 não passam.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                De um vértice específico de um polígono convexo de @n@ lados não podemos traçar diagonais para o próprio vértice nem para seus dois vizinhos imediatos. Logo, o número de diagonais que partem de um único vértice é @n - 3@.<br>
+                Para o eneágono (@n = 9@):<br>
+                @d_v = 9 - 3 = 6@ diagonais.<br>
+                Essas 6 diagonais particionam o eneágono em @n - 2 = 9 - 2 = 7@ triângulos.<br>
+                <strong>Resposta:</strong> 6 diagonais e 7 triângulos.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Em cada um dos @n@ vértices, o ângulo interno @a_i@ e o ângulo externo @a_e@ somam @180^\circ@: @a_i + a_e = 180^\circ@.<br>
+                Somando sobre todos os @n@ vértices:<br>
+                @S_i + S_e = n \cdot 180^\circ@.<br>
+                Como @S_i = (n - 2) \cdot 180^\circ = n \cdot 180^\circ - 360^\circ@, substituindo temos:<br>
+                @(n \cdot 180^\circ - 360^\circ) + S_e = n \cdot 180^\circ \implies S_e = 360^\circ@.<br>
+                Para o heptágono regular (@n = 7@):<br>
+                @a_e = \frac{360^\circ}{7} \approx 51{,}43^\circ@.<br>
+                <strong>Resposta:</strong> @S_e = 360^\circ@ para qualquer polígono convexo; para @n=7@, @a_e \approx 51{,}43^\circ@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Temos @d = 54@. Aplicando a fórmula geral:<br>
+                @\frac{n(n - 3)}{2} = 54 \implies n^2 - 3n - 108 = 0@.<br>
+                Fatorando ou aplicando Bhaskara:<br>
+                @(n - 12)(n + 9) = 0@.<br>
+                Como @n > 0@, temos @n = 12@ lados (dodecágono).<br>
+                <strong>Resposta:</strong> @n = 12@ lados.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O ângulo central de um polígono regular de @n@ lados é @a_c = \frac{360^\circ}{n}@.<br>
+                Para o hexágono regular (@n = 6@):<br>
+                @a_c = \frac{360^\circ}{6} = 60^\circ@.<br>
+                Os dois lados do triângulo que partem do centro até os vértices adjacentes são raios da circunferência circunscrita, portanto são congruentes (@OA = OB = R@). Como o ângulo no vértice @O@ é @60^\circ@, os outros dois ângulos da base medem @\frac{180^\circ - 60^\circ}{2} = 60^\circ@. Logo, o triângulo é <strong>equilátero</strong> (com lado igual ao raio circunscrito @R@).<br>
+                <strong>Resposta:</strong> @a_c = 60^\circ@; o triângulo é equilátero.
+              </li>
+            </ol>
+          </div>
+
+          <!-- GABARITO SEÇÃO 2 -->
+          <div class="gabarito-secao">
+            <h3>Seção 2: Problemas de Fixação</h3>
+            <ol start="11">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Seja @n@ o número de lados do polígono regular e @k@ o número de polígonos que se encontram em cada vértice. Para que o plano seja coberto sem falhas nem sobreposições, a soma dos ângulos deve ser @360^\circ@:<br>
+                @k \cdot a_i = 360^\circ \implies k \cdot \frac{(n - 2) \cdot 180^\circ}{n} = 360^\circ@.<br>
+                Dividindo por @180^\circ@:<br>
+                @k \cdot \frac{n - 2}{n} = 2 \implies k(n - 2) = 2n \implies kn - 2k = 2n@.<br>
+                Dividindo ambos os membros por @2kn@:<br>
+                @\frac{1}{2} - \frac{1}{n} = \frac{1}{k} \iff \frac{1}{n} + \frac{1}{k} = \frac{1}{2}@.<br>
+                Como @n \ge 3@ e @k \ge 3@ são inteiros:<br>
+                • Se @n = 3@: @\frac{1}{k} = \frac{1}{2} - \frac{1}{3} = \frac{1}{6} \implies k = 6@ (6 triângulos equiláteros por vértice).<br>
+                • Se @n = 4@: @\frac{1}{k} = \frac{1}{2} - \frac{1}{4} = \frac{1}{4} \implies k = 4@ (4 quadrados por vértice).<br>
+                • Se @n = 5@: @\frac{1}{k} = \frac{1}{2} - \frac{1}{5} = \frac{3}{10} \implies k = \frac{10}{3} \notin \mathbb{Z}@.<br>
+                • Se @n = 6@: @\frac{1}{k} = \frac{1}{2} - \frac{1}{6} = \frac{2}{6} = \frac{1}{3} \implies k = 3@ (3 hexágonos por vértice).<br>
+                • Se @n > 6@: @\frac{1}{n} < \frac{1}{6} \implies \frac{1}{k} = \frac{1}{2} - \frac{1}{n} > \frac{1}{3} \implies k < 3@, o que é impossível pois necessitamos de ao menos 3 polígonos para fechar um vértice plano.<br>
+                Assim, somente @n \in \{3, 4, 6\}@ admitem ladrilhamentos regulares.<br>
+                <strong>Resposta:</strong> Demonstrado; somente @n = 3, 4, 6@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O ângulo interno do pentágono regular é @a_i = \frac{(5 - 2) \cdot 180^\circ}{5} = 108^\circ@.<br>
+                • Com 3 pentágonos juntos em torno de um vértice: @3 \times 108^\circ = 324^\circ@. Sobra uma folga angular de @360^\circ - 324^\circ = 36^\circ@, impossibilitando a continuidade contígua.<br>
+                • Com 4 pentágonos: @4 \times 108^\circ = 432^\circ > 360^\circ@, ocorrendo sobreposição forçada de peças.<br>
+                Portanto, pentágonos regulares congruentes não conseguem cobrir o plano sozinhos.<br>
+                <strong>Resposta:</strong> 3 pentágonos totalizam @324^\circ@ (folga de @36^\circ@) e 4 totalizam @432^\circ@ (sobreposição).
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) O ângulo do quadrado é @a_i(4) = 90^\circ@ e o do octógono regular é @a_i(8) = \frac{(8-2)\cdot 180^\circ}{8} = 135^\circ@.<br>
+                Em cada vértice da configuração @(4, 8^2)@:<br>
+                @90^\circ + 135^\circ + 135^\circ = 360^\circ@. A soma é exatamente @360^\circ@, fechando o plano perfeitamente.<br>
+                b) Cada vértice contém 1 ângulo de quadrado e 2 ângulos de octógonos. Em toda a malha infinita, como cada quadrado tem 4 vértices e cada octógono tem 8 vértices, seja @V@ o número total de vértices:<br>
+                Número de quadrados @N_q = \frac{1 \cdot V}{4} = \frac{V}{4}@.<br>
+                Número de octógonos @N_o = \frac{2 \cdot V}{8} = \frac{V}{4}@.<br>
+                Logo, a proporção @\frac{N_q}{N_o} = \frac{V/4}{V/4} = 1@ (exatamente 1 quadrado para cada 1 octógono).<br>
+                <strong>Resposta:</strong> a) @90^\circ + 2 \cdot 135^\circ = 360^\circ@; b) A proporção é de @1:1@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) O triângulo equilátero possui ângulo interno @a_i(3) = 60^\circ@.<br>
+                O dodecágono regular possui @a_i(12) = \frac{(12-2)\cdot 180^\circ}{12} = 150^\circ@.<br>
+                No vértice @(3, 12^2)@: @60^\circ + 150^\circ + 150^\circ = 360^\circ@.<br>
+                b) Razão entre o número de peças: em cada vértice concorre 1 triângulo e 2 dodecágonos. Seja @V@ o número de vértices:<br>
+                Número de triângulos: @N_t = \frac{1 \cdot V}{3} = \frac{V}{3}@.<br>
+                Número de dodecágonos: @N_d = \frac{2 \cdot V}{12} = \frac{V}{6}@.<br>
+                Assim, @\frac{N_t}{N_d} = \frac{V/3}{V/6} = 2@ (existem 2 triângulos para cada 1 dodecágono).<br>
+                Áreas unitárias para aresta @L@:<br>
+                @A_t = \frac{L^2\sqrt{3}}{4}@ e @A_d = 3(2+\sqrt{3})L^2@.<br>
+                Área total dos triângulos por célula: @2 A_t = 2 \cdot \frac{L^2\sqrt{3}}{4} = \frac{\sqrt{3}}{2}L^2@.<br>
+                Razão de áreas: @\frac{2 A_t}{A_d} = \frac{\frac{\sqrt{3}}{2}}{3(2+\sqrt{3})} = \frac{\sqrt{3}}{6(2+\sqrt{3})} = \frac{\sqrt{3}(2-\sqrt{3})}{6(4-3)} = \frac{2\sqrt{3}-3}{6} \approx 0{,}07735@ (@7{,}74\%@).<br>
+                <strong>Resposta:</strong> a) @60^\circ + 2(150^\circ) = 360^\circ@; b) @\frac{2\sqrt{3}-3}{6}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Na configuração @(3, 4, 6, 4)@ temos:<br>
+                @a_i(3) + a_i(4) + a_i(6) + a_i(4) = 60^\circ + 90^\circ + 120^\circ + 90^\circ = 360^\circ@.<br>
+                b) Na ordem @(3, 3, 4, 6)@, os dois triângulos equiláteros estão lado a lado compartilhando uma aresta. O quadrado está adjacente a um triângulo e ao hexágono. Quando analisamos o vértice vizinho na aresta comum entre os dois triângulos, para manter a mesma sequência cíclica @(3, 3, 4, 6)@, seriam exigidos polígonos que entram em conflito geométrico de arestas com o hexágono vizinho (o hexágono impõe arestas alternadas de @120^\circ@ que forçam separação dos triângulos). Por isso, apenas a ordem alternada @(3, 4, 6, 4)@ é extensível globalmente.<br>
+                <strong>Resposta:</strong> a) @60^\circ + 90^\circ + 120^\circ + 90^\circ = 360^\circ@; b) A vizinhança @(3, 3, 4, 6)@ gera quinas incompatíveis que impedem a continuidade uniforme global.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) @a_i(4) = 90^\circ@, @a_i(6) = 120^\circ@ e @a_i(12) = 150^\circ@.<br>
+                Soma: @90^\circ + 120^\circ + 150^\circ = 360^\circ@.<br>
+                b) Com @L = 10\text{ cm}@:<br>
+                • Área de 1 quadrado: @A_q = 10^2 = 100\text{ cm}^2@.<br>
+                • Área de 1 hexágono regular: @A_h = \frac{3\sqrt{3}}{2} \cdot 10^2 = 150\sqrt{3}\text{ cm}^2 \approx 259{,}81\text{ cm}^2@.<br>
+                • Área de 1 dodecágono regular: @A_d = 3(2+\sqrt{3}) \cdot 10^2 = 300(2+\sqrt{3}) = 600 + 300\sqrt{3}\text{ cm}^2 \approx 1119{,}62\text{ cm}^2@.<br>
+                Para a célula composta por 1 dodecágono, 2 hexágonos e 3 quadrados:<br>
+                @A_{\text{total}} = A_d + 2A_h + 3A_q = (600 + 300\sqrt{3}) + 2(150\sqrt{3}) + 3(100)@<br>
+                @A_{\text{total}} = 900 + 600\sqrt{3}\text{ cm}^2 \approx 900 + 1039{,}23 = 1939{,}23\text{ cm}^2@.<br>
+                <strong>Resposta:</strong> a) @90^\circ + 120^\circ + 150^\circ = 360^\circ@; b) @900 + 600\sqrt{3}\text{ cm}^2 \approx 1939{,}23\text{ cm}^2@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Ângulos internos conhecidos: @a_i(5) = 108^\circ@ e @a_i(6) = 120^\circ@.<br>
+                Para preencher o vértice de @360^\circ@ com um terceiro polígono regular de @n@ lados:<br>
+                @108^\circ + 120^\circ + a_i(n) = 360^\circ \implies 228^\circ + a_i(n) = 360^\circ \implies a_i(n) = 132^\circ@.<br>
+                O ângulo externo correspondente seria:<br>
+                @a_e(n) = 180^\circ - 132^\circ = 48^\circ@.<br>
+                O número de lados deveria ser:<br>
+                @n = \frac{360^\circ}{a_e(n)} = \frac{360^\circ}{48^\circ} = 7{,}5@.<br>
+                Como o número de lados @n@ de um polígono deve ser obrigatoriamente um número natural inteiro (@n \in \mathbb{N}, n \ge 3@), não existe nenhum polígono regular com ângulo interno de @132^\circ@. Logo, a combinação é impossível.<br>
+                <strong>Resposta:</strong> @n = 7{,}5 \notin \mathbb{N}@; tal polígono regular não existe.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Cada tetraminó é formado por 4 quadrados unitários. Como são 5 peças distintas, a área total somada é @5 \times 4 = 20@ unidades de área.<br>
+                b) Colorindo o tabuleiro com padrão de xadrez (alternando casas pretas e brancas), um tabuleiro de 20 casas possui exatamente 10 casas pretas e 10 casas brancas.<br>
+                • As peças I, O, L e Z, independentemente de como sejam posicionadas, cobrem sempre exatamente 2 casas pretas e 2 casas brancas.<br>
+                • A peça T, por outro lado, possui 3 quadradinhos alinhados e 1 central saliente. Em qualquer posicionamento no tabuleiro de xadrez, ela cobre obrigatoriamente 3 casas de uma cor e 1 casa da outra cor (ou seja, 3 pretas e 1 branca, ou 1 preta e 3 brancas).<br>
+                Somando as 5 peças: as outras 4 cobrem @4 \times 2 = 8@ pretas e 8 brancas. Somando com o T, teremos no total 11 pretas e 9 brancas (ou 9 pretas e 11 brancas), o que torna IMPOSSÍVEL cobrir um tabuleiro com 10 pretas e 10 brancas.<br>
+                <strong>Resposta:</strong> a) 20 unidades; b) Impossível pelo argumento de paridade das cores cobertas pelo tetraminó T.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Pinte o tabuleiro @8 \times 8@ com o padrão de xadrez convencional. Um tabuleiro completo possui 32 casas pretas e 32 casas brancas.<br>
+                Dois cantos diagonalmente opostos em um tabuleiro de dimensões pares possuem sempre a MESMA cor (por exemplo, ambos são brancos).<br>
+                Ao remover esses dois cantos, o tabuleiro resultante passa a ter:<br>
+                • 32 casas pretas;<br>
+                • @32 - 2 = 30@ casas brancas.<br>
+                Cada dominó @1 \times 2@ cobre obrigatoriamente uma casa preta e uma casa branca adjacentes. Portanto, qualquer conjunto de 31 dominós cobrirá necessariamente exatamente 31 casas pretas e 31 casas brancas.<br>
+                Como o tabuleiro mutilado possui 32 casas pretas e 30 brancas, é IMPOSSÍVEL realizar a cobertura.<br>
+                <strong>Resposta:</strong> Impossível, pois cada dominó cobre 1 casa preta e 1 branca, mas o tabuleiro mutilado tem 32 pretas e 30 brancas.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O tabuleiro @4 \times 4@ possui 16 casas. Removendo 1 casa, sobram @15@ casas, que correspondem à área de @15 / 3 = 5@ trominós em L.<br>
+                Procedimento indutivo de Golomb:<br>
+                1. Divida o tabuleiro @4 \times 4@ em 4 quadrantes @2 \times 2@.<br>
+                2. A casa removida pertence a exatamente um desses 4 quadrantes. Esse quadrante já se torna um tabuleiro @2 \times 2@ com 1 casa removida, que é preenchido de forma imediata por 1 único trominó em L.<br>
+                3. Os outros 3 quadrantes estão intactos (4 casas cada). No centro geométrico do tabuleiro @4 \times 4@, posicione 1 trominó em L de modo que cada uma de suas 3 partes ocupe o canto central de cada um dos 3 quadrantes intactos.<br>
+                4. Agora, cada um dos 3 quadrantes restantes passou a ter exatamente uma casa ocupada (o canto central), restando 3 casas em formato de L em cada um deles, que são perfeitamente preenchidas por 1 trominó em L cada.<br>
+                5. Total de trominós usados: @1 + 1 + 3 = 5@ trominós.<br>
+                <strong>Resposta:</strong> Cobertura demonstrada por indução com 5 trominós em L.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Seja um quadrilátero convexo qualquer com ângulos internos @\alpha, \beta, \gamma, \delta@. Pela geometria euclidiana, @\alpha + \beta + \gamma + \delta = 360^\circ@.<br>
+                Considere o quadrilátero no plano. Ao realizar uma rotação de @180^\circ@ em torno do ponto médio de um de seus lados, geramos um segundo quadrilátero congruente justaposto ao primeiro por esse lado comum.<br>
+                Repetindo essas rotações de @180^\circ@ sucessivamente em torno dos pontos médios de cada lado, os quatro vértices do quadrilátero original que contêm @\alpha, \beta, \gamma@ e @\delta@ se encontram exatamente em um mesmo ponto compartilhado.<br>
+                Como sua soma é @360^\circ@, não há sobreposição nem lacuna angular. Esse padrão se replica periodicamente em duas direções independentes, gerando uma rede paralela que cobre todo o plano.<br>
+                <strong>Resposta:</strong> Demonstrado; a soma dos 4 ângulos é @360^\circ@ e rotações de @180^\circ@ pelos pontos médios reúnem os quatro ângulos em cada vértice.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Dado um triângulo qualquer de ângulos @\alpha, \beta, \gamma@ com @\alpha + \beta + \gamma = 180^\circ@, girando uma cópia idêntica em @180^\circ@ e unindo pelo lado comum oposto, obtemos um paralelogramo cujos ângulos internos são @(\alpha + \beta, \gamma, \alpha + \beta, \gamma)@.<br>
+                Todo paralelogramo ladrilha o plano por translações puras segundo seus dois vetores de lado. Como cada paralelogramo é composto por 2 triângulos e em cada vértice de uma malha de paralelogramos concorrem 4 paralelogramos, temos @4 \times 1 = 4@ vértices de paralelogramos que agrupam pares de ângulos. Mais precisamente, em cada vértice da malha de triângulos se encontram 6 triângulos (dois de cada ângulo @\alpha, \beta, \gamma@), somando @2(\alpha + \beta + \gamma) = 2(180^\circ) = 360^\circ@.<br>
+                <strong>Resposta:</strong> 6 triângulos concorrem em cada vértice, somando @2(\alpha+\beta+\gamma) = 360^\circ@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Cada pentaminó possui 5 quadradinhos unitários. Com 12 peças, a área total é @12 \times 5 = 60@ quadradinhos.<br>
+                b) Fatorando 60 em dimensões inteiras @L \times C@ com @L \le C@:<br>
+                • @1 \times 60@ (impossível, pois várias peças têm largura @\ge 2@ e @\ge 3@);<br>
+                • @2 \times 30@: impossível, pois a peça X (cruz) tem dimensões @3 \times 3@ e não cabe em largura 2;<br>
+                • @3 \times 20@, @4 \times 15@, @5 \times 12@ e @6 \times 10@: todos estes 4 retângulos possuem largura suficiente (@\ge 3@) e admitem soluções comprovadas de preenchimento.<br>
+                <strong>Resposta:</strong> a) Área = 60; b) @3 \times 20@, @4 \times 15@, @5 \times 12@ e @6 \times 10@. O @2 \times 30@ é impossível pela peça X.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Cada ângulo interno de um polígono regular de @n_i@ lados mede @a_i(n_i) = \frac{(n_i - 2) \cdot 180^\circ}{n_i} = 180^\circ \left(1 - \frac{2}{n_i}\right)@.<br>
+                Para que fechem @360^\circ@ no vértice plano:<br>
+                @\sum_{i=1}^k a_i(n_i) = 360^\circ \implies \sum_{i=1}^k 180^\circ \left(1 - \frac{2}{n_i}\right) = 360^\circ@.<br>
+                Dividindo ambos os membros por @180^\circ@:<br>
+                @\sum_{i=1}^k \left(1 - \frac{2}{n_i}\right) = 2@.<br>
+                b) Como o menor número de lados para um polígono é @n_i = 3@ (triângulo equilátero), o menor ângulo interno possível é @60^\circ@. Logo, o número máximo de polígonos que cabem em @360^\circ@ é @k_{\max} = \frac{360^\circ}{60^\circ} = 6@.<br>
+                Por outro lado, como o maior ângulo interno de um polígono regular é estritamente menor que @180^\circ@, com apenas @k = 2@ polígonos teríamos soma @< 360^\circ@. Logo, são necessários no mínimo @k_{\min} = 3@ polígonos.<br>
+                <strong>Resposta:</strong> Demonstrado; @k \in \{3, 4, 5, 6\}@.
+              </li>
+            </ol>
+          </div>
+
+          <!-- GABARITO SEÇÃO 3 -->
+          <div class="gabarito-secao">
+            <h3>Seção 3: Problemas de Aprofundamento</h3>
+            <ol start="25">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) A soma dos ângulos dos 2 polígonos de @p@ lados e 1 de @q@ lados deve ser @360^\circ@:<br>
+                @2 \cdot 180^\circ\left(1 - \frac{2}{p}\right) + 180^\circ\left(1 - \frac{2}{q}\right) = 360^\circ@.<br>
+                Dividindo tudo por @180^\circ@:<br>
+                @2\left(1 - \frac{2}{p}\right) + \left(1 - \frac{2}{q}\right) = 2 \implies 3 - \frac{4}{p} - \frac{2}{q} = 2 \implies \frac{4}{p} + \frac{2}{q} = 1 \iff \frac{2}{p} + \frac{1}{q} = \frac{1}{2}@.<br>
+                b) Multiplicando por @2pq@:<br>
+                @4q + 2p = pq \implies pq - 2p - 4q = 0 \implies (p - 4)(q - 2) = 8@.<br>
+                Como @p, q \ge 3@ são inteiros, @p - 4 \ge -1@ e @q - 2 \ge 1@ são divisores positivos de 8:<br>
+                1. @p - 4 = 1 \implies p = 5@; @q - 2 = 8 \implies q = 10@. Solução: @(5, 10)@ (2 pentágonos e 1 decágono: @2 \times 108^\circ + 144^\circ = 360^\circ@).<br>
+                2. @p - 4 = 2 \implies p = 6@; @q - 2 = 4 \implies q = 6@. Solução: @(6, 6)@ (3 hexágonos regulares: @3 \times 120^\circ = 360^\circ@).<br>
+                3. @p - 4 = 4 \implies p = 8@; @q - 2 = 2 \implies q = 4@. Solução: @(8, 4)@ (2 octógonos e 1 quadrado: @2 \times 135^\circ + 90^\circ = 360^\circ@).<br>
+                4. @p - 4 = 8 \implies p = 12@; @q - 2 = 1 \implies q = 3@. Solução: @(12, 3)@ (2 dodecágonos e 1 triângulo equilátero: @2 \times 150^\circ + 60^\circ = 360^\circ@).<br>
+                <strong>Resposta:</strong> Pares @(p, q) \in \{(5, 10), (6, 6), (8, 4), (12, 3)\}@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Atribua a cada casa @(x, y)@ do tabuleiro @10 \times 10@, com @x, y \in \{1, 2, \dots, 10\}@, uma das 4 cores @\{0, 1, 2, 3\}@ dada por @(x + y) \pmod 4@.<br>
+                • Qualquer tetraminó @1 \times 4@ (horizontal ou vertical) cobre 4 casas com coordenadas consecutivas em @x@ ou em @y@. Logo, as quatro casas cobertas possuem valores de @(x+y)\pmod 4@ congruentes a @\{0, 1, 2, 3\}@ em alguma ordem. Ou seja, CADA peça @1 \times 4@ cobre exatamente 1 casa de cada cor.<br>
+                • Se o tabuleiro pudesse ser coberto por 25 peças, ele deveria conter exatamente 25 casas de cada uma das 4 cores.<br>
+                Vamos contar quantas casas de cada cor existem no tabuleiro @10 \times 10@:<br>
+                O número de casas com cor @c@ é dado pela soma nas 10 linhas. Como @10 = 2 \times 4 + 2@, em cada linha aparecem duas sequências completas @(0,1,2,3)@ mais 2 elementos extras. Calculando o total por cor:<br>
+                As cores que coincidem com os cantos aparecem em quantidade 26, enquanto outras aparecem em quantidade 24. Em particular, não há 25 casas de cada cor.<br>
+                Portanto, a cobertura com 25 tetraminós retos é impossível.<br>
+                <strong>Resposta:</strong> Impossível, pois cada peça cobre 1 casa de cada cor, mas a contagem do tabuleiro @10 \times 10@ não possui 25 casas de cada cor.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Seja @A_0 = L^2@ a área do quadrado base. A transformação consiste em subtrair uma região de área @\Delta A_1@ de um lado e somar a mesma região congruente por translação no lado oposto: @A' = A_0 - \Delta A_1 + \Delta A_1 = A_0@. Repetindo no outro par de lados: @A_{\text{final}} = A_0 - \Delta A_2 + \Delta A_2 = A_0 = L^2@. A área é estritamente invariante sob corte e colagem isométrica.<br>
+                b) Quando a modificação é feita por rotação de @90^\circ@ em torno de um vértice, o contorno que sai de uma aresta é rotacionado para a aresta adjacente. Ao redor do vértice comum da malha, 4 peças giradas em @90^\circ, 180^\circ, 270^\circ, 360^\circ@ se encaixam perfeitamente porque a protuberância de uma peça preenche exatamente a reentrância da peça vizinha girada em @90^\circ@, garantindo simetria de rotação de ordem 4 (@C_4@).<br>
+                <strong>Resposta:</strong> a) A área é constante (@L^2@) pela conservação sob translações congruentes; b) Garante simetria de rotação de 4ª ordem (@90^\circ@) sem sobreposição.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Sabemos que @S_i = (n - 2) \cdot 180^\circ@ e @S_e = 360^\circ@.<br>
+                A condição do enunciado é:<br>
+                @S_i - S_e = 1080^\circ \implies (n - 2) \cdot 180^\circ - 360^\circ = 1080^\circ@.<br>
+                @(n - 2) \cdot 180^\circ = 1440^\circ \implies n - 2 = \frac{1440^\circ}{180^\circ} = 8 \implies n = 10@ lados.<br>
+                b) Número de diagonais para @n = 10@:<br>
+                @d = \frac{10(10 - 3)}{2} = \frac{70}{2} = 35@ diagonais.<br>
+                c) Ângulo interno do decágono regular:<br>
+                @a_i = \frac{S_i}{10} = \frac{8 \cdot 180^\circ}{10} = 144^\circ@.<br>
+                <strong>Resposta:</strong> a) @n = 10@; b) 35 diagonais; c) @a_i = 144^\circ@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Em cada vértice convergem 2 triângulos e 2 hexágonos: @2(60^\circ) + 2(120^\circ) = 120^\circ + 240^\circ = 360^\circ@.<br>
+                b) Em uma região ampla com @V@ vértices:<br>
+                Número de triângulos: @N_t = \frac{2V}{3}@.<br>
+                Número de hexágonos: @N_h = \frac{2V}{6} = \frac{V}{3}@.<br>
+                Portanto, há exatamente 2 triângulos para cada 1 hexágono (@N_t = 2 N_h@).<br>
+                Áreas unitárias:<br>
+                @A_t = \frac{a^2\sqrt{3}}{4}@ e @A_h = \frac{3a^2\sqrt{3}}{2} = 6 A_t@.<br>
+                Razão entre as áreas totais:<br>
+                @\frac{\text{Área dos triângulos}}{\text{Área dos hexágonos}} = \frac{2 \cdot A_t}{1 \cdot A_h} = \frac{2 A_t}{6 A_t} = \frac{1}{3}@.<br>
+                c) Fração da área total ocupada pelos triângulos:<br>
+                @\frac{2 A_t}{2 A_t + 6 A_t} = \frac{2}{8} = \frac{1}{4} = 25\%@.<br>
+                <strong>Resposta:</strong> a) @360^\circ@; b) Razão de áreas @1:3@; c) @25\%@ da área total.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Em qualquer pentágono convexo, a soma dos ângulos internos é @S_i = (5 - 2) \cdot 180^\circ = 540^\circ@.<br>
+                Somando as duas relações dadas:<br>
+                @(B + C) + (A + D + E) = 180^\circ + 360^\circ = 540^\circ@, que coincide exatamente com @S_i@.<br>
+                b) Com @B = 100^\circ@ e @C = 80^\circ@, temos @B + C = 180^\circ@.<br>
+                Como @A = D = E@ e @A + D + E = 360^\circ@, temos:<br>
+                @3A = 360^\circ \implies A = D = E = 120^\circ@.<br>
+                • Vértices do tipo @(A, D, E)@: reúnem 3 ângulos de @120^\circ@: @120^\circ + 120^\circ + 120^\circ = 360^\circ@.<br>
+                • Vértices do tipo @(B, B, C, C)@: reúnem 2 ângulos de @100^\circ@ e 2 de @80^\circ@: @2(100^\circ) + 2(80^\circ) = 200^\circ + 160^\circ = 360^\circ@.<br>
+                Ambos os vértices fecham perfeitamente sem frestas, permitindo o ladrilhamento pentagonal do plano.<br>
+                <strong>Resposta:</strong> @A = D = E = 120^\circ@; ambos os vértices somam @360^\circ@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) O ângulo central que enxerga cada lado do dodecágono regular é @\theta = \frac{360^\circ}{12} = 30^\circ@.<br>
+                Pela lei dos cossenos no triângulo isósceles central de lados @R, R@ e ângulo @30^\circ@:<br>
+                @L_{12}^2 = R^2 + R^2 - 2R^2 \cos(30^\circ) = 2R^2 - 2R^2 \frac{\sqrt{3}}{2} = R^2(2 - \sqrt{3})@.<br>
+                Logo, @L_{12} = R\sqrt{2 - \sqrt{3}} = R \frac{\sqrt{6}-\sqrt{2}}{2}@.<br>
+                b) A área do dodecágono é a soma das áreas de 12 triângulos de lados @R, R@ e ângulo de @30^\circ@:<br>
+                @A = 12 \times \left(\frac{1}{2} R^2 \sin(30^\circ)\right) = 12 \times \left(\frac{1}{2} R^2 \cdot \frac{1}{2}\right) = 12 \times \frac{R^2}{4} = 3R^2@.<br>
+                c) Ao redor de cada vértice no ladrilhamento arquimediano @(3, 12, 12)@, reúnem-se dois dodecágonos (@2 \times 150^\circ = 300^\circ@) e um triângulo equilátero (@60^\circ@), totalizando @360^\circ@; no @(4, 6, 12)@, somam-se @90^\circ + 120^\circ + 150^\circ = 360^\circ@.<br>
+                <strong>Resposta:</strong> a) @L_{12} = R\sqrt{2-\sqrt{3}}@; b) @A = 3R^2@; c) Verificação angular demonstrada.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                a) Em uma estrela decagonal central, podemos agrupar em torno do vértice: 3 ângulos de @72^\circ@ dos losangos grossos e 2 ângulos de @36^\circ@ dos losangos finos:<br>
+                @3 \times 72^\circ + 2 \times 36^\circ = 216^\circ + 72^\circ = 288^\circ + 72^\circ = 360^\circ@.<br>
+                Ou alternativamente, 5 losangos grossos com vértices de @72^\circ@: @5 \times 72^\circ = 360^\circ@.<br>
+                b) A área de um losango de lado 1 e ângulo agudo @\theta@ é dada por @A = 1 \cdot 1 \cdot \sin(\theta) = \sin(\theta)@.<br>
+                • Área do losango grosso: @A_{\text{grosso}} = \sin(72^\circ) = \sin(2 \times 36^\circ) = 2 \sin(36^\circ) \cos(36^\circ)@.<br>
+                • Área do losango fino: @A_{\text{fino}} = \sin(36^\circ)@.<br>
+                Razão entre as áreas:<br>
+                @\frac{A_{\text{grosso}}}{A_{\text{fino}}} = \frac{2 \sin(36^\circ) \cos(36^\circ)}{\sin(36^\circ)} = 2 \cos(36^\circ)@.<br>
+                Pela trigonometria exata do pentágono regular, @\cos(36^\circ) = \frac{1 + \sqrt{5}}{4}@.<br>
+                Logo:<br>
+                @2 \cos(36^\circ) = 2 \cdot \frac{1 + \sqrt{5}}{4} = \frac{1 + \sqrt{5}}{2} = \phi@ (número de ouro).<br>
+                <strong>Resposta:</strong> a) Demonstração das somas @360^\circ@; b) A razão entre as áreas é @2\cos(36^\circ) = \phi = \frac{1+\sqrt{5}}{2}@.
+              </li>
+            </ol>
+          </div>
+
+          <!-- GABARITO SEÇÃO 4 -->
+          <div class="gabarito-secao">
+            <h3>Seção 4: Problemas Propostos</h3>
+            <ol start="33">
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                @\frac{n(n - 3)}{2} = 90 \implies n(n - 3) = 180 \implies n^2 - 3n - 180 = 0@.<br>
+                @(n - 15)(n + 12) = 0 \implies n = 15@ lados (pentadecágono).<br>
+                <strong>Resposta:</strong> 15 lados.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Para @n = 20@:<br>
+                @a_i = \frac{(20 - 2) \cdot 180^\circ}{20} = \frac{18 \cdot 180^\circ}{20} = 18 \cdot 9^\circ = 162^\circ@.<br>
+                <strong>Resposta:</strong> @162^\circ@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                A configuração @(3, 3, 3, 4, 4)@ reúne 3 triângulos equiláteros e 2 quadrados:<br>
+                @3(60^\circ) + 2(90^\circ) = 180^\circ + 180^\circ = 360^\circ@.<br>
+                A condição angular é satisfeita. Esse ladrilhamento é um dos 8 ladrilhamentos semirregulares conhecidos (ladrilhamento triangular alongado com ordem cíclica @3.3.3.4.4@).<br>
+                <strong>Resposta:</strong> Soma é @360^\circ@; ladrilhamento semirregular válido.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                @\frac{S_i}{S_e} = 5 \implies \frac{(n - 2) \cdot 180^\circ}{360^\circ} = 5 \implies \frac{n - 2}{2} = 5 \implies n - 2 = 10 \implies n = 12@ vértices.<br>
+                Número de diagonais: @d = \frac{12(12 - 3)}{2} = \frac{12 \cdot 9}{2} = 54@ diagonais.<br>
+                <strong>Resposta:</strong> 12 vértices e 54 diagonais.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                O tabuleiro @7 \times 7@ possui @49@ casas unitárias. Cada dominó @1 \times 2@ cobre obrigatoriamente 2 casas. Qualquer cobertura por dominós deve ocupar um número par de casas (@2k@). Como 49 é ímpar, é impossível recobrir o tabuleiro sem deixar pelo menos uma casa livre.<br>
+                <strong>Resposta:</strong> Impossível, pois a área total (49 casas) é ímpar.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Se @a_i = 170^\circ@, o ângulo externo seria @a_e = 180^\circ - 170^\circ = 10^\circ@.<br>
+                O número de lados seria: @n = \frac{360^\circ}{10^\circ} = 36@.<br>
+                Como 36 é um número inteiro válido (@n \ge 3@), existe sim tal polígono (um polígono regular de 36 lados).<br>
+                <strong>Resposta:</strong> Sim, existe e possui 36 lados.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Ângulo do triângulo equilátero: @60^\circ@. Ângulo do hexágono regular: @120^\circ@.<br>
+                No vértice @(3, 6, 3, 6)@:<br>
+                @60^\circ + 120^\circ + 60^\circ + 120^\circ = 360^\circ@.<br>
+                <strong>Resposta:</strong> @360^\circ@.
+              </li>
+              <li>
+                <span class="gabarito-item-titulo">Solução:</span><br>
+                Em uma grade @6 \times 6@ existem 5 linhas horizontais e 5 verticais internas, totalizando 10 linhas potenciais de corte. Se uma reta corta dominós, ela deve cortar um número par de dominós para manter o equilíbrio de casas dos dois lados divididos (cada lado tem área múltipla de 6, que é par). Assim, cada reta cortada deve atravessar pelo menos 2 dominós.<br>
+                Se TODAS as 10 linhas fossem cortadas por dominós, seriam necessários no mínimo @10 \times 2 = 20@ dominós cortados. Mas cada dominó só pode ser cortado por no máximo 1 linha de grade (já que tem dimensão @1 \times 2@). Como há apenas 18 dominós no tabuleiro todo, @18 < 20@, gerando uma contradição. Logo, pelo Princípio das Gavetas, pelo menos uma linha de grade não corta nenhum dominó.<br>
+                <strong>Resposta:</strong> Demonstrado pelo Princípio das Gavetas: 10 linhas exigiriam ao menos 20 dominós, mas só há 18 dominós.
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </details>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+      </div>
+
+    </div> <!-- /.container -->
+  </div> <!-- /#page-wrapper -->
+
+  <canvas id="matrixCanvas"></canvas>
+  <script src="../../js/matrix-rain.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "@@", right: "@@", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "@", right: "@", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  <div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+  <div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+  </div>
+  <script src="../../js/theme-switcher.js" defer></script>
+  <script src="../../js/print-mode.js" defer></script>
+</body>
+
+</html>

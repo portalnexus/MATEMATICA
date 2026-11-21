@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Números Reais</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press Start 2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA METADADOS E ORGANIZAÇÃO VISUAL DOS PROBLEMAS
+       ========================================================================== */
+
+    /* Container de metadados (fonte, dificuldade, tempo estimado) */
+    .problema-meta {
+      font-size: 0.75rem;
+      color: var(--secondary-text-color);
+      margin-bottom: 0.5rem;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    /* Tag de tópico matemático */
+    .problema-meta .topico {
+      background-color: rgba(100, 100, 255, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+      font-style: italic;
+    }
+
+    /* Tag de dificuldade com cores diferentes */
+    .problema-meta .dificuldade {
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 8px;
+    }
+
+    /* Cores por nível de dificuldade */
+    .dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }    /* Verde */
+    .dificuldade.media { background-color: rgba(255, 193, 7, 0.3); }    /* Amarelo */
+    .dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }  /* Vermelho */
+    .dificuldade.desafio { background-color: rgba(156, 39, 176, 0.3); } /* Roxo */
+
+    /* Introdução de cada seção */
+    .section-intro {
+      font-style: italic;
+      color: var(--secondary-text-color);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--link-color);
+    }
+
+    /* Caixas de dica para os estudantes */
+    .dica {
+      background-color: rgba(33, 150, 243, 0.15);
+      border-left: 4px solid #2196f3;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .dica strong {
+      color: #2196f3;
+    }
+
+    /* Sistema de estrelas para dificuldade */
+    .dificuldade-estrelas {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .dificuldade-estrelas .estrela {
+      color: #ffd700;
+    }
+
+    .dificuldade-estrelas .label-dificuldade {
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-left: 6px;
+      font-family: 'Fira Sans', sans-serif;
+    }
+
+    .label-dificuldade.facil { background-color: rgba(76, 175, 80, 0.3); }
+    .label-dificuldade.medio { background-color: rgba(255, 193, 7, 0.3); }
+    .label-dificuldade.dificil { background-color: rgba(244, 67, 54, 0.3); }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html">PÁGINA INICIAL</a></li>
+      <li><a href="../../recursos.html">RECURSOS</a></li>
+      <li><a href="../../dashboard.html">DASHBOARD</a></li>
+    </ul>
+  </nav>
+<div class="container">
+
+<!-- ============================================================================
+     TÍTULO PRINCIPAL DA LISTA
+     ============================================================================ -->
+<h1>NÚMEROS REAIS</h1>
+
+<!-- BADGE DE NÍVEL -->
+<span class="badge-nivel ano-9">9º Ano</span>
+
+<!-- ============================================================================
+     SEÇÃO 1: PROBLEMAS INTRODUTÓRIOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Introdutórios</h2>
+  <p class="section-intro">
+    Problemas básicos para familiarização com os conjuntos numéricos e conceitos fundamentais.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Classificação de números nos conjuntos</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Classifique cada número abaixo indicando a qual(is) conjunto(s) ele pertence (@\mathbb{N}@, @\mathbb{Z}@, @\mathbb{Q}@, @\mathbb{I}@, @\mathbb{R}@):</p>
+      <p>a) @7@</p>
+      <p>b) @-5@</p>
+      <p>c) @\frac{3}{4}@</p>
+      <p>d) @\sqrt{2}@</p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Representação decimal</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Escreva a representação decimal dos seguintes números racionais:</p>
+      <p>a) @\frac{1}{2}@</p>
+      <p>b) @\frac{3}{4}@</p>
+      <p>c) @\frac{7}{8}@</p>
+      <p>d) @\frac{1}{3}@</p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Identificação de dízimas periódicas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Identifique quais dos números decimais abaixo são dízimas periódicas:</p>
+      <p>a) @0,333...@</p>
+      <p>b) @0,25@</p>
+      <p>c) @0,123123123...@</p>
+      <p>d) @1,414213...@ (representação de @\sqrt{2}@)</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Números irracionais - raízes</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Calcule as raízes quadradas exatas abaixo:</p>
+      <p>a) @\sqrt{9}@</p>
+      <p>b) @\sqrt{16}@</p>
+      <p>c) @\sqrt{25}@</p>
+      <p>d) @\sqrt{100}@</p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Operações com radicais - simplificação</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Simplifique os radicais:</p>
+      <p>a) @\sqrt{4}@</p>
+      <p>b) @\sqrt{36}@</p>
+      <p>c) @\sqrt{49}@</p>
+      <p>d) @\sqrt{64}@</p>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conversão de fração em decimal</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Transforme as seguintes frações em números decimais:</p>
+      <p>a) @\frac{1}{5}@</p>
+      <p>b) @\frac{2}{5}@</p>
+      <p>c) @\frac{3}{10}@</p>
+      <p>d) @\frac{9}{10}@</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Ordenação na reta numérica</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Coloque os números em ordem crescente: @-3@, @0@, @5@, @-1@, @2@</p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Propriedades dos números reais - comutatividade</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 2 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Verifique se a propriedade comutativa da adição é válida calculando:</p>
+      <p>a) @5 + 8@ e @8 + 5@</p>
+      <p>b) @-3 + 7@ e @7 + (-3)@</p>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Números naturais e inteiros</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Identifique quais números pertencem ao conjunto dos números naturais (@\mathbb{N}@):</p>
+      <p>@\{-2, 0, 1, 3, -5, 7, 10\}@</p>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Raízes quadradas não exatas</span>
+        <span class="dificuldade facil">Fácil</span>
+        <span>⏱️ 3 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="label-dificuldade facil">Fácil</span>
+      </div>
+
+      <p>Identifique se as raízes abaixo são exatas ou não exatas:</p>
+      <p>a) @\sqrt{4}@</p>
+      <p>b) @\sqrt{5}@</p>
+      <p>c) @\sqrt{9}@</p>
+      <p>d) @\sqrt{10}@</p>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 2: PROBLEMAS DE FIXAÇÃO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Fixação</h2>
+  <p class="section-intro">
+    Problemas que requerem interpretação do enunciado e aplicação de conceitos combinados.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conversão de dízima periódica simples em fração</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Converta a dízima periódica simples @0,\overline{3}@ (que significa @0,333...@) em fração.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Chame a dízima de @x@, multiplique por 10 e subtraia a equação original para eliminar a parte periódica.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conversão de dízima periódica composta em fração</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Transforme a dízima periódica composta @0,1\overline{6}@ (que significa @0,1666...@) em fração.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A parte não periódica é 1 e a parte periódica é 6. Use a fórmula adequada para dízimas compostas.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Operações com radicais - multiplicação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Calcule e simplifique:</p>
+      <p>a) @\sqrt{2} \cdot \sqrt{8}@</p>
+      <p>b) @\sqrt{3} \cdot \sqrt{12}@</p>
+      <p>c) @\sqrt{5} \cdot \sqrt{20}@</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Racionalização de denominadores</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Racionalize os denominadores:</p>
+      <p>a) @\frac{1}{\sqrt{2}}@</p>
+      <p>b) @\frac{3}{\sqrt{5}}@</p>
+      <p>c) @\frac{6}{\sqrt{3}}@</p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Medições reais - aplicação de raízes</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Um quadrado tem área de 50 cm². Qual é a medida do lado desse quadrado? Expresse a resposta de forma simplificada usando raízes.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A área de um quadrado é @A = l^2@, onde @l@ é o lado. Portanto, @l = \sqrt{A}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Simplificação de radicais</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Simplifique completamente:</p>
+      <p>a) @\sqrt{18}@</p>
+      <p>b) @\sqrt{32}@</p>
+      <p>c) @\sqrt{50}@</p>
+      <p>d) @\sqrt{72}@</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Operações com radicais - adição e subtração</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Calcule:</p>
+      <p>a) @\sqrt{2} + 3\sqrt{2}@</p>
+      <p>b) @5\sqrt{3} - 2\sqrt{3}@</p>
+      <p>c) @\sqrt{8} + \sqrt{18}@ (simplifique primeiro)</p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Comparação de números reais</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Ordene os seguintes números em ordem crescente:</p>
+      <p>@\sqrt{3}@, @1,5@, @\frac{5}{3}@, @\sqrt{2}@</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Calcule aproximações decimais para cada número para facilitar a comparação. @\sqrt{2} \approx 1,414@ e @\sqrt{3} \approx 1,732@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação no cotidiano - perímetro</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Um quadrado tem lado medindo @\sqrt{8}@ metros. Calcule o perímetro desse quadrado na forma simplificada.</p>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Propriedade distributiva com radicais</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Desenvolva e simplifique:</p>
+      <p>a) @\sqrt{2}(\sqrt{8} + \sqrt{2})@</p>
+      <p>b) @\sqrt{3}(2\sqrt{3} - \sqrt{12})@</p>
+    </li>
+
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Potências e raízes</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 4 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Calcule:</p>
+      <p>a) @(\sqrt{5})^2@</p>
+      <p>b) @(\sqrt{3})^2 + (\sqrt{4})^2@</p>
+      <p>c) @\sqrt{2^2 + 3^2}@</p>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conversão e classificação</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Determine se cada afirmação é verdadeira ou falsa, justificando:</p>
+      <p>a) Todo número natural é inteiro.</p>
+      <p>b) Todo número inteiro é racional.</p>
+      <p>c) Todo número racional é real.</p>
+      <p>d) Todo número real é racional.</p>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Racionalização com denominadores binômios</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade medio">Médio</span>
+      </div>
+
+      <p>Racionalize: @\frac{2}{\sqrt{3} + 1}@</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Multiplique numerador e denominador pelo conjugado do denominador: @\sqrt{3} - 1@.
+      </div>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 3: PROBLEMAS DE APROFUNDAMENTO
+     ============================================================================ -->
+<article>
+  <h2>Problemas de Aprofundamento</h2>
+  <p class="section-intro">
+    Problemas complexos que exigem raciocínio em múltiplas etapas e combinação de conceitos.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conversão de dízima periódica - caso geral</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Converta a dízima periódica @1,2\overline{45}@ (que significa @1,2454545...@) em fração.</p>
+      <p>a) Identifique a parte inteira, a parte não periódica e a parte periódica.</p>
+      <p>b) Use o método algébrico para encontrar a fração geratriz.</p>
+      <p>c) Simplifique a fração obtida, se possível.</p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Operações combinadas com radicais</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Simplifique completamente a expressão:</p>
+      @@
+      \frac{\sqrt{50} + \sqrt{18}}{\sqrt{8}} - \sqrt{2}
+      @@
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação geométrica - diagonal</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Um retângulo tem lados medindo @\sqrt{12}@ cm e @\sqrt{27}@ cm.</p>
+      <p>a) Calcule o perímetro do retângulo na forma simplificada.</p>
+      <p>b) Calcule a área do retângulo na forma simplificada.</p>
+      <p>c) Use o Teorema de Pitágoras para calcular a diagonal do retângulo, simplificando o resultado.</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Equações com radicais</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Resolva as equações:</p>
+      <p>a) @\sqrt{x} = 5@</p>
+      <p>b) @\sqrt{2x + 1} = 3@</p>
+      <p>c) @\sqrt{x + 3} = x - 3@ (atenção: verifique se a solução é válida!)</p>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Racionalização e simplificação complexa</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Simplifique e racionalize:</p>
+      @@
+      \frac{1}{\sqrt{2} + \sqrt{3}} + \frac{1}{\sqrt{2} - \sqrt{3}}
+      @@
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aproximação e erro</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Sabendo que @\sqrt{2} \approx 1,414@ e @\sqrt{3} \approx 1,732@, calcule uma aproximação com três casas decimais para:</p>
+      <p>a) @\sqrt{2} + \sqrt{3}@</p>
+      <p>b) @\sqrt{2} \cdot \sqrt{3}@</p>
+      <p>c) @\frac{\sqrt{3}}{\sqrt{2}}@</p>
+      <p>d) Compare seus resultados com os valores exatos (na forma de radicais). Qual operação produziu o maior erro relativo?</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Densidade dos números racionais</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Encontre três números racionais diferentes entre @\frac{1}{3}@ e @\frac{1}{2}@.</p>
+      <p>a) Use o método da média aritmética.</p>
+      <p>b) Expresse os três números encontrados como frações e em forma decimal.</p>
+      <p>c) O que esse exercício demonstra sobre a densidade dos números racionais na reta numérica?</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> A média aritmética entre dois números sempre está entre eles. Você pode repetir o processo quantas vezes quiser.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Produtos notáveis com radicais</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+
+      <div class="dificuldade-estrelas">
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="estrela">★</span>
+        <span class="label-dificuldade dificil">Difícil</span>
+      </div>
+
+      <p>Desenvolva e simplifique usando produtos notáveis:</p>
+      <p>a) @(\sqrt{5} + \sqrt{2})^2@</p>
+      <p>b) @(\sqrt{7} - \sqrt{3})^2@</p>
+      <p>c) @(\sqrt{6} + 2)(\sqrt{6} - 2)@</p>
+    </li>
+
+  </ol>
+</article>
+
+<!-- ============================================================================
+     SEÇÃO 4: PROBLEMAS PROPOSTOS
+     ============================================================================ -->
+<article>
+  <h2>Problemas Propostos</h2>
+  <p class="section-intro">
+    Problemas adicionais para você praticar e consolidar seu aprendizado!
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Aplicação - velocidade</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <p>A velocidade da luz é aproximadamente @3 \times 10^8@ m/s. Essa velocidade pode ser escrita como @3\sqrt{10^{16}}@ m/s? Justifique sua resposta.</p>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Padrões numéricos</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+
+      <p>Observe o padrão: @\sqrt{1} = 1@, @\sqrt{4} = 2@, @\sqrt{9} = 3@, @\sqrt{16} = 4@.</p>
+      <p>a) Qual é a próxima raiz quadrada exata?</p>
+      <p>b) Qual será a 10ª raiz quadrada exata?</p>
+      <p>c) Existe uma fórmula geral para a @n@-ésima raiz quadrada exata? Se sim, qual é?</p>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Medição de terreno</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <p>Um terreno quadrado tem área de 200 m². O proprietário deseja cercá-lo completamente. Quantos metros de cerca serão necessários? (Expresse a resposta na forma @a\sqrt{b}@, onde @b@ não possui fatores quadrados perfeitos.)</p>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Conversão de dízima</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 5 min</span>
+      </div>
+
+      <p>Mostre que @0,\overline{9}@ (ou seja, @0,999...@) é igual a 1 usando o método algébrico de conversão de dízimas periódicas.</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Chame @x = 0,999...@, multiplique por 10 e subtraia. O resultado pode surpreender você!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Comparação de expressões</span>
+        <span class="dificuldade media">Média</span>
+        <span>⏱️ 6 min</span>
+      </div>
+
+      <p>Sem calcular os valores decimais, determine qual é maior:</p>
+      <p>a) @\sqrt{5} + \sqrt{7}@ ou @\sqrt{12}@</p>
+      <p>b) @\sqrt{2} \cdot \sqrt{8}@ ou @5@</p>
+
+      <div class="dica">
+        <strong>Dica:</strong> Para (a), eleve ambos os lados ao quadrado e compare. Para (b), simplifique primeiro.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Sequências com radicais</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 7 min</span>
+      </div>
+
+      <p>Calcule a soma: @\sqrt{1} + \sqrt{4} + \sqrt{9} + \sqrt{16} + \sqrt{25}@</p>
+      <p>Existe uma fórmula para calcular a soma dos @n@ primeiros números naturais que poderia ser útil aqui?</p>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Número de ouro</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 8 min</span>
+      </div>
+
+      <p>O número de ouro, representado pela letra grega @\phi@ (phi), é dado por:</p>
+      @@
+      \phi = \frac{1 + \sqrt{5}}{2}
+      @@
+      <p>a) Calcule @\phi^2@ desenvolvendo @\left(\frac{1 + \sqrt{5}}{2}\right)^2@.</p>
+      <p>b) Mostre que @\phi^2 = \phi + 1@. Essa é uma propriedade notável do número de ouro!</p>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta">
+        <span class="topico">Raízes aninhadas</span>
+        <span class="dificuldade dificil">Difícil</span>
+        <span>⏱️ 9 min</span>
+      </div>
+
+      <p>Simplifique as expressões:</p>
+      <p>a) @\sqrt{2 + \sqrt{3}}@ (deixe como está, pois não pode ser simplificada)</p>
+      <p>b) @\sqrt{6 + 2\sqrt{5}}@ (dica: tente escrever como @\sqrt{(a + b)^2}@)</p>
+      <p>c) Calcule @(\sqrt{6 + 2\sqrt{5}})^2@ e verifique se obtém @6 + 2\sqrt{5}@.</p>
+    </li>
+
+  </ol>
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

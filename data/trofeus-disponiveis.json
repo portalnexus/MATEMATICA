@@ -1,0 +1,169 @@
+{
+    "trofeus": [
+        {
+            "id": "iniciante",
+            "nome": "Iniciante",
+            "descricao": "Complete sua primeira missão",
+            "categoria": "progresso",
+            "raridade": "comum",
+            "condicao": {
+                "tipo": "missoes_completadas",
+                "valor": 1
+            }
+        },
+        {
+            "id": "persistente",
+            "nome": "Persistente",
+            "descricao": "Complete 10 missões",
+            "categoria": "progresso",
+            "raridade": "comum",
+            "condicao": {
+                "tipo": "missoes_completadas",
+                "valor": 10
+            }
+        },
+        {
+            "id": "dedicacao",
+            "nome": "Dedicação",
+            "descricao": "Complete todas as missões por 3 semanas seguidas",
+            "categoria": "progresso",
+            "raridade": "raro",
+            "condicao": {
+                "tipo": "missoes_completadas",
+                "valor": 20
+            }
+        },
+        {
+            "id": "bom-aluno",
+            "nome": "Bom Aluno",
+            "descricao": "Atinja média geral acima de 7.0",
+            "categoria": "academico",
+            "raridade": "comum",
+            "condicao": {
+                "tipo": "media_geral",
+                "valor": 7.0
+            }
+        },
+        {
+            "id": "excelencia",
+            "nome": "Excelência",
+            "descricao": "Atinja média geral acima de 9.0",
+            "categoria": "academico",
+            "raridade": "epico",
+            "condicao": {
+                "tipo": "media_geral",
+                "valor": 9.0
+            }
+        },
+        {
+            "id": "genio-matematica",
+            "nome": "Gênio da Matemática",
+            "descricao": "Acerte 95% das questões de lógica",
+            "categoria": "academico",
+            "raridade": "epico",
+            "condicao": {
+                "tipo": "media_geral",
+                "valor": 9.5
+            }
+        },
+        {
+            "id": "subindo-niveis",
+            "nome": "Subindo Níveis",
+            "descricao": "Alcance o nível 5",
+            "categoria": "progresso",
+            "raridade": "comum",
+            "condicao": {
+                "tipo": "nivel",
+                "valor": 5
+            }
+        },
+        {
+            "id": "veterano",
+            "nome": "Veterano",
+            "descricao": "Alcance o nível 10",
+            "categoria": "progresso",
+            "raridade": "raro",
+            "condicao": {
+                "tipo": "nivel",
+                "valor": 10
+            }
+        },
+        {
+            "id": "lendario",
+            "nome": "Lendário",
+            "descricao": "Alcance o nível 20",
+            "categoria": "progresso",
+            "raridade": "lendario",
+            "condicao": {
+                "tipo": "nivel",
+                "valor": 20
+            }
+        },
+        {
+            "id": "colecionador-xp",
+            "nome": "Colecionador de XP",
+            "descricao": "Acumule 5000 XP",
+            "categoria": "progresso",
+            "raridade": "raro",
+            "condicao": {
+                "tipo": "exp_total",
+                "valor": 5000
+            }
+        },
+        {
+            "id": "participacao",
+            "nome": "Participação",
+            "descricao": "Participe ativamente nos debates e discussões em aula",
+            "categoria": "social",
+            "raridade": "comum",
+            "condicao": {
+                "tipo": "manual",
+                "valor": 0
+            }
+        },
+        {
+            "id": "lideranca",
+            "nome": "Liderança",
+            "descricao": "Coordene com sucesso 3 projetos em grupo",
+            "categoria": "social",
+            "raridade": "epico",
+            "condicao": {
+                "tipo": "manual",
+                "valor": 0
+            }
+        },
+        {
+            "id": "criatividade",
+            "nome": "Criatividade",
+            "descricao": "Crie o trabalho mais criativo da turma",
+            "categoria": "academico",
+            "raridade": "raro",
+            "condicao": {
+                "tipo": "manual",
+                "valor": 0
+            }
+        },
+        {
+            "id": "leitor-voraz",
+            "nome": "Leitor Voraz",
+            "descricao": "Leia todos os livros recomendados do bimestre",
+            "categoria": "hobby",
+            "raridade": "comum",
+            "condicao": {
+                "tipo": "manual",
+                "valor": 0
+            }
+        },
+        {
+            "id": "expert-quimica",
+            "nome": "Expert em Química",
+            "descricao": "Nota máxima no experimento de laboratório",
+            "categoria": "academico",
+            "raridade": "raro",
+            "condicao": {
+                "tipo": "manual",
+                "valor": 0
+            }
+        }
+    ]
+}

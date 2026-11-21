@@ -1,0 +1,71 @@
+{
+  "curriculum": [
+    {
+      "title": "Capítulo 1: Eratóstenes comprovou o que hoje os astronautas veem do espaço",
+      "topics": [
+        "Arcos, ângulos e suas medidas: Arcos da circunferência, medidas de ângulo e de arco, transformações entre graus e radianos, comprimento da circunferência.",
+        "Ciclo trigonométrico: Arcos simétricos, seno, cosseno e tangente, razões trigonométricas inversas, equações e inequações trigonométricas, relação fundamental da trigonometria.",
+        "Funções trigonométricas: Função seno, função cosseno, função tangente e suas propriedades."
+      ]
+    },
+    {
+      "title": "Capítulo 2: Ponte Farol Espelho Forno Montanha-Russa",
+      "topics": [
+        "Retomada dos conceitos sobre função polinomial do segundo grau: Lei de formação, análise dos elementos, cálculo das raízes, determinação dos vértices, construção do gráfico, conjunto imagem.",
+        "Máximos e mínimos.",
+        "Fluxogramas para resolução de equação do segundo grau.",
+        "Resolução de função quadrática por soma e produto.",
+        "Fatoração de funções polinomiais."
+      ]
+    },
+    {
+      "title": "Capítulo 3: A beleza está nos olhos de quem vê",
+      "topics": [
+        "Porcentagem: Cálculo de porcentagens, aplicações de taxa percentual, descontos e aumentos sucessivos.",
+        "Razão e proporção: Razão entre dois números, proporção, razões diretamente e inversamente proporcionais, cálculo de regra de três."
+      ]
+    },
+    {
+      "title": "Capítulo 4: Trânsito, alimentação equilibrada, circuitos elétricos... É culpa do(s) sistema(s)!",
+      "topics": [
+        "Sistemas lineares: Conceituação, exemplos de sistemas 2x2 e 3x3.",
+        "Métodos de resolução de sistemas lineares: Substituição, adição, escalonamento, regra de Cramer.",
+        "Classificação dos sistemas lineares: Possível e determinado (SPD), impossível (SI), possível e indeterminado (SPI).",
+        "Matrizes: Conceito, aplicações (criptografia), operações (adição, subtração, multiplicação), tipos (quadrada, coluna, linha, transposta).",
+        "Determinantes."
+      ]
+    },
+    {
+      "title": "Capítulo 5: Arquimedes e Cavalieri: uma dupla de muita capacidade!",
+      "topics": [
+        "Cálculo de volume de prismas (cubos e paralelepípedos): Volume, área total, diagonal, proporcionalidade entre o aumento/redução das medidas e o volume/área total.",
+        "Volume de pirâmides: Cálculo, relação com o volume do prisma.",
+        "Volume de corpos redondos: Cilindro, cone, esfera (cálculo de volume e área).",
+        "Razão de semelhança entre elementos lineares de uma pirâmide.",
+        "Princípio de Cavalieri."
+      ]
+    },
+    {
+      "title": "Capítulo 6: Da esfera para o plano",
+      "topics": [
+        "Cartografia: Estudo e análise do espaço geográfico, elaboração de mapas, engenharia cartográfica e contribuição da Matemática.",
+        "Modelos de representação da superfície terrestre: Geoide, esférico, elipsoidal, raios equatorial e polar, comprimento da linha do equador.",
+        "Escalas cartográficas: Numérica e gráfica, cálculos de distância real.",
+        "Coordenadas geográficas: Latitude e longitude, meridianos e paralelos, linha do equador, Trópico de Câncer, Trópico de Capricórnio.",
+        "Fusos horários: Astronômico (geométrico ou teórico) e político (civil ou de hora legal), meridiano de Greenwich, UTC.",
+        "Projeções cartográficas: Conceito, tipos (azimutal/plana, cilíndrica, cônica), classificação (tangentes, secantes), propriedades (equidistantes, conformes, equivalentes, afiláticas).",
+        "Projeções de Mercator, Peters (Gall-Peters), Miller, Robinson, Eckert III, Mollweide, Goode.",
+        "Indicatriz de Tissot."
+      ]
+    },
+    {
+      "title": "Capítulo 7: Áreas: compondo e decompondo",
+      "topics": [
+        "Cálculo de áreas de figuras planas: Triângulos (base e altura, lados e raio da circunferência inscrita, lei dos senos, lados do triângulo), quadriláteros (quadrado, retângulo, losango, trapézio), regiões circulares (círculo, setor circular, segmento circular, coroa circular).",
+        "Decomposição e composição de figuras para cálculo de áreas.",
+        "Aplicações de cálculo de áreas em contextos diversos (Google Maps, logotipos, etc.).",
+        "Teorema de Pitágoras e semelhança de triângulos na determinação de áreas."
+      ]
+    }
+  ]
+}

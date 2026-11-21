@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="dashboard.html" class="nav-button">DASHBOARD</a></li>
+      <!-- Seletor de turma será adicionado aqui pelo class-selector.js -->
+    </ul>
+  </nav>
+
+<div class="container">
+
+ <header>
+            <h1>Sobre o Nexus: Seu Portal para o Conhecimento</h1>
+        </header>
+
+        <section>
+            <article>
+                <h2>Nossa Missão: Desvendando o Saber com Inovação</h2>
+                <p>No Nexus, acreditamos que o aprendizado deve ser uma jornada empolgante e acessível a todos. Nossa missão é desmistificar conceitos complexos e revelar a beleza e a relevância da Matemática, em seu dia a dia e em diversas áreas do conhecimento. Queremos inspirar a curiosidade, promover o pensamento crítico e nutrir a criatividade na resolução de problemas.</p>
+            </article>      
+            <article>
+                <h2>O Que o Nexus Oferece: Seu Arsenal de Aprendizagem</h2>
+                <ul>
+                    <li><strong>Resumos:</strong> Resumos sobre conceitos fundamentais com rigor matemático e notação adequada.</li>
+                    <li><strong>Listas de problemas:</strong> Uma vasta gama de problemas para introdução, prática, aperfeiçoamento e aprofundamento da Matemática (32+ problemas por lista).</li>
+                    <li><strong>Atividades de recuperação:</strong> Problemas pensados e selecionados para recuperação das aprendizagens com scaffolding pedagógico progressivo.</li>
+                    <li><strong>Guias de estudos:</strong> Roteiros completos de aprendizagem, mapas conceituais e estratégias de estudo para cada capítulo.</li>
+                    <li><strong>Recursos Complementares:</strong> Plataformas online, artigos, jogos educativos, vídeos e flashcards.</li>
+                    <li><strong>Missões:</strong> Metas e desafios para você desenvolver sua aprendizagem na Matemática e conquistar troféus e menções para seu dashboard.</li>
+                </ul>
+            </article>
+            <article>
+                <h2>Organização do material didático por capítulos e tópicos:</h2>
+                <div id="curriculum-container">
+                    <!-- O conteúdo do currículo será carregado aqui pelo JavaScript -->
+                </div>
+            </article>
+            <article>
+                <h2>Para Quem é o Nexus?</h2>
+                <p>Esta plataforma é destinada a:</p>
+                <ul>
+                    <li>Estudantes do 9º ano do ensino fundamental (turmas 9A e 9B).</li>
+                    <li>Estudantes do 1º ano do ensino médio (turmas 1A e 1B).</li>
+                    <li>Estudantes do 2º ano do ensino médio (turma 2EM).</li>
+                    <li>Estudantes do 3º ano do ensino médio (turma 3EM).</li>
+                    <li>Entusiastas da matemática e curiosos de todas as idades.</li>
+                    <li>Qualquer pessoa que deseje aprimorar seus conhecimentos.</li>
+                </ul>
+                <p><strong>Use o seletor de turma na navegação acima para visualizar o conteúdo específico de sua turma!</strong></p>
+            </article>
+             <article>
+                <h2>Nosso Compromisso e o Futuro do Nexus</h2>
+                <p>O Nexus é um projeto em contínuo desenvolvimento e de código aberto, e estamos sempre buscando expandir e aprimorar nossa oferta. Nossos planos futuros incluem:</p>
+                <ul>
+                    <li>Expansão para mais tópicos.</li>
+                    <li>Adição de mais conteúdo interativo e multimídia.</li>
+                    <li>Desenvolvimento de uma comunidade de usuários com fóruns ou áreas de discussão.</li>
+                </ul>
+                <p>Se você tiver sugestões, encontrar algum erro, ou desejar contribuir com conteúdo, por favor entre em contato com o Professor João Pedro.</p>
+                <ul>
+                  <a href="https://teams.microsoft.com/l/chat/0/0?users=joao.germano305@portalsesisp.org.br">Enviar mensagem para o Professor João Pedro via TEAMS</a>
+                </ul>
+            </article>
+        </section>
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<canvas id="matrixCanvas"></canvas>
+<script src="js/matrix-rain.js" defer></script>
+<script src="js/class-selector.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Equações em modo de exibição (display mode)
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Equações no modo "inline" (texto)
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false // Mantém a página funcionando mesmo se houver um erro em uma fórmula
+    });
+});
+</script>
+
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+    <button data-theme="theme-high-contrast" title="Alto Contraste (WCAG AAA)">⚫ Alto Contraste</button>
+</div>
+<script src="js/theme-switcher.js" defer></script>
+</body>
+</html>
+   <!-- BOTÃO VOLTAR DE FINAL DE PÁGINA
+     <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+    </div>
+
+  -->

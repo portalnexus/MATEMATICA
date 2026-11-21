@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS - Guia de Estudos: Equações do 2º Grau</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* Estilos para o guia de estudos */
+    .guia-header {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 5px solid var(--link-color);
+    }
+
+    .guia-header h1 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+    }
+
+    /* Grid de objetivos/habilidades */
+    .objetivos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .objetivo-item {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: 5px;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .objetivo-item strong {
+      color: var(--link-color);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Caixas de missões */
+    .etapa-estudo {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 6px;
+      border-left: 5px solid var(--link-color);
+    }
+
+    .etapa-estudo h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .etapa-numero {
+      background-color: var(--link-color);
+      color: var(--primary-bg-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    /* Estilos para links dentro das missões */
+    .etapa-estudo a {
+      color: var(--link-color);
+      font-weight: bold;
+    }
+
+    .etapa-estudo a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <!-- ===============================================================
+         CABEÇALHO DO GUIA
+         =============================================================== -->
+    <div class="guia-header">
+      <h1>📚 Guia de Estudos: Equações do 2º Grau</h1>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 1: HABILIDADES ESSENCIAIS
+         =============================================================== -->
+    <h2>1. Habilidades Essenciais</h2>
+    <p>Este guia foca no desenvolvimento das seguintes habilidades do currículo:</p>
+
+    <div class="objetivos-grid">
+        <div class="objetivo-item">
+          <strong>(EF.09.MAT.2.90)</strong>
+          <p>Reconhecer e identificar equações do 2º grau na forma reduzida @ax^2 + bx + c = 0@.</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EF.09.MAT.2.91)</strong>
+          <p>Classificar equações do 2º grau em completas ou incompletas e resolver usando métodos apropriados.</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EF.09.MAT.2.92)</strong>
+          <p>Aplicar a fórmula de Bhaskara para resolver equações do 2º grau completas.</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EF.09.MAT.2.93)</strong>
+          <p>Analisar o discriminante para determinar a natureza e quantidade de raízes reais.</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EF.09.MAT.2.94)</strong>
+          <p>Resolver problemas contextualizados que envolvem equações do 2º grau em situações reais.</p>
+        </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: ROTEIRO DE MISSÕES
+         =============================================================== -->
+    <h2>2. Roteiro de Missões</h2>
+    <p>Avance em seus estudos completando as missões a seguir. Cada missão foca em uma habilidade essencial e define uma meta de problemas a serem resolvidos para ganhar XP.</p>
+
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">1</span> Missão: Identificando a Estrutura</h3>
+      <p><strong>Habilidade:</strong> (EF.09.MAT.2.90) Reconhecer equações do 2º grau e identificar seus coeficientes.</p>
+      <p><strong>Missão:</strong> Aprender a identificar uma equação do 2º grau, reconhecer a forma reduzida @ax^2 + bx + c = 0@, e identificar os coeficientes @a@, @b@ e @c@. Compreender por que @a \neq 0@ é essencial.</p>
+      <p><strong>Meta:</strong> Ler a <strong>seção 1</strong> do <a href="../resumos/9ANO-EQUACOES-2GRAU.html">Resumo Teórico</a> (Conceitos Fundamentais) e resolver os problemas <strong>1, 2 e 11</strong> da seção "Introdutórios" da <a href="../listas/9ANO-EQUACOES-2GRAU.html">Lista de Problemas</a>.</p>
+    </div>
+
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">2</span> Missão: Dominando as Incompletas</h3>
+      <p><strong>Habilidade:</strong> (EF.09.MAT.2.91) Classificar e resolver equações incompletas.</p>
+      <p><strong>Missão:</strong> Diferenciar equações completas de incompletas e aprender os métodos específicos para resolver equações incompletas: quando @b = 0@ (isolar @x^2@ e extrair raiz), quando @c = 0@ (colocar @x@ em evidência), e quando ambos são zero.</p>
+      <p><strong>Meta:</strong> Estudar a <strong>seção 2.1</strong> do resumo (Equações Incompletas) e resolver os problemas <strong>3, 4, 5, 6 e 12</strong> da lista.</p>
+    </div>
+
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">3</span> Missão: O Poder do Discriminante</h3>
+      <p><strong>Habilidade:</strong> (EF.09.MAT.2.93) Calcular e interpretar o discriminante.</p>
+      <p><strong>Missão:</strong> Compreender o conceito de discriminante (@\Delta = b^2 - 4ac@) e sua importância para determinar quantas raízes reais a equação possui. Aprender a analisar se @\Delta > 0@ (duas raízes), @\Delta = 0@ (raiz dupla) ou @\Delta < 0@ (sem raízes reais).</p>
+      <p><strong>Meta:</strong> Estudar a <strong>Definição 2.2 e o Teorema 2.3</strong> do resumo e resolver os problemas <strong>7, 8 e 9</strong> da seção "Fixação" da lista.</p>
+    </div>
+
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">4</span> Missão: A Fórmula Universal</h3>
+      <p><strong>Habilidade:</strong> (EF.09.MAT.2.92) Aplicar a fórmula de Bhaskara.</p>
+      <p><strong>Missão:</strong> Dominar a fórmula de Bhaskara @x = \frac{-b \pm \sqrt{\Delta}}{2a}@ e aprender a aplicá-la passo a passo: identificar coeficientes, calcular o discriminante, aplicar a fórmula e encontrar as raízes.</p>
+      <p><strong>Meta:</strong> Estudar o <strong>Teorema 2.1</strong> do resumo, resolver os <strong>Exemplos 4 e 5</strong>, e praticar com os problemas <strong>9, 10, 1 e 13</strong> (problemas 9 e 10 de "Introdutórios", 1 e 13 de "Fixação").</p>
+    </div>
+
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">5</span> Missão: Matemática no Mundo Real</h3>
+      <p><strong>Habilidade:</strong> (EF.09.MAT.2.94) Resolver problemas contextualizados.</p>
+      <p><strong>Missão:</strong> Aprender a traduzir situações do cotidiano em equações do 2º grau. Identificar quando um problema envolve uma equação quadrática (área de retângulo, números consecutivos, movimento, etc.), montar a equação, resolver e interpretar o resultado no contexto do problema.</p>
+      <p><strong>Meta:</strong> Estudar o <strong>Exemplo 6</strong> do resumo (problema contextualizado) e resolver os problemas <strong>3, 4, 6, 12 e 14</strong> da seção "Fixação" da lista.</p>
+    </div>
+
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">6</span> Missão Final: O Desafio Quadrático</h3>
+      <p><strong>Habilidade:</strong> Aplicar múltiplos conceitos de equações do 2º grau em problemas complexos.</p>
+      <p><strong>Missão:</strong> Integrar todo o conhecimento adquirido para resolver problemas que exigem múltiplas etapas, análise estratégica e combinação de conceitos. Enfrentar situações que envolvem otimização, análise paramétrica e equações especiais.</p>
+      <p><strong>Meta:</strong> Resolver <strong>4 problemas</strong> da seção "Aprofundamento" da <a href="../listas/9ANO-EQUACOES-2GRAU.html">Lista de Problemas</a> (escolha entre os problemas 1 a 6).</p>
+    </div>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

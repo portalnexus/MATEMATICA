@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - Guia de Estudos: [CAPÍTULO]" -->
+  <title>NEXUS - Guia de Estudos: Ângulos e Circunferência</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA GUIAS DE ESTUDOS - NEXUS RETRO-FUTURISTA
+       ========================================================================== */
+
+    /* Cabeçalho do guia */
+    .guia-header {
+      background-color: rgba(0, 0, 0, 0.25);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 5px solid var(--link-color);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .guia-header h1 {
+      margin-top: 0.5rem;
+      color: var(--heading-text-color);
+      font-size: 1.8rem;
+    }
+
+    .guia-meta-panel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+
+    .guia-meta-card {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .guia-meta-card strong {
+      display: block;
+      color: var(--heading-text-color);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.3rem;
+    }
+
+    .guia-meta-card span {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--main-text-color);
+    }
+
+    /* Grid de objetivos/habilidades BNCC */
+    .objetivos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .objetivo-item {
+      background-color: rgba(0, 0, 0, 0.22);
+      padding: 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--link-color);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .objetivo-item:hover {
+      transform: translateY(-2px);
+      border-left-color: var(--link-hover-color);
+    }
+
+    .objetivo-item strong {
+      color: var(--link-color);
+      display: block;
+      margin-bottom: 0.6rem;
+      font-family: 'Fira Sans', sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .objetivo-item p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       MAPA CONCEITUAL HIERÁRQUICO
+       ========================================================================== */
+    .mapa-conceitual {
+      background-color: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--container-border-color);
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+    }
+
+    .mapa-conceito-raiz {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .mapa-raiz-badge {
+      background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+      border: 2px solid var(--link-color);
+      color: var(--heading-text-color);
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.85rem;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+    }
+
+    .mapa-relacao-dual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 1rem 0 2rem 0;
+      font-weight: bold;
+      color: var(--secondary-text-color);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .mapa-grid-dual {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .mapa-coluna {
+      background-color: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .mapa-coluna-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--link-color);
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .mapa-coluna-header h4 {
+      margin: 0;
+      color: var(--heading-text-color);
+      font-size: 1.1rem;
+    }
+
+    .mapa-coluna-tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: var(--link-color);
+      border: 1px solid var(--link-color);
+    }
+
+    .mapa-item-card {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--secondary-text-color);
+    }
+
+    .mapa-item-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .mapa-item-card h5 {
+      margin: 0 0 0.5rem 0;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mapa-item-card .formula-box {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin: 0.5rem 0;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .mapa-item-card p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--main-text-color);
+      opacity: 0.9;
+    }
+
+    .mapa-item-card .ponte-inversa {
+      font-size: 0.78rem;
+      color: var(--heading-text-color);
+      margin-top: 0.5rem;
+      display: block;
+      font-style: italic;
+    }
+
+    /* ==========================================================================
+       ROTEIRO DE ESTUDOS EM ETAPAS (MISSÕES)
+       ========================================================================== */
+    .etapa-estudo {
+      background-color: rgba(0, 0, 0, 0.22);
+      padding: 1.8rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      border-left: 5px solid var(--link-color);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .etapa-estudo h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .etapa-numero {
+      background-color: var(--link-color);
+      color: var(--primary-bg-color);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+    }
+
+    .etapa-xp-badge {
+      margin-left: auto;
+      background-color: rgba(255, 215, 0, 0.15);
+      border: 1px solid #ffd700;
+      color: #ffd700;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-family: 'Press Start 2P', monospace;
+    }
+
+    .etapa-bloco-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0;
+    }
+
+    .etapa-subcard {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1rem;
+      border-radius: 6px;
+      border-top: 2px solid var(--secondary-text-color);
+    }
+
+    .etapa-subcard strong {
+      color: var(--heading-text-color);
+      display: block;
+      font-size: 0.88rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .etapa-subcard p, .etapa-subcard ul {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .etapa-subcard ul {
+      padding-left: 1.2rem;
+    }
+
+    .etapa-subcard li {
+      margin-bottom: 0.4rem;
+    }
+
+    .etapa-estudo a {
+      color: var(--link-color);
+      font-weight: bold;
+    }
+
+    .etapa-estudo a:hover {
+      color: var(--link-hover-color);
+      text-decoration: underline;
+    }
+
+    .etapa-tarefas-box {
+      background-color: rgba(0, 0, 0, 0.35);
+      border: 1px dashed var(--link-color);
+      padding: 1.2rem;
+      border-radius: 6px;
+      margin-top: 1.2rem;
+    }
+
+    .etapa-tarefas-box h4 {
+      margin: 0 0 0.8rem 0;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ==========================================================================
+       ESTRATÉGIAS DE ESTUDO & VISUALIZAÇÃO GEOMÉTRICA
+       ========================================================================== */
+    .estrategia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .estrategia-card {
+      background-color: rgba(0, 0, 0, 0.22);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-left: 4px solid var(--heading-text-color);
+    }
+
+    .estrategia-card h3 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .diagrama-geometrico {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--secondary-text-color);
+      border-radius: 6px;
+      padding: 1.2rem;
+      margin: 1rem 0;
+      font-family: monospace;
+      color: var(--main-text-color);
+      line-height: 1.35;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* ==========================================================================
+       CONEXÕES INTERDISCIPLINARES
+       ========================================================================== */
+    .interdisciplinar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .interdisciplinar-card {
+      background-color: rgba(0, 0, 0, 0.22);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-top: 4px solid var(--link-color);
+    }
+
+    .interdisciplinar-card h3 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .interdisciplinar-card strong {
+      color: var(--link-color);
+    }
+
+    /* ==========================================================================
+       CHECKLIST E GAMIFICAÇÃO (DASHBOARD NEXUS)
+       ========================================================================== */
+    .checklist-container {
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .checklist-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 1rem 0;
+    }
+
+    .checklist-item {
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.7rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      border-left: 3px solid var(--secondary-text-color);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .checklist-item:hover {
+      background-color: rgba(0, 0, 0, 0.35);
+    }
+
+    .checklist-checkbox {
+      margin-top: 0.25rem;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: var(--link-color);
+    }
+
+    .checklist-content {
+      flex: 1;
+    }
+
+    .checklist-content strong {
+      display: block;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .checklist-content p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--main-text-color);
+    }
+
+    .trofeus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .trofeu-card {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(0, 0, 0, 0.3));
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      padding: 1.2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .trofeu-icone {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .trofeu-titulo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.72rem;
+      color: #ffd700;
+      margin-bottom: 0.5rem;
+    }
+
+    .trofeu-desc {
+      font-size: 0.82rem;
+      margin: 0;
+      color: var(--main-text-color);
+      opacity: 0.9;
+    }
+
+    .cronograma-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .cronograma-table th, .cronograma-table td {
+      padding: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: left;
+    }
+
+    .cronograma-table th {
+      background-color: rgba(0, 0, 0, 0.4);
+      color: var(--heading-text-color);
+      font-weight: bold;
+    }
+
+    .cronograma-table tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      .guia-header {
+        padding: 1.2rem;
+      }
+      .etapa-estudo {
+        padding: 1.2rem;
+      }
+      .etapa-numero {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+      .mapa-conceitual {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <!-- ===============================================================
+         CABEÇALHO DO GUIA
+         =============================================================== -->
+    <div class="guia-header">
+      <span class="badge-nivel ano-9">9º Ano</span>
+      <h1>📚 NEXUS - Guia de Estudos: Ângulos e Circunferência</h1>
+      <p style="margin-bottom: 0.5rem; font-size: 1.05rem;">
+        <strong>Capítulo 4:</strong> <em>'Já olhou por esse ângulo?'</em>
+      </p>
+      <p style="margin-bottom: 0; color: var(--secondary-text-color);">
+        Roteiro metacognitivo completo sobre relações angulares em retas paralelas cortadas por transversais, propriedades de arcos, ângulos na circunferência (central, inscrito, excêntricos e segmento) e desafios integradores alinhados à BNCC.
+      </p>
+
+      <div class="guia-meta-panel">
+        <div class="guia-meta-card">
+          <strong>Tempo Sugerido</strong>
+          <span>⏱️ 3 Semanas (~18h)</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>Etapas de Missão</strong>
+          <span>🚀 5 Etapas Práticas</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>EXP Total Disponível</strong>
+          <span>⚡ +300 EXP Nexus</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>Troféus Desbloqueáveis</strong>
+          <span>🏆 3 Insígnias</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 1: OBJETIVOS E COMPETÊNCIAS BNCC
+         =============================================================== -->
+    <h2>1. Objetivos de Aprendizagem e Habilidades BNCC</h2>
+    <p>
+      Este guia desenvolve o raciocínio dedutivo e a percepção espacial geométrica no 9º Ano, conectando o paralelismo linear com as simetrias circulares e a trigonometria fundamental:
+    </p>
+
+    <div class="objetivos-grid">
+      <div class="objetivo-item">
+        <strong>(EF09MAT10)</strong>
+        <p>Demonstrar e aplicar relações entre as medidas de ângulos formados por retas paralelas cortadas por uma transversal (correspondentes, alternos internos/externos e colaterais internos/externos).</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT11)</strong>
+        <p>Resolver problemas geométricos por meio do estabelecimento de relações entre arcos e ângulos na circunferência (ângulos centrais, inscritos, excêntricos interiores, excêntricos exteriores e de segmento).</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT12)</strong>
+        <p>Reconhecer condições necessárias e suficientes de congruência e semelhança angular em triângulos, aplicando propriedades de ângulos opostos pelo vértice, complementares e suplementares.</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT13)</strong>
+        <p>Demonstrar propriedades de quadriláteros inscritíveis e circunscritíveis a uma circunferência, utilizando relações de soma de ângulos internos e arcos capazes.</p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: MAPA CONCEITUAL HIERÁRQUICO
+         =============================================================== -->
+    <h2>2. Mapa Conceitual Hierárquico</h2>
+    <p>
+      A geometria angular do 9º Ano estrutura-se em dois grandes pilares que dialogam continuamente: as <strong>Retas Paralelas com Transversais</strong> (que fixam congruências e suplementaridades lineares) e a <strong>Geometria da Circunferência</strong> (que converte rotações e arcos em medidas angulares dedutíveis):
+    </p>
+
+    <div class="mapa-conceitual">
+      <div class="mapa-conceito-raiz">
+        <span class="mapa-raiz-badge">GEOMETRIA ANGULAR, PARALELISMO E CIRCUNFERÊNCIA</span>
+        <div class="mapa-relacao-dual">
+          <span>[Feixe Linear: Retas & Transversais] ➔</span>
+          <span style="color: var(--link-color); font-size: 1.3rem;">⇌</span>
+          <span>➔ [Curvatura Angular: Arcos & Circunferência]</span>
+        </div>
+      </div>
+
+      <div class="mapa-grid-dual">
+        <!-- COLUNA 1: RETAS PARALELAS E TRANSVERSAIS -->
+        <div class="mapa-coluna">
+          <div class="mapa-coluna-header">
+            <h4>1. Retas Paralelas & Transversais</h4>
+            <span class="mapa-coluna-tag">8 ÂNGULOS FUNDAMENTAIS</span>
+          </div>
+
+          <!-- Ângulos O.P.V. -->
+          <div class="mapa-item-card">
+            <h5>Opostos pelo Vértice (O.P.V.)</h5>
+            <div class="formula-box">@@\alpha = \beta@@</div>
+            <p>Vértice comum, lados são semirretas opostas. São rigorosamente congruentes em qualquer interseção.</p>
+            <span class="ponte-inversa">↳ Propriedade de conservação em cruzamentos retilíneos</span>
+          </div>
+
+          <!-- Correspondentes -->
+          <div class="mapa-item-card">
+            <h5>Ângulos Correspondentes</h5>
+            <div class="formula-box">@@\alpha = \beta \quad (\text{mesma posição relativa})@@</div>
+            <p>Um interno e um externo, do mesmo lado da transversal. Guardam a mesma inclinação angular.</p>
+            <span class="ponte-inversa">↳ Padrão visual em "F": translação direta entre paralelas</span>
+          </div>
+
+          <!-- Alternos Internos e Externos -->
+          <div class="mapa-item-card">
+            <h5>Ângulos Alternos (Internos / Externos)</h5>
+            <div class="formula-box">@@\alpha = \beta \quad (\text{lados opostos da transversal})@@</div>
+            <p>Estão em semiplanos opostos gerados pela transversal e são estritamente congruentes.</p>
+            <span class="ponte-inversa">↳ Padrão visual em "Z": chave mestra para triângulos e polígonos</span>
+          </div>
+
+          <!-- Colaterais Internos e Externos -->
+          <div class="mapa-item-card">
+            <h5>Ângulos Colaterais (Internos / Externos)</h5>
+            <div class="formula-box">@@\alpha + \beta = 180^\circ \quad (\text{suplementares})@@</div>
+            <p>Do mesmo lado da transversal. Somados totalizam meio giro angular (@180^\circ@ ou @\pi \text{ rad}@).</p>
+            <span class="ponte-inversa">↳ Padrão visual em "C": base das propriedades dos trapézios e paralelogramos</span>
+          </div>
+        </div>
+
+        <!-- COLUNA 2: ÂNGULOS NA CIRCUNFERÊNCIA -->
+        <div class="mapa-coluna">
+          <div class="mapa-coluna-header">
+            <h4>2. Geometria da Circunferência</h4>
+            <span class="mapa-coluna-tag">ARCOS & POSIÇÃO DO VÉRTICE</span>
+          </div>
+
+          <!-- Ângulo Central -->
+          <div class="mapa-item-card">
+            <h5>Ângulo Central</h5>
+            <div class="formula-box">@@\alpha = \text{med}(\widehat{AB})@@</div>
+            <p>Vértice fixado exatamente no centro @O@ da circunferência. Medida angular idêntica ao arco subtendido.</p>
+            <span class="ponte-inversa">↳ Padrão de referência para medição de arcos em graus</span>
+          </div>
+
+          <!-- Ângulo Inscrito -->
+          <div class="mapa-item-card">
+            <h5>Ângulo Inscrito</h5>
+            <div class="formula-box">@@\beta = \frac{\text{med}(\widehat{AB})}{2} = \frac{\alpha_{\text{central}}}{2}@@</div>
+            <p>Vértice situado sobre a circunferência com dois lados secantes (cordas). Mede metade do arco correspondente.</p>
+            <span class="ponte-inversa">↳ Corolário: Qualquer ângulo inscrito num semicírculo mede 90°</span>
+          </div>
+
+          <!-- Ângulo de Segmento -->
+          <div class="mapa-item-card">
+            <h5>Ângulo de Segmento (Semi-inscrito)</h5>
+            <div class="formula-box">@@\phi = \frac{\text{med}(\widehat{AB})}{2}@@</div>
+            <p>Vértice no ponto de tangência; um lado tangente e outro secante (corda). Mede metade do arco compreendido.</p>
+            <span class="ponte-inversa">↳ Ponte entre retas tangentes e cordas circulares</span>
+          </div>
+
+          <!-- Excêntrico Interior -->
+          <div class="mapa-item-card">
+            <h5>Ângulo Excêntrico Interior</h5>
+            <div class="formula-box">@@\theta = \frac{\text{med}(\widehat{AB}) + \text{med}(\widehat{CD})}{2}@@</div>
+            <p>Vértice no interior da circunferência (fora do centro), formado pela interseção de duas cordas. É a média aritmética dos arcos opostos.</p>
+            <span class="ponte-inversa">↳ Decorre do teorema do ângulo externo de triângulos</span>
+          </div>
+
+          <!-- Excêntrico Exterior -->
+          <div class="mapa-item-card">
+            <h5>Ângulo Excêntrico Exterior</h5>
+            <div class="formula-box">@@\delta = \frac{\text{med}(\widehat{AB}) - \text{med}(\widehat{CD})}{2}@@</div>
+            <p>Vértice no exterior do círculo, formado por duas secantes ou tangentes. É a semidiferença entre o arco maior e o menor.</p>
+            <span class="ponte-inversa">↳ Utilizado em triangulação de radares e navegação náutica</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: ROTEIRO DE ESTUDOS EM 5 ETAPAS
+         =============================================================== -->
+    <h2>3. Roteiro de Estudos em 5 Etapas (Missões Nexus)</h2>
+    <p>
+      Percorra as etapas na ordem sequencial recomendada. Cada missão concluída destrava competências geométricas essenciais e pontua experiência (EXP) no seu perfil do <strong>Dashboard Nexus</strong>.
+    </p>
+
+    <!-- ETAPA 1 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">1</span>
+        Missão: Paralelas, Transversais e a Harmonia dos Oito Ângulos
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT10) Classificar pares de ângulos e deduzir expressões algébricas por paralelismo.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Identificar instantaneamente os padrões mnemônicos visuais: "Z" (alternos), "F" (correspondentes) e "C" (colaterais).</li>
+            <li>Resolver equações lineares do 1º grau formuladas a partir de igualdades (@\alpha = \beta@) ou somas suplementares (@\alpha + \beta = 180^\circ@).</li>
+            <li>Dominar o Teorema do Ângulo Externo de um triângulo (@\theta_{\text{ext}} = \hat{A} + \hat{B}@).</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Se @r \parallel s@ e @t@ é transversal:</p>
+          <p>@@\text{Alternos internos:} \quad 3x - 10^\circ = x + 40^\circ \implies 2x = 50^\circ \implies x = 25^\circ@@</p>
+          <p>@@\text{Colaterais internos:} \quad (2x + 15^\circ) + (3x - 10^\circ) = 180^\circ \implies 5x = 175^\circ \implies x = 35^\circ@@</p>
+          <p><em>Atenção:</em> Duas retas paralelas cortadas por uma transversal formam apenas DUAS medidas angulares distintas (salvo se forem perpendiculares, caso em que todas medem 90°).</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Estude a <strong>Seção 1 (Retas Paralelas Cortadas por uma Transversal)</strong> do <a href="../../recursos/resumos/9ANO-ANGULOS-CIRCUNFERENCIA.html">Resumo Teórico</a>.</p>
+        <p>2. Desenhe duas retas paralelas horizontais cortadas por uma transversal inclinada no seu caderno; numere os ângulos de 1 a 8 e pinte com duas cores diferentes os ângulos congruentes entre si.</p>
+        <p>3. Resolva os <strong>Problemas 1, 2, 3, 4 e 5</strong> da seção <em>Problemas Introdutórios</em> da <a href="../../recursos/listas/9ANO-LISTA-ANGULOS.html">Lista de Exercícios</a>.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 2 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">2</span>
+        Missão: O Coração da Circunferência: Arcos e Ângulo Central
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT11) Compreender a medida angular de arcos e a definição de ângulo central.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Diferenciar com precisão <em>medida angular de um arco</em> (em graus @^\circ@) de <em>comprimento linear de um arco</em> (em centímetros ou metros).</li>
+            <li>Relacionar a medida do ângulo central com o arco correspondente por definição axiomática.</li>
+            <li>Calcular frações circulares de setores (pizzas, roldanas, engrenagens e ponteiros de relógio).</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Relação do Ângulo Central: @@\alpha = \text{med}(\widehat{AB})@@</p>
+          <p>Comprimento do arco circular de raio @R@ e ângulo central @\alpha@ em graus:</p>
+          <p>@@\ell = \frac{\alpha}{360^\circ} \cdot 2\pi R = \frac{\alpha \pi R}{180^\circ}@@</p>
+          <p><em>Exemplo do relógio:</em> A cada 1 hora, o ponteiro das horas desloca-se @\frac{360^\circ}{12} = 30^\circ@; a cada 1 minuto, @0{,}5^\circ@.</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Revise a <strong>Seção 2 (Ângulos na Circunferência - Ângulo Central)</strong> do <a href="../../recursos/resumos/9ANO-ANGULOS-CIRCUNFERENCIA.html">Resumo Teórico</a>.</p>
+        <p>2. Calcule no caderno o menor ângulo formado pelos ponteiros de um relógio que marca exatamente <strong>3h40min</strong> (Dica: analise o deslocamento do ponteiro pequeno das horas a partir do 3!).</p>
+        <p>3. Resolva os <strong>Problemas 6, 7, 8, 9 e 10</strong> da seção <em>Problemas Introdutórios</em> da <a href="../../recursos/listas/9ANO-LISTA-ANGULOS.html">Lista de Exercícios</a>.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 3 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">3</span>
+        Missão: O Ângulo Inscrito e a Magia do Triângulo Retângulo
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT11) Demonstrar e aplicar a relação do ângulo inscrito e o Teorema de Tales na semicircunferência.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Compreender a demonstração de que o ângulo inscrito é a metade do ângulo central correspondente usando triângulos isósceles.</li>
+            <li>Aplicar o conceito de <em>arco capaz</em>: todos os ângulos inscritos que interceptam o mesmo arco são congruentes.</li>
+            <li>Reconhecer que qualquer triângulo inscrito cujo diâmetro é um dos lados é obrigatoriamente um triângulo retângulo (@\hat{A} = 90^\circ@).</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Fórmula do Ângulo Inscrito: @@\beta = \frac{\text{med}(\widehat{AB})}{2}@@</p>
+          <p>Semicircunferência (@\text{Arco} = 180^\circ@):</p>
+          <p>@@\beta = \frac{180^\circ}{2} = 90^\circ \implies \Delta ABC \text{ é retângulo com hipotenusa no diâmetro}@@</p>
+          <p><em>Exemplo:</em> Se um arco @\widehat{AB}@ mede @76^\circ@, o ângulo central mede @76^\circ@ e qualquer ângulo inscrito @\angle ACB@ que enxergue @AB@ mede @\frac{76^\circ}{2} = 38^\circ@.</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Estude o <strong>Exemplo 1 (Ângulo Inscrito)</strong> e a <em>Observação sobre Semicircunferência</em> no <a href="../../recursos/resumos/9ANO-ANGULOS-CIRCUNFERENCIA.html">Resumo Teórico</a>.</p>
+        <p>2. Faça uma demonstração esquemática no caderno traçando uma corda @AB@ e três pontos distintos @C_1, C_2, C_3@ sobre o arco maior; meça os ângulos @\angle AC_1B, \angle AC_2B, \angle AC_3B@ e comprove que são idênticos.</p>
+        <p>3. Resolva os <strong>Problemas 1, 2, 3, 4 e 5</strong> da seção <em>Problemas de Fixação</em> da <a href="../../recursos/listas/9ANO-LISTA-ANGULOS.html">Lista de Exercícios</a>.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 4 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">4</span>
+        Missão: Cruzamento de Cordas e Secantes: Ângulos Excêntricos e Segmento
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT11) Calcular medidas de ângulos excêntricos interiores, exteriores e ângulos de segmento.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Diferenciar quando o vértice do ângulo está no interior (fora do centro) ou no exterior da circunferência.</li>
+            <li>Memorizar a regra da <strong>semissoma</strong> para excêntrico interior e da <strong>semidiferença</strong> para excêntrico exterior.</li>
+            <li>Dominar o ângulo de segmento (ângulo semi-inscrito formado por uma reta tangente e uma corda).</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Excêntrico Interior (Cruzamento de duas cordas):</p>
+          <p>@@\theta = \frac{\widehat{AB} + \widehat{CD}}{2} \quad (\text{Média aritmética dos dois arcos opostos})@@</p>
+          <p>Excêntrico Exterior (Duas secantes ou tangentes):</p>
+          <p>@@\delta = \frac{\widehat{\text{Maior}} - \widehat{\text{Menor}}}{2}@@</p>
+          <p>Ângulo de segmento: @@\phi = \frac{\widehat{AB}}{2}@@</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Deduza no caderno a fórmula do ângulo excêntrico interior aplicando o teorema do ângulo externo ao triângulo gerado pelas cordas cruzadas.</p>
+        <p>2. Um ponto exterior @P@ traça duas secantes a um círculo que interceptam arcos de @110^\circ@ e @40^\circ@. Calcule o valor do ângulo @\angle P@: @\delta = \frac{110^\circ - 40^\circ}{2} = 35^\circ@.</p>
+        <p>3. Resolva os <strong>Problemas 6, 7, 8, 9 e 10</strong> da seção <em>Problemas de Fixação</em> da <a href="../../recursos/listas/9ANO-LISTA-ANGULOS.html">Lista de Exercícios</a>.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 5 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">5</span>
+        Missão Integradora: Quadriláteros Inscritíveis e Geometria Olímpica
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT11 e EF09MAT13) Aplicar propriedades de polígonos inscritos, arcos capazes e desafios da OBMEP.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Dominar a condição necessária e suficiente para que um quadrilátero convexo seja inscritível: ângulos opostos suplementares.</li>
+            <li>Reconhecer que trapézios isósceles e retângulos são sempre inscritíveis, enquanto paralelogramos não retangulares nunca são.</li>
+            <li>Resolver problemas de geometria sintética de competições de matemática (OBMEP, OBM, Canguru).</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Teorema do Quadrilátero Inscritível:</p>
+          <p>@@\hat{A} + \hat{C} = 180^\circ \quad \text{e} \quad \hat{B} + \hat{D} = 180^\circ@@</p>
+          <p>Demonstração relâmpago: @@\hat{A} = \frac{\widehat{BCD}}{2} \quad \text{e} \quad \hat{C} = \frac{\widehat{BAD}}{2} \implies \hat{A} + \hat{C} = \frac{\widehat{BCD} + \widehat{BAD}}{2} = \frac{360^\circ}{2} = 180^\circ@@</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Prove por que um losango só pode ser inscrito em uma circunferência se ele for, simultaneamente, um quadrado.</p>
+        <p>2. Resolva os <strong>Problemas 1, 2, 3, 4 e 5</strong> da seção <em>Problemas de Aprofundamento</em> da <a href="../../recursos/listas/9ANO-LISTA-ANGULOS.html">Lista de Exercícios</a>.</p>
+        <p>3. Registre seu progresso no <a href="../../dashboard.html">Dashboard Nexus</a> e reivindique seus pontos de EXP acumulados.</p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: ESTRATÉGIAS E TÉCNICAS DE ESTUDO
+         =============================================================== -->
+    <h2>4. Estratégias e Técnicas de Estudo</h2>
+    <p>
+      A geometria plana é uma ciência eminentemente visual e dedutiva. Para não se perder em meio a retas e arcos, utilize as técnicas metacognitivas abaixo:
+    </p>
+
+    <div class="estrategia-grid">
+      <!-- VISUALIZAÇÃO GEOMÉTRICA ASCII -->
+      <div class="estrategia-card">
+        <h3>📐 Visualização Geométrica Mnemônica</h3>
+        <p>
+          Memorize as configurações de retas paralelas através dos alfabetos geométricos:
+        </p>
+        <div class="diagrama-geometrico">
+PADRÃO "Z" (Alternos Internos):
+  r -------+-------
+          /       (Ângulos nos "cantos" do Z são iguais)
+         /        alpha = beta
+  s ----+----------
+
+PADRÃO "F" (Correspondentes):
+  r -------+------- (alpha)
+          /
+  s -----+--------- (beta = alpha, mesma posição)
+        /
+
+PADRÃO "C" (Colaterais Internos):
+  r -------+------- (alpha)
+           |        alpha + beta = 180°
+  s -------+------- (beta)
+        </div>
+        <p style="font-size: 0.88rem; margin: 0;">
+          Para a circunferência: localize primeiro o <strong>vértice</strong>. Se o vértice está no centro, é ângulo central (@\alpha = \text{arco}@). Se está na borda, é ângulo inscrito (@\beta = \text{arco}/2@).
+        </p>
+      </div>
+
+      <!-- ÁRVORE DE DECISÃO -->
+      <div class="estrategia-card">
+        <h3>🌳 Árvore de Decisão: "Onde Está o Vértice?"</h3>
+        <p>Perante qualquer problema angular com circunferências, faça as 4 perguntas sequenciais:</p>
+        <ol style="padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+          <li><strong>O vértice está no CENTRO @O@?</strong>
+            <br>➔ <em>Sim:</em> Ângulo Central! @\alpha = \text{Arco}@.</li>
+          <li><strong>O vértice está SOBRE a circunferência?</strong>
+            <br>➔ Se os dois lados são cordas: <strong>Ângulo Inscrito</strong> (@\beta = \frac{\text{Arco}}{2}@).
+            <br>➔ Se um lado é tangente e outro corda: <strong>Ângulo de Segmento</strong> (@\phi = \frac{\text{Arco}}{2}@).</li>
+          <li><strong>O vértice está DENTRO, mas fora do centro?</strong>
+            <br>➔ Cruzamento de cordas: <strong>Excêntrico Interior</strong> (@\theta = \frac{\text{Arco}_1 + \text{Arco}_2}{2}@).</li>
+          <li><strong>O vértice está FORA da circunferência?</strong>
+            <br>➔ Secantes ou tangentes: <strong>Excêntrico Exterior</strong> (@\delta = \frac{\text{Arco}_{\text{maior}} - \text{Arco}_{\text{menor}}}{2}@).</li>
+        </ol>
+      </div>
+
+      <!-- POMODORO & FLASHCARDS -->
+      <div class="estrategia-card">
+        <h3>⏱️ Pomodoro Prático & Flashcards Ativos</h3>
+        <p><strong>Ciclo Pomodoro Geométrico (25/5):</strong></p>
+        <ul style="padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6;">
+          <li><strong>25 minutos no papel com régua e compasso:</strong> Redesenhe as figuras dos enunciados. Traçar o raio até pontos de tangência cria triângulos retângulos instantâneos!</li>
+          <li><strong>5 minutos de pausa:</strong> Relaxe os olhos e descanse a mente.</li>
+        </ul>
+        <p><strong>Flashcards Ativos (Frente / Verso):</strong></p>
+        <p style="font-size: 0.88rem; margin: 0;">
+          Frente: Imagem de duas cordas se cruzando internamente com arcos marcados.<br>
+          Verso: Fórmula @\theta = \frac{\alpha + \beta}{2}@ e demonstração com ângulo externo.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: CONEXÕES INTERDISCIPLINARES
+         =============================================================== -->
+    <h2>5. Conexões Interdisciplinares</h2>
+    <p>
+      O domínio dos ângulos e da geometria circular foi o motor das grandes descobertas astronômicas da humanidade, da navegação através dos oceanos e dos algoritmos de renderização digital modernos:
+    </p>
+
+    <div class="interdisciplinar-grid">
+      <!-- ASTRONOMIA -->
+      <div class="interdisciplinar-card">
+        <h3>🌌 Astronomia: O Experimento de Eratóstenes</h3>
+        <p>
+          Por volta de 240 a.C., Eratóstenes mediu a circunferência da Terra com espantosa precisão utilizando apenas retas paralelas cortadas por uma transversal:
+        </p>
+        <p>@@\frac{\alpha}{360^\circ} = \frac{d}{C_{\text{Terra}}} \implies \frac{7{,}2^\circ}{360^\circ} = \frac{1}{50} = \frac{800 \text{ km}}{C}@@</p>
+        <p style="font-size: 0.88rem;">
+          Ao meio-dia do solstício de verão, o Sol iluminava o fundo de um poço em Siena (raios solares paralelos verticais). Em Alexandria, a 800 km ao norte, uma estaca projetava uma sombra correspondente a um ângulo de @7{,}2^\circ@ com a vertical. Por serem <strong>ângulos alternos internos</strong>, o ângulo no centro da Terra media exatamente @7{,}2^\circ@, resultando em @C \approx 40.000 \text{ km}@!
+        </p>
+      </div>
+
+      <!-- NAVEGAÇÃO -->
+      <div class="interdisciplinar-card">
+        <h3>🧭 Navegação Náutica, Sextante e Azimute</h3>
+        <p>
+          Antes do advento dos satélites GPS, os navegadores cruzavam os oceanos orientando-se pelas estrelas e pelo Sol por meio do <strong>sextante</strong> e do astrolábio:
+        </p>
+        <p>@@\text{Latitude} = \text{Altura Angular da Estrela Polar (Polaris)}@@</p>
+        <p style="font-size: 0.88rem;">
+          O sextante utiliza espelhos e a reflexão dupla da luz para medir com frações de minuto de arco (@1' = \frac{1^\circ}{60}@) o ângulo entre a linha do horizonte e um corpo celeste. Na cartografia náutica, a navegação ortodrômica calcula trajetórias sobre arcos de círculos máximos na esfera terrestre, encurtando rotas de viagens intercontinentais.
+        </p>
+      </div>
+
+      <!-- COMPUTAÇÃO GRÁFICA -->
+      <div class="interdisciplinar-card">
+        <h3>💻 Óptica & Computação Gráfica (Ray Tracing)</h3>
+        <p>
+          Motores gráficos modernos de videogame (como Unreal Engine e Unity) utilizam o rastreamento de raios de luz (Ray Tracing) para simular iluminação realista em tempo real:
+        </p>
+        <p>@@\theta_{\text{incidência}} = \theta_{\text{reflexão}} \quad \text{e} \quad n_1 \sin \theta_1 = n_2 \sin \theta_2@@</p>
+        <p style="font-size: 0.88rem;">
+          Ao colidir com uma superfície curva (como esferas e lentes circulares), o algoritmo calcula a reta normal (perpendicular à tangente circular no ponto de impacto) e determina os ângulos de reflexão e refração. A rasterização de arcos de circunferência e curvas vetoriais em telas de computador baseia-se em interpolação angular e produtos escalares vetoriais.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: CRONOGRAMA DE ESTUDOS
+         =============================================================== -->
+    <h2>6. Cronograma Sugerido de 3 Semanas</h2>
+    <p>Organize suas sessões de estudo em blocos equilibrados para consolidar a fixação:</p>
+
+    <table class="cronograma-table">
+      <thead>
+        <tr>
+          <th>Período</th>
+          <th>Foco de Estudo</th>
+          <th>Metas & Entregáveis</th>
+          <th>Tempo Estimado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Semana 1 (Dias 1 a 7)</strong></td>
+          <td>Retas Paralelas, Transversais e Ângulo Central (Etapas 1 e 2)</td>
+          <td>Ler Seções 1 e 2 do Resumo; desenhar esquema das 8 regiões; resolver problemas 1 a 10 (Introdutórios).</td>
+          <td>6 horas</td>
+        </tr>
+        <tr>
+          <td><strong>Semana 2 (Dias 8 a 14)</strong></td>
+          <td>Ângulos Inscritos, Arcos Capazes e Excêntricos (Etapas 3 e 4)</td>
+          <td>Demonstrar triângulo na semicircunferência; memorizar semissoma e semidiferença; resolver problemas 1 a 10 (Fixação).</td>
+          <td>6 horas</td>
+        </tr>
+        <tr>
+          <td><strong>Semana 3 (Dias 15 a 21)</strong></td>
+          <td>Quadriláteros Inscritíveis e Desafios de Aprofundamento (Etapa 5)</td>
+          <td>Resolver problemas 1 a 5 (Aprofundamento); completar checklist de autoavaliação; registrar XP no Dashboard.</td>
+          <td>6 horas</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ===============================================================
+         SEÇÃO 7: CHECKLIST DE AUTOAVALIAÇÃO & DASHBOARD NEXUS
+         =============================================================== -->
+    <h2>7. Checklist de Autoavaliação e Metas Nexus</h2>
+    <p>
+      Antes de avançar para novos tópicos, certifique-se de que domina as habilidades nucleares deste capítulo. Marque cada competência conquistada:
+    </p>
+
+    <div class="checklist-container">
+      <h3 style="margin-top: 0; color: var(--heading-text-color);">📋 Checklist de Competências</h3>
+      <ul class="checklist-list">
+        <li class="checklist-item">
+          <input type="checkbox" id="chk1" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk1">
+              <strong>1. Paralelas e Transversais</strong>
+              <p>Reconheço pares de ângulos alternos, correspondentes e colaterais, montando equações para determinar valores desconhecidos.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk2" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk2">
+              <strong>2. Ângulo Central e Medida de Arcos</strong>
+              <p>Compreendo que o ângulo central possui medida em graus idêntica ao seu arco correspondente e calculo frações circulares.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk3" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk3">
+              <strong>3. Ângulo Inscrito e Arco Capaz</strong>
+              <p>Aplico a relação @\beta = \frac{\alpha}{2}@ e identifico imediatamente que triângulos com hipotenusa no diâmetro são retângulos.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk4" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk4">
+              <strong>4. Ângulo de Segmento</strong>
+              <p>Calculo a medida do ângulo formado por uma tangente e uma corda sabendo que equivale à metade do arco interceptado.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk5" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk5">
+              <strong>5. Ângulos Excêntricos (Interiores e Exteriores)</strong>
+              <p>Utilizo com facilidade a semissoma (@\frac{\alpha + \beta}{2}@) para cordas internas e a semidiferença (@\frac{\alpha - \beta}{2}@) para secantes externas.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk6" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk6">
+              <strong>6. Quadriláteros Inscritíveis</strong>
+              <p>Identifico quando um quadrilátero pode ser inscrito em uma circunferência através da suplementaridade dos ângulos opostos (@\hat{A} + \hat{C} = 180^\circ@).</p>
+            </label>
+          </div>
+        </li>
+      </ul>
+
+      <h3 style="margin-top: 2rem; color: var(--heading-text-color);">🏆 Insígnias e Troféus do Dashboard Nexus</h3>
+      <p style="font-size: 0.9rem;">
+        Ao concluir as missões e registrar suas respostas, você desbloqueará as seguintes conquistas no seu perfil do <a href="../../dashboard.html">Dashboard Nexus</a>:
+      </p>
+
+      <div class="trofeus-grid">
+        <div class="trofeu-card">
+          <div class="trofeu-icone">🧭</div>
+          <div class="trofeu-titulo">BÚSSOLA GEOMÉTRICA</div>
+          <p class="trofeu-desc">Conclua as Etapas 1 e 2 dominando retas paralelas, transversais e propriedades de ângulos centrais (+100 EXP).</p>
+        </div>
+
+        <div class="trofeu-card">
+          <div class="trofeu-icone">⭕</div>
+          <div class="trofeu-titulo">MESTRE DOS ARCOS</div>
+          <p class="trofeu-desc">Conclua as Etapas 3 e 4 dominando ângulos inscritos, excêntricos e o triângulo na semicircunferência (+100 EXP).</p>
+        </div>
+
+        <div class="trofeu-card">
+          <div class="trofeu-icone">👑</div>
+          <div class="trofeu-titulo">SOBERANO DA CIRCUNFERÊNCIA</div>
+          <p class="trofeu-desc">Complete todo o guia, domine quadriláteros inscritíveis e resolva os problemas de aprofundamento (+100 EXP).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO DE RECURSOS COMPLEMENTARES -->
+    <h2>8. Materiais e Recursos Vinculados</h2>
+    <div class="objetivos-grid">
+      <div class="objetivo-item">
+        <strong>📄 Resumo Teórico Completo</strong>
+        <p>Definições de paralelismo, classificações de ângulos, teoremas na circunferência e demonstrações passo a passo.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../recursos/resumos/9ANO-ANGULOS-CIRCUNFERENCIA.html">Acessar Resumo</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>📝 Lista de Problemas</strong>
+        <p>Bateria de exercícios com gabarito, dividida em problemas introdutórios, fixação e desafios de olimpíada.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../recursos/listas/9ANO-LISTA-ANGULOS.html">Acessar Lista de Exercícios</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>📊 Dashboard do Aluno</strong>
+        <p>Acompanhe seu avanço em tempo real, registre suas missões cumpridas e confira seu saldo de EXP acumulado.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../dashboard.html">Ir para o Dashboard</a></p>
+      </div>
+    </div>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

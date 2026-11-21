@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - Guia de Estudos: [CAPÍTULO]" -->
+  <title>NEXUS - Guia de Estudos: Teorema de Pitágoras e Trigonometria</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA GUIAS DE ESTUDOS - NEXUS RETRO-FUTURISTA
+       ========================================================================== */
+
+    /* Cabeçalho do guia */
+    .guia-header {
+      background-color: rgba(0, 0, 0, 0.25);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 5px solid var(--link-color);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .guia-header h1 {
+      margin-top: 0.5rem;
+      color: var(--heading-text-color);
+      font-size: 1.8rem;
+    }
+
+    .guia-meta-panel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+
+    .guia-meta-card {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .guia-meta-card strong {
+      display: block;
+      color: var(--heading-text-color);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.3rem;
+    }
+
+    .guia-meta-card span {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--main-text-color);
+    }
+
+    /* Grid de objetivos/habilidades BNCC */
+    .objetivos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .objetivo-item {
+      background-color: rgba(0, 0, 0, 0.22);
+      padding: 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--link-color);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .objetivo-item:hover {
+      transform: translateY(-2px);
+      border-left-color: var(--link-hover-color);
+    }
+
+    .objetivo-item strong {
+      color: var(--link-color);
+      display: block;
+      margin-bottom: 0.6rem;
+      font-family: 'Fira Sans', sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .objetivo-item p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       MAPA CONCEITUAL HIERÁRQUICO
+       ========================================================================== */
+    .mapa-conceitual {
+      background-color: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--container-border-color);
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+    }
+
+    .mapa-conceito-raiz {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .mapa-raiz-badge {
+      background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+      border: 2px solid var(--link-color);
+      color: var(--heading-text-color);
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.82rem;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+      line-height: 1.4;
+    }
+
+    .mapa-relacao-dual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 1rem 0 2rem 0;
+      font-weight: bold;
+      color: var(--secondary-text-color);
+      font-size: 0.95rem;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+
+    .mapa-grid-dual {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .mapa-coluna {
+      background-color: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .mapa-coluna-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--link-color);
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.2rem;
+      gap: 0.5rem;
+    }
+
+    .mapa-coluna-header h4 {
+      margin: 0;
+      color: var(--heading-text-color);
+      font-size: 1.1rem;
+    }
+
+    .mapa-coluna-tag {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: var(--link-color);
+      border: 1px solid var(--link-color);
+      white-space: nowrap;
+    }
+
+    .mapa-item-card {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--secondary-text-color);
+    }
+
+    .mapa-item-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .mapa-item-card h5 {
+      margin: 0 0 0.5rem 0;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mapa-item-card .formula-box {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin: 0.5rem 0;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .mapa-item-card p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--main-text-color);
+      opacity: 0.9;
+    }
+
+    .mapa-item-card .ponte-inversa {
+      font-size: 0.78rem;
+      color: var(--heading-text-color);
+      margin-top: 0.5rem;
+      display: block;
+      font-style: italic;
+    }
+
+    /* ==========================================================================
+       ROTEIRO DE ESTUDOS EM ETAPAS (MISSÕES)
+       ========================================================================== */
+    .etapa-estudo {
+      background-color: rgba(0, 0, 0, 0.22);
+      padding: 1.8rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      border-left: 5px solid var(--link-color);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .etapa-estudo h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .etapa-numero {
+      background-color: var(--link-color);
+      color: var(--primary-bg-color);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+    }
+
+    .etapa-xp-badge {
+      margin-left: auto;
+      background-color: rgba(255, 215, 0, 0.15);
+      border: 1px solid #ffd700;
+      color: #ffd700;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-family: 'Press Start 2P', monospace;
+    }
+
+    .etapa-bloco-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0;
+    }
+
+    .etapa-subcard {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1rem;
+      border-radius: 6px;
+      border-top: 2px solid var(--secondary-text-color);
+    }
+
+    .etapa-subcard strong {
+      color: var(--heading-text-color);
+      display: block;
+      font-size: 0.88rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .etapa-subcard p, .etapa-subcard ul {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .etapa-subcard ul {
+      padding-left: 1.2rem;
+    }
+
+    .etapa-subcard li {
+      margin-bottom: 0.4rem;
+    }
+
+    .etapa-estudo a {
+      color: var(--link-color);
+      font-weight: bold;
+    }
+
+    .etapa-estudo a:hover {
+      color: var(--link-hover-color);
+      text-decoration: underline;
+    }
+
+    .etapa-tarefas-box {
+      background-color: rgba(0, 0, 0, 0.35);
+      border: 1px dashed var(--link-color);
+      padding: 1.2rem;
+      border-radius: 6px;
+      margin-top: 1.2rem;
+    }
+
+    .etapa-tarefas-box h4 {
+      margin: 0 0 0.8rem 0;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ==========================================================================
+       ESTRATÉGIAS DE ESTUDO & VISUALIZAÇÃO GEOMÉTRICA
+       ========================================================================== */
+    .estrategia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .estrategia-card {
+      background-color: rgba(0, 0, 0, 0.22);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-left: 4px solid var(--heading-text-color);
+    }
+
+    .estrategia-card h3 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .diagrama-geometrico {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--secondary-text-color);
+      border-radius: 6px;
+      padding: 1.2rem;
+      margin: 1rem 0;
+      font-family: monospace;
+      color: var(--main-text-color);
+      line-height: 1.35;
+      overflow-x: auto;
+      font-size: 0.85rem;
+    }
+
+    /* Tabela de ângulos notáveis */
+    .tabela-trig {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      text-align: center;
+    }
+
+    .tabela-trig th, .tabela-trig td {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.7rem 0.5rem;
+    }
+
+    .tabela-trig th {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: var(--link-color);
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.72rem;
+    }
+
+    .tabela-trig tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    /* ==========================================================================
+       CONEXÕES INTERDISCIPLINARES
+       ========================================================================== */
+    .interdisciplinar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .interdisciplinar-card {
+      background-color: rgba(0, 0, 0, 0.22);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-top: 4px solid var(--link-color);
+    }
+
+    .interdisciplinar-card h3 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .interdisciplinar-card strong {
+      color: var(--link-color);
+    }
+
+    /* ==========================================================================
+       CHECKLIST E GAMIFICAÇÃO (DASHBOARD NEXUS)
+       ========================================================================== */
+    .checklist-container {
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .checklist-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 1rem 0;
+    }
+
+    .checklist-item {
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.7rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      border-left: 3px solid var(--secondary-text-color);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .checklist-item:hover {
+      background-color: rgba(0, 0, 0, 0.35);
+    }
+
+    .checklist-checkbox {
+      margin-top: 0.25rem;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: var(--link-color);
+    }
+
+    .checklist-content {
+      flex: 1;
+    }
+
+    .checklist-content strong {
+      display: block;
+      color: var(--link-color);
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .checklist-content p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--main-text-color);
+    }
+
+    .trofeus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .trofeu-card {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(0, 0, 0, 0.3));
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      padding: 1.2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .trofeu-icone {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .trofeu-titulo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.72rem;
+      color: #ffd700;
+      margin-bottom: 0.5rem;
+    }
+
+    .trofeu-desc {
+      font-size: 0.82rem;
+      margin: 0;
+      color: var(--main-text-color);
+      opacity: 0.9;
+    }
+
+    .cronograma-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .cronograma-table th, .cronograma-table td {
+      padding: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: left;
+    }
+
+    .cronograma-table th {
+      background-color: rgba(0, 0, 0, 0.4);
+      color: var(--heading-text-color);
+      font-weight: bold;
+    }
+
+    .cronograma-table tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      .guia-header {
+        padding: 1.2rem;
+      }
+      .etapa-estudo {
+        padding: 1.2rem;
+      }
+      .etapa-numero {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+      .mapa-conceitual {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <!-- ===============================================================
+         CABEÇALHO DO GUIA
+         =============================================================== -->
+    <div class="guia-header">
+      <span class="badge-nivel ano-9">9º Ano</span>
+      <h1>📐 NEXUS - Guia de Estudos: Teorema de Pitágoras e Trigonometria</h1>
+      <p style="margin-bottom: 0.5rem; font-size: 1.05rem;">
+        <strong>Capítulo 5:</strong> <em>Qual é a desse ângulo reto nesse triângulo?</em>
+      </p>
+      <p style="margin-bottom: 0; color: var(--secondary-text-color);">
+        Roteiro estruturado de imersão geométrica e algébrica: domine as relações métricas, as demonstrações irrefutáveis de Pitágoras e as razões trigonométricas fundamentais que erguem pontes, edifícios e satélites.
+      </p>
+
+      <div class="guia-meta-panel">
+        <div class="guia-meta-card">
+          <strong>Tempo Sugerido</strong>
+          <span>⏱️ 3 Semanas (~18h)</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>Etapas de Missão</strong>
+          <span>🚀 5 Etapas Práticas</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>EXP Total Disponível</strong>
+          <span>⚡ +300 EXP Nexus</span>
+        </div>
+        <div class="guia-meta-card">
+          <strong>Troféus Desbloqueáveis</strong>
+          <span>🏆 3 Insígnias</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 1: OBJETIVOS E COMPETÊNCIAS BNCC
+         =============================================================== -->
+    <h2>1. Objetivos de Aprendizagem e Habilidades BNCC</h2>
+    <p>
+      O estudo do triângulo retângulo é a espinha dorsal de toda a geometria métrica do Ensino Fundamental e a porta de entrada para a trigonometria do Ensino Médio. Este guia desenvolve com profundidade as competências da BNCC:
+    </p>
+
+    <div class="objetivos-grid">
+      <div class="objetivo-item">
+        <strong>(EF09MAT12)</strong>
+        <p>Reconhecer as condições necessárias e suficientes para que dois triângulos sejam semelhantes, utilizando as razões de proporcionalidade para fundamentar relações métricas no triângulo retângulo.</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT13)</strong>
+        <p>Demonstrar relações métricas do triângulo retângulo, entre elas o célebre Teorema de Pitágoras, utilizando construções geométricas de áreas e semelhança algébrica de triângulos.</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT14)</strong>
+        <p>Resolver e elaborar problemas de aplicação do Teorema de Pitágoras em situações práticas (cálculo de distâncias inacessíveis, diagonais de polígonos, rampas e normas de acessibilidade).</p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>(EF09MAT15)</strong>
+        <p>Compreender e aplicar as razões trigonométricas fundamentais (seno, cosseno e tangente) nos triângulos retângulos, dominando a dedução e o uso exato dos ângulos notáveis de 30°, 45° e 60°.</p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: MAPA CONCEITUAL HIERÁRQUICO
+         =============================================================== -->
+    <h2>2. Mapa Conceitual Hierárquico</h2>
+    <p>
+      O triângulo retângulo opera sob um duplo paradigma geométrico: as <strong>Relações Métricas Lineares</strong> (medidas de comprimentos, projeções e hipotenusa) e as <strong>Razões Trigonométricas Angulares</strong> (relações adimensionais invariantes associadas aos ângulos agudos):
+    </p>
+
+    <div class="mapa-conceitual">
+      <div class="mapa-conceito-raiz">
+        <span class="mapa-raiz-badge">TRIÂNGULO RETÂNGULO: GEOMETRIA MÉTRICA & TRIGONOMETRIA</span>
+        <div class="mapa-relacao-dual">
+          <span>[Projeções & Comprimentos Lineares] ➔</span>
+          <span style="color: var(--link-color); font-size: 1.3rem;">⇌</span>
+          <span>➔ [Ângulos Agudos & Razões Trigonométricas]</span>
+        </div>
+      </div>
+
+      <div class="mapa-grid-dual">
+        <!-- COLUNA 1: RELAÇÕES MÉTRICAS & PITÁGORAS -->
+        <div class="mapa-coluna">
+          <div class="mapa-coluna-header">
+            <h4>1. Relações Métricas & Pitágoras</h4>
+            <span class="mapa-coluna-tag">COMPRIMENTOS LINEARES</span>
+          </div>
+
+          <!-- Teorema de Pitágoras -->
+          <div class="mapa-item-card">
+            <h5>Teorema Fundamental de Pitágoras</h5>
+            <div class="formula-box">@@a^2 = b^2 + c^2@@</div>
+            <p>O quadrado da medida da hipotenusa (@a@) é igual à soma dos quadrados dos catetos (@b@ e @c@).</p>
+            <span class="ponte-inversa">↳ Base métrica universal do espaço euclidiano</span>
+          </div>
+
+          <!-- Projeções Ortogonais e Catetos -->
+          <div class="mapa-item-card">
+            <h5>Catetos e Projeções Ortogonais</h5>
+            <div class="formula-box">@@b^2 = a \cdot m \quad \text{e} \quad c^2 = a \cdot n@@</div>
+            <p>Cada cateto ao quadrado é a média geométrica entre a hipotenusa toda e sua projeção (@a = m + n@).</p>
+            <span class="ponte-inversa">↳ Demonstra Pitágoras: @b^2 + c^2 = a(m + n) = a^2@</span>
+          </div>
+
+          <!-- Altura Relativa à Hipotenusa -->
+          <div class="mapa-item-card">
+            <h5>Altura Relativa à Hipotenusa</h5>
+            <div class="formula-box">@@h^2 = m \cdot n \quad \text{e} \quad a \cdot h = b \cdot c@@</div>
+            <p>A altura ao quadrado é o produto das projeções; e o produto da hipotenusa pela altura iguala o produto dos catetos.</p>
+            <span class="ponte-inversa">↳ Decorre da semelhança dos três triângulos internos</span>
+          </div>
+
+          <!-- Ternas Pitagóricas -->
+          <div class="mapa-item-card">
+            <h5>Ternas Pitagóricas Notáveis</h5>
+            <div class="formula-box">@@(3, 4, 5) \quad (5, 12, 13) \quad (8, 15, 17)@@</div>
+            <p>Trincas de números inteiros que satisfazem @a^2 = b^2 + c^2@ e suas famílias proporcionais @k(3, 4, 5)@.</p>
+            <span class="ponte-inversa">↳ Acelera resoluções em vestibulares e construções civis</span>
+          </div>
+        </div>
+
+        <!-- COLUNA 2: RAZÕES TRIGONOMÉTRICAS & ÂNGULOS NOTÁVEIS -->
+        <div class="mapa-coluna">
+          <div class="mapa-coluna-header">
+            <h4>2. Razões Trigonométricas</h4>
+            <span class="mapa-coluna-tag">PROPORÇÃO ANGULAR</span>
+          </div>
+
+          <!-- Seno, Cosseno e Tangente -->
+          <div class="mapa-item-card">
+            <h5>Razões Fundamentais no Ângulo @\alpha@</h5>
+            <div class="formula-box">@@\text{sen}(\alpha) = \frac{\text{CO}}{\text{H}}, \quad \cos(\alpha) = \frac{\text{CA}}{\text{H}}, \quad \text{tg}(\alpha) = \frac{\text{CO}}{\text{CA}}@@</div>
+            <p>Razões invariantes dependentes unicamente da abertura do ângulo agudo @\alpha@.</p>
+            <span class="ponte-inversa">↳ CO = Cateto Oposto, CA = Cateto Adjacente, H = Hipotenusa</span>
+          </div>
+
+          <!-- Relação Fundamental e Tangente -->
+          <div class="mapa-item-card">
+            <h5>Identidade Fundamental</h5>
+            <div class="formula-box">@@\text{sen}^2(\alpha) + \cos^2(\alpha) = 1 \quad \text{e} \quad \text{tg}(\alpha) = \frac{\text{sen}(\alpha)}{\cos(\alpha)}@@</div>
+            <p>Consequência direta de Pitágoras ao dividir a equação métrica por @a^2@.</p>
+            <span class="ponte-inversa">↳ Conecta as funções e garante consistência trigonométrica</span>
+          </div>
+
+          <!-- Ângulos Complementares -->
+          <div class="mapa-item-card">
+            <h5>Ângulos Complementares (@\alpha + \beta = 90^\circ@)</h5>
+            <div class="formula-box">@@\text{sen}(\alpha) = \cos(\beta) \quad \text{e} \quad \cos(\alpha) = \text{sen}(\beta)@@</div>
+            <p>O cateto oposto a um ângulo agudo é simultaneamente o cateto adjacente ao outro.</p>
+            <span class="ponte-inversa">↳ A palavra co-seno vem de "seno do complemento"</span>
+          </div>
+
+          <!-- Ângulos Notáveis -->
+          <div class="mapa-item-card">
+            <h5>Valores Notáveis (30°, 45°, 60°)</h5>
+            <div class="formula-box">@@\text{sen}(30^\circ) = \frac{1}{2}, \quad \text{sen}(45^\circ) = \frac{\sqrt{2}}{2}, \quad \text{sen}(60^\circ) = \frac{\sqrt{3}}{2}@@</div>
+            <p>Dedução geométrica exata a partir do triângulo equilátero e da diagonal do quadrado.</p>
+            <span class="ponte-inversa">↳ Aplicação direta em topografia, navegação e física</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: ROTEIRO DE ESTUDOS EM 5 ETAPAS
+         =============================================================== -->
+    <h2>3. Roteiro de Estudos em 5 Etapas (Missões Nexus)</h2>
+    <p>
+      Execute as etapas sequencialmente. Cada missão desenvolve uma competência sólida com justificativas matemáticas formais, desafios práticos e ganho de EXP para o seu perfil:
+    </p>
+
+    <!-- ETAPA 1 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">1</span>
+        Missão: A Anatomia do Triângulo Retângulo e as Relações Métricas
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT12 e EF09MAT13) Decompor o triângulo retângulo pela altura relativa e demonstrar as relações métricas via semelhança.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Identificar com precisão os 6 elementos: hipotenusa (@a@), catetos (@b@ e @c@), altura relativa (@h@) e projeções ortogonais (@m@ e @n@).</li>
+            <li>Compreender por que a altura relativa @h@ divide o triângulo original @\Delta ABC@ em dois triângulos menores semelhantes entre si e ao original (@\Delta ABC \sim \Delta HBA \sim \Delta HAC@).</li>
+            <li>Deduzir algebricamente as relações: @b^2 = a \cdot m@, @c^2 = a \cdot n@, @h^2 = m \cdot n@ e @a \cdot h = b \cdot c@.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Soma das projeções: @@a = m + n@@</p>
+          <p>Quadrado da altura é o produto das sombras: @@h^2 = m \cdot n \iff h = \sqrt{m \cdot n}@@</p>
+          <p>Dupla expressão da área (@\text{Área} = \frac{a \cdot h}{2} = \frac{b \cdot c}{2}@): @@a \cdot h = b \cdot c@@</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Desenhe no seu caderno um triângulo retângulo @ABC@ com a altura relativa @h@. Use cores diferentes para a hipotenusa @a@ e para as projeções @m@ e @n@ sobre ela.</p>
+        <p>2. <strong>Problema Prático:</strong> Em um triângulo retângulo, as projeções dos catetos sobre a hipotenusa medem @m = 9\text{ cm}@ e @n = 16\text{ cm}@. Calcule: a hipotenusa @a@, a altura @h@ e as medidas dos catetos @b@ e @c@.</p>
+        <p><em>(Dica: @a = 9 + 16 = 25\text{ cm}@; @h^2 = 9 \cdot 16 = 144 \implies h = 12\text{ cm}@; @b^2 = 25 \cdot 9 \implies b = 15\text{ cm}@; @c^2 = 25 \cdot 16 \implies c = 20\text{ cm}@).</em></p>
+        <p>3. Consulte a seção de triângulos retângulos no <a href="../../recursos/resumos/9ANO-TALES-SEMELHANCA.html">Resumo de Tales e Semelhança</a> para consolidar os casos de semelhança ângulo-ângulo (AA).</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 2 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">2</span>
+        Missão: O Teorema de Pitágoras - Demonstrações e Ternas Sagradas
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT13 e EF09MAT14) Demonstrar formalmente o Teorema de Pitágoras e aplicar ternas pitagóricas para resolver problemas com agilidade.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Dominar a demonstração algébrica rápida somando as relações métricas: @b^2 + c^2 = am + an = a(m + n) = a^2@.</li>
+            <li>Compreender a clássica demonstração geométrica de áreas do quadrado de lado @(b + c)@ com o quebra-cabeça de Bhaskara.</li>
+            <li>Identificar as principais <strong>Ternas Pitagóricas Primitivas</strong>: @(3, 4, 5)@, @(5, 12, 13)@, @(8, 15, 17)@, @(7, 24, 25)@ e aplicar fatores de escala @k@.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Enunciado: @@a^2 = b^2 + c^2 \iff a = \sqrt{b^2 + c^2}@@</p>
+          <p>Múltiplos da terna @(3, 4, 5)@:</p>
+          <p>@k=2 \implies (6, 8, 10)@; @k=3 \implies (9, 12, 15)@; @k=5 \implies (15, 20, 25)@; @k=10 \implies (30, 40, 50)@.</p>
+          <p>Diagonal do quadrado de lado @L@: @@d = \sqrt{L^2 + L^2} = L\sqrt{2}@@</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Reproduza em papel a demonstração visual de Bhaskara: desenhe um quadrado grande de lado @(b + c)@, posicione 4 triângulos retângulos iguais nos cantos e mostre que a área central é exatamente @a^2@.</p>
+        <p>2. <strong>Problema da Escada:</strong> Uma escada de @10\text{ m}@ está apoiada em uma parede vertical. Se o pé da escada está a @6\text{ m}@ da base da parede, a que altura a escada toca a parede? (Reconheça a terna @6-8-10@!).</p>
+        <p>3. <strong>Problema da Diagonal:</strong> Calcule a diagonal de uma tela de smartphone retangular com dimensões @8\text{ cm} \times 15\text{ cm}@. (Reconheça a terna @(8, 15, 17)@!).</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 3 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">3</span>
+        Missão: Razões Trigonométricas Fundamentais (Seno, Cosseno e Tangente)
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT15) Definir seno, cosseno e tangente a partir de cateto oposto, cateto adjacente e hipotenusa, demonstrando a relação fundamental.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Diferenciar com precisão o <strong>Cateto Oposto (CO)</strong> e o <strong>Cateto Adjacente (CA)</strong> em função do ângulo agudo escolhido (@\alpha@ ou @\beta@).</li>
+            <li>Calcular @\text{sen}(\alpha) = \frac{\text{CO}}{\text{H}}@, @\cos(\alpha) = \frac{\text{CA}}{\text{H}}@ e @\text{tg}(\alpha) = \frac{\text{CO}}{\text{CA}}@.</li>
+            <li>Demonstrar a identidade fundamental @\text{sen}^2(\alpha) + \cos^2(\alpha) = 1@ a partir de Pitágoras: @\left(\frac{b}{a}\right)^2 + \left(\frac{c}{a}\right)^2 = \frac{b^2 + c^2}{a^2} = \frac{a^2}{a^2} = 1@.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Definições:</p>
+          <p>@@\text{sen}(\alpha) = \frac{\text{cateto oposto}}{\text{hipotenusa}}, \quad \cos(\alpha) = \frac{\text{cateto adjacente}}{\text{hipotenusa}}, \quad \text{tg}(\alpha) = \frac{\text{cateto oposto}}{\text{cateto adjacente}}@@</p>
+          <p>Propriedade da tangente: @@\text{tg}(\alpha) = \frac{\text{sen}(\alpha)}{\cos(\alpha)}@@</p>
+          <p>Limites para ângulos agudos: @0 < \text{sen}(\alpha) < 1@ e @0 < \cos(\alpha) < 1@.</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Estude o conteúdo introdutório no <a href="../../recursos/resumos/TRIGONOMETRIA.html">Resumo Teórico de Trigonometria</a>.</p>
+        <p>2. Considere um triângulo retângulo com catetos @3\text{ cm}@ e @4\text{ cm}@ e hipotenusa @5\text{ cm}@. Sendo @\alpha@ o ângulo oposto ao cateto @3@ e @\beta@ o ângulo oposto ao cateto @4@, calcule os 6 valores: @\text{sen}(\alpha), \cos(\alpha), \text{tg}(\alpha)@ e @\text{sen}(\beta), \cos(\beta), \text{tg}(\beta)@.</p>
+        <p>3. Verifique numericamente que @\text{sen}(\alpha) = \cos(\beta)@ e que @\text{sen}^2(\alpha) + \cos^2(\alpha) = 1@.</p>
+      </div>
+    </div>
+
+    <!-- ETAPA 4 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">4</span>
+        Missão: O Templo dos Ângulos Notáveis (30°, 45° e 60°)
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT15) Deduzir geometricamente e aplicar os valores exatos de seno, cosseno e tangente para os ângulos de 30°, 45° e 60°.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Deduzir as razões de 30° e 60° traçando a altura de um triângulo equilátero de lado @L@ (onde a base é bissectada em @L/2@ e a altura mede @h = \frac{L\sqrt{3}}{2}@).</li>
+            <li>Deduzir as razões de 45° traçando a diagonal de um quadrado de lado @L@ (onde os catetos medem @L@ e a hipotenusa mede @L\sqrt{2}@).</li>
+            <li>Fixar a tabela dos ângulos notáveis com valores exatos racionalizados (evitando aproximações decimais).</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Tabela dos Ângulos Notáveis</strong>
+          <table class="tabela-trig">
+            <thead>
+              <tr>
+                <th>Razão</th>
+                <th>30°</th>
+                <th>45°</th>
+                <th>60°</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>sen</strong></td>
+                <td>@\frac{1}{2}@</td>
+                <td>@\frac{\sqrt{2}}{2}@</td>
+                <td>@\frac{\sqrt{3}}{2}@</td>
+              </tr>
+              <tr>
+                <td><strong>cos</strong></td>
+                <td>@\frac{\sqrt{3}}{2}@</td>
+                <td>@\frac{\sqrt{2}}{2}@</td>
+                <td>@\frac{1}{2}@</td>
+              </tr>
+              <tr>
+                <td><strong>tg</strong></td>
+                <td>@\frac{\sqrt{3}}{3}@</td>
+                <td>@1@</td>
+                <td>@\sqrt{3}@</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Reproduza a dedução no caderno: desenhe o triângulo equilátero de lado @L@, trace a altura dividindo-o em dois triângulos de 30°-60°-90° e calcule @\text{sen}(30^\circ)@ e @\cos(30^\circ)@ simplificando a variável @L@.</p>
+        <p>2. Faça o mesmo com o quadrado de lado @L@ dividido pela diagonal para justificar por que @\text{tg}(45^\circ) = 1@ e @\text{sen}(45^\circ) = \frac{\sqrt{2}}{2}@.</p>
+        <p>3. <strong>Desafio de Fixação:</strong> Um observador enxerga o topo de uma torre sob um ângulo de elevação de @60^\circ@. Sabendo que ele está a @20\text{ m}@ da base da torre, determine a altura da torre usando @\text{tg}(60^\circ)@.</p>
+        <p><em>(Solução: @\text{tg}(60^\circ) = \frac{h}{20} \implies \sqrt{3} = \frac{h}{20} \implies h = 20\sqrt{3}\text{ m} \approx 34,64\text{ m}@).</em></p>
+      </div>
+    </div>
+
+    <!-- ETAPA 5 -->
+    <div class="etapa-estudo">
+      <h3>
+        <span class="etapa-numero">5</span>
+        Missão Integradora: Topografia, Acessibilidade Urbana e Resolução de Problemas
+        <span class="etapa-xp-badge">+50 EXP</span>
+      </h3>
+      <p><strong>Habilidade Alvo:</strong> (EF09MAT14 e EF09MAT15) Modelar e solucionar problemas reais de medição de alturas inacessíveis, rampas de acessibilidade e estruturas civis.</p>
+
+      <div class="etapa-bloco-grid">
+        <div class="etapa-subcard">
+          <strong>Objetivos da Etapa</strong>
+          <ul>
+            <li>Modelar problemas de <strong>ângulos de elevação e depressão</strong> considerando a altura dos olhos do observador.</li>
+            <li>Resolver problemas clássicos de <strong>duas visadas consecutivas</strong> (quando o observador caminha em direção ao objeto).</li>
+            <li>Conectar inclinação percentual de rampas com a tangente trigonométrica (@i = \text{tg}(\theta) \times 100\%@).</li>
+            <li>Aplicar o Teorema de Pitágoras no espaço tridimensional para calcular a diagonal de blocos retangulares: @D = \sqrt{a^2 + b^2 + c^2}@.</li>
+          </ul>
+        </div>
+
+        <div class="etapa-subcard">
+          <strong>Conceitos-Chave</strong>
+          <p>Visada com altura dos olhos (@h_o@): @@H_{\text{total}} = h_o + d \cdot \text{tg}(\alpha)@@</p>
+          <p>Diagonal espacial do paralelepípedo (Pitágoras duplo):</p>
+          <p>Diagonal da base: @d_b^2 = a^2 + b^2@</p>
+          <p>Diagonal total: @@D^2 = d_b^2 + c^2 = a^2 + b^2 + c^2@@</p>
+        </div>
+      </div>
+
+      <div class="etapa-tarefas-box">
+        <h4>🎯 Tarefas Práticas da Missão</h4>
+        <p>1. Utilize a <a href="../../recursos/ferramentas/calculadora-trigonometria.html">Calculadora de Trigonometria</a> interativa do Nexus para simular diferentes ângulos de inclinação e checar seus cálculos.</p>
+        <p>2. <strong>Desafio das Duas Visadas:</strong> Um engenheiro avista o cume de uma montanha sob ângulo de @30^\circ@. Caminhando @100\text{ m}@ em linha reta em direção à montanha, o ângulo passa a ser @60^\circ@. Calcule a altura da montanha em relação ao solo.</p>
+        <p>3. <strong>Desafio da Caixa 3D:</strong> Calcule o comprimento máximo de uma régua reta que cabe dentro de uma caixa retangular com dimensões @30\text{ cm} \times 40\text{ cm} \times 120\text{ cm}@.</p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: ESTRATÉGIAS E TÉCNICAS DE ESTUDO
+         =============================================================== -->
+    <h2>4. Estratégias e Técnicas de Estudo</h2>
+    <p>
+      Dominar o triângulo retângulo não depende de memorização mecânica, mas sim da <strong>leitura espacial do arranjo de linhas e ângulos</strong>. Utilize os métodos metacognitivos a seguir:
+    </p>
+
+    <div class="estrategia-grid">
+      <!-- VISUALIZAÇÃO GEOMÉTRICA -->
+      <div class="estrategia-card">
+        <h3>📐 Visualização da Altura e Projeções</h3>
+        <p>
+          Veja como a altura relativa divide o triângulo retângulo @ABC@ em dois triângulos menores com as mesmas proporções angulares:
+        </p>
+        <div class="diagrama-geometrico">
+                  A (Ângulo Reto = 90°)
+                 /|\
+                / | \
+     cateto c  /  |  \  cateto b
+              /   |h  \
+             /____|____\
+            B     H     C
+            [--n--|--m--]
+            [-----a-----]  (Hipotenusa a = m + n)
+
+  Relações Principais:
+  1) b² = a · m       (cateto b e projeção m)
+  2) c² = a · n       (cateto c e projeção n)
+  3) h² = m · n       (altura h e projeções)
+  4) a · h = b · c    (hipotenusa · altura = produto dos catetos)
+  5) a² = b² + c²     (Teorema de Pitágoras)
+        </div>
+        <p style="font-size: 0.88rem; margin: 0;">
+          <strong>Dica mnemônica:</strong> Lembre-se de que cada cateto projeta uma "sombra" na hipotenusa. A medida do cateto ao quadrado é sempre o comprimento do piso todo (@a@) multiplicado pela sua sombra (@m@ ou @n@)!
+        </p>
+      </div>
+
+      <!-- MNEMÔNICOS TRIGONOMÉTRICOS -->
+      <div class="estrategia-card">
+        <h3>🧠 Mnemônicos Clássicos: SOH-CAH-TOA</h3>
+        <p>O mnemônico internacional mais poderoso da geometria:</p>
+        <ul style="padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6; margin-bottom: 0.8rem;">
+          <li><strong style="color: var(--link-color);">SOH:</strong> <strong>S</strong>eno = <strong>O</strong>posto / <strong>H</strong>ipotenusa</li>
+          <li><strong style="color: var(--link-color);">CAH:</strong> <strong>C</strong>osseno = <strong>A</strong>djacente / <strong>H</strong>ipotenusa</li>
+          <li><strong style="color: var(--link-color);">TOA:</strong> <strong>T</strong>angente = <strong>O</strong>posto / <strong>A</strong>djacente</li>
+        </ul>
+        <p><strong>A Música dos Ângulos Notáveis (Ritmo 1-2-3):</strong></p>
+        <p style="font-size: 0.85rem; line-height: 1.5; margin: 0; background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 4px;">
+          <em>"1, 2, 3... 3, 2, 1... todos sobre dois! Com a raiz no 3 e no 2! A tangente é diferente, vejam só vocês: raiz de 3 sobre 3, 1, raiz de 3!"</em>
+        </p>
+      </div>
+
+      <!-- POMODORO E FLASHCARDS -->
+      <div class="estrategia-card">
+        <h3>⏱️ Pomodoro de Ternas & Flashcards</h3>
+        <p><strong>Flashcards Ativos (Ternas & Razões):</strong></p>
+        <ul style="padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.6;">
+          <li><strong>Cartão 1:</strong> Frente: "Catetos 9 e 12. Hipotenusa?" ➔ Verso: "15 (Terna 3-4-5 multiplicada por 3)".</li>
+          <li><strong>Cartão 2:</strong> Frente: "Cateto 5, hipotenusa 13. Outro cateto?" ➔ Verso: "12 (Terna 5-12-13)".</li>
+          <li><strong>Cartão 3:</strong> Frente: "@\text{tg}(60^\circ)@ e @\text{tg}(30^\circ)@" ➔ Verso: "@\sqrt{3}@ e @\frac{\sqrt{3}}{3}@".</li>
+          <li><strong>Cartão 4:</strong> Frente: "@\text{sen}^2(27^\circ) + \cos^2(27^\circ)@" ➔ Verso: "1 (Relação Fundamental)".</li>
+        </ul>
+        <p style="font-size: 0.85rem; margin: 0;">
+          <strong>Ciclo de Foco 25/5:</strong> Em 25 minutos resolva 4 problemas sem olhar fórmulas; nos 5 minutos de pausa hidrate-se e descanse a vista.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: CONEXÕES INTERDISCIPLINARES
+         =============================================================== -->
+    <h2>5. Conexões Interdisciplinares</h2>
+    <p>
+      O ângulo reto é o alicerce geométrico da humanidade. Desde as pirâmides do Egito até a engenharia espacial de ponta, o Teorema de Pitágoras e a Trigonometria sustentam a nossa infraestrutura:
+    </p>
+
+    <div class="interdisciplinar-grid">
+      <!-- ARQUITETURA E ACESSIBILIDADE -->
+      <div class="interdisciplinar-card">
+        <h3>♿ Arquitetura & Acessibilidade (NBR 9050)</h3>
+        <p>
+          No projeto de calçadas, edifícios públicos e hospitais, a <strong>Norma Brasileira NBR 9050</strong> determina que a inclinação máxima de uma rampa para cadeira de rodas deve ser de @8,33\%@:
+        </p>
+        <p>@@i = \text{tg}(\theta) \times 100\% = \frac{h}{c} \times 100\% \le 8,33\%@@</p>
+        <p style="font-size: 0.88rem;">
+          Isso significa que para cada @1\text{ m}@ de desnível vertical (@h@), são necessários pelo menos @12\text{ m}@ de comprimento horizontal (@c@). O ângulo de inclinação resultante é de aproximadamente @\theta \approx 4,76^\circ@. Sem trigonometria, cidades tornam-se intransitáveis para pessoas com deficiência.
+        </p>
+      </div>
+
+      <!-- ENGENHARIA CIVIL E ESTRUTURAS -->
+      <div class="interdisciplinar-card">
+        <h3>🏗️ Engenharia Civil & Treliças de Aço</h3>
+        <p>
+          O triângulo é o único polígono indeformável da geometria: ao fixar seus três lados, seus ângulos tornam-se absolutamente rígidos.
+        </p>
+        <p>@@F_{\text{cabo}} = \frac{P}{2 \cdot \text{sen}(\theta)}@@</p>
+        <p style="font-size: 0.88rem;">
+          Por essa propriedade métrica, telhados, gruas de construção, guindastes e pontes metálicas são compostos por <strong>treliças triangulares</strong> (estruturas de Warren e Pratt). Em pontes estaiadas, a tração nos cabos de sustentação é calculada decompondo vetores de força através do seno e cosseno dos ângulos dos estais.
+        </p>
+      </div>
+
+      <!-- TOPOGRAFIA E GPS -->
+      <div class="interdisciplinar-card">
+        <h3>🛰️ Topografia, Teodolitos e Navegação GPS</h3>
+        <p>
+          Como medir a altura do Monte Everest ou a largura do Rio Amazonas sem atravessá-los com uma fita métrica? Através da <strong>triangulação geodésica</strong>:
+        </p>
+        <p>@@h = d \cdot \frac{\text{sen}(\alpha) \cdot \text{sen}(\beta)}{\text{sen}(\beta - \alpha)}@@</p>
+        <p style="font-size: 0.88rem;">
+          Topógrafos utilizam teodolitos eletrônicos e estações totais laser que medem distâncias de base e ângulos de visada verticais e horizontais. Além disso, a constelação de 24 satélites GPS em órbita calcula sua localização na Terra cruzando sinais esféricos por meio do Teorema de Pitágoras em 3 dimensões (@x, y, z@).
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: CRONOGRAMA DE ESTUDOS
+         =============================================================== -->
+    <h2>6. Cronograma Sugerido de 3 Semanas</h2>
+    <p>Organize suas sessões de estudo em blocos equilibrados de teoria e resolução de problemas:</p>
+
+    <table class="cronograma-table">
+      <thead>
+        <tr>
+          <th>Período</th>
+          <th>Foco de Estudo</th>
+          <th>Metas & Entregáveis</th>
+          <th>Tempo Estimado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Semana 1 (Dias 1 a 7)</strong></td>
+          <td>Relações Métricas e Pitágoras (Etapas 1 e 2)</td>
+          <td>Desenhar diagrama das relações métricas; demonstrar algebricamente e pelo quebra-cabeça de Bhaskara; dominar as ternas @(3, 4, 5)@ e @(5, 12, 13)@.</td>
+          <td>6 horas</td>
+        </tr>
+        <tr>
+          <td><strong>Semana 2 (Dias 8 a 14)</strong></td>
+          <td>Razões Trigonométricas e Ângulos Notáveis (Etapas 3 e 4)</td>
+          <td>Dominar SOH-CAH-TOA; deduzir valores de 30°, 45° e 60° no triângulo equilátero e quadrado; preencher a tabela cantada de memória.</td>
+          <td>6 horas</td>
+        </tr>
+        <tr>
+          <td><strong>Semana 3 (Dias 15 a 21)</strong></td>
+          <td>Aplicações Reais, Topografia e Autoavaliação (Etapa 5)</td>
+          <td>Resolver problemas práticos de rampas NBR 9050, torres com teodolitos e diagonais 3D; completar checklist e registrar conquistas no Dashboard.</td>
+          <td>6 horas</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ===============================================================
+         SEÇÃO 7: CHECKLIST DE AUTOAVALIAÇÃO & DASHBOARD NEXUS
+         =============================================================== -->
+    <h2>7. Checklist de Autoavaliação e Metas Nexus</h2>
+    <p>
+      Monitore sua prontidão antes de avançar. Marque cada competência conquistada durante a execução das missões:
+    </p>
+
+    <div class="checklist-container">
+      <h3 style="margin-top: 0; color: var(--heading-text-color);">📋 Checklist de Competências</h3>
+      <ul class="checklist-list">
+        <li class="checklist-item">
+          <input type="checkbox" id="chk1" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk1">
+              <strong>1. Anatomia e Projeções do Triângulo Retângulo</strong>
+              <p>Consigo identificar hipotenusa, catetos, altura relativa e as projeções ortogonais @m@ e @n@, aplicando @h^2 = m \cdot n@ e @b^2 = a \cdot m@.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk2" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk2">
+              <strong>2. Demonstração e Aplicação de Pitágoras</strong>
+              <p>Sei enunciar e demonstrar @a^2 = b^2 + c^2@ algebricamente e geometricamente, calculando diagonais planas e espaciais.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk3" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk3">
+              <strong>3. Agilidade com Ternas Pitagóricas</strong>
+              <p>Reconheço instantaneamente trincas como @(3, 4, 5)@, @(5, 12, 13)@, @(8, 15, 17)@ e seus múltiplos em provas e problemas práticos.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk4" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk4">
+              <strong>4. Razões Trigonométricas Fundamentais</strong>
+              <p>Identifico com segurança o cateto oposto e o cateto adjacente de qualquer ângulo agudo, calculando seno, cosseno e tangente sem hesitação.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk5" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk5">
+              <strong>5. Tabela Exata dos Ângulos Notáveis (30°, 45°, 60°)</strong>
+              <p>Sei deduzir e utilizar os valores exatos de @\text{sen}, \cos, \text{tg}@ para 30°, 45° e 60° sem recorrer a calculadoras eletrônicas.</p>
+            </label>
+          </div>
+        </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="chk6" class="checklist-checkbox">
+          <div class="checklist-content">
+            <label for="chk6">
+              <strong>6. Modelagem em Topografia e Arquitetura</strong>
+              <p>Consigo resolver problemas reais de cálculo de alturas inacessíveis (ângulo de elevação) e dimensionamento de rampas com inclinação percentual.</p>
+            </label>
+          </div>
+        </li>
+      </ul>
+
+      <h3 style="margin-top: 2rem; color: var(--heading-text-color);">🏆 Insígnias e Troféus do Dashboard Nexus</h3>
+      <p style="font-size: 0.9rem;">
+        Ao concluir os estudos deste guia e registrar suas resoluções, você desbloqueará as seguintes conquistas no seu perfil do <a href="../../dashboard.html">Dashboard Nexus</a>:
+      </p>
+
+      <div class="trofeus-grid">
+        <div class="trofeu-card">
+          <div class="trofeu-icone">📐</div>
+          <div class="trofeu-titulo">GUARDIÃO DO ÂNGULO RETO</div>
+          <p class="trofeu-desc">Conclua as Etapas 1 e 2 dominando as relações métricas, projeções ortogonais e as demonstrações de Pitágoras (+100 EXP).</p>
+        </div>
+
+        <div class="trofeu-card">
+          <div class="trofeu-icone">🧭</div>
+          <div class="trofeu-titulo">NAVEGADOR TRIGONOMÉTRICO</div>
+          <p class="trofeu-desc">Conclua as Etapas 3 e 4 dominando as razões trigonométricas fundamentais e a tabela exata de ângulos notáveis (+100 EXP).</p>
+        </div>
+
+        <div class="trofeu-card">
+          <div class="trofeu-icone">🏛️</div>
+          <div class="trofeu-titulo">MESTRE TOPÓGRAFO NEXUS</div>
+          <p class="trofeu-desc">Conclua a Etapa 5 modelando problemas reais de acessibilidade NBR 9050, medição de alturas inacessíveis e estruturas espaciais (+100 EXP).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 8: MATERIAIS E RECURSOS VINCULADOS
+         =============================================================== -->
+    <h2>8. Materiais e Recursos Vinculados</h2>
+    <div class="objetivos-grid">
+      <div class="objetivo-item">
+        <strong>📄 Resumo Teórico: Trigonometria</strong>
+        <p>Definições completas, ciclo trigonométrico, demonstrações de identidades e galeria de exemplos resolvidos passo a passo.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../recursos/resumos/TRIGONOMETRIA.html">Acessar Resumo de Trigonometria</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>📄 Resumo Teórico: Tales e Semelhança</strong>
+        <p>Fundamentos teóricos da semelhança de triângulos que justificam todas as relações métricas do triângulo retângulo.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../recursos/resumos/9ANO-TALES-SEMELHANCA.html">Acessar Tales e Semelhança</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>🧮 Calculadora de Trigonometria</strong>
+        <p>Ferramenta visual interativa do Nexus para testar ângulos, razões e visualizar triângulos retângulos em tempo real.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../recursos/ferramentas/calculadora-trigonometria.html">Abrir Calculadora Interativa</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>📊 Dashboard do Aluno</strong>
+        <p>Acompanhe sua pontuação de EXP acumulada, registre as missões concluídas e confira suas insígnias desbloqueadas.</p>
+        <p style="margin-top: 0.5rem;"><a href="../../dashboard.html">Ir para o Dashboard</a></p>
+      </div>
+    </div>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

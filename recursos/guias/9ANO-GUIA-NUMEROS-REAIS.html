@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - Guia de Estudos: [CAPÍTULO]" -->
+  <title>NEXUS - Guia de Estudos: Números Reais</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA GUIAS DE ESTUDOS BASEADOS EM MISSÕES
+       ========================================================================== */
+
+    /* Cabeçalho do guia */
+    .guia-header {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 5px solid var(--link-color);
+    }
+
+    .guia-header h1 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+    }
+
+    /* Badge de nível */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-left: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .badge-nivel.ano-9 {
+      background-color: #4a90e2;
+      color: white;
+    }
+
+    /* Grid de objetivos/habilidades */
+    .objetivos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .objetivo-item {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: 5px;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .objetivo-item strong {
+      color: var(--link-color);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Caixas de missões */
+    .etapa-estudo {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 6px;
+      border-left: 5px solid var(--link-color);
+    }
+
+    .etapa-estudo h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .etapa-numero {
+      background-color: var(--link-color);
+      color: var(--primary-bg-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    /* Estilos para links dentro das missões */
+    .etapa-estudo a {
+      color: var(--link-color);
+      font-weight: bold;
+    }
+
+    .etapa-estudo a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <!-- ===============================================================
+         CABEÇALHO DO GUIA
+         =============================================================== -->
+    <div class="guia-header">
+      <h1>📚 Guia de Estudos: Números Reais
+        <span class="badge-nivel ano-9">9º Ano</span>
+      </h1>
+      <p style="margin-bottom: 0;">Roteiro completo de aprendizagem metacognitivo para dominar o conjunto dos números reais.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 1: HABILIDADES ESSENCIAIS
+         - Códigos de habilidades do currículo
+         - Descrição de cada habilidade
+         =============================================================== -->
+    <h2>1. Habilidades Essenciais</h2>
+    <p>Este guia foca no desenvolvimento das seguintes habilidades do currículo:</p>
+
+    <div class="objetivos-grid">
+        <div class="objetivo-item">
+          <strong>(EF.09.MAT.1.01)</strong>
+          <p>Classificar números em conjuntos numéricos (naturais, inteiros, racionais, irracionais e reais), reconhecendo as relações de inclusão entre eles.</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EF.09.MAT.1.02)</strong>
+          <p>Operar com radicais aplicando propriedades de radiciação (simplificação, multiplicação, divisão e potenciação de radicais).</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EF.09.MAT.1.03)</strong>
+          <p>Racionalizar denominadores de frações que contêm raízes quadradas, cúbicas ou de índice superior.</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EF.09.MAT.1.04)</strong>
+          <p>Converter dízimas periódicas em frações geradoras usando técnicas algébricas e equações.</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EF.09.MAT.1.05)</strong>
+          <p>Ordenar e comparar números reais na reta numérica, incluindo irracionais representados por radicais ou aproximações decimais.</p>
+        </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: ROTEIRO DE MISSÕES
+         - 6 missões progressivas
+         - Cada missão tem: número, nome, habilidade, descrição e meta
+         - Metas incluem links para recursos e números específicos
+         =============================================================== -->
+    <h2>2. Roteiro de Missões</h2>
+    <p>Avance em seus estudos completando as missões a seguir. Cada missão foca em uma habilidade essencial e define uma meta de problemas a serem resolvidos para ganhar XP.</p>
+
+    <!-- MISSÃO 1 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">1</span> Missão: O Universo dos Conjuntos Numéricos</h3>
+      <p><strong>Habilidade:</strong> (EF.09.MAT.1.01) Classificar números em conjuntos numéricos e reconhecer relações de inclusão.</p>
+      <p><strong>Missão:</strong> Compreender a estrutura hierárquica dos conjuntos numéricos, desde os naturais (@\mathbb{N}@) até os reais (@\mathbb{R}@), identificando as diferenças entre números racionais e irracionais.</p>
+      <p><strong>Meta:</strong> Ler a <strong>seção 1 (Conjuntos Numéricos)</strong> do <a href="../../recursos/resumos/9ANO-NUMEROS-REAIS.html">Resumo Teórico</a> e resolver <strong>5 problemas</strong> da seção "Problemas Introdutórios" da <a href="../../recursos/listas/9ANO-NUMEROS-REAIS.html">Lista de Problemas</a>.</p>
+    </div>
+
+    <!-- MISSÃO 2 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">2</span> Missão: Dominando as Raízes</h3>
+      <p><strong>Habilidade:</strong> (EF.09.MAT.1.02) Operar com radicais aplicando propriedades de radiciação.</p>
+      <p><strong>Missão:</strong> Desenvolver fluência no trabalho com raízes quadradas, cúbicas e de índice superior. Aprender a simplificar radicais, multiplicar e dividir expressões com raízes, e elevar radicais a potências.</p>
+      <p><strong>Meta:</strong> Estudar a <strong>seção 2 (Operações com Radicais)</strong> do <a href="../../recursos/resumos/9ANO-NUMEROS-REAIS.html">Resumo Teórico</a>, analisar os <strong>exemplos resolvidos 1, 2 e 3</strong>, e resolver <strong>5 problemas</strong> da seção "Problemas de Fixação" da <a href="../../recursos/listas/9ANO-NUMEROS-REAIS.html">Lista de Problemas</a>.</p>
+    </div>
+
+    <!-- MISSÃO 3 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">3</span> Missão: A Arte da Racionalização</h3>
+      <p><strong>Habilidade:</strong> (EF.09.MAT.1.03) Racionalizar denominadores de frações com raízes.</p>
+      <p><strong>Missão:</strong> Dominar a técnica de racionalização de denominadores, eliminando raízes do denominador de frações. Compreender quando e por que racionalizar, aplicando o conjugado quando necessário.</p>
+      <p><strong>Meta:</strong> Ler a <strong>seção 3 (Racionalização)</strong> do <a href="../../recursos/resumos/9ANO-NUMEROS-REAIS.html">Resumo Teórico</a>, estudar os <strong>exemplos resolvidos 4 e 5</strong>, e resolver <strong>5 problemas</strong> da seção "Problemas de Fixação" da <a href="../../recursos/listas/9ANO-NUMEROS-REAIS.html">Lista de Problemas</a> focados em racionalização.</p>
+    </div>
+
+    <!-- MISSÃO 4 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">4</span> Missão: Desvendando as Dízimas Periódicas</h3>
+      <p><strong>Habilidade:</strong> (EF.09.MAT.1.04) Converter dízimas periódicas em frações geradoras.</p>
+      <p><strong>Missão:</strong> Aprender a transformar dízimas periódicas simples e compostas em suas frações geradoras usando técnicas algébricas. Compreender por que toda dízima periódica é um número racional.</p>
+      <p><strong>Meta:</strong> Estudar a <strong>seção 4 (Dízimas Periódicas)</strong> do <a href="../../recursos/resumos/9ANO-NUMEROS-REAIS.html">Resumo Teórico</a>, analisar os <strong>exemplos resolvidos 6 e 7</strong>, e resolver <strong>5 problemas</strong> da seção "Problemas de Fixação" da <a href="../../recursos/listas/9ANO-NUMEROS-REAIS.html">Lista de Problemas</a> sobre conversão de dízimas.</p>
+    </div>
+
+    <!-- MISSÃO 5 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">5</span> Missão: Navegando na Reta Numérica</h3>
+      <p><strong>Habilidade:</strong> (EF.09.MAT.1.05) Ordenar e comparar números reais na reta numérica.</p>
+      <p><strong>Missão:</strong> Desenvolver a habilidade de localizar números reais (incluindo irracionais) na reta numérica e compará-los. Compreender que entre dois números reais quaisquer existem infinitos outros números.</p>
+      <p><strong>Meta:</strong> Ler a <strong>seção 5 (Representação na Reta)</strong> do <a href="../../recursos/resumos/9ANO-NUMEROS-REAIS.html">Resumo Teórico</a> e resolver <strong>5 problemas</strong> da seção "Problemas de Fixação" da <a href="../../recursos/listas/9ANO-NUMEROS-REAIS.html">Lista de Problemas</a> que envolvam ordenação e comparação.</p>
+    </div>
+
+    <!-- MISSÃO 6 (FINAL) -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">6</span> Missão Final: Desafio dos Números Reais</h3>
+      <p><strong>Habilidade:</strong> Aplicar múltiplos conceitos sobre números reais em problemas complexos que integram classificação, operações com radicais, racionalização e dízimas.</p>
+      <p><strong>Missão:</strong> Integrar todo o conhecimento adquirido para resolver problemas que exigem raciocínio avançado, combinando diferentes aspectos dos números reais em situações desafiadoras.</p>
+      <p><strong>Meta:</strong> Resolver <strong>5 problemas</strong> da seção "Problemas de Aprofundamento" da <a href="../../recursos/listas/9ANO-NUMEROS-REAIS.html">Lista de Problemas</a>, demonstrando domínio completo sobre o conjunto dos números reais. Como complemento, realizar a <a href="../../recursos/recuperacao/9ANO-NUMEROS-REAIS.html">Atividade de Recuperação</a> para revisar os conceitos mais importantes.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: ESTRATÉGIAS DE ESTUDO
+         =============================================================== -->
+    <h2>3. Estratégias de Estudo</h2>
+    <p>Para maximizar seu aprendizado sobre Números Reais, recomendamos as seguintes estratégias:</p>
+
+    <ul style="line-height: 1.8;">
+      <li><strong>Construa um diagrama visual:</strong> Desenhe os conjuntos numéricos (@\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}@) mostrando as relações de inclusão.</li>
+      <li><strong>Pratique simplificação de radicais diariamente:</strong> Dedique 10 minutos por dia para simplificar raízes até que o processo se torne automático.</li>
+      <li><strong>Crie um caderno de fórmulas:</strong> Anote todas as propriedades de radicais (@\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}@, @\sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}@, etc.) em um caderno para consulta rápida.</li>
+      <li><strong>Use calculadora para verificação:</strong> Após resolver problemas com radicais, use a calculadora para verificar se suas respostas decimais estão corretas.</li>
+      <li><strong>Explique para alguém:</strong> Tente explicar a diferença entre números racionais e irracionais para um colega ou familiar. Ensinar é a melhor forma de aprender.</li>
+      <li><strong>Resolva problemas em ordem crescente de dificuldade:</strong> Comece pelos introdutórios, depois fixação, e por fim aprofundamento. Não pule etapas.</li>
+    </ul>
+
+    <!-- ===============================================================
+         SEÇÃO 4: CRONOGRAMA SUGERIDO
+         =============================================================== -->
+    <h2>4. Cronograma Sugerido</h2>
+    <p>Plano de estudos recomendado de <strong>2 semanas</strong> para concluir todas as missões:</p>
+
+    <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+      <thead>
+        <tr style="background-color: rgba(0,0,0,0.3);">
+          <th style="padding: 0.8rem; border: 1px solid var(--link-color);">Dia</th>
+          <th style="padding: 0.8rem; border: 1px solid var(--link-color);">Missão</th>
+          <th style="padding: 0.8rem; border: 1px solid var(--link-color);">Tempo Estimado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">Dia 1-2</td>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">Missão 1: O Universo dos Conjuntos Numéricos</td>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">1h30min</td>
+        </tr>
+        <tr style="background-color: rgba(0,0,0,0.1);">
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">Dia 3-5</td>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">Missão 2: Dominando as Raízes</td>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">2h</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">Dia 6-8</td>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">Missão 3: A Arte da Racionalização</td>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">2h</td>
+        </tr>
+        <tr style="background-color: rgba(0,0,0,0.1);">
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">Dia 9-10</td>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">Missão 4: Desvendando as Dízimas Periódicas</td>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">1h30min</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">Dia 11-12</td>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">Missão 5: Navegando na Reta Numérica</td>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">1h30min</td>
+        </tr>
+        <tr style="background-color: rgba(0,0,0,0.1);">
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">Dia 13-14</td>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">Missão Final: Desafio dos Números Reais</td>
+          <td style="padding: 0.8rem; border: 1px solid rgba(255,255,255,0.2);">2h</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Dica:</strong> Este cronograma é apenas uma sugestão. Ajuste o ritmo de acordo com sua disponibilidade e nível de dificuldade percebido. O importante é manter a sequência das missões.</p>
+
+    <!-- ===============================================================
+         SEÇÃO 5: RECURSOS COMPLEMENTARES
+         =============================================================== -->
+    <h2>5. Recursos Complementares</h2>
+    <p>Materiais adicionais para aprofundar seu estudo:</p>
+
+    <div class="objetivos-grid">
+      <div class="objetivo-item">
+        <strong>📄 Resumo Teórico</strong>
+        <p>Definições formais, teoremas e exemplos resolvidos completos.</p>
+        <p><a href="../../recursos/resumos/9ANO-NUMEROS-REAIS.html">Acessar Resumo</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>📝 Lista de Problemas</strong>
+        <p>32 problemas organizados por nível de dificuldade (Introdutórios, Fixação, Aprofundamento).</p>
+        <p><a href="../../recursos/listas/9ANO-NUMEROS-REAIS.html">Acessar Lista</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>🔧 Atividade de Recuperação</strong>
+        <p>Exercícios com scaffolding pedagógico para revisão e reforço dos conceitos.</p>
+        <p><a href="../../recursos/recuperacao/9ANO-NUMEROS-REAIS.html">Acessar Recuperação</a></p>
+      </div>
+
+      <div class="objetivo-item">
+        <strong>🎥 Vídeos Sugeridos</strong>
+        <p>Busque por "conjuntos numéricos", "operações com radicais", "racionalização de denominadores" e "dízimas periódicas" em plataformas educacionais.</p>
+      </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: DICAS FINAIS
+         =============================================================== -->
+    <h2>6. Dicas Finais</h2>
+
+    <div class="destaque-box observacao">
+      <strong>💡 Observação Importante:</strong>
+      <p>O estudo dos números reais é fundamental para toda a matemática do Ensino Médio. Conceitos como radicais, racionalização e classificação de números aparecem constantemente em funções, geometria analítica, trigonometria e cálculo. Invista tempo para dominar bem esse conteúdo!</p>
+    </div>
+
+    <div class="nota">
+      <strong>✨ Motivação:</strong>
+      <p>Você sabia que a descoberta dos números irracionais (como @\sqrt{2}@) na Grécia Antiga causou uma crise matemática? Os pitagóricos acreditavam que todos os números podiam ser expressos como frações, mas a prova de que @\sqrt{2}@ não pode ser escrito como fração abalou suas convicções. Hoje, os números irracionais são essenciais para medir grandezas como diagonais, áreas de círculos (@\pi@) e muito mais!</p>
+    </div>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

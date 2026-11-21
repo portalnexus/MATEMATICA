@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Teorema de Pitágoras e Trigonometria no Triângulo Retângulo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .orientacao-inicial { background-color: rgba(33, 150, 243, 0.2); border: 2px solid #2196f3; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .problema-meta { font-size: 0.75rem; color: var(--secondary-text-color); margin-bottom: 0.5rem; font-family: 'Fira Sans', sans-serif; }
+    .problema-meta .nivel-apoio { background-color: rgba(76, 175, 80, 0.3); padding: 2px 6px; border-radius: 3px; margin-right: 8px; font-weight: bold; }
+    .nivel-apoio.alto { background-color: rgba(76, 175, 80, 0.4); color: #4caf50; border: 1px solid #4caf50; }
+    .nivel-apoio.medio { background-color: rgba(255, 193, 7, 0.3); color: #ffb300; border: 1px solid #ffb300; }
+    .nivel-apoio.baixo { background-color: rgba(244, 67, 54, 0.2); color: #ef5350; border: 1px solid #ef5350; }
+    .dica { background-color: rgba(33, 150, 243, 0.15); border-left: 4px solid #2196f3; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 4px; }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo { background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo { margin: 1rem 0; padding-left: 1.5rem; border-left: 2px solid #4caf50; }
+    .lembrete { background-color: rgba(255, 152, 0, 0.15); border-left: 4px solid #ff9800; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 4px; }
+    .lembrete strong { color: #ff9800; }
+    .conceito-basico { background-color: rgba(156, 39, 176, 0.1); border: 2px solid #9c27b0; border-radius: 6px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .section-intro { font-style: italic; color: var(--secondary-text-color); margin-bottom: 1.5rem; padding-left: 1rem; border-left: 3px solid var(--link-color); }
+    .badge-nivel { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .ano-9 { background-color: rgba(76, 175, 80, 0.3); color: #2e7d32; border: 1px solid #4caf50; }
+    .estrelas { color: #ffd700; font-size: 1.2rem; margin-left: 0.5rem; }
+    .figura-geometrica { text-align: center; margin: 1.5rem 0; background: rgba(0, 0, 0, 0.25); padding: 1.2rem; border-radius: 8px; border: 1px dashed var(--container-border-color); }
+    .figura-geometrica svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    .legenda-figura { font-size: 0.85rem; color: var(--secondary-text-color); margin-top: 0.75rem; text-align: center; font-style: italic; }
+    .roteiro-guiado { background-color: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 0.8rem 1.2rem; margin: 0.8rem 0; }
+    .roteiro-guiado p { margin: 0.4rem 0; }
+    .roteiro-passo { color: var(--link-color); font-weight: bold; }
+    .checklist-metacognitivo ul { list-style: none; padding-left: 0; }
+    .checklist-metacognitivo li { margin: 0.8rem 0; padding-left: 1.8rem; position: relative; line-height: 1.5; }
+    .checklist-metacognitivo input[type="checkbox"] { position: absolute; left: 0; top: 3px; cursor: pointer; transform: scale(1.2); }
+    .tabela-trig { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem; }
+    .tabela-trig th, .tabela-trig td { border: 1px solid var(--container-border-color, #444); padding: 8px 12px; text-align: center; }
+    .tabela-trig th { background-color: rgba(156, 39, 176, 0.25); color: #ce93d8; }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+<div class="container">
+<article>
+  <h1>Recuperação: Teorema de Pitágoras e Trigonometria no Triângulo Retângulo</h1>
+  <span class="badge-nivel ano-9">9º Ano</span>
+  <span class="estrelas">★★</span>
+
+  <!-- =========================================================================
+       ORIENTAÇÃO INICIAL (Neuroeducação & Calma Cognitiva)
+       ========================================================================= -->
+  <div class="orientacao-inicial">
+    <h3>📚 Como usar esta atividade de recuperação</h3>
+    <p>O <strong>Teorema de Pitágoras</strong> e a <strong>Trigonometria Fundamental</strong> são duas das ferramentas geométricas mais poderosas já criadas pela humanidade. Elas nos permitem medir distâncias inacessíveis — como a altura de montanhas e torres ou a largura de rios — apenas observando ângulos e sombras.</p>
+    <p>Para destravar seu aprendizado e estudar com foco e calma:</p>
+    <ul>
+      <li><strong>Desenhe sempre no papel:</strong> O cérebro processa relações espaciais com muito mais eficiência ao desenhar. Para cada questão, desenhe um triângulo retângulo e marque o quadradinho com o ponto central representando o ângulo reto (@90^\circ@).</li>
+      <li><strong>Encontre o 'chefe' primeiro (a Hipotenusa):</strong> Localize o ângulo de @90^\circ@ e aponte para o lado exatamente oposto a ele. Esse lado é a hipotenusa — sempre o maior lado do triângulo! Os outros dois lados são os catetos.</li>
+      <li><strong>Na trigonometria, mude o ponto de vista:</strong> O nome do cateto depende do ângulo em estudo. O cateto <em>oposto</em> fica "do outro lado" (de frente para o ângulo). O cateto <em>adjacente</em> fica "junto", ajudando a formar o ângulo com a hipotenusa.</li>
+      <li><strong>Estratégia de Scaffolding:</strong> Você começará por problemas com roteiro guiado passo a passo (Alto Apoio), avançará para problemas com dicas estratégicas (Médio Apoio) e finalizará em exercícios autônomos de consolidação (Baixo Apoio).</li>
+      <li><strong>Respire e evite a pressa:</strong> Nunca tente somar catetos sem elevá-los ao quadrado primeiro. Vá por etapas: calcule potências, some ou subtraia e só então extraia a raiz quadrada.</li>
+    </ul>
+  </div>
+
+  <!-- =========================================================================
+       REVISÃO DE CONCEITOS BÁSICOS (.conceito-basico)
+       ========================================================================= -->
+  <h2>Relembrando: Conceitos Básicos</h2>
+
+  <div class="conceito-basico">
+    <h4>Conceito 1: Anatomia do Triângulo Retângulo</h4>
+    <p>Um <strong>triângulo retângulo</strong> possui obrigatoriamente um ângulo reto medindo exatamente @90^\circ@.</p>
+    <ul>
+      <li><strong>Hipotenusa (@a@):</strong> É o lado oposto ao ângulo reto. É sempre o lado mais longo do triângulo.</li>
+      <li><strong>Catetos (@b@ e @c@):</strong> São os dois lados perpendiculares entre si que formam a quina de @90^\circ@.</li>
+    </ul>
+    <div class="lembrete">
+      <strong>Regra de ouro:</strong> Nunca confunda cateto com hipotenusa! A hipotenusa nunca encosta no ângulo reto; ela é quem "fecha" o triângulo pela diagonal.
+    </div>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 2: O Teorema de Pitágoras</h4>
+    <p>Em todo triângulo retângulo, a área do quadrado construído sobre a hipotenusa é igual à soma das áreas dos quadrados construídos sobre os dois catetos:</p>
+    @@
+    a^2 = b^2 + c^2
+    @@
+    <p>Onde @a@ é a hipotenusa, e @b@ e @c@ são os catetos.</p>
+    <p><strong>Para isolar as incógnitas:</strong></p>
+    <ul>
+      <li>Para achar a hipotenusa: @a = \sqrt{b^2 + c^2}@</li>
+      <li>Para achar um dos catetos: @b^2 = a^2 - c^2 \implies b = \sqrt{a^2 - c^2}@</li>
+    </ul>
+    <div class="lembrete">
+      <strong>Atenção ao erro clássico:</strong> @\sqrt{b^2 + c^2} \neq b + c@! Você deve primeiro somar os números elevados ao quadrado e só depois extrair a raiz do resultado.
+    </div>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 3: Ternos Pitagóricos Fundamentais</h4>
+    <p>Um <strong>terno pitagórico</strong> é formado por três números inteiros positivos @(a, b, c)@ que satisfazem com exatidão @a^2 = b^2 + c^2@.</p>
+    <p>O mais famoso e fundamental de todos é o terno <strong>@(3, 4, 5)@</strong>, pois:</p>
+    @@
+    3^2 + 4^2 = 9 + 16 = 25 = 5^2
+    @@
+    <p><strong>Múltiplos e Proporções:</strong> Qualquer triângulo com lados multiplicados por uma constante @k@ também é retângulo:</p>
+    <ul>
+      <li>Multiplicando por 2: @(6, 8, 10)@</li>
+      <li>Multiplicando por 3: @(9, 12, 15)@</li>
+      <li>Multiplicando por 4: @(12, 16, 20)@</li>
+      <li>Multiplicando por 5: @(15, 20, 25)@</li>
+      <li>Outros ternos primitivos importantes: @(5, 12, 13)@, @(8, 15, 17)@, @(7, 24, 25)@.</li>
+    </ul>
+    <p><em>Reconhecer esses padrões permite resolver exercícios de vestibulares e provas em poucos segundos sem fazer contas longas!</em></p>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 4: Razões Trigonométricas no Triângulo Retângulo</h4>
+    <p>Fixado um ângulo agudo @\alpha@ em um triângulo retângulo, definimos três razões fundamentais entre os comprimentos dos lados:</p>
+    @@
+    \text{sen}(\alpha) = \frac{\text{Cateto Oposto}}{\text{Hipotenusa}} = \frac{\text{CO}}{\text{H}}
+    @@
+    @@
+    \cos(\alpha) = \frac{\text{Cateto Adjacente}}{\text{Hipotenusa}} = \frac{\text{CA}}{\text{H}}
+    @@
+    @@
+    \text{tg}(\alpha) = \frac{\text{Cateto Oposto}}{\text{Cateto Adjacente}} = \frac{\text{CO}}{\text{CA}} = \frac{\text{sen}(\alpha)}{\cos(\alpha)}
+    @@
+    <div class="dica">
+      <strong>Mnemônica SOH-CAH-TOA:</strong>
+      <strong>S</strong>en = <strong>O</strong>posto / <strong>H</strong>ipotenusa |
+      <strong>C</strong>os = <strong>A</strong>djacente / <strong>H</strong>ipotenusa |
+      <strong>T</strong>g = <strong>O</strong>posto / <strong>A</strong>djacente ("Coca!").
+    </div>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 5: Tabela de Ângulos Notáveis (30°, 45° e 60°)</h4>
+    <p>Estes três ângulos surgem diretamente das diagonais do quadrado e das alturas do triângulo equilátero. Seus valores são essenciais:</p>
+    <table class="tabela-trig">
+      <thead>
+        <tr>
+          <th>Razão \ Ângulo</th>
+          <th>@30^\circ@</th>
+          <th>@45^\circ@</th>
+          <th>@60^\circ@</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Seno (@\text{sen}@)</strong></td>
+          <td>@\frac{1}{2}@</td>
+          <td>@\frac{\sqrt{2}}{2}@</td>
+          <td>@\frac{\sqrt{3}}{2}@</td>
+        </tr>
+        <tr>
+          <td><strong>Cosseno (@\cos@)</strong></td>
+          <td>@\frac{\sqrt{3}}{2}@</td>
+          <td>@\frac{\sqrt{2}}{2}@</td>
+          <td>@\frac{1}{2}@</td>
+        </tr>
+        <tr>
+          <td><strong>Tangente (@\text{tg}@)</strong></td>
+          <td>@\frac{\sqrt{3}}{3}@</td>
+          <td>@1@</td>
+          <td>@\sqrt{3}@</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="lembrete">
+      <strong>Como lembrar da musiquinha:</strong> "1, 2, 3 / 3, 2, 1 / tudo sobre 2 / raiz no 3 e no 2! A tangente é diferente: @\frac{\sqrt{3}}{3}@, @1@, @\sqrt{3}@!"
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       EXEMPLOS RESOLVIDOS COM VISUALIZAÇÃO GEOMÉTRICA (.exemplo-passo-a-passo)
+       ========================================================================= -->
+  <h2>Exemplos Resolvidos: Passo a Passo & Visualização Geométrica</h2>
+  <p class="section-intro">
+    Veja a conexão direta entre o desenho geométrico e a álgebra antes de praticar.
+  </p>
+
+  <!-- EXEMPLO 1: PITÁGORAS E ÁREAS -->
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo 1: O Teorema de Pitágoras e a Relação de Áreas</h4>
+    <p><strong>Problema:</strong> Um triângulo retângulo possui catetos de medidas @6\text{ cm}@ e @8\text{ cm}@. Calcule a medida da hipotenusa @a@ e comprove a relação de áreas dos quadrados construídos sobre seus lados.</p>
+
+    <!-- DIAGRAMA SVG RESPONSIVO: PITÁGORAS -->
+    <div class="figura-geometrica">
+      <svg viewBox="0 0 380 320" width="340" height="286" aria-label="Visualização geométrica do Teorema de Pitágoras com quadrados sobre os lados">
+        <!-- Linhas e preenchimentos -->
+        <!-- Triângulo retângulo ABC -->
+        <polygon points="120,220 240,220 120,130" fill="rgba(33, 150, 243, 0.25)" stroke="#2196f3" stroke-width="2.5" />
+        
+        <!-- Símbolo do ângulo reto -->
+        <rect x="120" y="205" width="15" height="15" fill="none" stroke="#ffd700" stroke-width="1.5" />
+        <circle cx="127.5" cy="212.5" r="2" fill="#ffd700" />
+        
+        <!-- Quadrado no cateto vertical (6) -->
+        <rect x="30" y="130" width="90" height="90" fill="rgba(76, 175, 80, 0.3)" stroke="#4caf50" stroke-width="2" />
+        <text x="75" y="180" fill="#E8F5E9" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">b² = 6²</text>
+        <text x="75" y="200" fill="#C8E6C9" font-family="'Fira Sans', sans-serif" font-size="13" text-anchor="middle">= 36</text>
+
+        <!-- Quadrado no cateto horizontal (8) -->
+        <rect x="120" y="220" width="120" height="90" fill="rgba(255, 193, 7, 0.3)" stroke="#ffb300" stroke-width="2" />
+        <text x="180" y="265" fill="#FFF3E0" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">c² = 8²</text>
+        <text x="180" y="285" fill="#FFE082" font-family="'Fira Sans', sans-serif" font-size="13" text-anchor="middle">= 64</text>
+
+        <!-- Quadrado na hipotenusa (inclinado / rotacionado) -->
+        <!-- Vetor hipotenusa: (240-120, 220-130) = (120, 90). Comprimento = 150. Ângulo = 36.87 graus -->
+        <g transform="translate(120, 130) rotate(-36.87)">
+          <rect x="0" y="-150" width="150" height="150" fill="rgba(156, 39, 176, 0.3)" stroke="#ba68c8" stroke-width="2" />
+          <text x="75" y="-85" fill="#F3E5F5" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">a² = 36 + 64</text>
+          <text x="75" y="-65" fill="#E1BEE7" font-family="'Fira Sans', sans-serif" font-size="13" text-anchor="middle">= 100</text>
+        </g>
+
+        <!-- Nomes dos lados -->
+        <text x="110" y="175" fill="#4caf50" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="end">b = 6</text>
+        <text x="180" y="212" fill="#ffb300" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">c = 8</text>
+        <text x="195" y="165" fill="#ba68c8" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="start">a = ?</text>
+      </svg>
+      <div class="legenda-figura">Figura 1: A soma da área verde (@36@) com a área amarela (@64@) preenche perfeitamente a área lilás sobre a hipotenusa (@100@).</div>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 1: Identificar os elementos.</strong></p>
+      <p>Os catetos medem @b = 6\text{ cm}@ e @c = 8\text{ cm}@. A hipotenusa é a incógnita @a@.</p>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2: Escrever a fórmula de Pitágoras e substituir os valores.</strong></p>
+      @@
+      a^2 = b^2 + c^2 \implies a^2 = 6^2 + 8^2
+      @@
+      @@
+      a^2 = 36 + 64 = 100
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 3: Extrair a raiz quadrada (considerando apenas a medida positiva).</strong></p>
+      @@
+      a = \sqrt{100} = 10\text{ cm}
+      @@
+      <p><strong>Observação Ninja:</strong> Note que @(6, 8, 10)@ é exatamente o dobro do terno fundamental @(3, 4, 5)@! @(3 \cdot 2, 4 \cdot 2, 5 \cdot 2)@.</p>
+    </div>
+  </div>
+
+  <!-- EXEMPLO 2: CALCULANDO UM CATETO DESCONHECIDO -->
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo 2: Encontrando um Cateto a partir da Hipotenusa</h4>
+    <p><strong>Problema:</strong> Um triângulo retângulo possui hipotenusa medindo @13\text{ cm}@ e um de seus catetos mede @12\text{ cm}@. Qual é a medida do outro cateto?</p>
+
+    <div class="passo">
+      <p><strong>Passo 1: Organizar os dados.</strong></p>
+      <p>Hipotenusa: @a = 13\text{ cm}@. Cateto conhecido: @c = 12\text{ cm}@. Cateto desconhecido: @b@.</p>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2: Isolar o cateto na fórmula de Pitágoras.</strong></p>
+      @@
+      a^2 = b^2 + c^2 \implies b^2 = a^2 - c^2
+      @@
+      <p>Substituindo os valores:</p>
+      @@
+      b^2 = 13^2 - 12^2 = 169 - 144 = 25
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 3: Extrair a raiz quadrada.</strong></p>
+      @@
+      b = \sqrt{25} = 5\text{ cm}
+      @@
+      <p><strong>Conclusão:</strong> O outro cateto mede exatamente @5\text{ cm}@ (formando o famoso terno primitivo @(5, 12, 13)@).</p>
+    </div>
+  </div>
+
+  <!-- EXEMPLO 3: TRIGONOMETRIA COM ÂNGULO NOTÁVEL -->
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo 3: Trigonometria em Situação Real (Rampa de Acessibilidade)</h4>
+    <p><strong>Problema:</strong> Uma rampa de acessibilidade tem @10\text{ m}@ de comprimento e forma um ângulo de inclinação de @30^\circ@ com o solo horizontal. Calcule a altura vertical @h@ que a rampa permite atingir.</p>
+
+    <!-- DIAGRAMA SVG DA RAMPA -->
+    <div class="figura-geometrica">
+      <svg viewBox="0 0 360 180" width="320" height="160" aria-label="Rampa de acessibilidade com ângulo de 30 graus">
+        <!-- Chão horizontal -->
+        <line x1="30" y1="150" x2="330" y2="150" stroke="#78909c" stroke-width="3" />
+        
+        <!-- Parede vertical da altura h -->
+        <line x1="300" y1="150" x2="300" y2="50" stroke="#ff7043" stroke-width="3" stroke-dasharray="4" />
+        
+        <!-- Rampa (hipotenusa) -->
+        <line x1="50" y1="150" x2="300" y2="50" stroke="#29b6f6" stroke-width="4" />
+        
+        <!-- Símbolo de 90 graus no solo com a parede -->
+        <rect x="285" y="135" width="15" height="15" fill="none" stroke="#ffd700" stroke-width="1.5" />
+        <circle cx="292.5" cy="142.5" r="2" fill="#ffd700" />
+        
+        <!-- Arco do ângulo de 30 graus -->
+        <path d="M 90 150 A 40 40 0 0 0 85 136" fill="none" stroke="#ffd700" stroke-width="2" />
+        <text x="100" y="142" fill="#ffd700" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold">30°</text>
+
+        <!-- Medidas e rótulos -->
+        <text x="160" y="90" fill="#29b6f6" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Rampa = 10 m (Hipotenusa)</text>
+        <text x="315" y="105" fill="#ff7043" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="start">Altura h = ? (CO)</text>
+        <text x="175" y="170" fill="#90a4ae" font-family="'Fira Sans', sans-serif" font-size="12" text-anchor="middle">Solo horizontal</text>
+      </svg>
+      <div class="legenda-figura">Figura 2: Triângulo retângulo formado pelo solo, pela altura da rampa e pelo plano inclinado.</div>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 1: Identificar o ângulo de referência e a relação entre os lados.</strong></p>
+      <ul>
+        <li>Ângulo de referência: @\alpha = 30^\circ@.</li>
+        <li>O lado @h@ está de frente para o ângulo de @30^\circ@ @\implies@ é o <strong>Cateto Oposto (CO)</strong>.</li>
+        <li>O comprimento da rampa (@10\text{ m}@) é o lado oposto ao ângulo reto @\implies@ é a <strong>Hipotenusa (H)</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2: Escolher a razão trigonométrica correta.</strong></p>
+      <p>A razão que relaciona <em>Cateto Oposto</em> e <em>Hipotenusa</em> é o <strong>Seno</strong>:</p>
+      @@
+      \text{sen}(30^\circ) = \frac{\text{Cateto Oposto}}{\text{Hipotenusa}} = \frac{h}{10}
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 3: Consultar a tabela de ângulos notáveis e resolver a equação.</strong></p>
+      <p>Sabemos que @\text{sen}(30^\circ) = \frac{1}{2}@. Logo:</p>
+      @@
+      \frac{1}{2} = \frac{h}{10} \implies 2h = 10 \implies h = \frac{10}{2} = 5\text{ m}
+      @@
+      <p><strong>Resposta:</strong> A rampa atinge uma altura vertical de exatamente @5\text{ metros}@.</p>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PARTE 1: PRIMEIROS PASSOS (Alto Apoio - Problemas 1 a 5)
+       ========================================================================= -->
+  <h2>Parte 1: Primeiros Passos (Alto Apoio)</h2>
+  <p class="section-intro">
+    Problemas estruturados com roteiro passo a passo guiado. Complete cada etapa no seu caderno.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>Um triângulo retângulo possui catetos que medem @9\text{ cm}@ e @12\text{ cm}@. Calcule o comprimento da hipotenusa @x@.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Identifique os catetos e a hipotenusa: @b = 9@, @c = 12@ e hipotenusa @a = x@.</p>
+        <p><strong>Etapa B:</strong> Escreva o Teorema de Pitágoras: @x^2 = 9^2 + 12^2@.</p>
+        <p><strong>Etapa C:</strong> Calcule os quadrados: @9^2 = 9 \times 9 = \dots@ e @12^2 = 12 \times 12 = \dots@</p>
+        <p><strong>Etapa D:</strong> Some os dois valores encontrados.</p>
+        <p><strong>Etapa E:</strong> Extraia a raiz quadrada da soma para achar @x@.</p>
+      </div>
+
+      <div class="dica">
+        <strong>Dica de Múltiplo:</strong> Note que @9 = 3 \times 3@ e @12 = 4 \times 3@. Logo, a hipotenusa deve ser @5 \times 3@!
+      </div>
+      <div class="lembrete">
+        <strong>Lembrete:</strong> Lembre-se de colocar a unidade de medida (@\text{cm}@) na resposta final.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>Em um triângulo retângulo, a hipotenusa mede @10\text{ cm}@ e um dos catetos mede @6\text{ cm}@. Determine a medida do outro cateto @y@.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Quem é a hipotenusa? A hipotenusa é @a = 10@. O cateto conhecido é @b = 6@.</p>
+        <p><strong>Etapa B:</strong> Para encontrar um cateto, devemos <em>subtrair</em>: @y^2 = a^2 - b^2@.</p>
+        <p><strong>Etapa C:</strong> Calcule @10^2 = 100@ e @6^2 = 36@.</p>
+        <p><strong>Etapa D:</strong> Calcule a diferença: @y^2 = 100 - 36 = \dots@</p>
+        <p><strong>Etapa E:</strong> Calcule @y = \sqrt{64}@.</p>
+      </div>
+
+      <div class="dica">
+        <strong>Dica:</strong> Quando procuramos a hipotenusa, somamos os quadrados. Quando procuramos um cateto, subtraímos do quadrado da hipotenusa!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 5 min</div>
+      <p>Considere um triângulo retângulo cujos lados medem @3\text{ cm}@, @4\text{ cm}@ e @5\text{ cm}@. Seja @\alpha@ o ângulo agudo oposto ao lado de @3\text{ cm}@. Determine os valores exatos de @\text{sen}(\alpha)@, @\cos(\alpha)@ e @\text{tg}(\alpha)@.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Identifique a hipotenusa: é o maior lado, portanto @\text{H} = 5@.</p>
+        <p><strong>Etapa B:</strong> Identifique o Cateto Oposto ao ângulo @\alpha@: é o lado que está de frente para ele, logo @\text{CO} = 3@.</p>
+        <p><strong>Etapa C:</strong> Identifique o Cateto Adjacente ao ângulo @\alpha@: é o lado restante, logo @\text{CA} = 4@.</p>
+        <p><strong>Etapa D:</strong> Aplique as fórmulas:</p>
+        <ul>
+          <li>@\text{sen}(\alpha) = \frac{\text{CO}}{\text{H}} = \frac{3}{5} = \dots@</li>
+          <li>@\cos(\alpha) = \frac{\text{CA}}{\text{H}} = \frac{4}{5} = \dots@</li>
+          <li>@\text{tg}(\alpha) = \frac{\text{CO}}{\text{CA}} = \frac{3}{4} = \dots@</li>
+        </ul>
+      </div>
+
+      <div class="dica">
+        <strong>Dica:</strong> Você pode deixar em fração irredutível (@\frac{3}{5}@) ou em decimal (@0{,}6@). Ambas as formas estão corretas!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>Uma escada de @6\text{ m}@ de comprimento está apoiada em uma parede vertical, formando um ângulo de @60^\circ@ com o solo horizontal. Calcule a distância @d@ entre a base da escada e a parede.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Faça o esboço do triângulo retângulo formado pela escada, pelo chão e pela parede.</p>
+        <p><strong>Etapa B:</strong> A escada (@6\text{ m}@) é a <strong>hipotenusa</strong>. A distância @d@ no chão está encostada no ângulo de @60^\circ@, sendo o <strong>cateto adjacente</strong>.</p>
+        <p><strong>Etapa C:</strong> Qual razão relaciona cateto adjacente e hipotenusa? É o <strong>cosseno</strong>: @\cos(60^\circ) = \frac{d}{6}@.</p>
+        <p><strong>Etapa D:</strong> Na tabela de ângulos notáveis, verifique quanto vale @\cos(60^\circ)@ (vale @\frac{1}{2}@ ou @0{,}5@).</p>
+        <p><strong>Etapa E:</strong> Resolva a equação: @\frac{1}{2} = \frac{d}{6} \implies d = \dots@</p>
+      </div>
+
+      <div class="lembrete">
+        <strong>Lembre-se:</strong> Multiplique cruzado: @2 \cdot d = 6 \cdot 1 \implies d = 3\text{ m}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 5 min</div>
+      <p>Calcule o comprimento da diagonal de um quadrado cujo lado mede @5\text{ cm}@ utilizando o Teorema de Pitágoras.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> A diagonal de um quadrado divide-o em dois triângulos retângulos idênticos com catetos iguais a @5\text{ cm}@.</p>
+        <p><strong>Etapa B:</strong> A diagonal @d@ é a hipotenusa. Escreva: @d^2 = 5^2 + 5^2@.</p>
+        <p><strong>Etapa C:</strong> Calcule @5^2 = 25@. Some as duas áreas: @d^2 = 25 + 25 = 50@.</p>
+        <p><strong>Etapa D:</strong> Escreva @d = \sqrt{50}@ e fatore @50 = 25 \times 2@ para simplificar o radical na forma @a\sqrt{b}@.</p>
+      </div>
+
+      <div class="dica">
+        <strong>Fórmula Geral da Diagonal do Quadrado:</strong> Em todo quadrado de lado @L@, a diagonal sempre vale @d = L\sqrt{2}@!
+      </div>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       PARTE 2: DESENVOLVENDO AUTONOMIA (Apoio Médio - Problemas 6 a 10)
+       ========================================================================= -->
+  <h2>Parte 2: Desenvolvendo Autonomia (Apoio Médio)</h2>
+  <p class="section-intro">
+    Agora você já reconhece os padrões. Resolva os problemas com o auxílio das dicas estratégicas.
+  </p>
+
+  <ol start="6">
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Médio apoio</span> ⏱️ 5 min</div>
+      <p>Um poste de iluminação de @8\text{ m}@ de altura é fixado perpendicularmente ao solo plano. Um cabo de aço retilíneo deve ligar o topo do poste a um ponto no solo situado a @15\text{ m}@ de distância da base do poste. Qual deve ser o comprimento total desse cabo de aço?</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> O poste e o chão formam o ângulo de @90^\circ@. O cabo de aço é a hipotenusa de um triângulo com catetos @8@ e @15@. Calcule @8^2 + 15^2@ e verifique se o valor encontrado é um quadrado perfeito!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Médio apoio</span> ⏱️ 5 min</div>
+      <p>Um avião comercial decola de uma pista sob um ângulo constante de @30^\circ@ com a horizontal. Após percorrer @4\,000\text{ m}@ em linha reta na trajetória de subida, qual será a altitude vertical atingida pela aeronave?</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> A distância percorrida no ar (@4\,000\text{ m}@) é a hipotenusa. A altitude que você deseja encontrar é o cateto oposto ao ângulo de @30^\circ@. Utilize a razão @\text{sen}(30^\circ) = \frac{\text{CO}}{\text{H}}@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Médio apoio</span> ⏱️ 6 min</div>
+      <p>Um estudante está posicionado a @30\text{ m}@ de distância da base de um edifício. Olhando para o topo do prédio com um teodolito artesanal, ele mede um ângulo de elevação de @45^\circ@. Sabendo que o teodolito está a @1{,}60\text{ m}@ de altura em relação ao chão, qual é a altura total do edifício?</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> No triângulo retângulo, a distância horizontal (@30\text{ m}@) é o cateto adjacente ao ângulo de @45^\circ@. Use @\text{tg}(45^\circ) = \frac{\text{altura do prédio acima dos olhos}}{\text{distância horizontal}}@. Lembre-se de que @\text{tg}(45^\circ) = 1@ e não se esqueça de somar a altura dos olhos (@1{,}60\text{ m}@) ao final!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Médio apoio</span> ⏱️ 6 min</div>
+      <p>Em um triângulo retângulo, a hipotenusa mede @25\text{ cm}@ e um dos catetos mede @7\text{ cm}@.</p>
+      <p>a) Determine a medida do outro cateto.</p>
+      <p>b) Determine o seno do ângulo oposto ao cateto de menor medida.</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> Para o item (a), use @c^2 = 25^2 - 7^2 = 625 - 49@. Para o item (b), identifique qual é o menor cateto entre os dois e divida pelo comprimento da hipotenusa (@25@).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Médio apoio</span> ⏱️ 6 min</div>
+      <p>Um triângulo equilátero possui todos os seus três lados com medida igual a @6\text{ cm}@. Calcule a medida exata da altura desse triângulo equilátero.</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> A altura de um triângulo equilátero "cai" exatamente no ponto médio da base, dividindo a base de @6\text{ cm}@ em duas metades de @3\text{ cm}@. Fica formado um triângulo retângulo com hipotenusa @6@, um cateto medindo @3@ e o outro cateto sendo a altura @h@. Aplique Pitágoras: @h^2 + 3^2 = 6^2@.
+      </div>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       PARTE 3: RUMO À MAESTRIA (Baixo Apoio - Problemas 11 a 15)
+       ========================================================================= -->
+  <h2>Parte 3: Rumo à Maestria (Baixo Apoio)</h2>
+  <p class="section-intro">
+    Problemas de consolidação sem roteiro prévio. Planeje sua estratégia, faça os desenhos e confira seu raciocínio.
+  </p>
+
+  <ol start="11">
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 7 min</div>
+      <p>Dois barcos partem ao mesmo tempo de um cais @P@. O barco <em>Norte</em> navega em linha reta para o norte a uma velocidade de @12\text{ km/h}@. O barco <em>Leste</em> navega em linha reta para o leste a uma velocidade constante de @16\text{ km/h}@. Após @2\text{ horas}@ completas de navegação contínua, qual será a distância em linha reta entre os dois barcos?</p>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 7 min</div>
+      <p>Um topógrafo precisa determinar a altura de uma torre de transmissão. Posicionado a uma distância horizontal de @60\text{ m}@ da base da torre, ele aponta seu instrumento óptico para o cume da torre e registra um ângulo de elevação de @30^\circ@. Sabendo que o instrumento está apoiado diretamente no solo e adotando @\sqrt{3} \approx 1{,}73@, determine a altura aproximada da torre em metros.</p>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 8 min</div>
+      <p>Um cabo de tirolesa de @50\text{ m}@ de comprimento estende-se do topo de uma plataforma até o solo com uma inclinação de @45^\circ@. Considerando @\sqrt{2} \approx 1{,}41@, calcule:</p>
+      <p>a) A altura da plataforma em relação ao solo.</p>
+      <p>b) A distância horizontal entre a base da plataforma e o ponto de ancoragem no solo.</p>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 8 min</div>
+      <p>Um terreno triangular tem a forma de um triângulo retângulo cujo perímetro total é de @60\text{ metros}@. Sabendo que as medidas dos seus três lados são proporcionais aos números @3@, @4@ e @5@, determine as medidas de cada um dos lados do terreno e calcule a sua área em metros quadrados.</p>
+      <div class="dica">
+        <strong>Pista:</strong> Se os lados são proporcionais a @3, 4, 5@, podemos chamá-los de @3k@, @4k@ e @5k@. Some-os e iguale a @60@ para achar o fator multiplicativo @k@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 15 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 9 min</div>
+      <p>Durante uma tempestade, um poste de madeira vertical se quebrou a uma altura de @5\text{ metros}@ do chão. A parte superior inclinou-se sem se separar da base, e sua ponta tocou o solo a uma distância de @12\text{ metros}@ da base do poste. Qual era a altura original completa do poste antes do vendaval?</p>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       CHECKLIST DE AUTOAVALIAÇÃO METACOGNITIVA
+       ========================================================================= -->
+  <h2>Checklist de Autoavaliação Metacognitiva</h2>
+
+  <div class="conceito-basico checklist-metacognitivo">
+    <h4>Monitore seu Aprendizado e Consciência Geométrica:</h4>
+    <p>Marque os itens que você já domina e consegue explicar com suas próprias palavras:</p>
+    <ul>
+      <li><input type="checkbox" id="check-1"> <label for="check-1">Consigo identificar imediatamente a hipotenusa como o lado oposto ao ângulo reto de @90^\circ@.</label></li>
+      <li><input type="checkbox" id="check-2"> <label for="check-2">Sei quando somar (@a^2 = b^2 + c^2@ para achar a hipotenusa) e quando subtrair (@b^2 = a^2 - c^2@ para achar um cateto).</label></li>
+      <li><input type="checkbox" id="check-3"> <label for="check-3">Reconheço o terno pitagórico fundamental @(3, 4, 5)@ e seus múltiplos como @(6, 8, 10)@ e @(9, 12, 15)@.</label></li>
+      <li><input type="checkbox" id="check-4"> <label for="check-4">Sei a diferença entre Cateto Oposto (de frente) e Cateto Adjacente (ao lado) a partir do ângulo de referência.</label></li>
+      <li><input type="checkbox" id="check-5"> <label for="check-5">Lembro das fórmulas do seno (@\frac{\text{CO}}{\text{H}}@), cosseno (@\frac{\text{CA}}{\text{H}}@) e tangente (@\frac{\text{CO}}{\text{CA}}@).</label></li>
+      <li><input type="checkbox" id="check-6"> <label for="check-6">Conheço os valores notáveis de @30^\circ@, @45^\circ@ e @60^\circ@ (@\text{sen}(30^\circ) = 0{,}5@, @\text{tg}(45^\circ) = 1@, etc.).</label></li>
+      <li><input type="checkbox" id="check-7"> <label for="check-7">Consigo desenhar o triângulo retângulo para modelar problemas do cotidiano (postes, rampas, aviões, sombras).</label></li>
+      <li><input type="checkbox" id="check-8"> <label for="check-8">Evito o erro de somar lados sem elevar ao quadrado antes de extrair a raiz quadrada.</label></li>
+    </ul>
+
+    <p><strong>Reflexão pedagógica:</strong> Dominar Pitágoras e trigonometria básica é o passaporte para o sucesso no Ensino Médio em Física, Geometria Espacial e Vetores. Se você marcou a maioria das caixas, seu raciocínio geométrico está pronto para os próximos desafios!</p>
+  </div>
+
+</article>
+
+<!-- =========================================================================
+     GABARITO COMENTADO (EM COMENTÁRIO HTML)
+     ========================================================================= -->
+<!--
+GABARITO COMPLETO E DETALHADO:
+
+PARTE 1: PRIMEIROS PASSOS (ALTO APOIO)
+1. Catetos 9 cm e 12 cm:
+   x² = 9² + 12²
+   x² = 81 + 144 = 225
+   x = √225 = 15 cm
+   (Note: 9 = 3*3, 12 = 4*3, hipotenusa = 5*3 = 15 cm)
+   Resultado: 15 cm
+
+2. Hipotenusa 10 cm, cateto 6 cm:
+   y² = 10² - 6²
+   y² = 100 - 36 = 64
+   y = √64 = 8 cm
+   Resultado: 8 cm
+
+3. Triângulo 3, 4, 5 e ângulo α oposto a 3:
+   Hipotenusa H = 5 cm
+   Cateto Oposto CO = 3 cm
+   Cateto Adjacente CA = 4 cm
+   sen(α) = CO / H = 3/5 = 0,6
+   cos(α) = CA / H = 4/5 = 0,8
+   tg(α) = CO / CA = 3/4 = 0,75
+   Resultado: sen(α) = 3/5 (0,6); cos(α) = 4/5 (0,8); tg(α) = 3/4 (0,75)
+
+4. Escada de 6 m com ângulo de 60°:
+   cos(60°) = cateto adjacente / hipotenusa = d / 6
+   Como cos(60°) = 1/2 = 0,5:
+   1/2 = d / 6 => 2d = 6 => d = 3 m
+   Resultado: 3 metros
+
+5. Diagonal do quadrado de lado 5 cm:
+   d² = 5² + 5² = 25 + 25 = 50
+   d = √50 = √(25 * 2) = 5√2 cm (aprox. 5 * 1,414 ≈ 7,07 cm)
+   Resultado: 5√2 cm (ou aprox. 7,07 cm)
+
+PARTE 2: DESENVOLVENDO AUTONOMIA (APOIO MÉDIO)
+6. Poste 8 m, chão 15 m:
+   cabo² = 8² + 15² = 64 + 225 = 289
+   cabo = √289 = 17 m
+   Resultado: 17 metros
+
+7. Avião sobe 4.000 m sob 30°:
+   sen(30°) = altitude / hipotenusa = h / 4000
+   Como sen(30°) = 1/2:
+   1/2 = h / 4000 => 2h = 4000 => h = 2.000 m
+   Resultado: 2.000 metros
+
+8. Edifício a 30 m sob 45° com olhos a 1,60 m:
+   tg(45°) = altura_parcial / 30
+   Como tg(45°) = 1:
+   1 = altura_parcial / 30 => altura_parcial = 30 m
+   Altura total = 30 + 1,60 = 31,60 m
+   Resultado: 31,60 metros
+
+9. Triângulo com hipotenusa 25 cm e cateto 7 cm:
+   a) c² = 25² - 7² = 625 - 49 = 576 => c = √576 = 24 cm
+   b) O menor cateto é 7 cm. O ângulo oposto a ele tem:
+      sen(β) = cateto oposto / hipotenusa = 7 / 25 = 0,28
+   Resultado: a) 24 cm; b) 7/25 = 0,28
+
+10. Altura do triângulo equilátero de lado 6 cm:
+    Divide a base ao meio: cateto = 3 cm, hipotenusa = 6 cm
+    h² + 3² = 6² => h² + 9 = 36 => h² = 27
+    h = √27 = √(9 * 3) = 3√3 cm (aprox. 3 * 1,732 ≈ 5,20 cm)
+    Resultado: 3√3 cm (ou aprox. 5,20 cm)
+
+PARTE 3: RUMO À MAESTRIA (BAIXO APOIO)
+11. Barco Norte (12 km/h) e Barco Leste (16 km/h) após 2 horas:
+    Distância percorrida para o Norte: 12 * 2 = 24 km
+    Distância percorrida para o Leste: 16 * 2 = 32 km
+    Os trajetos formam um ângulo de 90° entre Norte e Leste:
+    d² = 24² + 32²
+    Note que 24 = 3 * 8 e 32 = 4 * 8 (proporcional a 3, 4, 5).
+    d = 5 * 8 = 40 km
+    (Ou: d² = 576 + 1024 = 1600 => d = √1600 = 40 km)
+    Resultado: 40 km
+
+12. Torre com teodolito a 60 m sob 30°:
+    tg(30°) = H_torre / 60
+    H_torre = 60 * tg(30°) = 60 * (√3 / 3) = 20√3 m
+    Como √3 ≈ 1,73:
+    H_torre ≈ 20 * 1,73 = 34,60 m
+    Resultado: 20√3 m (ou aprox. 34,6 m)
+
+13. Tirolesa de 50 m sob 45°:
+    Como o ângulo é 45°, o triângulo é isósceles: a altura e a distância horizontal são iguais!
+    sen(45°) = altura / 50 => altura = 50 * (√2 / 2) = 25√2 m
+    Como √2 ≈ 1,41: altura ≈ 25 * 1,41 = 35,25 m
+    Distância horizontal = cos(45°) * 50 = 25√2 m ≈ 35,25 m
+    Resultado: a) 25√2 m (≈ 35,25 m); b) 25√2 m (≈ 35,25 m)
+
+14. Terreno retangular proporcional a 3, 4, 5 com perímetro 60 m:
+    Lados: 3k + 4k + 5k = 60 => 12k = 60 => k = 5
+    Lados: 3*5 = 15 m; 4*5 = 20 m; 5*5 = 25 m (hipotenusa)
+    Área = (cateto1 * cateto2) / 2 = (15 * 20) / 2 = 300 / 2 = 150 m²
+    Resultado: Lados medem 15 m, 20 m e 25 m; Área = 150 m²
+
+15. Poste quebrado a 5 m do chão e ponta a 12 m da base:
+    O tronco vertical mede 5 m (cateto).
+    A distância no chão mede 12 m (cateto).
+    A parte tombada é a hipotenusa:
+    h² = 5² + 12² = 25 + 144 = 169 => h = √169 = 13 m
+    A altura original era a parte em pé + a parte tombada:
+    Altura total = 5 m + 13 m = 18 m
+    Resultado: 18 metros
+-->
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

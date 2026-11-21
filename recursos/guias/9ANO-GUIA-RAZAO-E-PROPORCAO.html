@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO: Formato "NEXUS - Guia de Estudos: [CAPÍTULO]" -->
+  <title>NEXUS - Guia de Estudos: Razões e Proporções</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- KaTeX para renderização matemática -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PARA GUIAS DE ESTUDOS BASEADOS EM MISSÕES
+       ========================================================================== */
+
+    /* Badge de nível */
+    .badge-nivel {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .ano-9 {
+      background-color: #3498db;
+      color: white;
+    }
+
+    /* Cabeçalho do guia */
+    .guia-header {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 5px solid var(--link-color);
+    }
+
+    .guia-header h1 {
+      margin-top: 0;
+      color: var(--heading-text-color);
+    }
+
+    .guia-header p {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Grid de objetivos/habilidades */
+    .objetivos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .objetivo-item {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: 5px;
+      border-left: 3px solid var(--link-color);
+    }
+
+    .objetivo-item strong {
+      color: var(--link-color);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Caixas de missões */
+    .etapa-estudo {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 6px;
+      border-left: 5px solid var(--link-color);
+    }
+
+    .etapa-estudo h3 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .etapa-numero {
+      background-color: var(--link-color);
+      color: var(--primary-bg-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    /* Estilos para links dentro das missões */
+    .etapa-estudo a {
+      color: var(--link-color);
+      font-weight: bold;
+    }
+
+    .etapa-estudo a:hover {
+      text-decoration: underline;
+    }
+
+    /* Seção de cronograma */
+    .cronograma-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .semana-card {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.5rem;
+      border-radius: 6px;
+      border-left: 4px solid var(--link-color);
+    }
+
+    .semana-card h4 {
+      color: var(--heading-text-color);
+      margin-top: 0;
+    }
+
+    .semana-card ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .semana-card li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .semana-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--link-color);
+      font-weight: bold;
+    }
+
+    /* Seção de recursos complementares */
+    .recursos-complementares {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+    }
+
+    .recursos-complementares h3 {
+      color: var(--heading-text-color);
+    }
+
+    .recursos-complementares ul {
+      list-style-type: disc;
+      padding-left: 2rem;
+    }
+
+    .recursos-complementares li {
+      margin-bottom: 0.75rem;
+    }
+
+    /* Dicas de estudo */
+    .dica-box {
+      background-color: rgba(255, 193, 7, 0.1);
+      border-left: 4px solid #ffc107;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+
+    .dica-box strong {
+      color: #ffc107;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page-wrapper">
+  <nav>
+    <ul>
+      <li><a href="../../index.html" class="nav-button">INÍCIO</a></li>
+      <li><a href="../../recursos.html" class="nav-button">RECURSOS</a></li>
+      <li><a href="../../dashboard.html" class="nav-button">DASHBOARD</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+
+<article>
+    <!-- ===============================================================
+         CABEÇALHO DO GUIA
+         =============================================================== -->
+    <div class="guia-header">
+      <span class="badge-nivel ano-9">9º Ano</span>
+      <h1>📚 Guia de Estudos: Razões e Proporções</h1>
+      <p><strong>Duração estimada:</strong> 3 semanas (21 dias)</p>
+      <p><strong>Total de missões:</strong> 6 missões progressivas</p>
+      <p><strong>XP total disponível:</strong> 300 XP</p>
+      <p>Este guia orientará você através de um roteiro gamificado de missões que cobrem desde os fundamentos de razões até aplicações complexas envolvendo proporções, grandezas proporcionais e divisão proporcional.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 1: HABILIDADES ESSENCIAIS
+         - Códigos de habilidades do currículo
+         - Descrição de cada habilidade
+         =============================================================== -->
+    <h2>1. Habilidades Essenciais</h2>
+    <p>Este guia foca no desenvolvimento das seguintes habilidades do currículo BNCC:</p>
+
+    <div class="objetivos-grid">
+        <div class="objetivo-item">
+          <strong>(EF09MAT07)</strong>
+          <p>Resolver problemas que envolvam o cálculo de porcentagem ou de acréscimos e decréscimos simples, compreendendo que o percentual pode ser representado por uma fração ou número decimal.</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EF09MAT08)</strong>
+          <p>Resolver e elaborar problemas que envolvam relações de proporcionalidade direta e inversa entre duas ou mais grandezas, inclusive escalas, divisão em partes proporcionais e taxa de variação, utilizando estratégias variadas.</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EF09MAT09)</strong>
+          <p>Compreender os processos de obtenção de medidas aproximadas de áreas de superfícies poligonais ou não, por meio de composição e decomposição de figuras geométricas ou usando malhas quadriculadas.</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EF09MAT10)</strong>
+          <p>Resolver e elaborar problemas envolvendo a razão entre grandezas de mesma espécie ou de espécies diferentes, como velocidade, densidade demográfica e densidade de um material.</p>
+        </div>
+
+        <div class="objetivo-item">
+          <strong>(EF09MAT11)</strong>
+          <p>Reconhecer as condições necessárias para que dois segmentos determinem uma proporção, resolvendo problemas que envolvam a partilha em duas partes inversamente proporcionais.</p>
+        </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 2: ROTEIRO DE MISSÕES
+         - 6 missões progressivas
+         - Cada missão tem: número, nome, habilidade, descrição e meta
+         - Metas incluem links para recursos e números específicos
+         =============================================================== -->
+    <h2>2. Roteiro de Missões</h2>
+    <p>Avance em seus estudos completando as missões a seguir. Cada missão foca em uma habilidade essencial e define uma meta de problemas a serem resolvidos para ganhar XP.</p>
+
+    <!-- MISSÃO 1 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">1</span> Missão: Entendendo Razões</h3>
+      <p><strong>Habilidade:</strong> (EF09MAT10) Compreender o conceito de razão entre grandezas</p>
+      <p><strong>Missão:</strong> Dominar o conceito fundamental de razão, aprender a escrever razões de diferentes formas (fração, divisão, notação a:b) e simplificar razões para sua forma irredutível.</p>
+      <p><strong>XP disponível:</strong> 50 XP</p>
+      <p><strong>Meta:</strong> Ler a <strong>seção 1</strong> (Definição de Razão) e <strong>seção 2</strong> (Simplificação de Razões) do <a href="../resumos/9ANO-RAZAO-E-PROPORCAO.html">Resumo Teórico</a>. Resolver os <strong>problemas 1 a 5</strong> da seção "Problemas Introdutórios" da <a href="../listas/9ANO-RAZAO-E-PROPORCAO.html">Lista de Problemas</a>.</p>
+    </div>
+
+    <!-- MISSÃO 2 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">2</span> Missão: Proporções e Propriedades</h3>
+      <p><strong>Habilidade:</strong> (EF09MAT11) Reconhecer as condições necessárias para que dois segmentos determinem uma proporção</p>
+      <p><strong>Missão:</strong> Aprender o que são proporções, compreender a propriedade fundamental das proporções (produto dos meios = produto dos extremos) e usá-la para verificar se quatro números formam uma proporção ou encontrar o termo desconhecido.</p>
+      <p><strong>XP disponível:</strong> 50 XP</p>
+      <p><strong>Meta:</strong> Ler a <strong>seção 3</strong> (Proporções) e <strong>seção 4</strong> (Propriedade Fundamental) do <a href="../resumos/9ANO-RAZAO-E-PROPORCAO.html">Resumo Teórico</a>. Estudar os <strong>exemplos resolvidos 1 a 3</strong> e resolver os <strong>problemas 6 a 10</strong> da seção "Problemas Introdutórios" da <a href="../listas/9ANO-RAZAO-E-PROPORCAO.html">Lista de Problemas</a>.</p>
+    </div>
+
+    <!-- MISSÃO 3 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">3</span> Missão: Grandezas Proporcionais</h3>
+      <p><strong>Habilidade:</strong> (EF09MAT08) Resolver problemas que envolvam relações de proporcionalidade direta e inversa</p>
+      <p><strong>Missão:</strong> Diferenciar grandezas diretamente proporcionais (quando uma aumenta, a outra aumenta na mesma proporção) de grandezas inversamente proporcionais (quando uma aumenta, a outra diminui na mesma proporção). Aprender a identificar o tipo de proporcionalidade em situações-problema.</p>
+      <p><strong>XP disponível:</strong> 50 XP</p>
+      <p><strong>Meta:</strong> Ler a <strong>seção 5</strong> (Grandezas Diretamente Proporcionais) e <strong>seção 6</strong> (Grandezas Inversamente Proporcionais) do <a href="../resumos/9ANO-RAZAO-E-PROPORCAO.html">Resumo Teórico</a>. Resolver os <strong>problemas 1 a 5</strong> da seção "Problemas de Fixação" da <a href="../listas/9ANO-RAZAO-E-PROPORCAO.html">Lista de Problemas</a>.</p>
+    </div>
+
+    <!-- MISSÃO 4 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">4</span> Missão: Divisão Proporcional</h3>
+      <p><strong>Habilidade:</strong> (EF09MAT08) Resolver problemas envolvendo divisão em partes proporcionais</p>
+      <p><strong>Missão:</strong> Aprender a dividir uma quantidade em partes diretamente proporcionais a números dados (ex: dividir 120 em partes proporcionais a 2, 3 e 5) e resolver problemas práticos como divisão de lucros, heranças e prêmios proporcionalmente.</p>
+      <p><strong>XP disponível:</strong> 50 XP</p>
+      <p><strong>Meta:</strong> Ler a <strong>seção 7</strong> (Divisão em Partes Proporcionais) do <a href="../resumos/9ANO-RAZAO-E-PROPORCAO.html">Resumo Teórico</a>. Estudar os <strong>exemplos resolvidos 4 a 6</strong> e resolver os <strong>problemas 6 a 10</strong> da seção "Problemas de Fixação" da <a href="../listas/9ANO-RAZAO-E-PROPORCAO.html">Lista de Problemas</a>.</p>
+    </div>
+
+    <!-- MISSÃO 5 -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">5</span> Missão: Aplicações Reais</h3>
+      <p><strong>Habilidade:</strong> (EF09MAT10) Resolver problemas envolvendo a razão entre grandezas de espécies diferentes</p>
+      <p><strong>Missão:</strong> Aplicar razões e proporções em contextos reais do cotidiano: escalas em mapas e plantas, cálculo de velocidade média (razão entre distância e tempo), densidade demográfica (habitantes por km²), densidade de materiais (massa por volume) e conversão entre unidades de medida.</p>
+      <p><strong>XP disponível:</strong> 50 XP</p>
+      <p><strong>Meta:</strong> Ler a <strong>seção 8</strong> (Aplicações: Escalas, Velocidade, Densidade) do <a href="../resumos/9ANO-RAZAO-E-PROPORCAO.html">Resumo Teórico</a>. Resolver os <strong>problemas 11 a 14</strong> da seção "Problemas de Fixação" e os <strong>problemas 1 a 3</strong> da seção "Problemas de Aprofundamento" da <a href="../listas/9ANO-RAZAO-E-PROPORCAO.html">Lista de Problemas</a>.</p>
+    </div>
+
+    <!-- MISSÃO 6 (FINAL) -->
+    <div class="etapa-estudo">
+      <h3><span class="etapa-numero">6</span> Missão Final: Desafio Integrador</h3>
+      <p><strong>Habilidade:</strong> Aplicar múltiplos conceitos de razões e proporções em problemas complexos</p>
+      <p><strong>Missão:</strong> Integrar todo o conhecimento adquirido para resolver problemas desafiadores que exigem raciocínio avançado e combinam várias etapas: identificar grandezas, determinar tipo de proporcionalidade, montar equações, resolver e interpretar resultados em contextos multi-etapas.</p>
+      <p><strong>XP disponível:</strong> 50 XP</p>
+      <p><strong>Meta:</strong> Resolver os <strong>problemas 4 a 9</strong> da seção "Problemas de Aprofundamento" da <a href="../listas/9ANO-RAZAO-E-PROPORCAO.html">Lista de Problemas</a>. Revisar todos os exemplos resolvidos do resumo teórico e identificar quais estratégias foram usadas em cada um.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 3: CRONOGRAMA DE ESTUDOS
+         =============================================================== -->
+    <h2>3. Cronograma de Estudos</h2>
+    <p>Este cronograma distribui o conteúdo ao longo de <strong>3 semanas (21 dias)</strong> com sessões de estudo diárias de 30-45 minutos. Siga o ritmo sugerido, mas ajuste conforme sua disponibilidade.</p>
+
+    <div class="cronograma-grid">
+        <div class="semana-card">
+          <h4>📅 Semana 1: Fundamentos</h4>
+          <p><strong>Foco:</strong> Missões 1 e 2 (Razões e Proporções)</p>
+          <ul>
+            <li><strong>Dias 1-2:</strong> Missão 1 - Conceito de razão e simplificação</li>
+            <li><strong>Dias 3-4:</strong> Missão 1 - Resolver problemas introdutórios</li>
+            <li><strong>Dias 5-6:</strong> Missão 2 - Proporções e propriedade fundamental</li>
+            <li><strong>Dia 7:</strong> Missão 2 - Praticar com exemplos resolvidos e problemas</li>
+          </ul>
+        </div>
+
+        <div class="semana-card">
+          <h4>📅 Semana 2: Aplicações Intermediárias</h4>
+          <p><strong>Foco:</strong> Missões 3 e 4 (Grandezas e Divisão Proporcional)</p>
+          <ul>
+            <li><strong>Dias 8-9:</strong> Missão 3 - Grandezas diretamente proporcionais</li>
+            <li><strong>Dias 10-11:</strong> Missão 3 - Grandezas inversamente proporcionais</li>
+            <li><strong>Dias 12-13:</strong> Missão 4 - Divisão em partes proporcionais</li>
+            <li><strong>Dia 14:</strong> Revisão das missões 3 e 4 com exercícios extras</li>
+          </ul>
+        </div>
+
+        <div class="semana-card">
+          <h4>📅 Semana 3: Aplicações Avançadas</h4>
+          <p><strong>Foco:</strong> Missões 5 e 6 (Aplicações Reais e Desafio)</p>
+          <ul>
+            <li><strong>Dias 15-16:</strong> Missão 5 - Escalas, velocidade e densidade</li>
+            <li><strong>Dia 17:</strong> Missão 5 - Resolver problemas contextualizados</li>
+            <li><strong>Dias 18-19:</strong> Missão 6 - Problemas de aprofundamento</li>
+            <li><strong>Dias 20-21:</strong> Revisão geral e simulado de todas as missões</li>
+          </ul>
+        </div>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 4: ESTRATÉGIAS DE ESTUDO
+         =============================================================== -->
+    <h2>4. Estratégias de Estudo</h2>
+    <p>Para maximizar seu aprendizado, adote estas estratégias metacognitivas:</p>
+
+    <div class="dica-box">
+      <strong>💡 Dica 1: Leia Ativamente</strong>
+      <p>Ao ler o resumo teórico, não seja passivo. Anote os conceitos principais, refaça os exemplos resolvidos no papel antes de ver a solução e destaque as fórmulas importantes.</p>
+    </div>
+
+    <div class="dica-box">
+      <strong>💡 Dica 2: Pratique com Regularidade</strong>
+      <p>Resolva pelo menos 3-5 problemas por dia. A repetição espaçada é muito mais eficaz do que estudar tudo de uma vez ("maratona"). Divida o estudo em sessões de 30-45 minutos com pausas de 10 minutos.</p>
+    </div>
+
+    <div class="dica-box">
+      <strong>💡 Dica 3: Explique para Si Mesmo</strong>
+      <p>Após resolver um problema, explique em voz alta (ou por escrito) cada passo que você deu. Se você consegue ensinar o conceito, significa que realmente entendeu. Esta técnica se chama "Técnica de Feynman".</p>
+    </div>
+
+    <div class="dica-box">
+      <strong>💡 Dica 4: Identifique Padrões</strong>
+      <p>Ao resolver problemas de grandezas proporcionais, pergunte-se: "Quando uma grandeza aumenta, a outra aumenta ou diminui?" Isso ajuda a identificar se é proporcionalidade direta ou inversa. Crie esquemas visuais para facilitar.</p>
+    </div>
+
+    <div class="dica-box">
+      <strong>💡 Dica 5: Use o Método dos 3 Passes</strong>
+      <p><strong>1º passe:</strong> Leia o problema e identifique as grandezas envolvidas.<br>
+      <strong>2º passe:</strong> Determine o tipo de relação (razão simples, proporção, direta, inversa, divisão proporcional).<br>
+      <strong>3º passe:</strong> Monte a equação e resolva passo a passo.</p>
+    </div>
+
+    <div class="dica-box">
+      <strong>💡 Dica 6: Revise seus Erros</strong>
+      <p>Sempre que errar um problema, não apague a solução errada. Marque com uma cor diferente e escreva ao lado: "Erro: confundi proporção direta com inversa" ou "Erro: não simplifiquei a razão". Crie um "caderno de erros" para não repetir os mesmos equívocos.</p>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 5: RECURSOS COMPLEMENTARES
+         =============================================================== -->
+    <h2>5. Recursos Complementares</h2>
+
+    <div class="recursos-complementares">
+      <h3>📹 Vídeos Educacionais</h3>
+      <ul>
+        <li><strong>Khan Academy Brasil:</strong> Série completa sobre Razões e Proporções com exercícios interativos</li>
+        <li><strong>Professor Ferretto:</strong> Aulas detalhadas sobre Grandezas Diretamente e Inversamente Proporcionais</li>
+        <li><strong>Matemática Rio:</strong> Playlist com problemas resolvidos de divisão proporcional e escalas</li>
+        <li><strong>OBMEP na Escola:</strong> Videoaulas oficiais do programa OBMEP sobre proporções</li>
+      </ul>
+    </div>
+
+    <div class="recursos-complementares">
+      <h3>🧮 Simuladores e Ferramentas</h3>
+      <ul>
+        <li><strong>GeoGebra:</strong> Simuladores interativos de proporcionalidade direta e inversa (busque "proportion calculator")</li>
+        <li><strong>Calculadora de Escalas:</strong> Ferramentas online para praticar conversões de mapas e plantas</li>
+        <li><strong>Conversor de Unidades:</strong> Use sites como "Unit Converter" para praticar razões entre unidades diferentes</li>
+      </ul>
+    </div>
+
+    <div class="recursos-complementares">
+      <h3>📖 Materiais Extras</h3>
+      <ul>
+        <li><strong>Resumo Teórico:</strong> <a href="../resumos/9ANO-RAZAO-E-PROPORCAO.html">9ANO-RAZAO-E-PROPORCAO.html</a> - Revisão completa com definições, teoremas e exemplos</li>
+        <li><strong>Lista de Problemas:</strong> <a href="../listas/9ANO-RAZAO-E-PROPORCAO.html">9ANO-RAZAO-E-PROPORCAO.html</a> - 40+ problemas progressivos com dicas</li>
+        <li><strong>Atividade de Recuperação:</strong> <a href="../recuperacao/9ANO-RAZAO-E-PROPORCAO.html">9ANO-RAZAO-E-PROPORCAO.html</a> - Material de reforço para quem teve dificuldades</li>
+        <li><strong>Caderno Digital OBMEP:</strong> Acesse os cadernos gratuitos da OBMEP sobre Razões e Proporções (PDF disponível no site oficial)</li>
+      </ul>
+    </div>
+
+    <!-- ===============================================================
+         SEÇÃO 6: INTEGRAÇÃO COM DASHBOARD
+         =============================================================== -->
+    <h2>6. Integração com o Dashboard</h2>
+    <p>Este guia está totalmente integrado ao sistema de gamificação do NEXUS. Ao completar cada missão, você ganha XP e progride no seu nível:</p>
+
+    <ul style="line-height: 1.8;">
+      <li><strong>🎯 Sistema de XP:</strong> Cada missão concluída garante 50 XP, totalizando <strong>300 XP</strong> ao completar todo o guia.</li>
+      <li><strong>📊 Acompanhamento no Dashboard:</strong> Acesse o <a href="../../dashboard.html">Dashboard</a> para visualizar seu progresso em tempo real, ver missões completadas e XP acumulado.</li>
+      <li><strong>🏆 Troféus Desbloqueáveis:</strong> Ao concluir as 6 missões deste guia, você pode desbloquear o troféu <strong>"Mestre das Proporções"</strong> (100 XP bônus).</li>
+      <li><strong>📈 Evolução de Nível:</strong> O XP ganho contribui para sua evolução de nível geral. Quanto mais missões você completa, mais rápido sobe de nível!</li>
+      <li><strong>🎮 Missões Especiais:</strong> Completar este guia pode liberar missões especiais no dashboard com desafios bônus e XP extra.</li>
+      <li><strong>⭐ Registro de Progresso:</strong> Marque suas missões como concluídas no caderno e sincronize com o dashboard para manter seu progresso atualizado.</li>
+    </ul>
+
+    <div class="dica-box">
+      <strong>🚀 Dica Final: Seja Consistente!</strong>
+      <p>O segredo do sucesso não é estudar muito de uma vez, mas estudar um pouco todos os dias. Dedique 30-45 minutos diários às missões e você verá progresso rápido. Lembre-se: cada problema resolvido é uma vitória, cada conceito dominado é um nível a mais no seu conhecimento!</p>
+    </div>
+
+</article>
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================
+     SCRIPTS NECESSÁRIOS - NÃO ALTERAR
+     ============================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            // Modo de exibição (centralizado): @@...@@
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+
+            // Modo inline (no texto): @...@
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

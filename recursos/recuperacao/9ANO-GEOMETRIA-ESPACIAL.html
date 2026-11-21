@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Geometria Espacial - Volumes e Capacidade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .orientacao-inicial { background-color: rgba(33, 150, 243, 0.2); border: 2px solid #2196f3; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .problema-meta { font-size: 0.75rem; color: var(--secondary-text-color); margin-bottom: 0.5rem; font-family: 'Fira Sans', sans-serif; }
+    .problema-meta .nivel-apoio { background-color: rgba(76, 175, 80, 0.3); padding: 2px 6px; border-radius: 3px; margin-right: 8px; font-weight: bold; }
+    .nivel-apoio.alto { background-color: rgba(76, 175, 80, 0.4); color: #4caf50; border: 1px solid #4caf50; }
+    .nivel-apoio.medio { background-color: rgba(255, 193, 7, 0.3); color: #ffb300; border: 1px solid #ffb300; }
+    .nivel-apoio.baixo { background-color: rgba(244, 67, 54, 0.2); color: #ef5350; border: 1px solid #ef5350; }
+    .dica { background-color: rgba(33, 150, 243, 0.15); border-left: 4px solid #2196f3; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 4px; }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo { background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo { margin: 1rem 0; padding-left: 1.5rem; border-left: 2px solid #4caf50; }
+    .lembrete { background-color: rgba(255, 152, 0, 0.15); border-left: 4px solid #ff9800; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 4px; }
+    .lembrete strong { color: #ff9800; }
+    .conceito-basico { background-color: rgba(156, 39, 176, 0.1); border: 2px solid #9c27b0; border-radius: 6px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .section-intro { font-style: italic; color: var(--secondary-text-color); margin-bottom: 1.5rem; padding-left: 1rem; border-left: 3px solid var(--link-color); }
+    .badge-nivel { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .ano-9 { background-color: rgba(76, 175, 80, 0.3); color: #2e7d32; border: 1px solid #4caf50; }
+    .estrelas { color: #ffd700; font-size: 1.2rem; margin-left: 0.5rem; }
+    .figura-geometrica { text-align: center; margin: 1.5rem 0; background: rgba(0, 0, 0, 0.25); padding: 1.2rem; border-radius: 8px; border: 1px dashed var(--container-border-color); }
+    .figura-geometrica svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    .legenda-figura { font-size: 0.85rem; color: var(--secondary-text-color); margin-top: 0.75rem; text-align: center; font-style: italic; }
+    .roteiro-guiado { background-color: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 0.8rem 1.2rem; margin: 0.8rem 0; }
+    .roteiro-guiado p { margin: 0.4rem 0; }
+    .roteiro-passo { color: var(--link-color); font-weight: bold; }
+    .checklist-metacognitivo ul { list-style: none; padding-left: 0; }
+    .checklist-metacognitivo li { margin: 0.8rem 0; padding-left: 1.8rem; position: relative; line-height: 1.5; }
+    .checklist-metacognitivo input[type="checkbox"] { position: absolute; left: 0; top: 3px; cursor: pointer; transform: scale(1.2); }
+    .tabela-conversao { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem; }
+    .tabela-conversao th, .tabela-conversao td { border: 1px solid var(--container-border-color, #444); padding: 8px 12px; text-align: center; }
+    .tabela-conversao th { background-color: rgba(33, 150, 243, 0.25); color: #81d4fa; }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+<div class="container">
+<article>
+  <h1>Recuperação: Geometria Espacial - Volumes e Capacidade</h1>
+  <span class="badge-nivel ano-9">9º Ano</span>
+  <span class="estrelas">★★</span>
+
+  <!-- =========================================================================
+       ORIENTAÇÃO INICIAL (Neuroeducação & Calma Cognitiva)
+       ========================================================================= -->
+  <div class="orientacao-inicial">
+    <h3>📚 Como usar esta atividade de recuperação</h3>
+    <p>A <strong>Geometria Espacial</strong> estuda as figuras tridimensionais, que possuem comprimento, largura e altura. O cálculo de volumes e a conversão para capacidade em litros estão presentes em quase todas as decisões práticas da vida: dimensionar caixas d'água, piscinas, latas, garrafas e tanques de combustível.</p>
+    <p>Orientações práticas para o seu cérebro assimilar esses conteúdos com segurança:</p>
+    <ul>
+      <li><strong>A metáfora da pilha de folhas:</strong> O volume de qualquer sólido reto (prisma ou cilindro) funciona como uma pilha de folhas de papel idênticas. A área de uma única folha é a <em>Área da Base</em> (@A_b@). A altura da pilha (@h@) indica quantas camadas temos. Portanto:
+        @@
+        \text{Volume} = \text{Área da Base} \times \text{Altura} \quad \implies \quad V = A_b \cdot h
+        @@
+      </li>
+      <li><strong>Cuidado extremo com as unidades de medida:</strong> Jamais multiplique metros por centímetros! Antes de fazer qualquer multiplicação, converta todas as dimensões para a mesma unidade (tudo em metros ou tudo em centímetros).</li>
+      <li><strong>As pontes de ouro da conversão:</strong> Memorize as três equivalências fundamentais entre volume e capacidade de líquidos:
+        <ul>
+          <li>@1\text{ m}^3 = 1\,000\text{ litros}@ (uma caixa d'água cúbica de @1\text{ m}@ de aresta comporta @1\,000\text{ L}@).</li>
+          <li>@1\text{ dm}^3 = 1\text{ litro}@ (uma caixinha de suco de @10\text{ cm} \times 10\text{ cm} \times 10\text{ cm}@ tem @1\text{ L}@).</li>
+          <li>@1\text{ cm}^3 = 1\text{ mL}@ (um pequeno dadinho de @1\text{ cm}@ equivale a uma gota generosa ou seringa de @1\text{ mL}@).</li>
+        </ul>
+      </li>
+      <li><strong>Progressão em Scaffolding:</strong> Complete os problemas da Parte 1 com os roteiros detalhados, ganhe autonomia na Parte 2 e consolide sua maestria na Parte 3.</li>
+    </ul>
+  </div>
+
+  <!-- =========================================================================
+       REVISÃO DE CONCEITOS BÁSICOS (.conceito-basico)
+       ========================================================================= -->
+  <h2>Relembrando: Conceitos Básicos</h2>
+
+  <div class="conceito-basico">
+    <h4>Conceito 1: Prismas Retos (Paralelepípedos e Cubos)</h4>
+    <p>Um <strong>prisma reto</strong> é um sólido geométrico limitado por duas bases poligonais paralelas e idênticas, cujas faces laterais são retângulos perpendiculares às bases.</p>
+    <ul>
+      <li><strong>Paralelepípedo Retângulo (Bloco Retangular):</strong> Possui base retangular de lados @a@ e @b@ e altura @c@:
+        @@
+        A_b = a \cdot b \implies V = a \cdot b \cdot c
+        @@
+      </li>
+      <li><strong>Cubo (Hexaedro Regular):</strong> É o caso especial onde todas as arestas são iguais (@a = b = c@):
+        @@
+        V = a^3
+        @@
+      </li>
+      <li><strong>Prisma de Base Triangular:</strong> A base é um triângulo de base @b_{\text{tri}}@ e altura @h_{\text{tri}}@:
+        @@
+        A_b = \frac{b_{\text{tri}} \cdot h_{\text{tri}}}{2} \implies V = A_b \cdot H_{\text{prisma}}
+        @@
+      </li>
+    </ul>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 2: Cilindro Circular Reto</h4>
+    <p>O <strong>cilindro circular reto</strong> é um corpo redondo formado pelo giro de um retângulo em torno de um de seus lados. Suas duas bases são círculos idênticos de raio @r@.</p>
+    <ul>
+      <li>Área da Base Circular: @A_b = \pi \cdot r^2@</li>
+      <li>Volume do Cilindro:
+        @@
+        V = A_b \cdot h = \pi \cdot r^2 \cdot h
+        @@
+      </li>
+    </ul>
+    <div class="lembrete">
+      <strong>Atenção ao Raio vs. Diâmetro:</strong> O diâmetro @D@ mede de ponta a ponta passando pelo centro, ou seja, @D = 2r@. Logo, se o problema der o diâmetro, divida por 2 antes de calcular: @r = \frac{D}{2}@.
+    </div>
+    <div class="dica">
+      <strong>O valor de @\pi@:</strong> Acompanhe sempre o que o enunciado pede: geralmente utiliza-se @\pi \approx 3{,}14@ ou @\pi \approx 3@ para cálculos escolares simplificados.
+    </div>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 3: Conversão de Volume para Capacidade</h4>
+    <p>Quando calculamos o espaço tridimensional com medidas lineares, obtemos unidades cúbicas (@\text{m}^3@, @\text{dm}^3@, @\text{cm}^3@). Para quantificar líquidos, usamos a escala de capacidade (@\text{L}@, @\text{mL}@):</p>
+    <table class="tabela-conversao">
+      <thead>
+        <tr>
+          <th>Unidade de Volume</th>
+          <th>Unidade de Capacidade</th>
+          <th>Regra de Conversão Direta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>@1\text{ m}^3@</td>
+          <td>@1\,000\text{ litros (L)}@</td>
+          <td>Multiplique metros cúbicos por @1\,000@ para achar litros.</td>
+        </tr>
+        <tr>
+          <td>@1\text{ dm}^3@</td>
+          <td>@1\text{ litro (L)}@</td>
+          <td>Equivalência @1 : 1@ exata.</td>
+        </tr>
+        <tr>
+          <td>@1\text{ cm}^3@</td>
+          <td>@1\text{ mililitro (mL)} = 0{,}001\text{ L}@</td>
+          <td>@1\text{ litro} = 1\,000\text{ cm}^3 = 1\,000\text{ mL}@.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- =========================================================================
+       EXEMPLOS RESOLVIDOS COM VISUALIZAÇÃO GEOMÉTRICA (.exemplo-passo-a-passo)
+       ========================================================================= -->
+  <h2>Exemplos Resolvidos: Passo a Passo & Visualização Geométrica</h2>
+  <p class="section-intro">
+    Acompanhe os modelos visuais e a aplicação passo a passo das fórmulas.
+  </p>
+
+  <!-- EXEMPLO 1: PARALELEPÍPEDO / CAIXA D'ÁGUA -->
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo 1: Volume e Capacidade de uma Caixa d'Água Retangular</h4>
+    <p><strong>Problema:</strong> Uma caixa d'água tem o formato de um paralelepípedo reto-retângulo com @2\text{ m}@ de comprimento, @1{,}5\text{ m}@ de largura e @1\text{ m}@ de profundidade (altura). Calcule o seu volume em @\text{m}^3@ e a capacidade máxima em litros.</p>
+
+    <!-- DIAGRAMA SVG RESPONSIVO: PARALELEPÍPEDO ISOMÉTRICO -->
+    <div class="figura-geometrica">
+      <svg viewBox="0 0 380 240" width="340" height="215" aria-label="Visualização em perspectiva 3D de um paralelepípedo retângulo">
+        <!-- Face inferior tracejada / oculta -->
+        <polygon points="60,180 220,180 290,120 130,120" fill="rgba(255, 193, 7, 0.2)" stroke="#ffb300" stroke-width="1.5" stroke-dasharray="4" />
+        <line x1="130" y1="120" x2="130" y2="40" stroke="#ffb300" stroke-width="1.5" stroke-dasharray="4" />
+
+        <!-- Face frontal visível -->
+        <rect x="60" y="100" width="160" height="80" fill="rgba(33, 150, 243, 0.35)" stroke="#2196f3" stroke-width="2" />
+        
+        <!-- Face superior visível -->
+        <polygon points="60,100 220,100 290,40 130,40" fill="rgba(76, 175, 80, 0.35)" stroke="#4caf50" stroke-width="2" />
+        
+        <!-- Face lateral direita visível -->
+        <polygon points="220,100 290,40 290,120 220,180" fill="rgba(33, 150, 243, 0.25)" stroke="#2196f3" stroke-width="2" />
+
+        <!-- Água azul preenchendo a caixa (efeito estilizado) -->
+        <path d="M 60,130 L 220,130 L 290,70 L 130,70 Z" fill="rgba(0, 229, 255, 0.2)" stroke="#00e5ff" stroke-width="1" stroke-dasharray="2" />
+
+        <!-- Cotas e medidas -->
+        <!-- Comprimento -->
+        <text x="140" y="200" fill="#2196f3" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Comprimento = 2 m</text>
+        <!-- Largura -->
+        <text x="270" y="165" fill="#ffb300" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Largura = 1,5 m</text>
+        <!-- Altura -->
+        <text x="45" y="145" fill="#4caf50" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="end">Altura = 1 m</text>
+      </svg>
+      <div class="legenda-figura">Figura 1: Bloco retangular de base @2\text{ m} \times 1{,}5\text{ m}@ e altura @1\text{ m}@.</div>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 1: Identificar as três dimensões.</strong></p>
+      <p>Comprimento @a = 2\text{ m}@; Largura @b = 1{,}5\text{ m}@; Altura @c = 1\text{ m}@.</p>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2: Calcular a área da base (@A_b@).</strong></p>
+      @@
+      A_b = a \cdot b = 2 \times 1{,}5 = 3\text{ m}^2
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 3: Multiplicar pela altura para obter o volume em @\text{m}^3@.</strong></p>
+      @@
+      V = A_b \cdot c = 3 \times 1 = 3\text{ m}^3
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 4: Converter para capacidade em litros.</strong></p>
+      <p>Como cada @1\text{ m}^3@ equivale a @1\,000\text{ litros}@:</p>
+      @@
+      \text{Capacidade} = 3 \times 1\,000 = 3\,000\text{ litros}
+      @@
+      <p><strong>Resposta:</strong> O reservatório possui volume de @3\text{ m}^3@ e comporta até @3\,000\text{ litros}@ de água.</p>
+    </div>
+  </div>
+
+  <!-- EXEMPLO 2: CILINDRO CIRCULAR RETO -->
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo 2: Volume e Capacidade de um Tambor Cilíndrico</h4>
+    <p><strong>Problema:</strong> Um tambor de armazenamento cilíndrico possui raio da base igual a @0{,}5\text{ m}@ e altura de @2\text{ m}@. Considerando @\pi \approx 3{,}14@, calcule a capacidade do tambor em litros.</p>
+
+    <!-- DIAGRAMA SVG RESPONSIVO: CILINDRO -->
+    <div class="figura-geometrica">
+      <svg viewBox="0 0 340 260" width="300" height="230" aria-label="Visualização em 3D de um cilindro circular reto">
+        <!-- Elipse inferior -->
+        <ellipse cx="170" cy="200" rx="90" ry="30" fill="rgba(76, 175, 80, 0.3)" stroke="#4caf50" stroke-width="2" />
+        
+        <!-- Paredes laterais -->
+        <line x1="80" y1="70" x2="80" y2="200" stroke="#66DDAA" stroke-width="2" />
+        <line x1="260" y1="70" x2="260" y2="200" stroke="#66DDAA" stroke-width="2" />
+        <rect x="80" y="70" width="180" height="130" fill="rgba(102, 221, 170, 0.15)" stroke="none" />
+        
+        <!-- Elipse superior -->
+        <ellipse cx="170" cy="70" rx="90" ry="30" fill="rgba(33, 150, 243, 0.35)" stroke="#2196f3" stroke-width="2" />
+
+        <!-- Raio na base superior -->
+        <line x1="170" y1="70" x2="260" y2="70" stroke="#ffd700" stroke-width="2" stroke-dasharray="3" />
+        <circle cx="170" cy="70" r="3" fill="#ffd700" />
+        <circle cx="260" cy="70" r="3" fill="#ffd700" />
+        <text x="215" y="60" fill="#ffd700" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">r = 0,5 m</text>
+
+        <!-- Altura h na lateral -->
+        <line x1="55" y1="70" x2="55" y2="200" stroke="#ff7043" stroke-width="2" />
+        <line x1="50" y1="70" x2="60" y2="70" stroke="#ff7043" stroke-width="2" />
+        <line x1="50" y1="200" x2="60" y2="200" stroke="#ff7043" stroke-width="2" />
+        <text x="45" y="140" fill="#ff7043" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="end">h = 2 m</text>
+      </svg>
+      <div class="legenda-figura">Figura 2: Cilindro circular reto com raio @r = 0{,}5\text{ m}@ e altura @h = 2\text{ m}@.</div>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 1: Calcular a área da base circular (@A_b@).</strong></p>
+      @@
+      A_b = \pi \cdot r^2 = 3{,}14 \times (0{,}5)^2 = 3{,}14 \times 0{,}25 = 0{,}785\text{ m}^2
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2: Multiplicar pela altura para obter o volume em @\text{m}^3@.</strong></p>
+      @@
+      V = A_b \cdot h = 0{,}785 \times 2 = 1{,}57\text{ m}^3
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 3: Converter para litros.</strong></p>
+      @@
+      \text{Capacidade} = 1{,}57 \times 1\,000 = 1\,570\text{ litros}
+      @@
+      <p><strong>Resposta:</strong> O tambor cilíndrico comporta @1\,570\text{ litros}@ de líquido.</p>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PARTE 1: PRIMEIROS PASSOS (Alto Apoio - Problemas 1 a 5)
+       ========================================================================= -->
+  <h2>Parte 1: Primeiros Passos (Alto Apoio)</h2>
+  <p class="section-intro">
+    Problemas estruturados com roteiro passo a passo guiado. Complete cada etapa no seu caderno com calma.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>Uma caixa de armazenamento retangular tem @3\text{ m}@ de comprimento, @2\text{ m}@ de largura e @1{,}5\text{ m}@ de altura. Calcule o seu volume em metros cúbicos (@\text{m}^3@) e a sua capacidade em litros (@\text{L}@).</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Identifique as três dimensões: @a = 3@, @b = 2@ e @c = 1{,}5@.</p>
+        <p><strong>Etapa B:</strong> Calcule a área da base: @A_b = 3 \times 2 = \dots\text{ m}^2@.</p>
+        <p><strong>Etapa C:</strong> Multiplique a área da base pela altura: @V = A_b \times 1{,}5 = \dots\text{ m}^3@.</p>
+        <p><strong>Etapa D:</strong> Multiplique o volume por @1\,000@ para obter o total em litros: @\text{Litros} = V \times 1\,000@.</p>
+      </div>
+
+      <div class="dica">
+        <strong>Dica:</strong> Em @6 \times 1{,}5@, pense que @1{,}5@ é o mesmo que "uma vez e meia": @6 \times 1 = 6@ mais a metade de 6 (@3@), somando @9@!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>Um reservatório com formato perfeitamente cúbico possui aresta interna de @2\text{ metros}@. Quantos litros de água esse reservatório comporta quando preenchido até a borda?</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> No cubo, todas as três dimensões são iguais: comprimento, largura e altura valem @2\text{ m}@.</p>
+        <p><strong>Etapa B:</strong> Eleve a aresta ao cubo: @V = a^3 = 2^3 = 2 \times 2 \times 2 = \dots\text{ m}^3@.</p>
+        <p><strong>Etapa C:</strong> Como @1\text{ m}^3 = 1\,000\text{ L}@, multiplique o resultado por @1\,000@.</p>
+      </div>
+
+      <div class="lembrete">
+        <strong>Cuidado com o erro comum:</strong> @2^3@ NÃO é @2 \times 3 = 6@! Multiplique o 2 por ele mesmo 3 vezes: @2 \times 2 = 4@, e @4 \times 2 = 8@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 5 min</div>
+      <p>Um vaso cilíndrico possui raio da base de @3\text{ cm}@ e altura de @10\text{ cm}@. Adotando @\pi \approx 3{,}14@, calcule a área da base, o volume em @\text{cm}^3@ e a capacidade em mililitros (@\text{mL}@).</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Calcule o raio ao quadrado: @r^2 = 3^2 = 3 \times 3 = 9\text{ cm}^2@.</p>
+        <p><strong>Etapa B:</strong> Calcule a área da base: @A_b = \pi \cdot r^2 = 3{,}14 \times 9 = \dots\text{ cm}^2@.</p>
+        <p><strong>Etapa C:</strong> Multiplique pela altura: @V = A_b \times 10 = \dots\text{ cm}^3@.</p>
+        <p><strong>Etapa D:</strong> Como @1\text{ cm}^3 = 1\text{ mL}@, a medida numérica em @\text{mL}@ é exatamente a mesma que em @\text{cm}^3@.</p>
+      </div>
+
+      <div class="dica">
+        <strong>Dica de cálculo mental:</strong> Para multiplicar por 10, basta deslocar a vírgula uma casa para a direita!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>Uma lata de óleo em formato cilíndrico possui diâmetro da base medindo @8\text{ cm}@ e altura de @15\text{ cm}@. Adotando @\pi = 3@ para efeito de aproximação:</p>
+      <p>a) Qual é a medida do raio da base?</p>
+      <p>b) Qual é o volume da lata em @\text{cm}^3@?</p>
+      <p>c) Quantos mililitros (@\text{mL}@) de óleo cabem na lata?</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> O raio é a metade do diâmetro: @r = \frac{D}{2} = \frac{8}{2} = \dots\text{ cm}@.</p>
+        <p><strong>Etapa B:</strong> Calcule a área da base: @A_b = 3 \times r^2 = 3 \times (\dots)^2@.</p>
+        <p><strong>Etapa C:</strong> Calcule o volume: @V = A_b \times 15@.</p>
+        <p><strong>Etapa D:</strong> Escreva a equivalência em @\text{mL}@ (@1\text{ cm}^3 = 1\text{ mL}@).</p>
+      </div>
+
+      <div class="lembrete">
+        <strong>Lembrete Fundamental:</strong> NUNCA coloque o diâmetro na fórmula do volume! Sempre converta primeiro para raio.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>Efetue as seguintes conversões diretas de unidades de volume e capacidade:</p>
+      <p>a) Converta @0{,}45\text{ m}^3@ em litros.</p>
+      <p>b) Converta @2\,500\text{ mL}@ em litros (@\text{L}@) e em centímetros cúbicos (@\text{cm}^3@).</p>
+      <p>c) Converta @7\text{ dm}^3@ em litros.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Para passar de @\text{m}^3@ para litros, multiplique por @1\,000@: @0{,}45 \times 1\,000 = \dots@</p>
+        <p><strong>Etapa B:</strong> Para passar de @\text{mL}@ para litros, divida por @1\,000@. E lembre que @1\text{ mL} = 1\text{ cm}^3@.</p>
+        <p><strong>Etapa C:</strong> Lembre que @1\text{ dm}^3@ é exatamente idêntico a @1\text{ litro}@.</p>
+      </div>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       PARTE 2: DESENVOLVENDO AUTONOMIA (Apoio Médio - Problemas 6 a 10)
+       ========================================================================= -->
+  <h2>Parte 2: Desenvolvendo Autonomia (Apoio Médio)</h2>
+  <p class="section-intro">
+    Problemas contextualizados da vida prática. Utilize as dicas pontuais quando necessário.
+  </p>
+
+  <ol start="6">
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Médio apoio</span> ⏱️ 6 min</div>
+      <p>Uma piscina residencial tem formato de paralelepípedo reto com @8\text{ m}@ de comprimento, @4\text{ m}@ de largura e profundidade constante de @1{,}5\text{ m}@. Se a piscina está preenchida até @80\%@ de sua capacidade máxima por medidas de segurança, quantos litros de água ela contém atualmente?</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> Calcule primeiro o volume total em @\text{m}^3@ multiplicando as três dimensões: @V_{\text{total}} = 8 \times 4 \times 1{,}5@. Converta para litros multiplicando por @1\,000@ e, em seguida, calcule @80\%@ desse total (@0{,}80 \times \text{total}@).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Médio apoio</span> ⏱️ 5 min</div>
+      <p>Um aquário retangular possui base de @50\text{ cm}@ por @30\text{ cm}@ e altura total de @40\text{ cm}@. O dono do aquário deseja preenchê-lo com água até que o nível atinja a marca de @35\text{ cm}@ de altura (deixando @5\text{ cm}@ de borda livre). Quantos litros de água serão necessários?</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> A altura a ser usada no cálculo do volume de água é @35\text{ cm}@ (e não @40\text{ cm}@). Calcule o volume em @\text{cm}^3@: @V = 50 \times 30 \times 35@. Para transformar @\text{cm}^3@ em litros, divida o resultado por @1\,000@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Médio apoio</span> ⏱️ 6 min</div>
+      <p>Um caminhão-pipa transporta água potável em um tanque perfeitamente cilíndrico cujo diâmetro interno mede @2\text{ metros}@ e o comprimento mede @6\text{ metros}@. Considerando @\pi \approx 3{,}14@, qual é a capacidade máxima aproximada de transporte desse tanque em litros?</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> O diâmetro é @2\text{ m}@, logo o raio é @r = 1\text{ m}@. A fórmula do volume é @V = \pi \cdot r^2 \cdot h@. Calcule o volume em @\text{m}^3@ e depois multiplique por @1\,000@ para obter litros.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Médio apoio</span> ⏱️ 5 min</div>
+      <p>Um copo de vidro cilíndrico tem raio interno de @3\text{ cm}@ e altura interna de @12\text{ cm}@. Uma pessoa tenta despejar @300\text{ mL}@ de suco de laranja nesse copo completamente vazio. O líquido vai transbordar ou o copo suportará todo o suco? Justifique matematicamente adotando @\pi \approx 3{,}14@.</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> Calcule o volume do copo em @\text{cm}^3@ (@V = 3{,}14 \times 3^2 \times 12@). Como @1\text{ cm}^3 = 1\text{ mL}@, compare diretamente a capacidade calculada com os @300\text{ mL}@ de suco.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Médio apoio</span> ⏱️ 6 min</div>
+      <p>Uma barra maciça de chocolate nobre tem o formato de um prisma reto de base triangular. A base do triângulo mede @4\text{ cm}@ e a sua respectiva altura mede @3\text{ cm}@. O comprimento longitudinal da barra é de @20\text{ cm}@. Sabendo que a densidade desse chocolate é de @1{,}2\text{ g/cm}^3@, qual é a massa total da barra de chocolate em gramas?</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> Lembre que a área de um triângulo é @\frac{\text{base} \times \text{altura}}{2}@. Depois multiplique pelo comprimento (@20\text{ cm}@) para achar o volume em @\text{cm}^3@. Finalmente, use a fórmula @\text{Massa} = \text{Densidade} \times \text{Volume}@.
+      </div>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       PARTE 3: RUMO À MAESTRIA (Baixo Apoio - Problemas 11 a 15)
+       ========================================================================= -->
+  <h2>Parte 3: Rumo à Maestria (Baixo Apoio)</h2>
+  <p class="section-intro">
+    Problemas de consolidação e desafios práticos. Organize seus dados, estabeleça uma estratégia e confira as unidades.
+  </p>
+
+  <ol start="11">
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 8 min</div>
+      <p>Uma residência com 4 moradores consome, em média, @600\text{ litros}@ de água por dia. A família deseja construir uma cisterna com formato cúbico para armazenar água suficiente para garantir a autonomia da casa durante exatamente @10\text{ dias}@ de interrupção no fornecimento público. Qual deve ser o comprimento mínimo da aresta interna dessa cisterna cúbica em metros? (Apresente o resultado em valor exato com radical e uma aproximação decimal sabendo que @\sqrt[3]{6} \approx 1{,}82@).</p>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 8 min</div>
+      <p>Um reservatório cilíndrico de água possui raio da base igual a @2\text{ metros}@ e altura de @5\text{ metros}@. Ele está inicialmente com capacidade máxima. Para manutenção, uma válvula de escoamento no fundo do reservatório é aberta, liberando água a uma vazão constante de @100\text{ litros por minuto}@. Considerando @\pi \approx 3{,}14@, quanto tempo (em horas e minutos) será necessário para que o reservatório seja esvaziado por completo?</p>
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 8 min</div>
+      <p>Uma indústria de conservas comercializa palmito em dois tipos de latas cilíndricas de mesmo material:</p>
+      <ul>
+        <li><strong>Lata Tipo A:</strong> Raio da base de @4\text{ cm}@ e altura de @10\text{ cm}@.</li>
+        <li><strong>Lata Tipo B:</strong> Raio da base de @2\text{ cm}@ e altura de @20\text{ cm}@.</li>
+      </ul>
+      <p>a) Calcule o volume de cada uma das latas em função de @\pi@.</p>
+      <p>b) Qual lata comporta maior quantidade de palmito? Quantas vezes mais?</p>
+      <p>c) Explique por que a lata que tem a metade da altura da outra acabou tendo maior volume.</p>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 7 min</div>
+      <p>Um poço artesiano cilíndrico foi escavado com @1\text{ metro}@ de diâmetro e @20\text{ metros}@ de profundidade. Toda a terra retirada da perfuração foi transportada por caminhões basculantes cuja caçamba comporta até @5\text{ m}^3@ de carga por viagem. Considerando @\pi \approx 3{,}14@ e desprezando o empolamento (expansão) da terra, determine o número mínimo de viagens que o caminhão precisou fazer para remover todo o material escavado.</p>
+    </li>
+
+    <!-- PROBLEMA 15 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 9 min</div>
+      <p>Uma caixa d'água em formato de paralelepípedo reto-retângulo tem medidas internas de @1{,}5\text{ m}@ de comprimento, @1{,}2\text{ m}@ de largura e @1{,}0\text{ m}@ de altura. Ela contém inicialmente uma lâmina de água de @40\text{ cm}@ de profundidade. Uma torneira com vazão uniforme de @15\text{ litros por minuto}@ é aberta para completar a caixa até o limite superior de transbordamento. Durante quanto tempo (em horas e minutos) a torneira deve permanecer aberta para encher totalmente a caixa?</p>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       CHECKLIST DE AUTOAVALIAÇÃO METACOGNITIVA
+       ========================================================================= -->
+  <h2>Checklist de Autoavaliação Metacognitiva</h2>
+
+  <div class="conceito-basico checklist-metacognitivo">
+    <h4>Monitore seu Aprendizado Espacial e Consciência Geométrica:</h4>
+    <p>Assinale as competências que você já compreende com clareza e autonomia:</p>
+    <ul>
+      <li><input type="checkbox" id="check-1"> <label for="check-1">Compreendo que o volume de sólidos retos é dado pela relação @V = A_b \cdot h@ (empilhamento de camadas).</label></li>
+      <li><input type="checkbox" id="check-2"> <label for="check-2">Sei calcular o volume do paralelepípedo retângulo (@a \cdot b \cdot c@) e do cubo (@a^3@).</label></li>
+      <li><input type="checkbox" id="check-3"> <label for="check-3">Sei calcular a área do círculo (@\pi \cdot r^2@) e o volume do cilindro (@\pi \cdot r^2 \cdot h@).</label></li>
+      <li><input type="checkbox" id="check-4"> <label for="check-4">Nunca confundo diâmetro com raio; sempre divido o diâmetro por 2 antes de aplicar a fórmula.</label></li>
+      <li><input type="checkbox" id="check-5"> <label for="check-5">Lembro de que @1\text{ m}^3 = 1\,000\text{ litros}@ e de que @1\text{ dm}^3 = 1\text{ litro}@.</label></li>
+      <li><input type="checkbox" id="check-6"> <label for="check-6">Sei que @1\text{ cm}^3@ equivale exatamente a @1\text{ mililitro (mL)}@.</label></li>
+      <li><input type="checkbox" id="check-7"> <label for="check-7">Consigo converter todas as medidas lineares para a mesma unidade antes de calcular multiplicações de volume.</label></li>
+      <li><input type="checkbox" id="check-8"> <label for="check-8">Sei relacionar volume com vazão para calcular o tempo de enchimento ou esvaziamento de reservatórios.</label></li>
+    </ul>
+
+    <p><strong>Reflexão pedagógica:</strong> Saber calcular volumes e capacidades conecta a matemática com o mundo real e a engenharia. Se você conseguiu resolver os problemas e preencheu o checklist, sua percepção espacial tridimensional deu um grande salto de qualidade!</p>
+  </div>
+
+</article>
+
+<!-- =========================================================================
+     GABARITO COMENTADO (EM COMENTÁRIO HTML)
+     ========================================================================= -->
+<!--
+GABARITO COMPLETO E DETALHADO:
+
+PARTE 1: PRIMEIROS PASSOS (ALTO APOIO)
+1. Caixa retangular de 3 m x 2 m x 1,5 m:
+   Ab = 3 * 2 = 6 m²
+   V = 6 * 1,5 = 9 m³
+   Capacidade = 9 * 1.000 = 9.000 litros
+   Resultado: Volume = 9 m³; Capacidade = 9.000 litros
+
+2. Reservatório cúbico de aresta 2 m:
+   V = 2³ = 2 * 2 * 2 = 8 m³
+   Capacidade = 8 * 1.000 = 8.000 litros
+   Resultado: 8.000 litros
+
+3. Vaso cilíndrico r = 3 cm, h = 10 cm (π ≈ 3,14):
+   Ab = π * r² = 3,14 * 3² = 3,14 * 9 = 28,26 cm²
+   V = Ab * h = 28,26 * 10 = 282,6 cm³
+   Como 1 cm³ = 1 mL:
+   Capacidade = 282,6 mL
+   Resultado: Ab = 28,26 cm²; Volume = 282,6 cm³; Capacidade = 282,6 mL
+
+4. Lata cilíndrica de diâmetro 8 cm e altura 15 cm (π = 3):
+   a) Raio r = 8 / 2 = 4 cm
+   b) Ab = 3 * 4² = 3 * 16 = 48 cm²
+      V = 48 * 15 = 720 cm³
+   c) Capacidade = 720 mL
+   Resultado: a) 4 cm; b) 720 cm³; c) 720 mL
+
+5. Conversões diretas:
+   a) 0,45 m³ * 1.000 = 450 litros
+   b) 2.500 mL / 1.000 = 2,5 litros; 2.500 mL = 2.500 cm³
+   c) 7 dm³ = 7 litros
+   Resultado: a) 450 L; b) 2,5 L e 2.500 cm³; c) 7 L
+
+PARTE 2: DESENVOLVENDO AUTONOMIA (APOIO MÉDIO)
+6. Piscina 8 m x 4 m x 1,5 m a 80%:
+   V_total = 8 * 4 * 1,5 = 48 m³
+   V_total_litros = 48 * 1.000 = 48.000 litros
+   Água atual = 0,80 * 48.000 = 38.400 litros
+   Resultado: 38.400 litros
+
+7. Aquário 50 cm x 30 cm até 35 cm de água:
+   V_água = 50 * 30 * 35 = 1.500 * 35 = 52.500 cm³
+   Em litros: 52.500 / 1.000 = 52,5 litros
+   Resultado: 52,5 litros
+
+8. Tanque cilíndrico diâmetro 2 m (r = 1 m) e h = 6 m (π ≈ 3,14):
+   V = π * r² * h = 3,14 * 1² * 6 = 3,14 * 6 = 18,84 m³
+   Capacidade = 18,84 * 1.000 = 18.840 litros
+   Resultado: 18.840 litros
+
+9. Copo cilíndrico r = 3 cm, h = 12 cm com 300 mL de suco:
+   V_copo = 3,14 * 3² * 12 = 3,14 * 9 * 12 = 3,14 * 108 = 339,12 cm³ = 339,12 mL
+   Como 339,12 mL > 300 mL:
+   Não vai transbordar. O copo suportará todo o suco e ainda sobrarão 39,12 mL de espaço livre.
+   Resultado: Não transbordará (o copo tem 339,12 mL de capacidade).
+
+10. Barra de chocolate triangular (base 4 cm, h_tri 3 cm, comp 20 cm, densidade 1,2 g/cm³):
+    Ab = (4 * 3) / 2 = 12 / 2 = 6 cm²
+    Volume = Ab * h = 6 * 20 = 120 cm³
+    Massa = densidade * volume = 1,2 g/cm³ * 120 cm³ = 144 g
+    Resultado: 144 gramas
+
+PARTE 3: RUMO À MAESTRIA (BAIXO APOIO)
+11. Cisterna para 4 pessoas consumindo 600 L/dia por 10 dias:
+    Consumo total = 600 * 10 = 6.000 litros = 6 m³
+    Para um cubo: V = a³ => a³ = 6 => a = ³√6 metros
+    Como ³√6 ≈ 1,82 m:
+    A aresta interna mínima deve ser de aproximadamente 1,82 metros (ou ³√6 m).
+    Resultado: ³√6 m (aprox. 1,82 m)
+
+12. Reservatório cilíndrico r = 2 m, h = 5 m esvaziado a 100 L/min:
+    V = 3,14 * 2² * 5 = 3,14 * 4 * 5 = 3,14 * 20 = 62,8 m³
+    Em litros: 62,8 * 1.000 = 62.800 litros
+    Tempo em minutos = 62.800 / 100 = 628 minutos
+    628 minutos = 600 min + 28 min = 10 horas e 28 minutos
+    Resultado: 10 horas e 28 minutos (ou 628 minutos)
+
+13. Comparação de latas:
+    a) Lata A: V_A = π * 4² * 10 = π * 16 * 10 = 160π cm³
+       Lata B: V_B = π * 2² * 20 = π * 4 * 20 = 80π cm³
+    b) A Lata A comporta mais palmito: 160π / 80π = 2 vezes mais (o dobro).
+    c) Explicação: O raio é elevado ao quadrado na fórmula (r²), enquanto a altura entra com expoente linear simples (h¹). Portanto, dobrar o raio multiplica a área da base por 4 (2² = 4). Embora a altura tenha sido reduzida pela metade, 4 * (1/2) = 2, gerando o dobro do volume total.
+    Resultado: a) V_A = 160π cm³, V_B = 80π cm³; b) Lata A comporta 2 vezes mais; c) Justificativa pela dependência quadrática do raio.
+
+14. Poço cilíndrico diâmetro 1 m (r = 0,5 m) e h = 20 m:
+    V = 3,14 * (0,5)² * 20 = 3,14 * 0,25 * 20 = 3,14 * 5 = 15,7 m³
+    Número de viagens = 15,7 / 5 = 3,14 viagens
+    Como não é possível realizar uma fração de viagem:
+    São necessárias no mínimo 4 viagens de caminhão.
+    Resultado: 4 viagens
+
+15. Caixa de 1,5 m x 1,2 m x 1,0 m com 40 cm de água inicial a 15 L/min:
+    Dimensões da caixa: 1,5 m x 1,2 m x 1,0 m
+    Volume total = 1,5 * 1,2 * 1,0 = 1,8 m³ = 1.800 litros
+    Água existente (40 cm = 0,4 m): 1,5 * 1,2 * 0,4 = 0,72 m³ = 720 litros
+    Volume que falta encher: 1.800 - 720 = 1.080 litros
+    (Ou diretamente: 1,5 * 1,2 * 0,6 m que faltam = 1,08 m³ = 1.080 L)
+    Tempo = 1.080 L / 15 L/min = 72 minutos
+    72 minutos = 1 hora e 12 minutos
+    Resultado: 1 hora e 12 minutos (ou 72 minutos)
+-->
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

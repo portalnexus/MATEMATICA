@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS - Recuperação: Produtos Notáveis e Fatoração</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .orientacao-inicial { background-color: rgba(33, 150, 243, 0.2); border: 2px solid #2196f3; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .orientacao-inicial h3 { color: #2196f3; margin-top: 0; }
+    .problema-meta { font-size: 0.75rem; color: var(--secondary-text-color); margin-bottom: 0.5rem; font-family: 'Fira Sans', sans-serif; }
+    .problema-meta .nivel-apoio { background-color: rgba(76, 175, 80, 0.3); padding: 2px 6px; border-radius: 3px; margin-right: 8px; font-weight: bold; }
+    .nivel-apoio.alto { background-color: rgba(76, 175, 80, 0.4); color: #4caf50; border: 1px solid #4caf50; }
+    .nivel-apoio.medio { background-color: rgba(255, 193, 7, 0.3); color: #ffb300; border: 1px solid #ffb300; }
+    .nivel-apoio.baixo { background-color: rgba(244, 67, 54, 0.2); color: #ef5350; border: 1px solid #ef5350; }
+    .dica { background-color: rgba(33, 150, 243, 0.15); border-left: 4px solid #2196f3; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 4px; }
+    .dica strong { color: #2196f3; }
+    .exemplo-passo-a-passo { background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px; }
+    .exemplo-passo-a-passo h4 { color: #4caf50; margin-top: 0; }
+    .passo { margin: 1rem 0; padding-left: 1.5rem; border-left: 2px solid #4caf50; }
+    .lembrete { background-color: rgba(255, 152, 0, 0.15); border-left: 4px solid #ff9800; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 4px; }
+    .lembrete strong { color: #ff9800; }
+    .conceito-basico { background-color: rgba(156, 39, 176, 0.1); border: 2px solid #9c27b0; border-radius: 6px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+    .conceito-basico h4 { color: #9c27b0; margin-top: 0; }
+    .section-intro { font-style: italic; color: var(--secondary-text-color); margin-bottom: 1.5rem; padding-left: 1rem; border-left: 3px solid var(--link-color); }
+    .badge-nivel { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .ano-9 { background-color: rgba(76, 175, 80, 0.3); color: #2e7d32; border: 1px solid #4caf50; }
+    .estrelas { color: #ffd700; font-size: 1.2rem; margin-left: 0.5rem; }
+    .figura-geometrica { text-align: center; margin: 1.5rem 0; background: rgba(0, 0, 0, 0.25); padding: 1.2rem; border-radius: 8px; border: 1px dashed var(--container-border-color); }
+    .figura-geometrica svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    .legenda-figura { font-size: 0.85rem; color: var(--secondary-text-color); margin-top: 0.75rem; text-align: center; font-style: italic; }
+    .roteiro-guiado { background-color: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 0.8rem 1.2rem; margin: 0.8rem 0; }
+    .roteiro-guiado p { margin: 0.4rem 0; }
+    .roteiro-passo { color: var(--link-color); font-weight: bold; }
+    .checklist-metacognitivo ul { list-style: none; padding-left: 0; }
+    .checklist-metacognitivo li { margin: 0.8rem 0; padding-left: 1.8rem; position: relative; line-height: 1.5; }
+    .checklist-metacognitivo input[type="checkbox"] { position: absolute; left: 0; top: 3px; cursor: pointer; transform: scale(1.2); }
+  </style>
+</head>
+<body>
+<div id="page-wrapper">
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-button">INÍCIO</a>
+    <a href="../../recursos.html" class="nav-button">RECURSOS</a>
+    <a href="../../dashboard.html" class="nav-button">DASHBOARD</a>
+  </nav>
+<div class="container">
+<article>
+  <h1>Recuperação: Produtos Notáveis e Fatoração</h1>
+  <span class="badge-nivel ano-9">9º Ano</span>
+  <span class="estrelas">★★</span>
+
+  <!-- =========================================================================
+       ORIENTAÇÃO INICIAL (Neuroeducação & Calma Cognitiva)
+       ========================================================================= -->
+  <div class="orientacao-inicial">
+    <h3>📚 Como usar esta atividade de recuperação</h3>
+    <p>Esta trilha foi planejada para consolidar os conceitos de <strong>Produtos Notáveis</strong> e <strong>Fatoração de Polinômios</strong>, desmistificando o uso de letras e conectando a álgebra à geometria visual. Siga este roteiro de estudo com atenção:</p>
+    <ul>
+      <li><strong>Compreensão antes de memorização:</strong> Não tente decorar fórmulas soltas. Entenda <em>de onde</em> cada termo vem observando as figuras geométricas e a propriedade distributiva.</li>
+      <li><strong>Evite a 'ilusão de competência':</strong> Não olhe a resposta de imediato. Escreva o desenvolvimento no seu caderno passo a passo antes de ler as dicas e conclusões.</li>
+      <li><strong>Técnica de Chunking (Pedaços menores):</strong> Em expressões com coeficientes e expoentes, resolva separadamente: (1) o sinal, (2) a parte numérica e (3) as variáveis literais.</li>
+      <li><strong>Progressão em Scaffolding:</strong> Os problemas estão distribuídos em 3 níveis (Alto Apoio, Apoio Médio e Apoio Baixo). Conforme você avança, os apoios diminuem para garantir sua total autonomia.</li>
+      <li><strong>Respiração e foco calmo:</strong> Se sentir dúvida ou travar em um exercício, faça uma pausa breve de 30 segundos, respire fundo e volte ao conceito básico correspondente.</li>
+    </ul>
+  </div>
+
+  <!-- =========================================================================
+       REVISÃO DE CONCEITOS BÁSICOS (.conceito-basico)
+       ========================================================================= -->
+  <h2>Relembrando: Conceitos Básicos</h2>
+
+  <div class="conceito-basico">
+    <h4>Conceito 1: Quadrado da Soma de Dois Termos</h4>
+    <p>Ao elevar uma soma de dois termos ao quadrado, calculamos a área de um quadrado de lado @(a + b)@:</p>
+    @@
+    (a + b)^2 = (a + b)(a + b) = a^2 + 2ab + b^2
+    @@
+    <p><strong>Regra Prática:</strong> O quadrado do primeiro termo, <em>mais</em> duas vezes o primeiro termo multiplicado pelo segundo, <em>mais</em> o quadrado do segundo termo.</p>
+    <div class="lembrete">
+      <strong>Atenção ao erro clássico:</strong> @(a + b)^2 \neq a^2 + b^2@! O termo central @2ab@ nunca pode ser esquecido, pois representa os dois retângulos laterais da figura geométrica.
+    </div>
+    <p><strong>Exemplo:</strong> @(x + 5)^2 = x^2 + 2 \cdot (x) \cdot (5) + 5^2 = x^2 + 10x + 25@</p>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 2: Quadrado da Diferença de Dois Termos</h4>
+    <p>De forma similar ao quadrado da soma, multiplicamos o binômio por ele mesmo, atentando para os sinais:</p>
+    @@
+    (a - b)^2 = (a - b)(a - b) = a^2 - 2ab + b^2
+    @@
+    <p><strong>Regra Prática:</strong> O quadrado do primeiro termo, <em>menos</em> duas vezes o primeiro termo pelo segundo, <em>mais</em> o quadrado do segundo termo.</p>
+    <p><strong>Por que o último termo é positivo?</strong> Porque @(-b)^2 = (-b) \cdot (-b) = +b^2@. Apenas o termo central possui sinal negativo!</p>
+    <p><strong>Exemplo:</strong> @(y - 3)^2 = y^2 - 2 \cdot (y) \cdot (3) + 3^2 = y^2 - 6y + 9@</p>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 3: Produto da Soma pela Diferença de Dois Termos</h4>
+    <p>Quando multiplicamos a soma de dois termos pela diferença entre eles, os termos do meio cancelam-se mutuamente:</p>
+    @@
+    (a + b)(a - b) = a^2 - ab + ba - b^2 = a^2 - b^2
+    @@
+    <p>O resultado é sempre uma <strong>Diferença de Dois Quadrados</strong>!</p>
+    <p><strong>Aplicação em Cálculo Mental:</strong></p>
+    @@
+    102 \times 98 = (100 + 2)(100 - 2) = 100^2 - 2^2 = 10\,000 - 4 = 9\,996
+    @@
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 4: Fatoração por Fator Comum em Evidência</h4>
+    <p><strong>Fatorar</strong> significa transformar uma soma ou subtração em uma multiplicação. A fatoração por fator comum é o processo inverso exato da propriedade distributiva:</p>
+    @@
+    ax + bx = x(a + b)
+    @@
+    <p><strong>Procedimento:</strong></p>
+    <ol>
+      <li>Calcule o <strong>MDC dos coeficientes numéricos</strong>.</li>
+      <li>Identifique as letras que aparecem em todos os termos e escolha o <strong>menor expoente</strong> de cada uma.</li>
+      <li>Coloque esse termo à frente dos parênteses e divida cada termo original por ele.</li>
+    </ol>
+    <p><strong>Exemplo:</strong> @6x^3 + 9x^2 = 3x^2(2x + 3)@ (pois @\text{MDC}(6, 9) = 3@ e a menor potência de @x@ é @x^2@).</p>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 5: Fatoração por Agrupamento</h4>
+    <p>Usada principalmente quando temos quatro (ou um número par de) termos, e não existe um único fator comum compartilhado por todos simultaneamente:</p>
+    @@
+    ax + ay + bx + by = a(x + y) + b(x + y) = (a + b)(x + y)
+    @@
+    <p><strong>Procedimento:</strong> Divida os termos em pares, fatore cada par individualmente e, em seguida, coloque o binômio comum em evidência.</p>
+    <p><strong>Exemplo:</strong> @mx + 5m + 2x + 10 = m(x + 5) + 2(x + 5) = (m + 2)(x + 5)@</p>
+  </div>
+
+  <div class="conceito-basico">
+    <h4>Conceito 6: Trinômio Quadrado Perfeito (TQP)</h4>
+    <p>É o processo inverso do quadrado da soma ou da diferença. Para verificar se um trinômio é quadrado perfeito, faça o teste dos 3 passos:</p>
+    <ol>
+      <li>Dois termos são quadrados perfeitos positivos? Extraia suas raízes: @\sqrt{a^2} = a@ e @\sqrt{b^2} = b@.</li>
+      <li>O termo restante é igual ao <strong>dobro do produto</strong> dessas raízes (@2 \cdot a \cdot b@)?</li>
+      <li>Se sim, o trinômio fatora como:
+        @@
+        a^2 + 2ab + b^2 = (a + b)^2 \quad \text{ou} \quad a^2 - 2ab + b^2 = (a - b)^2
+        @@
+      </li>
+    </ol>
+    <p><strong>Exemplo:</strong> @x^2 - 12x + 36@. As raízes dos extremos são @x@ e @6@. O dobro do produto é @2 \cdot x \cdot 6 = 12x@ (confere!). Logo, @(x - 6)^2@.</p>
+  </div>
+
+  <!-- =========================================================================
+       EXEMPLOS RESOLVIDOS COM VISUALIZAÇÃO GEOMÉTRICA (.exemplo-passo-a-passo)
+       ========================================================================= -->
+  <h2>Exemplos Resolvidos: Passo a Passo & Visualização Geométrica</h2>
+  <p class="section-intro">
+    A álgebra ganha sentido concreto quando enxergamos as áreas que ela representa. Acompanhe com atenção as resoluções detalhadas abaixo.
+  </p>
+
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo 1: Visualização Geométrica do Quadrado da Soma @(a + b)^2@</h4>
+    <p><strong>Problema:</strong> Desenvolver algebricamente a expressão @(x + 3)^2@ e justificar o resultado a partir da geometria de áreas.</p>
+
+    <!-- DIAGRAMA SVG RESPONSIVO -->
+    <div class="figura-geometrica">
+      <svg viewBox="0 0 340 340" width="300" height="300" aria-label="Interpretação geométrica do quadrado da soma">
+        <!-- Fundo e bordas -->
+        <rect x="30" y="30" width="280" height="280" fill="none" stroke="#66DDAA" stroke-width="3" rx="4" />
+        
+        <!-- Região 1: Quadrado a x a (x x x) -->
+        <rect x="30" y="30" width="190" height="190" fill="rgba(76, 175, 80, 0.35)" stroke="#4caf50" stroke-width="2" />
+        <text x="125" y="130" fill="#E8F5E9" font-family="'Fira Sans', sans-serif" font-size="20" font-weight="bold" text-anchor="middle">x²</text>
+        
+        <!-- Região 2: Retângulo superior direito x x 3 -->
+        <rect x="220" y="30" width="90" height="190" fill="rgba(255, 193, 7, 0.3)" stroke="#ffb300" stroke-width="2" />
+        <text x="265" y="130" fill="#FFF3E0" font-family="'Fira Sans', sans-serif" font-size="18" font-weight="bold" text-anchor="middle">3x</text>
+        
+        <!-- Região 3: Retângulo inferior esquerdo 3 x x -->
+        <rect x="30" y="220" width="190" height="90" fill="rgba(255, 193, 7, 0.3)" stroke="#ffb300" stroke-width="2" />
+        <text x="125" y="270" fill="#FFF3E0" font-family="'Fira Sans', sans-serif" font-size="18" font-weight="bold" text-anchor="middle">3x</text>
+        
+        <!-- Região 4: Quadrado inferior direito 3 x 3 -->
+        <rect x="220" y="220" width="90" height="90" fill="rgba(33, 150, 243, 0.35)" stroke="#2196f3" stroke-width="2" />
+        <text x="265" y="270" fill="#E3F2FD" font-family="'Fira Sans', sans-serif" font-size="18" font-weight="bold" text-anchor="middle">3² = 9</text>
+        
+        <!-- Cotas e Medidas -->
+        <text x="125" y="20" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">x</text>
+        <text x="265" y="20" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">3</text>
+        <text x="15" y="130" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">x</text>
+        <text x="15" y="270" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">3</text>
+      </svg>
+      <div class="legenda-figura">Figura 1: Quadrado de lado total @(x + 3)@ decomposto em 4 sub-regiões: @x^2@, @3x@, @3x@ e @9@.</div>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 1: Identificar os componentes do binômio.</strong></p>
+      <p>O primeiro termo é @a = x@ e o segundo termo é @b = 3@.</p>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2: Calcular a área de cada região geométrica.</strong></p>
+      <ul>
+        <li>Área do quadrado maior azul-esverdeado: @x \times x = x^2@</li>
+        <li>Área do primeiro retângulo amarelo: @x \times 3 = 3x@</li>
+        <li>Área do segundo retângulo amarelo: @3 \times x = 3x@</li>
+        <li>Área do quadrado menor azul: @3 \times 3 = 3^2 = 9@</li>
+      </ul>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 3: Somar todas as regiões parciais.</strong></p>
+      @@
+      \text{Área Total} = x^2 + 3x + 3x + 9 = x^2 + 6x + 9
+      @@
+      <p><strong>Conclusão:</strong> @(x + 3)^2 = x^2 + 6x + 9@. O termo @6x@ surge naturalmente da soma dos dois retângulos idênticos de área @3x@.</p>
+    </div>
+  </div>
+
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo 2: Interpretação Geométrica da Diferença de Quadrados @(a + b)(a - b)@</h4>
+    <p><strong>Problema:</strong> Demonstrar geometricamente por que @(x + 2)(x - 2) = x^2 - 4@.</p>
+
+    <!-- DIAGRAMA SVG DE DIFERENÇA DE QUADRADOS -->
+    <div class="figura-geometrica">
+      <svg viewBox="0 0 520 220" width="500" height="210" aria-label="Visualização da Diferença de Quadrados">
+        <!-- Parte A: Quadrado x com canto 2 removido -->
+        <g transform="translate(10, 20)">
+          <rect x="0" y="0" width="180" height="180" fill="rgba(76, 175, 80, 0.3)" stroke="#4caf50" stroke-width="2" />
+          <!-- Canto removido 2x2 -->
+          <rect x="130" y="0" width="50" height="50" fill="rgba(244, 67, 54, 0.4)" stroke="#ef5350" stroke-width="2" stroke-dasharray="4" />
+          <text x="155" y="32" fill="#ef5350" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">2² = 4</text>
+          
+          <!-- Linha de divisão para reorganização -->
+          <line x1="0" y1="50" x2="130" y2="50" stroke="#ffd700" stroke-width="2" stroke-dasharray="4" />
+          
+          <text x="65" y="32" fill="#E8F5E9" font-family="'Fira Sans', sans-serif" font-size="14" text-anchor="middle">R1: (x-2)·2</text>
+          <text x="65" y="120" fill="#E8F5E9" font-family="'Fira Sans', sans-serif" font-size="16" font-weight="bold" text-anchor="middle">R2: x · (x - 2)</text>
+          
+          <text x="90" y="200" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="13" text-anchor="middle">Área restante: x² - 4</text>
+        </g>
+
+        <!-- Seta de transformação -->
+        <g transform="translate(215, 95)">
+          <path d="M 0 10 L 40 10 M 30 0 L 40 10 L 30 20" fill="none" stroke="#4DD0E1" stroke-width="3" stroke-linecap="round" />
+          <text x="20" y="-8" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="11" text-anchor="middle">Reagrupar</text>
+        </g>
+
+        <!-- Parte B: Retângulo resultante (x + 2) por (x - 2) -->
+        <g transform="translate(280, 45)">
+          <rect x="0" y="0" width="220" height="130" fill="rgba(33, 150, 243, 0.3)" stroke="#2196f3" stroke-width="2" />
+          <!-- Divisão visual mostrando o encaixe de R1 e R2 -->
+          <line x1="170" y1="0" x2="170" y2="130" stroke="#ffd700" stroke-width="2" stroke-dasharray="4" />
+          
+          <text x="85" y="70" fill="#E0F7FA" font-family="'Fira Sans', sans-serif" font-size="15" text-anchor="middle">R2: x · (x - 2)</text>
+          <text x="195" y="70" fill="#E0F7FA" font-family="'Fira Sans', sans-serif" font-size="13" text-anchor="middle">R1</text>
+          
+          <!-- Cotas do retângulo -->
+          <text x="85" y="-8" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="13" text-anchor="middle">x</text>
+          <text x="195" y="-8" fill="#4DD0E1" font-family="'Fira Sans', sans-serif" font-size="13" text-anchor="middle">2</text>
+          <text x="110" y="155" fill="#ffd700" font-family="'Fira Sans', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Base total = (x + 2)</text>
+          <text x="-15" y="70" fill="#ffd700" font-family="'Fira Sans', sans-serif" font-size="13" font-weight="bold" text-anchor="middle" transform="rotate(-90 -15 70)">Altura = (x - 2)</text>
+        </g>
+      </svg>
+      <div class="legenda-figura">Figura 2: A área de um quadrado @x^2@ com um canto @2^2@ retirado é reorganizada em um retângulo @(x + 2) \times (x - 2)@.</div>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 1: Reconhecer a forma @(a + b)(a - b)@.</strong></p>
+      <p>Temos a multiplicação de binômios com os mesmos termos (@x@ e @2@), diferindo apenas pelo sinal entre eles.</p>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2: Aplicar o produto notável.</strong></p>
+      @@
+      (x + 2)(x - 2) = x^2 - 2^2 = x^2 - 4
+      @@
+      <p><strong>Conclusão:</strong> A área de um retângulo de base @(x + 2)@ e altura @(x - 2)@ equivale com exatidão à área do quadrado original @x^2@ subtraída do quadrado recortado de @4@ unidades quadradas.</p>
+    </div>
+  </div>
+
+  <div class="exemplo-passo-a-passo">
+    <h4>Exemplo 3: Fatorando um Trinômio Quadrado Perfeito com Coeficiente Maior que 1</h4>
+    <p><strong>Problema:</strong> Fatorar a expressão algébrica @4x^2 - 12x + 9@.</p>
+
+    <div class="passo">
+      <p><strong>Passo 1: Testar os termos dos extremos (quadrados perfeitos).</strong></p>
+      <p>Calculamos as raízes quadradas dos dois termos positivos:</p>
+      @@
+      \sqrt{4x^2} = 2x \quad \text{e} \quad \sqrt{9} = 3
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 2: Testar o termo central (o dobro do produto).</strong></p>
+      <p>Calculamos o dobro do produto entre as duas raízes encontradas:</p>
+      @@
+      2 \cdot (2x) \cdot (3) = 12x
+      @@
+      <p>O valor calculado coincide exatamente com o módulo do termo central (@-12x@)!</p>
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 3: Escrever na forma fatorada.</strong></p>
+      <p>Como o termo central possui sinal negativo (@-12x@), utilizamos o quadrado da <em>diferença</em>:</p>
+      @@
+      4x^2 - 12x + 9 = (2x - 3)^2
+      @@
+    </div>
+
+    <div class="passo">
+      <p><strong>Passo 4: Verificação (Prova Real).</strong></p>
+      <p>Expandindo para conferir:</p>
+      @@
+      (2x - 3)^2 = (2x)^2 - 2 \cdot (2x) \cdot (3) + 3^2 = 4x^2 - 12x + 9 \quad \checkmark
+      @@
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       PARTE 1: PRIMEIROS PASSOS (Alto Apoio - Problemas 1 a 5)
+       ========================================================================= -->
+  <h2>Parte 1: Primeiros Passos (Alto Apoio)</h2>
+  <p class="section-intro">
+    Problemas com roteiro passo a passo pré-estruturado e modelos guiados. Complete cada etapa no seu ritmo.
+  </p>
+
+  <ol>
+    <!-- PROBLEMA 1 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>Desenvolva o quadrado da soma: @(x + 7)^2@.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Identifique o primeiro termo @a@ e o segundo termo @b@. Aqui, @a = x@ e @b = 7@.</p>
+        <p><strong>Etapa B:</strong> Eleve o primeiro termo ao quadrado: @a^2 = (x)^2 = x^2@.</p>
+        <p><strong>Etapa C:</strong> Calcule o dobro do produto dos dois termos: @2 \cdot a \cdot b = 2 \cdot x \cdot 7 = \dots@</p>
+        <p><strong>Etapa D:</strong> Eleve o segundo termo ao quadrado: @b^2 = 7^2 = \dots@</p>
+        <p><strong>Etapa E:</strong> Junte as três parcelas na ordem: @a^2 + 2ab + b^2@.</p>
+      </div>
+
+      <div class="dica">
+        <strong>Dica:</strong> Em @2 \cdot x \cdot 7@, multiplique primeiro os números: @2 \times 7 = 14@, resultando em @14x@.
+      </div>
+      <div class="lembrete">
+        <strong>Lembre-se:</strong> O resultado final é um <em>trinômio</em> (três termos somados), nunca apenas dois termos!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 2 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 4 min</div>
+      <p>Desenvolva o quadrado da diferença: @(y - 6)^2@.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> O primeiro termo é @y@ e o segundo é @6@.</p>
+        <p><strong>Etapa B:</strong> Calcule o quadrado do primeiro termo: @(y)^2 = y^2@.</p>
+        <p><strong>Etapa C:</strong> Calcule o termo central com sinal de menos: @-2 \cdot (y) \cdot (6) = \dots@</p>
+        <p><strong>Etapa D:</strong> Calcule o quadrado do segundo termo com sinal de mais: @+(-6)^2 = +36@.</p>
+        <p><strong>Etapa E:</strong> Escreva a expressão final na forma @y^2 - (\dots)y + 36@.</p>
+      </div>
+
+      <div class="dica">
+        <strong>Dica:</strong> Multiplique @2 \times 6 = 12@ para obter o coeficiente do termo central.
+      </div>
+      <div class="lembrete">
+        <strong>Lembre-se:</strong> No quadrado da diferença, apenas o termo central é negativo. O último termo é sempre positivo (@+36@).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 3 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 3 min</div>
+      <p>Calcule o produto notável: @(x + 9)(x - 9)@.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Reconheça a estrutura: produto da soma pela diferença entre dois termos idênticos (@a = x@ e @b = 9@).</p>
+        <p><strong>Etapa B:</strong> Lembre-se da regra: @(a + b)(a - b) = a^2 - b^2@.</p>
+        <p><strong>Etapa C:</strong> Calcule @a^2 = x^2@.</p>
+        <p><strong>Etapa D:</strong> Calcule @b^2 = 9^2 = 9 \times 9 = \dots@</p>
+        <p><strong>Etapa E:</strong> Escreva a subtração entre os dois quadrados.</p>
+      </div>
+
+      <div class="dica">
+        <strong>Dica:</strong> Aqui os termos intermediários (@+9x@ e @-9x@) se anulam, restando apenas um <em>binômio</em>.
+      </div>
+      <div class="lembrete">
+        <strong>Lembre-se:</strong> @9^2@ significa @9 \times 9 = 81@ (não confunda com @9 \times 2 = 18@!).
+      </div>
+    </li>
+
+    <!-- PROBLEMA 4 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 5 min</div>
+      <p>Fatore a expressão colocando o fator comum em evidência: @4x^2 + 12x@.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A (Coeficientes):</strong> Determine o MDC entre 4 e 12. Qual é o maior número que divide 4 e 12 ao mesmo tempo?</p>
+        <p><strong>Etapa B (Variáveis):</strong> Entre @x^2@ e @x@, qual é a menor potência da variável? É @x^1 = x@.</p>
+        <p><strong>Etapa C (Fator Comum):</strong> Multiplique o MDC numérico pela variável: o fator comum é @4x@.</p>
+        <p><strong>Etapa D (Divisão dos termos):</strong></p>
+        <ul>
+          <li>Primeiro termo: @\frac{4x^2}{4x} = x@</li>
+          <li>Segundo termo: @\frac{12x}{4x} = 3@</li>
+        </ul>
+        <p><strong>Etapa E:</strong> Escreva a forma fatorada: @4x(x + \dots)@.</p>
+      </div>
+
+      <div class="lembrete">
+        <strong>Verificação rápida:</strong> Faça mentalmente a propriedade distributiva: @4x \cdot x = 4x^2@ e @4x \cdot 3 = 12x@. A resposta bate com o enunciado?
+      </div>
+    </li>
+
+    <!-- PROBLEMA 5 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio alto">Alto apoio</span> ⏱️ 5 min</div>
+      <p>Fatore o Trinômio Quadrado Perfeito (TQP): @x^2 + 8x + 16@.</p>
+
+      <div class="roteiro-guiado">
+        <p class="roteiro-passo">Roteiro Guiado Passo a Passo:</p>
+        <p><strong>Etapa A:</strong> Extraia a raiz quadrada do primeiro termo: @\sqrt{x^2} = x@.</p>
+        <p><strong>Etapa B:</strong> Extraia a raiz quadrada do termo independente: @\sqrt{16} = 4@.</p>
+        <p><strong>Etapa C:</strong> Verifique o termo do meio: @2 \cdot (\text{raiz 1}) \cdot (\text{raiz 2}) = 2 \cdot x \cdot 4 = 8x@. O valor confere com o termo central?</p>
+        <p><strong>Etapa D:</strong> Como todos os termos são positivos, monte o quadrado da soma: @(x + 4)^2@.</p>
+      </div>
+
+      <div class="dica">
+        <strong>Dica:</strong> Se o termo do meio bater no teste do dobro, basta escrever as raízes dentro dos parênteses elevadas ao quadrado!
+      </div>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       PARTE 2: DESENVOLVENDO AUTONOMIA (Apoio Médio - Problemas 6 a 10)
+       ========================================================================= -->
+  <h2>Parte 2: Desenvolvendo Autonomia (Apoio Médio)</h2>
+  <p class="section-intro">
+    Agora você já compreende os padrões. Tente resolver cada exercício autonomamente e consulte as caixas de dica caso precise reorientar o raciocínio.
+  </p>
+
+  <ol start="6">
+    <!-- PROBLEMA 6 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 5 min</div>
+      <p>Desenvolva o quadrado da soma com coeficiente numérico: @(3x + 2)^2@.</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> Cuidado com o primeiro termo ao quadrado! Você deve elevar tanto o 3 quanto o @x@: @(3x)^2 = 3^2 \cdot x^2 = 9x^2@. No termo central, calcule @2 \cdot (3x) \cdot (2)@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 7 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 6 min</div>
+      <p>Desenvolva o quadrado da diferença com duas variáveis: @(2a - 5b)^2@.</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> Trate @2a@ como primeiro bloco e @5b@ como segundo bloco. Aplique:
+        @@
+        (2a)^2 - 2 \cdot (2a) \cdot (5b) + (5b)^2
+        @@
+        Lembre-se de calcular @(5b)^2 = 25b^2@.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 8 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 5 min</div>
+      <p>Calcule o valor exato da multiplicação @53 \times 47@ utilizando a regra do produto da soma pela diferença, sem fazer a conta armada tradicional.</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> Observe que a média aritmética entre 53 e 47 é 50. Escreva 53 como @(50 + 3)@ e 47 como @(50 - 3)@. Agora aplique @(a + b)(a - b) = a^2 - b^2@.
+      </div>
+      <div class="lembrete">
+        <strong>Lembre-se:</strong> @50^2 = 2\,500@ e @3^2 = 9@. A subtração final é direta!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 9 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 6 min</div>
+      <p>Fatore completamente o polinômio por agrupamento: @ax + 3a + bx + 3b@.</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> Agrupe os dois primeiros termos @(ax + 3a)@ e coloque @a@ em evidência. Depois agrupe os dois últimos @(bx + 3b)@ e coloque @b@ em evidência. Note que o binômio @(x + 3)@ será comum aos dois grupos!
+      </div>
+    </li>
+
+    <!-- PROBLEMA 10 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio medio">Apoio médio</span> ⏱️ 6 min</div>
+      <p>Fatore a diferença de dois quadrados: @25x^2 - 64@.</p>
+
+      <div class="dica">
+        <strong>Dica Estratégica:</strong> Extraia a raiz quadrada de cada um dos termos: @\sqrt{25x^2} = 5x@ e @\sqrt{64} = 8@. Em seguida, escreva como o produto da soma pela diferença dessas duas raízes.
+      </div>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       PARTE 3: CONSOLIDAÇÃO (Baixo Apoio - Problemas 11 a 15)
+       ========================================================================= -->
+  <h2>Parte 3: Consolidação (Baixo Apoio)</h2>
+  <p class="section-intro">
+    Desafios para testar sua autonomia e habilidade de combinar diferentes casos de produtos notáveis e fatoração em situações mais ricas.
+  </p>
+
+  <ol start="11">
+    <!-- PROBLEMA 11 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 7 min</div>
+      <p>Fatore completamente a expressão algébrica: @2x^2 - 50@.</p>
+      <div class="lembrete">
+        <strong>Orientação de neuroeducação:</strong> Muitas expressões exigem duas etapas sucessivas de fatoração. Comece colocando o fator numérico comum em evidência e depois examine o binômio que sobrou dentro dos parênteses.
+      </div>
+    </li>
+
+    <!-- PROBLEMA 12 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 7 min</div>
+      <p>Simplifique a fração algébrica abaixo para todos os valores em que @x \neq -5@:</p>
+      @@
+      \frac{x^2 - 25}{x + 5}
+      @@
+    </li>
+
+    <!-- PROBLEMA 13 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 8 min</div>
+      <p>Um arquiteto projetou uma praça quadrada de lado @(x + 6)@ metros. Em um segundo projeto alternativo, ele projetou uma praça retangular com dimensões de @(x + 10)@ metros por @(x + 2)@ metros.</p>
+      <p>a) Escreva o polinômio reduzido que expressa a área da praça quadrada.</p>
+      <p>b) Escreva o polinômio reduzido que expressa a área da praça retangular.</p>
+      <p>c) Compare as duas áreas: qual das duas praças possui a maior área? Por quantos metros quadrados de diferença?</p>
+    </li>
+
+    <!-- PROBLEMA 14 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 7 min</div>
+      <p>Fatore o polinômio de quatro termos por agrupamento: @3xy - 6x + 2y - 4@.</p>
+    </li>
+
+    <!-- PROBLEMA 15 -->
+    <li>
+      <div class="problema-meta"><span class="nivel-apoio baixo">Baixo apoio</span> ⏱️ 9 min</div>
+      <p>Sabendo que @x + y = 10@ e que o produto @x \cdot y = 16@, calcule o valor numérico exato da soma dos quadrados @x^2 + y^2@ sem precisar encontrar os valores individuais de @x@ e @y@.</p>
+      <div class="dica">
+        <strong>Pista de raciocínio:</strong> Eleve a igualdade @(x + y)@ ao quadrado e utilize o produto notável do quadrado da soma para isolar a expressão @x^2 + y^2@.
+      </div>
+    </li>
+  </ol>
+
+  <!-- =========================================================================
+       CHECKLIST DE AUTOAVALIAÇÃO METACOGNITIVA
+       ========================================================================= -->
+  <h2>Checklist de Autoavaliação Metacognitiva</h2>
+
+  <div class="conceito-basico checklist-metacognitivo">
+    <h4>Monitore seu Aprendizado e Consciência Algébrica:</h4>
+    <p>Marque os itens que você consegue executar e explicar com segurança:</p>
+    <ul>
+      <li><input type="checkbox" id="check-1"> <label for="check-1">Compreendo a interpretação geométrica do quadrado da soma como a soma de quatro áreas parciais (@a^2@, @ab@, @ab@, @b^2@).</label></li>
+      <li><input type="checkbox" id="check-2"> <label for="check-2">Entendo por que @(a + b)^2 \neq a^2 + b^2@ e nunca mais esqueço de calcular o termo central @2ab@.</label></li>
+      <li><input type="checkbox" id="check-3"> <label for="check-3">Consigo calcular o quadrado da diferença @(a - b)^2@ lembrando que apenas o termo central é negativo (@-2ab@).</label></li>
+      <li><input type="checkbox" id="check-4"> <label for="check-4">Reconheço o produto da soma pela diferença @(a + b)(a - b) = a^2 - b^2@ e sei aplicá-lo em cálculos mentais rápidos.</label></li>
+      <li><input type="checkbox" id="check-5"> <label for="check-5">Sei encontrar o MDC e a menor potência da variável para colocar o fator comum em evidência.</label></li>
+      <li><input type="checkbox" id="check-6"> <label for="check-6">Sei agrupar termos de quatro em quatro para fatorar expressões por partes.</label></li>
+      <li><input type="checkbox" id="check-7"> <label for="check-7">Sei verificar se um trinômio é um Trinômio Quadrado Perfeito (TQP) fazendo o teste do dobro do produto das raízes dos extremos.</label></li>
+      <li><input type="checkbox" id="check-8"> <label for="check-8">Consigo realizar a prova real expandindo polinômios fatorados pela propriedade distributiva.</label></li>
+    </ul>
+
+    <p><strong>Reflexão pedagógica:</strong> Se você assinalou a maioria dos itens, parabéns! Seu raciocínio algébrico amadureceu e você compreende a lógica por trás das fórmulas. Se algum item ainda causar insegurança, retome os exemplos passo a passo desta página ou discuta com seu professor. O aprendizado sólido em matemática é construído passo a passo!</p>
+  </div>
+
+</article>
+
+<!-- =========================================================================
+     GABARITO COMENTADO (EM COMENTÁRIO HTML)
+     ========================================================================= -->
+<!--
+GABARITO COMPLETO E DETALHADO:
+
+PARTE 1: PRIMEIROS PASSOS (ALTO APOIO)
+1. (x + 7)²
+   Etapas:
+   a = x, b = 7
+   a² = x²
+   2ab = 2 * x * 7 = 14x
+   b² = 7² = 49
+   Resultado: x² + 14x + 49
+
+2. (y - 6)²
+   Etapas:
+   a = y, b = 6
+   a² = y²
+   -2ab = -2 * y * 6 = -12y
+   b² = 6² = 36
+   Resultado: y² - 12y + 36
+
+3. (x + 9)(x - 9)
+   Produto da soma pela diferença:
+   (a + b)(a - b) = a² - b²
+   x² - 9² = x² - 81
+   Resultado: x² - 81
+
+4. 4x² + 12x
+   MDC(4, 12) = 4
+   Menor potência da variável = x
+   Fator comum em evidência = 4x
+   (4x²)/(4x) = x e (12x)/(4x) = 3
+   Resultado: 4x(x + 3)
+
+5. x² + 8x + 16
+   √x² = x
+   √16 = 4
+   Teste do dobro: 2 * x * 4 = 8x (confere com o termo central)
+   Resultado: (x + 4)²
+
+PARTE 2: DESENVOLVENDO AUTONOMIA (APOIO MÉDIO)
+6. (3x + 2)²
+   (3x)² + 2*(3x)*(2) + 2²
+   = 9x² + 12x + 4
+   Resultado: 9x² + 12x + 4
+
+7. (2a - 5b)²
+   (2a)² - 2*(2a)*(5b) + (5b)²
+   = 4a² - 20ab + 25b²
+   Resultado: 4a² - 20ab + 25b²
+
+8. 53 × 47
+   Escrevendo como produto da soma pela diferença:
+   53 × 47 = (50 + 3)(50 - 3) = 50² - 3²
+   = 2500 - 9 = 2491
+   Resultado: 2491
+
+9. ax + 3a + bx + 3b
+   Agrupando em pares:
+   (ax + 3a) + (bx + 3b)
+   = a(x + 3) + b(x + 3)
+   Colocando o binômio (x + 3) em evidência:
+   Resultado: (a + b)(x + 3)
+
+10. 25x² - 64
+    Diferença de quadrados:
+    √(25x²) = 5x
+    √64 = 8
+    Resultado: (5x + 8)(5x - 8)
+
+PARTE 3: CONSOLIDAÇÃO (BAIXO APOIO)
+11. 2x² - 50
+    Passo 1 (Fator comum numérico): 2(x² - 25)
+    Passo 2 (Diferença de quadrados no parêntese): x² - 25 = (x + 5)(x - 5)
+    Fatoração completa: 2(x + 5)(x - 5)
+    Resultado: 2(x + 5)(x - 5)
+
+12. (x² - 25)/(x + 5)
+    Fatorando o numerador como diferença de quadrados:
+    x² - 25 = (x + 5)(x - 5)
+    Substituindo na fração:
+    [(x + 5)(x - 5)] / (x + 5)
+    Simplificando o termo (x + 5):
+    Resultado: x - 5
+
+13. Problema das praças:
+    a) Área quadrada: (x + 6)² = x² + 12x + 36 m²
+    b) Área retangular: (x + 10)(x + 2) = x² + 2x + 10x + 20 = x² + 12x + 20 m²
+    c) Comparação:
+       Área quadrada = x² + 12x + 36
+       Área retangular = x² + 12x + 20
+       Diferença = (x² + 12x + 36) - (x² + 12x + 20) = 36 - 20 = 16 m²
+       Resultado: A praça quadrada possui área maior por 16 m².
+
+14. 3xy - 6x + 2y - 4
+    Agrupamento:
+    (3xy - 6x) + (2y - 4)
+    = 3x(y - 2) + 2(y - 2)
+    Colocando (y - 2) em evidência:
+    Resultado: (3x + 2)(y - 2)
+
+15. x + y = 10 e xy = 16
+    Elevando ambos os lados da soma ao quadrado:
+    (x + y)² = 10²
+    x² + 2xy + y² = 100
+    Substituindo xy por 16:
+    x² + 2(16) + y² = 100
+    x² + 32 + y² = 100
+    x² + y² = 100 - 32 = 68
+    Resultado: x² + y² = 68
+-->
+
+<!-- BOTÃO DE RETORNO -->
+<div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
+    <a href="../../recursos.html" class="themed-button" style="font-family: 'Press Start 2P', monospace;">VOLTAR</a>
+</div>
+
+</div> <!-- /.container -->
+</div> <!-- /#page-wrapper -->
+
+<!-- ============================================================================
+     SCRIPTS NECESSÁRIOS
+     ============================================================================ -->
+<canvas id="matrixCanvas"></canvas>
+<script src="../../js/matrix-rain.js" defer></script>
+
+<!-- Script para renderização de fórmulas matemáticas com KaTeX -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "@@", right: "@@", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "@", right: "@", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+</script>
+
+<!-- Seletor de temas -->
+<div id="theme-config-icon" title="Configurar Tema">⚙️</div>
+<div id="theme-selector-panel" class="hidden">
+    <h3>Escolha um Tema:</h3>
+    <button data-theme="theme-default" title="Tema Padrão">Default</button>
+    <button data-theme="theme-green-circuit" title="Tema Green Circuit">Green Circuit</button>
+    <button data-theme="theme-ocean-depths" title="Tema Ocean Depths">Ocean Depths</button>
+    <button data-theme="theme-royal-evening" title="Tema Royal Evening">Royal Evening</button>
+    <button data-theme="theme-sunset-fire" title="Tema Sunset Fire">Sunset Fire</button>
+    <button data-theme="theme-forest-canopy" title="Tema Forest Canopy">Forest Canopy</button>
+    <button data-theme="theme-citrus-grove" title="Tema Citrus Grove">Citrus Grove</button>
+    <button data-theme="theme-toxic-reaction" title="Tema Toxic Reaction">Toxic Reaction</button>
+    <button data-theme="theme-autumn-crimson" title="Tema Autumn Crimson">Autumn Crimson</button>
+    <button data-theme="theme-candy-pop" title="Tema Candy Pop">Candy Pop</button>
+    <button data-theme="theme-orange-matrix" title="Tema Orange Matrix">Orange Matrix</button>
+    <button data-theme="theme-blue-matrix" title="Tema Blue Matrix">Blue Matrix</button>
+    <button data-theme="theme-retro-terminal" title="Tema Retro Terminal">Retro Terminal</button>
+    <button data-theme="theme-light-classic-neon-red" title="Tema Light Red">Light Red</button>
+</div>
+<script src="../../js/theme-switcher.js" defer></script>
+<script src="../../js/print-mode.js" defer></script>
+</body>
+</html>

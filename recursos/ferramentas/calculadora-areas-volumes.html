@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Áreas e Volumes | Nexus</title>
+
+    <!-- KaTeX para renderização LaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .form-section {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-section h3 {
+            color: #2563eb;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .input-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-field label {
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .input-field input {
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .input-field input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .btn-calcular {
+            width: 100%;
+            padding: 15px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .btn-calcular:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .resultado {
+            background: #f1f5f9;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .resultado h2 {
+            color: #2563eb;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .resultado-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .resultado-item strong {
+            color: #1e293b;
+        }
+
+        .shape-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .shape-btn {
+            padding: 10px 15px;
+            background: #e2e8f0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .shape-btn:hover, .shape-btn.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .input-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📐 Calculadora de Áreas e Volumes</h1>
+        <p class="subtitle">Calcule áreas de figuras planas e volumes de sólidos geométricos</p>
+
+        <div class="shape-selector">
+            <button class="shape-btn active" onclick="showSection('quadrado')">Quadrado</button>
+            <button class="shape-btn" onclick="showSection('retangulo')">Retângulo</button>
+            <button class="shape-btn" onclick="showSection('triangulo')">Triângulo</button>
+            <button class="shape-btn" onclick="showSection('circulo')">Círculo</button>
+            <button class="shape-btn" onclick="showSection('cubo')">Cubo</button>
+            <button class="shape-btn" onclick="showSection('paralelepipedo')">Paralelepípedo</button>
+        </div>
+
+        <!-- Seção do Quadrado -->
+        <div id="quadrado-section" class="form-section">
+            <h3>Quadrado</h3>
+            <p>Fórmula: @A = l^2@</p>
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="lado-quadrado">Lado (cm):</label>
+                    <input type="number" id="lado-quadrado" value="5" step="0.1">
+                </div>
+            </div>
+            <button class="btn-calcular" onclick="calcularQuadrado()">Calcular Área</button>
+            <div class="resultado" id="resultado-quadrado">
+                <h2>📊 Resultado</h2>
+                <div id="conteudo-quadrado"></div>
+            </div>
+        </div>
+
+        <!-- Seção do Retângulo -->
+        <div id="retangulo-section" class="form-section" style="display: none;">
+            <h3>Retângulo</h3>
+            <p>Fórmula: @A = b \\times h@</p>
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="base-retangulo">Base (cm):</label>
+                    <input type="number" id="base-retangulo" value="6" step="0.1">
+                </div>
+                <div class="input-field">
+                    <label for="altura-retangulo">Altura (cm):</label>
+                    <input type="number" id="altura-retangulo" value="4" step="0.1">
+                </div>
+            </div>
+            <button class="btn-calcular" onclick="calcularRetangulo()">Calcular Área</button>
+            <div class="resultado" id="resultado-retangulo">
+                <h2>📊 Resultado</h2>
+                <div id="conteudo-retangulo"></div>
+            </div>
+        </div>
+
+        <!-- Seção do Triângulo -->
+        <div id="triangulo-section" class="form-section" style="display: none;">
+            <h3>Triângulo</h3>
+            <p>Fórmula: @A = \\frac{b \\times h}{2}@</p>
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="base-triangulo">Base (cm):</label>
+                    <input type="number" id="base-triangulo" value="8" step="0.1">
+                </div>
+                <div class="input-field">
+                    <label for="altura-triangulo">Altura (cm):</label>
+                    <input type="number" id="altura-triangulo" value="5" step="0.1">
+                </div>
+            </div>
+            <button class="btn-calcular" onclick="calcularTriangulo()">Calcular Área</button>
+            <div class="resultado" id="resultado-triangulo">
+                <h2>📊 Resultado</h2>
+                <div id="conteudo-triangulo"></div>
+            </div>
+        </div>
+
+        <!-- Seção do Círculo -->
+        <div id="circulo-section" class="form-section" style="display: none;">
+            <h3>Círculo</h3>
+            <p>Fórmula: @A = \\pi \\times r^2@</p>
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="raio-circulo">Raio (cm):</label>
+                    <input type="number" id="raio-circulo" value="3" step="0.1">
+                </div>
+            </div>
+            <button class="btn-calcular" onclick="calcularCirculo()">Calcular Área</button>
+            <div class="resultado" id="resultado-circulo">
+                <h2>📊 Resultado</h2>
+                <div id="conteudo-circulo"></div>
+            </div>
+        </div>
+
+        <!-- Seção do Cubo -->
+        <div id="cubo-section" class="form-section" style="display: none;">
+            <h3>Cubo</h3>
+            <p>Fórmula: @V = a^3@</p>
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="aresta-cubo">Aresta (cm):</label>
+                    <input type="number" id="aresta-cubo" value="4" step="0.1">
+                </div>
+            </div>
+            <button class="btn-calcular" onclick="calcularCubo()">Calcular Volume</button>
+            <div class="resultado" id="resultado-cubo">
+                <h2>📊 Resultado</h2>
+                <div id="conteudo-cubo"></div>
+            </div>
+        </div>
+
+        <!-- Seção do Paralelepípedo -->
+        <div id="paralelepipedo-section" class="form-section" style="display: none;">
+            <h3>Paralelepípedo</h3>
+            <p>Fórmula: @V = c \\times l \\times h@</p>
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="comp-paralelepipedo">Comprimento (cm):</label>
+                    <input type="number" id="comp-paralelepipedo" value="6" step="0.1">
+                </div>
+                <div class="input-field">
+                    <label for="larg-paralelepipedo">Largura (cm):</label>
+                    <input type="number" id="larg-paralelepipedo" value="4" step="0.1">
+                </div>
+                <div class="input-field">
+                    <label for="altura-paralelepipedo">Altura (cm):</label>
+                    <input type="number" id="altura-paralelepipedo" value="3" step="0.1">
+                </div>
+            </div>
+            <button class="btn-calcular" onclick="calcularParalelepipedo()">Calcular Volume</button>
+            <div class="resultado" id="resultado-paralelepipedo">
+                <h2>📊 Resultado</h2>
+                <div id="conteudo-paralelepipedo"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para mostrar a seção selecionada
+        function showSection(shape) {
+            // Esconder todas as seções
+            const sections = document.querySelectorAll('.form-section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Remover classe 'active' de todos os botões
+            const buttons = document.querySelectorAll('.shape-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Mostrar a seção selecionada e ativar o botão
+            document.getElementById(shape + '-section').style.display = 'block';
+            event.target.classList.add('active');
+        }
+
+        // Funções de cálculo
+        function calcularQuadrado() {
+            const lado = parseFloat(document.getElementById('lado-quadrado').value);
+            if (isNaN(lado) || lado <= 0) {
+                alert('Por favor, insira um valor válido para o lado!');
+                return;
+            }
+            
+            const area = lado * lado;
+            const perimetro = 4 * lado;
+            
+            const conteudo = document.getElementById('conteudo-quadrado');
+            conteudo.innerHTML = `
+                <div class="resultado-item"><strong>Lado:</strong> ${lado.toFixed(2)} cm</div>
+                <div class="resultado-item"><strong>Área:</strong> ${area.toFixed(2)} cm²</div>
+                <div class="resultado-item"><strong>Perímetro:</strong> ${perimetro.toFixed(2)} cm</div>
+            `;
+            
+            document.getElementById('resultado-quadrado').style.display = 'block';
+        }
+
+        function calcularRetangulo() {
+            const base = parseFloat(document.getElementById('base-retangulo').value);
+            const altura = parseFloat(document.getElementById('altura-retangulo').value);
+            
+            if (isNaN(base) || isNaN(altura) || base <= 0 || altura <= 0) {
+                alert('Por favor, insira valores válidos para base e altura!');
+                return;
+            }
+            
+            const area = base * altura;
+            const perimetro = 2 * (base + altura);
+            
+            const conteudo = document.getElementById('conteudo-retangulo');
+            conteudo.innerHTML = `
+                <div class="resultado-item"><strong>Base:</strong> ${base.toFixed(2)} cm</div>
+                <div class="resultado-item"><strong>Altura:</strong> ${altura.toFixed(2)} cm</div>
+                <div class="resultado-item"><strong>Área:</strong> ${area.toFixed(2)} cm²</div>
+                <div class="resultado-item"><strong>Perímetro:</strong> ${perimetro.toFixed(2)} cm</div>
+            `;
+            
+            document.getElementById('resultado-retangulo').style.display = 'block';
+        }
+
+        function calcularTriangulo() {
+            const base = parseFloat(document.getElementById('base-triangulo').value);
+            const altura = parseFloat(document.getElementById('altura-triangulo').value);
+            
+            if (isNaN(base) || isNaN(altura) || base <= 0 || altura <= 0) {
+                alert('Por favor, insira valores válidos para base e altura!');
+                return;
+            }
+            
+            const area = (base * altura) / 2;
+            
+            const conteudo = document.getElementById('conteudo-triangulo');
+            conteudo.innerHTML = `
+                <div class="resultado-item"><strong>Base:</strong> ${base.toFixed(2)} cm</div>
+                <div class="resultado-item"><strong>Altura:</strong> ${altura.toFixed(2)} cm</div>
+                <div class="resultado-item"><strong>Área:</strong> ${area.toFixed(2)} cm²</div>
+            `;
+            
+            document.getElementById('resultado-triangulo').style.display = 'block';
+        }
+
+        function calcularCirculo() {
+            const raio = parseFloat(document.getElementById('raio-circulo').value);
+            
+            if (isNaN(raio) || raio <= 0) {
+                alert('Por favor, insira um valor válido para o raio!');
+                return;
+            }
+            
+            const area = Math.PI * raio * raio;
+            const circunferencia = 2 * Math.PI * raio;
+            
+            const conteudo = document.getElementById('conteudo-circulo');
+            conteudo.innerHTML = `
+                <div class="resultado-item"><strong>Raio:</strong> ${raio.toFixed(2)} cm</div>
+                <div class="resultado-item"><strong>Área:</strong> ${area.toFixed(2)} cm²</div>
+                <div class="resultado-item"><strong>Circunferência:</strong> ${circunferencia.toFixed(2)} cm</div>
+            `;
+            
+            document.getElementById('resultado-circulo').style.display = 'block';
+        }
+
+        function calcularCubo() {
+            const aresta = parseFloat(document.getElementById('aresta-cubo').value);
+            
+            if (isNaN(aresta) || aresta <= 0) {
+                alert('Por favor, insira um valor válido para a aresta!');
+                return;
+            }
+            
+            const volume = aresta * aresta * aresta;
+            const areaSuperficie = 6 * aresta * aresta;
+            
+            const conteudo = document.getElementById('conteudo-cubo');
+            conteudo.innerHTML = `
+                <div class="resultado-item"><strong>Aresta:</strong> ${aresta.toFixed(2)} cm</div>
+                <div class="resultado-item"><strong>Volume:</strong> ${volume.toFixed(2)} cm³</div>
+                <div class="resultado-item"><strong>Área da Superfície:</strong> ${areaSuperficie.toFixed(2)} cm²</div>
+            `;
+            
+            document.getElementById('resultado-cubo').style.display = 'block';
+        }
+
+        function calcularParalelepipedo() {
+            const comp = parseFloat(document.getElementById('comp-paralelepipedo').value);
+            const larg = parseFloat(document.getElementById('larg-paralelepipedo').value);
+            const alt = parseFloat(document.getElementById('altura-paralelepipedo').value);
+            
+            if (isNaN(comp) || isNaN(larg) || isNaN(alt) || comp <= 0 || larg <= 0 || alt <= 0) {
+                alert('Por favor, insira valores válidos para comprimento, largura e altura!');
+                return;
+            }
+            
+            const volume = comp * larg * alt;
+            const areaSuperficie = 2 * (comp * larg + comp * alt + larg * alt);
+            
+            const conteudo = document.getElementById('conteudo-paralelepipedo');
+            conteudo.innerHTML = `
+                <div class="resultado-item"><strong>Comprimento:</strong> ${comp.toFixed(2)} cm</div>
+                <div class="resultado-item"><strong>Largura:</strong> ${larg.toFixed(2)} cm</div>
+                <div class="resultado-item"><strong>Altura:</strong> ${alt.toFixed(2)} cm</div>
+                <div class="resultado-item"><strong>Volume:</strong> ${volume.toFixed(2)} cm³</div>
+                <div class="resultado-item"><strong>Área da Superfície:</strong> ${areaSuperficie.toFixed(2)} cm²</div>
+            `;
+            
+            document.getElementById('resultado-paralelepipedo').style.display = 'block';
+        }
+
+        // Renderizar fórmulas LaTeX quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "@@", right: "@@", display: true},
+                    {left: "@", right: "@", display: false}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
